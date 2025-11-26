@@ -1,6 +1,6 @@
-# 📦 Catálogo de Productos
+# ⚡ Shock-Store - Catálogo
 
-Tienda de visualización estática para mostrar productos y stock.
+Catálogo web de productos de tecnología y componentes de PC.
 
 ## 🚀 Despliegue en GitHub Pages
 

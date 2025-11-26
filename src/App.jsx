@@ -1,6 +1,6 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Store from "./modules/Store";
-import ProductDetailPage from "./modules/ProductDetailPage";
+import ProductDetailPage from "./Modules/ProductDetailPage";
 import { FilterProvider } from "./context/FilterContext";
 import { StockProvider } from "./context/StockContext";
 
@@ -8,7 +8,7 @@ function App() {
   return (
     <StockProvider>
       <FilterProvider>
-        <Router>
+        <Router basename="/catalogo">
           <div className="min-h-screen bg-gradient-to-b from-[#E5E7EB] to-[#C7CCD1] antialiased">
             <main className="relative z-10 w-full">
               <Routes>
