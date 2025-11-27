@@ -4,6 +4,7 @@ import { useStock } from '../context/StockContext';
 import Header from '../components/InventoryApp/Header';
 import ProductDetail from '../components/InventoryApp/ProductDetail/index';
 import Footer from '../components/InventoryApp/Footer';
+import ScrollButton from '../components/InventoryApp/ScrollButton';
 import CategoryFilter from '../components/InventoryApp/CategoryFilter';
 import { useFilter } from '../context/FilterContext';
 
@@ -44,6 +45,7 @@ const ProductDetailPage = () => {
           </div>
         </div>
         <Footer />
+        <ScrollButton />
       </div>
     );
   }
@@ -61,6 +63,7 @@ const ProductDetailPage = () => {
         <ProductDetail product={product} onClose={handleClose} viewOnly={true} isPage={true} />
       </main>
       <Footer />
+      <ScrollButton />
     </div>
   );
 };

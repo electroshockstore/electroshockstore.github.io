@@ -6,6 +6,7 @@ import ViewToggleButton from '../components/InventoryApp/ViewToggleButton';
 import ProductGrid from '../components/InventoryApp/ProductGrid';
 import SidebarFilters from '../components/InventoryApp/SidebarFilters';
 import Footer from '../components/InventoryApp/Footer';
+import ScrollButton from '../components/InventoryApp/ScrollButton';
 import { useFilter } from '../context/FilterContext';
 
 const Store = () => {
@@ -77,6 +78,7 @@ const Store = () => {
         </div>
       </main>
       <Footer />
+      <ScrollButton />
     </div>
   );
 };
