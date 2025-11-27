@@ -1,62 +1,59 @@
-// Sección de especificaciones técnicas
-import { useState } from 'react';
+// Sección de especificaciones técnicas en grid de 3 columnas
 import { Zap } from 'lucide-react';
 
 const SpecificationsSection = ({ specifications }) => {
-  const [showSpecs, setShowSpecs] = useState(true);
-
   if (!specifications) return null;
 
-  return (
-    <div className="bg-white rounded-2xl sm:rounded-3xl shadow-lg border border-gray-100 overflow-hidden">
-      <button
-        onClick={() => setShowSpecs(!showSpecs)}
-        className="w-full px-4 sm:px-6 py-3 sm:py-4 flex items-center justify-between hover:bg-gray-50 transition-colors"
-      >
-        <h3 className="text-base sm:text-lg font-bold text-gray-900 flex items-center gap-2">
-          <Zap className="h-4 w-4 sm:h-5 sm:w-5 text-blue-600" />
-          Especificaciones
-        </h3>
-        <div
-          className={`transform transition-transform duration-300 ${
-            showSpecs ? 'rotate-180' : ''
-          }`}
-        >
-          <svg
-            className="h-5 w-5 text-gray-400"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth={2}
-              d="M19 9l-7 7-7-7"
-            />
-          </svg>
-        </div>
-      </button>
+  const formatLabel = (key) => {
+    return key
+      .replace(/([A-Z])/g, ' $1')
+      .replace(/^./, str => str.toUpperCase())
+      .trim();
+  };
 
-      <div
-        className={`transition-all duration-300 ease-in-out ${
-          showSpecs ? 'max-h-[500px] opacity-100' : 'max-h-0 opacity-0'
-        } overflow-auto`}
-      >
-        <div className="px-4 sm:px-6 pb-4 sm:pb-6 space-y-2 sm:space-y-3">
-          {Object.entries(specifications).map(([key, value], index) => (
-            <div
-              key={key}
-              className="flex justify-between items-center py-3 border-b border-gray-100 last:border-b-0 hover:bg-gray-50 px-3 rounded-xl transition-colors"
-              style={{ animationDelay: `${index * 50}ms` }}
-            >
-              <span className="text-gray-600 font-medium text-sm">
-                {key.replace(/([A-Z])/g, ' $1').trim()}
-              </span>
-              <span className="font-bold text-gray-900">{value}</span>
-            </div>
-          ))}
-        </div>
+  // Convertir especificaciones a array
+  const specsArray = Object.entries(specifications).map(([key, value]) => ({
+    key,
+    value,
+    label: formatLabel(key)
+  }));
+
+  // Dividir en 3 columnas balanceadas
+  const itemsPerColumn = Math.ceil(specsArray.length / 3);
+  const columns = [
+    specsArray.slice(0, itemsPerColumn),
+    specsArray.slice(itemsPerColumn, itemsPerColumn * 2),
+    specsArray.slice(itemsPerColumn * 2)
+  ];
+
+  const SpecColumn = ({ specs, columnIndex }) => {
+    if (specs.length === 0) return null;
+    
+    return (
+      <div className="space-y-3">
+        {specs.map(({ key, value, label }) => (
+          <div key={key} className="space-y-1">
+            <dt className="text-xs font-semibold text-gray-500 uppercase tracking-wide">
+              {label}
+            </dt>
+            <dd className="text-sm font-bold text-gray-900">{value}</dd>
+          </div>
+        ))}
+      </div>
+    );
+  };
+
+  return (
+    <div className="bg-white rounded-xl border-2 border-gray-200 shadow-lg p-6">
+      <div className="flex items-center gap-2 mb-6">
+        <Zap className="h-5 w-5 text-blue-600" />
+        <h3 className="text-lg font-bold text-gray-900">Especificaciones Técnicas</h3>
+      </div>
+
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+        {columns.map((columnSpecs, index) => (
+          <SpecColumn key={index} specs={columnSpecs} columnIndex={index} />
+        ))}
       </div>
     </div>
   );

@@ -3,11 +3,8 @@ import { CheckCircle2, AlertCircle, XCircle } from 'lucide-react';
 import DetailHeader from './DetailHeader';
 import ProductImageSection from './ProductImageSection';
 import SpecificationsSection from './SpecificationsSection';
-import ProductMainInfo from './ProductMainInfo';
-import StockStatusCard from './StockStatusCard';
-import PriceCard from './PriceCard';
-import AdditionalInfo from './AdditionalInfo';
-import ViewOnlyMessage from './ViewOnlyMessage';
+import ProductInfoCard from './ProductInfoCard';
+import MetodosDePago from './MetodosDePago';
 
 const getCategoryImage = (category) => {
   const categoryImages = {
@@ -58,9 +55,14 @@ const ProductDetail = memo(({ product, onClose, viewOnly = false, isPage = false
     };
   }, [product]);
 
-  const productImage = useMemo(() => {
-    if (!product) return '';
-    return getCategoryImage(product.category);
+  const productImages = useMemo(() => {
+    if (!product) return [];
+    // Si el producto tiene imágenes, usarlas
+    if (product.images && product.images.length > 0) {
+      return product.images;
+    }
+    // Fallback a imagen por categoría
+    return [getCategoryImage(product.category)];
   }, [product]);
 
   if (!product || !stockStatus) return null;
@@ -68,36 +70,33 @@ const ProductDetail = memo(({ product, onClose, viewOnly = false, isPage = false
   if (isPage) {
     return (
       <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 py-4 sm:py-8">
-        <div className="bg-white rounded-2xl sm:rounded-3xl shadow-2xl border border-gray-200">
+        <div className="bg-gray-50 rounded-2xl sm:rounded-3xl shadow-2xl border border-gray-200">
           <DetailHeader onClose={onClose} isPage={true} />
-          <div className="px-3 sm:px-6 lg:px-8 py-4 sm:py-6 pb-8">
-            <div className="grid grid-cols-1 lg:grid-cols-12 gap-4 sm:gap-6 lg:gap-8">
-              <div className="lg:col-span-5 space-y-4 sm:space-y-6">
-                <ProductImageSection image={productImage} name={product.name} stock={product.stock} stockStatus={stockStatus} />
-                <SpecificationsSection specifications={product.specifications} />
+          <div className="px-3 sm:px-6 lg:px-8 py-4 sm:py-6 pb-8 space-y-6">
+            {/* Sección superior: Imagen + Info principal */}
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-stretch">
+              <div className="lg:col-span-5">
+                <ProductImageSection images={productImages} name={product.name} stock={product.stock} stockStatus={stockStatus} />
               </div>
-              <div className="lg:col-span-7 space-y-4 sm:space-y-6">
-                <div className="bg-white rounded-2xl sm:rounded-3xl shadow-lg border border-gray-100 p-4 sm:p-6 lg:p-8">
-                  <ProductMainInfo name={product.name} brand={product.brand} model={product.model} category={product.category} description={product.description} />
-                  <PriceCard price={product.price} />
-                </div>
-                {viewOnly && <ViewOnlyMessage />}
+              <div className="lg:col-span-7">
+                <ProductInfoCard 
+                  name={product.name}
+                  brand={product.brand}
+                  model={product.model}
+                  description={product.description}
+                  price={product.price}
+                
+                 
+                />
               </div>
             </div>
+
+            {/* Especificaciones - Ancho completo */}
+            <SpecificationsSection specifications={product.specifications} />
+
+            {/* Métodos de Pago - Ancho completo */}
+            <MetodosDePago />
           </div>
-          <style jsx>{`
-            @keyframes shimmer {
-              0% {
-                transform: translateX(-100%);
-              }
-              100% {
-                transform: translateX(100%);
-              }
-            }
-            .animate-shimmer {
-              animation: shimmer 2s infinite;
-            }
-          `}</style>
         </div>
       </div>
     );
@@ -109,36 +108,29 @@ const ProductDetail = memo(({ product, onClose, viewOnly = false, isPage = false
       <div className="fixed inset-0 z-[101] flex items-start justify-center overflow-y-auto py-4 sm:py-8">
         <div className="w-full max-w-7xl bg-gray-50 rounded-none sm:rounded-3xl shadow-2xl min-h-[calc(100vh-2rem)] sm:min-h-0">
           <DetailHeader onClose={onClose} />
-          <div className="px-3 sm:px-6 lg:px-8 py-4 sm:py-6 pb-8">
-            <div className="grid grid-cols-1 lg:grid-cols-12 gap-4 sm:gap-6 lg:gap-8">
-              <div className="lg:col-span-5 space-y-4 sm:space-y-6">
-                <ProductImageSection image={productImage} name={product.name} stock={product.stock} stockStatus={stockStatus} />
-                <SpecificationsSection specifications={product.specifications} />
+          <div className="px-3 sm:px-6 lg:px-8 py-4 sm:py-6 pb-8 space-y-6">
+            {/* Sección superior: Imagen + Info principal */}
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-stretch">
+              <div className="lg:col-span-5">
+                <ProductImageSection images={productImages} name={product.name} stock={product.stock} stockStatus={stockStatus} />
               </div>
-              <div className="lg:col-span-7 space-y-4 sm:space-y-6">
-                <div className="bg-white rounded-2xl sm:rounded-3xl shadow-lg border border-gray-100 p-4 sm:p-6 lg:p-8">
-                  <ProductMainInfo name={product.name} brand={product.brand} model={product.model} category={product.category} description={product.description} />
-                  <StockStatusCard stock={product.stock} minStock={product.minStock} stockStatus={stockStatus} />
-                  <PriceCard price={product.price} />
-                  <AdditionalInfo category={product.category} />
-                </div>
-                {viewOnly && <ViewOnlyMessage />}
+              <div className="lg:col-span-7">
+                <ProductInfoCard 
+                  name={product.name}
+                  brand={product.brand}
+                  model={product.model}
+                  description={product.description}
+                  price={product.price}
+                />
               </div>
             </div>
+
+            {/* Especificaciones - Ancho completo */}
+            <SpecificationsSection specifications={product.specifications} />
+
+            {/* Métodos de Pago - Ancho completo */}
+            <MetodosDePago />
           </div>
-          <style jsx>{`
-            @keyframes shimmer {
-              0% {
-                transform: translateX(-100%);
-              }
-              100% {
-                transform: translateX(100%);
-              }
-            }
-            .animate-shimmer {
-              animation: shimmer 2s infinite;
-            }
-          `}</style>
         </div>
       </div>
     </>

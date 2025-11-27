@@ -1,7 +1,7 @@
 // Información de métodos de pago
 import { Banknote, CreditCard, AlertTriangle, CheckCircle2, Wifi, Shield } from 'lucide-react';
 
-const ViewOnlyMessage = () => {
+const MetodosDePago = () => {
   return (
     <div className="bg-gradient-to-br from-blue-50 to-indigo-50 border-2 border-blue-200 rounded-2xl sm:rounded-3xl p-6 sm:p-8">
       {/* Header */}
@@ -96,4 +96,4 @@ const ViewOnlyMessage = () => {
   );
 };
 
-export default ViewOnlyMessage;
+export default MetodosDePago;

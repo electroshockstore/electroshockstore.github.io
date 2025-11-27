@@ -1,110 +1,160 @@
 export const motherboardsProducts = [
   {
     id: 28,
-    name: "ASUS Prime A520M-K CSM",
+    name: "ASUS Prime A520M-K CSM AM4",
     brand: "ASUS",
-    model: "Prime A520M-K",
+    model: "Prime A520M-K CSM",
     category: "Motherboards",
     price: 80000,
     stock: 7,
-    minStock: 3,
-    location: "D1",
-    sku: "ASUS-A520M-K",
-    description: "Motherboard ASUS Prime A520M-K CSM socket AM4",
+    images: [
+      "/images/motherboard/A520m_K_Csm.webp",
+      "/images/motherboard/A520m_K_Csm_moth.webp"
+    ],
+    description: "Mother Asus Prime A520M-K CSM AM4 DDR4 64GB HDMI M.2",
     specifications: {
-      marca: "ASUS",
-      chipset: "A520",
-      socket: "AM4"
-    }
-  },
-  {
-    id: 29,
-    name: "Gigabyte A520M K V2 UD DDR4",
-    brand: "Gigabyte",
-    model: "A520M K V2",
-    category: "Motherboards",
-    price: 80000,
-    stock: 6,
-    minStock: 3,
-    location: "D1",
-    sku: "GB-A520M-V2",
-    description: "Motherboard Gigabyte A520M K V2 UD DDR4 Gamer",
-    specifications: {
-      marca: "Gigabyte",
-      chipset: "A520",
-      socket: "AM4"
-    }
-  },
-  {
-    id: 30,
-    name: "ASUS Prime B450M-A II AM4",
-    brand: "ASUS",
-    model: "Prime B450M-A II",
-    category: "Motherboards",
-    price: 120000,
-    stock: 5,
-    minStock: 2,
-    location: "D1",
-    sku: "ASUS-B450M-A2",
-    description: "Motherboard ASUS Prime B450M-A II AM4 DDR4 M.2",
-    specifications: {
-      marca: "ASUS",
-      chipset: "B450",
-      socket: "AM4"
-    }
-  },
-  {
-    id: 31,
-    name: "ASUS Prime A620M-K AM5",
-    brand: "ASUS",
-    model: "Prime A620M-K",
-    category: "Motherboards",
-    price: 100000,
-    stock: 4,
-    minStock: 2,
-    location: "D1",
-    sku: "ASUS-A620M-K",
-    description: "Motherboard ASUS Prime A620M-K AM5",
-    specifications: {
-      marca: "ASUS",
-      chipset: "A620",
-      socket: "AM5"
+      marca: "Asus",
+      linea: "Prime",
+      modelo: "PRIME A520M-K/CSM",
+      version: "CSM",
+      plataforma: "AMD",
+      chipset: "AMD A520",
+      socket: "AM4",
+      compatibilidadProcesadores: "Ryzen 5000/4000 G-Series/3000 Series",
+      factorDeForma: "mATX",
+      tipoMemoriaRAM: "DDR4",
+      capacidadMaximaRAM: "64 GB",
+      formatoRAM: "DIMM",
+      canalesMemoria: "Dual Channel",
+      velocidadMemoriaSoportada: "5100 MHz (OC)",
+      slotsRAM: "2",
+      m2Compatible: "Sí",
+      interfazM2: "NVMe",
+      puertosSATA: "4",
+      ethernet: "1 Gb",
+      wifi: "No",
+      bluetooth: "No",
+      salidasVideo: "HDMI, D-Sub",
+      disipadorChipset: "Sí"
     }
   },
   {
     id: 32,
-    name: "Gigabyte B650M Gaming WiFi AM5",
+    name: "Gigabyte B650M Gaming WiFi DDR5 AM5",
     brand: "Gigabyte",
-    model: "B650M Gaming",
+    model: "B650M Gaming WiFi",
     category: "Motherboards",
     price: 180000,
     stock: 3,
-    minStock: 2,
-    location: "D1",
-    sku: "GB-B650M-WIFI",
-    description: "Motherboard Gigabyte B650M Gaming WiFi AM5 DDR5",
+    images: [
+      "/images/motherboard/b650m_wifi.webp",
+      "/images/motherboard/b650m_wifi_moth.webp",
+      "/images/motherboard/b650m_wifi_back.webp"
+    ],
+    description: "Mother Gigabyte B650M Gaming WiFi DDR5 B650 AMD con WiFi integrado",
     specifications: {
       marca: "Gigabyte",
-      chipset: "B650",
-      socket: "AM5"
+      socket: "AMD AM5",
+      compatibilidadProcesadores: "AMD Ryzen 7000/8000 Series",
+      vrm: "5+2+2 Digital VRM Solution",
+      tipoMemoria: "DDR5",
+      canalesMemoria: "Dual Channel",
+      slotsMemoria: "2",
+      perfilesCompatibles: "AMD EXPO, Intel XMP",
+      m2: "1 x PCIe 4.0 x4",
+      pcieX16: "EZ-Latch Quick Release",
+      lan: "2.5GbE",
+      salidasVideo: "HDMI, D-Sub",
+      smartFan6: "Sí",
+      sensoresTemperatura: "Múltiples",
+      fanStop: "Sí",
+      qFlashPlus: "Actualizar BIOS sin CPU/RAM/GPU"
+    }
+  },
+  {
+    id: 30,
+    name: "ASUS Prime B450M-A II CSM AM4",
+    brand: "ASUS",
+    model: "Prime B450M-A II CSM",
+    category: "Motherboards",
+    price: 120000,
+    stock: 5,
+    images: [
+      "/images/motherboard/b450m_II_full.webp",
+      "/images/motherboard/b450m_II_mother.webp",
+      "/images/motherboard/b450m_II_back.webp"
+    ],
+    description: "Mother Asus Prime B450M-A II CSM AM4 DDR4 128GB",
+    specifications: {
+      marca: "Asus",
+      linea: "Prime",
+      modelo: "B450M-A II CSM",
+      socket: "Socket AM4",
+      tipoMemoriaRAM: "DDR4",
+      capacidadMaximaSoportada: "128 GB",
+      formatoMemoriaRAM: "DIMM",
+      chipset: "B450"
     }
   },
   {
     id: 33,
     name: "ASUS Prime B460M-A R2.0 LGA1200",
     brand: "ASUS",
-    model: "Prime B460M-A",
+    model: "Prime B460M-A R2.0",
     category: "Motherboards",
     price: 180000,
     stock: 4,
-    minStock: 2,
-    location: "D1",
-    sku: "ASUS-B460M-A",
-    description: "Motherboard ASUS Prime B460M-A R2.0 socket LGA1200 Intel",
+    images: [
+      "/images/motherboard/B460m-a R2.0.webp"
+    ],
+    description: "Mother Asus Prime B460M-A R2.0 Intel Socket 1200 DDR4 128GB",
     specifications: {
-      marca: "ASUS",
+      marca: "Asus",
+      linea: "Prime",
+      modelo: "B460M-A R2.0",
+      socket: "LGA1200",
+      plataforma: "Intel",
+      tipoMemoriaRAM: "DDR4",
+      capacidadMaximaSoportada: "128 GB",
       chipset: "B460",
-      socket: "LGA1200"
+      color: "Negro"
+    }
+  },
+  {
+    id: 29,
+    name: "Gigabyte A520M K V2 UD DDR4 AM4",
+    brand: "Gigabyte",
+    model: "A520M K V2",
+    category: "Motherboards",
+    price: 80000,
+    stock: 6,
+    images: [
+      "/images/motherboard/a520m_k_v2.webp",
+      "/images/motherboard/a520m_k_v2_moth.webp",
+      "/images/motherboard/a520m_k_v2_back.webp"
+    ],
+    description: "Mother Gigabyte UD A520M K V2 DDR4 AMD Ryzen Gamer M.2 PC",
+    specifications: {
+      marca: "Gigabyte",
+      linea: "Ultra Durable",
+      modelo: "A520M K V2",
+      color: "Negro",
+      plataforma: "AMD",
+      chipset: "AMD A520",
+      socket: "AM4",
+      factorDeForma: "mATX",
+      tipoMemoriaRAM: "DDR4",
+      capacidadMaximaRAM: "64 GB",
+      formatoRAM: "DIMM",
+      slotsRAM: "2",
+      configuracionSlots: "2 x 32 GB",
+      resolucionMaximaVideo: "4K",
+      pcieVersion: "PCIe 3.0",
+      pcieX16: "1",
+      m2Compatible: "Sí",
+      interfazM2: "NVMe",
+      dimensiones: "33 x 5 x 5 cm",
+      peso: "0.55 kg"
     }
   }
 ];

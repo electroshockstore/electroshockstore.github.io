@@ -7,8 +7,14 @@ import ProductInfo from './ProductInfo';
 import PriceDisplay from './PriceDisplay';
 import ViewDetailsButton from './ViewDetailsButton';
 
-// Utilidad para obtener imagen por categoría
-const getCategoryImage = (category) => {
+// Utilidad para obtener imagen del producto o fallback por categoría
+const getProductImage = (product) => {
+  // Si el producto tiene imágenes, usar la primera
+  if (product.images && product.images.length > 0) {
+    return product.images[0];
+  }
+  
+  // Fallback a imágenes por categoría
   const categoryImages = {
     'Fuentes': 'https://images.unsplash.com/photo-1591799264318-7e6ef8ddb7ea?w=400',
     'Almacenamiento': 'https://images.unsplash.com/photo-1597872200969-2b65d56bd16b?w=400',
@@ -17,7 +23,7 @@ const getCategoryImage = (category) => {
     'Procesadores': 'https://images.unsplash.com/photo-1555617981-dac3880eac6e?w=400',
     'Refrigeración': 'https://images.unsplash.com/photo-1587202372634-32705e3bf49c?w=400'
   };
-  return categoryImages[category] || 'https://images.unsplash.com/photo-1591799264318-7e6ef8ddb7ea?w=400';
+  return categoryImages[product.category] || 'https://images.unsplash.com/photo-1591799264318-7e6ef8ddb7ea?w=400';
 };
 
 // Hook personalizado para el estado del stock
@@ -46,7 +52,7 @@ const useStockStatus = (stock, minStock) => {
 
 const ProductCard = memo(({ product, viewMode, onClick }) => {
   const stockStatus = useStockStatus(product.stock, product.minStock);
-  const productImage = useMemo(() => getCategoryImage(product.category), [product.category]);
+  const productImage = useMemo(() => getProductImage(product), [product]);
   const handleClick = useCallback(() => onClick(product), [onClick, product]);
 
   // Vista de lista (horizontal)
