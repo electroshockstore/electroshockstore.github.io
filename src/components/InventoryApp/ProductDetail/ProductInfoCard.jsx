@@ -61,7 +61,7 @@ const ProductInfoCard = ({
                 Precio
               </span>
             </div>
-            <div className="text-2xl sm:text-4xl lg:text-6xl font-black text-white tracking-tight">
+            <div className="text-2xl sm:text-4xl lg:text-7xl font-black text-white tracking-tight">
               {formatPrice(price)}
             </div>
           </div>

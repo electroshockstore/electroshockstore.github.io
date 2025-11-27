@@ -1,9 +1,10 @@
 import { useState, useMemo } from 'react';
-import { ChevronDown, ChevronUp, X } from 'lucide-react';
+import { ChevronDown, ChevronUp, X, SlidersHorizontal } from 'lucide-react';
 import { useStock } from '../../context/StockContext';
 
 const SidebarFilters = ({ selectedCategory, filters, onFilterChange, onClearFilters }) => {
   const [expandedSections, setExpandedSections] = useState({});
+  const [isFiltersOpen, setIsFiltersOpen] = useState(false);
   const { products } = useStock();
 
   const categoryFilters = useMemo(() => {
@@ -83,30 +84,55 @@ const SidebarFilters = ({ selectedCategory, filters, onFilterChange, onClearFilt
   }, [products, selectedCategory]);
 
   return (
-    <div className="bg-gradient-to-br from-white to-gray-50 rounded-2xl shadow-lg border border-gray-200/50 p-5 backdrop-blur-sm w-full lg:w-80">
-      <div className="flex items-center justify-between mb-5">
-        <h2 className="text-xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
-          Filtros
-        </h2>
-        {hasActiveFilters && (
-          <button
-            onClick={onClearFilters}
-            className="group text-sm text-red-500 hover:text-red-600 font-medium flex items-center gap-1.5 px-3 py-1.5 rounded-lg hover:bg-red-50 transition-all duration-300 transform hover:scale-105"
-          >
-            <X className="w-4 h-4 group-hover:rotate-90 transition-transform duration-300" />
-            Limpiar
-          </button>
-        )}
-      </div>
-
-      <div className="flex items-center gap-2 text-sm mb-5 pb-5 border-b border-gray-200">
-        <div className="flex items-center justify-center w-8 h-8 rounded-full bg-gradient-to-br from-blue-500 to-purple-500 text-white font-bold text-xs shadow-md">
-          {totalProducts}
+    <div className="w-full lg:w-80">
+      {/* Botón para mobile - Colapsar/Expandir filtros */}
+      <button
+        onClick={() => setIsFiltersOpen(!isFiltersOpen)}
+        className="lg:hidden w-full flex items-center justify-between bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-xl p-4 mb-4 shadow-lg hover:shadow-xl transition-all"
+      >
+        <div className="flex items-center gap-3">
+          <SlidersHorizontal className="h-5 w-5" />
+          <span className="font-bold text-base">Filtros</span>
+          {hasActiveFilters && (
+            <span className="flex items-center justify-center min-w-[24px] h-6 px-2 bg-white text-blue-600 text-xs font-bold rounded-full">
+              {Object.values(filters).reduce((acc, arr) => acc + (arr?.length || 0), 0)}
+            </span>
+          )}
         </div>
-        <span className="text-gray-700 font-medium">productos disponibles</span>
-      </div>
+        {isFiltersOpen ? (
+          <ChevronUp className="h-5 w-5" />
+        ) : (
+          <ChevronDown className="h-5 w-5" />
+        )}
+      </button>
 
-      <div className="space-y-3">
+      {/* Panel de filtros */}
+      <div className={`bg-gradient-to-br from-white to-gray-50 rounded-2xl shadow-lg border border-gray-200/50 p-5 backdrop-blur-sm transition-all duration-300 ${
+        isFiltersOpen ? 'block' : 'hidden lg:block'
+      }`}>
+        <div className="flex items-center justify-between mb-5">
+          <h2 className="text-xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+            Filtros
+          </h2>
+          {hasActiveFilters && (
+            <button
+              onClick={onClearFilters}
+              className="group text-sm text-red-500 hover:text-red-600 font-medium flex items-center gap-1.5 px-3 py-1.5 rounded-lg hover:bg-red-50 transition-all duration-300 transform hover:scale-105"
+            >
+              <X className="w-4 h-4 group-hover:rotate-90 transition-transform duration-300" />
+              Limpiar
+            </button>
+          )}
+        </div>
+
+        <div className="flex items-center gap-2 text-sm mb-5 pb-5 border-b border-gray-200">
+          <div className="flex items-center justify-center w-8 h-8 rounded-full bg-gradient-to-br from-blue-500 to-purple-500 text-white font-bold text-xs shadow-md">
+            {totalProducts}
+          </div>
+          <span className="text-gray-700 font-medium">productos disponibles</span>
+        </div>
+
+        <div className="space-y-3">
         {Object.entries(categoryFilters).map(([filterType, options]) => {
           const isExpanded = expandedSections[filterType] !== false;
           const activeCount = (filters[filterType] || []).length;
@@ -174,9 +200,8 @@ const SidebarFilters = ({ selectedCategory, filters, onFilterChange, onClearFilt
             </div>
           );
         })}
+        </div>
       </div>
-
-
     </div>
   );
 };
