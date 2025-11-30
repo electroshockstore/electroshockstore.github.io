@@ -82,6 +82,17 @@ const HeroCarousel = () => {
     setCurrentSlide((prev) => (prev - 1 + slides.length) % slides.length);
   };
 
+  // Swipe handlers
+  const handleDragEnd = (e, { offset, velocity }) => {
+    const swipe = Math.abs(offset.x) * velocity.x;
+
+    if (swipe < -10000) {
+      nextSlide();
+    } else if (swipe > 10000) {
+      prevSlide();
+    }
+  };
+
   const slideVariants = {
     enter: (direction) => ({
       opacity: 0
@@ -173,7 +184,11 @@ const HeroCarousel = () => {
               transition={{
                 opacity: { duration: 0.5, ease: "easeInOut" }
               }}
-              className={`absolute inset-0 bg-gradient-to-br ${current.bgGradient}`}
+              drag="x"
+              dragConstraints={{ left: 0, right: 0 }}
+              dragElastic={1}
+              onDragEnd={handleDragEnd}
+              className={`absolute inset-0 bg-gradient-to-br ${current.bgGradient} cursor-grab active:cursor-grabbing`}
             >
               {/* Animated mesh gradient overlay */}
               <motion.div 
@@ -302,24 +317,6 @@ const HeroCarousel = () => {
           <ChevronRight className="w-6 h-6 sm:w-7 sm:h-7 text-white group-hover:text-gray-100" strokeWidth={3} />
         </motion.button>
 
-        {/* Enhanced Dots Indicator */}
-        <div className="absolute bottom-3 sm:bottom-4 left-1/2 -translate-x-1/2 flex gap-2 z-20 bg-black/30 backdrop-blur-md px-3 py-2 rounded-full border border-white/20">
-          {slides.map((_, index) => (
-            <motion.button
-              key={index}
-              onClick={() => goToSlide(index)}
-              whileHover={{ scale: 1.3 }}
-              whileTap={{ scale: 0.9 }}
-              className={`transition-all duration-300 rounded-full shadow-lg ${
-                index === currentSlide
-                  ? 'bg-white w-8 sm:w-10 h-3 sm:h-3.5'
-                  : 'bg-white/50 w-3 sm:w-3.5 h-3 sm:h-3.5 hover:bg-white/75'
-              }`}
-              aria-label={`Ir a slide ${index + 1}`}
-            />
-          ))}
-        </div>
-
         {/* Progress bar */}
         <motion.div 
           className="absolute bottom-0 left-0 h-1 bg-white/80"
@@ -330,28 +327,36 @@ const HeroCarousel = () => {
         />
       </div>
 
-      {/* Enhanced Call to Action */}
+      {/* Dots Indicator - Outside carousel, below it */}
+      <div className="flex justify-center mt-6 gap-2">
+        {slides.map((_, index) => (
+          <motion.button
+            key={index}
+            onClick={() => goToSlide(index)}
+            whileHover={{ scale: 1.3 }}
+            whileTap={{ scale: 0.9 }}
+            className={`transition-all duration-300 rounded-full shadow-lg ${
+              index === currentSlide
+                ? 'bg-blue-600 w-10 h-3.5'
+                : 'bg-gray-400 w-3.5 h-3.5 hover:bg-gray-600'
+            }`}
+            aria-label={`Ir a slide ${index + 1}`}
+          />
+        ))}
+      </div>
+
+      {/* Minimalist Call to Action */}
       <motion.div
-        initial={{ opacity: 0, y: 30 }}
+        initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.6, duration: 0.6 }}
-        className="mt-10 sm:mt-14 text-center px-4"
+        className="mt-12 sm:mt-16 text-center px-4"
       >
-        <motion.h3 
-          className="text-3xl sm:text-4xl md:text-5xl font-black mb-4 sm:mb-6 relative inline-block"
-          whileHover={{ scale: 1.05 }}
-        >
-          <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600">
-            ¡Explorá Nuestros Productos!
-          </span>
-          <motion.div
-            animate={{ scaleX: [0, 1, 0] }}
-            transition={{ duration: 3, repeat: Infinity }}
-            className="absolute -bottom-2 left-0 right-0 h-1 bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 rounded-full"
-          />
-        </motion.h3>
+        <h3 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-800 mb-3">
+          Explorá Nuestros Productos
+        </h3>
         
-        <p className="text-lg sm:text-xl md:text-2xl text-gray-600 font-medium max-w-3xl mx-auto">
+        <p className="text-base sm:text-lg text-gray-600 max-w-2xl mx-auto">
           Seleccioná una categoría arriba para ver nuestro catálogo completo
         </p>
       </motion.div>
