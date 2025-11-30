@@ -7,7 +7,7 @@ export const procesadoresProducts = [
     model: "Ryzen 7 5700",
     category: "Procesadores",
     price: 210000,
-    stock: 5,
+    stock: 1,
     images: [
       "/images/procesadores/r7_5700.webp",
       "/images/procesadores/cooler_stock.webp"
@@ -65,39 +65,7 @@ export const procesadoresProducts = [
       marcaGPU: "AMD"
     }
   },
-  {
-    id: 36,
-    name: "AMD Ryzen 7 5700X AM4",
-    brand: "AMD",
-    model: "Ryzen 7 5700X",
-    category: "Procesadores",
-    price: 280000,
-    stock: 3,
-    images: [
-      "/images/procesadores/r7_5700x.webp"
-    ],
-    description: "Procesador AMD Ryzen 7 5700X – 8c/16t, 3.4-4.6 GHz, sin integrada, sin Cooler",
-    specifications: {
-      marca: "AMD",
-      linea: "Ryzen 7",
-      modelo: "5700X",
-      modeloAlfanumerico: "100-100000926WOF",
-      socket: "AM4",
-      nucleos: "8",
-      hilos: "16",
-      frecuenciaBase: "3.4 GHz",
-      frecuenciaMaxima: "4.6 GHz",
-      tdp: "65 W",
-      memoriaRAM: "DDR4",
-      memoriaMaxima: "128 GB",
-      velocidadMaximaRAM: "3200 MT/s",
-      canalesMemoria: "2",
-      arquitectura: "x86-64",
-      anioLanzamiento: "2022",
-      disipador: "No incluye",
-      graficosIntegrados: "No"
-    }
-  },
+ 
   {
     id: 37,
     name: "AMD Ryzen 5 7600 AM5",
@@ -105,7 +73,7 @@ export const procesadoresProducts = [
     model: "Ryzen 5 7600",
     category: "Procesadores",
     price: 300000,
-    stock: 4,
+    stock: 2,
     images: [
       "/images/procesadores/r5_7600.webp",
       "/images/procesadores/r5_7600_cpu.webp",
@@ -139,7 +107,7 @@ export const procesadoresProducts = [
     model: "Ryzen 5 5500",
     category: "Procesadores",
     price: 120000,
-    stock: 8,
+    stock: 3,
     images: [
       "/images/procesadores/r5_5550.webp",
       "/images/procesadores/r5_5500_cooler.webp"
@@ -171,7 +139,7 @@ export const procesadoresProducts = [
     model: "Ryzen 5 5600GT",
     category: "Procesadores",
     price: 200000,
-    stock: 6,
+    stock: 1,
     images: [
       "/images/procesadores/r5_5600gt.webp",
       "/images/procesadores/r5_5600gt_specs.webp",
@@ -205,7 +173,7 @@ export const procesadoresProducts = [
     model: "Ryzen 5 4500",
     category: "Procesadores",
     price: 90000,
-    stock: 7,
+    stock: 6,
     images: [
       "/images/procesadores/r5_4500.webp",
       "/images/procesadores/cooler_stock.webp"

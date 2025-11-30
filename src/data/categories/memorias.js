@@ -7,7 +7,7 @@ export const memoriasProducts = [
     model: "XPG Lancer Blade",
     category: "Memorias RAM",
     price: 150000,
-    stock: 5,
+    stock: 2,
     images: [
       "/images/ram/lancerblade_16gb_ddr5_sinrgb.webp",
       "/images/ram/lancerblade_16gb_ddr5_sinrgb_side.webp",
@@ -36,7 +36,7 @@ export const memoriasProducts = [
     model: "Shadow 2",
     category: "Memorias RAM",
     price: 150000,
-    stock: 6,
+    stock: 2,
     images: [
       "/images/ram/netac_shadow2_ram.webp",
       "/images/ram/netac_shadow2_ram_side.webp",
@@ -62,7 +62,7 @@ export const memoriasProducts = [
     model: "XPG Gammix D35",
     category: "Memorias RAM",
     price: 95000,
-    stock: 8,
+    stock: 2,
     images: [
       "/images/ram/ram_xpg_gamminxd35_ddr4.webp",
       "/images/ram/ram_xpg_gamminxd35_ddr4_side.webp",
@@ -101,7 +101,7 @@ export const memoriasProducts = [
     model: "Shadow",
     category: "Memorias RAM",
     price: 90000,
-    stock: 9,
+    stock: 3,
     images: [
       "/images/ram/ram_netac_shadow_ddr4.webp",
       "/images/ram/ram_netac_shadow_ddr4_side.webp"
@@ -118,6 +118,177 @@ export const memoriasProducts = [
       formatoMemoriaRAM: "UDIMM",
       velocidadMemoria: "3.2 GHz",
       modeloDetallado: "NTSDD4P32SP-16Y"
+    }
+  },
+  {
+    id: 400,
+    name: "Memoria Ram Xpg D35g 16gb Ddr4 RGB 3200mhz",
+    brand: "XPG",
+    model: "Spectrix D35G",
+    category: "Memorias RAM",
+    price: 120000,
+    stock: 3,
+    images: [
+      "/images/ram/spectrix-d35g_16gb.webp",
+      "/images/ram/spectrix-d35g_16gb_side.webp",
+      "/images/ram/spectrix-d35g_16gb_front.webp"
+    ],
+    description: "Memoria Ram Xpg D35g 16gb Ddr4 Rgb 3200mhz",
+    specifications: {
+      marca: "XPG",
+      linea: "Spectrix",
+      modelo: "D35G",
+      color: "Negro",
+      modeloDetallado: "AX4U320016G16A-SBKD35G",
+      modulosMemoriaRAM: "1 x 16 GB",
+      capacidadTotal: "16 GB",
+      tipoMemoriaRAM: "DDR4",
+      formatoMemoriaRAM: "UDIMM",
+      velocidadMemoria: "3200 MHz",
+      latenciaCAS: "CL16",
+      voltaje: "1.35 V",
+      ecc: "No",
+      extras: "RGB, perfil XMP 2.0, disipador bajo perfil"
+    }
+  },
+  {
+    id: 401,
+    name: "Adata Premier 8GB U-DIMM DDR3 1600MHz",
+    brand: "ADATA",
+    model: "Premier",
+    category: "Memorias RAM",
+    price: 35000,
+    stock: 2,
+    images: [
+      "/images/ram/adata_dd38gb.webp",
+      "/images/ram/adata_dd38gb_side.webp",
+      "/images/ram/adata_dd38gb_side2.webp"
+    ],
+    description: "Adata Premier 8GB U-DIMM DDR3 1600MHz",
+    specifications: {
+      marca: "ADATA",
+      linea: "Premier",
+      modelo: "AD3U1600W8G11-S",
+      modeloDetallado: "ADDX1600W8G11-SPU",
+      modulosMemoriaRAM: "1",
+      capacidadTotal: "8 GB",
+      tipoMemoriaRAM: "DDR3",
+      formatoMemoriaRAM: "UDIMM",
+      velocidadMemoria: "1600 MHz",
+      latenciaCAS: "CL11",
+      voltaje: "1.5 V",
+      ecc: "No"
+    }
+  },
+  {
+    id: 402,
+    name: "Adata 4GB DDR4 2666 MHz SODIMM",
+    brand: "ADATA",
+    model: "Premier",
+    category: "Memorias RAM",
+    price: 30000,
+    stock: 3,
+    images: [
+      "/images/ram/adata_ddr4soddim_4gb.webp",
+      "/images/ram/adata_ddr4soddim_4gb_back",
+      "/images/ram/adata_ddr4soddim_4gb_side"
+    ],
+    description: "Adata 4GB DDR4 2666 MHz SODIMM",
+    specifications: {
+      marca: "ADATA",
+      linea: "Premier",
+      modelo: "AD4S26664G19-SGN",
+      modeloDetallado: "AD4S26664G19-SGN",
+      modulosMemoriaRAM: "1",
+      capacidadTotal: "4 GB",
+      tipoMemoriaRAM: "DDR4",
+      formatoMemoriaRAM: "SODIMM",
+      velocidadMemoria: "2666 MHz",
+      latenciaCAS: "CL19",
+      voltaje: "1.2 V",
+      ecc: "No"
+    }
+  },
+  {
+    id: 403,
+    name: "ADATA DDR4 Premier 16GB 3200MHz",
+    brand: "ADATA",
+    model: "Premier",
+    category: "Memorias RAM",
+    price: 85000,
+    stock: 2,
+    images: [
+      "/images/ram/adata_ddr416gb_basic.webp",
+      "/images/ram/adata_ddr416gb_basic_side.webp"
+    ],
+    description: "ADATA DDR4 Premier 16GB 3200MHz",
+    specifications: {
+      marca: "ADATA",
+      linea: "Premier",
+      modelo: "AD4U320016G22-SGN",
+      modulosMemoriaRAM: "1 x 16 GB",
+      capacidadTotal: "16 GB",
+      tipoMemoriaRAM: "DDR4",
+      formatoMemoriaRAM: "UDIMM",
+      velocidadMemoria: "3200 MHz",
+      latenciaCAS: "CL22",
+      voltaje: "1.2 V",
+      ecc: "No"
+    }
+  },
+  {
+    id: 404,
+    name: "NETAC BASIC DDR4 16GB 3200 MHZ C16",
+    brand: "Netac",
+    model: "Basic",
+    category: "Memorias RAM",
+    price: 85000,
+    stock: 4,
+    images: [
+      "/images/ram/netac_basic_16gb.webp",
+      "/images/ram/netac_basic_16gb_side.webp"
+    ],
+    description: "NETAC BASIC DDR4 16GB 3200 MHZ C16",
+    specifications: {
+      marca: "Netac",
+      linea: "Basic",
+      modelo: "NTBSD4P32SP-16",
+      modulosMemoriaRAM: "1 x 16 GB",
+      capacidadTotal: "16 GB",
+      tipoMemoriaRAM: "DDR4",
+      formatoMemoriaRAM: "UDIMM",
+      velocidadMemoria: "3200 MHz",
+      latenciaCAS: "CL16",
+      voltaje: "1.35 V",
+      ecc: "No"
+    }
+  },
+  {
+    id: 405,
+    name: "Patriot Signature DDR4 16GB 3200MHz CL22",
+    brand: "Patriot",
+    model: "Signature",
+    category: "Memorias RAM",
+    price: 85000,
+    stock: 3,
+    images: [
+      "/images/ram/patriot_signature_ddr416.webp",
+      "/images/ram/patriot_signature_ddr416_side.webp",
+      "/images/ram/patriot_signature_ddr416_back.webp"
+    ],
+    description: "Patriot Signature DDR4 16GB 3200MHz CL22",
+    specifications: {
+      marca: "Patriot",
+      linea: "Signature",
+      modelo: "PSD416G32002",
+      modulosMemoriaRAM: "1 x 16 GB",
+      capacidadTotal: "16 GB",
+      tipoMemoriaRAM: "DDR4",
+      formatoMemoriaRAM: "UDIMM",
+      velocidadMemoria: "3200 MHz",
+      latenciaCAS: "CL22",
+      voltaje: "1.2 V",
+      ecc: "No"
     }
   }
 ];

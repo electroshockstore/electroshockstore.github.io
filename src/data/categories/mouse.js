@@ -46,7 +46,7 @@ export const mouseProducts = [
     model: "Invader M719-RGB",
     category: "Mouse",
     price: 20000,
-    stock: 12,
+    stock: 2,
     images: [
       "/images/mouse/RDG_invader.webp",
       "/images/mouse/RDG_invader_side.webp",
@@ -90,7 +90,7 @@ export const mouseProducts = [
     model: "Storm Elite M988",
     category: "Mouse",
     price: 35000,
-    stock: 10,
+    stock: 2,
     images: [
       "/images/mouse/RDG_elitestorm.webp",
       "/images/mouse/RDG_elitestorm_front.webp",
@@ -135,7 +135,7 @@ export const mouseProducts = [
     model: "Cobra White M711-W",
     category: "Mouse",
     price: 25000,
-    stock: 9,
+    stock: 2,
     images: [
       "/images/mouse/RDG_COBRA.webp",
       "/images/mouse/RDG_COBRA_front.webp",
@@ -182,7 +182,7 @@ export const mouseProducts = [
     model: "Gainer M610",
     category: "Mouse",
     price: 20000,
-    stock: 11,
+    stock: 2,
     images: [
       "/images/mouse/RDG_gainer.webp",
       "/images/mouse/RDG_gainer_side.webp",
@@ -218,7 +218,7 @@ export const mouseProducts = [
     model: "G203 Lightsync",
     category: "Mouse",
     price: 25000,
-    stock: 12,
+    stock: 5,
     images: [
       "/images/mouse/logitech_g203_mouse.webp",
       "/images/mouse/logitech_g203_mouse_specs1.webp",
@@ -261,7 +261,7 @@ export const mouseProducts = [
     model: "Deathadder V2 Mini",
     category: "Mouse",
     price: 50000,
-    stock: 8,
+    stock: 4,
     images: [
       "/images/mouse/razer_v2mini.webp",
       "/images/mouse/razer_v2mini_front.webp",
