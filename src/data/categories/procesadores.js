@@ -1,3 +1,4 @@
+// IDs disponibles: 300-399 | Próximo ID: 300 (actualizar IDs existentes)
 export const procesadoresProducts = [
   {
     id: 34,
@@ -36,7 +37,7 @@ export const procesadoresProducts = [
     brand: "AMD",
     model: "Ryzen 7 5700G",
     category: "Procesadores",
-    price: 220000,
+    price: 225000,
     stock: 4,
     images: [
       "/images/procesadores/r7_5700g.webp",
@@ -70,7 +71,7 @@ export const procesadoresProducts = [
     brand: "AMD",
     model: "Ryzen 7 5700X",
     category: "Procesadores",
-    price: 245000,
+    price: 280000,
     stock: 3,
     images: [
       "/images/procesadores/r7_5700x.webp"
@@ -137,7 +138,7 @@ export const procesadoresProducts = [
     brand: "AMD",
     model: "Ryzen 5 5500",
     category: "Procesadores",
-    price: 115000,
+    price: 120000,
     stock: 8,
     images: [
       "/images/procesadores/r5_5550.webp",
@@ -169,7 +170,7 @@ export const procesadoresProducts = [
     brand: "AMD",
     model: "Ryzen 5 5600GT",
     category: "Procesadores",
-    price: 195000,
+    price: 200000,
     stock: 6,
     images: [
       "/images/procesadores/r5_5600gt.webp",

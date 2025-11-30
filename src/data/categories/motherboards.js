@@ -1,3 +1,4 @@
+// IDs disponibles: 600-699 | Próximo ID: 600 (actualizar IDs existentes)
 export const motherboardsProducts = [
   {
     id: 28,
@@ -45,7 +46,7 @@ export const motherboardsProducts = [
     model: "B650M Gaming WiFi",
     category: "Motherboards",
     price: 180000,
-    stock: 3,
+    stock: 1,
     images: [
       "/images/motherboard/b650m_wifi.webp",
       "/images/motherboard/b650m_wifi_moth.webp",
@@ -78,7 +79,7 @@ export const motherboardsProducts = [
     model: "Prime B450M-A II CSM",
     category: "Motherboards",
     price: 120000,
-    stock: 5,
+    stock: 1,
     images: [
       "/images/motherboard/b450m_II_full.webp",
       "/images/motherboard/b450m_II_mother.webp",
@@ -103,7 +104,7 @@ export const motherboardsProducts = [
     model: "Prime B460M-A R2.0",
     category: "Motherboards",
     price: 180000,
-    stock: 4,
+    stock: 1,
     images: [
       "/images/motherboard/B460m-a R2.0.webp"
     ],

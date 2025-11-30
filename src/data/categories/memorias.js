@@ -1,3 +1,4 @@
+// IDs disponibles: 400-499 | Próximo ID: 400 (actualizar IDs existentes)
 export const memoriasProducts = [
   {
     id: 27,
@@ -5,7 +6,7 @@ export const memoriasProducts = [
     brand: "ADATA",
     model: "XPG Lancer Blade",
     category: "Memorias RAM",
-    price: 120000,
+    price: 150000,
     stock: 5,
     images: [
       "/images/ram/lancerblade_16gb_ddr5_sinrgb.webp",
@@ -34,7 +35,7 @@ export const memoriasProducts = [
     brand: "NETAC",
     model: "Shadow 2",
     category: "Memorias RAM",
-    price: 100000,
+    price: 150000,
     stock: 6,
     images: [
       "/images/ram/netac_shadow2_ram.webp",
@@ -60,7 +61,7 @@ export const memoriasProducts = [
     brand: "ADATA",
     model: "XPG Gammix D35",
     category: "Memorias RAM",
-    price: 70000,
+    price: 95000,
     stock: 8,
     images: [
       "/images/ram/ram_xpg_gamminxd35_ddr4.webp",
@@ -99,7 +100,7 @@ export const memoriasProducts = [
     brand: "NETAC",
     model: "Shadow",
     category: "Memorias RAM",
-    price: 70000,
+    price: 90000,
     stock: 9,
     images: [
       "/images/ram/ram_netac_shadow_ddr4.webp",

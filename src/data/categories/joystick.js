@@ -1,12 +1,13 @@
+// IDs disponibles: 900-999 | Próximo ID: 907
 export const joystickProducts = [
   {
-    id: 77,
-    name: "T-Dagger Scorpio T-TGP802 Inalámbrico",
+    id: 900,
+    name: "T-Dagger Scorpio T-TGP802 Inalámbrico PC/ANDROID/CONSOLA",
     brand: "T-Dagger",
     model: "Scorpio T-TGP802",
     category: "Joystick",
     price: 40000,
-    stock: 12,
+    stock: 4,
     images: [
       "/images/joystick/joyst_tdager.webp",
       "/images/joystick/joyst_tdager_front.webp",
@@ -32,6 +33,7 @@ export const joystickProducts = [
       forceFeedback: "Sí",
       motoresVibracion: "2",
       salidaAuriculares: "3.5mm",
+      tipoBateria: "Interna recargable Li-Ion",
       bateria: "Interna recargable Li-Ion",
       dimensiones: "160 x 105 x 55 mm",
       peso: "197.8 g",
@@ -40,13 +42,13 @@ export const joystickProducts = [
     }
   },
   {
-    id: 75,
+    id: 901,
     name: "Sony DualSense PS5 Cosmic Red",
     brand: "Sony",
     model: "DualSense",
     category: "Joystick",
     price: 115000,
-    stock: 6,
+    stock: 1,
     images: [
       "/images/joystick/joystps5_cosmicred.webp",
       "/images/joystick/joystps5_cosmicred_front.webp",
@@ -87,13 +89,13 @@ export const joystickProducts = [
     }
   },
   {
-    id: 76,
+    id: 902,
     name: "Sony DualSense PS5 White/Black",
     brand: "Sony",
     model: "DualSense",
     category: "Joystick",
     price: 100000,
-    stock: 10,
+    stock: 6,
     images: [
       "/images/joystick/joystps5_white.webp",
       "/images/joystick/joystps5_white_front.webp",
@@ -138,8 +140,8 @@ export const joystickProducts = [
     }
   },
   {
-    id: 74,
-    name: "Sony PlayStation DualShock 4 PS4",
+    id: 903,
+    name: "Sony DualSense DualShock 4 V2 PS4",
     brand: "Sony",
     model: "DualShock 4",
     category: "Joystick",
@@ -150,7 +152,7 @@ export const joystickProducts = [
       "/images/joystick/joyst_ps4_v2_side.webp",
       "/images/joystick/joyst_ps4_v2_back.webp"
     ],
-    description: "Joystick Inalámbrico Sony PlayStation Dualshock 4 PS4 varios colores",
+    description: "Joystick Inalámbrico Sony DualSense DualShock 4 V2 PS4 varios colores",
     specifications: {
       marca: "Sony / PlayStation",
       modelo: "DualShock 4",
@@ -187,13 +189,13 @@ export const joystickProducts = [
     }
   },
   {
-    id: 79,
-    name: "Xbox Wireless Carbon Black + Cable USB-C",
+    id: 904,
+    name: "Microsoft inalambrico Carbon Black + Cable USB-C PC/ANDROID/CONSOLA",
     brand: "Microsoft",
     model: "Xbox Wireless",
     category: "Joystick",
     price: 100000,
-    stock: 8,
+    stock: 2,
     images: [
       "/images/joystick/joyst_carbonblack_usb.webp",
       "/images/joystick/joyst_carbonblack_usb_front.webp",
@@ -211,6 +213,7 @@ export const joystickProducts = [
       cableIncluido: "Sí",
       longitudCable: "2.7 m",
       compatibilidad: "Xbox Series X/S, Xbox One, Windows PC, Android, iOS",
+      tipoBateria: "2 × pilas AA",
       alimentacion: "2 × pilas AA",
       recargableUSBC: "Sí",
       joystickAnalogicos: "2",
@@ -229,13 +232,13 @@ export const joystickProducts = [
     }
   },
   {
-    id: 80,
-    name: "Xbox Wireless Shock Blue",
+    id: 905,
+    name: "Microsoft inalambrico Shock Blue PC/ANDROID/CONSOLA",
     brand: "Microsoft",
     model: "Xbox Wireless",
     category: "Joystick",
     price: 110000,
-    stock: 7,
+    stock: 1,
     images: [
       "/images/joystick/joyst_shockblue.webp",
       "/images/joystick/joyst_shockblue_side.webp",
@@ -251,6 +254,7 @@ export const joystickProducts = [
       puertoUSBC: "Sí",
       cable: "No incluido",
       compatibilidad: "Xbox Series X/S, Xbox One, Windows 10/11, Android, iOS",
+      tipoBateria: "2 × pilas AA",
       alimentacion: "2 × pilas AA (incluidas)",
       autonomiaAprox: "40 horas",
       joystickAnalogicos: "2",
@@ -268,13 +272,13 @@ export const joystickProducts = [
     }
   },
   {
-    id: 78,
-    name: "Xbox Wireless Robot White",
+    id: 906,
+    name: "Microsoft inalambrico Robot White PC/ANDROID/CONSOLA",
     brand: "Microsoft",
     model: "Xbox Wireless",
     category: "Joystick",
     price: 100000,
-    stock: 9,
+    stock: 2,
     images: [
       "/images/joystick/joyst_robotowhite.webp",
       "/images/joystick/joyst_robotowhite_front.webp",
@@ -290,6 +294,7 @@ export const joystickProducts = [
       tecnologia: "Xbox Wireless, Bluetooth 5.0",
       cableUSBC: "No incluido",
       compatibilidad: "Xbox Series X/S, Xbox One, Windows 10/11, Android, iOS",
+      tipoBateria: "2 × pilas AA",
       alimentacion: "2 × pilas AA (incluidas)",
       autonomiaAprox: "40 horas",
       joystickAnalogicos: "2",

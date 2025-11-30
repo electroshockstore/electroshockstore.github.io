@@ -1,3 +1,4 @@
+// IDs disponibles: 500-599 | Próximo ID: 500 (actualizar IDs existentes)
 export const mouseProducts = [
   {
     id: 45,

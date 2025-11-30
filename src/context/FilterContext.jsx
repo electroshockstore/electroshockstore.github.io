@@ -36,24 +36,119 @@ export function FilterProvider({ children }) {
         filtered = filtered.filter(product => product.category === selectedCategory);
       }
 
-      Object.entries(subFilters).forEach(([filterType, values]) => {
-        if (values && values.length > 0) {
+      Object.entries(subFilters).forEach(([filterType, selectedValues]) => {
+        if (selectedValues && selectedValues.length > 0) {
           filtered = filtered.filter(product => {
             if (!product.specifications) return false;
             
-            const specKeys = Object.keys(product.specifications);
-            const matchingKey = specKeys.find(key => 
-              key.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "") === 
-              filterType.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "")
-            );
-            
-            if (!matchingKey) return false;
-            
-            const specValue = product.specifications[matchingKey];
+            // Buscar la clave correcta en specifications (case-insensitive)
+            const specValue = product.specifications[filterType];
             if (!specValue) return false;
             
-            return values.some(value => 
-              specValue.toLowerCase().includes(value.toLowerCase())
+            const valueStr = specValue.toString().toLowerCase();
+            
+            // Normalizar el valor del producto usando la misma lógica que SidebarFilters
+            let normalizedProductValue = specValue;
+            
+            // Marca (normalizar para joystick)
+            if (filterType === 'marca') {
+              if (valueStr.includes('playstation') || valueStr.includes('sony')) {
+                normalizedProductValue = 'Sony/PlayStation';
+              } else if (valueStr.includes('microsoft') || valueStr.includes('xbox')) {
+                normalizedProductValue = 'Microsoft/Xbox';
+              }
+            }
+            
+            // Iluminación
+            else if (filterType === 'iluminacionRGB' || filterType === 'Iluminación') {
+              if (valueStr.includes('rgb') || valueStr.includes('argb')) {
+                normalizedProductValue = 'RGB';
+              } else if (valueStr.includes('no') || valueStr.includes('sin') || valueStr.includes('posee')) {
+                normalizedProductValue = 'Sin RGB';
+              }
+            }
+            
+            // Conexión/Conectividad
+            else if (filterType === 'tipoConectividad' || filterType === 'Conectividad' || filterType === 'Tipo de conexión' || filterType === 'inalambrico') {
+              if (valueStr.includes('inalámbrico') || valueStr.includes('wireless') || valueStr.includes('bluetooth') || valueStr.includes('sí') || valueStr.includes('2.4')) {
+                normalizedProductValue = 'Inalámbrico';
+              } else if (valueStr.includes('alámbrico') || valueStr.includes('cable') || valueStr.includes('usb') || valueStr.includes('3.5') || valueStr.includes('no') || valueStr.includes('gaming, cableado')) {
+                normalizedProductValue = 'Alámbrico';
+              }
+            }
+            
+            // Batería (para joystick)
+            else if (filterType === 'tipoBateria') {
+              if (valueStr.includes('recargable') || valueStr.includes('interna') || valueStr.includes('li-ion') || valueStr.includes('litio')) {
+                normalizedProductValue = 'Batería Interna';
+              } else if (valueStr.includes('pilas aa') || valueStr.includes('aa (')) {
+                normalizedProductValue = 'Pilas AA';
+              }
+            }
+            
+            // Compatibilidad (simplificado para joystick)
+            else if (filterType === 'compatibilidad' || filterType === 'Compatibilidad') {
+              const hasPC = valueStr.includes('pc') || valueStr.includes('windows');
+              const hasConsole = valueStr.includes('ps') || valueStr.includes('xbox') || valueStr.includes('switch') || valueStr.includes('playstation');
+              const hasMobile = valueStr.includes('android') || valueStr.includes('ios') || valueStr.includes('celular');
+              
+              if (hasPC && hasConsole && hasMobile) normalizedProductValue = 'PC/Consolas/Android';
+              else if (hasPC && hasConsole) normalizedProductValue = 'PC/Consolas';
+              else if (hasConsole) normalizedProductValue = 'Consolas';
+              else if (hasPC) normalizedProductValue = 'PC';
+            }
+            
+            // Potencia
+            else if (filterType === 'Potencia') {
+              const match = valueStr.match(/(\d+)\s*w/);
+              if (match) normalizedProductValue = `${match[1]}W`;
+            }
+            
+            // Certificación
+            else if (filterType === 'Certificacion') {
+              if (valueStr.includes('gold')) normalizedProductValue = '80 Plus Gold';
+              else if (valueStr.includes('bronze')) normalizedProductValue = '80 Plus Bronze';
+              else if (valueStr.includes('white')) normalizedProductValue = '80 Plus White';
+              else if (valueStr.includes('silver')) normalizedProductValue = '80 Plus Silver';
+              else if (valueStr.includes('sin')) normalizedProductValue = 'Sin certificación';
+            }
+            
+            // Capacidad
+            else if (filterType === 'capacidadTotal' || filterType === 'Capacidad' || filterType === 'Capacidad total') {
+              const match = valueStr.match(/(\d+)\s*(gb|tb)/);
+              if (match) {
+                const num = match[1];
+                const unit = match[2].toUpperCase();
+                normalizedProductValue = `${num}${unit}`;
+              }
+            }
+            
+            // Tipo de memoria
+            else if (filterType === 'tipoMemoriaRAM') {
+              normalizedProductValue = specValue.toUpperCase();
+            }
+            
+            // Arquitectura
+            else if (filterType === 'Arquitectura') {
+              if (valueStr.includes('mecánico')) normalizedProductValue = 'Mecánico';
+              else if (valueStr.includes('membrana')) normalizedProductValue = 'Membrana';
+            }
+            
+            // Sensor
+            else if (filterType === 'tipoSensor') {
+              if (valueStr.includes('óptico')) normalizedProductValue = 'Óptico';
+              else if (valueStr.includes('láser')) normalizedProductValue = 'Láser';
+            }
+            
+            // DPI
+            else if (filterType === 'dpi') {
+              const match = valueStr.match(/(\d+)/);
+              if (match) normalizedProductValue = `${match[1]} DPI`;
+            }
+            
+            // Comparar el valor normalizado con los filtros seleccionados
+            return selectedValues.some(selectedValue => 
+              normalizedProductValue.toString().toLowerCase() === selectedValue.toLowerCase()
             );
           });
         }

@@ -18,7 +18,8 @@ export const StockProvider = ({ children }) => {
   const [stockAlerts, setStockAlerts] = useState([]);
 
   useEffect(() => {
-    const lowStockProducts = products.filter(product => product.stock <= product.minStock);
+    // Definir umbral de stock bajo (5 unidades o menos)
+    const lowStockProducts = products.filter(product => product.stock <= 5);
     setStockAlerts(lowStockProducts);
   }, [products]);
 
@@ -78,7 +79,8 @@ export const StockProvider = ({ children }) => {
   };
 
   const getLowStockProducts = () => {
-    return products.filter(product => product.stock <= product.minStock);
+    // Definir umbral de stock bajo (5 unidades o menos)
+    return products.filter(product => product.stock <= 5);
   };
 
   const getTotalProducts = () => products.length;

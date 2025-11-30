@@ -29,6 +29,24 @@ const SpecificationsSection = ({ specifications }) => {
   const SpecColumn = ({ specs, columnIndex }) => {
     if (specs.length === 0) return null;
     
+    const renderValue = (value) => {
+      // Si es un objeto, convertirlo a lista
+      if (typeof value === 'object' && value !== null) {
+        return (
+          <div className="space-y-1">
+            {Object.entries(value).map(([subKey, subValue]) => (
+              <div key={subKey} className="text-xs">
+                <span className="text-gray-600">{subKey}:</span>{' '}
+                <span className="font-semibold text-gray-900">{subValue}</span>
+              </div>
+            ))}
+          </div>
+        );
+      }
+      // Si es string o número, renderizar directamente
+      return value;
+    };
+    
     return (
       <div className="space-y-3">
         {specs.map(({ key, value, label }) => (
@@ -36,7 +54,7 @@ const SpecificationsSection = ({ specifications }) => {
             <dt className="text-xs font-semibold text-gray-500 uppercase tracking-wide">
               {label}
             </dt>
-            <dd className="text-sm font-bold text-gray-900">{value}</dd>
+            <dd className="text-sm font-bold text-gray-900">{renderValue(value)}</dd>
           </div>
         ))}
       </div>

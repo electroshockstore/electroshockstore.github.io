@@ -1,200 +1,413 @@
+// IDs disponibles: 800-899 | Próximo ID: 814
 export const auricularesProducts = [
   {
-    id: 53,
-    name: "Razer Kraken X Blanco",
-    brand: "Razer",
-    model: "Kraken X",
-    category: "Auriculares",
-    price: 100000,
-    stock: 6,
-    minStock: 3,
-    location: "H1",
-    sku: "RAZER-KX-WHT",
-    description: "Auriculares gaming para consola con conector 3.5mm - Color Blanco",
-    specifications: {
-      tipo: "Gaming",
-      conexion: "Jack 3.5mm",
-      plataforma: "Consola"
-    }
-  },
-  {
-    id: 54,
-    name: "Razer Kraken X Lite Negro",
-    brand: "Razer",
-    model: "Kraken X Lite",
-    category: "Auriculares",
-    price: 100000,
-    stock: 7,
-    minStock: 3,
-    location: "H1",
-    sku: "RAZER-KXL-BLK",
-    description: "Auriculares gaming para consola con conector 3.5mm - Color Negro",
-    specifications: {
-      tipo: "Gaming",
-      conexion: "Jack 3.5mm",
-      plataforma: "Consola"
-    }
-  },
-  {
-    id: 55,
-    name: "Razer Blackshark V2 X 7.1 Negro/Verde",
-    brand: "Razer",
-    model: "Blackshark V2 X",
-    category: "Auriculares",
-    price: 70000,
-    stock: 8,
-    minStock: 4,
-    location: "H1",
-    sku: "RAZER-BSV2X",
-    description: "Auriculares gaming 7.1 cableado USB con conector 3.5mm - Negro/Verde",
-    specifications: {
-      tipo: "Gaming",
-      conexion: "USB",
-      sonido: "7.1"
-    }
-  },
-  {
-    id: 56,
-    name: "Redragon Ire H848 Inalámbrico Bluetooth Negro",
+    id: 800,
+    name: "Redragon Ire Pro H848 - Bluetooth Inalámbrico",
     brand: "Redragon",
-    model: "Ire H848",
+    model: "Ire Pro H848",
     category: "Auriculares",
     price: 60000,
-    stock: 9,
-    minStock: 4,
-    location: "H1",
+    stock: 3,
     sku: "RED-IRE-H848",
-    description: "Auriculares gaming inalámbricos Bluetooth 7.1 - Color Negro",
+    description: "Auriculares gaming inalámbricos Bluetooth 5.0 con micrófono desmontable, autonomía 20 horas",
+    images: [
+      "/images/auriculares/RG_irepro_auri.webp",
+      "/images/auriculares/RG_irepro_auri_side.webp",
+      "/images/auriculares/RG_irepro_auri_cab.webp"
+    ],
     specifications: {
-      tipo: "Gaming",
-      conexion: "Bluetooth",
-      sonido: "7.1"
+      "Marca": "Redragon",
+      "Línea": "H848",
+      "Modelo": "Ire",
+      "Modelo alfanumérico": "H848G",
+      "Respuesta en frecuencia": "100 Hz - 10000 Hz",
+      "Tamaño de la memoria": "1 MB",
+      "Tipo de conexión": "Bluetooth 5.0 / USB inalámbrico",
+      "Alcance inalámbrico": "10 m",
+      "Autonomía": "Hasta 20 horas",
+      "Cargado por": "USB-C",
+      "Micrófono": "Omnidireccional desmontable",
+      "Iluminación": "No",
+      "Compatibilidad": "PC / Android / iOS / Consolas vía BT"
     }
   },
   {
-    id: 57,
-    name: "Redragon H350 Pandora 2 RGB USB 7.1",
+    id: 801,
+    name: "Redragon Zeus Pro H510-PRO - Inalámbrico 7.1 USB/Bluetooth",
     brand: "Redragon",
-    model: "Pandora 2 H350",
+    model: "Zeus Pro H510-PRO",
+    category: "Auriculares",
+    price: 110000,
+    stock: 1,
+    sku: "RED-ZEUS-PRO",
+    description: "Auriculares gaming inalámbricos 7.1 con triple conectividad, almohadillas memory foam",
+    images: [
+      "/images/auriculares/zeus_pro.webp",
+      "/images/auriculares/zeus_pro_side.webp",
+      "/images/auriculares/zeus_pro_front.webp"
+    ],
+    specifications: {
+      "Marca": "Redragon",
+      "Línea": "Gaming",
+      "Modelo": "Zeus Pro Wireless",
+      "Modelo alfanumérico": "H510-PRO",
+      "Respuesta en frecuencia": "20 Hz - 20 kHz",
+      "Tipo de conexión": "USB inalámbrico 2.4GHz / Bluetooth / Cable 3.5 mm",
+      "Sonido": "7.1 Virtual",
+      "Autonomía": "Hasta 20 horas",
+      "Micrófono": "Desmontable con cancelación de ruido",
+      "Almohadillas": "Memory Foam",
+      "Compatibilidad": "PC / PS4 / PS5 / Android / iOS",
+      "Iluminación": "No"
+    }
+  },
+  {
+    id: 802,
+    name: "Redragon Zeus 2 H510 - Alámbrico 3.5mm Blanco",
+    brand: "Redragon",
+    model: "Zeus 2 H510",
+    category: "Auriculares",
+    price: 70000,
+    stock: 3,
+    sku: "RED-ZEUS2-WHT",
+    description: "Auriculares gaming estéreo con cable 3.5mm, micrófono desmontable y almohadillas memory foam",
+    images: [
+      "/images/auriculares/RG_zeus2.webp",
+      "/images/auriculares/RG_zeus2_side.webp",
+      "/images/auriculares/RG_zeus2_back.webp"
+    ],
+    specifications: {
+      "Marca": "Redragon",
+      "Línea": "Gamer",
+      "Modelo": "Zeus 2",
+      "Modelo alfanumérico": "H510",
+      "Modelo detallado": "H510W",
+      "Respuesta en frecuencia": "20 Hz - 20 kHz",
+      "Tipo de conexión": "Cable 3.5 mm",
+      "Compatibilidad": "PC / PS4 / PS5 / Xbox / Switch / Celulares",
+      "Micrófono": "Desmontable con reducción de ruido",
+      "Sonido": "Estéreo",
+      "Almohadillas": "Memory Foam",
+      "Reacondicionado": "Estado Bueno – probado y funcional"
+    }
+  },
+  {
+    id: 803,
+    name: "Redragon Pandora 2 H350RGB-1 - USB 7.1 RGB Blanco",
+    brand: "Redragon",
+    model: "Pandora 2 H350RGB-1",
     category: "Auriculares",
     price: 70000,
     stock: 10,
-    minStock: 5,
-    location: "H1",
     sku: "RED-PAND2-H350",
-    description: "Auriculares gaming RGB con cable USB 7.1 con micrófono - Negro/Blanco",
+    description: "Auriculares gaming USB 7.1 virtual con iluminación RGB LED y almohadillas memory foam",
+    images: [
+      "/images/auriculares/RG_pandora2_whi.webp",
+      "/images/auriculares/RG_pandora2_wh_side.webp",
+      "/images/auriculares/RG_pandora2_wh_side3.webp"
+    ],
     specifications: {
-      tipo: "Gaming",
-      conexion: "USB",
-      sonido: "7.1"
+      "Marca": "Redragon",
+      "Línea": "Pandora",
+      "Modelo": "Pandora 2",
+      "Modelo alfanumérico": "H350RGB-1",
+      "Modelo detallado": "H350W-RGB-1",
+      "Respuesta en frecuencia": "20 Hz - 20000 Hz",
+      "Tipo de conexión": "USB",
+      "Sonido": "7.1 Virtual",
+      "Iluminación": "RGB LED",
+      "Micrófono": "Flexible con cancelación de ruido",
+      "Almohadillas": "Memory Foam",
+      "Compatibilidad": "PC"
     }
   },
   {
-    id: 58,
-    name: "Redragon Pelops H818 Inalámbrico USB-C Negro",
+    id: 804,
+    name: "Redragon Pelops H818 - Inalámbrico USB 7.1 RGB",
     brand: "Redragon",
     model: "Pelops H818",
     category: "Auriculares",
     price: 110000,
-    stock: 5,
-    minStock: 2,
-    location: "H1",
+    stock: 3,
     sku: "RED-PELOPS-H818",
-    description: "Auriculares gaming inalámbricos USB-C 7.1 - Color Negro",
+    description: "Auriculares gaming inalámbricos USB 2.4GHz 7.1 virtual con iluminación RGB, autonomía 12-15 horas",
+    images: [
+      "/images/auriculares/RG_pelops.webp",
+      "/images/auriculares/RG_pelops_side.webp",
+      "/images/auriculares/RG_pelops_side2.webp"
+    ],
     specifications: {
-      tipo: "Gaming",
-      conexion: "Wireless 2.4GHz",
-      sonido: "7.1"
+      "Marca": "Redragon",
+      "Línea": "Pelops",
+      "Modelo": "Pelops",
+      "Modelo alfanumérico": "H818",
+      "Modelo detallado": "Ire Pro H848 PL",
+      "Respuesta en frecuencia": "20 Hz - 20 kHz",
+      "Tamaño de la memoria": "1 MB",
+      "Tipo de conexión": "USB inalámbrico 2.4GHz / Cable 3.5 mm",
+      "Sonido": "7.1 Virtual",
+      "Autonomía": "Hasta 12–15 horas",
+      "Micrófono": "Desmontable con cancelación de ruido",
+      "Almohadillas": "Memory Foam",
+      "Iluminación": "RGB",
+      "Compatibilidad": "PC / PS4 / PS5"
     }
   },
   {
-    id: 59,
-    name: "Redragon Lamia 2 RGB H320 Blanco",
-    brand: "Redragon",
-    model: "Lamia 2 H320",
-    category: "Auriculares",
-    price: 60000,
-    stock: 11,
-    minStock: 5,
-    location: "H1",
-    sku: "RED-LAMIA2-WHT",
-    description: "Auriculares gaming RGB cableado - Color Blanco",
-    specifications: {
-      tipo: "Gaming",
-      conexion: "USB",
-      sonido: "Estéreo"
-    }
-  },
-  {
-    id: 60,
-    name: "Redragon Zeus 2 H510W RGB USB 7.1 Rosa",
-    brand: "Redragon",
-    model: "Zeus 2 H510W",
-    category: "Auriculares",
-    price: 100000,
-    stock: 6,
-    minStock: 3,
-    location: "H1",
-    sku: "RED-ZEUS2-PINK",
-    description: "Auriculares gaming con cable USB 7.1 RGB con micrófono metálico - Color Rosa",
-    specifications: {
-      tipo: "Gaming",
-      conexion: "USB",
-      sonido: "7.1"
-    }
-  },
-  {
-    id: 61,
-    name: "Skullcandy SLYR PC PS4/PS5 Xbox",
-    brand: "Skullcandy",
-    model: "SLYR",
-    category: "Auriculares",
-    price: 75000,
-    stock: 8,
-    minStock: 4,
-    location: "H1",
-    sku: "SKULL-SLYR",
-    description: "Auriculares gaming multiplataforma para PC, PS4/PS5 y Xbox",
-    specifications: {
-      tipo: "Gaming",
-      conexion: "Jack 3.5mm",
-      plataforma: "Multiplataforma"
-    }
-  },
-  {
-    id: 62,
-    name: "Trust GXT 307B Ravu Negro",
-    brand: "Trust",
-    model: "GXT 307B Ravu",
-    category: "Auriculares",
-    price: 40000,
-    stock: 12,
-    minStock: 6,
-    location: "H1",
-    sku: "TRUST-GXT307B",
-    description: "Auriculares gaming cableado - Color Negro",
-    specifications: {
-      tipo: "Gaming",
-      conexion: "Jack 3.5mm",
-      sonido: "Estéreo"
-    }
-  },
-  {
-    id: 63,
-    name: "Turtle Beach Recon 70 Negro",
+    id: 805,
+    name: "Turtle Beach Recon 70 - Alámbrico 3.5mm Blanco",
     brand: "Turtle Beach",
     model: "Recon 70",
     category: "Auriculares",
     price: 50000,
-    stock: 10,
-    minStock: 5,
-    location: "H1",
+    stock: 3,
     sku: "TB-RECON70",
-    description: "Auriculares gaming cableado - Color Negro",
+    description: "Auriculares gaming estéreo multiplataforma con micrófono flip-to-mute, peso 210g",
+    images: [
+      "/images/auriculares/auri_recon70.webp",
+      "/images/auriculares/auri_recon70_side.webp",
+      "/images/auriculares/auri_recon70_specs.webp"
+    ],
     specifications: {
-      tipo: "Gaming",
-      conexion: "Jack 3.5mm",
-      sonido: "Estéreo"
+      "Marca": "Turtle Beach",
+      "Línea": "Ear Force",
+      "Modelo": "Recon 70",
+      "Respuesta en frecuencia": "20 Hz - 20 kHz",
+      "Tipo de conexión": "Cable 3.5 mm",
+      "Compatibilidad": "PS5 / PS4 / Xbox One / Xbox Series / Switch / PC",
+      "Micrófono": "Flip-to-Mute",
+      "Almohadillas": "Cuero sintético ligero",
+      "Sonido": "Estéreo",
+      "Peso": "210 g"
+    }
+  },
+  {
+    id: 806,
+    name: "HyperX Cloud Stinger 2 - Alámbrico 3.5mm DTS:X",
+    brand: "HyperX",
+    model: "Cloud Stinger Core 2",
+    category: "Auriculares",
+    price: 65000,
+    stock: 1,
+    sku: "HYPE-STINGER2",
+    description: "Auriculares gaming con DTS Headphone:X Spatial Audio, drivers 50mm, peso 275g",
+    images: [
+      "/images/auriculares/hyperx_stinger2_dts.webp",
+      "/images/auriculares/hyperx_stinger2_dts_side.webp",
+      "/images/auriculares/hyperx_stinger2_dts_side3.webp"
+    ],
+    specifications: {
+      "Marca": "HyperX",
+      "Línea": "Cloud",
+      "Modelo": "Cloud Stinger Core 2",
+      "Modelo alfanumérico": "519T1AA",
+      "Respuesta en frecuencia": "10 Hz - 28 kHz",
+      "Tamaño del driver": "50 mm",
+      "Peso": "275 g",
+      "Sonido": "DTS Headphone:X Spatial Audio (solo PC por software)",
+      "Conectividad": "3.5 mm",
+      "Micrófono": "Abatible con cancelación de ruido pasiva",
+      "Compatibilidad": "PC, PS4/PS5, Xbox, Switch, Celulares"
+    }
+  },
+  {
+    id: 807,
+    name: "Razer Kraken X Lite - Alámbrico 3.5mm 7.1 Negro",
+    brand: "Razer",
+    model: "Kraken X Lite",
+    category: "Auriculares",
+    price: 70000,
+    stock: 1,
+    sku: "RAZER-KXL-BLK",
+    description: "Auriculares gaming 7.1 virtual surround con drivers 40mm, peso 230g",
+    images: [
+      "/images/auriculares/razer_krakenx_lite.webp",
+      "/images/auriculares/razer_krakenx_lite_side.webp",
+      "/images/auriculares/razer_krakenx_lite_side2.webp"
+    ],
+    specifications: {
+      "Marca": "Razer",
+      "Línea": "Kraken",
+      "Modelo": "Kraken X Lite 7.1",
+      "Modelo alfanumérico": "RZ04-02950100-R381",
+      "Respuesta en frecuencia": "12 Hz - 28 kHz",
+      "Tamaño del driver": "40 mm",
+      "Peso": "230 g",
+      "Sonido": "7.1 Virtual Surround (solo PC por software)",
+      "Conectividad": "3.5 mm",
+      "Micrófono": "Cardioide",
+      "Compatibilidad": "PC, PS4/PS5, Xbox, Switch, Celulares"
+    }
+  },
+  {
+    id: 808,
+    name: "Razer Blackshark V2 X - Alámbrico 3.5mm 7.1 Verde",
+    brand: "Razer",
+    model: "Blackshark V2 X",
+    category: "Auriculares",
+    price: 80000,
+    stock: 1,
+    sku: "RAZER-BSV2X",
+    description: "Auriculares gaming 7.1 virtual con drivers TriForce 50mm, micrófono HyperClear, peso 240g",
+    images: [
+      "/images/auriculares/razer_blacksharkv2_front.webp",
+      "/images/auriculares/razer_blacksharkv2._side2.webp",
+      "/images/auriculares/razer_blacksharkv2._side3.webp"
+    ],
+    specifications: {
+      "Marca": "Razer",
+      "Línea": "Blackshark",
+      "Modelo": "Blackshark V2 X",
+      "Modelo detallado": "BlackShark V2 X Green Edition",
+      "Respuesta en frecuencia": "12 Hz - 28 kHz",
+      "Tamaño del driver": "50 mm TriForce",
+      "Peso": "240 g",
+      "Sonido": "7.1 Virtual Surround (PC por software)",
+      "Conectividad": "3.5 mm",
+      "Micrófono": "HyperClear Cardioid",
+      "Compatibilidad": "PC, PS4/PS5, Xbox, Switch, Celulares"
+    }
+  },
+  {
+    id: 809,
+    name: "HyperX Cloud Stinger 2 Core PS5 - Alámbrico 3.5mm Blanco",
+    brand: "HyperX",
+    model: "Cloud Stinger Core 2 75X29AA",
+    category: "Auriculares",
+    price: 60000,
+    stock: 1,
+    sku: "HYPE-STINGER2-PS5",
+    description: "Auriculares gaming estéreo con drivers 40mm, micrófono abatible, peso 240g",
+    images: [
+      "/images/auriculares/cloud_stinger2_ps5.webp",
+      "/images/auriculares/cloud_stinger2_ps5_side.webp",
+      "/images/auriculares/cloud_stinger2_ps5_back.webp"
+    ],
+    specifications: {
+      "Marca": "HyperX",
+      "Línea": "Cloud Stinger 2 Core",
+      "Modelo": "Cloud Stinger Core 2",
+      "Modelo alfanumérico": "75X29AA",
+      "Modelo detallado": "683L9AA",
+      "Respuesta en frecuencia": "10 Hz - 25 kHz",
+      "Tamaño del driver": "40 mm",
+      "Peso": "240 g",
+      "Sonido": "Stereo",
+      "Conectividad": "3.5 mm",
+      "Micrófono": "Abatible con cancelación pasiva",
+      "Compatibilidad": "PS5, PS4, Xbox, Switch, PC"
+    }
+  },
+  {
+    id: 810,
+    name: "Redragon Lamia 2 H320 - USB 7.1 RGB Blanco",
+    brand: "Redragon",
+    model: "Lamia 2 H320",
+    category: "Auriculares",
+    price: 60000,
+    stock: 1,
+    sku: "RED-LAMIA2-WHT",
+    description: "Auriculares gaming USB 7.1 virtual con iluminación RGB, drivers 50mm",
+    images: [
+      "/images/auriculares/RG_lamia2.webp",
+      "/images/auriculares/RG_lamia2_side.webp",
+      "/images/auriculares/RG_lamia2_side2.webp"
+    ],
+    specifications: {
+      "Marca": "Redragon",
+      "Línea": "H320W-RGB",
+      "Modelo": "H320 Lamia 2",
+      "Modelo detallado": "H320W-RGB",
+      "Respuesta en frecuencia": "20 Hz - 20 kHz",
+      "Tamaño del driver": "50 mm",
+      "Sonido": "7.1 Virtual USB",
+      "Peso": "No especificado",
+      "Conectividad": "USB",
+      "Micrófono": "Flexible con cancelación pasiva",
+      "Compatibilidad": "PC"
+    }
+  },
+  {
+    id: 811,
+    name: "Skullcandy SLYR - Alámbrico 3.5mm Negro",
+    brand: "Skullcandy",
+    model: "SLYR S6SYY-Q763",
+    category: "Auriculares",
+    price: 75000,
+    stock: 2,
+    sku: "SKULL-SLYR",
+    description: "Auriculares gaming estéreo multiplataforma con drivers 50mm, micrófono bi-direccional removible",
+    images: [
+      "/images/auriculares/skullcandy_sylr.webp",
+      "/images/auriculares/skullcandy_sylr_side.webp",
+      "/images/auriculares/skullcandy_sylr_side2.webp"
+    ],
+    specifications: {
+      "Marca": "Skullcandy",
+      "Línea": "Gaming",
+      "Modelo": "SLYR",
+      "Modelo alfanumérico": "S6SYY-Q763",
+      "Respuesta en frecuencia": "20 Hz - 20 kHz",
+      "Tamaño del driver": "50 mm",
+      "Sonido": "Stereo",
+      "Conectividad": "3.5 mm",
+      "Micrófono": "Bi-direccional removible",
+      "Compatibilidad": "PS5, PS4, Xbox, Switch, PC, Celulares"
+    }
+  },
+  {
+    id: 812,
+    name: "Trust GXT 307B Ravu - Alámbrico 3.5mm Negro/Azul",
+    brand: "Trust",
+    model: "GXT 307B Ravu",
+    category: "Auriculares",
+    price: 40000,
+    stock: 1,
+    sku: "TRUST-GXT307B",
+    description: "Auriculares gaming estéreo multiplataforma con drivers 40mm, micrófono flexible",
+    images: [
+      "/images/auriculares/auri_trust_ravu.webp",
+      "/images/auriculares/auri_trust_ravu_side.webp",
+      "/images/auriculares/auri_trust_ravu_front.webp"
+    ],
+    specifications: {
+      "Marca": "Trust",
+      "Línea": "Gamer",
+      "Modelo": "Ravu",
+      "Modelo alfanumérico": "GXT 307B",
+      "Respuesta en frecuencia": "20 Hz - 20 kHz",
+      "Tamaño del driver": "40 mm",
+      "Sonido": "Stereo",
+      "Conectividad": "3.5 mm",
+      "Micrófono": "Flexible",
+      "Compatibilidad": "PC, PS4/PS5, Xbox, Switch, Celulares"
+    }
+  },
+  {
+    id: 813,
+    name: "Razer Kraken X Console - Alámbrico 3.5mm Blanco",
+    brand: "Razer",
+    model: "Kraken X for Console",
+    category: "Auriculares",
+    price: 75000,
+    stock: 1,
+    sku: "RAZER-KX-WHT",
+    description: "Auriculares gaming estéreo para consolas con drivers 40mm, micrófono cardioide",
+    images: [
+      "/images/auriculares/kraken_x_console.webp",
+      "/images/auriculares/kraken_x_console_side.webp",
+      "/images/auriculares/kraken_x_console_box.webp"
+    ],
+    specifications: {
+      "Marca": "Razer",
+      "Línea": "Kraken X Console",
+      "Modelo": "Kraken X for Console",
+      "Respuesta en frecuencia": "12 Hz - 28 kHz",
+      "Tamaño del driver": "40 mm",
+      "Sonido": "Stereo (sin 7.1)",
+      "Conectividad": "3.5 mm",
+      "Micrófono": "Cardioide",
+      "Compatibilidad": "PS5, PS4, Xbox, Switch, PC"
     }
   }
 ];
