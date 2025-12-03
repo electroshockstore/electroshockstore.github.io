@@ -7,7 +7,7 @@ export const fuentesProducts = [
     model: "XPG Probe 600W",
     category: "Fuentes",
     price: 60000,
-    stock: 8,
+    stock: 5,
     sku: "XPG-600-PROBE",
     description: "Fuente ATX 600W con certificación 80 Plus Bronze, ventilador 120mm silencioso",
     images: [
@@ -41,7 +41,7 @@ export const fuentesProducts = [
     model: "ARXGP-600W",
     category: "Fuentes",
     price: 55000,
-    stock: 9,
+    stock: 2,
     sku: "AUR-ARXGP-600",
     description: "Fuente ATX 600W sin certificación 80 Plus, ventilador 120mm",
     images: [
@@ -74,7 +74,7 @@ export const fuentesProducts = [
     model: "GP-P450B",
     category: "Fuentes",
     price: 55000,
-    stock: 6,
+    stock: 1,
     sku: "GB-P450B",
     description: "Fuente ATX 450W con certificación 80 Plus Bronze, eficiencia hasta 85%",
     images: [
@@ -143,7 +143,7 @@ export const fuentesProducts = [
     model: "SPD-0600",
     category: "Fuentes",
     price: 70000,
-    stock: 6,
+    stock: 2,
     sku: "TT-SMART-600",
     description: "Fuente ATX 600W con certificación 80 Plus White, eficiencia hasta 80%",
     images: [
@@ -212,7 +212,7 @@ export const fuentesProducts = [
     model: "GP-UD750GM",
     category: "Fuentes",
     price: 150000,
-    stock: 4,
+    stock: 2,
     sku: "GB-UD750",
     description: "Fuente ATX 750W modular con certificación 80 Plus Gold, ventilador FDB 120mm",
     images: [
@@ -280,7 +280,7 @@ export const fuentesProducts = [
     model: "COREREACTORIIVE850G-BKCAR",
     category: "Fuentes",
     price: 160000,
-    stock: 3,
+    stock: 2,
     sku: "XPG-850-REACTOR",
     description: "Fuente ATX 850W modular con certificación 80 Plus Gold, ventilador FDB 120mm ultra silencioso",
     images: [
@@ -315,7 +315,7 @@ export const fuentesProducts = [
     model: "P750BS",
     category: "Fuentes",
     price: 90000,
-    stock: 6,
+    stock: 3,
     sku: "GB-P750BS",
     description: "Fuente ATX 750W no modular con certificación 80 Plus Bronze, ventilador 120mm",
     images: [
@@ -348,7 +348,7 @@ export const fuentesProducts = [
     model: "TR2-600NL2NC",
     category: "Fuentes",
     price: 70000,
-    stock: 7,
+    stock: 2,
     sku: "TT-TR2-600",
     description: "Fuente ATX 600W sin certificación 80 Plus, ventilador 120mm smart fan",
     images: [
@@ -383,7 +383,7 @@ export const fuentesProducts = [
     model: "ARXGU-80PBZ-550W",
     category: "Fuentes",
     price: 60000,
-    stock: 8,
+    stock: 2,
     sku: "AUR-550-BRZ",
     description: "Fuente ATX 550W con certificación 80 Plus White/Bronze, ventilador 120mm",
     images: [
@@ -418,7 +418,7 @@ export const fuentesProducts = [
     model: "P550B",
     category: "Fuentes",
     price: 70000,
-    stock: 7,
+    stock: 2,
     sku: "GB-P550B",
     description: "Fuente ATX 550W no modular con certificación 80 Plus Bronze, ventilador silencioso 120mm",
     images: [
@@ -452,7 +452,7 @@ export const fuentesProducts = [
     model: "Smart White 700W",
     category: "Fuentes",
     price: 80000,
-    stock: 5,
+    stock: 2,
     sku: "TT-SMART-700",
     description: "Fuente ATX 700W no modular con certificación 80 Plus White, ventilador 120mm",
     images: [
