@@ -329,5 +329,104 @@ export const almacenamientoProducts = [
       "Dimensiones físicas": "69.95 mm × 100.50 mm × 7.00 mm",
       "Garantía limitada": "3 años"
     }
+  },
+  {
+    id: 211,
+    name: "SSD Adata SU650 256GB 2.5\" NAND 3D",
+    brand: "Adata",
+    model: "Ultimate SU650",
+    category: "Almacenamiento",
+    price: 40000,
+    stock: 9,
+    sku: "ADATA-256-SU650",
+    description: "SSD Adata SU650 256GB 2.5\" NAND 3D, lectura 520 MB/s, escritura 450 MB/s",
+    images: [
+      "/images/almacenamiento/adatassd_250.webp",
+      "/images/almacenamiento/adatassd_250_side.webp",
+      "/images/almacenamiento/adatassd_250_blue.webp",
+      "/images/almacenamiento/adatassd_250_blue2.webp"
+    ],
+    specifications: {
+      "Marca": "Adata",
+      "Línea": "Ultimate SU650",
+      "Modelo": "ASU650SS-256GT-R",
+      "Modelo detallado": "ASU650SS-256GT-R",
+      "Capacidad": "256 GB",
+      "Formato": "2.5\"",
+      "Interfaz": "SATA III 6 Gb/s",
+      "Tipo de memoria": "3D NAND TLC",
+      "Velocidad lectura": "520 MB/s",
+      "Velocidad escritura": "450 MB/s",
+      "MTBF": "2.000.000 horas",
+      "Resistencia (TBW)": "≈ 140 TBW",
+      "Temperatura de funcionamiento": "0°C a 70°C",
+      "Uso recomendado": "PC de oficina, notebooks, upgrade económico"
+    }
+  },
+  {
+    id: 212,
+    name: "SSD Patriot Burst Elite 960GB SATA3 2.5\"",
+    brand: "Patriot",
+    model: "Burst Elite",
+    category: "Almacenamiento",
+    price: 115000,
+    stock: 4,
+    sku: "PATRIOT-960-ELITE",
+    description: "SSD Patriot Burst Elite 960GB SATA3 2.5\", lectura 560 MB/s, escritura 540 MB/s",
+    images: [
+      "/images/almacenamiento/patriot_burst_960.webp",
+      "/images/almacenamiento/patriot_burst_960_side.webp",
+      "/images/almacenamiento/patriot_burst_960_side2.webp"
+    ],
+    specifications: {
+      "Marca": "Patriot",
+      "Línea": "Burst Elite",
+      "Modelo": "burst elite",
+      "Modelo detallado": "PBE960GS25SSDR",
+      "Capacidad": "960 GB",
+      "Formato": "2.5\"",
+      "Interfaz": "SATA III 6 Gb/s",
+      "Tipo de memoria": "3D NAND TLC",
+      "Velocidad lectura": "Up to 560 MB/s",
+      "Velocidad escritura": "Up to 540 MB/s",
+      "MTBF": "2.000.000 horas",
+      "Resistencia (TBW)": "≈ 800 TBW",
+      "Controlador": "SMI (varía según lote)",
+      "Temperatura de funcionamiento": "0°C a 70°C",
+      "Uso recomendado": "Almacenamiento grande, reemplazo de HDD, uso general"
+    }
+  },
+  {
+    id: 213,
+    name: "SSD Patriot Burst Elite 240GB SATA3 2.5\"",
+    brand: "Patriot",
+    model: "Burst Elite",
+    category: "Almacenamiento",
+    price: 40000,
+    stock: 17,
+    sku: "PATRIOT-240-ELITE",
+    description: "SSD Patriot Burst Elite 240GB SATA3 2.5\", lectura 560 MB/s, escritura 540 MB/s",
+    images: [
+      "/images/almacenamiento/patriot_burst_240.webp",
+      "/images/almacenamiento/patriot_burst_240_side.webp",
+      "/images/almacenamiento/patriot_burst_240_back.webp"
+    ],
+    specifications: {
+      "Marca": "Patriot",
+      "Línea": "Burst Elite",
+      "Modelo": "PBU240GS25SSDR",
+      "Modelo detallado": "PBE240GS25SSDR",
+      "Capacidad": "240 GB",
+      "Formato": "2.5\"",
+      "Interfaz": "SATA III 6 Gb/s",
+      "Tipo de memoria": "3D NAND TLC",
+      "Velocidad lectura": "Up to 560 MB/s",
+      "Velocidad escritura": "Up to 540 MB/s",
+      "MTBF": "2.000.000 horas",
+      "Resistencia (TBW)": "≈ 120 TBW",
+      "Controlador": "SMI",
+      "Temperatura de funcionamiento": "0°C a 70°C",
+      "Uso recomendado": "PC básica, notebooks, sistemas livianos"
+    }
   }
 ];

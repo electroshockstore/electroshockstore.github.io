@@ -10,8 +10,6 @@ export const memoriasProducts = [
     stock: 2,
     images: [
       "/images/ram/lancerblade_16gb_ddr5_sinrgb.webp",
-      "/images/ram/lancerblade_16gb_ddr5_sinrgb_side.webp",
-      "/images/ram/lancerblade_16gb_ddr5_sinrgb_back.webp"
     ],
     description: "Memoria Ram Adata Xpg Lancer Blade 16gb 5600mhz DDR5, SIN RGB",
     specifications: {
@@ -36,7 +34,7 @@ export const memoriasProducts = [
     model: "Shadow 2",
     category: "Memorias RAM",
     price: 150000,
-    stock: 2,
+    stock: 4,
     images: [
       "/images/ram/netac_shadow2_ram.webp",
       "/images/ram/netac_shadow2_ram_side.webp",
@@ -190,8 +188,8 @@ export const memoriasProducts = [
     stock: 3,
     images: [
       "/images/ram/adata_ddr4soddim_4gb.webp",
-      "/images/ram/adata_ddr4soddim_4gb_back",
-      "/images/ram/adata_ddr4soddim_4gb_side"
+      "/images/ram/adata_ddr4soddim_4gb_back.webp",
+      "/images/ram/adata_ddr4soddim_4gb_side.webp"
     ],
     description: "Adata 4GB DDR4 2666 MHz SODIMM",
     specifications: {
@@ -289,6 +287,42 @@ export const memoriasProducts = [
       latenciaCAS: "CL22",
       voltaje: "1.2 V",
       ecc: "No"
+    }
+  },
+  {
+    id: 406,
+    name: "Lexar 16GB DDR4 3200MHz UDIMM",
+    brand: "Lexar",
+    model: "LD4AU016G",
+    category: "Memorias RAM",
+    price: 85000,
+    stock: 12,
+    images: [
+      "/images/ram/adata16g_ddr4.webp",
+      "/images/ram/adata16g_ddr4_side.webp",
+      "/images/ram/adata16g_ddr4_back.webp"
+    ],
+    description: "Lexar 16GB DDR4 3200MHz UDIMM",
+    specifications: {
+      marca: "Lexar",
+      linea: "LD4AU016G",
+      modelo: "LD4AU016G-B3200GSST",
+      modeloDetallado: "LD4AU016G-B3200GSST",
+      capacidad: "16 GB",
+      modulosMemoriaRAM: "1 x 16 GB",
+      tipoMemoriaRAM: "DDR4",
+      formatoMemoriaRAM: "UDIMM (no ECC)",
+      ecc: "No",
+      bufferedRegistered: "Unbuffered",
+      velocidadEfectiva: "3200 MHz",
+      velocidadTransferencia: "PC4-25600",
+      latenciaTipica: "CL22 (varía según lote)",
+      voltaje: "1.2 V",
+      compatibilidad: "Motherboards DDR4 para Intel y AMD",
+      usoRecomendado: "PC escritorio, gaming básico, tareas generales",
+      temperaturaFuncionamiento: "0°C a 85°C",
+      normaJEDEC: "Cumple estándar DDR4",
+      arquitecturaChips: "1Rx8 o 2Rx8 (dependiendo del lote)"
     }
   }
 ];
