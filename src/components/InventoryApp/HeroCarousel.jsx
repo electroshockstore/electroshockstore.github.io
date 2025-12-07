@@ -6,6 +6,30 @@ const slides = [
   {
     id: 1,
     icon: AlertCircle,
+    title: "VENDEDORES AUTORIZADOS",
+    items: [
+      { text: "Únicamente vía chat web", highlight: true },
+      { text: "Evite ser estafado", highlight: true },
+      { text: "NO tenemos instagram Ni pagina facebook oficial solo vendedores autorizados", highlight: true },
+      { text: "Contacto oficial solo a través de nuestro sitio web", highlight: false }
+    ],
+    bgGradient: "from-blue-600 via-indigo-700 to-purple-900"
+  },
+  {
+    id: 2,
+    icon: Package,
+    title: "SIN DEPÓSITOS",
+    items: [
+      { text: "NO solicitamos depósitos previos", highlight: true },
+      { text: "Pago contra entrega del producto", highlight: false },
+      { text: "Revisá el producto antes de pagar", highlight: false },
+      { text: "Desconfía de quien te pida dinero por adelantado", highlight: true }
+    ],
+    bgGradient: "from-red-600 via-rose-700 to-pink-900"
+  },
+  {
+    id: 3,
+    icon: AlertCircle,
     title: "IMPORTANTE",
     items: [
       { text: "NO PERMUTO. Transferencias menores a $100.000 tienen recargo.", highlight: true },
@@ -14,31 +38,31 @@ const slides = [
     bgGradient: "from-red-600 via-red-700 to-rose-900"
   },
   {
-     id: 2,
+    id: 4,
     icon: Package,
     title: "CONDICIONES DE VENTA",
     items: [
       { text: "NO TENGO LOCAL SOY PARTICULAR", highlight: true },
-         { text: "No hago facturas ni tengo garantía escrita.", highlight: true },
-            { text: "Todos los productos estan sellados de fabrica. Por Cierre de local", highlight: true },
+      { text: "No hago facturas ni tengo garantía escrita.", highlight: true },
+      { text: "Todos los productos estan sellados de fabrica. Por Cierre de local", highlight: true },
       { text: "Si se quiere abrir producto , se paga antes por seguridad", highlight: true }
     ],
     bgGradient: "from-orange-600 to-orange-800"
   },
   {
-    id: 3,
+    id: 5,
     icon: MapPin,
     title: "RETIRO Y HORARIOS",
     items: [
       { text: "Punto de retiro:  Berazategui : AV Mitre y AV 14 , 16:00hs ", highlight: false },
-       { text: "Punto de retiro:  Cruce Florencio Varela : Puerta Bingo (bz cruce) 16:30hs.", highlight: false },
+      { text: "Punto de retiro:  Cruce Florencio Varela : Puerta Bingo (bz cruce) 16:30hs.", highlight: false },
       { text: "Fines de semana: Solo en zonas Florencio Varela todo el día.", highlight: false },
       { text: "No viajo a otro lado, solo tengo esos horarios por falta de tiempo.", highlight: true }
     ],
     bgGradient: "from-blue-600 via-blue-700 to-indigo-900"
   },
   {
-    id: 4,
+    id: 6,
     icon: CreditCard,
     title: "FORMAS DE PAGO",
     items: [
@@ -188,110 +212,123 @@ const HeroCarousel = () => {
               dragConstraints={{ left: 0, right: 0 }}
               dragElastic={1}
               onDragEnd={handleDragEnd}
-              className={`absolute inset-0 bg-gradient-to-br ${current.bgGradient} cursor-grab active:cursor-grabbing`}
+              className={`absolute inset-0 ${current.type === 'image' ? 'bg-gradient-to-br from-gray-50 to-gray-100' : `bg-gradient-to-br ${current.bgGradient}`} cursor-grab active:cursor-grabbing`}
             >
-              {/* Animated mesh gradient overlay */}
-              <motion.div 
-                className="absolute inset-0"
-                animate={{
-                  background: [
-                    'radial-gradient(circle at 20% 50%, rgba(255,255,255,0.1) 0%, transparent 50%)',
-                    'radial-gradient(circle at 80% 50%, rgba(255,255,255,0.1) 0%, transparent 50%)',
-                    'radial-gradient(circle at 20% 50%, rgba(255,255,255,0.1) 0%, transparent 50%)',
-                  ]
-                }}
-                transition={{ duration: 8, repeat: Infinity }}
-              />
-              
-              {/* Modern geometric pattern */}
-              <div className="absolute inset-0 opacity-10">
-                <svg className="w-full h-full">
-                  <pattern id="grid" width="60" height="60" patternUnits="userSpaceOnUse">
-                    <path d="M 60 0 L 0 0 0 60" fill="none" stroke="white" strokeWidth="1"/>
-                  </pattern>
-                  <rect width="100%" height="100%" fill="url(#grid)" />
-                </svg>
-              </div>
-              
-              <div className="relative h-full flex items-center px-6 sm:px-10 md:px-16 lg:px-20 py-8 text-white">
-                <div className="w-full grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
-                  
-                  {/* Left Side - Content */}
-                  <div className="space-y-6">
-                    {/* Icon + Title */}
-                    <div className="flex items-center gap-4">
-                      <div className="bg-white/20 backdrop-blur-sm p-3 rounded-xl border border-white/40 shadow-lg">
-                        <Icon className="w-10 h-10 sm:w-12 sm:h-12 text-white" strokeWidth={2.5} />
-                      </div>
-                      <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-white leading-tight">
-                        {current.title}
-                      </h2>
-                    </div>
-
-                    {/* Items List */}
-                    <div className="space-y-3">
-                      {current.items.map((item, index) => (
-                        <div
-                          key={index}
-                          className={`flex items-start gap-3 p-3 rounded-lg backdrop-blur-sm transition-all duration-300 ${
-                            item.highlight 
-                              ? 'bg-white/95 border-l-4 border-red-500 shadow-lg' 
-                              : 'bg-white/80 border-l-4 border-emerald-500'
-                          }`}
-                        >
-                          <span className={`text-2xl flex-shrink-0 ${
-                            item.highlight ? 'text-red-600' : 'text-emerald-600'
-                          }`}>
-                            {item.highlight ? '⚠️' : '✓'}
-                          </span>
-                          <span className={`text-sm sm:text-base leading-snug ${
-                            item.highlight 
-                              ? 'text-red-900 font-bold' 
-                              : 'text-gray-800 font-semibold'
-                          }`}>
-                            {item.text}
-                          </span>
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-
-                  {/* Right Side - Visual Element */}
-                  <div className="hidden lg:flex items-center justify-center">
-                    <div className="relative">
-                      <motion.div
-                        animate={{ 
-                          scale: [1, 1.05, 1],
-                          rotate: [0, 2, -2, 0]
-                        }}
-                        transition={{ 
-                          duration: 4,
-                          repeat: Infinity,
-                          ease: "easeInOut"
-                        }}
-                        className="bg-white/10 backdrop-blur-md rounded-3xl p-12 border-2 border-white/30 shadow-2xl"
-                      >
-                        <Icon className="w-48 h-48 text-white/80" strokeWidth={1.5} />
-                      </motion.div>
-                      
-                      {/* Decorative elements */}
-                      <motion.div
-                        animate={{ 
-                          opacity: [0.3, 0.6, 0.3],
-                          scale: [0.9, 1.1, 0.9]
-                        }}
-                        transition={{ 
-                          duration: 3,
-                          repeat: Infinity,
-                          ease: "easeInOut"
-                        }}
-                        className="absolute inset-0 bg-white/20 blur-3xl rounded-full -z-10"
-                      />
-                    </div>
-                  </div>
-
+              {current.type === 'image' ? (
+                // Image slide
+                <div className="relative h-full w-full flex items-center justify-center p-4">
+                  <img 
+                    src={current.image} 
+                    alt={current.alt}
+                    className="max-w-full max-h-full object-contain"
+                  />
                 </div>
-              </div>
+              ) : (
+                <>
+                  {/* Animated mesh gradient overlay */}
+                  <motion.div 
+                    className="absolute inset-0"
+                    animate={{
+                      background: [
+                        'radial-gradient(circle at 20% 50%, rgba(255,255,255,0.1) 0%, transparent 50%)',
+                        'radial-gradient(circle at 80% 50%, rgba(255,255,255,0.1) 0%, transparent 50%)',
+                        'radial-gradient(circle at 20% 50%, rgba(255,255,255,0.1) 0%, transparent 50%)',
+                      ]
+                    }}
+                    transition={{ duration: 8, repeat: Infinity }}
+                  />
+                  
+                  {/* Modern geometric pattern */}
+                  <div className="absolute inset-0 opacity-10">
+                    <svg className="w-full h-full">
+                      <pattern id="grid" width="60" height="60" patternUnits="userSpaceOnUse">
+                        <path d="M 60 0 L 0 0 0 60" fill="none" stroke="white" strokeWidth="1"/>
+                      </pattern>
+                      <rect width="100%" height="100%" fill="url(#grid)" />
+                    </svg>
+                  </div>
+                  
+                  <div className="relative h-full flex items-center px-6 sm:px-10 md:px-16 lg:px-20 py-8 text-white">
+                    <div className="w-full grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
+                      
+                      {/* Left Side - Content */}
+                      <div className="space-y-6">
+                        {/* Icon + Title */}
+                        <div className="flex items-center gap-4">
+                          <div className="bg-white/20 backdrop-blur-sm p-3 rounded-xl border border-white/40 shadow-lg">
+                            <Icon className="w-10 h-10 sm:w-12 sm:h-12 text-white" strokeWidth={2.5} />
+                          </div>
+                          <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-white leading-tight">
+                            {current.title}
+                          </h2>
+                        </div>
+
+                        {/* Items List */}
+                        <div className="space-y-3">
+                          {current.items.map((item, index) => (
+                            <div
+                              key={index}
+                              className={`flex items-start gap-3 p-3 rounded-lg backdrop-blur-sm transition-all duration-300 ${
+                                item.highlight 
+                                  ? 'bg-white/95 border-l-4 border-red-500 shadow-lg' 
+                                  : 'bg-white/80 border-l-4 border-emerald-500'
+                              }`}
+                            >
+                              <span className={`text-2xl flex-shrink-0 ${
+                                item.highlight ? 'text-red-600' : 'text-emerald-600'
+                              }`}>
+                                {item.highlight ? '⚠️' : '✓'}
+                              </span>
+                              <span className={`text-sm sm:text-base leading-snug ${
+                                item.highlight 
+                                  ? 'text-red-900 font-bold' 
+                                  : 'text-gray-800 font-semibold'
+                              }`}>
+                                {item.text}
+                              </span>
+                            </div>
+                          ))}
+                        </div>
+                      </div>
+
+                      {/* Right Side - Visual Element */}
+                      <div className="hidden lg:flex items-center justify-center">
+                        <div className="relative">
+                          <motion.div
+                            animate={{ 
+                              scale: [1, 1.05, 1],
+                              rotate: [0, 2, -2, 0]
+                            }}
+                            transition={{ 
+                              duration: 4,
+                              repeat: Infinity,
+                              ease: "easeInOut"
+                            }}
+                            className="bg-white/10 backdrop-blur-md rounded-3xl p-12 border-2 border-white/30 shadow-2xl"
+                          >
+                            <Icon className="w-48 h-48 text-white/80" strokeWidth={1.5} />
+                          </motion.div>
+                          
+                          {/* Decorative elements */}
+                          <motion.div
+                            animate={{ 
+                              opacity: [0.3, 0.6, 0.3],
+                              scale: [0.9, 1.1, 0.9]
+                            }}
+                            transition={{ 
+                              duration: 3,
+                              repeat: Infinity,
+                              ease: "easeInOut"
+                            }}
+                            className="absolute inset-0 bg-white/20 blur-3xl rounded-full -z-10"
+                          />
+                        </div>
+                      </div>
+
+                    </div>
+                  </div>
+                </>
+              )}
             </motion.div>
           </AnimatePresence>
         </div>

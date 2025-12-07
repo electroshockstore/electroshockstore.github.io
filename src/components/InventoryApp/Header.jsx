@@ -148,38 +148,47 @@ const Header = ({ searchQuery, onSearchChange, onGoHome }) => {
             </button>
             
             <div className="flex items-center gap-2">
-              <button
+              <motion.button
                 onClick={() => {
                   navigate('/');
                   onGoHome?.();
                 }}
-                className="p-2.5 bg-green-600 hover:bg-green-700 
+                whileTap={{ scale: 0.9 }}
+                className="relative p-2.5 bg-gradient-to-br from-green-600 to-emerald-600 hover:from-green-700 hover:to-emerald-700
                          rounded-full text-white
-                         transition-all duration-200"
+                         transition-all duration-300 shadow-lg hover:shadow-green-500/50
+                         border border-green-500/30 overflow-hidden group"
                 aria-label="Inicio"
               >
-                <Home className="h-4 w-4" strokeWidth={2.5} />
-              </button>
+                <div className="absolute inset-0 bg-white/20 scale-0 group-hover:scale-100 transition-transform duration-300 rounded-full" />
+                <Home className="h-4 w-4 relative z-10" strokeWidth={2.5} />
+              </motion.button>
               
-              <button
+              <motion.button
                 onClick={() => setShowConditionsModal(true)}
-                className="p-2.5 bg-orange-600 hover:bg-orange-700 
+                whileTap={{ scale: 0.9 }}
+                className="relative p-2.5 bg-gradient-to-br from-orange-600 to-red-600 hover:from-orange-700 hover:to-red-700
                          rounded-full text-white
-                         transition-all duration-200 shadow-lg hover:shadow-orange-500/50 hover:scale-110"
+                         transition-all duration-300 shadow-lg hover:shadow-orange-500/50
+                         border border-orange-500/30 overflow-hidden group"
                 aria-label="Condiciones de Venta"
               >
-                <FileText className="h-4 w-4" strokeWidth={2.5} />
-              </button>
+                <div className="absolute inset-0 bg-white/20 scale-0 group-hover:scale-100 transition-transform duration-300 rounded-full" />
+                <FileText className="h-4 w-4 relative z-10" strokeWidth={2.5} />
+              </motion.button>
               
-              <button
+              <motion.button
                 onClick={() => window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' })}
-                className="p-2.5 bg-blue-600 hover:bg-blue-700 
+                whileTap={{ scale: 0.9 }}
+                className="relative p-2.5 bg-gradient-to-br from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700
                          rounded-full text-white
-                         transition-all duration-200"
+                         transition-all duration-300 shadow-lg hover:shadow-blue-500/50
+                         border border-blue-500/30 overflow-hidden group"
                 aria-label="Puntos de Retiro"
               >
-                <MapPin className="h-4 w-4" strokeWidth={2.5} />
-              </button>
+                <div className="absolute inset-0 bg-white/20 scale-0 group-hover:scale-100 transition-transform duration-300 rounded-full" />
+                <MapPin className="h-4 w-4 relative z-10" strokeWidth={2.5} />
+              </motion.button>
             </div>
           </div>
           
@@ -342,42 +351,54 @@ const Header = ({ searchQuery, onSearchChange, onGoHome }) => {
             </div>
           </div>
 
-          <div className="flex items-center gap-3 flex-shrink-0">
-            <button
+          <div className="flex items-center gap-2 flex-shrink-0">
+            <motion.button
               onClick={() => {
                 navigate('/');
                 onGoHome?.();
               }}
-              className="flex items-center gap-2 px-4 py-2.5 
-                       bg-green-600 hover:bg-green-700 
-                       rounded-full text-white font-semibold text-sm
-                       transition-all duration-200 hover:shadow-lg hover:shadow-green-500/30"
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              className="relative flex items-center gap-2 px-5 py-2.5 
+                       bg-gradient-to-r from-green-600 to-emerald-600 hover:from-green-700 hover:to-emerald-700
+                       rounded-full text-white font-bold text-sm
+                       transition-all duration-300 shadow-lg hover:shadow-green-500/50
+                       border border-green-500/30 overflow-hidden group"
             >
-              <Home className="h-4 w-4" strokeWidth={2.5} />
-              <span className="hidden lg:inline">Inicio</span>
-            </button>
+              <div className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/20 to-white/0 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700" />
+              <Home className="h-4 w-4 relative z-10" strokeWidth={2.5} />
+              <span className="hidden lg:inline relative z-10">Inicio</span>
+            </motion.button>
             
-            <button
+            <motion.button
               onClick={() => setShowConditionsModal(true)}
-              className="flex items-center gap-2 px-4 py-2.5 
-                       bg-orange-600 hover:bg-orange-700 
-                       rounded-full text-white font-semibold text-sm
-                       transition-all duration-200 hover:shadow-lg hover:shadow-orange-500/50 hover:scale-105"
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              className="relative flex items-center gap-2 px-5 py-2.5 
+                       bg-gradient-to-r from-orange-600 to-red-600 hover:from-orange-700 hover:to-red-700
+                       rounded-full text-white font-bold text-sm
+                       transition-all duration-300 shadow-lg hover:shadow-orange-500/50
+                       border border-orange-500/30 overflow-hidden group"
             >
-              <FileText className="h-4 w-4" strokeWidth={2.5} />
-              <span className="hidden lg:inline">Condiciones de Venta</span>
-            </button>
+              <div className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/20 to-white/0 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700" />
+              <FileText className="h-4 w-4 relative z-10" strokeWidth={2.5} />
+              <span className="hidden lg:inline relative z-10">Condiciones de Venta</span>
+            </motion.button>
             
-            <button
+            <motion.button
               onClick={() => window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' })}
-              className="flex items-center gap-2 px-4 py-2.5 
-                       bg-blue-600 hover:bg-blue-700 
-                       rounded-full text-white font-semibold text-sm
-                       transition-all duration-200 hover:shadow-lg hover:shadow-blue-500/30"
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              className="relative flex items-center gap-2 px-5 py-2.5 
+                       bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700
+                       rounded-full text-white font-bold text-sm
+                       transition-all duration-300 shadow-lg hover:shadow-blue-500/50
+                       border border-blue-500/30 overflow-hidden group"
             >
-              <MapPin className="h-4 w-4" strokeWidth={2.5} />
-              <span className="hidden lg:inline">Puntos de Retiro</span>
-            </button>
+              <div className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/20 to-white/0 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700" />
+              <MapPin className="h-4 w-4 relative z-10" strokeWidth={2.5} />
+              <span className="hidden lg:inline relative z-10">Puntos de Retiro</span>
+            </motion.button>
           </div>
         </div>
       </div>

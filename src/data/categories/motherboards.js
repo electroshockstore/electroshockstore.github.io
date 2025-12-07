@@ -157,5 +157,48 @@ export const motherboardsProducts = [
       dimensiones: "33 x 5 x 5 cm",
       peso: "0.55 kg"
     }
+  },
+  {
+    id: 600,
+    name: "Gigabyte B650m-H UD Amd Am5 Ddr5",
+    brand: "Gigabyte",
+    model: "B650M-H",
+    category: "Motherboards",
+    price: 145000,
+    stock: 1,
+    images: [
+      "/images/motherboard/gigabyte_b650m-h.webp",
+      "/images/motherboard/gigabyte_b650m-h_3.webp",
+      "/images/motherboard/gigabyte_b650m-h_front.webp"
+    ],
+    description: "Mother Gigabyte B650M-H UD AMD AM5 DDR5 con soporte para Ryzen 7000/8000/9000",
+    specifications: {
+      marca: "Gigabyte",
+      linea: "Ultra Durable",
+      modelo: "B650M-H",
+      socket: "AM5",
+      chipset: "AMD B650",
+      procesadoresCompatibles: "AMD Ryzen 7000 / 8000 / 9000",
+      tipoMemoriaRAM: "DDR5",
+      capacidadMaximaSoportada: "96 GB",
+      formatoMemoriaRAM: "DIMM",
+      slotsMemoriaRAM: "2",
+      canalesMemoriaRAM: "Dual Channel",
+      velocidadMemoriaRAM: "4400 a 6400 MHz (OC)",
+      soportePerfiles: "AMD EXPO / Intel XMP",
+      almacenamientoM2: "1 x M.2 PCIe 4.0 x4 (NVMe)",
+      almacenamientoSATA: "4 x SATA III (6 Gb/s) con RAID 0/1/10",
+      slotsExpansion: "1 x PCI Express 4.0 x16, 1 x PCI Express 3.0 x1",
+      audio: "Realtek High Definition Audio (hasta 7.1)",
+      red: "Ethernet 1 GbE",
+      salidasVideo: "1 x HDMI 2.1, 1 x DisplayPort 1.4 (según CPU con gráficos)",
+      puertosUSBTraseros: "2 x USB 3.2 Gen1, 4 x USB 2.0",
+      conectoresInternos: "RGB + ARGB, headers USB, ventiladores PWM/DC",
+      bios: "UEFI AMI con Q-Flash Plus",
+      sistemaOperativoCompatible: "Windows 10/11 64 bits",
+      factorDeForma: "Micro-ATX",
+      funcionesDestacadas: "Smart Fan 6, EZ-Latch para PCIe",
+      vrm: "Diseño digital 5+2+2 fases"
+    }
   }
 ];

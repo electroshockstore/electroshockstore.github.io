@@ -57,12 +57,14 @@ const Store = () => {
               onCategoryChange={setSelectedCategory}
             />
           </div>
-          <div className="flex sm:items-center flex-shrink-0">
-            <ViewToggleButton 
-              viewMode={viewMode}
-              toggleViewMode={toggleViewMode}
-            />
-          </div>
+          {selectedCategory && filteredProducts.length > 0 && (
+            <div className="flex sm:items-center flex-shrink-0">
+              <ViewToggleButton 
+                viewMode={viewMode}
+                toggleViewMode={toggleViewMode}
+              />
+            </div>
+          )}
         </div>
 
         {!selectedCategory ? (
