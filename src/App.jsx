@@ -4,6 +4,9 @@ import Store from "./modules/Store";
 import ProductDetailPage from "./Modules/ProductDetailPage";
 import { FilterProvider } from "./context/FilterContext";
 import { StockProvider } from "./context/StockContext";
+import ErrorBoundary from "./components/ErrorBoundary";
+import ErrorNotification from "./components/ErrorNotification";
+import { useErrorHandler } from "./hooks/useErrorHandler";
 
 const pageVariants = {
   initial: {
@@ -30,10 +33,18 @@ const pageVariants = {
 
 function AnimatedRoutes() {
   const location = useLocation();
+  
+  // Solo animar transiciones entre páginas diferentes (no entre categorías)
+  const getRouteKey = (pathname) => {
+    if (pathname.includes('/categoria/') && pathname.split('/').length === 4) {
+      return 'product-detail'; // Página de detalle de producto
+    }
+    return 'store'; // Página principal/categorías
+  };
 
   return (
     <AnimatePresence mode="wait">
-      <Routes location={location} key={location.pathname}>
+      <Routes location={location} key={getRouteKey(location.pathname)}>
         <Route
           path="/"
           element={
@@ -92,19 +103,42 @@ function AnimatedRoutes() {
   );
 }
 
+function AppContent() {
+  const { networkError, resourceError, clearErrors } = useErrorHandler();
+  
+  const handleReload = () => {
+    window.location.reload();
+  };
+
+  const currentError = networkError || resourceError;
+
+  return (
+    <div className="min-h-screen bg-gradient-to-b from-[#E5E7EB] to-[#C7CCD1] antialiased">
+      {/* Notificación de errores */}
+      <ErrorNotification 
+        error={currentError}
+        onClose={clearErrors}
+        onReload={handleReload}
+      />
+      
+      <main className="relative z-10 w-full">
+        <AnimatedRoutes />
+      </main>
+    </div>
+  );
+}
+
 function App() {
   return (
-    <StockProvider>
-      <FilterProvider>
-        <Router basename="/">
-          <div className="min-h-screen bg-gradient-to-b from-[#E5E7EB] to-[#C7CCD1] antialiased">
-            <main className="relative z-10 w-full">
-              <AnimatedRoutes />
-            </main>
-          </div>
-        </Router>
-      </FilterProvider>
-    </StockProvider>
+    <ErrorBoundary>
+      <StockProvider>
+        <FilterProvider>
+          <Router basename="/">
+            <AppContent />
+          </Router>
+        </FilterProvider>
+      </StockProvider>
+    </ErrorBoundary>
   );
 }
 

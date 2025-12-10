@@ -147,54 +147,55 @@ const Header = ({ searchQuery, onSearchChange, onGoHome }) => {
               </div>
             </button>
             
-            <div className="flex items-center gap-2 relative">
-              {/* Bot Helper - Mobile */}
+            <div className="flex items-center gap-2">
+              {/* Bot Helper - Mobile - DENTRO del bloque de botones */}
               <motion.div
                 initial={{ opacity: 0, x: -20 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ delay: 0.8, type: "spring" }}
-                className="flex items-center gap-2 mr-1"
+                className="flex items-center gap-1.5 mr-2"
               >
-                <motion.div
-                  animate={{ 
-                    scale: [1, 1.1, 1]
-                  }}
-                  transition={{ 
-                    duration: 2,
-                    repeat: Infinity,
-                    ease: "easeInOut"
-                  }}
-                  className="relative"
-                >
-                  <div className="bg-gradient-to-br from-cyan-500 to-blue-600 rounded-full p-2 shadow-lg border-2 border-cyan-300/50">
-                    <Bot className="w-4 h-4 text-white" strokeWidth={2.5} />
-                  </div>
+                <div className="relative">
                   <motion.div
                     animate={{ 
-                      scale: [1, 1.4, 1],
-                      opacity: [0.6, 0, 0.6]
+                      scale: [1, 1.15, 1]
                     }}
                     transition={{ 
                       duration: 2,
-                      repeat: Infinity
+                      repeat: Infinity,
+                      ease: "easeInOut"
                     }}
-                    className="absolute inset-0 bg-cyan-400 rounded-full blur-sm"
-                  />
-                </motion.div>
+                    className="relative"
+                  >
+                    <div className="bg-gradient-to-br from-cyan-500 via-blue-600 to-indigo-600 rounded-full p-1.5 shadow-lg border-2 border-cyan-300/50">
+                      <Bot className="w-3 h-3 text-white" strokeWidth={2.5} />
+                    </div>
+                    <motion.div
+                      animate={{ 
+                        scale: [1, 1.4, 1],
+                        opacity: [0.6, 0, 0.6]
+                      }}
+                      transition={{ 
+                        duration: 2,
+                        repeat: Infinity
+                      }}
+                      className="absolute inset-0 bg-cyan-400 rounded-full blur-sm"
+                    />
+                  </motion.div>
+                </div>
                 
                 <motion.div
-                  animate={{ x: [0, 3, 0] }}
+                  animate={{ x: [0, 2, 0] }}
                   transition={{ 
                     duration: 1.5,
                     repeat: Infinity,
                     ease: "easeInOut"
                   }}
                 >
-                  <ArrowRight className="w-4 h-4 text-cyan-400" strokeWidth={3} />
+                  <ArrowRight className="w-3 h-3 text-cyan-400" strokeWidth={3} />
                 </motion.div>
               </motion.div>
 
-              
               <motion.button
                 onClick={() => setShowConditionsModal(true)}
                 whileTap={{ scale: 0.9 }}
@@ -402,13 +403,13 @@ const Header = ({ searchQuery, onSearchChange, onGoHome }) => {
             </div>
           </div>
 
-          <div className="flex items-center gap-2 flex-shrink-0 relative">
-            {/* Bot Helper - Desktop */}
+          <div className="flex items-center gap-2 flex-shrink-0">
+            {/* Bot Helper - Desktop - DENTRO del bloque de botones */}
             <motion.div
               initial={{ opacity: 0, x: -20 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ delay: 0.8, type: "spring" }}
-              className="flex items-center gap-3 mr-2"
+              className="flex items-center gap-2 mr-3"
             >
               <div className="relative">
                 <motion.div
@@ -422,8 +423,8 @@ const Header = ({ searchQuery, onSearchChange, onGoHome }) => {
                   }}
                   className="relative"
                 >
-                  <div className="bg-gradient-to-br from-cyan-500 via-blue-600 to-indigo-600 rounded-full p-2.5 shadow-xl border-2 border-cyan-300/50">
-                    <Bot className="w-5 h-5 text-white" strokeWidth={2.5} />
+                  <div className="bg-gradient-to-br from-cyan-500 via-blue-600 to-indigo-600 rounded-full p-2 shadow-xl border-2 border-cyan-300/50">
+                    <Bot className="w-4 h-4 text-white" strokeWidth={2.5} />
                   </div>
                   <motion.div
                     animate={{ 
@@ -439,28 +440,24 @@ const Header = ({ searchQuery, onSearchChange, onGoHome }) => {
                 </motion.div>
               </div>
               
-              <div className="flex items-center gap-2">
-                <motion.div
-                  animate={{ x: [0, 5, 0] }}
-                  transition={{ 
-                    duration: 1.5,
-                    repeat: Infinity,
-                    ease: "easeInOut"
-                  }}
-                >
-                  <ArrowRight className="w-5 h-5 text-cyan-400" strokeWidth={3} />
-                </motion.div>
-                
-                <div className="bg-gradient-to-r from-cyan-500/20 to-blue-600/20 backdrop-blur-sm px-3 py-1.5 rounded-full border border-cyan-400/30">
-                  <p className="text-xs font-bold text-cyan-300 whitespace-nowrap">
-                    ¡Info importante!
-                  </p>
-                </div>
+              <motion.div
+                animate={{ x: [0, 3, 0] }}
+                transition={{ 
+                  duration: 1.5,
+                  repeat: Infinity,
+                  ease: "easeInOut"
+                }}
+              >
+                <ArrowRight className="w-4 h-4 text-cyan-400" strokeWidth={3} />
+              </motion.div>
+              
+              <div className="bg-gradient-to-r from-cyan-500/20 to-blue-600/20 backdrop-blur-sm px-2 py-1 rounded-full border border-cyan-400/30">
+                <p className="text-xs font-bold text-cyan-300 whitespace-nowrap">
+                  ¡Info importante!
+                </p>
               </div>
             </motion.div>
 
-            
-            
             <motion.button
               onClick={() => setShowConditionsModal(true)}
               whileHover={{ scale: 1.05 }}

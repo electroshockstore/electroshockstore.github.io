@@ -2,7 +2,7 @@
 export const tecladosProducts = [
   {
     id: 700,
-    name: "Redragon S101-BA - Kit Teclado + Mouse + Auricular + Pad Membrana RGB Alámbrico",
+    name: "Redragon S101-BA-Kit 3x1+RGB Alámbrico",
     brand: "Redragon",
     model: "S101-BA",
     category: "Teclados",
@@ -41,7 +41,7 @@ export const tecladosProducts = [
   },
   {
     id: 701,
-    name: "Razer Cyclosa + Abyssus - Kit Teclado + Mouse Membrana Retroiluminado Alámbrico",
+    name: "Razer Cyclosa + Abyssus - Kit 2x1 Retroiluminado Alámbrico",
     brand: "Razer",
     model: "Cyclosa + Abyssus",
     category: "Teclados",
@@ -76,7 +76,7 @@ export const tecladosProducts = [
   },
   {
     id: 702,
-    name: "Redragon S143 - Kit Teclado + Mouse Mecánico 60% RGB Alámbrico",
+    name: "Redragon S143 -Kit Teclado+ Mouse Mecánico RGB Alámbrico",
     brand: "Redragon",
     model: "S143",
     category: "Teclados",

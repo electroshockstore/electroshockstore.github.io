@@ -2,7 +2,7 @@
 export const joystickProducts = [
   {
     id: 900,
-    name: "T-Dagger Scorpio T-TGP802 Inalámbrico PC/ANDROID/CONSOLA",
+    name: "T-Dagger Scorpio Inalámbrico PC/ANDROID/CONSOLA",
     brand: "T-Dagger",
     model: "Scorpio T-TGP802",
     category: "Joystick",
@@ -190,7 +190,7 @@ export const joystickProducts = [
   },
   {
     id: 904,
-    name: "Microsoft inalambrico Carbon Black + Cable USB-C PC/ANDROID/CONSOLA",
+    name: "Microsoft inalambrico Carbon Black PC/ANDROID/CONSOLA",
     brand: "Microsoft",
     model: "Xbox Wireless",
     category: "Joystick",

@@ -385,7 +385,7 @@ export const auricularesProducts = [
   },
   {
     id: 813,
-    name: "Razer Kraken X Console - Alámbrico 3.5mm Blanco PLAYSTATION, XBOX, SWITCH",
+    name: "Razer Kraken X Console - Alámbrico 3.5mm. Consolas",
     brand: "Razer",
     model: "Kraken X for Console",
     category: "Auriculares",
