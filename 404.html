@@ -73,33 +73,52 @@
     <script type="text/javascript">
       var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
       
-      // Configurar idioma español y ocultar widget inicialmente
+      // Configurar para que NUNCA se muestre el widget flotante
       Tawk_API.onLoad = function(){
         // Configurar idioma español
         Tawk_API.setAttributes({
-          name: 'Visitante',
+          name: 'Visitante de Shock-Store',
           email: '',
           hash: ''
         });
         
-        // Ocultar el widget por defecto
+        // OCULTAR COMPLETAMENTE el widget flotante
         Tawk_API.hideWidget();
+        
+        // Configurar para que siempre se abra maximizado
+        Tawk_API.onChatMaximized = function(){
+          // Analytics cuando se abre el chat
+          if (window.gtag) {
+            window.gtag('event', 'chat_opened', {
+              event_category: 'engagement',
+              event_label: 'tawk_to_chat'
+            });
+          }
+        };
       };
       
-      // Configurar mensajes en español
-      Tawk_API.customStyle = {
-        visibility: {
-          desktop: {
-            position: 'br',
-            xOffset: 20,
-            yOffset: 100 // Más arriba para no chocar con el botón de scroll
-          },
-          mobile: {
-            position: 'br',
-            xOffset: 10,
-            yOffset: 80 // Más arriba en mobile también
+      // Función personalizada para abrir chat directamente maximizado
+      window.openTawkChat = function(initialMessage) {
+        if (window.Tawk_API) {
+          // Maximizar directamente sin mostrar el widget flotante
+          if (window.Tawk_API.maximize) {
+            window.Tawk_API.maximize();
+            
+            // Enviar mensaje inicial si se proporciona
+            if (initialMessage) {
+              setTimeout(() => {
+                if (window.Tawk_API.addEvent) {
+                  window.Tawk_API.addEvent({
+                    event: 'message',
+                    message: initialMessage
+                  });
+                }
+              }, 1000);
+            }
+            return true;
           }
         }
+        return false;
       };
       
       (function(){
@@ -112,31 +131,33 @@
       })();
     </script>
     
-    <!-- CSS para personalizar Tawk.to -->
+    <!-- CSS para OCULTAR COMPLETAMENTE el widget de Tawk.to -->
     <style>
-      /* Ocultar el widget de Tawk.to inicialmente */
-      #tawk-bubble, .tawk-bubble {
+      /* OCULTAR COMPLETAMENTE todos los elementos del widget flotante */
+      #tawk-bubble, 
+      .tawk-bubble,
+      #tawk-widget,
+      .tawk-widget,
+      .tawk-min-container,
+      .tawk-min-wrapper {
         display: none !important;
+        visibility: hidden !important;
+        opacity: 0 !important;
+        pointer-events: none !important;
       }
       
-      /* Mostrar solo cuando se active */
-      .tawk-active #tawk-bubble,
-      .tawk-active .tawk-bubble {
-        display: block !important;
-      }
-      
-      /* Ajustar posición para no chocar con botón de scroll */
-      .tawk-widget {
-        bottom: 100px !important;
-        z-index: 999 !important;
-      }
-      
-      /* Personalizar el chat para que se vea mejor */
-      .tawk-chat-panel {
+      /* Solo permitir que se muestre cuando está maximizado */
+      .tawk-chat-panel,
+      .tawk-chat-container {
         font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif !important;
       }
+      
+      /* Asegurar que el chat maximizado se vea bien */
+      .tawk-chat-panel {
+        z-index: 9999 !important;
+      }
     </style>
-    <script type="module" crossorigin src="/assets/index-Ct5DC1vj.js"></script>
+    <script type="module" crossorigin src="/assets/index-CrEVkCcp.js"></script>
     <link rel="stylesheet" crossorigin href="/assets/index-CiA3eO4x.css">
   
     <!-- GitHub Pages SPA redirect script -->
