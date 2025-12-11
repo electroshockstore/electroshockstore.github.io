@@ -73,10 +73,33 @@
     <script type="text/javascript">
       var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
       
-      // Configurar para ocultar el widget inicialmente
+      // Configurar idioma español y ocultar widget inicialmente
       Tawk_API.onLoad = function(){
+        // Configurar idioma español
+        Tawk_API.setAttributes({
+          name: 'Visitante',
+          email: '',
+          hash: ''
+        });
+        
         // Ocultar el widget por defecto
         Tawk_API.hideWidget();
+      };
+      
+      // Configurar mensajes en español
+      Tawk_API.customStyle = {
+        visibility: {
+          desktop: {
+            position: 'br',
+            xOffset: 20,
+            yOffset: 100 // Más arriba para no chocar con el botón de scroll
+          },
+          mobile: {
+            position: 'br',
+            xOffset: 10,
+            yOffset: 80 // Más arriba en mobile también
+          }
+        }
       };
       
       (function(){
@@ -89,7 +112,7 @@
       })();
     </script>
     
-    <!-- CSS para ocultar el widget de Tawk.to por defecto -->
+    <!-- CSS para personalizar Tawk.to -->
     <style>
       /* Ocultar el widget de Tawk.to inicialmente */
       #tawk-bubble, .tawk-bubble {
@@ -101,9 +124,20 @@
       .tawk-active .tawk-bubble {
         display: block !important;
       }
+      
+      /* Ajustar posición para no chocar con botón de scroll */
+      .tawk-widget {
+        bottom: 100px !important;
+        z-index: 999 !important;
+      }
+      
+      /* Personalizar el chat para que se vea mejor */
+      .tawk-chat-panel {
+        font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif !important;
+      }
     </style>
-    <script type="module" crossorigin src="/assets/index-C4_uFrV7.js"></script>
-    <link rel="stylesheet" crossorigin href="/assets/index-DYe4hFjJ.css">
+    <script type="module" crossorigin src="/assets/index-Ct5DC1vj.js"></script>
+    <link rel="stylesheet" crossorigin href="/assets/index-CiA3eO4x.css">
   </head>
   <body>
     <div id="root"></div>
