@@ -72,6 +72,13 @@
     <!-- Tawk.to Live Chat -->
     <script type="text/javascript">
       var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+      
+      // Configurar para ocultar el widget inicialmente
+      Tawk_API.onLoad = function(){
+        // Ocultar el widget por defecto
+        Tawk_API.hideWidget();
+      };
+      
       (function(){
         var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
         s1.async=true;
@@ -81,7 +88,21 @@
         s0.parentNode.insertBefore(s1,s0);
       })();
     </script>
-    <script type="module" crossorigin src="/assets/index-DPlKUlhE.js"></script>
+    
+    <!-- CSS para ocultar el widget de Tawk.to por defecto -->
+    <style>
+      /* Ocultar el widget de Tawk.to inicialmente */
+      #tawk-bubble, .tawk-bubble {
+        display: none !important;
+      }
+      
+      /* Mostrar solo cuando se active */
+      .tawk-active #tawk-bubble,
+      .tawk-active .tawk-bubble {
+        display: block !important;
+      }
+    </style>
+    <script type="module" crossorigin src="/assets/index-C4_uFrV7.js"></script>
     <link rel="stylesheet" crossorigin href="/assets/index-DYe4hFjJ.css">
   
     <!-- GitHub Pages SPA redirect script -->
