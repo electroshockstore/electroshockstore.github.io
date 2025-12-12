@@ -8,6 +8,8 @@ import { mouseProducts } from './categories/mouse';
 import { auricularesProducts } from './categories/auriculares';
 import { tecladosProducts } from './categories/teclados';
 import { joystickProducts } from './categories/joystick';
+import { monitoresProducts } from './categories/monitores';
+import { conectividadProducts } from './categories/conectividad';
 
 export const categories = [
   'Fuentes',
@@ -19,7 +21,9 @@ export const categories = [
   'Mouse',
   'Auriculares',
   'Teclados',
-  'Joystick'
+  'Joystick',
+  'Monitores',
+  'Conectividad'
 ];
 
 export const products = [
@@ -32,5 +36,7 @@ export const products = [
   ...mouseProducts,
   ...auricularesProducts,
   ...tecladosProducts,
-  ...joystickProducts
+  ...joystickProducts,
+  ...monitoresProducts,
+  ...conectividadProducts
 ];

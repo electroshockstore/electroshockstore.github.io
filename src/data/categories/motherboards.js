@@ -200,5 +200,46 @@ export const motherboardsProducts = [
       funcionesDestacadas: "Smart Fan 6, EZ-Latch para PCIe",
       vrm: "Diseño digital 5+2+2 fases"
     }
+  },
+  {
+    id: 601,
+    name: "Gigabyte A620M H DDR5 AMD AM5",
+    brand: "Gigabyte",
+    model: "A620M H",
+    category: "Motherboards",
+    price: 120000,
+    stock: 1,
+    images: [
+      "/images/motherboard/a620m_h_ud.webp",
+      "/images/motherboard/a620m_h_ud_front.webp",
+      "/images/motherboard/a620m_h_ud_back.webp"
+    ],
+    description: "Mother Gigabyte A620M H DDR5 AMD AM5 para Ryzen Serie 7000/8000/9000, ideal para equipos económicos",
+    specifications: {
+      marca: "Gigabyte",
+      linea: "A620M H",
+      modelo: "A620M H",
+      chipset: "AMD A620",
+      socket: "AM5",
+      factorDeForma: "Micro-ATX",
+      tipoMemoriaRAM: "DDR5",
+      capacidadMaximaSoportada: "128 GB",
+      slotsMemoriaRAM: "2",
+      canalesMemoriaRAM: "Dual Channel",
+      velocidadMemoriaRAM: "Hasta 6400 MHz (OC)",
+      soporteECC: "Sí, ECC unbuffered (según CPU)",
+      graficosIntegrados: "Depende del procesador (APU Ryzen con iGPU)",
+      puertosVideo: "1x HDMI 2.1, 1x DisplayPort 1.4",
+      sata: "4x SATA III 6Gb/s",
+      m2: "1x M.2 PCIe 4.0 x4 (NVMe)",
+      ranurasPCIe: "1x PCIe 4.0 x16, 1x PCIe 3.0 x1",
+      audio: "Realtek ALC897 7.1 canales",
+      red: "Realtek GbE LAN 1Gbps",
+      conectoresInternos: "1x USB 3.2 Gen1 header, 2x USB 2.0 headers, 1x conector ventilador CPU, 1x conector ventilador gabinete",
+      panelTrasero: "4x USB 2.0, 2x USB 3.2 Gen1, 1x LAN 1GbE, 1x HDMI, 1x DisplayPort, 3x jacks de audio",
+      bios: "UEFI AMI, DualBIOS",
+      compatibilidadProcesadores: "Ryzen 7000 / 8000G / próximos Ryzen serie 9000 (según soporte de BIOS)",
+      observaciones: "Ideal para equipos económicos con plataforma AM5. No soporta overclock de CPU (limitación del chipset A620)"
+    }
   }
 ];

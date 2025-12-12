@@ -12,7 +12,9 @@ import {
   Headphones,
   Keyboard,
   Mouse,
-  Gamepad2
+  Gamepad2,
+  Monitor,
+  Wifi
 } from 'lucide-react';
 
 const CategoryFilter = ({ selectedCategory, onCategoryChange }) => {
@@ -31,7 +33,9 @@ const CategoryFilter = ({ selectedCategory, onCategoryChange }) => {
       'Auriculares': Headphones,
       'Teclados': Keyboard,
       'Mouse': Mouse,
-      'Joystick': Gamepad2
+      'Joystick': Gamepad2,
+      'Monitores': Monitor,
+      'Conectividad': Wifi
     };
     return iconMap[category] || Grid3X3;
   };
@@ -48,7 +52,9 @@ const CategoryFilter = ({ selectedCategory, onCategoryChange }) => {
       'Auriculares': isSelected ? 'text-pink-600' : 'text-pink-500',
       'Teclados': isSelected ? 'text-violet-600' : 'text-violet-500',
       'Mouse': isSelected ? 'text-orange-600' : 'text-orange-500',
-      'Joystick': isSelected ? 'text-emerald-600' : 'text-emerald-500'
+      'Joystick': isSelected ? 'text-emerald-600' : 'text-emerald-500',
+      'Monitores': isSelected ? 'text-slate-600' : 'text-slate-500',
+      'Conectividad': isSelected ? 'text-teal-600' : 'text-teal-500'
     };
     return colorMap[category] || (isSelected ? 'text-gray-600' : 'text-gray-500');
   };
@@ -65,7 +71,9 @@ const CategoryFilter = ({ selectedCategory, onCategoryChange }) => {
       'Auriculares': 'from-pink-500 to-pink-600',
       'Teclados': 'from-violet-500 to-violet-600',
       'Mouse': 'from-orange-500 to-orange-600',
-      'Joystick': 'from-emerald-500 to-emerald-600'
+      'Joystick': 'from-emerald-500 to-emerald-600',
+      'Monitores': 'from-slate-500 to-slate-600',
+      'Conectividad': 'from-teal-500 to-teal-600'
     };
     return gradientMap[category] || 'from-gray-500 to-gray-600';
   };

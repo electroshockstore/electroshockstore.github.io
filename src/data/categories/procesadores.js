@@ -318,5 +318,46 @@ export const procesadoresProducts = [
       frecuenciaGPU: "1250 MHz",
       usoRecomendado: "PC básica, oficina, multimedia, juegos ligeros sin GPU dedicada"
     }
+  },
+  {
+    id: 300,
+    name: "AMD Ryzen 5 8600G AM5 DDR5",
+    brand: "AMD",
+    model: "Ryzen 5 8600G",
+    category: "Procesadores",
+    price: 280000,
+    stock: 1,
+    images: [
+      "/images/procesadores/cooler_stock.webp"
+    ],
+    description: "Procesador AMD Ryzen 5 8600G 5.0GHz AM5 con gráfica integrada Radeon 760M y Cooler Wraith Stealth",
+    specifications: {
+      marca: "AMD",
+      linea: "Ryzen 5",
+      modelo: "8600G",
+      modeloAlfanumerico: "100-100001237BOX",
+      socket: "AM5",
+      nucleos: "6",
+      hilos: "12",
+      frecuenciaBase: "4.3 GHz",
+      frecuenciaMaxima: "5.0 GHz",
+      tdp: "65 W",
+      memoriaRAM: "DDR5",
+      memoriaMaxima: "128 GB",
+      velocidadMaximaRAM: "5200 MT/s",
+      canalesMemoria: "2",
+      arquitectura: "x86-64",
+      anioLanzamiento: "2024",
+      disipador: "Wraith Stealth Cooler",
+      graficosIntegrados: "Radeon 760M",
+      marcaGPU: "AMD",
+      lineaGPU: "Radeon",
+      modeloGPU: "760M",
+      arquitecturaGPU: "RDNA 3",
+      nucleosGraficos: "8 CUs",
+      frecuenciaGPU: "2.8 GHz",
+      soporteVideo: "4K a 60Hz, AV1 Decode, H.265/HEVC, H.264",
+      chipsetsCompatibles: "A620, B650, X670, B650E, X670E"
+    }
   }
 ];
