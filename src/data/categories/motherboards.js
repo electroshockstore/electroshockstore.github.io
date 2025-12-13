@@ -2,9 +2,9 @@
 export const motherboardsProducts = [
   {
     id: 28,
-    name: "ASUS Prime A520M-K CSM AM4",
+    name: "ASUS Prime A520M-K  AM4",
     brand: "ASUS",
-    model: "Prime A520M-K CSM",
+    model: "Prime A520M-K ",
     category: "Motherboards",
     price: 80000,
     stock: 7,
@@ -12,12 +12,11 @@ export const motherboardsProducts = [
       "/images/motherboard/A520m_K_Csm.webp",
       "/images/motherboard/A520m_K_Csm_moth.webp"
     ],
-    description: "Mother Asus Prime A520M-K CSM AM4 DDR4 64GB HDMI M.2",
+    description: "Mother Asus Prime A520M-K  AM4 DDR4 64GB HDMI M.2",
     specifications: {
       marca: "Asus",
       linea: "Prime",
-      modelo: "PRIME A520M-K/CSM",
-      version: "CSM",
+      modelo: "PRIME A520M-K",
       plataforma: "AMD",
       chipset: "AMD A520",
       socket: "AM4",

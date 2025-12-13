@@ -7,7 +7,7 @@ export const joystickProducts = [
     model: "Scorpio T-TGP802",
     category: "Joystick",
     price: 40000,
-    stock: 4,
+    stock: 6,
     images: [
       "/images/joystick/joyst_tdager.webp",
       "/images/joystick/joyst_tdager_front.webp",
@@ -90,12 +90,12 @@ export const joystickProducts = [
   },
   {
     id: 902,
-    name: "Sony DualSense PS5 White/Black",
+    name: "Sony DualSense PS5 White",
     brand: "Sony",
     model: "DualSense",
     category: "Joystick",
     price: 100000,
-    stock: 6,
+    stock: 2,
     images: [
       "/images/joystick/joystps5_white.webp",
       "/images/joystick/joystps5_white_front.webp",
