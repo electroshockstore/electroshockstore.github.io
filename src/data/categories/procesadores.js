@@ -106,7 +106,7 @@ export const procesadoresProducts = [
     brand: "AMD",
     model: "Ryzen 5 5500",
     category: "Procesadores",
-    price: 125000,
+    price: 130000,
     stock: 2,
     images: [
       "/images/procesadores/r5_5550.webp",

@@ -47,7 +47,7 @@ export const joystickProducts = [
     brand: "Sony",
     model: "DualSense",
     category: "Joystick",
-    price: 115000,
+    price: 130000,
     stock: 1,
     images: [
       "/images/joystick/joystps5_cosmicred.webp",
@@ -94,7 +94,7 @@ export const joystickProducts = [
     brand: "Sony",
     model: "DualSense",
     category: "Joystick",
-    price: 100000,
+    price: 115000,
     stock: 2,
     images: [
       "/images/joystick/joystps5_white.webp",
