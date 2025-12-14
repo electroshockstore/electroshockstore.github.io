@@ -8,6 +8,7 @@ import SidebarFilters from '../components/InventoryApp/SidebarFilters';
 import Footer from '../components/InventoryApp/Footer';
 import ScrollButton from '../components/InventoryApp/ScrollButton';
 import HeroCarousel from '../components/InventoryApp/HeroCarousel';
+import CategoryGrid from '../components/InventoryApp/CategoryGrid';
 import FloatingChatButton from '../components/InventoryApp/FloatingChatButton';
 import { useFilter } from '../context/FilterContext';
 import { getCategoryFromSlug, getSlugFromCategory, generateSKU } from '../utils/slugify';
@@ -74,27 +75,30 @@ const Store = () => {
         onSearchChange={setSearchQuery}
         onGoHome={handleGoHome}
       />
-      <main className="flex-1 w-full px-4 sm:px-6 py-4 sm:py-8 min-h-[calc(100vh-80px)]">
-        <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 mb-4 sm:mb-6 sm:items-center">
-          <div className="flex-1 sm:overflow-x-auto">
-            <CategoryFilter 
-              selectedCategory={selectedCategory}
-              onCategoryChange={handleCategoryChange}
-            />
-          </div>
-          {selectedCategory && filteredProducts.length > 0 && (
-            <div className="flex sm:items-center flex-shrink-0">
-              <ViewToggleButton 
-                viewMode={viewMode}
-                toggleViewMode={toggleViewMode}
+      <main className="flex-1 w-full flex flex-col">
+        <div className="px-4 sm:px-6 py-4 sm:py-8">
+          <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 mb-4 sm:mb-6 sm:items-center">
+            <div className="flex-1 sm:overflow-x-auto">
+              <CategoryFilter 
+                selectedCategory={selectedCategory}
+                onCategoryChange={handleCategoryChange}
               />
             </div>
-          )}
+            {selectedCategory && filteredProducts.length > 0 && (
+              <div className="flex sm:items-center flex-shrink-0">
+                <ViewToggleButton 
+                  viewMode={viewMode}
+                  toggleViewMode={toggleViewMode}
+                />
+              </div>
+            )}
+          </div>
         </div>
 
         {!selectedCategory ? (
-          <div className="w-full min-h-[60vh]">
+          <div className="w-full flex-1 flex flex-col">
             <HeroCarousel />
+            <CategoryGrid onCategoryClick={handleCategoryChange} />
           </div>
         ) : (
           <div className="flex flex-col lg:flex-row gap-6 min-h-[60vh]">

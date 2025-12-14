@@ -250,12 +250,13 @@ const Header = ({ searchQuery, onSearchChange, onGoHome }) => {
               type="text"
               value={searchQuery}
               onChange={(e) => onSearchChange(e.target.value)}
-              placeholder="Buscar productos..."
-              className="w-full h-10 pl-10 pr-10 text-sm
-                       bg-gray-900 border border-gray-800 rounded-full 
-                       text-white placeholder:text-gray-500
-                       focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent
-                       transition-all duration-200"
+             placeholder="Buscar productos..."
+              className="w-full h-10 pl-10 pr-10 text-md
+                       bg-gray-900 border-2 border-blue-500/40 rounded-full 
+                       text-white placeholder:text-gray-400
+                       focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-blue-400
+                       hover:border-blue-500/60
+                       transition-all duration-200 shadow-lg shadow-blue-500/10"
             />
             {searchQuery && (
               <button
@@ -283,17 +284,19 @@ const Header = ({ searchQuery, onSearchChange, onGoHome }) => {
                       whileHover={{ x: 4 }}
                     >
                       <div className="w-12 h-12 bg-gray-800 rounded-lg overflow-hidden flex-shrink-0 flex items-center justify-center">
-                        {product.image ? (
+                        {product.images && product.images.length > 0 ? (
                           <img
-                            src={product.image}
+                            src={product.images[0]}
                             alt={product.name}
                             className="w-full h-full object-cover"
                             onError={(e) => {
+                              e.target.onerror = null;
+                              e.target.src = '';
                               e.target.style.display = 'none';
+                              e.target.parentElement.innerHTML = '<svg class="w-6 h-6 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 13V6a2 2 0 00-2-2H6a2 2 0 00-2 2v7m16 0v5a2 2 0 01-2 2H6a2 2 0 01-2-2v-5m16 0h-2.586a1 1 0 00-.707.293l-2.414 2.414a1 1 0 01-.707.293h-3.172a1 1 0 01-.707-.293l-2.414-2.414A1 1 0 006.586 13H4"></path></svg>';
                             }}
                           />
-                        ) : null}
-                        {!product.image && (
+                        ) : (
                           <Package className="w-6 h-6 text-gray-600" />
                         )}
                       </div>
@@ -337,17 +340,18 @@ const Header = ({ searchQuery, onSearchChange, onGoHome }) => {
           <div className="flex-1 max-w-2xl" ref={searchRef}>
             <div className="relative">
               <Search className="absolute left-4 top-1/2 -translate-y-1/2 h-5 w-5 text-gray-400 z-10" />
-              <input
-                type="text"
-                value={searchQuery}
-                onChange={(e) => onSearchChange(e.target.value)}
-                placeholder="Buscar productos, marcas o categorías..."
-                className="w-full h-12 pl-12 pr-12 
-                         bg-gray-900 border border-gray-800 rounded-full 
-                         text-white placeholder:text-gray-500
-                         focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent
-                         transition-all duration-200"
-              />
+                 <input
+              type="text"
+              value={searchQuery}
+              onChange={(e) => onSearchChange(e.target.value)}
+            placeholder="Buscar productos, marcas o categorías..."
+              className="w-full h-14 pl-10 pr-10 text-md
+                       bg-gray-900 border-2 border-blue-500/40 rounded-full 
+                       text-white placeholder:text-gray-400
+                       focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-blue-400
+                       hover:border-blue-500/60
+                       transition-all duration-200 shadow-lg shadow-blue-500/10"
+            />
               {searchQuery && (
                 <button
                   onClick={handleClearSearch}
@@ -374,17 +378,19 @@ const Header = ({ searchQuery, onSearchChange, onGoHome }) => {
                         whileHover={{ x: 4 }}
                       >
                         <div className="w-16 h-16 bg-gray-800 rounded-xl overflow-hidden flex-shrink-0 flex items-center justify-center">
-                          {product.image ? (
+                          {product.images && product.images.length > 0 ? (
                             <img
-                              src={product.image}
+                              src={product.images[0]}
                               alt={product.name}
                               className="w-full h-full object-cover"
                               onError={(e) => {
+                                e.target.onerror = null;
+                                e.target.src = '';
                                 e.target.style.display = 'none';
+                                e.target.parentElement.innerHTML = '<svg class="w-8 h-8 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 13V6a2 2 0 00-2-2H6a2 2 0 00-2 2v7m16 0v5a2 2 0 01-2 2H6a2 2 0 01-2-2v-5m16 0h-2.586a1 1 0 00-.707.293l-2.414 2.414a1 1 0 01-.707.293h-3.172a1 1 0 01-.707-.293l-2.414-2.414A1 1 0 006.586 13H4"></path></svg>';
                               }}
                             />
-                          ) : null}
-                          {!product.image && (
+                          ) : (
                             <Package className="w-8 h-8 text-gray-600" />
                           )}
                         </div>

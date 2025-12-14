@@ -328,7 +328,9 @@ export const procesadoresProducts = [
     price: 280000,
     stock: 1,
     images: [
-      "/images/procesadores/cooler_stock.webp"
+      "/images/procesadores/ryzen5_5800g.webp",
+      "/images/procesadores/ryzen5_5800g_side.webp",
+      "/images/procesadores/ryzen5_5800g_side2.webp"
     ],
     description: "Procesador AMD Ryzen 5 8600G 5.0GHz AM5 con gráfica integrada Radeon 760M y Cooler Wraith Stealth",
     specifications: {

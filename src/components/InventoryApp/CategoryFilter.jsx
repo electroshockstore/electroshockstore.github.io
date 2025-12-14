@@ -180,7 +180,7 @@ const CategoryFilter = ({ selectedCategory, onCategoryChange }) => {
       </div>
 
       {/* Desktop: Segmented Control estilo Apple con wrap - RESPONSIVE */}
-      <div className="hidden sm:flex flex-wrap gap-2 md:gap-3 bg-gray-100 rounded-2xl p-2 md:p-3 shadow-[0_2px_8px_rgba(0,0,0,0.06)]">
+      <div className="hidden sm:flex flex-wrap gap-2 md:gap-3 bg-white rounded-3xl p-2 md:p-3 shadow-[0_2px_8px_rgba(0,0,0,0.06)]">
         {categories.map((category) => {
           const Icon = getCategoryIcon(category);
           const isSelected = selectedCategory === category;
