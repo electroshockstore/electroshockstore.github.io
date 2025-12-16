@@ -7,6 +7,7 @@ import { StockProvider } from "./context/StockContext";
 import ErrorBoundary from "./components/ErrorBoundary";
 import ErrorNotification from "./components/ErrorNotification";
 import { useErrorHandler } from "./hooks/useErrorHandler";
+import SkipToContent from "./components/SEO/SkipToContent";
 
 const pageVariants = {
   initial: {
@@ -121,7 +122,7 @@ function AppContent() {
         onReload={handleReload}
       />
       
-      <main className="relative z-10 w-full">
+      <main id="main-content" className="relative z-10 w-full">
         <AnimatedRoutes />
       </main>
     </div>
@@ -134,6 +135,7 @@ function App() {
       <StockProvider>
         <FilterProvider>
           <Router basename="/">
+            <SkipToContent />
             <AppContent />
           </Router>
         </FilterProvider>

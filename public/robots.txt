@@ -1,0 +1,14 @@
+# robots.txt para Shock-Store
+User-agent: *
+Allow: /
+Disallow: /404.html
+
+# Sitemap
+Sitemap: https://www.jldev.com.ar/sitemap.xml
+
+# Crawl-delay para bots más agresivos
+User-agent: Googlebot
+Crawl-delay: 0
+
+User-agent: Bingbot
+Crawl-delay: 1

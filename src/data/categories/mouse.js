@@ -1,4 +1,8 @@
-// IDs disponibles: 500-599 | Próximo ID: 500 (actualizar IDs existentes)
+// ═══════════════════════════════════════════════════════════════
+// RANGO DE IDs: 500-599 (Mouse)
+// Próximo ID disponible: 500
+// IMPORTANTE: NO usar IDs fuera de este rango
+// ═══════════════════════════════════════════════════════════════
 export const mouseProducts = [
   {
     id: 45,

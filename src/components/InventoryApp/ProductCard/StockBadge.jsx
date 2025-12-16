@@ -1,4 +1,3 @@
-// Componente para mostrar el badge de stock
 const StockBadge = ({ stock, stockStatus }) => {
   return (
     <div className={`absolute top-4 right-4 w-14 h-14 rounded-xl bg-gradient-to-br ${stockStatus.color} 

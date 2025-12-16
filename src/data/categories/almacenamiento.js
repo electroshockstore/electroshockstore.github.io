@@ -1,4 +1,8 @@
-// IDs disponibles: 200-299 | Próximo ID: 216
+// ═══════════════════════════════════════════════════════════════
+// RANGO DE IDs: 200-299 (Almacenamiento)
+// Próximo ID disponible: 216
+// IMPORTANTE: NO usar IDs fuera de este rango
+// ═══════════════════════════════════════════════════════════════
 export const almacenamientoProducts = [
   {
     id: 200,

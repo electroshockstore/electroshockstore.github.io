@@ -1,4 +1,3 @@
-// Componente para mostrar el estado del stock
 const StockStatus = ({ stockStatus }) => {
   return (
     <div className={`absolute top-4 left-4 px-4 py-2 rounded-full

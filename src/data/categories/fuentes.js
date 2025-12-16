@@ -1,4 +1,8 @@
-// IDs disponibles: 100-199 | Próximo ID: 115
+// ═══════════════════════════════════════════════════════════════
+// RANGO DE IDs: 100-199 (Fuentes)
+// Próximo ID disponible: 115
+// IMPORTANTE: NO usar IDs fuera de este rango
+// ═══════════════════════════════════════════════════════════════
 export const fuentesProducts = [
   {
     id: 100,

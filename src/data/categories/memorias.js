@@ -1,4 +1,8 @@
-// IDs disponibles: 400-499 | Próximo ID: 410
+// ═══════════════════════════════════════════════════════════════
+// RANGO DE IDs: 400-499 (Memorias RAM)
+// Próximo ID disponible: 410
+// IMPORTANTE: NO usar IDs fuera de este rango
+// ═══════════════════════════════════════════════════════════════
 export const memoriasProducts = [
   {
     id: 27,

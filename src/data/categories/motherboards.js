@@ -1,4 +1,4 @@
-// IDs disponibles: 600-699 | Próximo ID: 600 (actualizar IDs existentes)
+// IDs: 600-699 | Próximo: 600
 export const motherboardsProducts = [
   {
     id: 28,

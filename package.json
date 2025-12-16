@@ -5,10 +5,12 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "vite build",
+    "build": "vite build && node scripts/generate-sitemap.js",
     "lint": "eslint .",
     "preview": "vite preview",
-    "deploy": "vite build && node scripts/generate-404.js && gh-pages -d dist"
+    "deploy": "npm run build && node scripts/generate-404.js && gh-pages -d dist",
+    "clean": "rm -rf dist node_modules/.vite",
+    "analyze": "vite build --mode analyze"
   },
   "dependencies": {
     "@nextui-org/react": "^2.4.8",

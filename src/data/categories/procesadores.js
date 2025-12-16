@@ -1,4 +1,8 @@
-// IDs disponibles: 300-399 | Próximo ID: 300 (actualizar IDs existentes)
+// ═══════════════════════════════════════════════════════════════
+// RANGO DE IDs: 300-399 (Procesadores)
+// Próximo ID disponible: 301
+// IMPORTANTE: NO usar IDs fuera de este rango
+// ═══════════════════════════════════════════════════════════════
 export const procesadoresProducts = [
   {
     id: 34,

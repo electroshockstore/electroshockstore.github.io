@@ -1,4 +1,8 @@
-// IDs disponibles: 700-799 | Próximo ID: 711
+// ═══════════════════════════════════════════════════════════════
+// RANGO DE IDs: 700-799 (Teclados)
+// Próximo ID disponible: 711
+// IMPORTANTE: NO usar IDs fuera de este rango
+// ═══════════════════════════════════════════════════════════════
 export const tecladosProducts = [
   {
     id: 700,

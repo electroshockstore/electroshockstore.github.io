@@ -1,7 +1,7 @@
-// IDs disponibles: 800-899 | Próximo ID: 802
+// IDs: 1000-1099 | Próximo: 1002
 export const monitoresProducts = [
   {
-    id: 800,
+    id: 1000,
     name: "Monitor LED Daewoo 19\" HD DWMGN19 HDMI/VGA",
     brand: "Daewoo",
     model: "DWMGN19",
@@ -40,7 +40,7 @@ export const monitoresProducts = [
     }
   },
   {
-    id: 801,
+    id: 1001,
     name: "Samsung 24\" LED IPS 75Hz T35F",
     brand: "Samsung",
     model: "F24T35",

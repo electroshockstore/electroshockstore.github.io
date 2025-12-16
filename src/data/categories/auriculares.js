@@ -1,4 +1,8 @@
-// IDs disponibles: 800-899 | Próximo ID: 814
+// ═══════════════════════════════════════════════════════════════
+// RANGO DE IDs: 800-899 (Auriculares)
+// Próximo ID disponible: 814
+// IMPORTANTE: NO usar IDs fuera de este rango
+// ═══════════════════════════════════════════════════════════════
 export const auricularesProducts = [
   {
     id: 800,

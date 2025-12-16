@@ -1,21 +1,29 @@
-// Componente para el botón de ver detalles
-import { Eye } from 'lucide-react';
+// ViewDetailsButton.jsx
+import { Eye, ShoppingCart } from 'lucide-react'; // Sugiero agregar carrito si aplica
 
 const ViewDetailsButton = ({ onClick }) => {
   return (
-    <div className="pt-2">
-      <button 
-        onClick={onClick}
-        className="w-full px-5 py-3.5 rounded-xl font-bold text-sm transition-all duration-300
-                 bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800
-                 text-white shadow-lg shadow-blue-500/30 hover:shadow-xl hover:shadow-blue-500/50
-                 flex items-center gap-2 justify-center
-                 hover:scale-105"
+    <button 
+      onClick={(e) => {
+        e.stopPropagation(); // Evita doble click con la card
+        onClick();
+      }}
+      className="w-full group/btn relative flex items-center justify-center gap-2 
+                 bg-gray-900 hover:bg-blue-600 text-white 
+                 py-3 px-4 rounded-xl font-medium text-sm
+                 transition-all duration-300 shadow-sm hover:shadow-lg hover:shadow-blue-500/20"
+    >
+      <Eye className="w-4 h-4 transition-transform group-hover/btn:scale-110" />
+      <span>Ver Detalles</span>
+      
+      {/* Flecha animada opcional */}
+      <svg 
+        className="w-4 h-4 opacity-0 -translate-x-2 group-hover/btn:opacity-100 group-hover/btn:translate-x-0 transition-all duration-300 absolute right-4" 
+        fill="none" viewBox="0 0 24 24" stroke="currentColor"
       >
-        <Eye className="h-4 w-4" />
-        Ver Detalles
-      </button>
-    </div>
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
+      </svg>
+    </button>
   );
 };
 

@@ -12,6 +12,7 @@ import CategoryGrid from '../components/InventoryApp/CategoryGrid';
 import FloatingChatButton from '../components/InventoryApp/FloatingChatButton';
 import { useFilter } from '../context/FilterContext';
 import { getCategoryFromSlug, getSlugFromCategory, generateSKU } from '../utils/slugify';
+import { useCategorySEO, useSEO } from '../hooks/useSEO';
 
 const Store = () => {
   const navigate = useNavigate();
@@ -28,6 +29,18 @@ const Store = () => {
   } = useFilter();
 
   const [viewMode, setViewMode] = useState('grid');
+
+  // SEO dinámico
+  if (selectedCategory && selectedCategory !== 'Todos') {
+    useCategorySEO(selectedCategory, filteredProducts.length);
+  } else {
+    useSEO({
+      title: 'Shock-Store | Catálogo de Venta - Tecnología y Componentes PC',
+      description: 'Catálogo completo de productos Shock-Store. Componentes de PC, periféricos gaming, hardware y tecnología. Mejores precios en Berazategui y Florencio Varela.',
+      keywords: 'shock-store, componentes pc, hardware, gaming, periféricos, tecnología, berazategui, florencio varela, procesadores, placas de video, memorias ram',
+      type: 'website'
+    });
+  }
 
   // Sincronizar categoría desde URL
   useEffect(() => {

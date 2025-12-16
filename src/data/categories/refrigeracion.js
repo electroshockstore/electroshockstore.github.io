@@ -1,7 +1,11 @@
-// IDs disponibles: 1000-1099 | Próximo ID: 1002
+// ═══════════════════════════════════════════════════════════════
+// RANGO DE IDs: 1200-1299 (Refrigeración)
+// Próximo ID disponible: 1202
+// IMPORTANTE: NO usar IDs fuera de este rango
+// ═══════════════════════════════════════════════════════════════
 export const refrigeracionProducts = [
   {
-    id: 1000,
+    id: 1200,
     name: "Redragon CC-1013 - Air Cooler 120mm ARGB 180W",
     brand: "Redragon",
     model: "CC-1013",
@@ -33,7 +37,7 @@ export const refrigeracionProducts = [
     }
   },
   {
-    id: 1001,
+    id: 1201,
     name: "Formula V Oasis L240 - Watercooler ARGB Blanco 310W",
     brand: "Formula V",
     model: "Oasis L240 ARGB",

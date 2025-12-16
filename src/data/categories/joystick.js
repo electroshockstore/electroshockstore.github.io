@@ -1,7 +1,11 @@
-// IDs disponibles: 900-999 | Próximo ID: 907
+// ═══════════════════════════════════════════════════════════════
+// RANGO DE IDs: 1100-1199 (Joystick)
+// Próximo ID disponible: 1107
+// IMPORTANTE: NO usar IDs fuera de este rango
+// ═══════════════════════════════════════════════════════════════
 export const joystickProducts = [
   {
-    id: 900,
+    id: 1100,
     name: "T-Dagger Scorpio Inalámbrico PC/ANDROID/CONSOLA",
     brand: "T-Dagger",
     model: "Scorpio T-TGP802",
@@ -42,7 +46,7 @@ export const joystickProducts = [
     }
   },
   {
-    id: 901,
+    id: 1101,
     name: "Sony DualSense PS5 Cosmic Red",
     brand: "Sony",
     model: "DualSense",
@@ -89,7 +93,7 @@ export const joystickProducts = [
     }
   },
   {
-    id: 902,
+    id: 1102,
     name: "Sony DualSense PS5 White",
     brand: "Sony",
     model: "DualSense",
@@ -140,7 +144,7 @@ export const joystickProducts = [
     }
   },
   {
-    id: 903,
+    id: 1103,
     name: "Sony DualSense DualShock 4 V2 PS4",
     brand: "Sony",
     model: "DualShock 4",
@@ -189,7 +193,7 @@ export const joystickProducts = [
     }
   },
   {
-    id: 904,
+    id: 1104,
     name: "Microsoft inalambrico Carbon Black PC/ANDROID/CONSOLA",
     brand: "Microsoft",
     model: "Xbox Wireless",
@@ -232,7 +236,7 @@ export const joystickProducts = [
     }
   },
   {
-    id: 905,
+    id: 1105,
     name: "Microsoft inalambrico Shock Blue PC/ANDROID/CONSOLA",
     brand: "Microsoft",
     model: "Xbox Wireless",
@@ -272,7 +276,7 @@ export const joystickProducts = [
     }
   },
   {
-    id: 906,
+    id: 1106,
     name: "Microsoft inalambrico Robot White PC/ANDROID/CONSOLA",
     brand: "Microsoft",
     model: "Xbox Wireless",

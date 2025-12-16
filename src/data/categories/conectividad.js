@@ -1,7 +1,11 @@
-// IDs disponibles: 700-799 | Próximo ID: 702
+// ═══════════════════════════════════════════════════════════════
+// RANGO DE IDs: 900-999 (Conectividad)
+// Próximo ID disponible: 902
+// IMPORTANTE: NO usar IDs fuera de este rango
+// ═══════════════════════════════════════════════════════════════
 export const conectividadProducts = [
   {
-    id: 700,
+    id: 900,
     name: "Cámara Web HD Logitech C505",
     brand: "Logitech",
     model: "C505",
@@ -43,7 +47,7 @@ export const conectividadProducts = [
     }
   },
   {
-    id: 701,
+    id: 901,
     name: "Adaptador Wifi USB 300 Mbps TP-Link TL-WN823N",
     brand: "TP-Link",
     model: "TL-WN823N",
