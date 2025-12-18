@@ -99,7 +99,7 @@ export const joystickProducts = [
     model: "DualSense",
     category: "Joystick",
     price: 115000,
-    stock: 2,
+    stock: 3,
     images: [
       "/images/joystick/joystps5_white.webp",
       "/images/joystick/joystps5_white_front.webp",

@@ -1,7 +1,7 @@
 // Header negro con buscador centrado - Responsive
 import { useState, useRef, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Package, Search, FileText, MapPin, X, Home, Bot, ArrowRight } from 'lucide-react';
+import { Package, Search, FileText, MapPin, X, Home, Bot, ArrowRight, Cpu } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useStock } from '../../context/StockContext';
 
@@ -196,6 +196,8 @@ const Header = ({ searchQuery, onSearchChange, onGoHome }) => {
                 </motion.div>
               </motion.div>
 
+           
+              
               <motion.button
                 onClick={() => setShowConditionsModal(true)}
                 whileTap={{ scale: 0.9 }}
@@ -464,6 +466,8 @@ const Header = ({ searchQuery, onSearchChange, onGoHome }) => {
               </div>
             </motion.div>
 
+         
+            
             <motion.button
               onClick={() => setShowConditionsModal(true)}
               whileHover={{ scale: 1.05 }}

@@ -1,6 +1,6 @@
 // ═══════════════════════════════════════════════════════════════
 // RANGO DE IDs: 300-399 (Procesadores)
-// Próximo ID disponible: 301
+// Próximo ID disponible: 302
 // IMPORTANTE: NO usar IDs fuera de este rango
 // ═══════════════════════════════════════════════════════════════
 export const procesadoresProducts = [
@@ -364,6 +364,46 @@ export const procesadoresProducts = [
       frecuenciaGPU: "2.8 GHz",
       soporteVideo: "4K a 60Hz, AV1 Decode, H.265/HEVC, H.264",
       chipsetsCompatibles: "A620, B650, X670, B650E, X670E"
+    }
+  },
+  {
+    id: 301,
+    name: "AMD Athlon 3000G AM4 con gráfica integrada Radeon Vega ",
+    brand: "AMD",
+    model: "Athlon 3000G",
+    category: "Procesadores",
+    price: 55000,
+    stock: 3,
+    images: [
+      "/images/procesadores/atlhon_300g.webp",
+      "/images/procesadores/atlhon_300g_side.webp",
+      "/images/procesadores/atlhon_300g_side2.webp"
+    ],
+    description: "Procesador AMD Athlon 3000G 2 núcleos, 3.5GHz con gráfica integrada Radeon Vega 3 y Cooler",
+    specifications: {
+      marca: "AMD",
+      linea: "Athlon",
+      modelo: "3000G",
+      modeloAlfanumerico: "YD3000C6FH",
+      arquitectura: "Zen (x86-64)",
+      procesoFabricacion: "14 nm",
+      socket: "AM4",
+      nucleos: "2",
+      hilos: "4",
+      frecuenciaBase: "3.5 GHz",
+      frecuenciaTurbo: "No posee",
+      cacheL3: "4 MB",
+      tdp: "35 W",
+      memoriaRAM: "DDR4",
+      memoriaMaxima: "32 GB",
+      velocidadMaximaRAM: "2933 MHz",
+      arquitectura: "x86-64",
+      disipador: "Sí",
+      graficosIntegrados: "Radeon Vega 3",
+      marcaGPU: "AMD",
+      modeloGPU: "Radeon Vega 3",
+      frecuenciaGPU: "1100 MHz",
+      usoRecomendado: "Oficina / PC básica / Multimedia"
     }
   }
 ];

@@ -8,6 +8,7 @@ import SidebarFilters from '../components/InventoryApp/SidebarFilters';
 import Footer from '../components/InventoryApp/Footer';
 import ScrollButton from '../components/InventoryApp/ScrollButton';
 import HeroCarousel from '../components/InventoryApp/HeroCarousel';
+import PCBuilderSection from '../components/InventoryApp/PCBuilderSection';
 import CategoryGrid from '../components/InventoryApp/CategoryGrid';
 import FloatingChatButton from '../components/InventoryApp/FloatingChatButton';
 import { useFilter } from '../context/FilterContext';
@@ -107,10 +108,43 @@ const Store = () => {
             )}
           </div>
         </div>
+{!selectedCategory ? (
+    <div className="w-full flex-1 flex flex-col relative overflow-hidden">
+        
+        {/* ---------------------------------------------------- */}
+        {/* NUEVO FONDO OSCURO FLUIDO (Dark Mesh Gradient) */}
+        {/* ---------------------------------------------------- */}
+        <div className="absolute inset-0 bg-gray-950/95 -z-10"></div> {/* Fondo oscuro base */}
+        
+        {/* Gradiente Mesh sutil - Tono Azul Oscuro (Top-Left) */}
+        <div className="absolute top-0 left-0 w-3/4 h-3/4 bg-[radial-gradient(ellipse_at_top_left,_var(--tw-gradient-stops))] from-blue-900/40 via-transparent to-transparent blur-3xl opacity-50 -z-10"></div>
+        
+        {/* Gradiente Mesh sutil - Tono Morado Oscuro (Bottom-Right) */}
+        <div className="absolute bottom-0 right-0 w-3/4 h-3/4 bg-[radial-gradient(ellipse_at_bottom_right,_var(--tw-gradient-stops))] from-indigo-900/40 via-transparent to-transparent blur-3xl opacity-50 -z-10"></div>
 
-        {!selectedCategory ? (
-          <div className="w-full flex-1 flex flex-col">
+        {/* Capa sutil de Brillo/Niebla (Centro, como aclaramiento) */}
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-gray-900/50 via-gray-950 to-transparent opacity-70 -z-10"></div>
+        {/* ---------------------------------------------------- */}
+
+
+        {/* 1. HeroCarousel (Contenido superior) */}
+        <div className="relative z-0 p-2 sm:p-3">
             <HeroCarousel />
+        </div>
+
+        {/* 2. PC Builder Section - Grid Layout */}
+        <div className="relative z-0 w-full px-2 sm:px-3 mt-1 sm:mt-2 mb-3">
+            <div className="grid md:grid-cols-2 gap-2 sm:gap-3">
+                
+                {/* Asegúrate que PCBuilderSection use bg-gray-900 o similar
+                    para contrastar con el fondo base bg-gray-950.
+                */}
+                <PCBuilderSection />
+            </div>
+        </div>
+
+    
+            
             <CategoryGrid onCategoryClick={handleCategoryChange} />
           </div>
         ) : (

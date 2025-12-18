@@ -173,11 +173,11 @@ const HeroCarousel = () => {
   };
 
   return (
-    <div className="w-full mb-8 sm:mb-16 lg:mb-20 px-2 sm:px-4 md:px-6 lg:px-8 xl:px-12 2xl:px-16 max-w-[95vw] lg:max-w-[90vw] xl:max-w-[85vw] 2xl:max-w-[1800px] mx-auto font-sans selection:bg-red-500/30">
+    <div className="w-full font-sans selection:bg-red-500/30">
 
-      {/* --- MAIN CARD --- */}
+      {/* --- MAIN CARD - FULL WIDTH --- */}
       <div
-        className="relative overflow-hidden rounded-[2.5rem] lg:rounded-[3rem] shadow-2xl lg:shadow-[0_25px_80px_-15px_rgba(0,0,0,0.5)] bg-[#0f1115] border border-white/10 group"
+        className="relative overflow-hidden shadow-2xl bg-[#0f1115] group"
         onMouseEnter={() => setIsPaused(true)}
         onMouseLeave={() => setIsPaused(false)}
       >

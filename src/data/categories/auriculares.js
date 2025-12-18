@@ -1,6 +1,6 @@
 // ═══════════════════════════════════════════════════════════════
 // RANGO DE IDs: 800-899 (Auriculares)
-// Próximo ID disponible: 814
+// Próximo ID disponible: 815
 // IMPORTANTE: NO usar IDs fuera de este rango
 // ═══════════════════════════════════════════════════════════════
 export const auricularesProducts = [
@@ -412,6 +412,46 @@ export const auricularesProducts = [
       "Conectividad": "3.5 mm",
       "Micrófono": "Cardioide",
       "Compatibilidad": "PS5, PS4, Xbox, Switch, PC"
+    }
+  },
+  {
+    id: 814,
+    name: "Logitech G Series G435 - Inalámbrico Bluetooth/Dongle",
+    brand: "Logitech G",
+    model: "G435",
+    category: "Auriculares",
+    price: 110000,
+    stock: 1,
+    sku: "LOGI-G435-WHT",
+    description: "Auriculares gaming inalámbricos Lightspeed y Bluetooth con micrófonos duales beamforming, autonomía 18 horas, peso 165g",
+    images: [
+      "/images/auriculares/logitech_g435_auri.webp",
+      "/images/auriculares/logitech_g435_auri_side.webp",
+      "/images/auriculares/logitech_g435_auri_specs.webp",
+      "/images/auriculares/logitech_g435_auri_specs2.webp"
+    ],
+    specifications: {
+      "Marca": "Logitech G",
+      "Línea": "G Series",
+      "Modelo": "G435",
+      "Modelo alfanumérico": "G435",
+      "Modelo detallado": "Headset Logitech G435 blanco",
+      "Tipo de auricular": "Over-ear",
+      "Conectividad": "Inalámbrico Lightspeed (dongle USB) / Bluetooth",
+      "Compatibilidad": "PC / PlayStation 4 / PlayStation 5 / Dispositivos móviles / Tablets",
+      "Respuesta en frecuencia": "20 Hz - 20 kHz",
+      "Impedancia": "45 ohms",
+      "Sensibilidad": "83.1 dB SPL/mW",
+      "Micrófono": "Micrófonos duales integrados (beamforming) con cancelación de ruido digital",
+      "Respuesta en frecuencia micrófono": "100 Hz - 8 kHz",
+      "Autonomía": "Hasta 18 horas",
+      "Tipo de carga": "USB-C",
+      "Peso": "165 g",
+      "Controles": "Botones integrados en el auricular",
+      "Sonido envolvente": "Compatible con Windows Sonic",
+      "Material de almohadillas": "Espuma con tela transpirable",
+      "Color": "Blanco",
+      "Uso recomendado": "Gaming / Multimedia / Uso diario"
     }
   }
 ];

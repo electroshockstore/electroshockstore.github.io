@@ -2,8 +2,10 @@ import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-route
 import { AnimatePresence, motion } from 'framer-motion';
 import Store from "./modules/Store";
 import ProductDetailPage from "./Modules/ProductDetailPage";
+import PCBuilder from "./Modules/PCBuilder";
 import { FilterProvider } from "./context/FilterContext";
 import { StockProvider } from "./context/StockContext";
+import { PCBuilderProvider } from "./context/PCBuilderContext";
 import ErrorBoundary from "./components/ErrorBoundary";
 import ErrorNotification from "./components/ErrorNotification";
 import { useErrorHandler } from "./hooks/useErrorHandler";
@@ -37,6 +39,9 @@ function AnimatedRoutes() {
   
   // Solo animar transiciones entre páginas diferentes (no entre categorías)
   const getRouteKey = (pathname) => {
+    if (pathname.includes('/pc-builder')) {
+      return 'pc-builder';
+    }
     if (pathname.includes('/categoria/') && pathname.split('/').length === 4) {
       return 'product-detail'; // Página de detalle de producto
     }
@@ -44,6 +49,7 @@ function AnimatedRoutes() {
   };
 
   return (
+    
     <AnimatePresence mode="wait">
       <Routes location={location} key={getRouteKey(location.pathname)}>
         <Route
@@ -56,6 +62,19 @@ function AnimatedRoutes() {
               exit="exit"
             >
               <Store />
+            </motion.div>
+          }
+        />
+        <Route
+          path="/pc-builder"
+          element={
+            <motion.div
+              variants={pageVariants}
+              initial="initial"
+              animate="animate"
+              exit="exit"
+            >
+              <PCBuilder />
             </motion.div>
           }
         />
@@ -134,10 +153,12 @@ function App() {
     <ErrorBoundary>
       <StockProvider>
         <FilterProvider>
-          <Router basename="/">
-            <SkipToContent />
-            <AppContent />
-          </Router>
+          <PCBuilderProvider>
+            <Router basename="/">
+              <SkipToContent />
+              <AppContent />
+            </Router>
+          </PCBuilderProvider>
         </FilterProvider>
       </StockProvider>
     </ErrorBoundary>

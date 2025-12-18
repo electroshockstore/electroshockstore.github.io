@@ -1,6 +1,6 @@
 // ═══════════════════════════════════════════════════════════════
 // RANGO DE IDs: 200-299 (Almacenamiento)
-// Próximo ID disponible: 216
+// Próximo ID disponible: 222
 // IMPORTANTE: NO usar IDs fuera de este rango
 // ═══════════════════════════════════════════════════════════════
 export const almacenamientoProducts = [
@@ -11,7 +11,7 @@ export const almacenamientoProducts = [
     model: "Legend 710 ALEG-710-512GCS",
     category: "Almacenamiento",
     price: 90000,
-    stock: 2,
+    stock: 4,
     sku: "ADATA-512-L710",
     description: "SSD M.2 NVMe Gen3 x4 de 512GB con disipador de aluminio incluido, lectura 2400 MB/s",
     images: [
@@ -96,7 +96,7 @@ export const almacenamientoProducts = [
     model: "NV3 SNV3S/1000G",
     category: "Almacenamiento",
     price: 150000,
-    stock: 2,
+    stock: 4,
     sku: "KING-1TB-GEN4",
     description: "SSD M.2 NVMe Gen4 x4 de 1TB, lectura 3500 MB/s, escritura 2800 MB/s",
     images: [
@@ -507,6 +507,156 @@ export const almacenamientoProducts = [
       "Ancho": "82 mm",
       "Profundidad": "15 mm",
       "Peso": "130 g aprox."
+    }
+  },
+  {
+    id: 216,
+    name: "NVME Western Digital Green SN350 240GB",
+    brand: "Western Digital",
+    model: "WD Green SN350",
+    category: "Almacenamiento",
+    price: 50000,
+    stock: 5,
+    sku: "WD-240-SN350",
+    description: "SSD M.2 NVMe PCIe Gen3 x4 de 240GB, lectura 2400 MB/s, escritura 900 MB/s",
+    images: [
+      "/images/almacenamiento/nvme_wdgreen_240.webp",
+      "/images/almacenamiento/nvme_wdgreen_240_side.webp"
+    ],
+    specifications: {
+      "Marca": "Western Digital",
+      "Línea": "WD Green",
+      "Modelo": "SN350",
+      "Capacidad": "240 GB",
+      "Formato": "M.2 2280",
+      "Interfaz": "PCIe Gen3 x4, NVMe",
+      "Velocidad de lectura": "Hasta 2400 MB/s",
+      "Velocidad de escritura": "Hasta 900 MB/s",
+      "Tipo de memoria": "NAND Flash",
+      "Uso recomendado": "Sistema operativo / Equipos de oficina / Uso doméstico",
+      "Consumo energético": "Optimizado para bajo consumo",
+      "Compatibilidad": "Windows / Linux"
+    }
+  },
+  {
+    id: 217,
+    name: "NVME Western Digital Green SN350 480GB",
+    brand: "Western Digital",
+    model: "WD Green SN350",
+    category: "Almacenamiento",
+    price: 85000,
+    stock:1,
+    sku: "WD-480-SN350",
+    description: "SSD M.2 NVMe PCIe Gen3 x4 de 480GB, lectura 2400 MB/s, escritura 1500 MB/s",
+    images: [
+      "/images/almacenamiento/nvme_wdgreen_480.webp",
+      "/images/almacenamiento/nvme_wdgreen_480_side.webp"
+    ],
+    specifications: {
+      "Marca": "Western Digital",
+      "Línea": "WD Green",
+      "Modelo": "SN350",
+      "Capacidad": "480 GB",
+      "Formato": "M.2 2280",
+      "Interfaz": "PCIe Gen3 x4, NVMe",
+      "Velocidad de lectura": "Hasta 2400 MB/s",
+      "Velocidad de escritura": "Hasta 1500 MB/s",
+      "Tipo de memoria": "NAND Flash",
+      "Uso recomendado": "Actualización de PC / Gaming casual / Multimedia",
+      "Consumo energético": "Bajo",
+      "Compatibilidad": "Windows / Linux"
+    }
+  },
+  {
+    id: 218,
+    name: "NVME Western Digital Green SN350 500GB",
+    brand: "Western Digital",
+    model: "WD Green SN350",
+    category: "Almacenamiento",
+    price: 90000,
+    stock: 2,
+    sku: "WD-500-SN350",
+    description: "SSD M.2 NVMe PCIe Gen3 x4 de 500GB, lectura 2400 MB/s, escritura 1500 MB/s",
+    images: [
+      "/images/almacenamiento/nvme_wdgreen_500.webp",
+      "/images/almacenamiento/nvme_wdgreen_500_side.webp"
+    ],
+    specifications: {
+      "Marca": "Western Digital",
+      "Línea": "WD Green",
+      "Modelo": "SN350",
+      "Capacidad": "500 GB",
+      "Formato": "M.2 2280",
+      "Interfaz": "PCIe Gen3 x4, NVMe",
+      "Velocidad de lectura": "Hasta 2400 MB/s",
+      "Velocidad de escritura": "Hasta 1500 MB/s",
+      "Tipo de memoria": "NAND Flash",
+      "Uso recomendado": "PC de escritorio / Notebook / Actualización de sistema",
+      "Consumo energético": "Bajo",
+      "Compatibilidad": "Windows / Linux"
+    }
+  },
+  {
+    id: 219,
+    name: "NVME XPG Spectrix S20G 500GB RGB",
+    brand: "ADATA",
+    model: "XPG Spectrix S20G",
+    category: "Almacenamiento",
+    price: 110000,
+    stock: 1,
+    sku: "XPG-500-S20G",
+    description: "SSD M.2 NVMe PCIe Gen3 x4 de 500GB con iluminación RGB direccionable, lectura 2500 MB/s, escritura 1800 MB/s",
+    images: [
+      "/images/almacenamiento/xpg_spectrix_s20g.webp"
+    ],
+    specifications: {
+      "Marca": "ADATA",
+      "Línea": "XPG Spectrix",
+      "Modelo": "S20G",
+      "Capacidad": "500 GB",
+      "Formato": "M.2 2280",
+      "Interfaz": "PCIe Gen3 x4, NVMe 1.3",
+      "Velocidad de lectura": "Hasta 2500 MB/s",
+      "Velocidad de escritura": "Hasta 1800 MB/s",
+      "Tipo de memoria": "3D NAND",
+      "Iluminación": "RGB direccionable",
+      "Compatibilidad RGB": "ASUS Aura Sync / MSI Mystic Light / Gigabyte RGB Fusion / ASRock Polychrome",
+      "Uso recomendado": "Gaming / PC de alto rendimiento / Equipos con ventana lateral",
+      "Consumo energético": "Optimizado",
+      "Compatibilidad": "Windows / Linux"
+    }
+  },
+  {
+    id: 220,
+    name: "HDD Seagate SkyHawk 4TB para Seguridad SATA ST4000VX016",
+    brand: "Seagate",
+    model: "SkyHawk ST4000VX016",
+    category: "Almacenamiento",
+    price: 150000,
+    stock: 2,
+    sku: "SEAGATE-4TB-SKYHAWK",
+    description: "Disco duro 3.5\" 4TB SATA III optimizado para videovigilancia 24/7, 5900 RPM, caché 256MB",
+    images: [
+      "/images/almacenamiento/seagate_skyhawk_4tb.webp",
+      "/images/almacenamiento/seagate_skyhawk_4tb_side.webp",
+      "/images/almacenamiento/seagate_skyhawk_4tb_side2.webp",
+      "/images/almacenamiento/seagate_skyhawk_4tb_side3.webp"
+    ],
+    specifications: {
+      "Marca": "Seagate",
+      "Línea": "SkyHawk",
+      "Modelo": "ST4000VX016",
+      "Capacidad": "4 TB",
+      "Formato": "3.5\"",
+      "Interfaz": "SATA III 6 Gb/s",
+      "Velocidad de rotación": "5900 RPM",
+      "Caché": "256 MB",
+      "Tecnología": "ImagePerfect",
+      "Uso recomendado": "CCTV / DVR / NVR / Sistemas de videovigilancia",
+      "Soporte de cámaras": "Hasta 64 cámaras HD",
+      "Funcionamiento": "24/7",
+      "Consumo energético": "Optimizado para uso continuo",
+      "Fiabilidad": "Diseñado para grabación constante"
     }
   }
 ];
