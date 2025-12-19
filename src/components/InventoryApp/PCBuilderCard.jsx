@@ -22,7 +22,8 @@ const PCBuilderCard = ({
     const isMobile = window.innerWidth < 768;
 
     const handleClick = () => {
-        navigate('/pc-builder', { state: { mode } });
+        const route = mode === 'assisted' ? '/armatupc/asistido' : '/armatupc/manual';
+        navigate(route);
     };
 
     return (

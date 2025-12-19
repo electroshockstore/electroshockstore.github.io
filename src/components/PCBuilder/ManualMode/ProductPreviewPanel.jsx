@@ -197,29 +197,6 @@ const CompatibilityBadge = ({ status }) => {
   );
 };
 
-const AddToBuiltButton = ({ product, onAdd, isDisabled }) => {
-  const isIncompatible = product.compatibilityResult?.status === 'red';
-  
-  // Incompatible products can still be added (user decision)
-  return (
-    <button
-      onClick={onAdd}
-      disabled={isDisabled}
-      className={`
-        w-full py-4 px-6 rounded-full font-bold text-base transition-all duration-200
-        ${isDisabled
-          ? 'bg-gradient-to-r from-gray-100 to-gray-200 text-gray-600 cursor-not-allowed border-2 border-gray-300'
-          : isIncompatible
-            ? 'bg-gradient-to-r from-red-600 to-rose-600 hover:from-red-700 hover:to-rose-700 text-white shadow-xl hover:shadow-2xl active:scale-[0.98]'
-            : 'bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white shadow-xl hover:shadow-2xl active:scale-[0.98]'
-        }
-      `}
-    >
-      {isDisabled ? '✓ Agregado a tu build' : isIncompatible ? 'Agregar de todas formas' : 'Agregar a mi Build'}
-    </button>
-  );
-};
-
 const EmptyPreview = ({ selectedCategory }) => {
   if (!selectedCategory) {
     return (
@@ -256,7 +233,7 @@ const EmptyPreview = ({ selectedCategory }) => {
   );
 };
 
-const ProductPreviewPanel = ({ selectedProduct, selectedCategory, onAddProduct, isSelected, onBack }) => {
+const ProductPreviewPanel = ({ selectedProduct, selectedCategory, onBack }) => {
   if (!selectedProduct) {
     return (
       <aside className="hidden lg:block w-96 xl:w-[28rem] bg-gradient-to-b from-white to-gray-50 border-l border-gray-200 overflow-y-auto">
@@ -374,14 +351,6 @@ const ProductPreviewPanel = ({ selectedProduct, selectedCategory, onAddProduct, 
           </div>
         )}
         
-        {/* Add Button - Sticky */}
-        <div className="sticky bottom-0 bg-gradient-to-t from-white via-white to-transparent pt-6 pb-2">
-          <AddToBuiltButton 
-            product={selectedProduct}
-            onAdd={() => onAddProduct(selectedProduct)}
-            isDisabled={isSelected}
-          />
-        </div>
       </div>
     </aside>
   );

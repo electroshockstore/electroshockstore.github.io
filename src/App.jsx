@@ -39,8 +39,8 @@ function AnimatedRoutes() {
   
   // Solo animar transiciones entre páginas diferentes (no entre categorías)
   const getRouteKey = (pathname) => {
-    if (pathname.includes('/pc-builder')) {
-      return 'pc-builder';
+    if (pathname.includes('/armatupc')) {
+      return 'armatupc';
     }
     if (pathname.includes('/categoria/') && pathname.split('/').length === 4) {
       return 'product-detail'; // Página de detalle de producto
@@ -65,6 +65,20 @@ function AnimatedRoutes() {
             </motion.div>
           }
         />
+        <Route
+          path="/armatupc/:mode"
+          element={
+            <motion.div
+              variants={pageVariants}
+              initial="initial"
+              animate="animate"
+              exit="exit"
+            >
+              <PCBuilder />
+            </motion.div>
+          }
+        />
+        {/* Ruta legacy para compatibilidad */}
         <Route
           path="/pc-builder"
           element={

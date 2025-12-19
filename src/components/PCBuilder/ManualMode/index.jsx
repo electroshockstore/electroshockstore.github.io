@@ -92,6 +92,7 @@ const ManualMode = ({ onModeChange, onGoHome }) => {
             products={compatibleProducts}
             selectedProductId={selectedProductId}
             onProductClick={handleProductClick}
+            onAddProduct={handleAddProduct}
             onSkipCategory={() => {
               const categories = ['Procesadores', 'Motherboards', 'Memorias RAM', 'Fuentes', 'Refrigeración', 'Almacenamiento'];
               const currentIndex = categories.indexOf(selectedCategory);
@@ -107,8 +108,6 @@ const ManualMode = ({ onModeChange, onGoHome }) => {
         <ProductPreviewPanel
           selectedProduct={selectedProduct}
           selectedCategory={selectedCategory}
-          onAddProduct={handleAddProduct}
-          isSelected={selectedProduct?.id === selectedProductId}
         />
       </main>
 
@@ -142,6 +141,7 @@ const ManualMode = ({ onModeChange, onGoHome }) => {
                 products={compatibleProducts}
                 selectedProductId={selectedProductId}
                 onProductClick={handleProductClick}
+                onAddProduct={handleAddProduct}
                 onSkipCategory={() => {
                   const categories = ['Procesadores', 'Motherboards', 'Memorias RAM', 'Fuentes', 'Refrigeración', 'Almacenamiento'];
                   const currentIndex = categories.indexOf(selectedCategory);
@@ -158,8 +158,6 @@ const ManualMode = ({ onModeChange, onGoHome }) => {
               <ProductPreviewPanel
                 selectedProduct={selectedProduct}
                 selectedCategory={selectedCategory}
-                onAddProduct={handleAddProduct}
-                isSelected={selectedProduct?.id === selectedProductId}
                 onBack={() => setSelectedProduct(null)}
               />
             </div>

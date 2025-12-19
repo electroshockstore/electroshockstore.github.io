@@ -1,4 +1,5 @@
 import { memo, useMemo } from 'react';
+import { ShoppingCart } from 'lucide-react';
 
 const getProductImage = (product) => {
   if (product.images && product.images.length > 0) return product.images[0];
@@ -6,7 +7,7 @@ const getProductImage = (product) => {
   return 'https://images.unsplash.com/photo-1591799264318-7e6ef8ddb7ea?w=400';
 };
 
-const CompactProductCard = memo(({ product, compatibilityResult, isSelected, onClick }) => {
+const CompactProductCard = memo(({ product, compatibilityResult, isSelected, onClick, onAddToBuild }) => {
   const productImage = useMemo(() => getProductImage(product), [product]);
   const { status, reasons } = compatibilityResult || { status: 'neutral', reasons: [] };
   
@@ -152,6 +153,38 @@ const CompactProductCard = memo(({ product, compatibilityResult, isSelected, onC
             )}
           </div>
         )}
+        
+        {/* Add to Build Button */}
+        <button
+          onClick={(e) => {
+            e.stopPropagation();
+            onAddToBuild(product);
+          }}
+          disabled={isSelected}
+          className={`
+            w-full mt-3 py-2.5 px-4 rounded-lg font-bold text-sm transition-all duration-200 flex items-center justify-center gap-2
+            ${isSelected
+              ? 'bg-gray-100 text-gray-500 cursor-not-allowed'
+              : status === 'red'
+                ? 'bg-gradient-to-r from-red-600 to-rose-600 hover:from-red-700 hover:to-rose-700 text-white shadow-md hover:shadow-lg'
+                : 'bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white shadow-md hover:shadow-lg'
+            }
+          `}
+        >
+          {isSelected ? (
+            <>
+              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+              </svg>
+              <span>En tu build</span>
+            </>
+          ) : (
+            <>
+              <ShoppingCart className="w-4 h-4" />
+              <span>Agregar</span>
+            </>
+          )}
+        </button>
       </div>
     </div>
   );

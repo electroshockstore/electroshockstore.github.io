@@ -85,7 +85,8 @@ const ProductGrid = ({
   products = [], 
   selectedProductId,
   onProductClick,
-  onSkipCategory
+  onSkipCategory,
+  onAddProduct
 }) => {
   const { pcBuild } = usePCBuilder();
   if (!selectedCategory) {
@@ -146,6 +147,7 @@ const ProductGrid = ({
               compatibilityResult={product.compatibilityResult}
               isSelected={isSelected}
               onClick={onProductClick}
+              onAddToBuild={onAddProduct}
             />
           );
         })}

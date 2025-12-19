@@ -1,12 +1,12 @@
 import { usePCBuilder } from '../../../context/PCBuilderContext';
 
 const CATEGORIES = [
-  { key: 'Procesadores', label: 'CPU', icon: '/images/icons/cpu_icon_tiny.webp', buildKey: 'cpu' },
+  { key: 'Procesadores', label: 'Procesador', icon: '/images/icons/cpu_icon_tiny.webp', buildKey: 'cpu' },
   { key: 'Motherboards', label: 'Motherboard', icon: '/images/icons/motherboard_icon_tiny.webp', buildKey: 'motherboard' },
-  { key: 'Memorias RAM', label: 'RAM', icon: '/images/icons/ram_icon_tiny.webp', buildKey: 'ram' },
-  { key: 'Fuentes', label: 'PSU', icon: '/images/icons/psu_icon_tiny.webp', buildKey: 'psu' },
-  { key: 'Refrigeración', label: 'Cooler', icon: '/images/icons/refrigeracion_icon_tiny.webp', buildKey: 'cooling' },
-  { key: 'Almacenamiento', label: 'Storage', icon: '/images/icons/storage_icon_tiny.webp', buildKey: 'storage' }
+  { key: 'Memorias RAM', label: 'Memoria RAM', icon: '/images/icons/ram_icon_tiny.webp', buildKey: 'ram' },
+  { key: 'Fuentes', label: 'Fuente', icon: '/images/icons/psu_icon_tiny.webp', buildKey: 'psu' },
+  { key: 'Refrigeración', label: 'Refrigeracion', icon: '/images/icons/refrigeracion_icon_tiny.webp', buildKey: 'cooling' },
+  { key: 'Almacenamiento', label: 'Almacenamiento', icon: '/images/icons/storage_icon_tiny.webp', buildKey: 'storage' }
 ];
 
 const MiniComponentCard = ({ category, component, isSelected, onClick }) => {

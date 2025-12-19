@@ -182,7 +182,7 @@ const FloatingChatButton = () => {
               ¿Necesitás ayuda?
             </span>
             <span className="text-sm sm:text-xl font-black text-white leading-tight">
-              Contactar Soporte
+              Chatea con nosotros
             </span>
           </div>
 

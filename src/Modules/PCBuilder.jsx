@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-import { useNavigate, useLocation } from 'react-router-dom';
+import { useNavigate, useLocation, useParams } from 'react-router-dom';
 import { usePCBuilder } from '../context/PCBuilderContext';
 import AssistedMode from '../components/PCBuilder/AssistedMode';
 import ManualMode from '../components/PCBuilder/ManualMode';
@@ -13,12 +13,22 @@ const PCBuilder = () => {
   const navigate = useNavigate();
   const location = useLocation();
   const { mode, setMode } = usePCBuilder();
+  const { mode: urlMode } = useParams();
   
-  // Set mode from navigation state on mount, default to manual
+  // Set mode from URL parameter or navigation state, default to manual
   useEffect(() => {
-    const initialMode = location.state?.mode || 'manual';
+    let initialMode = 'manual';
+    
+    if (urlMode === 'asistido') {
+      initialMode = 'assisted';
+    } else if (urlMode === 'manual') {
+      initialMode = 'manual';
+    } else if (location.state?.mode) {
+      initialMode = location.state.mode;
+    }
+    
     setMode(initialMode);
-  }, [location.state?.mode, setMode]);
+  }, [urlMode, location.state?.mode, setMode]);
   
   const handleGoHome = () => {
     navigate('/');

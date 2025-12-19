@@ -36,7 +36,7 @@ const slides = [
     description: "Información importante sobre la operación.",
     points: [
       { text: "NO PERMUTO", highlight: true },
-      { text: "Solo efectivo o transferencia", positive: false },
+      { text: "Efectivo o transferencia INMEDIATA", positive: false },
       { text: "Recargo en transf. < $100.000", highlight: true }
     ],
     gradient: "from-orange-500 to-red-500",
