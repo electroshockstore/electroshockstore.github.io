@@ -35,41 +35,44 @@ const ProductCard = memo(({ product, viewMode, onClick }) => {
   const productImage = useMemo(() => getProductImage(product), [product]);
   const handleClick = useCallback(() => onClick(product), [onClick, product]);
 
-  // Vista Lista
+  // Vista Lista - Optimizada para mobile
   if (viewMode === 'list') {
     return (
       <div 
         onClick={handleClick}
-        className="group relative bg-white rounded-xl border border-gray-100 p-4
+        className="group relative bg-white rounded-xl border border-gray-100 p-3 sm:p-4
                    hover:border-blue-500/30 hover:shadow-lg hover:shadow-blue-500/5 
-                   transition-all duration-300 cursor-pointer flex gap-6 items-center"
+                   transition-all duration-300 cursor-pointer flex gap-3 sm:gap-4 items-center"
       >
-        <div className="w-32 h-32 flex-shrink-0 bg-gray-50 rounded-lg p-2 relative overflow-hidden">
+        {/* Imagen - Más pequeña en mobile */}
+        <div className="w-20 h-20 sm:w-24 sm:h-24 md:w-32 md:h-32 flex-shrink-0 bg-gray-50 rounded-lg p-2 relative overflow-hidden">
           <img src={productImage} alt={product.name} className="w-full h-full object-contain mix-blend-multiply" />
         </div>
         
-        <div className="flex-1 min-w-0 py-2">
-          <div className="flex justify-between items-start">
-            <div>
-              <p className="text-xs font-semibold text-blue-600 mb-1 tracking-wide uppercase">{product.brand}</p>
-              <h3 className="font-bold text-lg text-gray-900 line-clamp-1 mb-1">{product.name}</h3>
-              <p className="text-sm text-gray-500 mb-3">{product.model}</p>
-            </div>
-            <div className="text-right">
-               <span className="block font-bold text-xl text-gray-900">
-                {new Intl.NumberFormat('es-AR', { style: 'currency', currency: 'ARS', minimumFractionDigits: 0 }).format(product.price)}
-               </span>
-            </div>
+        {/* Contenido - Optimizado para mobile */}
+        <div className="flex-1 min-w-0 flex flex-col gap-2">
+          {/* Marca */}
+          <p className="text-xs font-semibold text-blue-600 tracking-wide uppercase truncate">
+            {product.brand}
+          </p>
+          
+          {/* Título - Siempre visible, máximo 2 líneas */}
+          <h3 className="font-bold text-sm sm:text-base md:text-lg text-gray-900 line-clamp-2 leading-tight">
+            {product.name}
+          </h3>
+          
+          {/* Precio - Grande y visible */}
+          <div className="flex items-baseline gap-1">
+            <span className="text-sm text-gray-400 font-medium">$</span>
+            <span className="text-xl sm:text-2xl md:text-3xl font-black text-gray-900">
+              {product.price.toLocaleString()}
+            </span>
           </div>
           
-          <div className="flex items-center justify-between mt-2">
-             <span className={`px-2.5 py-0.5 rounded-full text-xs font-medium border ${stockStatus.badgeColor}`}>
-                {stockStatus.text}
-             </span>
-             <button className="text-sm font-semibold text-blue-600 hover:text-blue-700 transition-colors">
-                Ver detalles →
-             </button>
-          </div>
+          {/* Stock Badge - Solo en desktop */}
+          <span className={`hidden sm:inline-flex w-fit px-2.5 py-0.5 rounded-full text-xs font-medium border ${stockStatus.badgeColor}`}>
+            {stockStatus.text}
+          </span>
         </div>
       </div>
     );

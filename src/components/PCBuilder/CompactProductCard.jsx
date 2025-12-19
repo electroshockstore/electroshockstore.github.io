@@ -81,80 +81,57 @@ const CompactProductCard = memo(({ product, compatibilityResult, isSelected, onC
         />
       </div>
       
-      {/* Product Info - Compacto */}
+      {/* Product Info - Optimizado para mobile */}
       <div className="p-3 flex flex-col flex-1">
         {/* Brand */}
         {product.brand && (
-          <p className="text-xs font-semibold text-blue-600 mb-1 uppercase tracking-wide">
+          <p className="text-xs font-semibold text-blue-600 mb-1.5 uppercase tracking-wide truncate">
             {product.brand}
           </p>
         )}
         
-        {/* Name */}
-        <h3 className="font-bold text-gray-900 text-sm mb-2 line-clamp-2 min-h-[2.5rem] leading-tight">
+        {/* Name - Siempre visible, máximo 3 líneas */}
+        <h3 className="font-bold text-gray-900 text-sm mb-2 line-clamp-3 leading-tight">
           {product.name}
         </h3>
         
-        {/* Price and Stock */}
-        <div className="flex items-center justify-between mb-2">
-          <span className="text-lg font-bold text-gray-900">
+        {/* Price - Siempre visible y destacado */}
+        <div className="mb-3">
+          <span className="text-xl font-black text-gray-900 block">
             ${product.price.toLocaleString()}
           </span>
           
+          {/* Stock Badge - Compacto */}
           {product.stock === 0 && (
-            <span className="text-xs font-semibold text-red-600 bg-red-50 px-2 py-0.5 rounded border border-red-200">
+            <span className="inline-block mt-1 text-xs font-semibold text-red-600 bg-red-50 px-2 py-0.5 rounded">
               Sin stock
             </span>
           )}
           {product.stock > 0 && product.stock <= 3 && (
-            <span className="text-xs font-semibold text-orange-600 bg-orange-50 px-2 py-0.5 rounded border border-orange-200">
+            <span className="inline-block mt-1 text-xs font-semibold text-orange-600 bg-orange-50 px-2 py-0.5 rounded">
               ¡Últimas {product.stock}!
             </span>
           )}
         </div>
         
-        {/* Compatibility Reasons - Compacto */}
-        {reasons.length > 0 && (
-          <div className={`${config.bg} rounded-lg p-2 space-y-1 mt-auto border ${config.border}`}>
-            {reasons.slice(0, 2).map((reason, idx) => (
+        {/* Compatibility Reasons - Solo en desktop o si es crítico */}
+        {reasons.length > 0 && status === 'red' && (
+          <div className={`hidden sm:block ${config.bg} rounded-lg p-2 space-y-1 mb-3 border ${config.border}`}>
+            {reasons.slice(0, 1).map((reason, idx) => (
               <div key={idx} className="text-xs text-gray-700 flex items-start gap-1">
                 <span className="text-gray-400 flex-shrink-0">•</span>
                 <span className="line-clamp-2 leading-tight">{reason}</span>
               </div>
             ))}
-            {reasons.length > 2 && (
+            {reasons.length > 1 && (
               <div className="text-xs text-gray-500 italic">
-                +{reasons.length - 2} más...
+                +{reasons.length - 1} más...
               </div>
             )}
           </div>
         )}
         
-        {/* Key Specs - Solo si no hay razones */}
-        {reasons.length === 0 && product.compatibility && (
-          <div className="text-xs text-gray-500 space-y-1 mt-auto pt-2 border-t border-gray-100">
-            {product.compatibility.socket && (
-              <div className="flex justify-between">
-                <span>Socket:</span>
-                <span className="font-semibold text-gray-700">{product.compatibility.socket}</span>
-              </div>
-            )}
-            {product.compatibility.tipo && (
-              <div className="flex justify-between">
-                <span>Tipo:</span>
-                <span className="font-semibold text-gray-700">{product.compatibility.tipo}</span>
-              </div>
-            )}
-            {product.compatibility.capacidad_watts && (
-              <div className="flex justify-between">
-                <span>Potencia:</span>
-                <span className="font-semibold text-gray-700">{product.compatibility.capacidad_watts}W</span>
-              </div>
-            )}
-          </div>
-        )}
-        
-        {/* Add to Build Button */}
+        {/* Add to Build Button - Siempre visible */}
         <button
           onClick={(e) => {
             e.stopPropagation();
@@ -162,7 +139,7 @@ const CompactProductCard = memo(({ product, compatibilityResult, isSelected, onC
           }}
           disabled={isSelected}
           className={`
-            w-full mt-3 py-2.5 px-4 rounded-lg font-bold text-sm transition-all duration-200 flex items-center justify-center gap-2
+            w-full mt-auto py-2.5 px-4 rounded-lg font-bold text-sm transition-all duration-200 flex items-center justify-center gap-2
             ${isSelected
               ? 'bg-gray-100 text-gray-500 cursor-not-allowed'
               : status === 'red'
