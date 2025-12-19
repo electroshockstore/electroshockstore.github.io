@@ -26,7 +26,7 @@ const CategoryGrid = ({ onCategoryClick }) => {
     };
 
     return (
-        <section className="w-full flex-1 bg-gradient-to-b from-gray-50 to-white">
+        <section className="w-full flex-1 ">
             <div className="max-w-7xl mx-auto py-12 sm:py-16 md:py-20 px-4 sm:px-6 lg:px-8">
                 {/* Encabezado moderno */}
                 <div className="text-center mb-10 sm:mb-14">
@@ -36,7 +36,7 @@ const CategoryGrid = ({ onCategoryClick }) => {
                             Descubrí lo mejor
                         </span>
                     </div>
-                    <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black text-gray-900 mb-3 tracking-tight">
+                    <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-white text-white mb-3 tracking-tight">
                         Explorá nuestras{' '}
                         <span className="bg-gradient-to-r from-red-600 via-pink-600 to-purple-600 bg-clip-text text-transparent">
                             categorías

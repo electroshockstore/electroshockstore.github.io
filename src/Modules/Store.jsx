@@ -10,7 +10,7 @@ import Footer from '../components/InventoryApp/Footer';
 import ScrollButton from '../components/InventoryApp/ScrollButton';
 import HeroCarousel from '../components/InventoryApp/HeroCarousel';
 import PCBuilderSection from '../components/InventoryApp/PCBuilderSection';
-import CategoryGrid from '../components/InventoryApp/CategoryGrid';
+import CategoryProductSection from '../components/InventoryApp/CategoryProductSection';
 import FloatingChatButton from '../components/InventoryApp/FloatingChatButton';
 import { useFilter } from '../context/FilterContext';
 import { getCategoryFromSlug, getSlugFromCategory, generateSKU } from '../utils/slugify';
@@ -132,7 +132,7 @@ const Store = () => {
               </div>
             </div>
             <div className="mb-10">
-              <CategoryGrid onCategoryClick={handleCategoryChange} />
+              <CategoryProductSection onCategoryClick={handleCategoryChange} />
             </div>
           </div>
         ) : (
