@@ -10,7 +10,7 @@ export const procesadoresProducts = [
     brand: "AMD",
     model: "Ryzen 7 5700",
     category: "Procesadores",
-    price: 210000,
+    price: 220000,
     stock: 1,
     images: [
       "/images/procesadores/r7_5700.webp",
@@ -41,7 +41,7 @@ export const procesadoresProducts = [
     brand: "AMD",
     model: "Ryzen 7 5700G",
     category: "Procesadores",
-    price: 225000,
+    price: 240000,
     stock: 4,
     images: [
       "/images/procesadores/r7_5700g.webp",
@@ -76,7 +76,7 @@ export const procesadoresProducts = [
     brand: "AMD",
     model: "Ryzen 5 7600",
     category: "Procesadores",
-    price: 300000,
+    price: 305000,
     stock: 2,
     images: [
       "/images/procesadores/r5_7600.webp",
@@ -110,7 +110,7 @@ export const procesadoresProducts = [
     brand: "AMD",
     model: "Ryzen 5 5500",
     category: "Procesadores",
-    price: 130000,
+    price: 135000,
     stock: 2,
     images: [
       "/images/procesadores/r5_5550.webp",
@@ -142,7 +142,7 @@ export const procesadoresProducts = [
     brand: "AMD",
     model: "Ryzen 5 5600GT",
     category: "Procesadores",
-    price: 200000,
+    price: 220000,
     stock: 1,
     images: [
       "/images/procesadores/r5_5600gt.webp",
@@ -241,7 +241,7 @@ export const procesadoresProducts = [
     brand: "AMD",
     model: "Ryzen 5 8400F",
     category: "Procesadores",
-    price: 200000,
+    price: 210000,
     stock: 1,
     images: [
       "/images/procesadores/ryzen8400f.webp",
