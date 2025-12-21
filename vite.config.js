@@ -11,7 +11,7 @@ export default defineConfig({
       output: {
         manualChunks: {
           'react-vendor': ['react', 'react-dom', 'react-router-dom'],
-          'ui-vendor': ['@nextui-org/react', 'framer-motion'],
+          'ui-vendor': ['framer-motion'],
         }
       }
     },

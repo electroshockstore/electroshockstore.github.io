@@ -14,7 +14,8 @@ import {
   Mouse,
   Gamepad2,
   Monitor,
-  Wifi
+  Wifi,
+  Laptop
 } from 'lucide-react';
 
 const CategoryFilter = ({ selectedCategory, onCategoryChange }) => {
@@ -35,7 +36,8 @@ const CategoryFilter = ({ selectedCategory, onCategoryChange }) => {
       'Mouse': Mouse,
       'Joystick': Gamepad2,
       'Monitores': Monitor,
-      'Conectividad': Wifi
+      'Conectividad': Wifi,
+      'Portátiles': Laptop
     };
     return iconMap[category] || Grid3X3;
   };
@@ -54,7 +56,8 @@ const CategoryFilter = ({ selectedCategory, onCategoryChange }) => {
       'Mouse': isSelected ? 'text-orange-600' : 'text-orange-500',
       'Joystick': isSelected ? 'text-emerald-600' : 'text-emerald-500',
       'Monitores': isSelected ? 'text-slate-600' : 'text-slate-500',
-      'Conectividad': isSelected ? 'text-teal-600' : 'text-teal-500'
+      'Conectividad': isSelected ? 'text-teal-600' : 'text-teal-500',
+      'Portátiles': isSelected ? 'text-sky-600' : 'text-sky-500'
     };
     return colorMap[category] || (isSelected ? 'text-gray-600' : 'text-gray-500');
   };
@@ -73,7 +76,8 @@ const CategoryFilter = ({ selectedCategory, onCategoryChange }) => {
       'Mouse': 'from-orange-500 to-orange-600',
       'Joystick': 'from-emerald-500 to-emerald-600',
       'Monitores': 'from-slate-500 to-slate-600',
-      'Conectividad': 'from-teal-500 to-teal-600'
+      'Conectividad': 'from-teal-500 to-teal-600',
+      'Portátiles': 'from-sky-500 to-sky-600'
     };
     return gradientMap[category] || 'from-gray-500 to-gray-600';
   };

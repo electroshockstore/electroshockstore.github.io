@@ -10,6 +10,7 @@ import { tecladosProducts } from './categories/teclados';
 import { joystickProducts } from './categories/joystick';
 import { monitoresProducts } from './categories/monitores';
 import { conectividadProducts } from './categories/conectividad';
+import { portatilesProducts } from './categories/portatiles';
 import { extendProductsWithCompatibility } from './compatibility';
 
 export const categories = [
@@ -24,7 +25,8 @@ export const categories = [
   'Teclados',
   'Joystick',
   'Monitores',
-  'Conectividad'
+  'Conectividad',
+  'Portátiles'
 ];
 
 // Raw products without compatibility data
@@ -40,7 +42,8 @@ const rawProducts = [
   ...tecladosProducts,
   ...joystickProducts,
   ...monitoresProducts,
-  ...conectividadProducts
+  ...conectividadProducts,
+  ...portatilesProducts
 ];
 
 // Products extended with compatibility data for PC Builder

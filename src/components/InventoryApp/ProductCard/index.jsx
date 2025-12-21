@@ -34,6 +34,7 @@ const ProductCard = memo(({ product, viewMode, onClick }) => {
   const stockStatus = useStockStatus();
   const productImage = useMemo(() => getProductImage(product), [product]);
   const handleClick = useCallback(() => onClick(product), [onClick, product]);
+  const isUsed = product.isUsed || false;
 
   // Vista Lista - Optimizada para mobile
   if (viewMode === 'list') {
@@ -58,7 +59,7 @@ const ProductCard = memo(({ product, viewMode, onClick }) => {
           
           {/* Título - Siempre visible, máximo 2 líneas */}
           <h3 className="font-bold text-sm sm:text-base md:text-lg text-gray-900 line-clamp-2 leading-tight">
-            {product.name}
+            {isUsed ? `${product.name} - USADA` : product.name}
           </h3>
           
           {/* Precio - Grande y visible */}
@@ -92,13 +93,13 @@ const ProductCard = memo(({ product, viewMode, onClick }) => {
         
         {/* Badges Flotantes (ya tienen position absolute dentro) */}
         <StockStatus stockStatus={stockStatus} />
-        <StockBadge stock={product.stock} stockStatus={stockStatus} />
+        <StockBadge stock={product.stock} stockStatus={stockStatus} isUsed={isUsed} />
       </div>
 
       {/* Contenido */}
       <div className="p-5 flex flex-col flex-1 justify-between gap-4">
         <div>
-           <ProductInfo name={product.name} brand={product.brand} model={product.model} />
+           <ProductInfo name={product.name} brand={product.brand} model={product.model} isUsed={isUsed} />
         </div>
         
         <div className="space-y-3 pt-2 border-t border-gray-50">

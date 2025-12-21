@@ -12,12 +12,10 @@
     "test:watch": "vitest",
     "deploy": "npm run build && node scripts/generate-404.js && gh-pages -d dist",
     "clean": "rm -rf dist node_modules/.vite",
-    "analyze": "vite build --mode analyze"
+    "analyze": "vite build --mode analyze",
+    "setup:mcp": "node scripts/setup-mcp.js"
   },
   "dependencies": {
-    "@nextui-org/react": "^2.4.8",
-    "@nextui-org/system": "^2.2.6",
-    "@nextui-org/theme": "^2.2.11",
     "autoprefixer": "^10.4.20",
     "framer-motion": "^12.23.24",
     "lucide-react": "^0.446.0",

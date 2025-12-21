@@ -1,4 +1,6 @@
-const ProductInfo = ({ name, brand, model }) => {
+const ProductInfo = ({ name, brand, model, isUsed }) => {
+  const displayName = isUsed ? `${name} - USADA` : name;
+  
   return (
     <div className="space-y-1 text-left">
       {/* 1. Marca y Modelo */}
@@ -18,7 +20,7 @@ const ProductInfo = ({ name, brand, model }) => {
                       bg-gradient-to-r from-blue-600 to-purple-600 
                       shadow-xl border-2 border-blue-500
                       transition-all duration-300 leading-tight">
-          {name}
+          {displayName}
         </h3>
       </div>
       
