@@ -276,7 +276,7 @@ export const memoriasProducts = [
     brand: "Netac",
     model: "Basic",
     category: "Memorias RAM",
-    price: 100000,
+    price: 90000,
     stock: 4,
     images: [
       "/images/ram/netac_basic_16gb.webp",
