@@ -10,7 +10,7 @@ export const almacenamientoProducts = [
     brand: "ADATA",
     model: "Legend 710 ALEG-710-512GCS",
     category: "Almacenamiento",
-    price: 100000,
+    price: 110000,
     stock: 4,
     sku: "ADATA-512-L710",
     description: "SSD M.2 NVMe Gen3 x4 de 512GB con disipador de aluminio incluido, lectura 2400 MB/s",

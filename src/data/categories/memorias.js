@@ -10,7 +10,7 @@ export const memoriasProducts = [
     brand: "ADATA",
     model: "XPG Lancer Blade",
     category: "Memorias RAM",
-    price: 250000,
+    price: 270000,
     stock: 2,
     images: [
       "/images/ram/lancerblade_16gb_ddr5_sinrgb.webp",
@@ -71,7 +71,7 @@ export const memoriasProducts = [
     brand: "ADATA",
     model: "XPG Gammix D35",
     category: "Memorias RAM",
-    price: 150000,
+    price: 160000,
     stock: 2,
     images: [
       "/images/ram/ram_xpg_gamminxd35_ddr4.webp",
@@ -114,7 +114,7 @@ export const memoriasProducts = [
     brand: "NETAC",
     model: "Shadow",
     category: "Memorias RAM",
-    price: 100000,
+    price: 120000,
     stock: 5,
     images: [
       "/images/ram/ram_netac_shadow_ddr4.webp",
@@ -144,7 +144,7 @@ export const memoriasProducts = [
     brand: "XPG",
     model: "Spectrix D35G",
     category: "Memorias RAM",
-    price: 160000,
+    price: 180000,
     stock: 3,
     images: [
       "/images/ram/spectrix-d35g_16gb.webp",
@@ -245,7 +245,7 @@ export const memoriasProducts = [
     brand: "ADATA",
     model: "Premier",
     category: "Memorias RAM",
-    price: 100000,
+    price: 120000,
     stock: 5,
     images: [
       "/images/ram/adata_ddr416gb_basic.webp",
@@ -276,7 +276,7 @@ export const memoriasProducts = [
     brand: "Netac",
     model: "Basic",
     category: "Memorias RAM",
-    price: 90000,
+    price: 100000,
     stock: 4,
     images: [
       "/images/ram/netac_basic_16gb.webp",
@@ -307,7 +307,7 @@ export const memoriasProducts = [
     brand: "Patriot",
     model: "Signature",
     category: "Memorias RAM",
-    price: 120000,
+    price: 130000,
     stock: 5,
     images: [
       "/images/ram/patriot_signature_ddr416.webp",
@@ -339,7 +339,7 @@ export const memoriasProducts = [
     brand: "Lexar",
     model: "LD4AU016G",
     category: "Memorias RAM",
-    price: 110000,
+    price: 120000,
     stock: 12,
     images: [
       "/images/ram/adata16g_ddr4.webp",
@@ -378,7 +378,7 @@ export const memoriasProducts = [
     brand: "XPG",
     model: "Spectrix D35",
     category: "Memorias RAM",
-    price: 160000,
+    price: 180000,
     stock: 2,
     images: [
       "/images/ram/spectrix_d35_white.webp",
@@ -414,7 +414,7 @@ export const memoriasProducts = [
     brand: "HyperX",
     model: "Fury",
     category: "Memorias RAM",
-    price: 130000,
+    price: 150000,
     stock: 1,
     images: [
       "/images/ram/kingston_fury.webp",
@@ -451,7 +451,7 @@ export const memoriasProducts = [
     brand: "Neo Forza",
     model: "DDR5 5200",
     category: "Memorias RAM",
-    price: 150000,
+    price: 170000,
     stock: 2,
     images: [
       "/images/ram/neo_forza_ddr5.webp"
