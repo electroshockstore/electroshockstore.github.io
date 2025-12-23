@@ -115,7 +115,7 @@ export const memoriasProducts = [
     model: "Shadow",
     category: "Memorias RAM",
     price: 120000,
-    stock: 5,
+    stock: 4,
     images: [
       "/images/ram/ram_netac_shadow_ddr4.webp",
       "/images/ram/ram_netac_shadow_ddr4_side.webp"
