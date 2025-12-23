@@ -99,7 +99,7 @@ const PuntosRetiro = () => {
         </div>
 
         {/* Hero Section */}
-        <section className="relative py-12 sm:py-20 px-4 sm:px-6">
+        <section className="relative py-8 sm:py-12 md:py-20 px-4 sm:px-6">
           <div className="relative max-w-7xl mx-auto">
             {/* Back button */}
             <motion.button
@@ -107,29 +107,29 @@ const PuntosRetiro = () => {
               initial={{ opacity: 0, x: -20 }}
               animate={{ opacity: 1, x: 0 }}
               whileHover={{ x: -5 }}
-              className="group flex items-center gap-2 text-gray-400 hover:text-white transition-all mb-8 bg-white/5 backdrop-blur-sm px-4 py-2 rounded-full border border-white/10"
+              className="group flex items-center gap-2 text-gray-400 hover:text-white transition-all mb-6 sm:mb-8 bg-white/5 backdrop-blur-sm px-3 py-2 sm:px-4 sm:py-2 rounded-full border border-white/10 text-sm"
             >
-              <ArrowLeft className="w-5 h-5 group-hover:scale-110 transition-transform" />
-              <span className="font-semibold">Volver al catálogo</span>
+              <ArrowLeft className="w-4 h-4 sm:w-5 sm:h-5 group-hover:scale-110 transition-transform" />
+              <span className="font-semibold">Volver</span>
             </motion.button>
 
             {/* Title */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              className="text-center mb-16"
+              className="text-center mb-8 sm:mb-12 md:mb-16"
             >
               <motion.div
                 initial={{ scale: 0.9, opacity: 0 }}
                 animate={{ scale: 1, opacity: 1 }}
                 transition={{ delay: 0.1 }}
-                className="inline-flex items-center gap-3 bg-gradient-to-r from-blue-500/20 to-purple-500/20 backdrop-blur-md px-8 py-4 rounded-full border border-blue-500/30 mb-8 shadow-lg shadow-blue-500/20"
+                className="inline-flex items-center gap-2 sm:gap-3 bg-gradient-to-r from-blue-500/20 to-purple-500/20 backdrop-blur-md px-4 py-2 sm:px-8 sm:py-4 rounded-full border border-blue-500/30 mb-4 sm:mb-8 shadow-lg shadow-blue-500/20"
               >
-                <MapPin className="w-7 h-7 text-blue-400" strokeWidth={2.5} />
-                <span className="text-blue-400 font-black text-lg">Puntos de Retiro</span>
+                <MapPin className="w-5 h-5 sm:w-7 sm:h-7 text-blue-400" strokeWidth={2.5} />
+                <span className="text-blue-400 font-black text-sm sm:text-lg">Puntos de Retiro</span>
               </motion.div>
               
-              <h1 className="text-5xl sm:text-7xl lg:text-8xl font-black text-white mb-6 leading-tight">
+              <h1 className="text-3xl sm:text-5xl md:text-7xl lg:text-8xl font-black text-white mb-3 sm:mb-6 leading-tight px-4">
                 <span className="bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">
                   ¿Dónde Retiro
                 </span>
@@ -137,46 +137,46 @@ const PuntosRetiro = () => {
                 <span className="text-white">Mi Compra?</span>
               </h1>
               
-              <p className="text-xl sm:text-2xl text-gray-400 max-w-3xl mx-auto leading-relaxed">
-                Elegí el punto de retiro más cercano y coordiná tu entrega de forma <span className="text-blue-400 font-bold">segura</span>
+              <p className="text-base sm:text-xl md:text-2xl text-gray-400 max-w-3xl mx-auto leading-relaxed px-4">
+                Elegí el punto más cercano y coordiná tu entrega <span className="text-blue-400 font-bold">segura</span>
               </p>
             </motion.div>
           </div>
         </section>
 
         {/* Important Rules Section */}
-        <section className="py-8 px-4 sm:px-6">
+        <section className="py-6 sm:py-8 md:py-12 px-4 sm:px-6">
           <div className="max-w-7xl mx-auto">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.2 }}
-              className="relative bg-gradient-to-br from-red-900/30 via-orange-900/20 to-red-900/30 backdrop-blur-xl rounded-3xl p-8 sm:p-12 border-2 border-red-500/40 mb-16 overflow-hidden shadow-2xl shadow-red-500/20"
+              className="relative bg-gradient-to-br from-red-900/30 via-orange-900/20 to-red-900/30 backdrop-blur-xl rounded-2xl sm:rounded-3xl p-4 sm:p-8 md:p-12 border-2 border-red-500/40 mb-8 sm:mb-12 md:mb-16 overflow-hidden shadow-2xl shadow-red-500/20"
             >
               {/* Decorative elements */}
-              <div className="absolute top-0 right-0 w-64 h-64 bg-red-500/10 rounded-full blur-3xl" />
-              <div className="absolute bottom-0 left-0 w-64 h-64 bg-orange-500/10 rounded-full blur-3xl" />
+              <div className="absolute top-0 right-0 w-32 h-32 sm:w-64 sm:h-64 bg-red-500/10 rounded-full blur-3xl" />
+              <div className="absolute bottom-0 left-0 w-32 h-32 sm:w-64 sm:h-64 bg-orange-500/10 rounded-full blur-3xl" />
               
               <div className="relative">
-                <div className="flex items-center gap-4 mb-8">
-                  <div className="bg-red-500/20 backdrop-blur-sm p-4 rounded-2xl border border-red-500/30">
-                    <AlertTriangle className="w-10 h-10 text-red-400" strokeWidth={2.5} />
+                <div className="flex items-center gap-3 sm:gap-4 mb-4 sm:mb-6 md:mb-8">
+                  <div className="bg-red-500/20 backdrop-blur-sm p-2 sm:p-3 md:p-4 rounded-xl sm:rounded-2xl border border-red-500/30">
+                    <AlertTriangle className="w-6 h-6 sm:w-8 sm:h-8 md:w-10 md:h-10 text-red-400" strokeWidth={2.5} />
                   </div>
                   <div>
-                    <h2 className="text-3xl sm:text-4xl font-black text-white">IMPORTANTE</h2>
-                    <p className="text-red-300 font-semibold">Leer antes de coordinar</p>
+                    <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-black text-white">IMPORTANTE</h2>
+                    <p className="text-xs sm:text-sm text-red-300 font-semibold">Leer antes de coordinar</p>
                   </div>
                 </div>
                 
-                <div className="grid md:grid-cols-3 gap-6">
+                <div className="grid gap-3 sm:gap-4 md:gap-6 md:grid-cols-3">
                   {importantRules.map((rule, index) => (
                     <motion.div
                       key={index}
                       initial={{ opacity: 0, y: 20 }}
                       animate={{ opacity: 1, y: 0 }}
                       transition={{ delay: 0.3 + index * 0.1 }}
-                      whileHover={{ scale: 1.05, y: -8 }}
-                      className={`relative bg-gradient-to-br ${rule.bgColor} backdrop-blur-sm rounded-2xl p-8 border-2 ${rule.borderColor} overflow-hidden group cursor-pointer shadow-xl ${rule.glowColor}`}
+                      whileHover={{ scale: 1.02, y: -4 }}
+                      className={`relative bg-gradient-to-br ${rule.bgColor} backdrop-blur-sm rounded-xl sm:rounded-2xl p-4 sm:p-6 md:p-8 border-2 ${rule.borderColor} overflow-hidden group cursor-pointer shadow-lg sm:shadow-xl ${rule.glowColor}`}
                     >
                       {/* Animated glow effect */}
                       <motion.div
@@ -195,28 +195,28 @@ const PuntosRetiro = () => {
                       {/* Icon with pulse */}
                       <motion.div
                         animate={{
-                          scale: [1, 1.1, 1]
+                          scale: [1, 1.05, 1]
                         }}
                         transition={{
                           duration: 2,
                           repeat: Infinity,
                           ease: "easeInOut"
                         }}
-                        className="relative mb-6"
+                        className="relative mb-3 sm:mb-4 md:mb-6"
                       >
-                        <div className={`inline-flex p-4 rounded-2xl bg-gradient-to-br ${rule.bgColor} border ${rule.borderColor}`}>
-                          <rule.icon className={`w-12 h-12 ${rule.color}`} strokeWidth={2.5} />
+                        <div className={`inline-flex p-2 sm:p-3 md:p-4 rounded-xl sm:rounded-2xl bg-gradient-to-br ${rule.bgColor} border ${rule.borderColor}`}>
+                          <rule.icon className={`w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 ${rule.color}`} strokeWidth={2.5} />
                         </div>
                       </motion.div>
                       
                       <div className="relative">
-                        <h3 className="text-2xl font-black text-white mb-2">{rule.title}</h3>
-                        <p className={`text-sm font-bold ${rule.color} mb-3 uppercase tracking-wide`}>{rule.subtitle}</p>
-                        <p className="text-gray-300 leading-relaxed font-medium">{rule.description}</p>
+                        <h3 className="text-lg sm:text-xl md:text-2xl font-black text-white mb-1 sm:mb-2">{rule.title}</h3>
+                        <p className={`text-xs sm:text-sm font-bold ${rule.color} mb-2 sm:mb-3 uppercase tracking-wide`}>{rule.subtitle}</p>
+                        <p className="text-sm sm:text-base text-gray-300 leading-relaxed font-medium">{rule.description}</p>
                       </div>
 
                       {/* Corner accent */}
-                      <div className={`absolute top-0 right-0 w-20 h-20 bg-gradient-to-br ${rule.color} opacity-10 blur-2xl`} />
+                      <div className={`absolute top-0 right-0 w-16 h-16 sm:w-20 sm:h-20 bg-gradient-to-br ${rule.color} opacity-10 blur-2xl`} />
                     </motion.div>
                   ))}
                 </div>
@@ -224,7 +224,7 @@ const PuntosRetiro = () => {
             </motion.div>
 
             {/* Pickup Points Grid */}
-            <div className="grid lg:grid-cols-2 gap-8 mb-16">
+            <div className="grid lg:grid-cols-2 gap-6 sm:gap-8 mb-8 sm:mb-12 md:mb-16">
               {pickupPoints.map((point, index) => (
                 <motion.div
                   key={point.id}
@@ -233,10 +233,10 @@ const PuntosRetiro = () => {
                   transition={{ delay: 0.4 + index * 0.15 }}
                   className="group"
                 >
-                  <div className={`relative bg-gradient-to-br ${point.color} p-[2px] rounded-3xl overflow-hidden transition-all duration-500 hover:shadow-2xl ${selectedPoint === point.id ? 'scale-[1.02]' : ''}`}>
-                    <div className="relative bg-gray-900/95 backdrop-blur-xl rounded-3xl overflow-hidden">
+                  <div className={`relative bg-gradient-to-br ${point.color} p-[2px] rounded-2xl sm:rounded-3xl overflow-hidden transition-all duration-500 hover:shadow-2xl ${selectedPoint === point.id ? 'scale-[1.02]' : ''}`}>
+                    <div className="relative bg-gray-900/95 backdrop-blur-xl rounded-2xl sm:rounded-3xl overflow-hidden">
                       {/* Image with overlay */}
-                      <div className="relative h-64 sm:h-80 overflow-hidden group-hover:scale-105 transition-transform duration-700">
+                      <div className="relative h-48 sm:h-64 md:h-80 overflow-hidden group-hover:scale-105 transition-transform duration-700">
                         <img 
                           src={point.image} 
                           alt={point.name}
@@ -249,22 +249,22 @@ const PuntosRetiro = () => {
                           initial={{ y: -20, opacity: 0 }}
                           animate={{ y: 0, opacity: 1 }}
                           transition={{ delay: 0.6 + index * 0.1 }}
-                          className="absolute top-6 left-6"
+                          className="absolute top-3 left-3 sm:top-6 sm:left-6"
                         >
-                          <div className={`inline-flex items-center gap-2 bg-gradient-to-r ${point.color} px-5 py-2.5 rounded-full text-white font-black shadow-xl backdrop-blur-sm border border-white/20`}>
-                            <MapPin className="w-5 h-5" strokeWidth={2.5} />
+                          <div className={`inline-flex items-center gap-1.5 sm:gap-2 bg-gradient-to-r ${point.color} px-3 py-1.5 sm:px-5 sm:py-2.5 rounded-full text-white font-black text-xs sm:text-base shadow-xl backdrop-blur-sm border border-white/20`}>
+                            <MapPin className="w-3 h-3 sm:w-5 sm:h-5" strokeWidth={2.5} />
                             Punto {point.id}
                           </div>
                         </motion.div>
 
                         {/* Title overlay */}
-                        <div className="absolute bottom-6 left-6 right-6">
-                          <h3 className="text-3xl sm:text-4xl font-black text-white mb-2 drop-shadow-lg">{point.name}</h3>
-                          <p className="text-gray-200 text-lg font-semibold drop-shadow-md">{point.address}</p>
+                        <div className="absolute bottom-3 left-3 right-3 sm:bottom-6 sm:left-6 sm:right-6">
+                          <h3 className="text-2xl sm:text-3xl md:text-4xl font-black text-white mb-1 sm:mb-2 drop-shadow-lg">{point.name}</h3>
+                          <p className="text-gray-200 text-sm sm:text-lg font-semibold drop-shadow-md">{point.address}</p>
                         </div>
                       </div>
 
-                      <div className="p-6 sm:p-8 space-y-6">
+                      <div className="p-4 sm:p-6 md:p-8 space-y-4 sm:space-y-6">
                         {/* Security Features */}
                         <div className="bg-gradient-to-br from-green-500/10 to-emerald-500/5 backdrop-blur-sm rounded-2xl p-6 border border-green-500/30">
                           <div className="flex items-center gap-3 mb-4">
