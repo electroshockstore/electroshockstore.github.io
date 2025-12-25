@@ -102,7 +102,7 @@ const Header = ({ searchQuery = '', onSearchChange, onGoHome }) => {
               <div className="px-4 sm:px-6 pb-6 flex items-center justify-center">
                 <div className="relative group">
                   <img
-                    src="/images/condiciones_tiny.png"
+                    src="/images/condiciones_tiny.webp"
                     alt="Condiciones de Venta"
                     className="max-w-full max-h-[60vh] sm:max-h-[70vh] w-auto h-auto object-contain rounded-xl shadow-2xl border border-gray-700/50"
                   />

@@ -14,15 +14,15 @@ export const portatilesProducts = [
     stock: 1,
     isUsed: true,
     images: [
-      "/images/portatiles/tiny ryzen 7hp/hp_r7.jpg",
-      "/images/portatiles/tiny ryzen 7hp/hp_r7_top.jpg",
-      "/images/portatiles/tiny ryzen 7hp/hp_r7_teclado.jpg",
-      "/images/portatiles/tiny ryzen 7hp/hp_r7_ports.jpg",
-      "/images/portatiles/tiny ryzen 7hp/hp_r7_port.jpg",
-      "/images/portatiles/tiny ryzen 7hp/hp_r7_back.jpg",
-      "/images/portatiles/tiny ryzen 7hp/hp_r7_specs.png",
-      "/images/portatiles/tiny ryzen 7hp/hp_r7_specs2.jpg",
-      "/images/portatiles/tiny ryzen 7hp/hp_r7_cargador.jpg"
+      "/images/portatiles/tiny ryzen 7hp/hp_r7.webp",
+      "/images/portatiles/tiny ryzen 7hp/hp_r7_top.webp",
+      "/images/portatiles/tiny ryzen 7hp/hp_r7_teclado.webp",
+      "/images/portatiles/tiny ryzen 7hp/hp_r7_ports.webp",
+      "/images/portatiles/tiny ryzen 7hp/hp_r7_port.webp",
+      "/images/portatiles/tiny ryzen 7hp/hp_r7_back.webp",
+      "/images/portatiles/tiny ryzen 7hp/hp_r7_specs.webp",
+      "/images/portatiles/tiny ryzen 7hp/hp_r7_specs2.webp",
+      "/images/portatiles/tiny ryzen 7hp/hp_r7_cargador.webp"
     ],
     description: "procesador AMD Ryzen 7 3700U, 16GB RAM DDR4, SSD 500GB NVMe, pantalla Full HD IPS 15.6\", Windows 11 Pro, Tiene detalles de uso raspones del apoyo y demas. nada roto.NO TIENE BATERIA SE LE SACO PORQUE EN LOS JUEGOS RENDIA MAS CONECTADA y se inflo",
     specifications: {
@@ -114,17 +114,17 @@ export const portatilesProducts = [
     stock: 1,
     isUsed: true,
     images: [
-      "/images/portatiles/tiny i3 11/noti3_11.jpeg",
-      "/images/portatiles/tiny i3 11/noti3_11_top.jpg",
-      "/images/portatiles/tiny i3 11/noti3_11_tab.jpg",
-      "/images/portatiles/tiny i3 11/noti3_11_tapa.jpg",
-      "/images/portatiles/tiny i3 11/noti3_11_port.jpg",
-      "/images/portatiles/tiny i3 11/noti3_11_back.jpg",
-      "/images/portatiles/tiny i3 11/noti3_11_disco.jpg",
-      "/images/portatiles/tiny i3 11/noti3_11_cargador.jpg",
-      "/images/portatiles/tiny i3 11/noti3_11_2.jpeg",
-      "/images/portatiles/tiny i3 11/noti3_11_3.jpeg",
-      "/images/portatiles/tiny i3 11/noti3_11_4.jpeg"
+      "/images/portatiles/tiny i3 11/noti3_11.webp",
+      "/images/portatiles/tiny i3 11/noti3_11_top.webp",
+      "/images/portatiles/tiny i3 11/noti3_11_tab.webp",
+      "/images/portatiles/tiny i3 11/noti3_11_tapa.webp",
+      "/images/portatiles/tiny i3 11/noti3_11_port.webp",
+      "/images/portatiles/tiny i3 11/noti3_11_back.webp",
+      "/images/portatiles/tiny i3 11/noti3_11_disco.webp",
+      "/images/portatiles/tiny i3 11/noti3_11_cargador.webp",
+      "/images/portatiles/tiny i3 11/noti3_11_2.webp",
+      "/images/portatiles/tiny i3 11/noti3_11_3.webp",
+      "/images/portatiles/tiny i3 11/noti3_11_4.webp"
     ],
     description: "Notebook Lenovo IdeaPad 15TL05 con Intel Core i3-1115G4 11ª Gen, 8GB RAM DDR4, SSD Samsung 256GB, pantalla táctil 15.6\", Windows 11 Pro Impecable, puede presentar mínimas marcas de uso en el chasis (ver fotos)windows 11 pro, bateria dura 3 hs , 256gb ssd m2 samsung, pantalla tactil, 8gb ddr4, cargador original, bluetooth , wifi , camaraweb, hdmi etc. todos los programas.",
     specifications: {

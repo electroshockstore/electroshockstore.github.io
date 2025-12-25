@@ -27,7 +27,7 @@ const slides = [
       { text: "Revisás antes de abonar", positive: true }
     ],
     gradient: "from-emerald-500 to-teal-400",
-    image: "/images/hero/stop_tiny.jpg"
+    image: "/images/hero/stop_tiny.webp"
   },
   {
     id: 3,
@@ -53,7 +53,7 @@ const slides = [
       { text: "Sin factura ni garantía escrita", highlight: true }
     ],
     gradient: "from-purple-600 to-pink-500",
-    image: "/images/hero/atenttion_tiny.jpg"
+    image: "/images/hero/atenttion_tiny.webp"
   },
   {
     id: 5,

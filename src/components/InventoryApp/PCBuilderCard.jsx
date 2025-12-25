@@ -42,7 +42,7 @@ const PCBuilderCard = ({
             {/* Background Image with Blur - Optimizado */}
             <div className="absolute inset-0">
                 <img 
-                    src="/images/builder_tiny.png" 
+                    src="/images/builder_tiny.webp" 
                     alt=""
                     loading="eager"
                     decoding="async"
