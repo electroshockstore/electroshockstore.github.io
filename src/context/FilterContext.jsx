@@ -45,51 +45,22 @@ export function FilterProvider({ children }) {
           if (!product.specifications) return false;
           
           return activeFilters.every(([filterType, selectedValues]) => {
-            // Buscar el valor en el producto, considerando TODAS las claves posibles
+            // Buscar el valor en el producto usando la clave exacta primero
             let specValue = product.specifications[filterType];
             
-            // Si no se encuentra, buscar en todas las variantes posibles
+            // Si no se encuentra con la clave exacta, buscar en aliases
             if (!specValue) {
-              // Buscar en aliases inversos (todas las claves que mapean a filterType)
               const possibleKeys = Object.entries(FILTER_KEY_ALIASES)
                 .filter(([, target]) => target === filterType)
                 .map(([key]) => key);
               
-              // Agregar el filterType mismo
               possibleKeys.push(filterType);
               
-              // Buscar en todas las claves posibles
               for (const key of possibleKeys) {
                 if (product.specifications[key]) {
                   specValue = product.specifications[key];
                   break;
                 }
-              }
-              
-              // Búsquedas específicas adicionales
-              if (!specValue && filterType === 'rgb') {
-                specValue = product.specifications['iluminacionRGB'] || 
-                           product.specifications['Iluminación'] ||
-                           product.specifications['RGB'] ||
-                           product.specifications['rgb'];
-              } else if (!specValue && filterType === 'tipoMemoriaRAM') {
-                specValue = product.specifications['tipoMemoriaRAM'] || 
-                           product.specifications['tipoMemoria'] ||
-                           product.specifications['Tipo de memoria'];
-              } else if (!specValue && filterType === 'marca') {
-                specValue = product.specifications['marca'] || 
-                           product.specifications['Marca'] ||
-                           product.specifications['brand'];
-              } else if (!specValue && filterType === 'capacidadTotal') {
-                specValue = product.specifications['capacidadTotal'] || 
-                           product.specifications['Capacidad total'] ||
-                           product.specifications['Capacidad'] ||
-                           product.specifications['capacidad'];
-              } else if (!specValue && filterType === 'formato') {
-                specValue = product.specifications['formato'] || 
-                           product.specifications['Factor de forma'] ||
-                           product.specifications['Formato'] ||
-                           product.specifications['Tipo'];
               }
             }
             

@@ -292,7 +292,7 @@ export const mouseProducts = [
     brand: "Razer",
     model: "Deathadder V2 Mini",
     category: "Mouse",
-    price: 50000,
+    price: 45000,
     stock: 4,
     images: [
       "/images/mouse/razer_v2mini.webp",

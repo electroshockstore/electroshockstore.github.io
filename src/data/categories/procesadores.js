@@ -373,7 +373,7 @@ export const procesadoresProducts = [
     model: "Athlon 3000G",
     category: "Procesadores",
     price: 55000,
-    stock: 3,
+    stock: 5,
     images: [
       "/images/procesadores/atlhon_300g.webp",
       "/images/procesadores/atlhon_300g_side.webp",

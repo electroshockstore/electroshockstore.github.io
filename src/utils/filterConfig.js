@@ -31,9 +31,8 @@ export const FILTER_KEY_ALIASES = {
   'tipo': 'tipoMemoriaRAM',
   
   // Marca
-  'Marca': 'marca',
-  'MARCA': 'marca',
-  'brand': 'marca',
+  'MARCA': 'Marca',
+  'brand': 'Marca',
   
   // Capacidad
   'Capacidad total': 'capacidadTotal',
@@ -44,7 +43,10 @@ export const FILTER_KEY_ALIASES = {
   // Formato (almacenamiento)
   'Factor de forma': 'formato',
   'Formato': 'formato',
-  'Tipo': 'formato'
+  'Tipo': 'formato',
+  
+  // Conexión (auriculares) - Conectividad es alias de Tipo de conexión
+  'Conectividad': 'Tipo de conexión'
 };
 
 // Labels amigables para mostrar en UI
@@ -76,7 +78,7 @@ export const FILTER_LABELS = {
   'tipoConectividad': 'Conexión',
   // Auriculares
   'Compatibilidad': 'Compatibilidad',
-  'Tipo de conexión': 'Conexión',
+  'Tipo de conexión': 'Tipo de Conexión',
   // Joystick
   'inalambrico': 'Conexión',
   'compatibilidad': 'Compatibilidad',

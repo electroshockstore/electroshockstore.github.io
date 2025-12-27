@@ -47,6 +47,42 @@ export const normalizeConnectivity = (value) => {
   return isWireless ? 'Inalámbrico' : 'Alámbrico';
 };
 
+// Normalizar tipo de conexión para auriculares (simple: Alámbrico o Inalámbrico)
+export const normalizeHeadphoneConnection = (value) => {
+  const valueStr = value.toString().toLowerCase().trim();
+  
+  // Detectar inalámbrico (Bluetooth, USB wireless, Lightspeed, etc.)
+  const isWireless = valueStr.includes('bluetooth') || 
+                     valueStr.includes('inalámbrico') || 
+                     valueStr.includes('wireless') || 
+                     valueStr.includes('2.4ghz') || 
+                     valueStr.includes('lightspeed');
+  
+  return isWireless ? 'Inalámbrico' : 'Alámbrico';
+};
+
+// Normalizar compatibilidad para auriculares (simple: PC, Consola o Multiplataforma)
+export const normalizeHeadphoneCompatibility = (value) => {
+  const valueStr = value.toString().toLowerCase().trim();
+  
+  const hasPC = valueStr.includes('pc') || valueStr.includes('windows');
+  const hasConsole = valueStr.includes('ps4') || valueStr.includes('ps5') || 
+                     valueStr.includes('playstation') || valueStr.includes('xbox') || 
+                     valueStr.includes('switch') || valueStr.includes('consola');
+  const hasMobile = valueStr.includes('android') || valueStr.includes('ios') || 
+                    valueStr.includes('celular') || valueStr.includes('móvil') ||
+                    valueStr.includes('tablet') || valueStr.includes('dispositivos móviles');
+  
+  // Si tiene PC + Consola, o más de 2 plataformas = Multiplataforma
+  const platformCount = (hasPC ? 1 : 0) + (hasConsole ? 1 : 0) + (hasMobile ? 1 : 0);
+  
+  if (platformCount >= 2) return 'Multiplataforma';
+  if (hasConsole) return 'Consola';
+  if (hasPC) return 'PC';
+  
+  return 'Multiplataforma'; // Por defecto
+};
+
 // Normalizar batería
 export const normalizeBattery = (value) => {
   const valueStr = value.toString().toLowerCase().trim();
@@ -161,19 +197,20 @@ export const normalizeStorageFormat = (value) => {
 // Mapa de normalizadores por tipo de filtro
 const NORMALIZER_MAP = {
   'marca': normalizeBrand,
+  'Marca': normalizeBrand,
   'rgb': normalizeRGB,
   'iluminacionRGB': normalizeRGB,
   'Iluminación': normalizeRGB,
   'tipoMemoriaRAM': normalizeMemoryType,
   'tipoMemoria': normalizeMemoryType,
   'tipoConectividad': normalizeConnectivity,
-  'Conectividad': normalizeConnectivity,
-  'Tipo de conexión': normalizeConnectivity,
+  'Conectividad': normalizeHeadphoneConnection,
+  'Tipo de conexión': normalizeHeadphoneConnection,
   'inalambrico': normalizeConnectivity,
   'tipoBateria': normalizeBattery,
   'bateria': normalizeBattery,
   'compatibilidad': normalizeCompatibility,
-  'Compatibilidad': normalizeCompatibility,
+  'Compatibilidad': normalizeHeadphoneCompatibility,
   'Potencia': normalizePower,
   'Certificacion': normalizeCertification,
   'capacidadTotal': normalizeCapacity,

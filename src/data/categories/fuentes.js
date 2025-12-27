@@ -6,103 +6,106 @@
 export const fuentesProducts = [
   {
     id: 100,
-    name: "Adata XPG Probe 600W - 80 Plus Bronze",
-    brand: "ADATA",
-    model: "XPG Probe 600W",
+  name: "Adata XPG Core Reactor II VE 850W - 80 Plus Gold Modular",
+    brand: "XPG",
+    model: "COREREACTORIIVE850G-BKCAR",
     category: "Fuentes",
-    price: 60000,
-    stock: 5,
-    sku: "XPG-600-PROBE",
-    description: "Fuente ATX 600W con certificación 80 Plus Bronze, ventilador 120mm silencioso",
+    price: 160000,
+    stock: 2,
+    sku: "XPG-850-REACTOR",
+    description: "Fuente ATX 850W modular con certificación 80 Plus Gold, ventilador FDB 120mm ultra silencioso",
     images: [
-      "/images/fuentes/xpg_probe700.webp",
-      "/images/fuentes/xpg_probe700_side.webp",
-      "/images/fuentes/xpg_probe700_back.webp"
+      "/images/fuentes/xpg_850wcore.webp",
+      "/images/fuentes/xpg_850wcore_side.webp",
+      "/images/fuentes/xpg_850wcore_back.webp"
     ],
     specifications: {
-      "Cod": "#523207",
-      "Marca": "ADATA",
-      "Línea": "XPG Probe",
-      "Modelo": "Probe 600W",
-      "Potencia": "600W",
-      "Certificacion": "80 Plus Bronze",
+      "Marca de la fuente": "XPG",
+      "Línea": "Core Reactor II VE",
+      "Modelo de la fuente": "COREREACTORIIVE850G-BKCAR",
+      "Potencia": "850W",
+      "Certificacion": "80 Plus Gold",
+      "Frecuencia": "50-60 Hz",
       "Formato": "ATX",
+      "Cableado": "Modular",
       "Conectores": {
         "ATX 24 pines": "1",
-        "EPS 8 pines (CPU)": "1",
-        "PCI-E 6+2 pines": "2",
-        "SATA": "5",
-        "Molex": "2"
+        "EPS 8 pines": "2",
+        "PCI-E 6+2": "4",
+        "SATA": "10",
+        "Molex": "3"
       },
-      "Protecciones": "OVP / UVP / OPP / SCP / OCP",
-      "Ventilador": "120 mm silencioso"
+      "Ventilador": "120 mm FDB ultra silencioso",
+      "Protecciones": "OCP / OVP / UVP / OPP / SCP / OTP"
     }
   },
   {
     id: 101,
-    name: "Aureox ARXGP-600W - Powerful Series",
-    brand: "Aureox",
-    model: "ARXGP-600W",
+    name: "Gigabyte GP-UD750GM - 750W 80 Plus Gold Modular",
+    brand: "Gigabyte",
+    model: "GP-UD750GM",
     category: "Fuentes",
-    price: 55000,
+    price: 150000,
     stock: 2,
-    sku: "AUR-ARXGP-600",
-    description: "Fuente ATX 600W sin certificación 80 Plus, ventilador 120mm",
+    sku: "GB-UD750",
+    description: "Fuente ATX 750W modular con certificación 80 Plus Gold, ventilador FDB 120mm",
     images: [
-      "/images/fuentes/aureox_600w.webp",
-      "/images/fuentes/aureox_600w_side.webp",
-      "/images/fuentes/aureox_600w_specs.webp"
+      "/images/fuentes/gigabyte_ud750.webp",
+      "/images/fuentes/gigabyte_ud750_side.webp",
+      "/images/fuentes/gigabyte_ud750_front.webp"
     ],
     specifications: {
-      "Marca": "Aureox",
-      "Línea": "Powerful Series",
-      "Modelo": "ARXGP-600W",
-      "Potencia": "600W",
-      "Certificacion": "Sin certificación 80 Plus",
+      "Marca": "Gigabyte",
+      "Modelo": "Gp-Ud750gm",
+      "Potencia": "750W",
+      "Certificacion": "80 Plus Gold",
       "Frecuencia": "60 Hz",
       "Formato": "ATX",
+      "Cableado": "Modular",
       "Conectores": {
         "ATX 24 pines": "1",
-        "EPS 8 pines": "1",
-        "PCI-E 6+2": "1",
-        "SATA": "4",
-        "Molex": "2"
+        "EPS 8 pines": "2",
+        "PCI-E 6+2": "4",
+        "SATA": "8",
+        "Molex": "3"
       },
-      "Ventilador": "120 mm"
+      "Ventilador": "120 mm FDB",
+      "Protecciones": "OCP / OVP / UVP / SCP / OPP / OTP"
     }
   },
   {
     id: 102,
-    name: "Gigabyte GP-P450B - 450W 80 Plus Bronze",
-    brand: "Gigabyte",
-    model: "GP-P450B",
+  
+    name: "XPG Pylon 750W - 80 Plus Bronze",
+    brand: "XPG",
+    model: "PYLON750B-BKCUS",
     category: "Fuentes",
-    price: 55000,
-    stock: 1,
-    sku: "GB-P450B",
-    description: "Fuente ATX 450W con certificación 80 Plus Bronze, eficiencia hasta 85%",
+    price: 90000,
+    stock: 7,
+    sku: "XPG-750-PYLON",
+    description: "Fuente ATX 750W no modular con certificación 80 Plus Bronze, MTBF 100,000 horas",
     images: [
-      "/images/fuentes/gigabyte_p450b.webp",
-      "/images/fuentes/gigabyte_p450b_side.webp",
-      "/images/fuentes/gigabyte_p450b_back.webp"
+      "/images/fuentes/pylon_750.webp",
+      "/images/fuentes/pylon_750_specs.webp",
+      "/images/fuentes/pylon_750_specs_side.webp"
     ],
     specifications: {
-      "Marca": "Gigabyte",
-      "Modelo": "GP-P450B",
-      "Potencia": "450W",
-      "Certificacion": "80 Plus Bronze",
-      "Frecuencia": "60 Hz",
-      "Eficiencia": "Hasta 85%",
-      "Formato": "ATX",
-      "Conectores": {
-        "ATX 24 pines": "1",
-        "EPS 8 pines": "1",
-        "PCI-E 6+2": "2",
-        "SATA": "6",
-        "Molex": "3"
-      },
-      "Protecciones": "OCP / OVP / OPP / SCP / UVP",
-      "Ventilador": "120 mm"
+      "Marca": "XPG",
+      "Modelo": "PYLON",
+      "Número de Parte": "PYLON750B-BKCUS",
+      "Factor de Forma y Tipo": "ATX - NO MODULAR",
+      "Potencia Continua": "750W",
+      "Certificación": "80 PLUS BRONZE",
+      "Voltaje": "100V-240V, 5A MAX",
+      "MTBF": "100 000 Horas",
+      "ATX (24 pin)": "1",
+      "CPU (4+4 pin)": "2",
+      "PCIe (6+2 pin)": "4",
+      "SATA (4 pin)": "8",
+      "Molex (4 pin)": "3",
+      "Floppy (4 pin)": "1",
+      "Protecciones": "OCP / OVP / UVP / OPP / SCP / OTP / NLO / SIP",
+      "Dimensiones": "140 x 150 x 86mm"
     }
   },
   {
@@ -111,7 +114,7 @@ export const fuentesProducts = [
     brand: "Gigabyte",
     model: "GP-P650SS",
     category: "Fuentes",
-    price: 75000,
+    price: 80000,
     stock: 5,
     sku: "GB-P650SS",
     description: "Fuente ATX 650W con certificación 80 Plus Gold, eficiencia hasta 90%, ventilador FDB 120mm",
@@ -142,38 +145,38 @@ export const fuentesProducts = [
   },
   {
     id: 104,
-    name: "Thermaltake Smart  - 600W 80 Plus White",
-    brand: "Thermaltake",
-    model: "SPD-0600",
+   name: "Gigabyte P750BS - 750W 80 Plus Bronze",
+    brand: "Gigabyte",
+    model: "P750BS",
     category: "Fuentes",
-    price: 70000,
-    stock: 2,
-    sku: "TT-SMART-600",
-    description: "Fuente ATX 600W con certificación 80 Plus White, eficiencia hasta 80%",
+    price: 90000,
+    stock: 3,
+    sku: "GB-P750BS",
+    description: "Fuente ATX 750W no modular con certificación 80 Plus Bronze, ventilador 120mm",
     images: [
-      "/images/fuentes/thermaltake_600smart.webp",
-      "/images/fuentes/thermaltake_600smart_side.webp",
-      "/images/fuentes/thermaltake_600smart_specs.webp"
+      "/images/fuentes/gigabyte_p750bs.webp",
+      "/images/fuentes/gigabyte_p750bs_side.webp",
+      "/images/fuentes/gigabyte_p750bs_specs.webp"
     ],
     specifications: {
-      "Marca": "Thermaltake",
-      "Línea": "Smart",
-      "Modelo": "SPD-0600",
-      "Potencia": "600W",
-      "Certificacion": "80 Plus White",
-      "Frecuencia": "63 Hz",
-      "Eficiencia": "Hasta 80%",
+      "Marca de la fuente": "Gigabyte",
+      "Modelo de la fuente": "P750BS",
+      "Potencia": "750W",
+      "Certificacion": "80 Plus Bronze",
       "Formato": "ATX",
+      "Cableado": "No modular",
       "Conectores": {
         "ATX 24 pines": "1",
         "EPS 8 pines": "1",
-        "PCI-E 6+2": "2",
-        "SATA": "5",
+        "PCI-E 6+2": "4",
+        "SATA": "6",
         "Molex": "3"
       },
       "Ventilador": "120 mm",
-      "Protecciones": "OVP / SCP / OPP"
+      "Protecciones": "OCP / OVP / UVP / SCP / OPP"
     }
+
+
   },
   {
     id: 105,
@@ -211,138 +214,145 @@ export const fuentesProducts = [
   },
   {
     id: 106,
-    name: "Gigabyte GP-UD750GM - 750W 80 Plus Gold Modular",
-    brand: "Gigabyte",
-    model: "GP-UD750GM",
-    category: "Fuentes",
-    price: 150000,
-    stock: 2,
-    sku: "GB-UD750",
-    description: "Fuente ATX 750W modular con certificación 80 Plus Gold, ventilador FDB 120mm",
-    images: [
-      "/images/fuentes/gigabyte_ud750.webp",
-      "/images/fuentes/gigabyte_ud750_side.webp",
-      "/images/fuentes/gigabyte_ud750_front.webp"
-    ],
-    specifications: {
-      "Marca": "Gigabyte",
-      "Modelo": "Gp-Ud750gm",
-      "Potencia": "750W",
-      "Certificacion": "80 Plus Gold",
-      "Frecuencia": "60 Hz",
-      "Formato": "ATX",
-      "Cableado": "Modular",
-      "Conectores": {
-        "ATX 24 pines": "1",
-        "EPS 8 pines": "2",
-        "PCI-E 6+2": "4",
-        "SATA": "8",
-        "Molex": "3"
-      },
-      "Ventilador": "120 mm FDB",
-      "Protecciones": "OCP / OVP / UVP / SCP / OPP / OTP"
-    }
-  },
-  {
-    id: 107,
-    name: "XPG Pylon 750W - 80 Plus Bronze",
+      name: "XPG Pylon 650W - 80 Plus Bronze",
     brand: "XPG",
-    model: "PYLON750B-BKCUS",
+    model: "Pylon 650",
     category: "Fuentes",
-    price: 90000,
-    stock: 7,
-    sku: "XPG-750-PYLON",
-    description: "Fuente ATX 750W no modular con certificación 80 Plus Bronze, MTBF 100,000 horas",
+    price: 70000,
+    stock: 8,
+    sku: "XPG-650-PYLON",
+    description: "Fuente ATX 650W no modular con certificación 80 Plus Bronze, ventilador 120mm",
     images: [
-      "/images/fuentes/pylon_750.webp",
-      "/images/fuentes/pylon_750_specs.webp",
-      "/images/fuentes/pylon_750_specs_side.webp"
+      "/images/fuentes/pylon_650.webp",
+      "/images/fuentes/pylon_650w_side.webp",
+      "/images/fuentes/pylon_650w_specs.webp"
     ],
     specifications: {
       "Marca": "XPG",
-      "Modelo": "PYLON",
-      "Número de Parte": "PYLON750B-BKCUS",
-      "Factor de Forma y Tipo": "ATX - NO MODULAR",
-      "Potencia Continua": "750W",
-      "Certificación": "80 PLUS BRONZE",
-      "Voltaje": "100V-240V, 5A MAX",
-      "MTBF": "100 000 Horas",
-      "ATX (24 pin)": "1",
-      "CPU (4+4 pin)": "2",
-      "PCIe (6+2 pin)": "4",
-      "SATA (4 pin)": "8",
-      "Molex (4 pin)": "3",
-      "Floppy (4 pin)": "1",
-      "Protecciones": "OCP / OVP / UVP / OPP / SCP / OTP / NLO / SIP",
-      "Dimensiones": "140 x 150 x 86mm"
+      "Línea": "Pylon",
+      "Modelo": "pylon 650",
+      "Potencia": "650W",
+      "Certificacion": "80 Plus Bronze",
+      "Frecuencia": "63 Hz",
+      "Formato": "ATX",
+      "Cableado": "No modular",
+      "Ventilador": "120 mm",
+      "Conectores": {
+        "ATX 24 pines": "1",
+        "EPS 4+4 pines": "1",
+        "PCI-E 6+2 pines": "2",
+        "SATA": "6",
+        "Molex": "2"
+      },
+      "Protecciones": "OCP / OVP / UVP / OPP / SCP"
     }
   },
   {
-    id: 108,
-    name: "Adata XPG Core Reactor II VE 850W - 80 Plus Gold Modular",
-    brand: "XPG",
-    model: "COREREACTORIIVE850G-BKCAR",
+  id: 107,
+  name: "Adata XPG Probe 600W - 80 Plus Bronze",
+    brand: "ADATA",
+    model: "XPG Probe 600W",
     category: "Fuentes",
-    price: 160000,
-    stock: 2,
-    sku: "XPG-850-REACTOR",
-    description: "Fuente ATX 850W modular con certificación 80 Plus Gold, ventilador FDB 120mm ultra silencioso",
+    price: 60000,
+    stock: 5,
+    sku: "XPG-600-PROBE",
+    description: "Fuente ATX 600W con certificación 80 Plus Bronze, ventilador 120mm silencioso",
     images: [
-      "/images/fuentes/xpg_850wcore.webp",
-      "/images/fuentes/xpg_850wcore_side.webp",
-      "/images/fuentes/xpg_850wcore_back.webp"
+      "/images/fuentes/xpg_probe700.webp",
+      "/images/fuentes/xpg_probe700_side.webp",
+      "/images/fuentes/xpg_probe700_back.webp"
     ],
     specifications: {
-      "Marca de la fuente": "XPG",
-      "Línea": "Core Reactor II VE",
-      "Modelo de la fuente": "COREREACTORIIVE850G-BKCAR",
-      "Potencia": "850W",
-      "Certificacion": "80 Plus Gold",
-      "Frecuencia": "50-60 Hz",
+      "Cod": "#523207",
+      "Marca": "ADATA",
+      "Línea": "XPG Probe",
+      "Modelo": "Probe 600W",
+      "Potencia": "600W",
+      "Certificacion": "80 Plus Bronze",
       "Formato": "ATX",
-      "Cableado": "Modular",
       "Conectores": {
         "ATX 24 pines": "1",
-        "EPS 8 pines": "2",
-        "PCI-E 6+2": "4",
-        "SATA": "10",
+        "EPS 8 pines (CPU)": "1",
+        "PCI-E 6+2 pines": "2",
+        "SATA": "5",
+        "Molex": "2"
+      },
+      "Protecciones": "OVP / UVP / OPP / SCP / OCP",
+      "Ventilador": "120 mm silencioso"
+    }
+
+  },
+
+
+
+  {
+    id: 108,
+      name: "Thermaltake Smart 700W - 80 Plus White",
+    brand: "Thermaltake",
+    model: "Smart White 700W",
+    category: "Fuentes",
+    price: 80000,
+    stock: 2,
+    sku: "TT-SMART-700",
+    description: "Fuente ATX 700W no modular con certificación 80 Plus White, ventilador 120mm",
+    images: [
+      "/images/fuentes/thermaltake_700.webp",
+      "/images/fuentes/thermaltake_700_side.webp",
+      "/images/fuentes/thermaltake_700_back.webp"
+    ],
+    specifications: {
+      "Marca de la fuente": "Thermaltake",
+      "Línea": "Smart",
+      "Modelo de la fuente": "Smart White 700w",
+      "Potencia": "700W",
+      "Certificacion": "80 Plus White",
+      "Frecuencia": "60 Hz",
+      "Formato": "ATX",
+      "Cableado": "No modular",
+      "Ventilador": "120 mm",
+      "Conectores": {
+        "ATX 24 pines": "1",
+        "EPS 8 pines": "1",
+        "PCI-E 6+2 pines": "2",
+        "SATA": "6",
         "Molex": "3"
       },
-      "Ventilador": "120 mm FDB ultra silencioso",
-      "Protecciones": "OCP / OVP / UVP / OPP / SCP / OTP"
+      "Protecciones": "OVP / SCP / OPP"
     }
   },
   {
     id: 109,
-    name: "Gigabyte P750BS - 750W 80 Plus Bronze",
-    brand: "Gigabyte",
-    model: "P750BS",
+    name: "Thermaltake Smart  - 600W 80 Plus White",
+    brand: "Thermaltake",
+    model: "SPD-0600",
     category: "Fuentes",
-    price: 90000,
-    stock: 3,
-    sku: "GB-P750BS",
-    description: "Fuente ATX 750W no modular con certificación 80 Plus Bronze, ventilador 120mm",
+    price: 70000,
+    stock: 2,
+    sku: "TT-SMART-600",
+    description: "Fuente ATX 600W con certificación 80 Plus White, eficiencia hasta 80%",
     images: [
-      "/images/fuentes/gigabyte_p750bs.webp",
-      "/images/fuentes/gigabyte_p750bs_side.webp",
-      "/images/fuentes/gigabyte_p750bs_specs.webp"
+      "/images/fuentes/thermaltake_600smart.webp",
+      "/images/fuentes/thermaltake_600smart_side.webp",
+      "/images/fuentes/thermaltake_600smart_specs.webp"
     ],
     specifications: {
-      "Marca de la fuente": "Gigabyte",
-      "Modelo de la fuente": "P750BS",
-      "Potencia": "750W",
-      "Certificacion": "80 Plus Bronze",
+      "Marca": "Thermaltake",
+      "Línea": "Smart",
+      "Modelo": "SPD-0600",
+      "Potencia": "600W",
+      "Certificacion": "80 Plus White",
+      "Frecuencia": "63 Hz",
+      "Eficiencia": "Hasta 80%",
       "Formato": "ATX",
-      "Cableado": "No modular",
       "Conectores": {
         "ATX 24 pines": "1",
         "EPS 8 pines": "1",
-        "PCI-E 6+2": "4",
-        "SATA": "6",
+        "PCI-E 6+2": "2",
+        "SATA": "5",
         "Molex": "3"
       },
       "Ventilador": "120 mm",
-      "Protecciones": "OCP / OVP / UVP / SCP / OPP"
+      "Protecciones": "OVP / SCP / OPP"
     }
   },
   {
@@ -451,72 +461,70 @@ export const fuentesProducts = [
   },
   {
     id: 113,
-    name: "Thermaltake Smart 700W - 80 Plus White",
-    brand: "Thermaltake",
-    model: "Smart White 700W",
+     name: "Aureox ARXGP-600W - Powerful Series",
+    brand: "Aureox",
+    model: "ARXGP-600W",
     category: "Fuentes",
-    price: 80000,
+    price: 55000,
     stock: 2,
-    sku: "TT-SMART-700",
-    description: "Fuente ATX 700W no modular con certificación 80 Plus White, ventilador 120mm",
+    sku: "AUR-ARXGP-600",
+    description: "Fuente ATX 600W sin certificación 80 Plus, ventilador 120mm",
     images: [
-      "/images/fuentes/thermaltake_700.webp",
-      "/images/fuentes/thermaltake_700_side.webp",
-      "/images/fuentes/thermaltake_700_back.webp"
+      "/images/fuentes/aureox_600w.webp",
+      "/images/fuentes/aureox_600w_side.webp",
+      "/images/fuentes/aureox_600w_specs.webp"
     ],
     specifications: {
-      "Marca de la fuente": "Thermaltake",
-      "Línea": "Smart",
-      "Modelo de la fuente": "Smart White 700w",
-      "Potencia": "700W",
-      "Certificacion": "80 Plus White",
+      "Marca": "Aureox",
+      "Línea": "Powerful Series",
+      "Modelo": "ARXGP-600W",
+      "Potencia": "600W",
+      "Certificacion": "Sin certificación 80 Plus",
       "Frecuencia": "60 Hz",
       "Formato": "ATX",
-      "Cableado": "No modular",
-      "Ventilador": "120 mm",
       "Conectores": {
         "ATX 24 pines": "1",
         "EPS 8 pines": "1",
-        "PCI-E 6+2 pines": "2",
-        "SATA": "6",
-        "Molex": "3"
+        "PCI-E 6+2": "1",
+        "SATA": "4",
+        "Molex": "2"
       },
-      "Protecciones": "OVP / SCP / OPP"
+      "Ventilador": "120 mm"
     }
+
   },
   {
     id: 114,
-    name: "XPG Pylon 650W - 80 Plus Bronze",
-    brand: "XPG",
-    model: "Pylon 650",
+   name: "Gigabyte GP-P450B - 450W 80 Plus Bronze",
+    brand: "Gigabyte",
+    model: "GP-P450B",
     category: "Fuentes",
-    price: 70000,
-    stock: 8,
-    sku: "XPG-650-PYLON",
-    description: "Fuente ATX 650W no modular con certificación 80 Plus Bronze, ventilador 120mm",
+    price: 55000,
+    stock: 1,
+    sku: "GB-P450B",
+    description: "Fuente ATX 450W con certificación 80 Plus Bronze, eficiencia hasta 85%",
     images: [
-      "/images/fuentes/pylon_650.webp",
-      "/images/fuentes/pylon_650w_side.webp",
-      "/images/fuentes/pylon_650w_specs.webp"
+      "/images/fuentes/gigabyte_p450b.webp",
+      "/images/fuentes/gigabyte_p450b_side.webp",
+      "/images/fuentes/gigabyte_p450b_back.webp"
     ],
     specifications: {
-      "Marca": "XPG",
-      "Línea": "Pylon",
-      "Modelo": "pylon 650",
-      "Potencia": "650W",
+      "Marca": "Gigabyte",
+      "Modelo": "GP-P450B",
+      "Potencia": "450W",
       "Certificacion": "80 Plus Bronze",
-      "Frecuencia": "63 Hz",
+      "Frecuencia": "60 Hz",
+      "Eficiencia": "Hasta 85%",
       "Formato": "ATX",
-      "Cableado": "No modular",
-      "Ventilador": "120 mm",
       "Conectores": {
         "ATX 24 pines": "1",
-        "EPS 4+4 pines": "1",
-        "PCI-E 6+2 pines": "2",
+        "EPS 8 pines": "1",
+        "PCI-E 6+2": "2",
         "SATA": "6",
-        "Molex": "2"
+        "Molex": "3"
       },
-      "Protecciones": "OCP / OVP / UVP / OPP / SCP"
+      "Protecciones": "OCP / OVP / OPP / SCP / UVP",
+      "Ventilador": "120 mm"
     }
   }
 ];
