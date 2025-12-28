@@ -54,16 +54,21 @@ const Home = () => {
       />
 
       <main className="flex-1 w-full flex flex-col relative">
-        <div className="w-full flex-1 flex flex-col px-2 sm:px-4">
-          <div className="mb-6">
+        <div className="w-full flex-1 flex flex-col px-0 sm:px-4">
+          {/* Hero - Sin padding en mobile para ancho completo */}
+          <div className="mb-4 sm:mb-6">
             <HeroCarousel />
           </div>
-          <div className="mb-6">
-            <div className="grid md:grid-cols-2 gap-4">
+          
+          {/* PC Builder - Con padding en mobile */}
+          <div className="px-3 sm:px-0 mb-4 sm:mb-6">
+            <div className="grid md:grid-cols-2 gap-3 sm:gap-4">
               <PCBuilderSection />
             </div>
           </div>
-          <div className="mb-10">
+          
+          {/* Categories - Con padding en mobile */}
+          <div className="px-3 sm:px-0 mb-6 sm:mb-10">
             <CategoryProductSection onCategoryClick={handleCategoryClick} />
           </div>
         </div>
