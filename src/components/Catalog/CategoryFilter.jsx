@@ -106,7 +106,7 @@ const CategoryFilter = ({ selectedCategory, onCategoryChange }) => {
   const SelectedIcon = selectedCategory ? getCategoryIcon(selectedCategory) : Grid3X3;
 
   return (
-    <div className="relative group z-30">
+    <div className="relative group z-20">
       {/* Capa de resplandor 1 - Animada */}
       <div className="absolute -inset-2 bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 rounded-[2.5rem] opacity-30 blur-2xl group-hover:opacity-40 transition-opacity duration-500 -z-10"></div>
       
@@ -117,9 +117,9 @@ const CategoryFilter = ({ selectedCategory, onCategoryChange }) => {
       <div className="absolute -inset-0.5 bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 rounded-[2.2rem] opacity-50 blur-sm -z-10"></div>
       
       {/* Contenedor del CategoryFilter */}
-      <div className="relative z-30">
+      <div className="relative z-20">
         {/* Mobile: Dropdown moderno estilo iOS con borde indicador */}
-        <div className="sm:hidden relative z-30" ref={dropdownRef}>
+        <div className="sm:hidden relative z-20" ref={dropdownRef}>
         <button
           onClick={() => setIsOpen(!isOpen)}
           className={`w-full flex items-center justify-between gap-3 px-5 py-3.5 
@@ -149,7 +149,7 @@ const CategoryFilter = ({ selectedCategory, onCategoryChange }) => {
 
         {/* Dropdown Menu */}
         {isOpen && (
-          <div className="absolute top-full left-0 right-0 mt-2 z-[9999]
+          <div className="absolute top-full left-0 right-0 mt-2 z-50
                           bg-white rounded-2xl border-2 border-gray-200
                           shadow-[0_8px_24px_rgba(0,0,0,0.12)]
                           max-h-[60vh] overflow-y-auto">

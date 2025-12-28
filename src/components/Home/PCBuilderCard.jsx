@@ -28,11 +28,11 @@ const PCBuilderCard = ({
             onClick={handleClick}
             className="pc-builder-card-enter group relative overflow-hidden sm:rounded-3xl transition-all duration-300 cursor-pointer 
                 active:scale-[0.98] sm:hover:scale-[1.02]
-                border-y sm:border border-purple-500/40 sm:ring-2 sm:ring-purple-500/30
-                shadow-xl shadow-purple-900/50 hover:shadow-2xl hover:shadow-purple-900/60"
+                border-y sm:border border-gray-800 sm:border-purple-500/40 sm:ring-2 sm:ring-purple-500/30
+                sm:shadow-xl sm:shadow-purple-900/50 hover:shadow-2xl hover:shadow-purple-900/60"
             style={{ 
                 animationDelay: `${delay * 0.15}s`,
-                boxShadow: '0 0 30px rgba(168, 85, 247, 0.4), 0 0 60px rgba(147, 51, 234, 0.2)'
+                boxShadow: window.innerWidth >= 640 ? '0 0 30px rgba(168, 85, 247, 0.4), 0 0 60px rgba(147, 51, 234, 0.2)' : 'none'
             }}
         >
             {/* Background Image */}
@@ -44,7 +44,7 @@ const PCBuilderCard = ({
                     decoding="async"
                     width="1920"
                     height="1080"
-                    className="w-full h-full object-cover brightness-[0.7] sm:brightness-[0.75] group-hover:brightness-[0.85] transition-all duration-300"
+                    className="w-full h-full object-cover brightness-[0.7] sm:group-hover:brightness-[0.85] transition-all duration-300"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent" />
             </div>

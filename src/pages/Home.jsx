@@ -5,6 +5,7 @@ import ScrollButton from '../components/Shared/ScrollButton';
 import HeroCarousel from '../components/Home/HeroCarousel';
 import PCBuilderSection from '../components/Home/PCBuilderSection';
 import CategoryProductSection from '../components/Home/CategoryProductSection';
+import CategoryFilter from '../components/Catalog/CategoryFilter';
 import FloatingChatButton from '../components/Shared/FloatingChatButton';
 import { useFilter } from '../context/FilterContext';
 import { getSlugFromCategory } from '../utils/slugify';
@@ -55,6 +56,14 @@ const Home = () => {
 
       <main className="flex-1 w-full flex flex-col relative">
         <div className="w-full flex-1 flex flex-col">
+          {/* CategoryFilter - Solo mobile */}
+          <div className="sm:hidden px-3 py-3 bg-[#0a0a0f]">
+            <CategoryFilter 
+              selectedCategory={null}
+              onCategoryChange={handleCategoryClick}
+            />
+          </div>
+
           {/* Hero - Sin padding en mobile para ancho completo */}
           <div className="mb-4 sm:mb-6">
             <HeroCarousel />
