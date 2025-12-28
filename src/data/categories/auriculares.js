@@ -11,7 +11,7 @@ export const auricularesProducts = [
     model: "Ire Pro H848",
     category: "Auriculares",
     price: 65000,
-    stock: 3,
+    stock: 2,
     sku: "RED-IRE-H848",
     description: "Auriculares gaming inalámbricos Bluetooth 5.0 con micrófono desmontable, autonomía 20 horas",
     images: [

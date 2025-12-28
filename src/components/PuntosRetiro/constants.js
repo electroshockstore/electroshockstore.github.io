@@ -4,7 +4,7 @@ export const PICKUP_POINTS = [
   {
     id: 1,
     name: 'Berazategui Centro',
-    address: 'Av Mitre y 14',
+    address: 'Av Mitre y 14. Via Cosenza',
     schedule: '16:00 hs',
     days: 'Lunes a Viernes',
     weekendSchedule: 'NO',
@@ -38,7 +38,7 @@ export const PICKUP_POINTS = [
   {
     id: 3,
     name: 'Carrefour Fcio Varela',
-    address: 'Patio Comida',
+    address: 'Patio Comida. AV del Trabajo',
     schedule: 'A coordinar',
     days: 'Todos los días',
     weekendSchedule: 'Disponible',

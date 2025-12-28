@@ -3,6 +3,7 @@ import Header from '../components/Shared/Header';
 import Footer from '../components/Shared/Footer';
 import ScrollButton from '../components/Shared/ScrollButton';
 import HeroCarousel from '../components/Home/HeroCarousel';
+import RevendedoresSection from '../components/Home/RevendedoresSection';
 import PCBuilderSection from '../components/Home/PCBuilderSection';
 import CategoryProductSection from '../components/Home/CategoryProductSection';
 import CategoryFilter from '../components/Catalog/CategoryFilter';
@@ -10,6 +11,7 @@ import FloatingChatButton from '../components/Shared/FloatingChatButton';
 import { useFilter } from '../context/FilterContext';
 import { getSlugFromCategory } from '../utils/slugify';
 import { useSEO } from '../hooks/useSEO';
+import { mayoristaProducts } from '../data/categories/mayorista';
 
 const Home = () => {
   const navigate = useNavigate();
@@ -34,6 +36,11 @@ const Home = () => {
     setSearchQuery('');
     clearSubFilters();
     navigate('/');
+  };
+
+  const handleRevendedorProductClick = (product) => {
+    console.log('Pack seleccionado:', product);
+    // navigate(`/pack/${product.id}`); // Si tienes una página especial para packs
   };
 
   return (
@@ -68,12 +75,35 @@ const Home = () => {
           <div className="mb-4 sm:mb-6">
             <HeroCarousel />
           </div>
+
+          {/* Mobile: Packs Ahorro después del Hero */}
+          <div className="sm:hidden px-3 mb-4">
+            <RevendedoresSection 
+              products={mayoristaProducts}
+              onProductClick={handleRevendedorProductClick}
+            />
+          </div>
+
+          {/* Mobile: PC Builder después de Packs */}
+          <div className="sm:hidden mb-4">
+            <div className="grid md:grid-cols-2 gap-3">
+              <PCBuilderSection />
+            </div>
+          </div>
           
-          {/* PC Builder - Ancho completo en mobile como banner */}
-          <div className="mb-4 sm:mb-6 sm:px-4">
+          {/* Desktop: PC Builder después del Hero */}
+          <div className="hidden sm:block mb-4 sm:mb-6 sm:px-4">
             <div className="grid md:grid-cols-2 gap-3 sm:gap-4">
               <PCBuilderSection />
             </div>
+          </div>
+
+          {/* Desktop: Packs Ahorro después del PC Builder */}
+          <div className="hidden sm:block px-3 sm:px-4 mb-4 sm:mb-6">
+            <RevendedoresSection 
+              products={mayoristaProducts}
+              onProductClick={handleRevendedorProductClick}
+            />
           </div>
           
           {/* Categories - Con padding en mobile */}

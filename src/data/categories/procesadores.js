@@ -368,7 +368,7 @@ export const procesadoresProducts = [
   },
   {
     id: 301,
-    name: "AMD Athlon 3000G AM4 con gráfica integrada Radeon Vega ",
+    name: "AMD Athlon 3000G AM4, gráfica integrada Radeon Vega ",
     brand: "AMD",
     model: "Athlon 3000G",
     category: "Procesadores",

@@ -31,7 +31,8 @@ export const getCategoryFromSlug = (slug) => {
     'auriculares': 'Auriculares',
     'teclados': 'Teclados',
     'mouse': 'Mouse',
-    'joystick': 'Joystick'
+    'joystick': 'Joystick',
+    'mayorista': 'Mayorista'
   };
   return categoryMap[slug] || null;
 };
@@ -49,7 +50,8 @@ export const getSlugFromCategory = (category) => {
     'Auriculares': 'auriculares',
     'Teclados': 'teclados',
     'Mouse': 'mouse',
-    'Joystick': 'joystick'
+    'Joystick': 'joystick',
+    'Mayorista': 'mayorista'
   };
   return slugMap[category] || slugify(category);
 };

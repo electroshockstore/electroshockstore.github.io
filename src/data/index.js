@@ -14,7 +14,8 @@ export const loadCategory = async (categoryName) => {
     'Conectividad': () => import('./categories/conectividad.js'),
     'Monitores': () => import('./categories/monitores.js'),
     'Portátiles': () => import('./categories/portatiles.js'),
-    'Placas de Video': () => import('./categories/placas_video.js')
+    'Placas de Video': () => import('./categories/placas_video.js'),
+    'Mayorista': () => import('./categories/mayorista.js')
   };
 
   const loader = categoryMap[categoryName];
@@ -45,6 +46,7 @@ import { conectividadProducts } from './categories/conectividad.js';
 import { monitoresProducts } from './categories/monitores.js';
 import { portatilesProducts } from './categories/portatiles.js';
 import { placasVideoProducts } from './categories/placas_video.js';
+import { mayoristaProducts } from './categories/mayorista.js';
 
 export const products = [
   ...procesadoresProducts,
@@ -60,7 +62,8 @@ export const products = [
   ...conectividadProducts,
   ...monitoresProducts,
   ...portatilesProducts,
-  ...placasVideoProducts
+  ...placasVideoProducts,
+  ...mayoristaProducts
 ];
 
 export const categories = [

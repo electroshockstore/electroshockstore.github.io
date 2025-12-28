@@ -1,5 +1,5 @@
 import { memo, useCallback, useMemo } from 'react';
-import ProductCard from './ProductCard/index';
+import ProductCardWrapper from './ProductCardWrapper';
 
 const EmptyState = memo(() => (
   <div className="flex flex-col items-center justify-center py-16 sm:py-24">
@@ -70,7 +70,7 @@ const ProductGrid = memo(({ products, viewMode, openModal }) => {
     <div className="p-2 sm:p-4 md:p-6">
       <div className={gridClasses}>
         {products.map((product, index) => (
-          <ProductCard
+          <ProductCardWrapper
             key={product.id}
             product={product}
             viewMode={viewMode}
