@@ -26,9 +26,9 @@ const PCBuilderCard = ({
     return (
         <div
             onClick={handleClick}
-            className="pc-builder-card-enter group relative overflow-hidden rounded-2xl sm:rounded-3xl transition-all duration-300 cursor-pointer 
+            className="pc-builder-card-enter group relative overflow-hidden sm:rounded-3xl transition-all duration-300 cursor-pointer 
                 active:scale-[0.98] sm:hover:scale-[1.02] hover:shadow-2xl hover:shadow-purple-900/40
-                border border-gray-800 ring-1 ring-white/10"
+                border-y sm:border border-gray-800 sm:ring-1 sm:ring-white/10"
             style={{ animationDelay: `${delay * 0.15}s` }}
         >
             {/* Background Image */}
