@@ -49,6 +49,9 @@ const PCBuilderCard = ({
                 <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent" />
             </div>
 
+            {/* Glow inferior - Solo desktop */}
+            <div className="hidden sm:block absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-purple-600/30 via-purple-500/10 to-transparent pointer-events-none z-20" />
+            
             {/* Fade-out inferior */}
             <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-[#0a0a0f] to-transparent pointer-events-none z-20" />
 
@@ -72,12 +75,17 @@ const PCBuilderCard = ({
                     </p>
                 </div>
 
-                {/* CTA Modern Style - Next.js/Astro inspired */}
+                {/* CTA Modern Style - Next.js/Astro inspired con glow */}
                 <div className="flex-none mt-auto pt-6 sm:pt-8">
-                    <div className="inline-flex items-center gap-2 px-4 py-2.5 rounded-lg border border-white/20 bg-white/5 backdrop-blur-sm hover:bg-white/10 hover:border-white/30 transition-all duration-200 group/btn">
-                        <ButtonIcon className="w-4 h-4 text-white" />
-                        <span className="font-semibold text-white text-sm sm:text-base">{buttonText}</span>
-                        <ChevronRight className="w-4 h-4 text-white/60 group-hover/btn:translate-x-0.5 group-hover/btn:text-white transition-all" />
+                    <div className="relative inline-block">
+                        {/* Glow effect del botón */}
+                        <div className="absolute -inset-1 bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 rounded-lg opacity-40 blur-md group-hover/btn:opacity-60 transition-opacity duration-200" />
+                        
+                        <div className="relative inline-flex items-center gap-2 px-4 py-2.5 rounded-lg border border-white/30 bg-white/10 backdrop-blur-sm hover:bg-white/15 hover:border-white/40 transition-all duration-200 group/btn shadow-lg">
+                            <ButtonIcon className="w-4 h-4 text-white" />
+                            <span className="font-semibold text-white text-sm sm:text-base">{buttonText}</span>
+                            <ChevronRight className="w-4 h-4 text-white/60 group-hover/btn:translate-x-0.5 group-hover/btn:text-white transition-all" />
+                        </div>
                     </div>
                 </div>
             </div>
