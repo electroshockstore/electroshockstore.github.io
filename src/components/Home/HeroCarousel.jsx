@@ -116,7 +116,7 @@ const HeroCarousel = () => {
 
   return (
     <section 
-      className="relative w-full h-[420px] sm:h-[600px] md:h-[700px] lg:h-[800px] bg-[#020617] overflow-hidden rounded-2xl z-10 touch-pan-y"
+      className="relative w-full h-[360px] sm:h-[600px] md:h-[700px] lg:h-[800px] bg-[#020617] overflow-hidden sm:rounded-2xl z-10 touch-pan-y"
       onTouchStart={handleTouchStart}
       onTouchMove={handleTouchMove}
       onTouchEnd={handleTouchEnd}
@@ -141,39 +141,39 @@ const HeroCarousel = () => {
 
       {/* Contenido a la izquierda */}
       <div className="relative z-20 h-full flex items-center">
-        <div className="container mx-2 px-3 sm:px-6 md:px-12 lg:px-16">
+        <div className="container mx-0 sm:mx-2 px-4 sm:px-6 md:px-12 lg:px-16">
           <div className="max-w-2xl lg:max-w-4xl">
             <div key={current.id + '-text'} className="carousel-content-transition">
                 {/* Tag Superior */}
-                <div className="flex items-center gap-2 sm:gap-4 mb-2 sm:mb-4 md:mb-6">
-                  <div className={`h-[2px] sm:h-[3px] w-6 sm:w-12 bg-gradient-to-r ${current.gradient}`} />
-                  <span className="text-white font-black text-[9px] sm:text-xs tracking-[0.25em] sm:tracking-[0.4em] uppercase">
+                <div className="flex items-center gap-1.5 sm:gap-4 mb-1.5 sm:mb-4 md:mb-6">
+                  <div className={`h-[2px] sm:h-[3px] w-5 sm:w-12 bg-gradient-to-r ${current.gradient}`} />
+                  <span className="text-white font-black text-[8px] sm:text-xs tracking-[0.2em] sm:tracking-[0.4em] uppercase">
                     {current.tag}
                   </span>
                 </div>
 
                 {/* Título */}
-                <h1 className="text-3xl sm:text-5xl md:text-7xl lg:text-8xl xl:text-9xl font-black text-white leading-[0.9] sm:leading-[0.85] tracking-tighter mb-2 sm:mb-4 md:mb-6 lg:mb-8">
+                <h1 className="text-[28px] sm:text-5xl md:text-7xl lg:text-8xl xl:text-9xl font-black text-white leading-[0.88] sm:leading-[0.85] tracking-tighter mb-1.5 sm:mb-4 md:mb-6 lg:mb-8">
                   {current.title}
                 </h1>
 
                 {/* Subtítulo */}
-                <p className="text-sm sm:text-xl md:text-2xl lg:text-3xl text-slate-300 font-medium mb-3 sm:mb-6 md:mb-8 lg:mb-12 italic">
+                <p className="text-[13px] sm:text-xl md:text-2xl lg:text-3xl text-slate-300 font-medium mb-2.5 sm:mb-6 md:mb-8 lg:mb-12 italic">
                   {current.description}
                 </p>
 
                 {/* Points */}
-                <div className="grid grid-cols-1 gap-2 sm:gap-4 md:grid-cols-2 md:gap-6 lg:gap-8">
+                <div className="grid grid-cols-1 gap-1.5 sm:gap-4 md:grid-cols-2 md:gap-6 lg:gap-8">
                   {current.points.map((point, idx) => (
                     <div 
                       key={idx}
-                      className="flex items-start gap-2 sm:gap-3 md:gap-4 group carousel-point-transition"
+                      className="flex items-start gap-1.5 sm:gap-3 md:gap-4 group carousel-point-transition"
                       style={{ animationDelay: `${0.1 + idx * 0.05}s` }}
                     >
                       <div className="flex flex-col items-center pt-0.5 sm:pt-1">
-                        <div className={`w-[2px] sm:w-[3px] h-4 sm:h-6 md:h-8 lg:h-10 bg-gradient-to-b ${point.highlight ? 'from-red-500 to-red-600' : current.gradient}`} />
+                        <div className={`w-[1.5px] sm:w-[3px] h-3.5 sm:h-6 md:h-8 lg:h-10 bg-gradient-to-b ${point.highlight ? 'from-red-500 to-red-600' : current.gradient}`} />
                       </div>
-                      <span className={`text-xs sm:text-base md:text-lg lg:text-xl font-bold tracking-tight leading-tight sm:leading-snug ${point.highlight ? 'text-red-400' : 'text-white'}`}>
+                      <span className={`text-[11px] sm:text-base md:text-lg lg:text-xl font-bold tracking-tight leading-tight sm:leading-snug ${point.highlight ? 'text-red-400' : 'text-white'}`}>
                         {point.text}
                       </span>
                     </div>
@@ -185,13 +185,13 @@ const HeroCarousel = () => {
       </div>
 
       {/* Navegación */}
-      <div className="absolute bottom-3 sm:bottom-8 md:bottom-12 right-3 sm:right-8 md:right-12 z-30 flex flex-col items-end gap-2 sm:gap-4 md:gap-6">
+      <div className="absolute bottom-2.5 sm:bottom-8 md:bottom-12 right-3 sm:right-8 md:right-12 z-30 flex flex-col items-end gap-1.5 sm:gap-4 md:gap-6">
         {/* Contador */}
-        <div className="flex items-baseline gap-1.5 sm:gap-2 md:gap-3">
-          <span className="text-3xl sm:text-6xl md:text-7xl lg:text-8xl font-black text-white leading-none">
+        <div className="flex items-baseline gap-1 sm:gap-2 md:gap-3">
+          <span className="text-2xl sm:text-6xl md:text-7xl lg:text-8xl font-black text-white leading-none">
             {String(currentSlide + 1).padStart(2, '0')}
           </span>
-          <span className="text-white/20 font-black text-lg sm:text-2xl md:text-3xl">
+          <span className="text-white/20 font-black text-base sm:text-2xl md:text-3xl">
             / {String(slides.length).padStart(2, '0')}
           </span>
         </div>
@@ -203,10 +203,10 @@ const HeroCarousel = () => {
               key={idx}
               onClick={() => setCurrentSlide(idx)}
               aria-label={`Ir a slide ${idx + 1}`}
-              className={`h-[2.5px] sm:h-[3px] md:h-[4px] transition-all duration-500 rounded-full ${
+              className={`h-[2px] sm:h-[3px] md:h-[4px] transition-all duration-500 rounded-full ${
                 idx === currentSlide 
-                  ? `w-8 sm:w-12 md:w-16 bg-gradient-to-r ${current.gradient}` 
-                  : 'w-3 sm:w-4 md:w-6 bg-white/20 hover:bg-white/40'
+                  ? `w-7 sm:w-12 md:w-16 bg-gradient-to-r ${current.gradient}` 
+                  : 'w-2.5 sm:w-4 md:w-6 bg-white/20 hover:bg-white/40'
               }`}
             />
           ))}
