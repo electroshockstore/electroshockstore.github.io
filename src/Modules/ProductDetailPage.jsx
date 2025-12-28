@@ -42,6 +42,13 @@ const ProductDetailPage = () => {
   // Analytics: Track product view
   useProductView(product);
 
+  // Sincronizar categoría con el producto actual
+  useEffect(() => {
+    if (product && product.category !== selectedCategory) {
+      setSelectedCategory(product.category);
+    }
+  }, [product, selectedCategory, setSelectedCategory]);
+
   useEffect(() => {
     window.scrollTo(0, 0);
   }, [id]);

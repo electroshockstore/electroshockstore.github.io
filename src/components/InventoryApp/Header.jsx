@@ -5,6 +5,7 @@ import { Package, Search, FileText, MapPin, X, Home, Bot, ArrowRight } from 'luc
 import { useStock } from '../../context/StockContext';
 
 const Header = ({ searchQuery = '', onSearchChange, onGoHome }) => {
+  const [localSearchQuery, setLocalSearchQuery] = useState(''); // Estado local para el buscador
   const [isSearchOpen, setIsSearchOpen] = useState(false);
   const [searchResults, setSearchResults] = useState([]);
   const [showConditionsModal, setShowConditionsModal] = useState(false);
@@ -13,7 +14,7 @@ const Header = ({ searchQuery = '', onSearchChange, onGoHome }) => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    const query = searchQuery || '';
+    const query = localSearchQuery || '';
     if (query.trim().length >= 3) {
       const lowerQuery = query.toLowerCase();
       const results = products
@@ -30,7 +31,7 @@ const Header = ({ searchQuery = '', onSearchChange, onGoHome }) => {
       setSearchResults([]);
       setIsSearchOpen(false);
     }
-  }, [searchQuery, products]);
+  }, [localSearchQuery, products]);
 
   useEffect(() => {
     const handleClickOutside = (event) => {
@@ -43,14 +44,16 @@ const Header = ({ searchQuery = '', onSearchChange, onGoHome }) => {
     return () => document.removeEventListener('click', handleClickOutside);
   }, []);
 
-  const handleProductClick = (productId) => {
-    navigate(`/producto/${productId}`);
-    onSearchChange('');
+  const handleProductClick = (product) => {
+    const categorySlug = product.category.toLowerCase().replace(/\s+/g, '-');
+    const productSku = `${product.brand}-${product.model}`.toLowerCase().replace(/\s+/g, '-');
+    navigate(`/categoria/${categorySlug}/${productSku}`, { state: { productId: product.id } });
+    setLocalSearchQuery('');
     setIsSearchOpen(false);
   };
 
   const handleClearSearch = () => {
-    onSearchChange('');
+    setLocalSearchQuery('');
     setIsSearchOpen(false);
   };
 
@@ -203,8 +206,8 @@ const Header = ({ searchQuery = '', onSearchChange, onGoHome }) => {
             <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-gray-400 z-10" />
             <input
               type="text"
-              value={searchQuery}
-              onChange={(e) => onSearchChange(e.target.value)}
+              value={localSearchQuery}
+              onChange={(e) => setLocalSearchQuery(e.target.value)}
              placeholder="Buscar productos..."
               className="w-full h-10 pl-10 pr-10 text-md
                        bg-gray-900 border-2 border-blue-500/40 rounded-full 
@@ -213,7 +216,7 @@ const Header = ({ searchQuery = '', onSearchChange, onGoHome }) => {
                        hover:border-blue-500/60
                        transition-all duration-200 shadow-lg shadow-blue-500/10"
             />
-            {searchQuery && (
+            {localSearchQuery && (
               <button
                 onClick={handleClearSearch}
                 className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 hover:text-white transition-colors"
@@ -227,7 +230,7 @@ const Header = ({ searchQuery = '', onSearchChange, onGoHome }) => {
                   {searchResults.map((product) => (
                     <button
                       key={product.id}
-                      onClick={() => handleProductClick(product.id)}
+                      onClick={() => handleProductClick(product)}
                       className="w-full flex items-center gap-3 p-3 hover:bg-gray-800 transition-all duration-200 text-left hover:translate-x-1"
                     >
                       <div className="w-12 h-12 bg-gray-800 rounded-lg overflow-hidden flex-shrink-0 flex items-center justify-center">
@@ -288,8 +291,8 @@ const Header = ({ searchQuery = '', onSearchChange, onGoHome }) => {
               <Search className="absolute left-4 top-1/2 -translate-y-1/2 h-5 w-5 text-gray-400 z-10" />
                  <input
               type="text"
-              value={searchQuery}
-              onChange={(e) => onSearchChange(e.target.value)}
+              value={localSearchQuery}
+              onChange={(e) => setLocalSearchQuery(e.target.value)}
             placeholder="Buscar productos, marcas o categorías..."
               className="w-full h-14 pl-10 pr-10 text-md
                        bg-gray-900 border-2 border-blue-500/40 rounded-full 
@@ -298,7 +301,7 @@ const Header = ({ searchQuery = '', onSearchChange, onGoHome }) => {
                        hover:border-blue-500/60
                        transition-all duration-200 shadow-lg shadow-blue-500/10"
             />
-              {searchQuery && (
+              {localSearchQuery && (
                 <button
                   onClick={handleClearSearch}
                   className="absolute right-4 top-1/2 -translate-y-1/2 text-gray-400 hover:text-white transition-colors"
@@ -312,7 +315,7 @@ const Header = ({ searchQuery = '', onSearchChange, onGoHome }) => {
                   {searchResults.map((product) => (
                     <button
                       key={product.id}
-                      onClick={() => handleProductClick(product.id)}
+                      onClick={() => handleProductClick(product)}
                       className="w-full flex items-center gap-4 p-4 hover:bg-gray-800 transition-all duration-200 text-left border-b border-gray-800 last:border-b-0 hover:translate-x-1"
                     >
                         <div className="w-16 h-16 bg-gray-800 rounded-xl overflow-hidden flex-shrink-0 flex items-center justify-center">
