@@ -116,7 +116,7 @@ const HeroCarousel = () => {
 
   return (
     <section 
-      className="relative w-full h-[280px] sm:h-[600px] md:h-[700px] lg:h-[800px] bg-[#020617] overflow-hidden sm:rounded-2xl z-10 touch-pan-y"
+      className="relative w-full h-[180px] sm:h-[600px] md:h-[700px] lg:h-[800px] bg-[#020617] overflow-hidden sm:rounded-2xl z-10 touch-pan-y"
       onTouchStart={handleTouchStart}
       onTouchMove={handleTouchMove}
       onTouchEnd={handleTouchEnd}
