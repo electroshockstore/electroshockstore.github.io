@@ -139,6 +139,9 @@ const HeroCarousel = () => {
         <div className="absolute inset-0 bg-gradient-to-r from-[#020617] via-[#020617]/70 md:via-[#020617]/40 to-transparent" />
       </div>
 
+      {/* Fade-out superior - Solo mobile */}
+      <div className="absolute top-0 left-0 right-0 h-16 bg-gradient-to-b from-[#0a0a0f] to-transparent pointer-events-none z-10 sm:hidden" />
+
       {/* Fade-out inferior */}
       <div className="absolute bottom-0 left-0 right-0 h-20 sm:h-32 bg-gradient-to-t from-[#0a0a0f] to-transparent pointer-events-none z-10" />
 
