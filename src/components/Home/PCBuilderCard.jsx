@@ -27,9 +27,13 @@ const PCBuilderCard = ({
         <div
             onClick={handleClick}
             className="pc-builder-card-enter group relative overflow-hidden sm:rounded-3xl transition-all duration-300 cursor-pointer 
-                active:scale-[0.98] sm:hover:scale-[1.02] hover:shadow-2xl hover:shadow-purple-900/40
-                border-y sm:border border-gray-800 sm:ring-1 sm:ring-white/10"
-            style={{ animationDelay: `${delay * 0.15}s` }}
+                active:scale-[0.98] sm:hover:scale-[1.02]
+                border-y sm:border border-purple-500/40 sm:ring-2 sm:ring-purple-500/30
+                shadow-xl shadow-purple-900/50 hover:shadow-2xl hover:shadow-purple-900/60"
+            style={{ 
+                animationDelay: `${delay * 0.15}s`,
+                boxShadow: '0 0 30px rgba(168, 85, 247, 0.4), 0 0 60px rgba(147, 51, 234, 0.2)'
+            }}
         >
             {/* Background Image */}
             <div className="absolute inset-0">
@@ -40,10 +44,13 @@ const PCBuilderCard = ({
                     decoding="async"
                     width="1920"
                     height="1080"
-                    className="w-full h-full object-cover brightness-[0.6] sm:brightness-[0.65] group-hover:brightness-[0.75] transition-all duration-300"
+                    className="w-full h-full object-cover brightness-[0.7] sm:brightness-[0.75] group-hover:brightness-[0.85] transition-all duration-300"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent" />
             </div>
+
+            {/* Fade-out inferior */}
+            <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-[#0a0a0f] to-transparent pointer-events-none z-20" />
 
             {/* Content */}
             <div className="relative z-10 p-5 sm:p-8 lg:p-12 min-h-[320px] sm:min-h-[400px] lg:min-h-[500px] flex flex-col">

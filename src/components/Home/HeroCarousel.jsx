@@ -116,7 +116,7 @@ const HeroCarousel = () => {
 
   return (
     <section 
-      className="relative w-full h-[240px] sm:h-[600px] md:h-[700px] lg:h-[800px] bg-[#020617] overflow-hidden sm:rounded-2xl z-10 touch-pan-y"
+      className="relative w-full h-[280px] sm:h-[600px] md:h-[700px] lg:h-[800px] bg-[#020617] overflow-hidden z-10 touch-pan-y"
       onTouchStart={handleTouchStart}
       onTouchMove={handleTouchMove}
       onTouchEnd={handleTouchEnd}
@@ -139,41 +139,44 @@ const HeroCarousel = () => {
         <div className="absolute inset-0 bg-gradient-to-r from-[#020617] via-[#020617]/70 md:via-[#020617]/40 to-transparent" />
       </div>
 
-      {/* Contenido a la izquierda */}
-      <div className="relative z-20 h-full flex items-center py-3 sm:py-0">
-        <div className="container mx-0 sm:mx-2 px-4 sm:px-6 md:px-12 lg:px-16">
+      {/* Fade-out inferior */}
+      <div className="absolute bottom-0 left-0 right-0 h-20 sm:h-32 bg-gradient-to-t from-[#0a0a0f] to-transparent pointer-events-none z-10" />
+
+      {/* Contenido - Landing style */}
+      <div className="relative z-20 h-full flex items-center py-4 sm:py-0">
+        <div className="container mx-0 sm:mx-2 px-5 sm:px-6 md:px-12 lg:px-16">
           <div className="max-w-2xl lg:max-w-4xl">
             <div key={current.id + '-text'} className="carousel-content-transition">
-                {/* Tag Superior - Visible y moderno */}
-                <div className="flex items-center gap-1.5 sm:gap-4 mb-1.5 sm:mb-4 md:mb-6">
-                  <div className={`h-[2px] sm:h-[3px] w-5 sm:w-12 bg-gradient-to-r ${current.gradient}`} />
-                  <span className="text-white font-black text-[8px] sm:text-xs tracking-[0.2em] sm:tracking-[0.4em] uppercase">
+                {/* Tag - Landing style */}
+                <div className="flex items-center gap-2 sm:gap-4 mb-2 sm:mb-4 md:mb-6">
+                  <div className={`h-[3px] sm:h-[3px] w-8 sm:w-12 bg-gradient-to-r ${current.gradient}`} />
+                  <span className="text-white font-black text-[10px] sm:text-xs tracking-[0.25em] sm:tracking-[0.4em] uppercase">
                     {current.tag}
                   </span>
                 </div>
 
-                {/* Título - Grande y con impacto */}
-                <h1 className="text-[26px] sm:text-5xl md:text-7xl lg:text-8xl xl:text-9xl font-black text-white leading-[0.9] sm:leading-[0.85] tracking-tighter mb-2 sm:mb-4 md:mb-6 lg:mb-8">
+                {/* Título - GRANDE tipo landing */}
+                <h1 className="text-[36px] sm:text-5xl md:text-7xl lg:text-8xl xl:text-9xl font-black text-white leading-[0.95] sm:leading-[0.85] tracking-tighter mb-2.5 sm:mb-4 md:mb-6 lg:mb-8">
                   {current.title}
                 </h1>
 
-                {/* Subtítulo - Legible y espaciado */}
-                <p className="text-[11px] sm:text-xl md:text-2xl lg:text-3xl text-slate-300 font-semibold mb-3 sm:mb-6 md:mb-8 lg:mb-12 italic leading-snug">
+                {/* Subtítulo - Destacado */}
+                <p className="text-[15px] sm:text-xl md:text-2xl lg:text-3xl text-slate-200 font-bold mb-4 sm:mb-6 md:mb-8 lg:mb-12 italic leading-tight">
                   {current.description}
                 </p>
 
-                {/* Points - Bien espaciados */}
-                <div className="grid grid-cols-1 gap-1.5 sm:gap-4 md:grid-cols-2 md:gap-6 lg:gap-8">
+                {/* Points - Legibles */}
+                <div className="grid grid-cols-1 gap-2 sm:gap-4 md:grid-cols-2 md:gap-6 lg:gap-8">
                   {current.points.map((point, idx) => (
                     <div 
                       key={idx}
-                      className="flex items-start gap-1.5 sm:gap-3 md:gap-4 group carousel-point-transition"
+                      className="flex items-start gap-2 sm:gap-3 md:gap-4 group carousel-point-transition"
                       style={{ animationDelay: `${0.1 + idx * 0.05}s` }}
                     >
-                      <div className="flex flex-col items-center pt-0.5 sm:pt-1">
-                        <div className={`w-[2px] sm:w-[3px] h-3.5 sm:h-6 md:h-8 lg:h-10 bg-gradient-to-b ${point.highlight ? 'from-red-500 to-red-600' : current.gradient}`} />
+                      <div className="flex flex-col items-center pt-[3px] sm:pt-1">
+                        <div className={`w-[2.5px] sm:w-[3px] h-4 sm:h-6 md:h-8 lg:h-10 bg-gradient-to-b ${point.highlight ? 'from-red-500 to-red-600' : current.gradient}`} />
                       </div>
-                      <span className={`text-[10px] sm:text-base md:text-lg lg:text-xl font-bold tracking-tight leading-[1.35] sm:leading-snug ${point.highlight ? 'text-red-400' : 'text-white'}`}>
+                      <span className={`text-[12px] sm:text-base md:text-lg lg:text-xl font-bold tracking-tight leading-[1.4] sm:leading-snug ${point.highlight ? 'text-red-400' : 'text-white'}`}>
                         {point.text}
                       </span>
                     </div>
@@ -185,34 +188,34 @@ const HeroCarousel = () => {
       </div>
 
       {/* Navegación */}
-      <div className="absolute bottom-2.5 sm:bottom-8 md:bottom-12 right-3 sm:right-8 md:right-12 z-30 flex flex-col items-end gap-1.5 sm:gap-4 md:gap-6">
-        {/* Contador - Visible y moderno */}
-        <div className="flex items-baseline gap-1 sm:gap-2 md:gap-3">
-          <span className="text-2xl sm:text-6xl md:text-7xl lg:text-8xl font-black text-white leading-none">
+      <div className="absolute bottom-3 sm:bottom-8 md:bottom-12 right-4 sm:right-8 md:right-12 z-30 flex flex-col items-end gap-2 sm:gap-4 md:gap-6">
+        {/* Contador */}
+        <div className="flex items-baseline gap-1.5 sm:gap-2 md:gap-3">
+          <span className="text-3xl sm:text-6xl md:text-7xl lg:text-8xl font-black text-white leading-none">
             {String(currentSlide + 1).padStart(2, '0')}
           </span>
-          <span className="text-white/20 font-black text-sm sm:text-2xl md:text-3xl">
+          <span className="text-white/20 font-black text-base sm:text-2xl md:text-3xl">
             / {String(slides.length).padStart(2, '0')}
           </span>
         </div>
         
-        {/* Indicadores Lineales - Bien definidos */}
-        <div className="flex gap-1 sm:gap-1.5 md:gap-2">
+        {/* Indicadores */}
+        <div className="flex gap-1.5 sm:gap-1.5 md:gap-2">
           {slides.map((_, idx) => (
             <button
               key={idx}
               onClick={() => setCurrentSlide(idx)}
               aria-label={`Ir a slide ${idx + 1}`}
-              className={`h-[2px] sm:h-[3px] md:h-[4px] transition-all duration-500 rounded-full ${
+              className={`h-[2.5px] sm:h-[3px] md:h-[4px] transition-all duration-500 rounded-full ${
                 idx === currentSlide 
-                  ? `w-7 sm:w-12 md:w-16 bg-gradient-to-r ${current.gradient}` 
-                  : 'w-2.5 sm:w-4 md:w-6 bg-white/20 hover:bg-white/40'
+                  ? `w-8 sm:w-12 md:w-16 bg-gradient-to-r ${current.gradient}` 
+                  : 'w-3 sm:w-4 md:w-6 bg-white/20 hover:bg-white/40'
               }`}
             />
           ))}
         </div>
 
-        {/* Botones de control - Solo en desktop */}
+        {/* Botones - Solo desktop */}
         <div className="hidden sm:flex gap-3 md:gap-4">
           <button 
             onClick={prevSlide}

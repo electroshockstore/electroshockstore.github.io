@@ -129,17 +129,13 @@ const Header = ({ searchQuery = '', onSearchChange, onGoHome }) => {
                 navigate('/');
                 onGoHome?.();
               }}
-              className="flex items-center gap-2 hover:opacity-80 transition-opacity"
+              className="flex items-center hover:opacity-80 transition-opacity"
             >
               <img 
                 src="/logotipo_tiny.png" 
                 alt="Shock-Store Logo" 
                 className="h-14 w-auto object-contain"
               />
-              <div>
-                <h1 className="text-lg font-black text-white leading-tight">Shock-Store</h1>
-                <h2 className="text-xs font-semibold text-blue-400">Catálogo</h2>
-              </div>
             </button>
             
             <div className="flex items-center gap-2">
