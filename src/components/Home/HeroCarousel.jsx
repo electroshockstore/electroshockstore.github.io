@@ -1,4 +1,4 @@
-import { useState, useEffect, useCallback, useMemo } from 'react';
+import { useState, useEffect, useCallback, useMemo, useRef } from 'react';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 
 const slides = [
@@ -72,9 +72,33 @@ const slides = [
 const HeroCarousel = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [loadedImages, setLoadedImages] = useState(new Set([0])); // Precargar solo la primera
+  const touchStartX = useRef(0);
+  const touchEndX = useRef(0);
 
   const nextSlide = useCallback(() => setCurrentSlide((prev) => (prev + 1) % slides.length), []);
   const prevSlide = useCallback(() => setCurrentSlide((prev) => (prev - 1 + slides.length) % slides.length), []);
+
+  // Touch handlers para swipe
+  const handleTouchStart = useCallback((e) => {
+    touchStartX.current = e.touches[0].clientX;
+  }, []);
+
+  const handleTouchMove = useCallback((e) => {
+    touchEndX.current = e.touches[0].clientX;
+  }, []);
+
+  const handleTouchEnd = useCallback(() => {
+    const swipeThreshold = 50;
+    const diff = touchStartX.current - touchEndX.current;
+    
+    if (Math.abs(diff) > swipeThreshold) {
+      if (diff > 0) {
+        nextSlide();
+      } else {
+        prevSlide();
+      }
+    }
+  }, [nextSlide, prevSlide]);
 
   useEffect(() => {
     const timer = setInterval(nextSlide, 8000);
@@ -91,7 +115,12 @@ const HeroCarousel = () => {
   const current = useMemo(() => slides[currentSlide], [currentSlide]);
 
   return (
-    <section className="relative w-full h-[500px] sm:h-[600px] md:h-[700px] lg:h-[800px] bg-[#020617] overflow-hidden rounded-2xl z-10">
+    <section 
+      className="relative w-full h-[420px] sm:h-[600px] md:h-[700px] lg:h-[800px] bg-[#020617] overflow-hidden rounded-2xl z-10 touch-pan-y"
+      onTouchStart={handleTouchStart}
+      onTouchMove={handleTouchMove}
+      onTouchEnd={handleTouchEnd}
+    >
       
       {/* Background Image - Optimizado con CSS transitions */}
       <div className="absolute right-0 top-0 w-full md:w-[70%] h-full z-0">
@@ -112,39 +141,39 @@ const HeroCarousel = () => {
 
       {/* Contenido a la izquierda */}
       <div className="relative z-20 h-full flex items-center">
-        <div className="container mx-2 px-4 sm:px-6 md:px-12 lg:px-16">
+        <div className="container mx-2 px-3 sm:px-6 md:px-12 lg:px-16">
           <div className="max-w-2xl lg:max-w-4xl">
             <div key={current.id + '-text'} className="carousel-content-transition">
                 {/* Tag Superior */}
-                <div className="flex items-center gap-2 sm:gap-4 mb-4 sm:mb-6">
-                  <div className={`h-[2px] sm:h-[3px] w-8 sm:w-12 bg-gradient-to-r ${current.gradient}`} />
-                  <span className="text-white font-black text-[10px] sm:text-xs tracking-[0.3em] sm:tracking-[0.4em] uppercase">
+                <div className="flex items-center gap-2 sm:gap-4 mb-2 sm:mb-4 md:mb-6">
+                  <div className={`h-[2px] sm:h-[3px] w-6 sm:w-12 bg-gradient-to-r ${current.gradient}`} />
+                  <span className="text-white font-black text-[9px] sm:text-xs tracking-[0.25em] sm:tracking-[0.4em] uppercase">
                     {current.tag}
                   </span>
                 </div>
 
                 {/* Título */}
-                <h1 className="text-4xl sm:text-5xl md:text-7xl lg:text-8xl xl:text-9xl font-black text-white leading-[0.85] tracking-tighter mb-4 sm:mb-6 md:mb-8">
+                <h1 className="text-3xl sm:text-5xl md:text-7xl lg:text-8xl xl:text-9xl font-black text-white leading-[0.9] sm:leading-[0.85] tracking-tighter mb-2 sm:mb-4 md:mb-6 lg:mb-8">
                   {current.title}
                 </h1>
 
                 {/* Subtítulo */}
-                <p className="text-base sm:text-xl md:text-2xl lg:text-3xl text-slate-300 font-medium mb-6 sm:mb-8 md:mb-12 italic">
+                <p className="text-sm sm:text-xl md:text-2xl lg:text-3xl text-slate-300 font-medium mb-3 sm:mb-6 md:mb-8 lg:mb-12 italic">
                   {current.description}
                 </p>
 
                 {/* Points */}
-                <div className="grid grid-cols-1 gap-4 sm:gap-6 md:grid-cols-2 md:gap-8">
+                <div className="grid grid-cols-1 gap-2 sm:gap-4 md:grid-cols-2 md:gap-6 lg:gap-8">
                   {current.points.map((point, idx) => (
                     <div 
                       key={idx}
-                      className="flex items-start gap-3 sm:gap-4 group carousel-point-transition"
+                      className="flex items-start gap-2 sm:gap-3 md:gap-4 group carousel-point-transition"
                       style={{ animationDelay: `${0.1 + idx * 0.05}s` }}
                     >
-                      <div className="flex flex-col items-center pt-1">
-                        <div className={`w-[2px] sm:w-[3px] h-6 sm:h-8 md:h-10 bg-gradient-to-b ${point.highlight ? 'from-red-500 to-red-600' : current.gradient}`} />
+                      <div className="flex flex-col items-center pt-0.5 sm:pt-1">
+                        <div className={`w-[2px] sm:w-[3px] h-4 sm:h-6 md:h-8 lg:h-10 bg-gradient-to-b ${point.highlight ? 'from-red-500 to-red-600' : current.gradient}`} />
                       </div>
-                      <span className={`text-sm sm:text-base md:text-lg lg:text-xl font-bold tracking-tight leading-snug ${point.highlight ? 'text-red-400' : 'text-white'}`}>
+                      <span className={`text-xs sm:text-base md:text-lg lg:text-xl font-bold tracking-tight leading-tight sm:leading-snug ${point.highlight ? 'text-red-400' : 'text-white'}`}>
                         {point.text}
                       </span>
                     </div>
@@ -156,48 +185,48 @@ const HeroCarousel = () => {
       </div>
 
       {/* Navegación */}
-      <div className="absolute bottom-4 sm:bottom-8 md:bottom-12 right-4 sm:right-8 md:right-12 z-30 flex flex-col items-end gap-3 sm:gap-4 md:gap-6">
+      <div className="absolute bottom-3 sm:bottom-8 md:bottom-12 right-3 sm:right-8 md:right-12 z-30 flex flex-col items-end gap-2 sm:gap-4 md:gap-6">
         {/* Contador */}
-        <div className="flex items-baseline gap-2 sm:gap-3">
-          <span className="text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-black text-white leading-none">
+        <div className="flex items-baseline gap-1.5 sm:gap-2 md:gap-3">
+          <span className="text-3xl sm:text-6xl md:text-7xl lg:text-8xl font-black text-white leading-none">
             {String(currentSlide + 1).padStart(2, '0')}
           </span>
-          <span className="text-white/20 font-black text-xl sm:text-2xl md:text-3xl">
+          <span className="text-white/20 font-black text-lg sm:text-2xl md:text-3xl">
             / {String(slides.length).padStart(2, '0')}
           </span>
         </div>
         
         {/* Indicadores Lineales */}
-        <div className="flex gap-1.5 sm:gap-2">
+        <div className="flex gap-1 sm:gap-1.5 md:gap-2">
           {slides.map((_, idx) => (
             <button
               key={idx}
               onClick={() => setCurrentSlide(idx)}
               aria-label={`Ir a slide ${idx + 1}`}
-              className={`h-[3px] sm:h-[4px] transition-all duration-500 rounded-full ${
+              className={`h-[2.5px] sm:h-[3px] md:h-[4px] transition-all duration-500 rounded-full ${
                 idx === currentSlide 
-                  ? `w-10 sm:w-12 md:w-16 bg-gradient-to-r ${current.gradient}` 
-                  : 'w-4 sm:w-6 bg-white/20 hover:bg-white/40'
+                  ? `w-8 sm:w-12 md:w-16 bg-gradient-to-r ${current.gradient}` 
+                  : 'w-3 sm:w-4 md:w-6 bg-white/20 hover:bg-white/40'
               }`}
             />
           ))}
         </div>
 
-        {/* Botones de control */}
-        <div className="flex gap-2 sm:gap-3 md:gap-4">
+        {/* Botones de control - Solo en desktop */}
+        <div className="hidden sm:flex gap-3 md:gap-4">
           <button 
             onClick={prevSlide}
             aria-label="Slide anterior"
-            className="p-2 sm:p-3 md:p-4 rounded-full border border-white/10 text-white hover:bg-white hover:text-black transition-all group active:scale-95"
+            className="p-3 md:p-4 rounded-full border border-white/10 text-white hover:bg-white hover:text-black transition-all group active:scale-95"
           >
-            <ChevronLeft size={20} className="sm:w-6 sm:h-6 md:w-7 md:h-7" />
+            <ChevronLeft className="w-6 h-6 md:w-7 md:h-7" />
           </button>
           <button 
             onClick={nextSlide}
             aria-label="Siguiente slide"
-            className="p-2 sm:p-3 md:p-4 rounded-full border border-white/10 text-white hover:bg-white hover:text-black transition-all group active:scale-95"
+            className="p-3 md:p-4 rounded-full border border-white/10 text-white hover:bg-white hover:text-black transition-all group active:scale-95"
           >
-            <ChevronRight size={20} className="sm:w-6 sm:h-6 md:w-7 md:h-7" />
+            <ChevronRight className="w-6 h-6 md:w-7 md:h-7" />
           </button>
         </div>
       </div>

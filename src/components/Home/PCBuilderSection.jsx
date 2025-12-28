@@ -54,7 +54,12 @@ const PCBuilderSection = () => {
 
   return (
     <>
-      <PCBuilderCard {...assistedModeData} />
+      {/* Modo Asistido - Solo visible en desktop (sm+) */}
+      <div className="hidden sm:block">
+        <PCBuilderCard {...assistedModeData} />
+      </div>
+      
+      {/* Modo Manual - Siempre visible */}
       <PCBuilderCard {...manualModeData} />
     </>
   );

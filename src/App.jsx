@@ -8,11 +8,12 @@ import ErrorNotification from "./components/ErrorNotification";
 import { useErrorHandler } from "./hooks/useErrorHandler";
 import SkipToContent from "./components/SEO/SkipToContent";
 
-// Lazy load de módulos principales
-const Store = lazy(() => import("./modules/Store"));
-const ProductDetailPage = lazy(() => import("./Modules/ProductDetailPage"));
-const PCBuilder = lazy(() => import("./Modules/PCBuilder"));
-const PuntosRetiro = lazy(() => import("./Modules/PuntosRetiro"));
+// Lazy load de páginas principales
+const Home = lazy(() => import("./pages/Home"));
+const Catalog = lazy(() => import("./pages/Catalog"));
+const ProductDetailPage = lazy(() => import("./pages/ProductDetailPage"));
+const PCBuilder = lazy(() => import("./pages/PCBuilder"));
+const PuntosRetiro = lazy(() => import("./pages/PuntosRetiro"));
 
 // Loading component simple y ligero
 const PageLoader = () => (
@@ -30,13 +31,13 @@ function AnimatedRoutes() {
   return (
     <Suspense fallback={<PageLoader />}>
       <Routes location={location}>
-        <Route path="/" element={<div className="page-transition"><Store /></div>} />
-        <Route path="/armatupc/:mode" element={<div className="page-transition"><PCBuilder /></div>} />
-        <Route path="/puntos-de-retiro" element={<div className="page-transition"><PuntosRetiro /></div>} />
-        <Route path="/pc-builder" element={<div className="page-transition"><PCBuilder /></div>} />
-        <Route path="/categoria/:categorySlug" element={<div className="page-transition"><Store /></div>} />
+        <Route path="/" element={<div className="page-transition"><Home /></div>} />
+        <Route path="/categoria/:categorySlug" element={<div className="page-transition"><Catalog /></div>} />
         <Route path="/categoria/:categorySlug/:productSku" element={<div className="page-transition"><ProductDetailPage /></div>} />
         <Route path="/producto/:id" element={<div className="page-transition"><ProductDetailPage /></div>} />
+        <Route path="/armatupc/:mode" element={<div className="page-transition"><PCBuilder /></div>} />
+        <Route path="/pc-builder" element={<div className="page-transition"><PCBuilder /></div>} />
+        <Route path="/puntos-de-retiro" element={<div className="page-transition"><PuntosRetiro /></div>} />
       </Routes>
     </Suspense>
   );

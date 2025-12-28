@@ -1,7 +1,7 @@
 import { useNavigate } from 'react-router-dom';
-import Header from '../components/InventoryApp/Header';
-import Footer from '../components/InventoryApp/Footer';
-import FloatingChatButton from '../components/InventoryApp/FloatingChatButton';
+import Header from '../components/Shared/Header';
+import Footer from '../components/Shared/Footer';
+import FloatingChatButton from '../components/Shared/FloatingChatButton';
 import {
   HeroSection,
   ImportantRulesSection,

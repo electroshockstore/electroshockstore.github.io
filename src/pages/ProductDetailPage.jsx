@@ -1,11 +1,11 @@
 import { useParams, useNavigate, useLocation } from 'react-router-dom';
 import { useEffect } from 'react';
 import { useStock } from '../context/StockContext';
-import Header from '../components/InventoryApp/Header';
-import ProductDetail from '../components/InventoryApp/ProductDetail/index';
-import Footer from '../components/InventoryApp/Footer';
-import ScrollButton from '../components/InventoryApp/ScrollButton';
-import CategoryFilter from '../components/InventoryApp/CategoryFilter';
+import Header from '../components/Shared/Header';
+import ProductDetail from '../components/Catalog/ProductDetail/index';
+import Footer from '../components/Shared/Footer';
+import ScrollButton from '../components/Shared/ScrollButton';
+import CategoryFilter from '../components/Catalog/CategoryFilter';
 import { useFilter } from '../context/FilterContext';
 import { generateSKU, getSlugFromCategory } from '../utils/slugify';
 import { useProductSEO } from '../hooks/useSEO';

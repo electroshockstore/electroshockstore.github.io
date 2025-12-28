@@ -1,7 +1,7 @@
 // Card unificada de información del producto - Diseño moderno
 import { DollarSign } from 'lucide-react';
-import WhatsAppButton from '../WhatsAppButton';
-import LiveChatButton from '../LiveChatButton';
+import WhatsAppButton from '../../Shared/WhatsAppButton';
+import LiveChatButton from '../../Shared/LiveChatButton';
 
 const formatPrice = (price) => {
   return new Intl.NumberFormat('es-AR', {

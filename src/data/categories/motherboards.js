@@ -1,10 +1,10 @@
-// IDs: 600-699 | Próximo: 600
+// IDs: 600-699 | Próximo: 602
 export const motherboardsProducts = [
   {
     id: 28,
-    name: "ASUS Prime A520M-K  AM4",
+    name: "ASUS Prime A520M-K AM4",
     brand: "ASUS",
-    model: "Prime A520M-K ",
+    model: "Prime A520M-K",
     category: "Motherboards",
     price: 80000,
     stock: 7,
@@ -12,7 +12,7 @@ export const motherboardsProducts = [
       "/images/motherboard/A520m_K_Csm.webp",
       "/images/motherboard/A520m_K_Csm_moth.webp"
     ],
-    description: "Mother Asus Prime A520M-K  AM4 DDR4 64GB HDMI M.2",
+    description: "Mother Asus Prime A520M-K AM4 DDR4 64GB HDMI M.2",
     specifications: {
       marca: "Asus",
       linea: "Prime",
@@ -54,7 +54,7 @@ export const motherboardsProducts = [
     description: "Mother Gigabyte B650M Gaming WiFi DDR5 B650 AMD con WiFi integrado",
     specifications: {
       marca: "Gigabyte",
-      socket: "AMD AM5",
+      socket: "AM5",
       compatibilidadProcesadores: "AMD Ryzen 7000/8000 Series",
       vrm: "5+2+2 Digital VRM Solution",
       tipoMemoria: "DDR5",
@@ -89,7 +89,7 @@ export const motherboardsProducts = [
       marca: "Asus",
       linea: "Prime",
       modelo: "B450M-A II CSM",
-      socket: "Socket AM4",
+      socket: "AM4",
       tipoMemoriaRAM: "DDR4",
       capacidadMaximaSoportada: "128 GB",
       formatoMemoriaRAM: "DIMM",
@@ -159,7 +159,7 @@ export const motherboardsProducts = [
   },
   {
     id: 600,
-    name: "Gigabyte B650m-H UD Amd Am5 Ddr5",
+    name: "Gigabyte B650M-H UD AMD AM5 DDR5",
     brand: "Gigabyte",
     model: "B650M-H",
     category: "Motherboards",

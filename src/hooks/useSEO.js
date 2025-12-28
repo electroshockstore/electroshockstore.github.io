@@ -63,35 +63,48 @@ export const useSEO = ({
 };
 
 export const useProductSEO = (product) => {
-  if (!product) return;
-
-  const title = `${product.name} - ${product.brand} | Shock-Store`;
-  const description = generateProductDescription(product);
-  const keywords = generateProductKeywords(product);
-  const image = product.images?.[0] || '/logotipo_tiny.png';
+  const title = product 
+    ? `${product.name} - ${product.brand} | Shock-Store`
+    : 'Shock-Store | Catálogo de Venta - Tecnología y Componentes PC';
+  
+  const description = product 
+    ? generateProductDescription(product)
+    : 'Catálogo completo de productos Shock-Store. Encuentra los mejores componentes para PC, hardware gaming, periféricos y más.';
+  
+  const keywords = product 
+    ? generateProductKeywords(product)
+    : 'shock-store, componentes pc, hardware, gaming, tecnología';
+  
+  const image = product?.images?.[0] || '/logotipo_tiny.png';
 
   useSEO({
     title,
     description,
     keywords,
     image,
-    type: 'product',
-    product
+    type: product ? 'product' : 'website',
+    product: product || null
   });
 };
 
 export const useCategorySEO = (category, productCount) => {
-  if (!category) return;
-
-  const title = `${category} | Shock-Store - Catálogo de Productos`;
-  const description = `Explorá nuestro catálogo de ${category.toLowerCase()} en Shock-Store. ${productCount} productos disponibles. Componentes de PC, hardware y tecnología. Berazategui y Florencio Varela.`;
-  const keywords = `${category.toLowerCase()}, shock-store, componentes pc, hardware, tecnología, berazategui`;
+  const title = category 
+    ? `${category} | Shock-Store - Catálogo de Productos`
+    : 'Shock-Store | Catálogo de Venta - Tecnología y Componentes PC';
+  
+  const description = category
+    ? `Explorá nuestro catálogo de ${category.toLowerCase()} en Shock-Store. ${productCount} productos disponibles. Componentes de PC, hardware y tecnología. Berazategui y Florencio Varela.`
+    : 'Catálogo completo de productos Shock-Store. Encuentra los mejores componentes para PC, hardware gaming, periféricos y más.';
+  
+  const keywords = category
+    ? `${category.toLowerCase()}, shock-store, componentes pc, hardware, tecnología, berazategui`
+    : 'shock-store, componentes pc, hardware, gaming, tecnología';
 
   useSEO({
     title,
     description,
     keywords,
     type: 'website',
-    category
+    category: category || null
   });
 };

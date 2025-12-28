@@ -1,4 +1,4 @@
-import Header from '../../InventoryApp/Header';
+import Header from '../../Shared/Header';
 
 const AssistedMode = ({ onModeChange, onGoHome }) => {
   return (

@@ -1,8 +1,8 @@
 import { useState } from 'react';
-import Header from '../../InventoryApp/Header';
-import Footer from '../../InventoryApp/Footer';
-import ScrollButton from '../../InventoryApp/ScrollButton';
-import FloatingChatButton from '../../InventoryApp/FloatingChatButton';
+import Header from '../../Shared/Header';
+import Footer from '../../Shared/Footer';
+import ScrollButton from '../../Shared/ScrollButton';
+import FloatingChatButton from '../../Shared/FloatingChatButton';
 import CategorySidebar from './CategorySidebar';
 import ProductGrid from './ProductGrid';
 import ProductPreviewPanel from './ProductPreviewPanel';
