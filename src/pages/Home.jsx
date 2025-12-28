@@ -45,14 +45,13 @@ const Home = () => {
 
   return (
     <div className="min-h-screen w-full flex flex-col relative">
-      {/* Background Gradients */}
-      <div className="fixed inset-0 -z-10 overflow-hidden">
-        <div className="absolute inset-0 bg-[#0a0a0f]"></div>
-        <div className="absolute inset-0">
-          <div className="absolute" style={{ width: '60vw', height: '60vh', background: 'radial-gradient(ellipse at top left, rgba(30, 58, 138, 0.25) 0%, transparent 70%)', filter: 'blur(100px)', top: '-20%', left: '-15%' }} />
-          <div className="absolute" style={{ width: '50vw', height: '50vh', background: 'radial-gradient(circle at center, rgba(88, 28, 135, 0.2) 0%, transparent 70%)', filter: 'blur(120px)', top: '30%', right: '-10%' }} />
+      {/* Background Gradients - Simplificado */}
+      <div className="fixed inset-0 -z-10 bg-[#0a0a0f]">
+        {/* Gradientes solo en desktop */}
+        <div className="hidden sm:block absolute inset-0">
+          <div className="absolute w-1/2 h-1/2 bg-blue-900/10 rounded-full blur-3xl top-0 left-0" />
+          <div className="absolute w-1/2 h-1/2 bg-purple-900/10 rounded-full blur-3xl bottom-0 right-0" />
         </div>
-        <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-transparent to-black/40"></div>
       </div>
       
       <Header 
@@ -86,9 +85,7 @@ const Home = () => {
 
           {/* Mobile: PC Builder después de Packs */}
           <div className="sm:hidden mb-4">
-            <div className="grid md:grid-cols-2 gap-3">
-              <PCBuilderSection />
-            </div>
+            <PCBuilderSection />
           </div>
           
           {/* Desktop: PC Builder después del Hero */}

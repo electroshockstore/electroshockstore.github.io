@@ -303,7 +303,7 @@ export const mayoristaProducts = [
     unitPrice: 90000, // Precio normal por unidad
     stock: 5,
     images: [
-      "/images/category_filter/ps4_joyst_mayor.jpg",
+      "/images/category_filter/ps4_joyst_mayor.webp",
       "/images/joystick/joyst_ps4_v2_side.webp",
       "/images/joystick/joyst_ps4_v2_back.webp"
     ],

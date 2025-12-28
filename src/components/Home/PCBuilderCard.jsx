@@ -38,7 +38,7 @@ const PCBuilderCard = ({
             {/* Background Image */}
             <div className="absolute inset-0">
                 <img 
-                    src="/images/category_filter/builder.png" 
+                    src="/images/category_filter/builder.webp" 
                     alt=""
                     loading="eager"
                     decoding="async"

@@ -18,8 +18,8 @@ const RevendedoresSection = ({ products = [], onProductClick }) => {
 
     return (
         <section className="w-full flex-1 relative">
-            {/* Partículas de fondo animadas */}
-            <div className="absolute inset-0 overflow-hidden pointer-events-none">
+            {/* Partículas de fondo animadas - Solo desktop */}
+            <div className="hidden sm:block absolute inset-0 overflow-hidden pointer-events-none">
                 <div className="absolute top-20 left-10 w-72 h-72 bg-amber-500/10 rounded-full blur-3xl animate-pulse" />
                 <div className="absolute bottom-20 right-10 w-96 h-96 bg-orange-500/10 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s' }} />
             </div>
@@ -50,7 +50,7 @@ const RevendedoresSection = ({ products = [], onProductClick }) => {
                 </div>
 
                 {/* Grid de productos mayoristas - 3 cards en línea */}
-                <div className="grid grid-cols-3 gap-3 sm:gap-6 lg:gap-8 mb-6 sm:mb-8 px-4 sm:px-0">
+                <div className="grid grid-cols-3 gap-2 sm:gap-6 lg:gap-8 mb-6 sm:mb-8 px-2 sm:px-0">
                     {featuredProducts.map((product, index) => (
                         <ProductCardMayorista
                             key={product.id || index}
