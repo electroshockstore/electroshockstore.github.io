@@ -120,15 +120,26 @@ const CategoryFilter = ({ selectedCategory, onCategoryChange }) => {
             className="w-full flex items-center justify-between px-4 py-3 bg-white rounded-3xl shadow-[0_2px_8px_rgba(0,0,0,0.06)] border border-gray-100"
           >
             <div className="flex items-center gap-3">
-              {(() => {
-                const Icon = getCategoryIcon(selectedCategory);
-                return (
-                  <div className={`p-2 rounded-xl bg-gradient-to-br ${getCategoryGradient(selectedCategory)} shadow-sm`}>
-                    <Icon className="h-5 w-5 text-white" strokeWidth={2.5} />
+              {selectedCategory ? (
+                <>
+                  {(() => {
+                    const Icon = getCategoryIcon(selectedCategory);
+                    return (
+                      <div className={`p-2 rounded-xl bg-gradient-to-br ${getCategoryGradient(selectedCategory)} shadow-sm`}>
+                        <Icon className="h-5 w-5 text-white" strokeWidth={2.5} />
+                      </div>
+                    );
+                  })()}
+                  <span className="font-bold text-gray-800">{selectedCategory}</span>
+                </>
+              ) : (
+                <>
+                  <div className="p-2 rounded-xl bg-gradient-to-br from-blue-500 to-blue-600 shadow-sm">
+                    <Grid3X3 className="h-5 w-5 text-white" strokeWidth={2.5} />
                   </div>
-                );
-              })()}
-              <span className="font-bold text-gray-800">{selectedCategory}</span>
+                  <span className="font-bold text-gray-500">Seleccionar categoría</span>
+                </>
+              )}
             </div>
             <ChevronDown 
               className={`h-5 w-5 text-gray-400 transition-transform duration-300 ${isOpen ? 'rotate-180' : ''}`} 
@@ -139,7 +150,7 @@ const CategoryFilter = ({ selectedCategory, onCategoryChange }) => {
           {/* Dropdown Menu con mismo estilo que desktop */}
           {isOpen && (
             <div className="absolute top-full left-0 right-0 mt-2 bg-white rounded-3xl shadow-2xl border border-gray-100 overflow-hidden z-50 animate-fadeIn p-2">
-              <div className="max-h-[60vh] overflow-y-auto space-y-1">
+              <div className="max-h-[60vh] overflow-y-auto space-y-1 pb-20">
                 {categories.map((category) => {
                   const Icon = getCategoryIcon(category);
                   const isSelected = selectedCategory === category;
