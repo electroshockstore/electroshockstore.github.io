@@ -47,8 +47,10 @@ import { monitoresProducts } from './categories/monitores.js';
 import { portatilesProducts } from './categories/portatiles.js';
 import { placasVideoProducts } from './categories/placas_video.js';
 import { mayoristaProducts } from './categories/mayorista.js';
+import { extendProductsWithCompatibility } from './compatibility/index.js';
 
-export const products = [
+// Extend products with compatibility data
+const allProductsRaw = [
   ...procesadoresProducts,
   ...motherboardsProducts,
   ...memoriasProducts,
@@ -65,6 +67,8 @@ export const products = [
   ...placasVideoProducts,
   ...mayoristaProducts
 ];
+
+export const products = extendProductsWithCompatibility(allProductsRaw);
 
 export const categories = [
   'Procesadores',

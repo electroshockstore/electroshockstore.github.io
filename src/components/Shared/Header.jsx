@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import { Package, Search, FileText, MapPin, X, Home, Bot, ArrowRight } from 'lucide-react';
 import { useStock } from '../../context/StockContext';
 
-const Header = ({ searchQuery = '', onSearchChange, onGoHome }) => {
+const Header = ({ searchQuery = '', onSearchChange, onGoHome, hideSearchOnMobile = false }) => {
   const [localSearchQuery, setLocalSearchQuery] = useState(''); // Estado local para el buscador
   const [isSearchOpen, setIsSearchOpen] = useState(false);
   const [searchResults, setSearchResults] = useState([]);
@@ -198,66 +198,68 @@ const Header = ({ searchQuery = '', onSearchChange, onGoHome }) => {
             </div>
           </div>
           
-          <div className="relative" ref={searchRef}>
-            <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-gray-400 z-10" />
-            <input
-              type="text"
-              value={localSearchQuery}
-              onChange={(e) => setLocalSearchQuery(e.target.value)}
-             placeholder="Buscar productos..."
-              className="w-full h-10 pl-10 pr-10 text-md
-                       bg-gray-900 border-2 border-blue-500/40 rounded-full 
-                       text-white placeholder:text-gray-400
-                       focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-blue-400
-                       hover:border-blue-500/60
-                       transition-all duration-200 shadow-lg shadow-blue-500/10"
-            />
-            {localSearchQuery && (
-              <button
-                onClick={handleClearSearch}
-                className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 hover:text-white transition-colors"
-              >
-                <X className="h-4 w-4" />
-              </button>
-            )}
-              
-              {isSearchOpen && searchResults.length > 0 && (
-                <div className="absolute top-full left-0 right-0 mt-2 bg-gray-900 border border-gray-800 rounded-2xl shadow-2xl overflow-hidden z-50 search-results-enter">
-                  {searchResults.map((product) => (
-                    <button
-                      key={product.id}
-                      onClick={() => handleProductClick(product)}
-                      className="w-full flex items-center gap-3 p-3 hover:bg-gray-800 transition-all duration-200 text-left hover:translate-x-1"
-                    >
-                      <div className="w-12 h-12 bg-gray-800 rounded-lg overflow-hidden flex-shrink-0 flex items-center justify-center">
-                        {product.images && product.images.length > 0 ? (
-                          <img
-                            src={product.images[0]}
-                            alt={product.name}
-                            className="w-full h-full object-cover"
-                            onError={(e) => {
-                              e.target.onerror = null;
-                              e.target.src = '';
-                              e.target.style.display = 'none';
-                              e.target.parentElement.innerHTML = '<svg class="w-6 h-6 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 13V6a2 2 0 00-2-2H6a2 2 0 00-2 2v7m16 0v5a2 2 0 01-2 2H6a2 2 0 01-2-2v-5m16 0h-2.586a1 1 0 00-.707.293l-2.414 2.414a1 1 0 01-.707.293h-3.172a1 1 0 01-.707-.293l-2.414-2.414A1 1 0 006.586 13H4"></path></svg>';
-                            }}
-                          />
-                        ) : (
-                          <Package className="w-6 h-6 text-gray-600" />
-                        )}
-                      </div>
-                      <div className="flex-1 min-w-0">
-                        <p className="text-sm font-semibold text-white truncate">{product.name}</p>
-                        <p className="text-xs text-gray-400">{product.brand}</p>
-                      </div>
-                      <div className="inline-flex items-center gap-1 px-2 py-1 bg-gradient-to-r from-blue-50 to-emerald-50 rounded-lg border border-blue-200">
-                        <span className="text-xs font-bold text-gray-800">${product.price.toLocaleString()}</span>
-                      </div>
-                    </button>
-                  ))}
-                </div>
+          {!hideSearchOnMobile && (
+            <div className="relative" ref={searchRef}>
+              <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-gray-400 z-10" />
+              <input
+                type="text"
+                value={localSearchQuery}
+                onChange={(e) => setLocalSearchQuery(e.target.value)}
+               placeholder="Buscar productos..."
+                className="w-full h-10 pl-10 pr-10 text-md
+                         bg-gray-900 border-2 border-blue-500/40 rounded-full 
+                         text-white placeholder:text-gray-400
+                         focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-blue-400
+                         hover:border-blue-500/60
+                         transition-all duration-200 shadow-lg shadow-blue-500/10"
+              />
+              {localSearchQuery && (
+                <button
+                  onClick={handleClearSearch}
+                  className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 hover:text-white transition-colors"
+                >
+                  <X className="h-4 w-4" />
+                </button>
               )}
-          </div>
+                
+                {isSearchOpen && searchResults.length > 0 && (
+                  <div className="absolute top-full left-0 right-0 mt-2 bg-gray-900 border border-gray-800 rounded-2xl shadow-2xl overflow-hidden z-50 search-results-enter">
+                    {searchResults.map((product) => (
+                      <button
+                        key={product.id}
+                        onClick={() => handleProductClick(product)}
+                        className="w-full flex items-center gap-3 p-3 hover:bg-gray-800 transition-all duration-200 text-left hover:translate-x-1"
+                      >
+                        <div className="w-12 h-12 bg-gray-800 rounded-lg overflow-hidden flex-shrink-0 flex items-center justify-center">
+                          {product.images && product.images.length > 0 ? (
+                            <img
+                              src={product.images[0]}
+                              alt={product.name}
+                              className="w-full h-full object-cover"
+                              onError={(e) => {
+                                e.target.onerror = null;
+                                e.target.src = '';
+                                e.target.style.display = 'none';
+                                e.target.parentElement.innerHTML = '<svg class="w-6 h-6 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 13V6a2 2 0 00-2-2H6a2 2 0 00-2 2v7m16 0v5a2 2 0 01-2 2H6a2 2 0 01-2-2v-5m16 0h-2.586a1 1 0 00-.707.293l-2.414 2.414a1 1 0 01-.707.293h-3.172a1 1 0 01-.707-.293l-2.414-2.414A1 1 0 006.586 13H4"></path></svg>';
+                              }}
+                            />
+                          ) : (
+                            <Package className="w-6 h-6 text-gray-600" />
+                          )}
+                        </div>
+                        <div className="flex-1 min-w-0">
+                          <p className="text-sm font-semibold text-white truncate">{product.name}</p>
+                          <p className="text-xs text-gray-400">{product.brand}</p>
+                        </div>
+                        <div className="inline-flex items-center gap-1 px-2 py-1 bg-gradient-to-r from-blue-50 to-emerald-50 rounded-lg border border-blue-200">
+                          <span className="text-xs font-bold text-gray-800">${product.price.toLocaleString()}</span>
+                        </div>
+                      </button>
+                    ))}
+                  </div>
+                )}
+            </div>
+          )}
         </div>
 
         {/* Layout desktop: horizontal */}

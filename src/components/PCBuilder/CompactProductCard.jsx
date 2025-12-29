@@ -38,42 +38,43 @@ const CompactProductCard = memo(({ product, compatibilityResult, isSelected, onC
     <div
       onClick={() => onClick(product)}
       className={`
-        group relative bg-white rounded-xl border-2 overflow-hidden
+        group relative bg-white rounded-lg lg:rounded-xl border-2 overflow-hidden
         transition-all duration-200 flex flex-col h-full cursor-pointer
         ${isSelected 
-          ? 'border-blue-600 shadow-xl ring-4 ring-blue-200 scale-[1.02]' 
+          ? 'border-blue-600 shadow-xl ring-2 lg:ring-4 ring-blue-200 scale-[1.02]' 
           : config.border + ' shadow-md hover:shadow-xl hover:scale-[1.02]'
         }
       `}
     >
-      {/* Status Badge */}
-      <div className="absolute top-2 right-2 z-10">
+      {/* Status Badge - Más pequeño en mobile */}
+      <div className="absolute top-1 right-1 lg:top-2 lg:right-2 z-10">
         {isSelected ? (
-          <div className="bg-gradient-to-r from-blue-600 to-indigo-600 text-white text-xs font-bold px-2.5 py-1 rounded-full flex items-center gap-1 shadow-lg">
-            <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <div className="bg-gradient-to-r from-blue-600 to-indigo-600 text-white text-[9px] lg:text-xs font-bold px-1.5 lg:px-2.5 py-0.5 lg:py-1 rounded-full flex items-center gap-0.5 lg:gap-1 shadow-lg">
+            <svg className="w-2.5 h-2.5 lg:w-3 lg:h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
             </svg>
-            <span>SELECCIONADO</span>
+            <span className="hidden lg:inline">SELECCIONADO</span>
+            <span className="lg:hidden">✓</span>
           </div>
         ) : status === 'green' ? (
-          <div className={`${config.badge} text-white text-xs font-bold px-2.5 py-1 rounded-full flex items-center gap-1 shadow-md`}>
-            <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <div className={`${config.badge} text-white text-[9px] lg:text-xs font-bold px-1.5 lg:px-2.5 py-0.5 lg:py-1 rounded-full flex items-center gap-0.5 lg:gap-1 shadow-md`}>
+            <svg className="w-2.5 h-2.5 lg:w-3 lg:h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
             </svg>
-            <span>Compatible</span>
+            <span className="hidden lg:inline">Compatible</span>
           </div>
         ) : status === 'red' ? (
-          <div className={`${config.badge} text-white text-xs font-bold px-2.5 py-1 rounded-full flex items-center gap-1 shadow-md`}>
-            <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <div className={`${config.badge} text-white text-[9px] lg:text-xs font-bold px-1.5 lg:px-2.5 py-0.5 lg:py-1 rounded-full flex items-center gap-0.5 lg:gap-1 shadow-md`}>
+            <svg className="w-2.5 h-2.5 lg:w-3 lg:h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
             </svg>
-            <span>Incompatible</span>
+            <span className="hidden lg:inline">Incompatible</span>
           </div>
         ) : null}
       </div>
       
       {/* Product Image - Compacto */}
-      <div className="aspect-square bg-gradient-to-br from-gray-50 to-gray-100 flex items-center justify-center p-4 overflow-hidden">
+      <div className="aspect-square bg-gradient-to-br from-gray-50 to-gray-100 flex items-center justify-center p-2 lg:p-4 overflow-hidden">
         <img 
           src={productImage} 
           alt={product.name}
@@ -82,56 +83,56 @@ const CompactProductCard = memo(({ product, compatibilityResult, isSelected, onC
       </div>
       
       {/* Product Info - Optimizado para mobile */}
-      <div className="p-3 flex flex-col flex-1">
-        {/* Brand */}
+      <div className="p-2 lg:p-3 flex flex-col flex-1">
+        {/* Brand - Más pequeño en mobile */}
         {product.brand && (
-          <p className="text-xs font-semibold text-blue-600 mb-1.5 uppercase tracking-wide truncate">
+          <p className="text-[9px] lg:text-xs font-semibold text-blue-600 mb-1 uppercase tracking-wide truncate">
             {product.brand}
           </p>
         )}
         
-        {/* Name - Siempre visible, máximo 3 líneas */}
-        <h3 className="font-bold text-gray-900 text-sm mb-2 line-clamp-3 leading-tight">
+        {/* Name - Siempre visible, máximo 2 líneas en mobile, 3 en desktop */}
+        <h3 className="font-bold text-gray-900 text-[11px] lg:text-sm mb-1.5 lg:mb-2 line-clamp-2 lg:line-clamp-3 leading-tight">
           {product.name}
         </h3>
         
         {/* Price - Siempre visible y destacado */}
-        <div className="mb-3">
-          <span className="text-xl font-black text-gray-900 block">
+        <div className="mb-2 lg:mb-3">
+          <span className="text-sm lg:text-xl font-black text-gray-900 block">
             ${product.price.toLocaleString()}
           </span>
           
           {/* Stock Badge - Compacto */}
           {product.stock === 0 && (
-            <span className="inline-block mt-1 text-xs font-semibold text-red-600 bg-red-50 px-2 py-0.5 rounded">
+            <span className="inline-block mt-0.5 lg:mt-1 text-[9px] lg:text-xs font-semibold text-red-600 bg-red-50 px-1.5 lg:px-2 py-0.5 rounded">
               Sin stock
             </span>
           )}
           {product.stock > 0 && product.stock <= 3 && (
-            <span className="inline-block mt-1 text-xs font-semibold text-orange-600 bg-orange-50 px-2 py-0.5 rounded">
+            <span className="inline-block mt-0.5 lg:mt-1 text-[9px] lg:text-xs font-semibold text-orange-600 bg-orange-50 px-1.5 lg:px-2 py-0.5 rounded">
               ¡Últimas {product.stock}!
             </span>
           )}
         </div>
         
-        {/* Compatibility Reasons - Solo en desktop o si es crítico */}
+        {/* Compatibility Reasons - Visible en mobile si es incompatible (red) */}
         {reasons.length > 0 && status === 'red' && (
-          <div className={`hidden sm:block ${config.bg} rounded-lg p-2 space-y-1 mb-3 border ${config.border}`}>
+          <div className={`${config.bg} rounded-lg p-1.5 lg:p-2 space-y-0.5 lg:space-y-1 mb-2 lg:mb-3 border ${config.border}`}>
             {reasons.slice(0, 1).map((reason, idx) => (
-              <div key={idx} className="text-xs text-gray-700 flex items-start gap-1">
-                <span className="text-gray-400 flex-shrink-0">•</span>
+              <div key={idx} className="text-[9px] lg:text-xs text-gray-700 flex items-start gap-1">
+                <span className="text-red-500 flex-shrink-0">⚠</span>
                 <span className="line-clamp-2 leading-tight">{reason}</span>
               </div>
             ))}
             {reasons.length > 1 && (
-              <div className="text-xs text-gray-500 italic">
+              <div className="text-[8px] lg:text-xs text-gray-500 italic">
                 +{reasons.length - 1} más...
               </div>
             )}
           </div>
         )}
         
-        {/* Add to Build Button - Siempre visible */}
+        {/* Add to Build Button - Más compacto en mobile */}
         <button
           onClick={(e) => {
             e.stopPropagation();
@@ -139,7 +140,7 @@ const CompactProductCard = memo(({ product, compatibilityResult, isSelected, onC
           }}
           disabled={isSelected}
           className={`
-            w-full mt-auto py-2.5 px-4 rounded-lg font-bold text-sm transition-all duration-200 flex items-center justify-center gap-2
+            w-full mt-auto py-1.5 lg:py-2.5 px-2 lg:px-4 rounded-lg font-bold text-[10px] lg:text-sm transition-all duration-200 flex items-center justify-center gap-1 lg:gap-2
             ${isSelected
               ? 'bg-gray-100 text-gray-500 cursor-not-allowed'
               : status === 'red'
@@ -150,14 +151,15 @@ const CompactProductCard = memo(({ product, compatibilityResult, isSelected, onC
         >
           {isSelected ? (
             <>
-              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <svg className="w-3 h-3 lg:w-4 lg:h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
               </svg>
-              <span>En tu build</span>
+              <span className="hidden lg:inline">En tu build</span>
+              <span className="lg:hidden">Agregado</span>
             </>
           ) : (
             <>
-              <ShoppingCart className="w-4 h-4" />
+              <ShoppingCart className="w-3 h-3 lg:w-4 lg:h-4" />
               <span>Agregar</span>
             </>
           )}

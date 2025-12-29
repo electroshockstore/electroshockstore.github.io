@@ -18,31 +18,31 @@ const AlreadyOwnCard = ({ category, onSkip }) => {
   return (
     <div 
       onClick={onSkip}
-      className="group relative bg-gradient-to-br from-purple-50 via-indigo-50 to-blue-50 rounded-2xl p-6 border-2 border-dashed border-purple-300 hover:border-purple-500 transition-all duration-300 cursor-pointer hover:shadow-xl hover:scale-[1.02] active:scale-[0.98] min-h-[280px] flex flex-col items-center justify-center text-center"
+      className="group relative bg-gradient-to-br from-purple-50 via-indigo-50 to-blue-50 rounded-xl lg:rounded-2xl p-3 lg:p-6 border-2 border-dashed border-purple-300 hover:border-purple-500 transition-all duration-300 cursor-pointer hover:shadow-xl hover:scale-[1.02] active:scale-[0.98] min-h-[200px] lg:min-h-[280px] flex flex-col items-center justify-center text-center"
     >
       {/* Icon */}
-      <div className="w-16 h-16 bg-gradient-to-br from-purple-500 to-indigo-600 rounded-2xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform shadow-lg">
-        <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <div className="w-10 h-10 lg:w-16 lg:h-16 bg-gradient-to-br from-purple-500 to-indigo-600 rounded-xl lg:rounded-2xl flex items-center justify-center mb-2 lg:mb-4 group-hover:scale-110 transition-transform shadow-lg">
+        <svg className="w-5 h-5 lg:w-8 lg:h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
         </svg>
       </div>
       
       {/* Title */}
-      <h3 className="text-lg font-bold text-gray-900 mb-2">
+      <h3 className="text-xs lg:text-lg font-bold text-gray-900 mb-1 lg:mb-2 px-1">
         Ya poseo este componente
       </h3>
       
       {/* Description */}
-      <p className="text-sm text-gray-600 mb-4">
+      <p className="text-[10px] lg:text-sm text-gray-600 mb-2 lg:mb-4">
         Omitir {category}
       </p>
       
       {/* Badge */}
-      <div className="inline-flex items-center gap-2 px-4 py-2 bg-white rounded-full border border-purple-200 shadow-sm">
-        <span className="text-xs font-semibold text-purple-700">
+      <div className="inline-flex items-center gap-1 lg:gap-2 px-2 lg:px-4 py-1 lg:py-2 bg-white rounded-full border border-purple-200 shadow-sm">
+        <span className="text-[10px] lg:text-xs font-semibold text-purple-700">
           Clic para continuar
         </span>
-        <svg className="w-4 h-4 text-purple-500 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <svg className="w-3 h-3 lg:w-4 lg:h-4 text-purple-500 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
         </svg>
       </div>
@@ -113,12 +113,12 @@ const ProductGrid = ({
 
   return (
     <div className="h-full">
-      {/* Header Section */}
-      <div className="mb-6">
-        <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-gray-900 mb-2">
+      {/* Header Section - Compacto en mobile */}
+      <div className="mb-3 lg:mb-6">
+        <h2 className="text-lg lg:text-2xl xl:text-3xl font-bold text-gray-900 mb-1">
           {selectedCategory}
         </h2>
-        <p className="text-sm md:text-base text-gray-600">
+        <p className="text-xs lg:text-sm text-gray-600">
           {products.length} productos disponibles
         </p>
       </div>
@@ -128,8 +128,8 @@ const ProductGrid = ({
         <CategoryReminder message={reminder.message} type={reminder.type} />
       )}
       
-      {/* Product Grid - Responsive with "Already Own" card as first item */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 gap-4 md:gap-5 lg:gap-6 pb-32">
+      {/* Product Grid - Mobile: 2 cols compacto, Desktop: más columnas */}
+      <div className="grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 gap-2 lg:gap-4 xl:gap-6 pb-20 lg:pb-32">
         {/* Already Own Card - Always first */}
         <AlreadyOwnCard 
           category={selectedCategory}

@@ -98,5 +98,12 @@ export const ramCompatibilityData = {
     capacidad_gb: 16,
     velocidad_mhz: 5200,
     uso_principal: ['Gaming', 'Trabajo']
+  },
+  // Neo Forza DDR5 32GB 5200MHz CL42
+  410: {
+    tipo: 'DDR5',
+    capacidad_gb: 32,
+    velocidad_mhz: 5200,
+    uso_principal: ['Gaming', 'Trabajo', 'Edición']
   }
 };
