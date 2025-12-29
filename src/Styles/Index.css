@@ -48,6 +48,20 @@
 .product-card-enter:nth-child(7) { animation-delay: 0.23s; }
 .product-card-enter:nth-child(8) { animation-delay: 0.26s; }
 
+/* Shimmer animation for power consumption bar */
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+.animate-shimmer {
+  animation: shimmer 2s infinite;
+}
+
 /* Smooth hover transitions */
 .smooth-hover {
   transition: transform 0.2s cubic-bezier(0.4, 0, 0.2, 1),

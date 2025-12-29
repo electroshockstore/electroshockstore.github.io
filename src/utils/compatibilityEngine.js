@@ -68,6 +68,13 @@ export function checkCompatibility(pcBuild, candidateProduct, category) {
   // RAM Type compatibility
   if (category === 'Memorias RAM') {
     const ramType = candidateProduct.compatibility.tipo;
+    const ramFormat = candidateProduct.compatibility.formato;
+    
+    // Rechazar SODIMM en builds de PC de escritorio (motherboards de escritorio no aceptan SODIMM)
+    if (ramFormat === 'SODIMM') {
+      compatible = false;
+      reasons.push(`Formato incompatible: SODIMM es para laptops, no para PC de escritorio`);
+    }
     
     if (pcBuild.cpu) {
       const cpuRAMType = pcBuild.cpu.compatibility?.memoriaRAM;
@@ -98,18 +105,41 @@ export function checkCompatibility(pcBuild, candidateProduct, category) {
     }
   }
   
-  // Power consumption validation
+  // Power consumption validation for PSU (Sistema de semáforo)
   if (category === 'Fuentes') {
-    const psuCapacity = candidateProduct.compatibility.capacidad_watts;
+    const psuCapacity = candidateProduct.compatibility?.capacidad_watts;
     const totalConsumption = calculateTotalPowerConsumption(pcBuild);
-    const requiredCapacity = totalConsumption * 1.2; // 20% overhead
     
-    if (psuCapacity && psuCapacity < requiredCapacity) {
+    // Factor de seguridad según tipo de GPU
+    let spikeFactor = 1.3; // Sin GPU o iGPU
+    if (pcBuild.gpu) {
+      const gpuConsumption = pcBuild.gpu.compatibility?.consumo_watts || 0;
+      if (gpuConsumption > 250) {
+        spikeFactor = 1.5; // GPU alta
+      } else if (gpuConsumption >= 150) {
+        spikeFactor = 1.4; // GPU media
+      } else {
+        spikeFactor = 1.4; // GPU básica
+      }
+    }
+    
+    const minRequired = Math.round(totalConsumption * spikeFactor);
+    const recommendedWithMargin = Math.round(minRequired * 1.15);
+    
+    if (!psuCapacity) {
       compatible = false;
-      reasons.push(
-        `PSU insuficiente: Consumo total ${totalConsumption}W + 20% = ${Math.round(requiredCapacity)}W, ` +
-        `Capacidad ${psuCapacity}W (déficit: ${Math.round(requiredCapacity - psuCapacity)}W)`
-      );
+      reasons.push('Fuente sin especificación de potencia');
+    } else if (psuCapacity < minRequired) {
+      // 🔴 ROJO - Insuficiente
+      compatible = false;
+      reasons.push(`⚠️ Potencia insuficiente: Requiere mínimo ${minRequired}W, esta fuente tiene ${psuCapacity}W`);
+    } else if (psuCapacity < recommendedWithMargin) {
+      // 🟡 AMARILLO - Ajustada (sin margen para upgrades)
+      hasWarnings = true;
+      reasons.push(`✓ Suficiente para este build (${psuCapacity}W). Sin margen para upgrades futuros.`);
+    } else {
+      // 🟢 VERDE - Recomendada (con margen)
+      reasons.push(`✓ Recomendada - ${psuCapacity}W permite upgrades futuros (mínimo: ${minRequired}W)`);
     }
   }
   
@@ -155,7 +185,8 @@ export function checkCompatibility(pcBuild, candidateProduct, category) {
       status = 'red';
     } else if (hasWarnings) {
       status = 'yellow';
-    } else if (reasons.length === 0) {
+    } else {
+      // Si es compatible y no tiene warnings, es verde
       status = 'green';
     }
   }

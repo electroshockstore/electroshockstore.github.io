@@ -275,7 +275,7 @@ const Header = ({ searchQuery = '', onSearchChange, onGoHome, hideSearchOnMobile
                           <p className="text-xs text-gray-400">{product.brand}</p>
                         </div>
                         <div className="inline-flex items-center gap-1 px-2 py-1 bg-gradient-to-r from-blue-50 to-emerald-50 rounded-lg border border-blue-200">
-                          <span className="text-xs font-bold text-gray-800">${product.price.toLocaleString()}</span>
+                          <span className="text-xs font-bold text-gray-800">${product.price.toLocaleString('es-AR')}</span>
                         </div>
                       </button>
                     ))}
@@ -364,7 +364,7 @@ const Header = ({ searchQuery = '', onSearchChange, onGoHome, hideSearchOnMobile
                           <p className="text-sm text-gray-400">{product.brand} • {product.category}</p>
                         </div>
                         <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-gradient-to-r from-blue-50 to-emerald-50 rounded-xl border border-blue-200">
-                          <span className="text-sm font-bold text-gray-800">${product.price.toLocaleString()}</span>
+                          <span className="text-sm font-bold text-gray-800">${product.price.toLocaleString('es-AR')}</span>
                         </div>
                       </button>
                     ))}

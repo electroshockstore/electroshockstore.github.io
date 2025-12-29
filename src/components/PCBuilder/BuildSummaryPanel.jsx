@@ -2,7 +2,7 @@ import { usePCBuilder } from '../../context/PCBuilderContext';
 import { detectBottleneck } from '../../data/compatibility/performanceTiers';
 
 const BuildSummaryPanel = () => {
-  const { pcBuild, removeComponent, totalPrice, clearConfiguration } = usePCBuilder();
+  const { pcBuild, removeComponent, totalPrice, clearConfiguration, totalPowerConsumption } = usePCBuilder();
   
   // Check for bottlenecks
   const bottleneck = pcBuild.cpu && pcBuild.gpu 
@@ -30,18 +30,45 @@ const BuildSummaryPanel = () => {
       <div className="absolute top-0 right-0 w-64 h-64 bg-gradient-to-br from-blue-500 to-purple-600 opacity-5 blur-3xl rounded-full" />
       
       <div className="relative z-10">
-        <div className="flex items-center justify-between mb-6">
-          <h2 className="text-2xl font-black text-gray-900 bg-gradient-to-r from-gray-900 to-gray-600 bg-clip-text text-transparent">
-            Tu Configuración
-          </h2>
-          {hasComponents && (
-            <button
-              onClick={clearConfiguration}
-              className="text-sm text-red-600 hover:text-red-700 font-black px-4 py-2 rounded-full bg-red-50 hover:bg-red-100 transition-all duration-200 hover:scale-105 border-2 border-red-200"
-            >
-              🗑️ Limpiar
-            </button>
-          )}
+        {/* Modern Header with Voltage */}
+        <div className="mb-6">
+          <div className="flex items-center justify-between mb-3">
+            <h2 className="text-xl font-bold text-gray-900">Mi Build</h2>
+            {hasComponents && (
+              <button
+                onClick={clearConfiguration}
+                className="text-xs text-red-600 hover:text-red-700 font-semibold px-3 py-1.5 rounded-lg hover:bg-red-50 transition-all"
+              >
+                Limpiar
+              </button>
+            )}
+          </div>
+          
+          {/* Voltage Display - Prominent */}
+          <div className="bg-white rounded-xl p-4 border-2 border-gray-200 flex items-center justify-between">
+            <div className="flex items-center gap-3">
+              <div className="w-10 h-10 bg-gradient-to-br from-amber-400 to-orange-500 rounded-lg flex items-center justify-center">
+                <span className="text-xl">⚡</span>
+              </div>
+              <div>
+                <div className="text-xs text-gray-500 font-medium">Voltaje Total</div>
+                <div className="text-2xl font-black text-gray-900">
+                  {totalPowerConsumption || 0}W
+                </div>
+              </div>
+            </div>
+            {hasComponents && (
+              <div className="text-right">
+                <div className="text-xs text-gray-500 font-medium">Componentes</div>
+                <div className="text-lg font-bold text-gray-700">
+                  {Object.values(pcBuild).reduce((count, value) => {
+                    if (Array.isArray(value)) return count + value.length;
+                    return value ? count + 1 : count;
+                  }, 0)}
+                </div>
+              </div>
+            )}
+          </div>
         </div>
         
         {/* Bottleneck Warning */}
@@ -99,7 +126,7 @@ const BuildSummaryPanel = () => {
                       </div>
                       <div className="flex items-center justify-between">
                         <span className="text-base font-black bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">
-                          ${item.price.toLocaleString()}
+                          ${item.price.toLocaleString('es-AR')}
                         </span>
                         {item.stock === 0 && (
                           <span className="text-xs text-red-600 font-black bg-red-50 px-2 py-1 rounded-full border border-red-200">
@@ -123,35 +150,32 @@ const BuildSummaryPanel = () => {
           )}
         </div>
         
-        {/* Total Price */}
+        {/* Total Price at Bottom */}
         {hasComponents && (
-          <>
-            <div className="border-t-2 border-gray-200 pt-6 mb-6">
-              <div className="flex justify-between items-center">
-                <span className="text-xl font-black text-gray-900">Total:</span>
-                <span className="text-4xl font-black bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 bg-clip-text text-transparent">
-                  ${totalPrice.toLocaleString()}
-                </span>
+          <div className="space-y-3">
+            {/* Price Card */}
+            <div className="bg-gradient-to-br from-blue-600 to-indigo-600 rounded-xl p-5 shadow-lg">
+              <div className="flex items-center justify-between">
+                <div className="text-white">
+                  <div className="text-sm font-medium opacity-90 mb-1">Total</div>
+                  <div className="text-3xl font-black">
+                    ${totalPrice.toLocaleString('es-AR')}
+                  </div>
+                </div>
+                <div className="w-12 h-12 bg-white/20 rounded-lg flex items-center justify-center">
+                  <span className="text-2xl">💰</span>
+                </div>
               </div>
             </div>
             
             {/* Action Buttons */}
-            <div className="space-y-3">
-              <button className="relative w-full px-6 py-4 bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 hover:from-blue-700 hover:via-indigo-700 hover:to-purple-700 text-white font-black rounded-2xl transition-all duration-300 shadow-2xl shadow-blue-500/50 hover:shadow-blue-500/70 hover:scale-[1.02] active:scale-[0.98] overflow-hidden group">
-                <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white to-transparent opacity-0 group-hover:opacity-20 transition-opacity duration-500" />
-                <span className="relative z-10 flex items-center justify-center gap-2">
-                  <span className="text-xl">💾</span>
-                  Guardar Configuración
-                </span>
-              </button>
-              <button className="w-full px-6 py-4 bg-gradient-to-r from-gray-100 to-gray-200 hover:from-gray-200 hover:to-gray-300 text-gray-700 font-black rounded-2xl transition-all duration-300 border-2 border-gray-300 hover:border-gray-400 hover:scale-[1.02] active:scale-[0.98]">
-                <span className="flex items-center justify-center gap-2">
-                  <span className="text-xl">📤</span>
-                  Compartir
-                </span>
-              </button>
-            </div>
-          </>
+            <button className="w-full px-5 py-3 bg-gradient-to-r from-green-500 to-emerald-600 hover:from-green-600 hover:to-emerald-700 text-white font-bold rounded-xl transition-all shadow-lg hover:shadow-xl hover:scale-[1.02]">
+              Guardar Configuración
+            </button>
+            <button className="w-full px-5 py-3 bg-white hover:bg-gray-50 text-gray-700 font-bold rounded-xl transition-all border-2 border-gray-200 hover:border-gray-300">
+              Compartir
+            </button>
+          </div>
         )}
       </div>
     </div>

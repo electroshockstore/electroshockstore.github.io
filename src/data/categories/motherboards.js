@@ -1,160 +1,109 @@
-// IDs: 600-699 | Próximo: 602
+// ═══════════════════════════════════════════════════════════════
+// RANGO DE IDs: 600-699 (Motherboards)
+// Próximo ID disponible: 607
+// ═══════════════════════════════════════════════════════════════
 export const motherboardsProducts = [
   {
-    id: 28,
+    id: 602, // Ajustado al rango
     name: "ASUS Prime A520M-K AM4",
     brand: "ASUS",
     model: "Prime A520M-K",
     category: "Motherboards",
     price: 80000,
     stock: 7,
-    images: [
-      "/images/motherboard/A520m_K_Csm.webp",
-      "/images/motherboard/A520m_K_Csm_moth.webp"
-    ],
+    ownConsumption: "25W - 35W", // Consumo base del chipset y componentes
+    maxPowerSupport: "Hasta 105W TDP", // Soporta Ryzen 9, pero recomendada hasta Ryzen 7 por VRM
+    images: ["/images/motherboard/A520m_K_Csm.webp", "/images/motherboard/A520m_K_Csm_moth.webp"],
     description: "Mother Asus Prime A520M-K AM4 DDR4 64GB HDMI M.2",
     specifications: {
       marca: "Asus",
-      linea: "Prime",
-      modelo: "PRIME A520M-K",
-      plataforma: "AMD",
       chipset: "AMD A520",
       socket: "AM4",
-      compatibilidadProcesadores: "Ryzen 5000/4000 G-Series/3000 Series",
+      vrm: "4+2 Fases de poder",
       factorDeForma: "mATX",
-      tipoMemoriaRAM: "DDR4",
-      capacidadMaximaRAM: "64 GB",
-      formatoRAM: "DIMM",
-      canalesMemoria: "Dual Channel",
-      velocidadMemoriaSoportada: "5100 MHz (OC)",
-      slotsRAM: "2",
-      m2Compatible: "Sí",
-      interfazM2: "NVMe",
-      puertosSATA: "4",
-      ethernet: "1 Gb",
-      wifi: "No",
-      bluetooth: "No",
-      salidasVideo: "HDMI, D-Sub",
-      disipadorChipset: "Sí"
+      tipoMemoriaRAM: "DDR4"
     }
   },
   {
-    id: 32,
+    id: 603,
     name: "Gigabyte B650M Gaming WiFi DDR5 AM5",
     brand: "Gigabyte",
     model: "B650M Gaming WiFi",
     category: "Motherboards",
     price: 180000,
     stock: 1,
-    images: [
-      "/images/motherboard/b650m_wifi.webp",
-      "/images/motherboard/b650m_wifi_moth.webp",
-      "/images/motherboard/b650m_wifi_back.webp"
-    ],
+    ownConsumption: "40W - 55W", // Mayor consumo por WiFi y chipset B650
+    maxPowerSupport: "Hasta 170W TDP", // Diseñada para manejar procesadores de alto rendimiento AM5
+    images: ["/images/motherboard/b650m_wifi.webp", "/images/motherboard/b650m_wifi_moth.webp"],
     description: "Mother Gigabyte B650M Gaming WiFi DDR5 B650 AMD con WiFi integrado",
     specifications: {
       marca: "Gigabyte",
       socket: "AM5",
-      compatibilidadProcesadores: "AMD Ryzen 7000/8000 Series",
       vrm: "5+2+2 Digital VRM Solution",
       tipoMemoria: "DDR5",
-      canalesMemoria: "Dual Channel",
-      slotsMemoria: "2",
-      perfilesCompatibles: "AMD EXPO, Intel XMP",
-      m2: "1 x PCIe 4.0 x4",
-      pcieX16: "EZ-Latch Quick Release",
       lan: "2.5GbE",
-      salidasVideo: "HDMI, D-Sub",
-      smartFan6: "Sí",
-      sensoresTemperatura: "Múltiples",
-      fanStop: "Sí",
-      qFlashPlus: "Actualizar BIOS sin CPU/RAM/GPU"
+      wifi: "Wi-Fi 6E incorporado"
     }
   },
   {
-    id: 30,
+    id: 604,
     name: "ASUS Prime B450M-A II CSM AM4",
     brand: "ASUS",
     model: "Prime B450M-A II CSM",
     category: "Motherboards",
     price: 120000,
     stock: 1,
-    images: [
-      "/images/motherboard/b450m_II_full.webp",
-      "/images/motherboard/b450m_II_mother.webp",
-      "/images/motherboard/b450m_II_back.webp"
-    ],
+    ownConsumption: "30W - 40W",
+    maxPowerSupport: "Hasta 105W TDP",
+    images: ["/images/motherboard/b450m_II_full.webp", "/images/motherboard/b450m_II_mother.webp"],
     description: "Mother Asus Prime B450M-A II CSM AM4 DDR4 128GB",
     specifications: {
       marca: "Asus",
       linea: "Prime",
       modelo: "B450M-A II CSM",
       socket: "AM4",
-      tipoMemoriaRAM: "DDR4",
-      capacidadMaximaSoportada: "128 GB",
-      formatoMemoriaRAM: "DIMM",
-      chipset: "B450"
+      chipset: "B450",
+      capacidadMaximaSoportada: "128 GB"
     }
   },
   {
-    id: 33,
+    id: 605,
     name: "ASUS Prime B460M-A R2.0 LGA1200",
     brand: "ASUS",
     model: "Prime B460M-A R2.0",
     category: "Motherboards",
     price: 180000,
     stock: 1,
-    images: [
-      "/images/motherboard/B460m-a R2.0.webp"
-    ],
+    ownConsumption: "35W - 45W",
+    maxPowerSupport: "Hasta 125W (PL1)", // Apta para i5 e i7 (no serie K recomendado)
+    images: ["/images/motherboard/B460m-a R2.0.webp"],
     description: "Mother Asus Prime B460M-A R2.0 Intel Socket 1200 DDR4 128GB",
     specifications: {
       marca: "Asus",
-      linea: "Prime",
-      modelo: "B460M-A R2.0",
       socket: "LGA1200",
       plataforma: "Intel",
-      tipoMemoriaRAM: "DDR4",
-      capacidadMaximaSoportada: "128 GB",
-      chipset: "B460",
-      color: "Negro"
+      chipset: "B460 (H470 en R2.0)",
+      tipoMemoriaRAM: "DDR4"
     }
   },
   {
-    id: 29,
+    id: 606,
     name: "Gigabyte A520M K V2 UD DDR4 AM4",
     brand: "Gigabyte",
     model: "A520M K V2",
     category: "Motherboards",
     price: 80000,
     stock: 6,
-    images: [
-      "/images/motherboard/a520m_k_v2.webp",
-      "/images/motherboard/a520m_k_v2_moth.webp",
-      "/images/motherboard/a520m_k_v2_back.webp"
-    ],
+    ownConsumption: "20W - 30W", // Diseño Ultra Durable de bajo consumo
+    maxPowerSupport: "Hasta 105W TDP",
+    images: ["/images/motherboard/a520m_k_v2.webp", "/images/motherboard/a520m_k_v2_moth.webp"],
     description: "Mother Gigabyte UD A520M K V2 DDR4 AMD Ryzen Gamer M.2 PC",
     specifications: {
       marca: "Gigabyte",
       linea: "Ultra Durable",
-      modelo: "A520M K V2",
-      color: "Negro",
-      plataforma: "AMD",
       chipset: "AMD A520",
       socket: "AM4",
-      factorDeForma: "mATX",
-      tipoMemoriaRAM: "DDR4",
-      capacidadMaximaRAM: "64 GB",
-      formatoRAM: "DIMM",
-      slotsRAM: "2",
-      configuracionSlots: "2 x 32 GB",
-      resolucionMaximaVideo: "4K",
-      pcieVersion: "PCIe 3.0",
-      pcieX16: "1",
-      m2Compatible: "Sí",
-      interfazM2: "NVMe",
-      dimensiones: "33 x 5 x 5 cm",
-      peso: "0.55 kg"
+      vrm: "4+2 Fases"
     }
   },
   {
@@ -165,39 +114,15 @@ export const motherboardsProducts = [
     category: "Motherboards",
     price: 145000,
     stock: 1,
-    images: [
-      "/images/motherboard/gigabyte_b650m-h.webp",
-      "/images/motherboard/gigabyte_b650m-h_3.webp",
-      "/images/motherboard/gigabyte_b650m-h_front.webp"
-    ],
+    ownConsumption: "35W - 50W",
+    maxPowerSupport: "Hasta 162W (PPT)", // Soporta procesadores AM5 potentes
+    images: ["/images/motherboard/gigabyte_b650m-h.webp", "/images/motherboard/gigabyte_b650m-h_3.webp"],
     description: "Mother Gigabyte B650M-H UD AMD AM5 DDR5 con soporte para Ryzen 7000/8000/9000",
     specifications: {
       marca: "Gigabyte",
-      linea: "Ultra Durable",
-      modelo: "B650M-H",
-      socket: "AM5",
       chipset: "AMD B650",
-      procesadoresCompatibles: "AMD Ryzen 7000 / 8000 / 9000",
-      tipoMemoriaRAM: "DDR5",
-      capacidadMaximaSoportada: "96 GB",
-      formatoMemoriaRAM: "DIMM",
-      slotsMemoriaRAM: "2",
-      canalesMemoriaRAM: "Dual Channel",
-      velocidadMemoriaRAM: "4400 a 6400 MHz (OC)",
-      soportePerfiles: "AMD EXPO / Intel XMP",
-      almacenamientoM2: "1 x M.2 PCIe 4.0 x4 (NVMe)",
-      almacenamientoSATA: "4 x SATA III (6 Gb/s) con RAID 0/1/10",
-      slotsExpansion: "1 x PCI Express 4.0 x16, 1 x PCI Express 3.0 x1",
-      audio: "Realtek High Definition Audio (hasta 7.1)",
-      red: "Ethernet 1 GbE",
-      salidasVideo: "1 x HDMI 2.1, 1 x DisplayPort 1.4 (según CPU con gráficos)",
-      puertosUSBTraseros: "2 x USB 3.2 Gen1, 4 x USB 2.0",
-      conectoresInternos: "RGB + ARGB, headers USB, ventiladores PWM/DC",
-      bios: "UEFI AMI con Q-Flash Plus",
-      sistemaOperativoCompatible: "Windows 10/11 64 bits",
-      factorDeForma: "Micro-ATX",
-      funcionesDestacadas: "Smart Fan 6, EZ-Latch para PCIe",
-      vrm: "Diseño digital 5+2+2 fases"
+      vrm: "5+2+2 fases",
+      soportePerfiles: "AMD EXPO / Intel XMP"
     }
   },
   {
@@ -208,37 +133,15 @@ export const motherboardsProducts = [
     category: "Motherboards",
     price: 120000,
     stock: 1,
-    images: [
-      "/images/motherboard/a620m_h_ud.webp",
-      "/images/motherboard/a620m_h_ud_front.webp",
-      "/images/motherboard/a620m_h_ud_back.webp"
-    ],
-    description: "Mother Gigabyte A620M H DDR5 AMD AM5 para Ryzen Serie 7000/8000/9000, ideal para equipos económicos",
+    ownConsumption: "30W - 40W",
+    maxPowerSupport: "Hasta 120W (PPT recomendado)", // Limitada por chipset A620
+    images: ["/images/motherboard/a620m_h_ud.webp", "/images/motherboard/a620m_h_ud_front.webp"],
+    description: "Mother Gigabyte A620M H DDR5 AMD AM5 para Ryzen Serie 7000/8000/9000",
     specifications: {
       marca: "Gigabyte",
-      linea: "A620M H",
-      modelo: "A620M H",
       chipset: "AMD A620",
       socket: "AM5",
-      factorDeForma: "Micro-ATX",
-      tipoMemoriaRAM: "DDR5",
-      capacidadMaximaSoportada: "128 GB",
-      slotsMemoriaRAM: "2",
-      canalesMemoriaRAM: "Dual Channel",
-      velocidadMemoriaRAM: "Hasta 6400 MHz (OC)",
-      soporteECC: "Sí, ECC unbuffered (según CPU)",
-      graficosIntegrados: "Depende del procesador (APU Ryzen con iGPU)",
-      puertosVideo: "1x HDMI 2.1, 1x DisplayPort 1.4",
-      sata: "4x SATA III 6Gb/s",
-      m2: "1x M.2 PCIe 4.0 x4 (NVMe)",
-      ranurasPCIe: "1x PCIe 4.0 x16, 1x PCIe 3.0 x1",
-      audio: "Realtek ALC897 7.1 canales",
-      red: "Realtek GbE LAN 1Gbps",
-      conectoresInternos: "1x USB 3.2 Gen1 header, 2x USB 2.0 headers, 1x conector ventilador CPU, 1x conector ventilador gabinete",
-      panelTrasero: "4x USB 2.0, 2x USB 3.2 Gen1, 1x LAN 1GbE, 1x HDMI, 1x DisplayPort, 3x jacks de audio",
-      bios: "UEFI AMI, DualBIOS",
-      compatibilidadProcesadores: "Ryzen 7000 / 8000G / próximos Ryzen serie 9000 (según soporte de BIOS)",
-      observaciones: "Ideal para equipos económicos con plataforma AM5. No soporta overclock de CPU (limitación del chipset A620)"
+      vrm: "5+2+2 Digital VRM"
     }
   }
 ];

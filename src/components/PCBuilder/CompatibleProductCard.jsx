@@ -89,7 +89,7 @@ const CompatibleProductCard = ({ product, compatibilityResult, onClick, isSelect
         
         <div className="flex items-center justify-between">
           <span className="text-2xl font-black bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">
-            ${product.price.toLocaleString()}
+            ${product.price.toLocaleString('es-AR')}
           </span>
           
           {product.stock === 0 && (

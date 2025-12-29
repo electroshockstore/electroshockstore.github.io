@@ -53,7 +53,7 @@ const RecommendationSummary = ({ recommendation, onAdjustManually, onStartOver }
               Precio Total
             </div>
             <div className="text-4xl font-bold text-blue-600 mb-1">
-              ${totalPrice.toLocaleString()}
+              ${totalPrice.toLocaleString('es-AR')}
             </div>
             <div className="text-xs text-gray-500">
               IVA incluido

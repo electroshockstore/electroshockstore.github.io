@@ -99,7 +99,7 @@ const CompactProductCard = memo(({ product, compatibilityResult, isSelected, onC
         {/* Price - Compacto */}
         <div className="mb-1.5 lg:mb-2">
           <span className="text-xs lg:text-sm xl:text-base font-black text-gray-900 block">
-            ${product.price.toLocaleString()}
+            ${product.price.toLocaleString('es-AR')}
           </span>
           
           {/* Stock Badge - Compacto */}

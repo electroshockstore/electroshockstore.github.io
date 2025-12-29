@@ -95,7 +95,7 @@ const ProductCard = memo(({ product, viewMode, onClick, index = 0, listName = 'P
           <div className="flex items-baseline gap-1">
             <span className="text-sm text-gray-400 font-medium">$</span>
             <span className="text-xl sm:text-2xl md:text-3xl font-black text-gray-900">
-              {product.price.toLocaleString()}
+              {product.price.toLocaleString('es-AR')}
             </span>
           </div>
           

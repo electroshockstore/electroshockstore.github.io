@@ -100,7 +100,7 @@ const ProductCardMayorista = memo(({ product, onClick, index = 0 }) => {
               <div className="relative text-center">
                 <div className="text-[8px] sm:text-xs text-green-300 font-semibold mb-0.5 sm:mb-1">🎉 Ahorrás</div>
                 <div className="text-base sm:text-3xl font-black text-green-400 leading-tight">
-                  ${savings.amount.toLocaleString()}
+                  ${savings.amount.toLocaleString('es-AR')}
                 </div>
                 <div className="text-[7px] sm:text-[10px] text-green-300/70 sm:text-green-300/80 font-medium mt-0.5 sm:mt-1">
                   en este pack

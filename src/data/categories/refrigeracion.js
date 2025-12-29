@@ -1,51 +1,25 @@
 // ═══════════════════════════════════════════════════════════════
 // RANGO DE IDs: 1200-1299 (Refrigeración)
 // Próximo ID disponible: 1206
-// IMPORTANTE: NO usar IDs fuera de este rango
 // ═══════════════════════════════════════════════════════════════
 export const refrigeracionProducts = [
   {
     id: 1200,
-  name: "Aerocool Duo 12 Pro Kit 3 Fans RGB + Controladora",
+    name: "Aerocool Duo 12 Pro Kit 3 Fans RGB + Controladora",
     brand: "AeroCool",
     model: "Duo 12 Pro",
     category: "Refrigeración",
     price: 60000,
     stock: 3,
-    sku: "AEROCOOL-DUO12PRO",
-    description: "Kit con 3 ventiladores ARGB de 120mm con iluminación RGB direccionable de doble anillo, incluye hub de control H66F y control remoto para gestionar iluminación y velocidad. Compatible con placas base ARGB como ASUS Aura Sync, MSI Mystic Light Sync y Gigabyte RGB Fusion.",
-    images: [
-      "/images/refrigeracion/aerocool_duo12pro.webp",
-       "/images/refrigeracion/aerocool_duo12pro_side.webp",
-        "/images/refrigeracion/aerocool_duo12pro_side2.webp"
-    ],
+    totalConsumption: "5.4W (Kit completo)", // 1.8W por fan (motor + LEDs)
+    type: "Case Cooling",
+    images: ["/images/refrigeracion/aerocool_duo12pro.webp", "/images/refrigeracion/aerocool_duo12pro_side.webp"],
+    description: "Kit con 3 ventiladores ARGB de 120mm con iluminación RGB direccionable de doble anillo.",
     specifications: {
-      "Marca": "AeroCool",
-      "Línea": "Air Force",
-      "Modelo": "Duo 12 Pro",
       "Cantidad Fans": "3 unidades",
-      "Dimensiones Ventilador": "120 x 120 x 25 mm",
-      "Tipo Conector": "6 pines ARGB + PWM",
-      "Velocidad": "1000 RPM",
-      "Tensión Arranque": "6V",
-      "Tensión Nominal": "12V",
-      "Corriente Nominal": "0.15A",
-      "Consumo": "1.8W",
-      "Presión Aire": "1.29 mmH2O",
-      "Flujo Aire": "33.4 CFM",
-      "Nivel Ruido": "19.7 dBA",
-      "Tipo Rodamiento": "Hidráulico",
-      "Vida Útil": "60,000 horas",
-      "LEDs por Ventilador": "28",
-      "Colores LED": "16.8 millones",
-      "Iluminación": "ARGB direccionable con anillo dual LED",
-      "Almohadillas Antivibracion": "Sí",
-      "Hub Incluido": "H66F RGB Control Hub (6 puertos fan, 2 puertos 5V ARGB)",
-      "Control Remoto": "RF inalámbrico 433.92 MHz (rango 10m)",
-      "Funciones PWM": "Sí, controla velocidad",
-      "Conector Energía Hub": "SATA",
-      "Compatibilidad": "ASUS Aura Sync, MSI Mystic Light, Gigabyte RGB Fusion",
-      "EAN": "4710562752588"
+      "Consumo": "1.8W por unidad",
+      "Iluminación": "ARGB direccionable",
+      "Hub Incluido": "H66F (SATA Powered)"
     }
   },
   {
@@ -56,30 +30,16 @@ export const refrigeracionProducts = [
     category: "Refrigeración",
     price: 100000,
     stock: 1,
-    sku: "FV-OASIS-L240",
-    description: "Refrigeración líquida AIO 240mm con iluminación ARGB, 2 ventiladores 120mm, TDP 310W",
-    images: [
-      "/images/refrigeracion/watercooler_formulav_l240.webp",
-      "/images/refrigeracion/watercooler_formulav_l240_side.webp",
-      "/images/refrigeracion/watercooler_formulav_l240_side2.webp"
-    ],
+    pumpConsumption: "3.5W", 
+    fanConsumption: "4.8W (par)",
+    maxTdpDissipation: "310W", // Capacidad térmica extrema
+    images: ["/images/refrigeracion/watercooler_formulav_l240.webp", "/images/refrigeracion/watercooler_formulav_l240_side.webp"],
+    description: "Refrigeración líquida AIO 240mm con iluminación ARGB, TDP 310W",
     specifications: {
-      "Marca": "Formula V",
-      "Línea": "OASIS",
-      "Modelo": "OASIS L240 ARGB WH",
       "Tipo": "Watercooler (AIO)",
       "Radiador": "240 mm",
       "TDP": "310W",
-      "Ventiladores": "2 × 120 mm ARGB",
-      "Velocidad de ventiladores": "800 - 1800 RPM",
-      "Flujo de aire": "Hasta 72 CFM",
-      "Nivel de ruido": "Hasta 28 dBA",
-      "Iluminación": "ARGB en bloque y ventiladores",
-      "Material del radiador": "Aluminio",
-      "Compatibilidad Intel": "LGA 115x / 1200 / 1700",
-      "Compatibilidad AMD": "AM4 / AM5",
-      "Bomba": "PWM – alta presión, bajo ruido",
-      "Tuberías": "Mangueras reforzadas y malladas"
+      "Compatibilidad": "Intel LGA 1700 / AMD AM5"
     }
   },
   {
@@ -90,27 +50,14 @@ export const refrigeracionProducts = [
     category: "Refrigeración",
     price: 50000,
     stock: 3,
-    sku: "FV-AIRBRIDGE-3FAN",
-    description: "Kit de 3 ventiladores 120mm ARGB con rodamiento hidráulico, incluye control remoto y hub de conexión",
-    images: [
-      "/images/refrigeracion/formulav_cooler.webp",
-      "/images/refrigeracion/formulav_cooler_side.webp",
-      "/images/refrigeracion/formulav_cooler_side2.webp",
-      "/images/refrigeracion/formulav_cooler_side3.webp",
-      "/images/refrigeracion/formulav_cooler_back.webp"
-    ],
+    totalConsumption: "6.0W approx.",
+    type: "Case Cooling",
+    images: ["/images/refrigeracion/formulav_cooler.webp", "/images/refrigeracion/formulav_cooler_side.webp"],
+    description: "Kit de 3 ventiladores 120mm ARGB con rodamiento hidráulico.",
     specifications: {
-      "Marca": "Formula V",
-      "Línea": "Air Bridge",
-      "Modelo": "AIR BRIDGE WH",
-      "Cantidad Fans": "3 unidades",
-      "Dimensiones Ventilador": "120 mm",
-      "Tipo de Rodamiento": "Hidráulico",
-      "Iluminación": "ARGB (Inner & Outer Ring)",
-      "Conectividad": "6-pin (para controladora incluida)",
-      "Velocidad Ventilador": "1200 RPM ± 10%",
-      "Color": "Blanco",
-      "Extras": "Incluye control remoto y Hub de conexión"
+      "Velocidad": "1200 RPM ± 10%",
+      "Iluminación": "Inner & Outer ARGB Ring",
+      "Extras": "Control remoto incluido"
     }
   },
   {
@@ -121,94 +68,50 @@ export const refrigeracionProducts = [
     category: "Refrigeración",
     price: 45000,
     stock: 1,
-    sku: "CM-420S-ARGB",
-    description: "Cooler CPU por aire 120mm con iluminación ARGB, 4 heatpipes de contacto directo, optimizado para compatibilidad con RAM alta",
-    images: [
-      "/images/refrigeracion/cooler_hyper420s.webp",
-      "/images/refrigeracion/cooler_hyper420s_side.webp",
-      "/images/refrigeracion/cooler_hyper420s_side2.webp",
-       "/images/refrigeracion/cooler_hyper420s_back.webp",
-        "/images/refrigeracion/cooler_hyper420s_front.webp"
-    ],
+    fanConsumption: "2.4W",
+    maxTdpDissipation: "165W approx.", // Estimado para 4 heatpipes de 120mm
+    images: ["/images/refrigeracion/cooler_hyper420s.webp", "/images/refrigeracion/cooler_hyper420s_side.webp"],
+    description: "Cooler CPU por aire 120mm con 4 heatpipes de contacto directo.",
     specifications: {
-      "Marca": "Cooler Master",
-      "Línea": "Hyper",
-      "Modelo": "Hyper 420s ARGB",
-      "Compatibilidad Socket": "LGA1700, LGA1200, LGA1151, AM5, AM4",
-      "Dimensiones": "120 x 73 x 154 mm",
-      "Material Heatsink": "4 Heat Pipes de contacto directo",
-      "Dimensiones Ventilador": "120 mm",
-      "Velocidad Ventilador": "650-1750 RPM ± 10%",
-      "Flujo de Aire": "42 CFM",
-      "Nivel de Ruido": "27.2 dBA",
-      "Tipo de Iluminación": "ARGB",
-      "Nota": "Modelo optimizado para mayor compatibilidad con memorias RAM altas"
+      "Socket": "LGA1700, AM5, AM4",
+      "Material": "4 Heat Pipes de cobre",
+      "Nivel de Ruido": "27.2 dBA"
     }
   },
   {
     id: 1204,
- name: "Cooler Master Hyper 411 Nano ARGB Black",
+    name: "Cooler Master Hyper 411 Nano ARGB Black",
     brand: "Cooler Master",
     model: "Hyper 411 Nano ARGB Black",
     category: "Refrigeración",
     price: 40000,
     stock: 1,
-    sku: "CM-411-NANO",
-    description: "Cooler CPU por aire 92mm con iluminación ARGB, 4 heatpipes de contacto directo, TDP 130W",
-    images: [
-      "/images/refrigeracion/cooler_hyper411nano.webp",
-      "/images/refrigeracion/cooler_hyper411nano_side.webp",
-      "/images/refrigeracion/cooler_hyper411nano_side2.webp",
-       "/images/refrigeracion/cooler_hyper411nano_back.webp"
-    ],
+    fanConsumption: "1.8W",
+    maxTdpDissipation: "130W",
+    images: ["/images/refrigeracion/cooler_hyper411nano.webp", "/images/refrigeracion/cooler_hyper411nano_side.webp"],
+    description: "Cooler CPU compacto 92mm con iluminación ARGB, ideal para gabinetes estrechos.",
     specifications: {
-      "Marca": "Cooler Master",
-      "Línea": "Hyper",
-      "Modelo": "411 Nano ARGB Black",
-      "Compatibilidad Socket": "LGA1851, LGA1700, LGA1200, LGA1151, LGA1150, LGA1155, LGA1156, AM5, AM4",
-      "Dimensiones": "102 x 84.5 x 136 mm",
-      "Material Heatsink": "4 Heat Pipes de cobre con Direct Contact y aletas de aluminio",
-      "Dimensiones Ventilador": "92 mm",
-      "Velocidad Ventilador": "600-2500 RPM ± 10%",
-      "Flujo de Aire": "34.73 CFM (Max)",
-      "Presión Estática": "2.72 mmH2O (Max)",
-      "Nivel de Ruido": "28 dBA",
-      "Tipo de Iluminación": "ARGB (3-pin 5V)",
-      "TDP": "Hasta 130W"
+      "TDP": "130W",
+      "Ventilador": "92 mm",
+      "Velocidad": "600-2500 RPM"
     }
   },
   {
     id: 1205,
-     name: "Redragon CC-1013 - Air Cooler 120mm ARGB 180W",
+    name: "Redragon CC-1013 - Air Cooler 120mm ARGB 180W",
     brand: "Redragon",
     model: "CC-1013",
     category: "Refrigeración",
     price: 45000,
     stock: 5,
-    sku: "RED-CC1013",
-    description: "Cooler CPU por aire 120mm con iluminación ARGB, 4 heatpipes de cobre 6mm, TDP 180W",
-    images: [
-      "/images/refrigeracion/RG_cooler_cc1013.webp",
-      "/images/refrigeracion/RG_cooler_cc1013_side.webp",
-      "/images/refrigeracion/RG_cooler_cc1013_led.webp",
-      "/images/refrigeracion/RG_cooler_cc1013_plate.webp"
-    ],
+    fanConsumption: "2.5W",
+    maxTdpDissipation: "180W",
+    images: ["/images/refrigeracion/RG_cooler_cc1013.webp", "/images/refrigeracion/RG_cooler_cc1013_side.webp"],
+    description: "Cooler CPU de alto rendimiento con 4 heatpipes de 6mm y ventilador de 120mm.",
     specifications: {
-      "Marca": "Redragon",
-      "Modelo": "CC-1013",
-      "Tipo": "Air Cooler",
       "TDP": "180W",
-      "Tamaño del ventilador": "120 mm",
-      "Velocidad del ventilador": "800 - 1800 RPM",
-      "Flujo de aire": "Hasta 72 CFM",
-      "Nivel de ruido": "Hasta 29.5 dBA",
-      "Peso": "576 g",
-      "Iluminación": "ARGB",
-      "Compatibilidad Intel": "LGA 115x / 1200 / 1700",
-      "Compatibilidad AMD": "AM4 / AM5",
-      "Heatpipes": "4 de cobre de 6 mm"
+      "Heatpipes": "4 de cobre 6mm",
+      "Flujo de aire": "72 CFM"
     }
   }
 ];
-
-

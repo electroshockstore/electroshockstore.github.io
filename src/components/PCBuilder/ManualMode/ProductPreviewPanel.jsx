@@ -288,7 +288,7 @@ const ProductPreviewPanel = ({ selectedProduct, selectedCategory, onBack }) => {
         
         {/* Price */}
         <div className="text-3xl md:text-4xl lg:text-5xl font-black bg-gradient-to-r from-gray-900 to-gray-700 bg-clip-text text-transparent">
-          ${selectedProduct.price.toLocaleString()}
+          ${selectedProduct.price.toLocaleString('es-AR')}
         </div>
         
       

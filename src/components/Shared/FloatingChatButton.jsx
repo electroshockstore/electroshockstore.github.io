@@ -29,8 +29,8 @@ const FloatingChatButton = () => {
   };
 
   return (
-    // Agregué 'floating-chat-enter' de vuelta
-    <div className="fixed bottom-[1rem] left-[1rem] sm:bottom-[2rem] sm:left-[2rem] z-50 flex flex-col items-start gap-[0.75rem] floating-chat-enter">
+    // Oculto completamente - no aparece ni en mobile ni en desktop
+    <div className="hidden">
       
       {/* --- MENÚ EXPANDIDO --- */}
       {isExpanded && (

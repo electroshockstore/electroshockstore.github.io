@@ -79,7 +79,7 @@ const ProductCardMayoristaBlanco = memo(({ product, onClick, index = 0 }) => {
           <div className="bg-gray-50 rounded-lg p-2 sm:p-3 border border-gray-200">
             <div className="text-[10px] sm:text-xs text-gray-600 font-medium mb-0.5 sm:mb-1">Precio por unidad:</div>
             <div className="text-base sm:text-2xl font-black text-gray-900">
-              ${product.unitPrice.toLocaleString()}
+              ${product.unitPrice.toLocaleString('es-AR')}
             </div>
           </div>
 
@@ -88,7 +88,7 @@ const ProductCardMayoristaBlanco = memo(({ product, onClick, index = 0 }) => {
             <div className="relative">
               <div className="text-[10px] sm:text-xs text-green-700 font-semibold mb-0.5 sm:mb-1">Llevando pack ahorrás:</div>
               <div className="text-lg sm:text-3xl font-black text-green-600">
-                ${savings.amount.toLocaleString()}
+                ${savings.amount.toLocaleString('es-AR')}
               </div>
             </div>
           </div>
@@ -99,7 +99,7 @@ const ProductCardMayoristaBlanco = memo(({ product, onClick, index = 0 }) => {
             <div className="flex items-baseline gap-1">
               <span className="text-base sm:text-xl text-amber-600 font-bold">$</span>
               <span className="text-2xl sm:text-4xl font-black text-gray-900">
-                {product.price.toLocaleString()}
+                {product.price.toLocaleString('es-AR')}
               </span>
             </div>
           </div>

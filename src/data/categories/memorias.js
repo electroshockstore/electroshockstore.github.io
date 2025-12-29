@@ -1,104 +1,61 @@
 // ═══════════════════════════════════════════════════════════════
 // RANGO DE IDs: 400-499 (Memorias RAM)
-// Próximo ID disponible: 411
-// IMPORTANTE: NO usar IDs fuera de este rango
+// Próximo ID disponible: 416
 // ═══════════════════════════════════════════════════════════════
 export const memoriasProducts = [
-  // ========== DDR5 (PRIMERO) ==========
+  // ========== DDR5 ==========
   {
-    id: 27,
+    id: 411,
     name: "ADATA XPG Lancer Blade DDR5 16GB 5600MHz",
     brand: "ADATA",
     model: "XPG Lancer Blade",
     category: "Memorias RAM",
     price: 285000,
     stock: 2,
-    images: [
-      "/images/ram/lancerblade_16gb_ddr5_sinrgb.webp",
-    ],
+    realPowerConsumption: "2.5W - 3.2W", // DDR5 es más eficiente por su PMIC integrado
+    images: ["/images/ram/lancerblade_16gb_ddr5_sinrgb.webp"],
     description: "Memoria Ram Adata Xpg Lancer Blade 16gb 5600mhz DDR5, SIN RGB",
     specifications: {
-      marca: "Adata",
-      linea: "Lancer",
-      modelo: "lancer blade",
+      tipoMemoriaRAM: "DDR5",
       capacidad: "16 GB",
       velocidad: "5600 MHz",
-      rgb: "No",
-      disipador: "Sí",
-      iluminacionRGB: "No Posee",
-      modulosMemoriaRAM: "1 x 16 GB",
-      capacidadTotal: "16 GB",
-      velocidadTransferencia: "0.04 TB/s",
-      tipoMemoriaRAM: "DDR5",
-      formatoMemoriaRAM: "DIMM",
-      velocidadMemoria: "5600 MHz",
-      memoriaGraficaECC: "Sí",
-      modeloDetallado: "AX5U5600C4616G-SLABBK"
+      voltaje: "1.25V",
+      pmic: "Integrado (Power Management IC)"
     }
   },
   {
-    id: 26,
+    id: 412,
     name: "NETAC Shadow 2 DDR5 16GB 4800MHz",
     brand: "NETAC",
     model: "Shadow 2",
     category: "Memorias RAM",
     price: 250000,
     stock: 7,
-    images: [
-      "/images/ram/netac_shadow2_ram.webp",
-      "/images/ram/netac_shadow2_ram_side.webp",
-      "/images/ram/netac_shadow2_ram_back.webp"
-    ],
+    realPowerConsumption: "2.2W - 2.8W", // Voltaje estándar JEDEC de 1.1V
+    images: ["/images/ram/netac_shadow2_ram.webp"],
     description: "Memoria RAM Netac 16gb Shadow 2 Ddr5 4800mhz Sin RGB",
     specifications: {
-      marca: "Netac",
-      linea: "Shadow 2",
-      modelo: "NTSWD5P48SP-16K",
+      tipoMemoriaRAM: "DDR5",
       capacidad: "16 GB",
       velocidad: "4800 MHz",
-      rgb: "No",
-      disipador: "Sí",
-      iluminacionRGB: "No Posee",
-      modulosMemoriaRAM: "1 x 16 GB",
-      capacidadTotal: "16 GB",
-      formatoMemoriaRAM: "DIMM",
-      velocidadMemoria: "4800 MHz",
-      tipoMemoriaRAM: "DDR5"
+      voltaje: "1.1V"
     }
   },
   {
     id: 409,
-    name: "NEO FORZA DDR5 16GB 5200 CL42 full box",
+    name: "NEO FORZA DDR5 16GB 5200 CL42",
     brand: "Neo Forza",
     model: "DDR5 5200",
     category: "Memorias RAM",
     price: 185000,
     stock: 2,
-    images: [
-      "/images/ram/neo_forza_ddr5.webp"
-    ],
+    realPowerConsumption: "2.4W - 3.0W",
+    images: ["/images/ram/neo_forza_ddr5.webp"],
     description: "Memoria RAM Neo Forza DDR5 16GB 5200MHz CL42",
     specifications: {
-      marca: "Neo Forza",
-      capacidad: "16 GB",
-      capacidadTotal: "16 GB",
-      velocidad: "5200 MHz",
-      rgb: "No",
-      disipador: "No",
       tipoMemoriaRAM: "DDR5",
-      frecuencia: "5200 MHz",
-      latencia: "CL42",
-      voltaje: "1.25V",
-      factorDeForma: "UDIMM",
-      compatibilidad: "Placas base DDR5 Intel y AMD",
-      perfilXmpAmp: "XMP 3.0",
-      arquitectura: "On-die ECC (integrado en chips DDR5)",
-      usoRecomendado: "PC gamer, estaciones de trabajo, actualización de equipos DDR5",
-      origen: "Fabricante taiwanés especializado en memorias RAM y SSD",
-      segmento: "Gama media con buena relación precio/rendimiento",
-      tipo: "Un solo módulo (1x16GB)",
-      dualChannel: "Sí, al combinar con otro módulo igual",
-      observaciones: "Al ser CL42 no es de las más rápidas, pero funciona estable para uso general y gaming estándar."
+      velocidad: "5200 MHz",
+      voltaje: "1.25V"
     }
   },
   {
@@ -109,168 +66,81 @@ export const memoriasProducts = [
     category: "Memorias RAM",
     price: 340000,
     stock: 2,
-    images: [
-      "/images/ram/neo_forza_ddr5.webp"
-    ],
+    realPowerConsumption: "2.8W - 3.5W", // Mayor densidad de chips aumenta levemente el consumo
+    images: ["/images/ram/neo_forza_ddr5.webp"],
     description: "Memoria RAM Neo Forza DDR5 32GB 5200MHz CL42 UDIMM con On-die ECC",
     specifications: {
-      marca: "Neo Forza",
-      modelo: "NMUD532F82-5200JA10",
-      tipoMemoriaRAM: "DDR5",
-      formato: "UDIMM",
       capacidadTotal: "32 GB",
-      velocidad: "5200 MHz",
-      latenciaCAS: "CL42",
-      voltaje: "1.1V",
-      cantidadPines: "288-pin",
-      rgb: "No",
-      disipador: "No",
-      ecc: "On-die ECC"
+      tipoMemoriaRAM: "DDR5",
+      voltaje: "1.1V"
     }
   },
   // ========== DDR4 PREMIUM (RGB y Disipadas) ==========
   {
-    id: 24,
+    id: 413,
     name: "ADATA XPG Gammix D35 DDR4 16GB 3200MHz",
     brand: "ADATA",
     model: "XPG Gammix D35",
     category: "Memorias RAM",
     price: 170000,
     stock: 2,
-    images: [
-      "/images/ram/ram_xpg_gamminxd35_ddr4.webp",
-      "/images/ram/ram_xpg_gamminxd35_ddr4_side.webp",
-      "/images/ram/ram_xpg_gamminxd35_ddr4_back.webp"
-    ],
+    realPowerConsumption: "3.5W - 4.2W", // DDR4 a 1.35V consume más que DDR5 base
+    images: ["/images/ram/ram_xpg_gamminxd35_ddr4.webp"],
     description: "Memoria RAM PC Adata XPG Gammix D35 DDR4 16GB 3200MHz, Disipada Sin RGB",
     specifications: {
-      marca: "XPG",
-      fabricante: "Adata",
-      linea: "Gammix",
-      modelo: "D35",
-      modeloDetallado: "AX4U320016G16A-SWHD35",
-      capacidad: "16 GB",
-      velocidad: "3200 MHz",
-      rgb: "No",
-      disipador: "Sí",
-      iluminacionRGB: "No posee",
-      modulosMemoria: "1",
-      capacidadTotal: "16 GB",
-      capacidadPorModulo: "16 GB",
       tipoMemoria: "DDR4",
-      formato: "DIMM",
-      velocidadMemoria: "3200 MHz",
-      velocidadMemoriaGHz: "3.2 GHz",
-      velocidadProbada: "3200 MHz",
-      latenciaCAS: "16",
-      transferenciasDatos: "25.6 GB/s",
-      tasaTransferencia: "0.03 TB/s",
       voltaje: "1.35V",
-      ecc: "Sí (memoria gráfica)",
-      amdExpo: "No",
-      disipadorCalor: "Sí",
-      altura: "13 cm"
+      disipador: "Sí"
     }
   },
   {
     id: 400,
-    name: "Memoria Ram Xpg D35g Spectrix 16gb Ddr4 RGB 3200mhz",
+    name: "Memoria Ram Xpg D35g Spectrix 16gb Ddr4 RGB",
     brand: "XPG",
     model: "Spectrix D35G",
     category: "Memorias RAM",
     price: 185000,
     stock: 3,
-    images: [
-      "/images/ram/spectrix-d35g_16gb.webp",
-      "/images/ram/spectrix-d35g_16gb_side.webp",
-      "/images/ram/spectrix-d35g_16gb_front.webp"
-    ],
+    realPowerConsumption: "4.0W - 5.0W", // El RGB suma ~0.8W bajo carga de efectos
+    images: ["/images/ram/spectrix-d35g_16gb.webp"],
     description: "Memoria Ram Xpg D35g 16gb Ddr4 Rgb 3200mhz",
     specifications: {
-      marca: "XPG",
-      linea: "Spectrix",
-      modelo: "D35G",
-      color: "Negro",
-      modeloDetallado: "AX4U320016G16A-SBKD35G",
-      capacidad: "16 GB",
-      velocidad: "3200 MHz",
-      rgb: "Sí",
-      disipador: "Sí",
-      modulosMemoriaRAM: "1 x 16 GB",
-      capacidadTotal: "16 GB",
       tipoMemoriaRAM: "DDR4",
-      formatoMemoriaRAM: "UDIMM",
-      velocidadMemoria: "3200 MHz",
-      latenciaCAS: "CL16",
-      voltaje: "1.35 V",
-      ecc: "No",
-      extras: "RGB, perfil XMP 2.0, disipador bajo perfil"
+      rgb: "Sí",
+      voltaje: "1.35 V"
     }
   },
   {
     id: 407,
-    name: "Adata Xpg Ddr4 16gb 3200mhz Spectrix D35 RGB White",
+    name: "Adata Xpg Ddr4 16gb Spectrix D35 RGB White",
     brand: "XPG",
     model: "Spectrix D35",
     category: "Memorias RAM",
     price: 185000,
     stock: 2,
-    images: [
-      "/images/ram/spectrix_d35_white.webp",
-      "/images/ram/spectrix_d35_white_side.webp",
-      "/images/ram/spectrix_d35_white_front.webp"
-    ],
+    realPowerConsumption: "4.0W - 5.0W",
+    images: ["/images/ram/spectrix_d35_white.webp"],
     description: "Memoria RAM XPG Spectrix D35 16GB DDR4 3200MHz RGB White",
     specifications: {
-      marca: "XPG",
-      linea: "Spectrix",
-      modelo: "AX4U320016G16A-SWHD35G",
-      modeloDetallado: "GAMMIX D35G",
-      capacidad: "16 GB",
-      velocidad: "3200 MHz",
+      tipoMemoriaRAM: "DDR4",
       rgb: "Sí",
-      disipador: "Sí",
-      modulosMemoriaRAM: "1 x 16 GB",
-      capacidadTotal: "16 GB",
-      velocidadTransferencia: "0 TB/s",
-      tipoMemoriaRAM: "DDR4 DRAM",
-      formatoMemoriaRAM: "UDIMM",
-      velocidadMemoria: "3200 MHz",
-      memoriaGraficaECC: "No",
-      iluminacionRGB: "Sí",
-      color: "Blanco",
-      voltaje: "1.35V",
-      latenciaCAS: "CL16"
+      voltaje: "1.35V"
     }
   },
   {
-    id: 25,
+    id: 414,
     name: "NETAC Shadow DDR4 16GB 3200MHz",
     brand: "NETAC",
     model: "Shadow",
     category: "Memorias RAM",
     price: 130000,
     stock: 4,
-    images: [
-      "/images/ram/ram_netac_shadow_ddr4.webp",
-      "/images/ram/ram_netac_shadow_ddr4_side.webp"
-    ],
+    realPowerConsumption: "3.4W - 4.0W",
+    images: ["/images/ram/ram_netac_shadow_ddr4.webp"],
     description: "Memoria RAM Shadow 16GB DDR4 Disipada, sin RGB",
     specifications: {
-      marca: "Netac",
-      linea: "Shadow",
-      modelo: "NTSDD4P32SP-16",
-      capacidad: "16 GB",
-      velocidad: "3200 MHz",
-      rgb: "No",
-      disipador: "Sí",
-      iluminacionRGB: "No posee",
-      modulosMemoriaRAM: "1",
-      capacidadTotal: "16 GB",
-      tipoMemoriaRAM: "DDR4 SDRAM",
-      formatoMemoriaRAM: "UDIMM",
-      velocidadMemoria: "3200 MHz",
-      modeloDetallado: "NTSDD4P32SP-16Y"
+      tipoMemoriaRAM: "DDR4",
+      voltaje: "1.35V"
     }
   },
   {
@@ -281,35 +151,16 @@ export const memoriasProducts = [
     category: "Memorias RAM",
     price: 150000,
     stock: 1,
-    images: [
-      "/images/ram/kingston_fury.webp",
-      "/images/ram/kingston_fury_side.webp",
-      "/images/ram/kingston_fury_back.webp"
-    ],
+    realPowerConsumption: "2.8W - 3.2W", // Menor frecuencia y voltaje (1.2V) reduce el consumo
+    images: ["/images/ram/kingston_fury.webp"],
     description: "Memoria RAM HyperX Fury 16GB DDR4 2666MHz CL16",
     specifications: {
-      marca: "HyperX",
-      linea: "Fury",
-      modelo: "HX426C16FB/16",
-      capacidad: "16 GB",
-      velocidad: "2666 MHz",
-      rgb: "No",
-      disipador: "Sí",
-      modulos: "1x16GB",
       tipo: "DDR4 SDRAM",
-      formato: "DIMM",
-      frecuenciaEfectivaMHz: "2666 MHz",
-      latenciaCL: "CL16",
       voltaje: "1.2V",
-      transferenciaTeórica: "21.3 GB/s",
-      ecc: "No",
-      perfilXMP: "Sí (automático mediante Plug-N-Play)",
-      compatibilidad: "Placas base DDR4 Intel y AMD",
-      color: "Negro (heatsink Fury estándar)",
-      serieEspecifica: "Fury Black DDR4",
-      nombreDelCodigo: "Fury (Kingston)"
+      velocidad: "2666 MHz"
     }
   },
+  // ========== BÁSICAS / OFFICE ==========
   {
     id: 406,
     name: "Lexar 16GB DDR4 3200MHz UDIMM",
@@ -318,68 +169,28 @@ export const memoriasProducts = [
     category: "Memorias RAM",
     price: 120000,
     stock: 12,
-    images: [
-      "/images/ram/adata16g_ddr4.webp",
-      "/images/ram/adata16g_ddr4_side.webp",
-      "/images/ram/adata16g_ddr4_back.webp"
-    ],
+    realPowerConsumption: "2.8W - 3.4W", // Sin disipador ni RGB, a 1.2V
+    images: ["/images/ram/adata16g_ddr4.webp"],
     description: "Lexar 16GB DDR4 3200MHz UDIMM",
     specifications: {
-      marca: "Lexar",
-      linea: "LD4AU016G",
-      modelo: "LD4AU016G-B3200GSST",
-      modeloDetallado: "LD4AU016G-B3200GSST",
-      capacidad: "16 GB",
-      velocidad: "3200 MHz",
-      rgb: "No",
-      disipador: "No",
-      modulosMemoriaRAM: "1 x 16 GB",
-      tipoMemoriaRAM: "DDR4",
-      formatoMemoriaRAM: "UDIMM (no ECC)",
-      ecc: "No",
-      bufferedRegistered: "Unbuffered",
-      velocidadEfectiva: "3200 MHz",
-      velocidadTransferencia: "PC4-25600",
-      latenciaTipica: "CL22 (varía según lote)",
       voltaje: "1.2 V",
-      compatibilidad: "Motherboards DDR4 para Intel y AMD",
-      usoRecomendado: "PC escritorio, gaming básico, tareas generales",
-      temperaturaFuncionamiento: "0°C a 85°C",
-      normaJEDEC: "Cumple estándar DDR4",
-      arquitecturaChips: "1Rx8 o 2Rx8 (dependiendo del lote)"
+      tipoMemoriaRAM: "DDR4"
     }
   },
-  // ========== DDR4 BÁSICAS (AL FINAL) ==========
   {
     id: 405,
-    name: "Patriot Signature DDR4 16GB 3200MHz CL22",
+    name: "Patriot Signature DDR4 16GB 3200MHz",
     brand: "Patriot",
     model: "Signature",
     category: "Memorias RAM",
     price: 130000,
     stock: 5,
-    images: [
-      "/images/ram/patriot_signature_ddr416.webp",
-      "/images/ram/patriot_signature_ddr416_side.webp",
-      "/images/ram/patriot_signature_ddr416_back.webp"
-    ],
+    realPowerConsumption: "2.8W - 3.4W",
+    images: ["/images/ram/patriot_signature_ddr416.webp"],
     description: "Patriot Signature DDR4 16GB 3200MHz CL22",
     specifications: {
-      marca: "Patriot",
-      linea: "Signature",
-      modelo: "PSD416G32002",
-      capacidad: "16 GB",
-      velocidad: "3200 MHz",
-      rgb: "No",
-      disipador: "No",
-      modulosMemoriaRAM: "1 x 16 GB",
-      capacidadTotal: "16 GB",
-      tipoMemoriaRAM: "DDR4",
-      formatoMemoriaRAM: "UDIMM",
-      velocidadMemoria: "3200 MHz",
-      latenciaCAS: "CL22",
       voltaje: "1.2 V",
-      ecc: "No"
+      tipoMemoriaRAM: "DDR4"
     }
   },
   {
@@ -390,27 +201,12 @@ export const memoriasProducts = [
     category: "Memorias RAM",
     price: 100000,
     stock: 4,
-    images: [
-      "/images/ram/netac_basic_16gb.webp",
-      "/images/ram/netac_basic_16gb_side.webp"
-    ],
+    realPowerConsumption: "3.4W - 4.0W", // Latencia CL16 suele requerir 1.35V
+    images: ["/images/ram/netac_basic_16gb.webp"],
     description: "NETAC BASIC DDR4 16GB 3200 MHZ C16",
     specifications: {
-      marca: "Netac",
-      linea: "Basic",
-      modelo: "NTBSD4P32SP-16",
-      capacidad: "16 GB",
-      velocidad: "3200 MHz",
-      rgb: "No",
-      disipador: "No",
-      modulosMemoriaRAM: "1 x 16 GB",
-      capacidadTotal: "16 GB",
-      tipoMemoriaRAM: "DDR4",
-      formatoMemoriaRAM: "UDIMM",
-      velocidadMemoria: "3200 MHz",
-      latenciaCAS: "CL16",
       voltaje: "1.35 V",
-      ecc: "No"
+      tipoMemoriaRAM: "DDR4"
     }
   },
   {
@@ -421,27 +217,12 @@ export const memoriasProducts = [
     category: "Memorias RAM",
     price: 120000,
     stock: 5,
-    images: [
-      "/images/ram/adata_ddr416gb_basic.webp",
-      "/images/ram/adata_ddr416gb_basic_side.webp"
-    ],
+    realPowerConsumption: "2.8W - 3.4W",
+    images: ["/images/ram/adata_ddr416gb_basic.webp"],
     description: "ADATA DDR4 Premier 16GB 3200MHz",
     specifications: {
-      marca: "ADATA",
-      linea: "Premier",
-      modelo: "AD4U320016G22-SGN",
-      capacidad: "16 GB",
-      velocidad: "3200 MHz",
-      rgb: "No",
-      disipador: "No",
-      modulosMemoriaRAM: "1 x 16 GB",
-      capacidadTotal: "16 GB",
-      tipoMemoriaRAM: "DDR4",
-      formatoMemoriaRAM: "UDIMM",
-      velocidadMemoria: "3200 MHz",
-      latenciaCAS: "CL22",
       voltaje: "1.2 V",
-      ecc: "No"
+      tipoMemoriaRAM: "DDR4"
     }
   },
   {
@@ -452,62 +233,28 @@ export const memoriasProducts = [
     category: "Memorias RAM",
     price: 40000,
     stock: 3,
-    images: [
-      "/images/ram/adata_ddr4soddim_4gb.webp",
-      "/images/ram/adata_ddr4soddim_4gb_back.webp",
-      "/images/ram/adata_ddr4soddim_4gb_side.webp"
-    ],
+    realPowerConsumption: "1.2W - 1.8W", // Módulo pequeño para Notebook
+    images: ["/images/ram/adata_ddr4soddim_4gb.webp"],
     description: "Adata 4GB DDR4 2666 MHz SODIMM",
     specifications: {
-      marca: "ADATA",
-      linea: "Premier",
-      modelo: "AD4S26664G19-SGN",
-      modeloDetallado: "AD4S26664G19-SGN",
-      capacidad: "4 GB",
-      velocidad: "2666 MHz",
-      rgb: "No",
-      disipador: "No",
-      modulosMemoriaRAM: "1",
-      capacidadTotal: "4 GB",
-      tipoMemoriaRAM: "DDR4",
       formatoMemoriaRAM: "SODIMM",
-      velocidadMemoria: "2666 MHz",
-      latenciaCAS: "CL19",
-      voltaje: "1.2 V",
-      ecc: "No"
+      voltaje: "1.2 V"
     }
   },
   {
-    id: 401,
+    id: 415, // Ajustado al rango
     name: "Adata Premier 8GB U-DIMM DDR3 1600MHz",
     brand: "ADATA",
     model: "Premier",
     category: "Memorias RAM",
     price: 40000,
     stock: 2,
-    images: [
-      "/images/ram/adata_dd38gb.webp",
-      "/images/ram/adata_dd38gb_side.webp",
-      "/images/ram/adata_dd38gb_side2.webp"
-    ],
+    realPowerConsumption: "3.0W - 4.5W", // DDR3 es la menos eficiente (1.5V)
+    images: ["/images/ram/adata_dd38gb.webp"],
     description: "Adata Premier 8GB U-DIMM DDR3 1600MHz",
     specifications: {
-      marca: "ADATA",
-      linea: "Premier",
-      modelo: "AD3U1600W8G11-S",
-      modeloDetallado: "ADDX1600W8G11-SPU",
-      capacidad: "8 GB",
-      velocidad: "1600 MHz",
-      rgb: "No",
-      disipador: "No",
-      modulosMemoriaRAM: "1",
-      capacidadTotal: "8 GB",
       tipoMemoriaRAM: "DDR3",
-      formatoMemoriaRAM: "UDIMM",
-      velocidadMemoria: "1600 MHz",
-      latenciaCAS: "CL11",
-      voltaje: "1.5 V",
-      ecc: "No"
+      voltaje: "1.5 V"
     }
   }
 ];

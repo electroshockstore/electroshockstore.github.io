@@ -113,14 +113,37 @@ const ProductGrid = ({
 
   return (
     <div className="h-full">
-      {/* Header Section - Compacto en mobile */}
+      {/* Header Section con instrucciones */}
       <div className="mb-3 lg:mb-6">
-        <h2 className="text-lg lg:text-2xl xl:text-3xl font-bold text-gray-900 mb-1">
-          {selectedCategory}
-        </h2>
-        <p className="text-xs lg:text-sm text-gray-600">
-          {products.length} productos disponibles
-        </p>
+        <div className="flex items-start justify-between gap-4 mb-3">
+          <div>
+            <h2 className="text-lg lg:text-2xl xl:text-3xl font-bold text-gray-900 mb-1">
+              {selectedCategory}
+            </h2>
+            <p className="text-xs lg:text-sm text-gray-600">
+              {products.length} productos disponibles
+            </p>
+          </div>
+          
+          {/* Instrucciones desktop - solo visible en pantallas grandes */}
+          <div className="hidden lg:block">
+            <div className="bg-gradient-to-r from-blue-50 via-indigo-50 to-purple-50 rounded-xl p-3 border border-blue-200/50 max-w-sm">
+              <div className="flex items-start gap-2">
+                <div className="p-1.5 bg-blue-500 rounded-lg flex-shrink-0">
+                  <svg className="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                  </svg>
+                </div>
+                <div className="flex-1">
+                  <p className="text-xs font-bold text-gray-700 leading-relaxed">
+                    <span className="text-blue-600">Haz clic en la imagen</span> para ver detalles o en <span className="text-indigo-600">"Agregar"</span> para seleccionar
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+       
       </div>
       
       {/* Reminder if needed */}

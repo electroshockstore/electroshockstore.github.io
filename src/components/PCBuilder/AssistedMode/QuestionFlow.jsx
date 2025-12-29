@@ -103,7 +103,7 @@ const QuestionFlow = ({ onComplete }) => {
                   <h3 className="text-xl font-bold text-gray-900">{budget.label}</h3>
                 </div>
                 <p className="text-gray-700 font-semibold">
-                  ${budget.range.min.toLocaleString()} - ${budget.range.max.toLocaleString()}
+                  ${budget.range.min.toLocaleString('es-AR')} - ${budget.range.max.toLocaleString('es-AR')}
                 </p>
               </button>
             ))}

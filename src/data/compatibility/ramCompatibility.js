@@ -1,33 +1,5 @@
 // RAM Compatibility extensions
 export const ramCompatibilityData = {
-  // ADATA XPG Lancer Blade DDR5 16GB 5600MHz
-  27: {
-    tipo: 'DDR5',
-    capacidad_gb: 16,
-    velocidad_mhz: 5600,
-    uso_principal: ['Gaming', 'Trabajo']
-  },
-  // NETAC Shadow 2 DDR5 16GB 4800MHz
-  26: {
-    tipo: 'DDR5',
-    capacidad_gb: 16,
-    velocidad_mhz: 4800,
-    uso_principal: ['General', 'Trabajo']
-  },
-  // ADATA XPG Gammix D35 DDR4 16GB 3200MHz
-  24: {
-    tipo: 'DDR4',
-    capacidad_gb: 16,
-    velocidad_mhz: 3200,
-    uso_principal: ['Gaming', 'Trabajo']
-  },
-  // NETAC Shadow DDR4 16GB 3200MHz
-  25: {
-    tipo: 'DDR4',
-    capacidad_gb: 16,
-    velocidad_mhz: 3200,
-    uso_principal: ['General', 'Trabajo']
-  },
   // XPG D35G Spectrix DDR4 16GB RGB 3200MHz
   400: {
     tipo: 'DDR4',
@@ -105,5 +77,40 @@ export const ramCompatibilityData = {
     capacidad_gb: 32,
     velocidad_mhz: 5200,
     uso_principal: ['Gaming', 'Trabajo', 'Edición']
+  },
+  // ADATA XPG Lancer Blade DDR5 16GB 5600MHz
+  411: {
+    tipo: 'DDR5',
+    capacidad_gb: 16,
+    velocidad_mhz: 5600,
+    uso_principal: ['Gaming', 'Trabajo']
+  },
+  // NETAC Shadow 2 DDR5 16GB 4800MHz
+  412: {
+    tipo: 'DDR5',
+    capacidad_gb: 16,
+    velocidad_mhz: 4800,
+    uso_principal: ['General', 'Trabajo']
+  },
+  // ADATA XPG Gammix D35 DDR4 16GB 3200MHz
+  413: {
+    tipo: 'DDR4',
+    capacidad_gb: 16,
+    velocidad_mhz: 3200,
+    uso_principal: ['Gaming', 'Trabajo']
+  },
+  // NETAC Shadow DDR4 16GB 3200MHz
+  414: {
+    tipo: 'DDR4',
+    capacidad_gb: 16,
+    velocidad_mhz: 3200,
+    uso_principal: ['General', 'Trabajo']
+  },
+  // Adata Premier 8GB U-DIMM DDR3 1600MHz
+  415: {
+    tipo: 'DDR3',
+    capacidad_gb: 8,
+    velocidad_mhz: 1600,
+    uso_principal: ['General']
   }
 };

@@ -357,10 +357,10 @@ const ManualMode = ({ onModeChange, onGoHome }) => {
                   const item = Array.isArray(value) ? value[0] : value;
                   return `• ${item.name}`;
                 })
-                .join('\n');
+                .join('%0A');
               
               const message = encodeURIComponent(
-                `¡Hola! Quiero este combo de PC:\n\n${components}\n\nTotal: $${totalPrice.toLocaleString('es-AR')}%0A%0A¿Está disponible?`
+                `¡Hola! Quiero este combo de PC:%0A%0A${components}%0A%0ATotal: $${totalPrice.toLocaleString('es-AR')}%0A%0A¿Está disponible?`
               );
               
               window.open(`https://wa.me/5491125718382?text=${message}`, '_blank');
