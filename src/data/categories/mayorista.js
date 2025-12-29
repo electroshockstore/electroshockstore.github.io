@@ -1,13 +1,13 @@
 // ═══════════════════════════════════════════════════════════════
-// RANGO DE IDs: 1000-1099 (Mayorista - Packs)
-// Próximo ID disponible: 1013
+// RANGO DE IDs: 1500-1599 (Mayorista - Packs)
+// Próximo ID disponible: 1513
 // IMPORTANTE: NO usar IDs fuera de este rango
 // ═══════════════════════════════════════════════════════════════
 
 export const mayoristaProducts = [
   // MOUSE
   {
-    id: 1000,
+    id: 1500,
     name: "Logitech M170 Rojo Inalámbrico",
     brand: "Logitech",
     model: "M170",
@@ -32,7 +32,7 @@ export const mayoristaProducts = [
     }
   },
   {
-    id: 1001,
+    id: 1501,
     name: "Razer DeathAdder V2 Mini Negro",
     brand: "Razer",
     model: "DeathAdder V2 Mini",
@@ -59,7 +59,7 @@ export const mayoristaProducts = [
 
   // REFRIGERACIÓN
   {
-    id: 1002,
+    id: 1502,
     name: "Redragon CC-1013 Air Cooler 120mm ARGB 180W",
     brand: "Redragon",
     model: "CC-1013",
@@ -86,7 +86,7 @@ export const mayoristaProducts = [
 
   // TECLADOS
   {
-    id: 1003,
+    id: 1503,
     name: "HyperX Alloy Core RGB Membrana Full Size Alámbrico",
     brand: "HyperX",
     model: "Alloy Core RGB",
@@ -111,7 +111,7 @@ export const mayoristaProducts = [
     }
   },
   {
-    id: 1004,
+    id: 1504,
     name: "Redragon Kumara K552 Mecánico TKL RGB Alámbrico",
     brand: "Redragon",
     model: "Kumara K552",
@@ -137,7 +137,7 @@ export const mayoristaProducts = [
     }
   },
   {
-    id: 1005,
+    id: 1505,
     name: "Redragon S101-BA Kit 3x1 RGB Alámbrico",
     brand: "Redragon",
     model: "S101-BA",
@@ -164,7 +164,7 @@ export const mayoristaProducts = [
     }
   },
   {
-    id: 1006,
+    id: 1506,
     name: "Razer Cyclosa + Abyssus Kit 2x1 Retroiluminado Alámbrico",
     brand: "Razer",
     model: "Cyclosa + Abyssus",
@@ -187,7 +187,7 @@ export const mayoristaProducts = [
     }
   },
   {
-    id: 1007,
+    id: 1507,
     name: "Logitech MK220 Kit Teclado + Mouse Membrana Inalámbrico",
     brand: "Logitech",
     model: "MK220",
@@ -214,7 +214,7 @@ export const mayoristaProducts = [
 
   // AURICULARES
   {
-    id: 1008,
+    id: 1508,
     name: "Redragon Pandora 2 H350RGB-1 USB 7.1 RGB Blanco",
     brand: "Redragon",
     model: "Pandora 2 H350RGB-1",
@@ -241,7 +241,7 @@ export const mayoristaProducts = [
 
   // MOTHERBOARDS
   {
-    id: 1009,
+    id: 1509,
     name: "ASUS Prime A520M-K AM4",
     brand: "ASUS",
     model: "Prime A520M-K",
@@ -267,7 +267,7 @@ export const mayoristaProducts = [
 
   // JOYSTICK
   {
-    id: 1010,
+    id: 1510,
     name: "T-Dagger Scorpio Inalámbrico PC/Android/Consola",
     brand: "T-Dagger",
     model: "Scorpio",
@@ -293,7 +293,7 @@ export const mayoristaProducts = [
     }
   },
   {
-    id: 1011,
+    id: 1511,
     name: "Sony DualSense DualShock 4 V2 PS4",
     brand: "Sony",
     model: "DualShock 4 V2",
@@ -320,7 +320,7 @@ export const mayoristaProducts = [
 
   // PROCESADORES
   {
-    id: 1012,
+    id: 1512,
     name: "AMD Athlon 3000G AM4 con Gráfica Integrada Radeon Vega",
     brand: "AMD",
     model: "Athlon 3000G",

@@ -97,7 +97,7 @@ export const almacenamientoProducts = [
     brand: "Kingston",
     model: "NV3 SNV3S/1000G",
     category: "Almacenamiento",
-    price: 195000,
+    price: 200000,
     stock: 2,
     sku: "KING-1TB-GEN4",
     description: "SSD M.2 NVMe Gen4 x4 de 1TB, lectura 3500 MB/s, escritura 2800 MB/s",

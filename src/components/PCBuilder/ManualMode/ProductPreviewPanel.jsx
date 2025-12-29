@@ -236,7 +236,7 @@ const EmptyPreview = ({ selectedCategory }) => {
 const ProductPreviewPanel = ({ selectedProduct, selectedCategory, onBack }) => {
   if (!selectedProduct) {
     return (
-      <aside className="hidden lg:block w-96 xl:w-[28rem] bg-gradient-to-b from-white to-gray-50 border-l border-gray-200 overflow-y-auto">
+      <aside className="hidden lg:block w-72 xl:w-80 bg-gradient-to-b from-white to-gray-50 border-l border-gray-200 overflow-y-auto">
         <EmptyPreview selectedCategory={selectedCategory} />
       </aside>
     );
@@ -246,7 +246,7 @@ const ProductPreviewPanel = ({ selectedProduct, selectedCategory, onBack }) => {
   const compatibilityResult = selectedProduct.compatibilityResult;
 
   return (
-    <aside className="w-full lg:w-96 xl:w-[28rem] bg-gradient-to-b from-white to-gray-50 lg:border-l border-gray-200 overflow-y-auto">
+    <aside className="w-full lg:w-72 xl:w-80 bg-gradient-to-b from-white to-gray-50 lg:border-l border-gray-200 overflow-y-auto">
       {/* Mobile Back Button */}
       {onBack && (
         <div className="lg:hidden sticky top-0 bg-white border-b border-gray-200 p-4 z-10">

@@ -7,9 +7,9 @@ const RevendedoresSection = ({ products = [], onProductClick }) => {
 
     // Productos fijos para mostrar en Home (siempre los mismos 3)
     const featuredProducts = products.filter(p => 
-        p.id === 1011 || // Sony PS4
-        p.id === 1008 || // Pandora 2
-        p.id === 1009    // ASUS A520M-K
+        p.id === 1511 || // Sony PS4 (antes 1011)
+        p.id === 1508 || // Pandora 2 (antes 1008)
+        p.id === 1509    // ASUS A520M-K (antes 1009)
     );
 
     const handleVerMas = () => {

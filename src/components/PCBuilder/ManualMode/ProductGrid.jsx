@@ -128,8 +128,8 @@ const ProductGrid = ({
         <CategoryReminder message={reminder.message} type={reminder.type} />
       )}
       
-      {/* Product Grid - Mobile: 2 cols compacto, Desktop: más columnas */}
-      <div className="grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 gap-2 lg:gap-4 xl:gap-6 pb-20 lg:pb-32">
+      {/* Product Grid - Más columnas en pantallas estándar */}
+      <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-6 gap-2 lg:gap-3 xl:gap-4 pb-20 lg:pb-32">
         {/* Already Own Card - Always first */}
         <AlreadyOwnCard 
           category={selectedCategory}

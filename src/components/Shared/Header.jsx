@@ -1,4 +1,4 @@
-// Header negro con buscador centrado - Responsive - OPTIMIZADO
+
 import { useState, useRef, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Package, Search, FileText, MapPin, X, Home, Bot, ArrowRight } from 'lucide-react';
@@ -155,63 +155,86 @@ const Header = ({ searchQuery = '', onSearchChange, onGoHome, hideSearchOnMobile
                 </div>
               </div>
 
-              <button
-                onClick={() => setShowConditionsModal(true)}
-                className="relative p-2.5 bg-gradient-to-br from-orange-600 to-red-600 hover:from-orange-700 hover:to-red-700
-                         rounded-full text-white
-                         transition-all duration-300 shadow-lg hover:shadow-orange-500/50
-                         border-2 border-orange-400/50 overflow-hidden group
-                         animate-button-float active:scale-90"
-                aria-label="Condiciones de Venta"
-              >
-                <div className="absolute inset-0 bg-orange-400 rounded-full blur-md animate-button-glow" />
-                <div className="absolute inset-0 bg-white/20 scale-0 group-hover:scale-100 transition-transform duration-300 rounded-full" />
-                <FileText className="h-4 w-4 relative z-10" strokeWidth={2.5} />
-              </button>
+              {/* Condiciones - Con efecto de importancia */}
+              <div className="relative">
+                <button
+                  onClick={() => setShowConditionsModal(true)}
+                  className="relative p-2.5
+                           bg-gradient-to-r from-orange-500 to-red-600
+                           hover:from-orange-600 hover:to-red-700
+                           rounded-full text-white
+                           transition-all duration-300 
+                           shadow-lg shadow-orange-500/40 hover:shadow-orange-500/60
+                           border-2 border-orange-400/40
+                           overflow-hidden group
+                           hover:scale-110 active:scale-95
+                           animate-button-float"
+                  aria-label="Condiciones de Venta"
+                >
+                  {/* Glow effect */}
+                  <div className="absolute inset-0 bg-orange-400 rounded-full blur-md opacity-50 animate-button-glow" />
+                  
+                  {/* Shine effect */}
+                  <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700" />
+                  
+                  <FileText className="h-4 w-4 relative z-10" strokeWidth={2.5} />
+                </button>
+              </div>
               
+              {/* Puntos de Retiro - Con color azul */}
               <button
                 onClick={() => navigate('/puntos-de-retiro')}
-                className="relative p-2.5 bg-gradient-to-br from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700
-                         rounded-full text-white
-                         transition-all duration-300 shadow-lg hover:shadow-blue-500/50
-                         border border-blue-500/30 overflow-hidden group active:scale-90"
+                className="relative p-2.5
+                         bg-gradient-to-br from-blue-500/20 to-indigo-500/20
+                         hover:from-blue-500/30 hover:to-indigo-500/30
+                         backdrop-blur-sm rounded-full
+                         transition-all duration-300 
+                         border border-blue-400/30 hover:border-blue-400/50
+                         shadow-lg shadow-blue-500/20
+                         hover:scale-110 active:scale-95"
                 aria-label="Puntos de Retiro"
               >
-                <div className="absolute inset-0 bg-white/20 scale-0 group-hover:scale-100 transition-transform duration-300 rounded-full" />
-                <MapPin className="h-4 w-4 relative z-10" strokeWidth={2.5} />
+                <MapPin className="h-4 w-4 text-blue-300" strokeWidth={2.5} />
               </button>
 
+              {/* Inicio - Con color verde */}
               <button
                 onClick={() => {
                   navigate('/');
                   onGoHome?.();
                 }}
-                className="relative p-2.5 bg-gradient-to-br from-green-600 to-emerald-600 hover:from-green-700 hover:to-emerald-700
-                         rounded-full text-white
-                         transition-all duration-300 shadow-lg hover:shadow-green-500/50
-                         border border-green-500/30 overflow-hidden group active:scale-90"
+                className="relative p-2.5
+                         bg-gradient-to-br from-green-500/20 to-emerald-500/20
+                         hover:from-green-500/30 hover:to-emerald-500/30
+                         backdrop-blur-sm rounded-full
+                         transition-all duration-300 
+                         border border-green-400/30 hover:border-green-400/50
+                         shadow-lg shadow-green-500/20
+                         hover:scale-110 active:scale-95"
                 aria-label="Inicio"
               >
-                <div className="absolute inset-0 bg-white/20 scale-0 group-hover:scale-100 transition-transform duration-300 rounded-full" />
-                <Home className="h-4 w-4 relative z-10" strokeWidth={2.5} />
+                <Home className="h-4 w-4 text-green-300" strokeWidth={2.5} />
               </button>
             </div>
           </div>
           
           {!hideSearchOnMobile && (
             <div className="relative" ref={searchRef}>
-              <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-gray-400 z-10" />
+              {/* Search icon with colored container */}
+              <div className="absolute left-2 top-1/2 -translate-y-1/2 z-10 bg-gradient-to-br from-blue-500 to-indigo-600 p-1.5 rounded-lg shadow-lg">
+                <Search className="h-3.5 w-3.5 text-white" strokeWidth={2.5} />
+              </div>
               <input
                 type="text"
                 value={localSearchQuery}
                 onChange={(e) => setLocalSearchQuery(e.target.value)}
-               placeholder="Buscar productos..."
-                className="w-full h-10 pl-10 pr-10 text-md
-                         bg-gray-900 border-2 border-blue-500/40 rounded-full 
-                         text-white placeholder:text-gray-400
-                         focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-blue-400
-                         hover:border-blue-500/60
-                         transition-all duration-200 shadow-lg shadow-blue-500/10"
+                placeholder="Buscar productos..."
+                className="w-full h-10 pl-11 pr-10 text-sm
+                         bg-gray-900/80 backdrop-blur-xl border border-gray-700/50 rounded-2xl 
+                         text-white placeholder:text-white/60
+                         focus:outline-none focus:ring-2 focus:ring-blue-500/50 focus:border-blue-500/50
+                         hover:border-gray-600/50 hover:bg-gray-900
+                         transition-all duration-300 shadow-xl"
               />
               {localSearchQuery && (
                 <button
@@ -286,19 +309,22 @@ const Header = ({ searchQuery = '', onSearchChange, onGoHome, hideSearchOnMobile
           {/* Buscador centrado */}
           <div className="flex-1 max-w-2xl" ref={searchRef}>
             <div className="relative">
-              <Search className="absolute left-4 top-1/2 -translate-y-1/2 h-5 w-5 text-gray-400 z-10" />
-                 <input
-              type="text"
-              value={localSearchQuery}
-              onChange={(e) => setLocalSearchQuery(e.target.value)}
-            placeholder="Buscar productos, marcas o categorías..."
-              className="w-full h-14 pl-10 pr-10 text-md
-                       bg-gray-900 border-2 border-blue-500/40 rounded-full 
-                       text-white placeholder:text-gray-400
-                       focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-blue-400
-                       hover:border-blue-500/60
-                       transition-all duration-200 shadow-lg shadow-blue-500/10"
-            />
+              {/* Search icon with colored container */}
+              <div className="absolute left-3 top-1/2 -translate-y-1/2 z-10 bg-gradient-to-br from-blue-500 to-indigo-600 p-2 rounded-xl shadow-lg">
+                <Search className="h-4 w-4 text-white" strokeWidth={2.5} />
+              </div>
+              <input
+                type="text"
+                value={localSearchQuery}
+                onChange={(e) => setLocalSearchQuery(e.target.value)}
+                placeholder="Buscar productos, marcas o categorías..."
+                className="w-full h-14 pl-14 pr-12 text-base
+                         bg-gray-900/80 backdrop-blur-xl border border-gray-700/50 rounded-2xl 
+                         text-white placeholder:text-white/70
+                         focus:outline-none focus:ring-2 focus:ring-blue-500/50 focus:border-blue-500/50
+                         hover:border-gray-600/50 hover:bg-gray-900
+                         transition-all duration-300 shadow-xl"
+              />
               {localSearchQuery && (
                 <button
                   onClick={handleClearSearch}
@@ -370,52 +396,65 @@ const Header = ({ searchQuery = '', onSearchChange, onGoHome, hideSearchOnMobile
               </div>
             </div>
 
+            {/* Condiciones - Con efecto de importancia */}
             <div className="relative">
               <button
                 onClick={() => setShowConditionsModal(true)}
-                className="relative flex items-center gap-2 px-5 py-2.5 
-                         bg-gradient-to-r from-orange-600 to-red-600 hover:from-orange-700 hover:to-red-700
+                className="relative flex items-center gap-2 px-6 py-2.5
+                         bg-gradient-to-r from-orange-500 to-red-600
+                         hover:from-orange-600 hover:to-red-700
                          rounded-full text-white font-bold text-sm
-                         transition-all duration-300 shadow-lg hover:shadow-orange-500/50
-                         border-2 border-orange-400/50 overflow-hidden group
-                         animate-button-float hover:scale-110 active:scale-95"
+                         transition-all duration-300 
+                         shadow-lg shadow-orange-500/40 hover:shadow-orange-500/60
+                         border-2 border-orange-400/40
+                         overflow-hidden group
+                         hover:scale-105 active:scale-95
+                         animate-button-float"
               >
-                <div className="absolute inset-0 bg-orange-400 rounded-full blur-lg animate-button-glow" />
-                <div className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/20 to-white/0 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700" />
+                {/* Glow effect */}
+                <div className="absolute inset-0 bg-orange-400 rounded-full blur-lg opacity-50 animate-button-glow" />
+                
+                {/* Shine effect */}
+                <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700" />
+                
                 <FileText className="h-4 w-4 relative z-10" strokeWidth={2.5} />
-                <span className="hidden lg:inline relative z-10">Condiciones de Venta</span>
+                <span className="hidden lg:inline relative z-10">Condiciones</span>
               </button>
             </div>
             
+            {/* Puntos de Retiro - Con color azul */}
             <button
               onClick={() => navigate('/puntos-de-retiro')}
-              className="relative flex items-center gap-2 px-5 py-2.5 
-                       bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700
-                       rounded-full text-white font-bold text-sm
-                       transition-all duration-300 shadow-lg hover:shadow-blue-500/50
-                       border border-blue-500/30 overflow-hidden group
+              className="relative flex items-center gap-2 px-6 py-2.5
+                       bg-gradient-to-br from-blue-500/20 to-indigo-500/20
+                       hover:from-blue-500/30 hover:to-indigo-500/30
+                       backdrop-blur-sm rounded-full font-medium text-sm
+                       transition-all duration-300 
+                       border border-blue-400/30 hover:border-blue-400/50
+                       shadow-lg shadow-blue-500/20
                        hover:scale-105 active:scale-95"
             >
-              <div className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/20 to-white/0 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700" />
-              <MapPin className="h-4 w-4 relative z-10" strokeWidth={2.5} />
-              <span className="hidden lg:inline relative z-10">Puntos de Retiro</span>
+              <MapPin className="h-4 w-4 text-blue-300" strokeWidth={2.5} />
+              <span className="hidden lg:inline text-blue-100">Puntos de Retiro</span>
             </button>
 
+            {/* Inicio - Con color verde */}
             <button
               onClick={() => {
                 navigate('/');
                 onGoHome?.();
               }}
-              className="relative flex items-center gap-2 px-5 py-2.5 
-                       bg-gradient-to-r from-green-600 to-emerald-600 hover:from-green-700 hover:to-emerald-700
-                       rounded-full text-white font-bold text-sm
-                       transition-all duration-300 shadow-lg hover:shadow-green-500/50
-                       border border-green-500/30 overflow-hidden group
+              className="relative flex items-center gap-2 px-6 py-2.5
+                       bg-gradient-to-br from-green-500/20 to-emerald-500/20
+                       hover:from-green-500/30 hover:to-emerald-500/30
+                       backdrop-blur-sm rounded-full font-medium text-sm
+                       transition-all duration-300 
+                       border border-green-400/30 hover:border-green-400/50
+                       shadow-lg shadow-green-500/20
                        hover:scale-105 active:scale-95"
             >
-              <div className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/20 to-white/0 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700" />
-              <Home className="h-4 w-4 relative z-10" strokeWidth={2.5} />
-              <span className="hidden lg:inline relative z-10">Inicio</span>
+              <Home className="h-4 w-4 text-green-300" strokeWidth={2.5} />
+              <span className="hidden lg:inline text-green-100">Inicio</span>
             </button>
           </div>
         </div>

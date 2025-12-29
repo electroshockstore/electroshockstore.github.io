@@ -72,7 +72,7 @@ const ManualMode = ({ onModeChange, onGoHome }) => {
         hideSearchOnMobile={true}
       />
       
-      {/* Desktop Layout: 3 columns */}
+      {/* Desktop Layout: 2-3 columns depending on preview state */}
       <main className="hidden lg:flex flex-1 w-full overflow-hidden">
         <CategorySidebar 
           selectedCategory={selectedCategory}
@@ -88,7 +88,7 @@ const ManualMode = ({ onModeChange, onGoHome }) => {
             onProductClick={handleProductClick}
             onAddProduct={handleAddProduct}
             onSkipCategory={() => {
-              const categories = ['Procesadores', 'Motherboards', 'Memorias RAM', 'Fuentes', 'Refrigeración', 'Almacenamiento'];
+              const categories = ['Procesadores', 'Motherboards', 'Memorias RAM', 'Refrigeración', 'Almacenamiento', 'Fuentes'];
               const currentIndex = categories.indexOf(selectedCategory);
               
               if (currentIndex !== -1 && currentIndex < categories.length - 1) {
@@ -99,10 +99,18 @@ const ManualMode = ({ onModeChange, onGoHome }) => {
           />
         </div>
         
-        <ProductPreviewPanel
-          selectedProduct={selectedProduct}
-          selectedCategory={selectedCategory}
-        />
+        {/* Preview Panel - Only show when product is selected */}
+        {selectedProduct && (
+          <ProductPreviewPanel
+            selectedProduct={selectedProduct}
+            selectedCategory={selectedCategory}
+            onBack={() => setSelectedProduct(null)}
+            onAdd={() => {
+              handleAddProduct(selectedProduct);
+              setSelectedProduct(null);
+            }}
+          />
+        )}
       </main>
 
       {/* Mobile/Tablet Layout: PC Case visualization + Category list */}
@@ -186,9 +194,9 @@ const ManualMode = ({ onModeChange, onGoHome }) => {
                   { key: 'Procesadores', label: 'Procesador', icon: '/images/icons/cpu_icon_tiny.webp', buildKey: 'cpu' },
                   { key: 'Motherboards', label: 'Motherboard', icon: '/images/icons/motherboard_icon_tiny.webp', buildKey: 'motherboard' },
                   { key: 'Memorias RAM', label: 'Memoria RAM', icon: '/images/icons/ram_icon_tiny.webp', buildKey: 'ram' },
-                  { key: 'Fuentes', label: 'Fuente', icon: '/images/icons/psu_icon_tiny.webp', buildKey: 'psu' },
                   { key: 'Refrigeración', label: 'Refrigeración', icon: '/images/icons/refrigeracion_icon_tiny.webp', buildKey: 'cooling' },
-                  { key: 'Almacenamiento', label: 'Almacenamiento', icon: '/images/icons/storage_icon_tiny.webp', buildKey: 'storage' }
+                  { key: 'Almacenamiento', label: 'Almacenamiento', icon: '/images/icons/storage_icon_tiny.webp', buildKey: 'storage' },
+                  { key: 'Fuentes', label: 'Fuente', icon: '/images/icons/psu_icon_tiny.webp', buildKey: 'psu' }
                 ].map((cat) => {
                   const component = pcBuild[cat.buildKey] && (Array.isArray(pcBuild[cat.buildKey]) ? pcBuild[cat.buildKey][0] : pcBuild[cat.buildKey]);
                   const hasComponent = component != null;
@@ -274,7 +282,7 @@ const ManualMode = ({ onModeChange, onGoHome }) => {
                     onProductClick={handleProductClick}
                     onAddProduct={handleAddProduct}
                     onSkipCategory={() => {
-                      const categories = ['Procesadores', 'Motherboards', 'Memorias RAM', 'Fuentes', 'Refrigeración', 'Almacenamiento'];
+                      const categories = ['Procesadores', 'Motherboards', 'Memorias RAM', 'Refrigeración', 'Almacenamiento', 'Fuentes'];
                       const currentIndex = categories.indexOf(selectedCategory);
                       
                       if (currentIndex !== -1 && currentIndex < categories.length - 1) {

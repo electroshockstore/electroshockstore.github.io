@@ -73,8 +73,8 @@ const CompactProductCard = memo(({ product, compatibilityResult, isSelected, onC
         ) : null}
       </div>
       
-      {/* Product Image - Compacto */}
-      <div className="aspect-square bg-gradient-to-br from-gray-50 to-gray-100 flex items-center justify-center p-2 lg:p-4 overflow-hidden">
+      {/* Product Image - Más compacto */}
+      <div className="aspect-square bg-gradient-to-br from-gray-50 to-gray-100 flex items-center justify-center p-1.5 lg:p-2 xl:p-3 overflow-hidden">
         <img 
           src={productImage} 
           alt={product.name}
@@ -82,23 +82,23 @@ const CompactProductCard = memo(({ product, compatibilityResult, isSelected, onC
         />
       </div>
       
-      {/* Product Info - Optimizado para mobile */}
-      <div className="p-2 lg:p-3 flex flex-col flex-1">
-        {/* Brand - Más pequeño en mobile */}
+      {/* Product Info - Ultra compacto */}
+      <div className="p-1.5 lg:p-2 xl:p-2.5 flex flex-col flex-1">
+        {/* Brand - Más pequeño */}
         {product.brand && (
-          <p className="text-[9px] lg:text-xs font-semibold text-blue-600 mb-1 uppercase tracking-wide truncate">
+          <p className="text-[8px] lg:text-[9px] xl:text-[10px] font-semibold text-blue-600 mb-0.5 lg:mb-1 uppercase tracking-wide truncate">
             {product.brand}
           </p>
         )}
         
-        {/* Name - Siempre visible, máximo 2 líneas en mobile, 3 en desktop */}
-        <h3 className="font-bold text-gray-900 text-[11px] lg:text-sm mb-1.5 lg:mb-2 line-clamp-2 lg:line-clamp-3 leading-tight">
+        {/* Name - Compacto */}
+        <h3 className="font-bold text-gray-900 text-[10px] lg:text-[11px] xl:text-xs mb-1 lg:mb-1.5 line-clamp-2 leading-tight">
           {product.name}
         </h3>
         
-        {/* Price - Siempre visible y destacado */}
-        <div className="mb-2 lg:mb-3">
-          <span className="text-sm lg:text-xl font-black text-gray-900 block">
+        {/* Price - Compacto */}
+        <div className="mb-1.5 lg:mb-2">
+          <span className="text-xs lg:text-sm xl:text-base font-black text-gray-900 block">
             ${product.price.toLocaleString()}
           </span>
           
