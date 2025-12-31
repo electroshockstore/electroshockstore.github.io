@@ -1,0 +1,485 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.font-outfit { font-family: 'Outfit', sans-serif; }
+
+/* ===== OPTIMIZACIONES DE PERFORMANCE ===== */
+
+/* Page transitions - Reemplazo de framer-motion */
+.page-transition {
+  animation: pageTransition 0.25s ease-out;
+}
+
+@keyframes pageTransition {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Product card animations - Stagger effect */
+.product-card-enter {
+  animation: productCardEnter 0.3s ease-out backwards;
+}
+
+@keyframes productCardEnter {
+  from {
+    opacity: 0;
+    transform: translateY(20px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* Stagger delays para primeros items */
+.product-card-enter:nth-child(1) { animation-delay: 0.05s; }
+.product-card-enter:nth-child(2) { animation-delay: 0.08s; }
+.product-card-enter:nth-child(3) { animation-delay: 0.11s; }
+.product-card-enter:nth-child(4) { animation-delay: 0.14s; }
+.product-card-enter:nth-child(5) { animation-delay: 0.17s; }
+.product-card-enter:nth-child(6) { animation-delay: 0.20s; }
+.product-card-enter:nth-child(7) { animation-delay: 0.23s; }
+.product-card-enter:nth-child(8) { animation-delay: 0.26s; }
+
+/* Shimmer animation for power consumption bar */
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+.animate-shimmer {
+  animation: shimmer 2s infinite;
+}
+
+/* Smooth hover transitions */
+.smooth-hover {
+  transition: transform 0.2s cubic-bezier(0.4, 0, 0.2, 1),
+              box-shadow 0.2s cubic-bezier(0.4, 0, 0.2, 1),
+              border-color 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.smooth-hover:hover {
+  transform: translateY(-4px);
+}
+
+/* GPU acceleration hints */
+.gpu-accelerated {
+  will-change: transform;
+  transform: translateZ(0);
+  backface-visibility: hidden;
+}
+
+/* PC Builder Card animation */
+.pc-builder-card-enter {
+  animation: pcBuilderCardEnter 0.4s ease-out backwards;
+}
+
+@keyframes pcBuilderCardEnter {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Floating Chat Button animations */
+.floating-chat-enter {
+  animation: floatingChatEnter 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55) 1s backwards;
+}
+
+@keyframes floatingChatEnter {
+  from {
+    opacity: 0;
+    transform: scale(0);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.chat-options-enter {
+  animation: chatOptionsEnter 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+@keyframes chatOptionsEnter {
+  from {
+    opacity: 0;
+    transform: translateY(20px) scale(0.8);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* Chat button animations */
+@keyframes shine {
+  from { transform: translateX(-100%); }
+  to { transform: translateX(200%); }
+}
+
+@keyframes pulse-ring {
+  0%, 100% { 
+    transform: scale(1);
+    opacity: 0.5;
+  }
+  50% { 
+    transform: scale(1.3);
+    opacity: 0;
+  }
+}
+
+@keyframes wiggle {
+  0%, 100% { transform: rotate(0deg); }
+  25% { transform: rotate(10deg); }
+  75% { transform: rotate(-10deg); }
+}
+
+@keyframes arrow-bounce {
+  0%, 100% { transform: translateX(0); }
+  50% { transform: translateX(5px); }
+}
+
+@keyframes accent-line {
+  0%, 100% { transform: scaleX(0); }
+  50% { transform: scaleX(1); }
+}
+
+@keyframes float-particle-1 {
+  0%, 100% { 
+    transform: translateY(0);
+    opacity: 0;
+  }
+  50% { 
+    transform: translateY(-20px);
+    opacity: 1;
+  }
+}
+
+@keyframes float-particle-2 {
+  0%, 100% { 
+    transform: translateY(0);
+    opacity: 0;
+  }
+  50% { 
+    transform: translateY(-15px);
+    opacity: 1;
+  }
+}
+
+.animate-shine {
+  animation: shine 3s linear infinite;
+}
+
+.animate-pulse-ring {
+  animation: pulse-ring 2s ease-out infinite;
+}
+
+.animate-wiggle {
+  animation: wiggle 2s ease-in-out infinite;
+}
+
+.animate-arrow-bounce {
+  animation: arrow-bounce 1.5s ease-in-out infinite;
+}
+
+.animate-accent-line {
+  animation: accent-line 2s ease-in-out infinite;
+}
+
+.animate-float-particle-1 {
+  animation: float-particle-1 3s ease-in-out infinite;
+}
+
+.animate-float-particle-2 {
+  animation: float-particle-2 2.5s ease-in-out 0.5s infinite;
+}
+
+/* Header animations */
+.header-bot-enter {
+  animation: headerBotEnter 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55) 0.8s backwards;
+}
+
+@keyframes headerBotEnter {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.animate-bot-pulse {
+  animation: botPulse 2s ease-in-out infinite;
+}
+
+@keyframes botPulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.15); }
+}
+
+.animate-bot-glow {
+  animation: botGlow 2s ease-in-out infinite;
+}
+
+@keyframes botGlow {
+  0%, 100% { 
+    transform: scale(1);
+    opacity: 0.6;
+  }
+  50% { 
+    transform: scale(1.5);
+    opacity: 0;
+  }
+}
+
+.animate-arrow-wiggle {
+  animation: arrowWiggle 1.5s ease-in-out infinite;
+}
+
+@keyframes arrowWiggle {
+  0%, 100% { transform: translateX(0); }
+  50% { transform: translateX(3px); }
+}
+
+.animate-button-float {
+  animation: buttonFloat 2s ease-in-out infinite;
+}
+
+@keyframes buttonFloat {
+  0%, 100% { 
+    transform: scale(1) translateY(0);
+  }
+  50% { 
+    transform: scale(1.08) translateY(-3px);
+  }
+}
+
+.animate-button-glow {
+  animation: buttonGlow 2s ease-in-out infinite;
+}
+
+@keyframes buttonGlow {
+  0%, 100% { 
+    transform: scale(1);
+    opacity: 0.7;
+  }
+  50% { 
+    transform: scale(1.6);
+    opacity: 0;
+  }
+}
+
+.search-results-enter {
+  animation: searchResultsEnter 0.2s ease-out;
+}
+
+@keyframes searchResultsEnter {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.modal-scale-enter {
+  animation: modalScaleEnter 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+@keyframes modalScaleEnter {
+  from {
+    opacity: 0;
+    transform: scale(0.95) translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+/* Reduce motion para accesibilidad */
+@media (prefers-reduced-motion: reduce) {
+  .page-transition,
+  .product-card-enter,
+  .smooth-hover,
+  .carousel-image-transition,
+  .carousel-content-transition,
+  .carousel-point-transition,
+  .pc-builder-card-enter,
+  .floating-chat-enter,
+  .chat-options-enter,
+  .animate-shine,
+  .animate-pulse-ring,
+  .animate-wiggle,
+  .animate-arrow-bounce,
+  .animate-accent-line,
+  .animate-float-particle-1,
+  .animate-float-particle-2,
+  .header-bot-enter,
+  .animate-bot-pulse,
+  .animate-bot-glow,
+  .animate-arrow-wiggle,
+  .animate-button-float,
+  .animate-button-glow,
+  .search-results-enter,
+  .modal-scale-enter {
+    animation: none !important;
+    transition: none !important;
+  }
+}
+
+/* --- CONFIGURACIÓN DE MALLA ABSTRACTA (OPTIMIZADA) --- */
+
+.mesh-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  filter: blur(40px) contrast(1.2); /* Reducido de 80px a 40px */
+  opacity: 0.6;
+  will-change: transform; /* Optimización GPU */
+}
+
+.blob {
+  position: absolute;
+  width: 500px;
+  height: 500px;
+  border-radius: 50%;
+  mix-blend-mode: screen;
+  will-change: transform;
+}
+
+/* Animaciones Orbitales Simplificadas */
+@keyframes orbit-1 {
+  0%, 100% { transform: translate(0%, 0%) scale(1); }
+  50% { transform: translate(20%, 15%) scale(1.1); }
+}
+
+@keyframes orbit-2 {
+  0%, 100% { transform: translate(20%, -10%) scale(1.1); }
+  50% { transform: translate(-20%, 20%) scale(1.2); }
+}
+
+@keyframes orbit-3 {
+  0%, 100% { transform: translate(-20%, 20%); }
+  50% { transform: translate(30%, -10%) scale(1.1); }
+}
+
+.animate-orbit-1 { animation: orbit-1 20s infinite ease-in-out; }
+.animate-orbit-2 { animation: orbit-2 25s infinite ease-in-out; }
+.animate-orbit-3 { animation: orbit-3 18s infinite ease-in-out; }
+
+/* Textura de Grano (Optimizada) */
+.bg-grain {
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+  opacity: 0.04;
+}
+
+.mask-edge-left {
+  mask-image: linear-gradient(to right, black 70%, transparent 100%);
+}
+
+.hero-overlay-mask {
+  background: linear-gradient(to right, rgba(3, 7, 18, 0) 20%, rgba(3, 7, 18, 0.8) 80%);
+}
+
+.text-shadow-premium {
+  text-shadow: 0 4px 15px rgba(0, 0, 0, 0.8), 0 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+
+
+.font-outfit { font-family: 'Outfit', sans-serif; }
+
+.text-glow-blue { text-shadow: 0 0 20px rgba(59, 130, 246, 0.5); }
+.text-glow-emerald { text-shadow: 0 0 20px rgba(16, 185, 129, 0.5); }
+
+.hero-mask-layer {
+  background: linear-gradient(to right, rgba(3, 7, 18, 0.2) 0%, rgba(3, 7, 18, 0.6) 40%, rgba(3, 7, 18, 0.95) 80%);
+}
+
+/* Animación de glowing gradient simplificada */
+@keyframes glowPulse {
+  0%, 100% { opacity: 0.3; }
+  50% { opacity: 0.6; }
+}
+
+/* Ocultar scrollbar pero mantener funcionalidad */
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+/* ===== SCROLLBAR PERSONALIZADO MINIMALISTA (Solo para elementos específicos) ===== */
+
+/* Firefox - Solo para elementos con clase scrollbar-custom */
+.scrollbar-custom {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(59, 130, 246, 0.5) rgba(15, 23, 42, 0.3);
+}
+
+/* Chrome, Edge, Safari - Solo para elementos con clase scrollbar-custom */
+.scrollbar-custom::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+.scrollbar-custom::-webkit-scrollbar-track {
+  background: rgba(15, 23, 42, 0.3);
+  border-radius: 10px;
+}
+
+.scrollbar-custom::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, rgba(59, 130, 246, 0.6), rgba(37, 99, 235, 0.8));
+  border-radius: 10px;
+  border: 2px solid rgba(15, 23, 42, 0.3);
+  transition: all 0.3s ease;
+}
+
+.scrollbar-custom::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, rgba(59, 130, 246, 0.9), rgba(37, 99, 235, 1));
+  border-color: rgba(59, 130, 246, 0.2);
+}
+
+.scrollbar-custom::-webkit-scrollbar-thumb:active {
+  background: linear-gradient(180deg, rgba(37, 99, 235, 1), rgba(29, 78, 216, 1));
+}
+
+/* Scrollbar para elementos con fondo claro */
+.scrollbar-light::-webkit-scrollbar-track {
+  background: rgba(226, 232, 240, 0.5);
+}
+
+.scrollbar-light::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, rgba(59, 130, 246, 0.4), rgba(37, 99, 235, 0.6));
+  border: 2px solid rgba(255, 255, 255, 0.5);
+}
+
+.scrollbar-light::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, rgba(59, 130, 246, 0.7), rgba(37, 99, 235, 0.9));
+}

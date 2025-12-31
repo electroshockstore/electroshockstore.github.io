@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/png" href="/logotipo_tiny.png" />
+    <link rel="apple-touch-icon" href="/logotipo_tiny.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
+    <!-- SEO Meta Tags -->
+    <title>Shock-Store | Catálogo de Venta - Tecnología y Componentes PC</title>
+    <meta name="description" content="Catálogo de productos Shock-Store. Componentes de PC, periféricos gaming, hardware y tecnología. Berazategui y Florencio Varela." />
+    <meta name="keywords" content="shock-store, componentes pc, hardware, gaming, periféricos, tecnología, berazategui, florencio varela" />
+    <meta name="author" content="Shock-Store" />
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://www.jldev.com.ar/" />
+    <meta property="og:title" content="Shock-Store | Catálogo de Venta" />
+    <meta property="og:description" content="Catálogo actualizado con todos los productos. Componentes PC, gaming y tecnología." />
+    <meta property="og:image" content="https://www.jldev.com.ar/logotipo_tiny.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Shock-Store Logo" />
+    <meta property="og:site_name" content="Shock-Store" />
+    <meta property="og:locale" content="es_AR" />
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content="https://www.jldev.com.ar/" />
+    <meta property="twitter:title" content="Shock-Store | Catálogo de Venta" />
+    <meta property="twitter:description" content="Catálogo de productos Shock-Store. Componentes de PC, periféricos gaming y tecnología." />
+    <meta property="twitter:image" content="https://www.jldev.com.ar/logotipo_tiny.png" />
+    
+    <!-- Theme Color -->
+    <meta name="theme-color" content="#000000" />
+
+    <!-- GitHub Pages SPA redirect script -->
+    <script type="text/javascript">
+      // GitHub Pages SPA redirect hack
+      // This script takes the current url and converts the path and query
+      // string into just a query string, and then redirects the browser
+      // to the new url with only a query string and hash fragment
+      var pathSegmentsToKeep = 0;
+      var l = window.location;
+      l.replace(
+        l.protocol + '//' + l.hostname + (l.port ? ':' + l.port : '') +
+        l.pathname.split('/').slice(0, 1 + pathSegmentsToKeep).join('/') + '/?/' +
+        l.pathname.slice(1).split('/').slice(pathSegmentsToKeep).join('/').replace(/&/g, '~and~') +
+        (l.search ? '&' + l.search.slice(1).replace(/&/g, '~and~') : '') +
+        l.hash
+      );
+    </script>
+
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-3QWBT9X9KE"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-3QWBT9X9KE', {
+        page_path: window.location.pathname,
+      });
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
+</html>
