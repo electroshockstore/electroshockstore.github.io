@@ -48,9 +48,12 @@ export const tecladosProducts = [
     sku: "RED-EISA-ANIME",
     description: "Teclado mecánico 75% RGB inalámbrico con diseño anime y triple conectividad",
     images: [
+      "/images/teclados/eisa_max_pro.webp",
       "/images/teclados/eisa_max_pro_key.webp",
-      "/images/teclados/eisa_k686ak_anime_side.webp",
-      "/images/teclados/eisa_k686ak_anime_back.webp"
+      "/images/teclados/eisa_max_pro_key_side.webp",
+      "/images/teclados/eisa_max_pro_key_side2.webp",
+       "/images/teclados/eisa_max_pro_key_side3.webp",
+        "/images/teclados/eisa_max_pro_key_side4.webp"
     ],
     specifications: {
       "Marca": "Redragon",
@@ -81,12 +84,13 @@ export const tecladosProducts = [
     sku: "RED-EISA-K686",
     description: "Teclado mecánico 98% RGB con triple conectividad: 2.4Ghz, Bluetooth 5.0, USB-C. Switches lineales hot-swappable",
     images: [
-      "/images/teclados/eisa_max_pro.webp",
-      "/images/teclados/eisa_max_pro_key.webp",
-      "/images/teclados/eisa_max_pro_key_side2.webp",
-      "/images/teclados/eisa_max_pro_key_side3.webp",
-      "/images/teclados/eisa_max_pro_key_side4.webp",
-      "/images/teclados/eisa_max_pro_key_side.webp"
+      "/images/teclados/eisamax_teclado.webp",
+      "/images/teclados/eisamax_teclado_key.webp",
+      "/images/teclados/eisamax_teclado_side2.webp",
+      "/images/teclados/eisamax_teclado_side.webp",
+      "/images/teclados/eisamax_teclado_specs.webp",
+      "/images/teclados/eisamax_teclado_back.webp"
+      
     ],
     specifications: {
       "Marca": "Redragon",
