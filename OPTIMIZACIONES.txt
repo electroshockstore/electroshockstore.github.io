@@ -1,0 +1,31 @@
+OPTIMIZACIONES APLICADAS AL PROYECTO
+
+1. FilterContext.jsx
+   - Optimización del useEffect de filtrado
+   - Reducción de iteraciones con .every() en lugar de múltiples .forEach()
+   - Early return cuando products es null
+
+2. HeroCarousel.jsx
+   - Optimización de preload de imágenes
+   - Uso de Set más eficiente para loadedImages
+   - Reducción de re-renders innecesarios
+
+3. ProductCard (versión optimizada creada)
+   - Memoización de stockStatus (constante)
+   - Extracción de categoryImages fuera del componente
+   - Simplificación de getProductImage
+
+4. CSS (Index.css)
+   - Animaciones optimizadas (blur reducido de 80px a 40px)
+   - will-change para optimización GPU
+   - Scrollbar personalizado solo donde se necesita
+
+ARCHIVOS OPTIMIZADOS CREADOS:
+- src/components/InventoryApp/ProductCard/ProductCard.optimized.jsx
+
+PRÓXIMOS PASOS RECOMENDADOS:
+1. Reemplazar archivos originales con versiones optimizadas
+2. Implementar lazy loading para categorías de datos
+3. Considerar React.lazy() para rutas menos usadas
+4. Implementar virtual scrolling para listas largas
+5. Optimizar imágenes con srcset/sizes
