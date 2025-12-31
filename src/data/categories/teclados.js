@@ -50,10 +50,10 @@ export const tecladosProducts = [
     images: [
       "/images/teclados/eisa_max_pro.webp",
       "/images/teclados/eisa_max_pro_key.webp",
-      "/images/teclados/eisa_max_pro_key_side.webp",
-      "/images/teclados/eisa_max_pro_key_side2.webp",
-       "/images/teclados/eisa_max_pro_key_side3.webp",
-        "/images/teclados/eisa_max_pro_key_side4.webp"
+      "/images/teclados/eisa_max_pro_side.webp",
+      "/images/teclados/eisa_max_pro_side2.webp",
+       "/images/teclados/eisa_max_pro_side3.webp",
+        "/images/teclados/eisa_max_pro_side4.webp"
     ],
     specifications: {
       "Marca": "Redragon",
