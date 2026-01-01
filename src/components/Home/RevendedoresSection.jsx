@@ -105,22 +105,22 @@ const RevendedoresSection = ({ products = [], onProductClick }) => {
                 <div className="flex justify-center pt-8">
                     <button
                         onClick={handleVerMas}
-                        className="group relative inline-flex items-center gap-4 px-10 sm:px-12 py-5 sm:py-6 bg-gradient-to-r from-amber-500 via-orange-500 to-red-500 hover:from-amber-400 hover:via-orange-400 hover:to-red-400 rounded-2xl font-black text-white text-lg sm:text-xl shadow-2xl shadow-amber-500/50 hover:shadow-3xl hover:shadow-amber-500/70 transition-all duration-500 hover:scale-110 active:scale-95 border-2 border-amber-400/40 hover:border-amber-300/60"
+                        className="group relative inline-flex items-center gap-2 sm:gap-4 px-6 sm:px-10 md:px-12 py-3 sm:py-5 md:py-6 bg-gradient-to-r from-amber-500 via-orange-500 to-red-500 hover:from-amber-400 hover:via-orange-400 hover:to-red-400 rounded-xl sm:rounded-2xl font-bold sm:font-black text-white text-sm sm:text-lg md:text-xl shadow-xl sm:shadow-2xl shadow-amber-500/40 sm:shadow-amber-500/50 hover:shadow-2xl sm:hover:shadow-3xl hover:shadow-amber-500/60 sm:hover:shadow-amber-500/70 transition-all duration-500 hover:scale-105 sm:hover:scale-110 active:scale-95 border border-amber-400/30 sm:border-2 sm:border-amber-400/40 hover:border-amber-300/50 sm:hover:border-amber-300/60"
                     >
                         {/* Efecto de brillo animado */}
-                        <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent opacity-0 group-hover:opacity-100 rounded-2xl transition-opacity duration-500 animate-pulse" />
+                        <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 sm:via-white/30 to-transparent opacity-0 group-hover:opacity-100 rounded-xl sm:rounded-2xl transition-opacity duration-500 animate-pulse" />
                         
                         {/* Resplandor de fondo */}
-                        <div className="absolute inset-0 bg-gradient-to-r from-amber-400 to-orange-400 rounded-2xl blur-xl opacity-0 group-hover:opacity-60 transition-opacity duration-500 -z-10 scale-110" />
+                        <div className="absolute inset-0 bg-gradient-to-r from-amber-400 to-orange-400 rounded-xl sm:rounded-2xl blur-lg sm:blur-xl opacity-0 group-hover:opacity-50 sm:group-hover:opacity-60 transition-opacity duration-500 -z-10 scale-110" />
                         
-                        <Package className="w-7 h-7 group-hover:rotate-12 group-hover:scale-110 transition-transform duration-500" />
-                        <span className="relative z-10 tracking-wide">Ver todos los packs mayoristas</span>
-                        <ArrowRight className="w-7 h-7 group-hover:translate-x-3 group-hover:scale-110 transition-transform duration-500" />
+                        <Package className="w-4 h-4 sm:w-6 md:w-7 group-hover:rotate-12 group-hover:scale-110 transition-transform duration-500" />
+                        <span className="relative z-10 tracking-wide text-xs sm:text-base md:text-lg">Ver todos los packs mayoristas</span>
+                        <ArrowRight className="w-4 h-4 sm:w-6 md:w-7 group-hover:translate-x-2 sm:group-hover:translate-x-3 group-hover:scale-110 transition-transform duration-500" />
                         
-                        {/* Partículas animadas mejoradas */}
-                        <div className="absolute -top-2 -right-2 w-4 h-4 bg-amber-300 rounded-full opacity-0 group-hover:opacity-100 animate-ping" />
-                        <div className="absolute -bottom-2 -left-2 w-3 h-3 bg-orange-300 rounded-full opacity-0 group-hover:opacity-100 animate-ping" style={{ animationDelay: '0.3s' }} />
-                        <div className="absolute top-1/2 -right-4 w-2 h-2 bg-yellow-300 rounded-full opacity-0 group-hover:opacity-100 animate-ping" style={{ animationDelay: '0.6s' }} />
+                        {/* Partículas animadas mejoradas - Solo en desktop */}
+                        <div className="hidden sm:block absolute -top-2 -right-2 w-3 md:w-4 h-3 md:h-4 bg-amber-300 rounded-full opacity-0 group-hover:opacity-100 animate-ping" />
+                        <div className="hidden sm:block absolute -bottom-2 -left-2 w-2 md:w-3 h-2 md:h-3 bg-orange-300 rounded-full opacity-0 group-hover:opacity-100 animate-ping" style={{ animationDelay: '0.3s' }} />
+                        <div className="hidden sm:block absolute top-1/2 -right-3 md:-right-4 w-1.5 md:w-2 h-1.5 md:h-2 bg-yellow-300 rounded-full opacity-0 group-hover:opacity-100 animate-ping" style={{ animationDelay: '0.6s' }} />
                     </button>
                 </div>
             </div>
