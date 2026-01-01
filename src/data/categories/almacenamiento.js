@@ -84,7 +84,7 @@ export const almacenamientoProducts = [
     brand: "Kingston",
     model: "NV3 SNV3S/1000G",
     category: "Almacenamiento",
-    price: 200000,
+    price: 210000,
     stock: 2,
     sku: "KING-1TB-GEN4",
     description: "SSD M.2 NVMe Gen4 x4 de 1TB, lectura 3500 MB/s, escritura 2800 MB/s",
@@ -169,23 +169,31 @@ export const almacenamientoProducts = [
   },
   {
     id: 207,
-    name: "SSD Western Digital Green 480GB SATA III 2.5\"",
-    brand: "Western Digital",
-    model: "WD Green",
+    name: "SSD Kingston NV2 250GB NVMe PCIe Generacion 4.0",
+    brand: "Kingston",
+    model: "NV2",
     category: "Almacenamiento",
-    price: 90000,
-    stock: 9,
-    sku: "WD-480-GREEN",
-    description: "SSD SATA III 2.5\" de 480GB, lectura 545 MB/s, bajo consumo energético",
+    price: 70000,
+    stock: 6,
+    sku: "KING-250-NV2",
+    description: "SSD Kingston NV2 250GB NVMe PCIe 4.0 M.2 2280 con velocidades de hasta 3000 MB/s de lectura",
     images: [
-      "/images/almacenamiento/wd_green480.webp",
-      "/images/almacenamiento/wd_green480_side.webp",
-      "/images/almacenamiento/wd_green480_side2.webp"
+      "/images/almacenamiento/kingston_nv2_250gb.webp",
+      "/images/almacenamiento/kingston_nv2_250gb_side.webp",
+      "/images/almacenamiento/kingston_nv2_250gb_side2.webp"
     ],
     specifications: {
-      "Capacidad": "480 GB",
-      "Interfaz": "SATA III 6 Gb/s",
-      "Lectura": "545 MB/s"
+      "Marca": "Kingston",
+      "Modelo": "NV2",
+      "Modelo detallado": "SNV2S/250G",
+      "Capacidad": "250 GB",
+      "Formato": "M.2 2280",
+      "Interfaz": "NVMe PCIe 4.0",
+      "Velocidad lectura": "Hasta 3000 MB/s",
+      "Velocidad escritura": "Hasta 1300 MB/s",
+      "Tipo memoria": "NAND",
+      "Uso recomendado": "PC / Notebook",
+      "Disipador": "No"
     }
   },
   {
@@ -252,24 +260,24 @@ export const almacenamientoProducts = [
   },
   {
     id: 211,
-    name: "SSD Adata SU650 256GB 2.5\" NAND 3D",
-    brand: "Adata",
-    model: "Ultimate SU650",
+
+ name: "SSD Western Digital Green 480GB SATA III 2.5\"",
+    brand: "Western Digital",
+    model: "WD Green",
     category: "Almacenamiento",
-    price: 60000,
+    price: 90000,
     stock: 9,
-    sku: "ADATA-256-SU650",
-    description: "SSD Adata SU650 256GB 2.5\" NAND 3D, lectura 520 MB/s, escritura 450 MB/s",
+    sku: "WD-480-GREEN",
+    description: "SSD SATA III 2.5\" de 480GB, lectura 545 MB/s, bajo consumo energético",
     images: [
-      "/images/almacenamiento/adatassd_250.webp",
-      "/images/almacenamiento/adatassd_250_side.webp",
-      "/images/almacenamiento/adatassd_250_blue.webp",
-      "/images/almacenamiento/adatassd_250_blue2.webp"
+      "/images/almacenamiento/wd_green480.webp",
+      "/images/almacenamiento/wd_green480_side.webp",
+      "/images/almacenamiento/wd_green480_side2.webp"
     ],
     specifications: {
-      "Capacidad": "256 GB",
-      "Lectura": "520 MB/s",
-      "Escritura": "450 MB/s"
+      "Capacidad": "480 GB",
+      "Interfaz": "SATA III 6 Gb/s",
+      "Lectura": "545 MB/s"
     }
   },
   {
@@ -397,7 +405,7 @@ export const almacenamientoProducts = [
       "Escritura": "1500 MB/s"
     }
   },
-  {
+ {
     id: 218,
     name: "NVME Western Digital Green SN350 500GB",
     brand: "Western Digital",
@@ -417,14 +425,41 @@ export const almacenamientoProducts = [
       "Escritura": "1500 MB/s"
     }
   },
+  
+ { 
+  id: 219,
+        name: "SSD Adata SU650 256GB 2.5\" NAND 3D",
+    brand: "Adata",
+    model: "Ultimate SU650",
+    category: "Almacenamiento",
+    price: 60000,
+    stock: 9,
+    sku: "ADATA-256-SU650",
+    description: "SSD Adata SU650 256GB 2.5\" NAND 3D, lectura 520 MB/s, escritura 450 MB/s",
+    images: [
+      "/images/almacenamiento/adatassd_250.webp",
+      "/images/almacenamiento/adatassd_250_side.webp",
+      "/images/almacenamiento/adatassd_250_blue.webp",
+      "/images/almacenamiento/adatassd_250_blue2.webp"
+    ],
+    specifications: {
+      "Capacidad": "256 GB",
+      "Lectura": "520 MB/s",
+      "Escritura": "450 MB/s"
+     }
+  },
+
+
+
+
   {
-    id: 219,
+    id: 220,
     name: "Externo Western Digital WD Elements 2TB",
     brand: "Western Digital",
     model: "WD Elements Portable",
     category: "Almacenamiento",
     price: 180000,
-    stock: 3,
+    stock: 4,
     sku: "WD-2TB-ELEMENTS",
     description: "Disco duro externo Western Digital WD Elements 2TB USB 3.0",
     images: [
@@ -440,13 +475,13 @@ export const almacenamientoProducts = [
     }
   },
   {
-    id: 220,
+    id: 221,
     name: "Externo Western Digital WD Elements 1TB",
     brand: "Western Digital",
     model: "WD Elements Portable",
     category: "Almacenamiento",
     price: 110000,
-    stock: 5,
+    stock: 3,
     sku: "WD-1TB-ELEMENTS",
     description: "Disco duro externo Western Digital WD Elements 1TB USB 3.0",
     images: [
@@ -461,13 +496,13 @@ export const almacenamientoProducts = [
     }
   },
   {
-    id: 221,
+    id: 222,
     name: "HDD Seagate SkyHawk 4TB para Seguridad SATA ST4000VX016",
     brand: "Seagate",
     model: "SkyHawk ST4000VX016",
     category: "Almacenamiento",
-    price: 150000,
-    stock: 2,
+    price: 130000,
+    stock: 4,
     sku: "SEAGATE-4TB-SKYHAWK",
     description: "Disco duro 3.5\" 4TB SATA III optimizado para videovigilancia 24/7, 5900 RPM, caché 256MB",
     images: [
@@ -485,3 +520,6 @@ export const almacenamientoProducts = [
     }
   }
 ];
+
+
+

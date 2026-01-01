@@ -1,6 +1,6 @@
 // ═══════════════════════════════════════════════════════════════
 // RANGO DE IDs: 1200-1299 (Refrigeración)
-// Próximo ID disponible: 1206
+// Próximo ID disponible: 1207
 // ═══════════════════════════════════════════════════════════════
 export const refrigeracionProducts = [
   {
@@ -11,7 +11,7 @@ export const refrigeracionProducts = [
     category: "Refrigeración",
     price: 60000,
     stock: 3,
-    totalConsumption: "5.4W (Kit completo)", // 1.8W por fan (motor + LEDs)
+    totalConsumption: "5.4W (Kit completo)",
     type: "Case Cooling",
     images: ["/images/refrigeracion/aerocool_duo12pro.webp", "/images/refrigeracion/aerocool_duo12pro_side.webp"],
     description: "Kit con 3 ventiladores ARGB de 120mm con iluminación RGB direccionable de doble anillo.",
@@ -32,7 +32,7 @@ export const refrigeracionProducts = [
     stock: 1,
     pumpConsumption: "3.5W", 
     fanConsumption: "4.8W (par)",
-    maxTdpDissipation: "310W", // Capacidad térmica extrema
+    maxTdpDissipation: "310W", 
     images: ["/images/refrigeracion/watercooler_formulav_l240.webp", "/images/refrigeracion/watercooler_formulav_l240_side.webp"],
     description: "Refrigeración líquida AIO 240mm con iluminación ARGB, TDP 310W",
     specifications: {
@@ -60,6 +60,13 @@ export const refrigeracionProducts = [
       "Extras": "Control remoto incluido"
     }
   },
+
+
+
+  
+
+
+
   {
     id: 1203,
     name: "Cooler Master Hyper 420s ARGB Black",
@@ -69,7 +76,7 @@ export const refrigeracionProducts = [
     price: 45000,
     stock: 1,
     fanConsumption: "2.4W",
-    maxTdpDissipation: "165W approx.", // Estimado para 4 heatpipes de 120mm
+    maxTdpDissipation: "165W approx.",
     images: ["/images/refrigeracion/cooler_hyper420s.webp", "/images/refrigeracion/cooler_hyper420s_side.webp"],
     description: "Cooler CPU por aire 120mm con 4 heatpipes de contacto directo.",
     specifications: {
@@ -112,6 +119,36 @@ export const refrigeracionProducts = [
       "TDP": "180W",
       "Heatpipes": "4 de cobre 6mm",
       "Flujo de aire": "72 CFM"
+    }
+  },
+  {
+    id: 1206,
+    name: "Cooler Master MF120 Lite ARGB Black",
+    brand: "Cooler Master",
+    model: "MF120 Lite ARGB",
+    category: "Refrigeración",
+    price: 10000,
+    stock: 5,
+    fanConsumption: "2.4W",
+    type: "Case Cooling",
+    images: [
+      "/images/refrigeracion/mf120lite_cooler.webp",
+      "/images/refrigeracion/mf120lite_cooler_front.webp",
+      "/images/refrigeracion/mf120lite_cooler_back.webp"
+    ],
+    description: "Ventilador de gabinete Cooler Master MasterFan MF120 Lite ARGB de 120mm con iluminación RGB direccionable",
+    specifications: {
+      marca: "Cooler Master",
+      linea: "MasterFan",
+      modelo: "MF120 Lite ARGB",
+      tamaño: "120 mm",
+      iluminacion: "ARGB",
+      velocidad: "Hasta 1800 RPM",
+      flujoAire: "Hasta 47.2 CFM",
+      nivelRuido: "Hasta 30 dBA",
+      conector: "4 pines PWM",
+      color: "Negro",
+      usoRecomendado: "Gabinete"
     }
   }
 ];

@@ -4,7 +4,7 @@
 // ═══════════════════════════════════════════════════════════════
 export const procesadoresProducts = [
   {
-    id: 302, // Corregido al rango solicitado
+    id: 302, 
     name: "AMD Ryzen 7 5700 AM4",
     brand: "AMD",
     model: "Ryzen 7 5700",
@@ -12,7 +12,7 @@ export const procesadoresProducts = [
     price: 220000,
     stock: 1,
     powerConsumption: 88, 
-    realPowerConsumption: "65W (TDP) / 88W (PPT Max Load)", // Consumo real bajo carga máxima sostenida
+    realPowerConsumption: "65W (TDP) / 88W (PPT Max Load)", 
     images: ["/images/procesadores/r7_5700.webp", "/images/procesadores/cooler_stock.webp"],
     description: "Procesador AMD Ryzen 7 5700 AM4 4.6 GHz Turbo con Cooler Wraith Stealth, sin integrada",
     specifications: {
@@ -57,7 +57,7 @@ export const procesadoresProducts = [
     category: "Procesadores",
     price: 305000,
     stock: 2,
-    realPowerConsumption: "65W (TDP) / 88W (PPT Max Load)", // Arquitectura Zen 4 optimizada para eficiencia
+    realPowerConsumption: "65W (TDP) / 88W (PPT Max Load)",
     images: ["/images/procesadores/r5_7600.webp", "/images/procesadores/r5_7600_cpu.webp", "/images/procesadores/r5_7600_specs.webp", "/images/procesadores/cooler_stock.webp"],
     description: "Procesador AMD Ryzen 5 7600 5.1GHz AM5 con integrada Vega y Cooler Wraith Stealth",
     specifications: {
@@ -80,7 +80,7 @@ export const procesadoresProducts = [
     category: "Procesadores",
     price: 140000,
     stock: 2,
-    realPowerConsumption: "65W (TDP) / 76W-82W (PPT Max Load)", // Uno de los Zen 3 más frescos
+    realPowerConsumption: "65W (TDP) / 76W-82W (PPT Max Load)",
     images: ["/images/procesadores/r5_5550.webp", "/images/procesadores/r5_5500_cooler.webp"],
     description: "Procesador AMD Ryzen 5 5500 4.2 GHz AM4 6 Core sin integrada con Cooler Wraith Stealth",
     specifications: {
@@ -145,7 +145,7 @@ export const procesadoresProducts = [
     category: "Procesadores",
     price: 180000,
     stock: 1,
-    realPowerConsumption: "65W (PL1) / 154W (PL2 Max Turbo Boost)", // Intel suele disparar el consumo en Turbo
+    realPowerConsumption: "65W (PL1) / 154W (PL2 Max Turbo Boost)", 
     images: ["/images/procesadores/i5_11400.webp", "/images/procesadores/i5_11400_cpu.webp", "/images/procesadores/cooler_stock.webp"],
     description: "Procesador Intel Core i5 11400 4.4GHz 6 Cores con gráficos integrados Intel UHD Graphics 730",
     specifications: {
@@ -167,7 +167,7 @@ export const procesadoresProducts = [
     category: "Procesadores",
     price: 210000,
     stock: 1,
-    realPowerConsumption: "65W (TDP) / 67W-75W (PPT Max Load)", // Altamente eficiente (Arquitectura 4nm)
+    realPowerConsumption: "65W (TDP) / 67W-75W (PPT Max Load)", 
     images: ["/images/procesadores/ryzen8400f.webp", "/images/procesadores/ryzen8400f_proce.webp", "/images/procesadores/ryzen8400f_side.webp", "/images/procesadores/cooler_stock.webp"],
     description: "AMD Ryzen 5 8400F 6 núcleos y 4.7GHz con Cooler Wraith Stealth, sin gráficos integrados",
     specifications: {
@@ -209,7 +209,7 @@ export const procesadoresProducts = [
     model: "Ryzen 5 4500",
     category: "Procesadores",
     price: 90000,
-    stock: 6,
+    stock: 7,
     realPowerConsumption: "65W (TDP) / 72W (PPT Max Load)", 
     images: ["/images/procesadores/r5_4500.webp", "/images/procesadores/cooler_stock.webp"],
     description: "Procesador AMD Ryzen 5 4500 6 Núcleos 4.1GHz DDR4 sin integrada, con Cooler Wraith Stealth",

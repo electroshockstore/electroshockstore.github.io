@@ -1,6 +1,6 @@
 // ═══════════════════════════════════════════════════════════════
 // RANGO DE IDs: 1500-1599 (Mayorista - Packs)
-// Próximo ID disponible: 1513
+// Próximo ID disponible: 1515
 // IMPORTANTE: NO usar IDs fuera de este rango
 // ═══════════════════════════════════════════════════════════════
 
@@ -142,7 +142,7 @@ export const mayoristaProducts = [
     brand: "Redragon",
     model: "S101-BA",
     category: "Mayorista",
-    price: 110000,
+    price: 100000,
     quantity: 2,
     unitPrice: 65000,
     stock: 4,
@@ -169,7 +169,7 @@ export const mayoristaProducts = [
     brand: "Razer",
     model: "Cyclosa + Abyssus",
     category: "Mayorista",
-    price: 110000,
+    price: 100000,
     quantity: 2,
     unitPrice: 65000,
     stock: 5,
@@ -342,6 +342,58 @@ export const mayoristaProducts = [
       "Marca": "AMD",
       "Modelo": "Athlon 3000G",
       "Socket": "AM4"
+    }
+  },
+  
+  // NUEVOS PRODUCTOS DESTACADOS
+  {
+    id: 1513,
+    name: "Redragon Kumara K552 Mecánico TKL RGB Gaming",
+    brand: "Redragon",
+    model: "Kumara K552",
+    category: "Mayorista",
+    price: 150000, // Total pack x3 ($50,000 c/u)
+    quantity: 3,
+    unitPrice: 60000, // Precio normal por unidad
+    stock: 8,
+    images: [
+      "/images/category_filter/kumara_mayor.webp",
+      "/images/teclados/RG_kumara_side.webp",
+      "/images/teclados/RG_kumara_side2.webp"
+    ],
+    description: "Pack x3 - Redragon Kumara K552 Mecánico TKL RGB Gaming. Switches mecánicos, retroiluminación RGB y diseño compacto para gaming profesional.",
+    specifications: {
+      "Tipo de Pack": "Mayorista x3 unidades",
+      "Precio por unidad": "$50,000",
+      "Ahorro total": "$30,000",
+      "Marca": "Redragon",
+      "Modelo": "Kumara K552",
+      "Tipo": "Mecánico TKL RGB"
+    }
+  },
+  {
+    id: 1514,
+    name: "Logitech G203 Gaming RGB 8000 DPI",
+    brand: "Logitech",
+    model: "G203",
+    category: "Mayorista",
+    price: 120000, // Total pack x3 ($40,000 c/u)
+    quantity: 3,
+    unitPrice: 50000, // Precio normal por unidad
+    stock: 6,
+    images: [
+      "/images/category_filter/g203_mayor.webp",
+      "/images/mouse/logi_g203_side.webp",
+      "/images/mouse/logi_g203_side2.webp"
+    ],
+    description: "Pack x3 - Logitech G203 Gaming RGB 8000 DPI. Sensor óptico de alta precisión, 8000 DPI y iluminación RGB personalizable.",
+    specifications: {
+      "Tipo de Pack": "Mayorista x3 unidades",
+      "Precio por unidad": "$40,000",
+      "Ahorro total": "$30,000",
+      "Marca": "Logitech",
+      "Modelo": "G203",
+      "DPI": "8000 DPI RGB"
     }
   }
 ];

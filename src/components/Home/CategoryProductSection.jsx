@@ -55,17 +55,165 @@ const CategoryProductSection = ({ onCategoryClick }) => {
                     </p>
                 </div>
 
-                {/* Grid optimizado para mobile */}
-                <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3 sm:gap-4">
-                    {allCategories.map((category) => (
+                {/* Bento Grid Moderno - Desktop */}
+                <div className="hidden lg:block">
+                    <div className="grid grid-cols-6 grid-rows-4 gap-4 h-[600px]">
+                        {/* PROCESADORES - Grande (2x2) */}
                         <CategoryCard
-                            key={category.id}
-                            category={category}
+                            category={allCategories[0]}
                             onCategoryClick={handleCategoryClick}
-                            className="h-[140px] sm:h-[180px] lg:h-[200px]"
-                            textSize="text-sm sm:text-base lg:text-lg"
+                            className="col-span-2 row-span-2"
+                            textSize="text-xl font-black"
+                            isLarge={true}
                         />
-                    ))}
+                        
+                        {/* MOTHERBOARDS - Mediano (2x1) */}
+                        <CategoryCard
+                            category={allCategories[1]}
+                            onCategoryClick={handleCategoryClick}
+                            className="col-span-2 row-span-1"
+                            textSize="text-lg font-bold"
+                        />
+                        
+                        {/* MEMORIAS RAM - Mediano (2x1) */}
+                        <CategoryCard
+                            category={allCategories[2]}
+                            onCategoryClick={handleCategoryClick}
+                            className="col-span-2 row-span-1"
+                            textSize="text-lg font-bold"
+                        />
+                        
+                        {/* ALMACENAMIENTO - Alto (2x2) */}
+                        <CategoryCard
+                            category={allCategories[3]}
+                            onCategoryClick={handleCategoryClick}
+                            className="col-span-2 row-span-2"
+                            textSize="text-xl font-black"
+                            isLarge={true}
+                        />
+                        
+                        {/* FUENTES - Pequeño (1x1) */}
+                        <CategoryCard
+                            category={allCategories[4]}
+                            onCategoryClick={handleCategoryClick}
+                            className="col-span-1 row-span-1"
+                            textSize="text-base font-semibold"
+                        />
+                        
+                        {/* REFRIGERACIÓN - Pequeño (1x1) */}
+                        <CategoryCard
+                            category={allCategories[5]}
+                            onCategoryClick={handleCategoryClick}
+                            className="col-span-1 row-span-1"
+                            textSize="text-base font-semibold"
+                        />
+                        
+                        {/* TECLADOS - Ancho (2x1) */}
+                        <CategoryCard
+                            category={allCategories[6]}
+                            onCategoryClick={handleCategoryClick}
+                            className="col-span-2 row-span-1"
+                            textSize="text-lg font-bold"
+                        />
+                        
+                        {/* MOUSE - Pequeño (1x1) */}
+                        <CategoryCard
+                            category={allCategories[7]}
+                            onCategoryClick={handleCategoryClick}
+                            className="col-span-1 row-span-1"
+                            textSize="text-base font-semibold"
+                        />
+                        
+                        {/* AURICULARES - Pequeño (1x1) */}
+                        <CategoryCard
+                            category={allCategories[8]}
+                            onCategoryClick={handleCategoryClick}
+                            className="col-span-1 row-span-1"
+                            textSize="text-base font-semibold"
+                        />
+                    </div>
+                </div>
+
+                {/* Bento Grid Tablet */}
+                <div className="hidden sm:block lg:hidden">
+                    <div className="grid grid-cols-4 grid-rows-3 gap-3 h-[480px]">
+                        {/* PROCESADORES - Grande (2x2) */}
+                        <CategoryCard
+                            category={allCategories[0]}
+                            onCategoryClick={handleCategoryClick}
+                            className="col-span-2 row-span-2"
+                            textSize="text-lg font-black"
+                            isLarge={true}
+                        />
+                        
+                        {/* MOTHERBOARDS - Vertical (1x2) */}
+                        <CategoryCard
+                            category={allCategories[1]}
+                            onCategoryClick={handleCategoryClick}
+                            className="col-span-1 row-span-2"
+                            textSize="text-base font-bold"
+                        />
+                        
+                        {/* MEMORIAS RAM - Vertical (1x2) */}
+                        <CategoryCard
+                            category={allCategories[2]}
+                            onCategoryClick={handleCategoryClick}
+                            className="col-span-1 row-span-2"
+                            textSize="text-base font-bold"
+                        />
+                        
+                        {/* ALMACENAMIENTO - Ancho (2x1) */}
+                        <CategoryCard
+                            category={allCategories[3]}
+                            onCategoryClick={handleCategoryClick}
+                            className="col-span-2 row-span-1"
+                            textSize="text-base font-bold"
+                        />
+                        
+                        {/* FUENTES - Pequeño (1x1) */}
+                        <CategoryCard
+                            category={allCategories[4]}
+                            onCategoryClick={handleCategoryClick}
+                            className="col-span-1 row-span-1"
+                            textSize="text-sm font-semibold"
+                        />
+                        
+                        {/* REFRIGERACIÓN - Pequeño (1x1) */}
+                        <CategoryCard
+                            category={allCategories[5]}
+                            onCategoryClick={handleCategoryClick}
+                            className="col-span-1 row-span-1"
+                            textSize="text-sm font-semibold"
+                        />
+                    </div>
+                    
+                    {/* Categorías restantes en grid simple */}
+                    <div className="grid grid-cols-3 gap-3 mt-4">
+                        {allCategories.slice(6).map((category) => (
+                            <CategoryCard
+                                key={category.id}
+                                category={category}
+                                onCategoryClick={handleCategoryClick}
+                                className="h-[120px]"
+                                textSize="text-sm font-semibold"
+                            />
+                        ))}
+                    </div>
+                </div>
+
+                {/* Grid Mobile - Simple */}
+                <div className="block sm:hidden">
+                    <div className="grid grid-cols-2 gap-3">
+                        {allCategories.map((category) => (
+                            <CategoryCard
+                                key={category.id}
+                                category={category}
+                                onCategoryClick={handleCategoryClick}
+                                className="h-[140px]"
+                                textSize="text-sm font-semibold"
+                            />
+                        ))}
+                    </div>
                 </div>
             </div>
         </section>
@@ -74,19 +222,31 @@ const CategoryProductSection = ({ onCategoryClick }) => {
 
 
 // --- Componente Reutilizable para la Tarjeta ---
-const CategoryCard = ({ category, onCategoryClick, className, textSize }) => (
+const CategoryCard = ({ category, onCategoryClick, className, textSize, isLarge = false }) => (
     <button
         onClick={() => onCategoryClick && onCategoryClick(category.slug)}
-        className={`group relative w-full overflow-hidden rounded-2xl sm:rounded-3xl transition-all duration-300 hover:scale-[1.02] active:scale-[0.98] focus:outline-none focus:ring-2 focus:ring-blue-500/50 bg-gray-900 ${className}`}
+        className={`group relative w-full overflow-hidden rounded-2xl sm:rounded-3xl transition-all duration-500 hover:scale-[1.02] active:scale-[0.98] focus:outline-none focus:ring-2 focus:ring-blue-500/50 bg-gray-900 ${className}`}
         aria-label={`Explorar categoría ${category.name}`}
         style={{
-            boxShadow: '0 4px 20px rgba(0,0,0,0.3), 0 0 0 1px rgba(255,255,255,0.1)'
+            boxShadow: isLarge 
+                ? '0 20px 60px rgba(0,0,0,0.6), 0 8px 32px rgba(59,130,246,0.2), 0 0 0 1px rgba(255,255,255,0.15), inset 0 1px 0 rgba(255,255,255,0.1)'
+                : '0 12px 40px rgba(0,0,0,0.5), 0 4px 20px rgba(59,130,246,0.15), 0 0 0 1px rgba(255,255,255,0.12), inset 0 1px 0 rgba(255,255,255,0.08)'
         }}
     >
-        {/* Glow border animado */}
-        <div className="absolute inset-0 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+        {/* Glow border animado - MUY intenso */}
+        <div className={`absolute inset-0 rounded-3xl opacity-0 group-hover:opacity-100 transition-all duration-700 ${isLarge ? 'animate-pulse' : ''}`}
              style={{
-                 boxShadow: '0 0 30px rgba(59, 130, 246, 0.5), 0 0 60px rgba(147, 51, 234, 0.3), inset 0 0 20px rgba(59, 130, 246, 0.1)'
+                 boxShadow: isLarge 
+                    ? '0 0 60px rgba(59, 130, 246, 0.9), 0 0 120px rgba(147, 51, 234, 0.7), 0 0 180px rgba(236, 72, 153, 0.5), inset 0 0 40px rgba(59, 130, 246, 0.3)'
+                    : '0 0 40px rgba(59, 130, 246, 0.8), 0 0 80px rgba(147, 51, 234, 0.6), 0 0 120px rgba(236, 72, 153, 0.4), inset 0 0 25px rgba(59, 130, 246, 0.2)'
+             }} />
+
+        {/* Resplandor de fondo permanente */}
+        <div className={`absolute inset-0 rounded-3xl transition-opacity duration-500 ${isLarge ? 'opacity-40' : 'opacity-25'} group-hover:opacity-70`}
+             style={{
+                 boxShadow: isLarge
+                    ? '0 0 40px rgba(59, 130, 246, 0.3), 0 0 80px rgba(147, 51, 234, 0.2)'
+                    : '0 0 25px rgba(59, 130, 246, 0.2), 0 0 50px rgba(147, 51, 234, 0.15)'
              }} />
 
         {/* Imagen de fondo */}
@@ -94,7 +254,7 @@ const CategoryCard = ({ category, onCategoryClick, className, textSize }) => (
             <img
                 src={category.image}
                 alt={category.name}
-                className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                className="w-full h-full object-cover transition-all duration-700 group-hover:scale-110 group-hover:brightness-125 group-hover:contrast-110"
                 loading="eager"
                 onError={(e) => {
                     e.target.style.display = 'none';
@@ -103,34 +263,76 @@ const CategoryCard = ({ category, onCategoryClick, className, textSize }) => (
         </div>
 
         {/* Overlay oscuro con gradiente mejorado */}
-        <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/60 to-black/20" />
+        <div className={`absolute inset-0 ${isLarge 
+            ? 'bg-gradient-to-br from-black/85 via-black/65 to-black/35' 
+            : 'bg-gradient-to-t from-black/90 via-black/55 to-black/15'
+        }`} />
 
-        {/* Glow effect en hover - Más intenso */}
-        <div className="absolute inset-0 bg-gradient-to-tr from-blue-600/0 via-purple-600/0 to-pink-600/0 group-hover:from-blue-600/30 group-hover:via-purple-600/30 group-hover:to-pink-600/30 transition-all duration-500" />
+        {/* Glow effect en hover - MUY intenso */}
+        <div className={`absolute inset-0 transition-all duration-700 ${isLarge
+            ? 'bg-gradient-to-br from-blue-500/0 via-purple-500/0 to-pink-500/0 group-hover:from-blue-500/50 group-hover:via-purple-500/50 group-hover:to-pink-500/50'
+            : 'bg-gradient-to-tr from-blue-500/0 via-purple-500/0 to-pink-500/0 group-hover:from-blue-500/35 group-hover:via-purple-500/35 group-hover:to-pink-500/35'
+        }`} />
 
-        {/* Brillo sutil en hover */}
-        <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-transparent to-white/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+        {/* Brillo intenso en hover */}
+        <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/30 to-white/40 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+
+        {/* Efecto de cristal/vidrio */}
+        <div className="absolute inset-0 bg-gradient-to-b from-white/10 via-transparent to-transparent opacity-60 group-hover:opacity-80 transition-opacity duration-500" />
+
+        {/* Partículas flotantes para cards grandes */}
+        {isLarge && (
+            <>
+                <div className="absolute top-4 right-4 w-3 h-3 bg-blue-400 rounded-full opacity-0 group-hover:opacity-100 animate-ping transition-opacity duration-500 shadow-[0_0_20px_rgba(59,130,246,0.8)]" />
+                <div className="absolute bottom-6 right-6 w-2 h-2 bg-purple-400 rounded-full opacity-0 group-hover:opacity-100 animate-ping transition-opacity duration-500 shadow-[0_0_15px_rgba(147,51,234,0.8)]" style={{ animationDelay: '0.5s' }} />
+                <div className="absolute top-1/3 right-8 w-2.5 h-2.5 bg-pink-400 rounded-full opacity-0 group-hover:opacity-100 animate-ping transition-opacity duration-500 shadow-[0_0_18px_rgba(236,72,153,0.8)]" style={{ animationDelay: '1s' }} />
+                <div className="absolute top-1/2 left-6 w-1.5 h-1.5 bg-cyan-400 rounded-full opacity-0 group-hover:opacity-100 animate-ping transition-opacity duration-500 shadow-[0_0_12px_rgba(34,211,238,0.8)]" style={{ animationDelay: '1.5s' }} />
+            </>
+        )}
 
         {/* Content */}
-        <div className="absolute inset-0 flex items-end p-3 sm:p-4 md:p-5">
+        <div className={`absolute inset-0 flex items-end ${isLarge ? 'p-6 md:p-8' : 'p-3 sm:p-4'} z-10`}>
             <div className="relative">
-                <h3 className={`font-black text-white leading-none text-left tracking-tight ${textSize}`}
+                <h3 className={`font-black text-white leading-none text-left tracking-tight ${textSize} ${isLarge ? 'mb-2' : ''} filter drop-shadow-2xl`}
                     style={{ 
-                        textShadow: '0 2px 10px rgba(0,0,0,0.9), 0 1px 4px rgba(0,0,0,0.8)' 
+                        textShadow: isLarge 
+                            ? '0 4px 20px rgba(0,0,0,0.9), 0 2px 8px rgba(0,0,0,0.8), 0 0 30px rgba(59,130,246,0.5)' 
+                            : '0 2px 10px rgba(0,0,0,0.9), 0 1px 4px rgba(0,0,0,0.8), 0 0 20px rgba(59,130,246,0.3)' 
                     }}>
                     {category.name}
                 </h3>
+                
+                {/* Descripción adicional para cards grandes */}
+                {isLarge && (
+                    <p className="text-gray-200 text-sm opacity-0 group-hover:opacity-100 transition-opacity duration-500 mb-3 filter drop-shadow-lg"
+                       style={{ textShadow: '0 1px 4px rgba(0,0,0,0.8), 0 0 15px rgba(59,130,246,0.4)' }}>
+                        {category.name === 'PROCESADORES' && 'Intel, AMD y más'}
+                        {category.name === 'ALMACENAMIENTO' && 'SSD, HDD, NVMe'}
+                    </p>
+                )}
+                
                 <div className="relative mt-1.5 sm:mt-2">
-                    <div className="h-0.5 sm:h-1 w-8 sm:w-12 bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 rounded-full group-hover:w-16 sm:group-hover:w-20 transition-all duration-300" 
+                    <div className={`${isLarge ? 'h-1.5 w-16' : 'h-1 sm:h-1 w-8 sm:w-12'} bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 rounded-full ${isLarge ? 'group-hover:w-28' : 'group-hover:w-16 sm:group-hover:w-20'} transition-all duration-500 filter drop-shadow-lg`} 
                          style={{ 
-                             boxShadow: '0 0 10px rgba(59, 130, 246, 0.6)' 
+                             boxShadow: isLarge 
+                                ? '0 0 30px rgba(59, 130, 246, 0.9), 0 0 60px rgba(147, 51, 234, 0.7), 0 4px 20px rgba(0,0,0,0.5)' 
+                                : '0 0 20px rgba(59, 130, 246, 0.8), 0 0 40px rgba(147, 51, 234, 0.6), 0 2px 10px rgba(0,0,0,0.4)' 
                          }} />
                 </div>
             </div>
         </div>
 
-        {/* Borde con glow en hover */}
-        <div className="absolute inset-0 rounded-3xl border-2 border-transparent group-hover:border-blue-400/40 transition-all duration-300" />
+        {/* Borde con glow en hover - MUY intenso */}
+        <div className={`absolute inset-0 rounded-3xl border-2 transition-all duration-500 ${isLarge 
+            ? 'border-blue-400/30 group-hover:border-blue-300/80 group-hover:shadow-[0_0_50px_rgba(59,130,246,0.8),0_0_100px_rgba(147,51,234,0.6)]'
+            : 'border-blue-400/20 group-hover:border-blue-300/60 group-hover:shadow-[0_0_30px_rgba(59,130,246,0.7),0_0_60px_rgba(147,51,234,0.5)]'
+        }`} />
+
+        {/* Efecto de ondas en hover */}
+        <div className="absolute inset-0 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-700"
+             style={{
+                 background: `radial-gradient(circle at 50% 50%, rgba(59,130,246,0.1) 0%, transparent 70%)`
+             }} />
     </button>
 );
 

@@ -1,6 +1,6 @@
 // ═══════════════════════════════════════════════════════════════
 // RANGO DE IDs: 900-999 (Conectividad)
-// Próximo ID disponible: 902
+// Próximo ID disponible: 907
 // IMPORTANTE: NO usar IDs fuera de este rango
 // ═══════════════════════════════════════════════════════════════
 export const conectividadProducts = [
@@ -10,7 +10,7 @@ export const conectividadProducts = [
     brand: "Logitech",
     model: "C505",
     category: "Conectividad",
-    price: 60000,
+    price: 50000,
     stock: 1,
     images: [
       "/images/conectividad/cam_logitech.webp",
@@ -46,8 +46,45 @@ export const conectividadProducts = [
       incluye: "Cámara Logitech C505, Manual de usuario"
     }
   },
-  {
+
+ {
     id: 901,
+    name: "Cámara web Redragon Fobos GW600 HD 30FPS color negro",
+    brand: "Redragon",
+    model: "Fobos GW600",
+    category: "Conectividad",
+    price: 40000,
+    stock: 1,
+    images: [
+      "/images/conectividad/RGcam_fobos.webp",
+      "/images/conectividad/RGcam_fobos_side.webp",
+      "/images/conectividad/RGcam_fobos_side2.webp",
+      "/images/conectividad/RGcam_fobos_side3.webp",
+      "/images/conectividad/RGcam_fobos_back.webp"
+    ],
+    description: "Cámara web Redragon Fobos GW600 HD con resolución 720p a 30FPS, micrófono integrado y clip universal para streaming y videollamadas",
+    specifications: {
+      marca: "Redragon",
+      modelo: "Fobos GW600",
+      modeloDetallado: "GW600 FOBOS",
+      resolucionVideo: "HD 1280 x 720",
+      velocidadCuadros: "30 FPS",
+      tipoSensor: "CMOS",
+      enfoque: "Fijo",
+      campoVision: "65°",
+      microfono: "Integrado",
+      conectividad: "USB",
+      interfaz: "USB 2.0",
+      compatibilidad: "Windows / macOS / Linux",
+      color: "Negro",
+      montaje: "Clip universal",
+      usoRecomendado: "Streaming / Videollamadas / Clases online"
+    }
+  },
+
+
+  {
+    id: 902,
     name: "Adaptador Wifi USB 300 Mbps TP-Link TL-WN823N",
     brand: "TP-Link",
     model: "TL-WN823N",
@@ -78,5 +115,90 @@ export const conectividadProducts = [
       peso: "8 g",
       incluye: "Adaptador USB TL-WN823N, CD con drivers (modelos antiguos), Guía rápida"
     }
+  },
+  {
+    id: 903,
+    name: "Tarjeta de Memoria Kingston Micro SD 64GB Clase 10",
+    brand: "Kingston",
+    model: "Canvas Select Plus 64GB",
+    category: "Conectividad",
+    price: 11000,
+    stock: 9,
+    images: [
+      "/images/conectividad/64_sd.webp",
+      "/images/conectividad/64_sd_side.webp",
+      "/images/conectividad/64_sd_side2.webp"
+    ],
+    description: "Tarjeta de Memoria Kingston Micro SD 64GB Clase 10 con adaptador SD incluido, ideal para smartphones, cámaras y tablets",
+    specifications: {
+      marca: "Kingston",
+      linea: "Canvas Select Plus",
+      modelo: "64GB",
+      modeloAlfanumerico: "MicroSD",
+      capacidad: "64 GB",
+      clase: "Clase 10",
+      velocidadLectura: "Hasta 100 MB/s",
+      formato: "Micro SD",
+      compatibilidad: "Smartphones / Cámaras / Tablets",
+      incluyeAdaptadorSD: "Sí"
+    }
+  },
+ 
+  
+  
+  {
+    id: 904,
+    name: "Pendrive Kingston DataTraveler Exodia 64GB USB 3.2",
+    brand: "Kingston",
+    model: "DataTraveler Exodia",
+    category: "Conectividad",
+    price: 11000,
+    stock: 20,
+    images: [
+      "/images/conectividad/exodia64gb_pendrive.webp",
+      "/images/conectividad/exodia64gb_pendrive_side.webp",
+      "/images/conectividad/exodia64gb_pendrive_specs.webp"
+    ],
+    description: "Pendrive Kingston DataTraveler Exodia 64GB USB 3.2 Gen 1 de alta velocidad, compatible con Windows, Linux y macOS",
+    specifications: {
+      marca: "Kingston",
+      linea: "DataTraveler",
+      modelo: "Exodia",
+      modeloAlfanumerico: "KC-U2L64-7LN",
+      modeloDetallado: "DTX/64GB",
+      capacidad: "64 GB",
+      interfaz: "USB 3.2 Gen 1",
+      velocidad: "Alta velocidad",
+      color: "Negro",
+      compatibilidad: "Windows / Linux / macOS",
+      usoRecomendado: "Almacenamiento portátil"
+    }
+  },
+  {
+    id: 905,
+    name: "Kingston Micro SD 128GB Canvas Select Plus",
+    brand: "Kingston",
+    model: "Canvas Select Plus 128GB",
+    category: "Conectividad",
+    price: 21000,
+    stock: 5,
+    images: [
+      "/images/conectividad/sd_128.webp",
+      "/images/conectividad/sd_128_side.webp",
+      "/images/conectividad/sd_128_side2.webp"
+    ],
+    description: "Kingston Micro SD 128GB Canvas Select Plus Clase 10 con adaptador SD incluido, perfecta para smartphones, cámaras y consolas",
+    specifications: {
+      marca: "Kingston",
+      linea: "Canvas Select Plus",
+      modelo: "SDCS2/128GBSP",
+      modeloAlfanumerico: "SDCS2/128GB",
+      capacidad: "128 GB",
+      clase: "Clase 10",
+      velocidadLectura: "Hasta 100 MB/s",
+      formato: "Micro SD",
+      compatibilidad: "Smartphones / Cámaras / Consolas",
+      incluyeAdaptadorSD: "Sí"
+  }
   }
 ];

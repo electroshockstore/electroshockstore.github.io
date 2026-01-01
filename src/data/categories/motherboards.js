@@ -4,15 +4,15 @@
 // ═══════════════════════════════════════════════════════════════
 export const motherboardsProducts = [
   {
-    id: 602, // Ajustado al rango
+    id: 602, 
     name: "ASUS Prime A520M-K AM4",
     brand: "ASUS",
     model: "Prime A520M-K",
     category: "Motherboards",
     price: 80000,
     stock: 7,
-    ownConsumption: "25W - 35W", // Consumo base del chipset y componentes
-    maxPowerSupport: "Hasta 105W TDP", // Soporta Ryzen 9, pero recomendada hasta Ryzen 7 por VRM
+    ownConsumption: "25W - 35W", 
+    maxPowerSupport: "Hasta 105W TDP",
     images: ["/images/motherboard/A520m_K_Csm.webp", "/images/motherboard/A520m_K_Csm_moth.webp"],
     description: "Mother Asus Prime A520M-K AM4 DDR4 64GB HDMI M.2",
     specifications: {
@@ -30,10 +30,10 @@ export const motherboardsProducts = [
     brand: "Gigabyte",
     model: "B650M Gaming WiFi",
     category: "Motherboards",
-    price: 180000,
+    price: 200000,
     stock: 1,
-    ownConsumption: "40W - 55W", // Mayor consumo por WiFi y chipset B650
-    maxPowerSupport: "Hasta 170W TDP", // Diseñada para manejar procesadores de alto rendimiento AM5
+    ownConsumption: "40W - 55W", 
+    maxPowerSupport: "Hasta 170W TDP", 
     images: ["/images/motherboard/b650m_wifi.webp", "/images/motherboard/b650m_wifi_moth.webp"],
     description: "Mother Gigabyte B650M Gaming WiFi DDR5 B650 AMD con WiFi integrado",
     specifications: {
@@ -75,7 +75,7 @@ export const motherboardsProducts = [
     price: 180000,
     stock: 1,
     ownConsumption: "35W - 45W",
-    maxPowerSupport: "Hasta 125W (PL1)", // Apta para i5 e i7 (no serie K recomendado)
+    maxPowerSupport: "Hasta 125W (PL1)", 
     images: ["/images/motherboard/B460m-a R2.0.webp"],
     description: "Mother Asus Prime B460M-A R2.0 Intel Socket 1200 DDR4 128GB",
     specifications: {
@@ -94,7 +94,7 @@ export const motherboardsProducts = [
     category: "Motherboards",
     price: 80000,
     stock: 6,
-    ownConsumption: "20W - 30W", // Diseño Ultra Durable de bajo consumo
+    ownConsumption: "20W - 30W", 
     maxPowerSupport: "Hasta 105W TDP",
     images: ["/images/motherboard/a520m_k_v2.webp", "/images/motherboard/a520m_k_v2_moth.webp"],
     description: "Mother Gigabyte UD A520M K V2 DDR4 AMD Ryzen Gamer M.2 PC",
@@ -115,7 +115,7 @@ export const motherboardsProducts = [
     price: 145000,
     stock: 1,
     ownConsumption: "35W - 50W",
-    maxPowerSupport: "Hasta 162W (PPT)", // Soporta procesadores AM5 potentes
+    maxPowerSupport: "Hasta 162W (PPT)", 
     images: ["/images/motherboard/gigabyte_b650m-h.webp", "/images/motherboard/gigabyte_b650m-h_3.webp"],
     description: "Mother Gigabyte B650M-H UD AMD AM5 DDR5 con soporte para Ryzen 7000/8000/9000",
     specifications: {
@@ -134,7 +134,7 @@ export const motherboardsProducts = [
     price: 120000,
     stock: 1,
     ownConsumption: "30W - 40W",
-    maxPowerSupport: "Hasta 120W (PPT recomendado)", // Limitada por chipset A620
+    maxPowerSupport: "Hasta 120W (PPT recomendado)", 
     images: ["/images/motherboard/a620m_h_ud.webp", "/images/motherboard/a620m_h_ud_front.webp"],
     description: "Mother Gigabyte A620M H DDR5 AMD AM5 para Ryzen Serie 7000/8000/9000",
     specifications: {
