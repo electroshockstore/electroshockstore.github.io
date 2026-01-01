@@ -298,9 +298,9 @@ export const mayoristaProducts = [
     brand: "Sony",
     model: "DualShock 4 V2",
     category: "Mayorista",
-    price: 240000, // Total pack x3 ($80,000 c/u)
+    price: 240000,
     quantity: 3,
-    unitPrice: 90000, // Precio normal por unidad
+    unitPrice: 90000, 
     stock: 5,
     images: [
       "/images/category_filter/ps4_joyst_mayor.webp",
@@ -345,17 +345,17 @@ export const mayoristaProducts = [
     }
   },
   
-  // NUEVOS PRODUCTOS DESTACADOS
+
   {
     id: 1513,
     name: "Redragon Kumara K552 Mecánico TKL RGB Gaming",
     brand: "Redragon",
     model: "Kumara K552",
     category: "Mayorista",
-    price: 150000, // Total pack x3 ($50,000 c/u)
+    price: 120000, 
     quantity: 3,
-    unitPrice: 60000, // Precio normal por unidad
-    stock: 8,
+    unitPrice: 45000, 
+    stock: 9,
     images: [
       "/images/category_filter/kumara_mayor.webp",
       "/images/teclados/RG_kumara_side.webp",
@@ -364,8 +364,8 @@ export const mayoristaProducts = [
     description: "Pack x3 - Redragon Kumara K552 Mecánico TKL RGB Gaming. Switches mecánicos, retroiluminación RGB y diseño compacto para gaming profesional.",
     specifications: {
       "Tipo de Pack": "Mayorista x3 unidades",
-      "Precio por unidad": "$50,000",
-      "Ahorro total": "$30,000",
+      "Precio por unidad": "$45,000",
+      "Ahorro total": "$15,000",
       "Marca": "Redragon",
       "Modelo": "Kumara K552",
       "Tipo": "Mecánico TKL RGB"
@@ -377,10 +377,10 @@ export const mayoristaProducts = [
     brand: "Logitech",
     model: "G203",
     category: "Mayorista",
-    price: 120000, // Total pack x3 ($40,000 c/u)
-    quantity: 3,
-    unitPrice: 50000, // Precio normal por unidad
-    stock: 6,
+    price: 100000, 
+    quantity: 4,
+    unitPrice: 30000,
+    stock: 8,
     images: [
       "/images/category_filter/g203_mayor.webp",
       "/images/mouse/logi_g203_side.webp",
@@ -388,9 +388,9 @@ export const mayoristaProducts = [
     ],
     description: "Pack x3 - Logitech G203 Gaming RGB 8000 DPI. Sensor óptico de alta precisión, 8000 DPI y iluminación RGB personalizable.",
     specifications: {
-      "Tipo de Pack": "Mayorista x3 unidades",
-      "Precio por unidad": "$40,000",
-      "Ahorro total": "$30,000",
+      "Tipo de Pack": "Mayorista x4 unidades",
+      "Precio por unidad": "$30,000",
+      "Ahorro total": "$20,000",
       "Marca": "Logitech",
       "Modelo": "G203",
       "DPI": "8000 DPI RGB"

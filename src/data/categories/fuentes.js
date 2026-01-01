@@ -11,7 +11,7 @@ export const fuentesProducts = [
     model: "COREREACTORIIVE850G-BKCAR",
     category: "Fuentes",
     price: 160000,
-    stock: 2,
+    stock: 1,
     sku: "XPG-850-REACTOR",
     description: "Fuente ATX 850W modular con certificación 80 Plus Gold, ventilador FDB 120mm ultra silencioso",
     images: [

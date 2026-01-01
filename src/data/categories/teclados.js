@@ -259,7 +259,7 @@ export const tecladosProducts = [
     model: "Fizz K617CT",
     category: "Teclados",
     price: 40000,
-    stock: 1,
+    stock: 2,
     sku: "RED-FIZZ-WHT",
     description: "Teclado mecánico 60% compacto RGB con keycaps translúcidas y cable USB-C desmontable",
     images: [
