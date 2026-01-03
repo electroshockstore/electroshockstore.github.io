@@ -67,7 +67,7 @@ const ImportantRulesBentoGrid = ({ rules = [] }) => {
             <div className="row-span-2 bg-white rounded-[2rem] border border-pink-100 relative flex items-center justify-center overflow-hidden shadow-sm">
               <div className="absolute w-32 h-32 bg-pink-100 rounded-full blur-3xl opacity-40" />
               <img 
-                src="/images/puntos_retiro.png" 
+                src="/images/puntos_retiro.webp" 
                 alt="Condiciones" 
                 className="w-full h-full object-contain p-2 relative z-10 scale-110"
               />
@@ -167,7 +167,7 @@ const ImportantRulesBentoGrid = ({ rules = [] }) => {
           <div className="lg:row-span-3 rounded-[2rem] bg-white border border-pink-100 relative flex items-center justify-center overflow-visible shadow-sm min-h-[300px] sm:min-h-[400px]">
             <div className="absolute w-48 h-48 bg-pink-100 rounded-full blur-3xl opacity-50" />
             <img 
-              src="/images/puntos_retiro.png" 
+              src="/images/puntos_retiro.webp" 
               alt="Condiciones" 
               className="w-full h-full object-contain p-4 relative z-20"
               style={{ 
