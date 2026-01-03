@@ -10,7 +10,7 @@ export const memoriasProducts = [
     brand: "ADATA",
     model: "XPG Lancer Blade",
     category: "Memorias RAM",
-    price: 285000,
+    price: 290000,
     stock: 2,
     realPowerConsumption: "2.5W - 3.2W", // DDR5 es más eficiente por su PMIC integrado
     images: ["/images/ram/lancerblade_16gb_ddr5_sinrgb.webp"],
@@ -29,7 +29,7 @@ export const memoriasProducts = [
     brand: "NETAC",
     model: "Shadow 2",
     category: "Memorias RAM",
-    price: 250000,
+    price: 270000,
     stock: 7,
     realPowerConsumption: "2.2W - 2.8W", // Voltaje estándar JEDEC de 1.1V
     images: ["/images/ram/netac_shadow2_ram.webp"],
@@ -47,7 +47,7 @@ export const memoriasProducts = [
     brand: "Neo Forza",
     model: "DDR5 5200",
     category: "Memorias RAM",
-    price: 185000,
+    price: 200000,
     stock: 2,
     realPowerConsumption: "2.4W - 3.0W",
     images: ["/images/ram/neo_forza_ddr5.webp"],
@@ -64,7 +64,7 @@ export const memoriasProducts = [
     brand: "Neo Forza",
     model: "NMUD532F82-5200JA10",
     category: "Memorias RAM",
-    price: 340000,
+    price: 360000,
     stock: 2,
     realPowerConsumption: "2.8W - 3.5W", // Mayor densidad de chips aumenta levemente el consumo
     images: ["/images/ram/neo_forza_ddr5.webp"],
@@ -95,7 +95,7 @@ export const memoriasProducts = [
   },
   {
     id: 400,
-    name: "Memoria Ram Xpg D35g Spectrix 16gb Ddr4 RGB",
+    name: "Adata Xpg DDR4 D35g Spectrix 16gb RGB",
     brand: "XPG",
     model: "Spectrix D35G",
     category: "Memorias RAM",
@@ -112,7 +112,7 @@ export const memoriasProducts = [
   },
   {
     id: 407,
-    name: "Adata Xpg Ddr4 16gb Spectrix D35 RGB White",
+    name: "Adata Xpg DDR4 16gb Spectrix D35 RGB White",
     brand: "XPG",
     model: "Spectrix D35",
     category: "Memorias RAM",
@@ -249,7 +249,7 @@ export const memoriasProducts = [
     category: "Memorias RAM",
     price: 40000,
     stock: 2,
-    realPowerConsumption: "3.0W - 4.5W", // DDR3 es la menos eficiente (1.5V)
+    realPowerConsumption: "3.0W - 4.5W", 
     images: ["/images/ram/adata_dd38gb.webp"],
     description: "Adata Premier 8GB U-DIMM DDR3 1600MHz",
     specifications: {
