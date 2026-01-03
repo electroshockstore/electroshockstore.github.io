@@ -34,8 +34,8 @@ const Catalog = () => {
     handleReset 
   } = useCatalogNavigation(setSelectedCategory, setSearchQuery, clearSubFilters);
 
-  // Sync URL with state
-  const isTransitioning = useCatalogSync(categorySlug, selectedCategory, setSelectedCategory, clearSubFilters);
+  // Sync URL with state (sin transición)
+  useCatalogSync(categorySlug, selectedCategory, setSelectedCategory, clearSubFilters);
 
   // Analytics
   const listName = selectedCategory && selectedCategory !== 'Todos' 
@@ -46,27 +46,6 @@ const Catalog = () => {
 
   // SEO
   useCategorySEO(selectedCategory, filteredProducts.length);
-
-  // No mostrar contenido durante la transición
-  if (isTransitioning) {
-    return (
-      <CatalogLayout
-        searchQuery={searchQuery}
-        onSearchChange={setSearchQuery}
-        onGoHome={handleGoHome}
-      >
-        <div className="px-4 sm:px-6 py-4 sm:py-6 relative z-30">
-          <CategoryFilter 
-            selectedCategory={selectedCategory}
-            onCategoryChange={handleCategoryChange}
-          />
-        </div>
-        <div className="flex items-center justify-center min-h-[50vh]">
-          <div className="w-16 h-16 border-4 border-blue-600 border-t-transparent rounded-full animate-spin"></div>
-        </div>
-      </CatalogLayout>
-    );
-  }
 
   return (
     <CatalogLayout

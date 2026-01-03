@@ -183,7 +183,10 @@ const Header = ({ searchQuery = '', onSearchChange, onGoHome, hideSearchOnMobile
               
               {/* Puntos de Retiro - Con color azul */}
               <button
-                onClick={() => navigate('/puntos-de-retiro')}
+                onClick={() => {
+                  navigate('/puntos-de-retiro');
+                  window.scrollTo({ top: 0, behavior: 'smooth' });
+                }}
                 className="relative p-2.5
                          bg-gradient-to-br from-blue-500/20 to-indigo-500/20
                          hover:from-blue-500/30 hover:to-indigo-500/30
@@ -295,14 +298,13 @@ const Header = ({ searchQuery = '', onSearchChange, onGoHome, hideSearchOnMobile
   }}
   className="relative flex items-center gap-4 flex-shrink-0 group"
 >
-  {/* Capa 1: Resplandor de fondo PERMANENTE */}
-  {/* Quitamos opacity-0 para que brille siempre */}
-  <div className="absolute -inset-6 bg-gradient-to-r from-blue-600/25 via-purple-600/20 to-blue-600/25 blur-[35px] rounded-full animate-pulse" style={{ animationDuration: '6s' }} />
+  {/* Capa 1: Resplandor de fondo PERMANENTE - OPTIMIZADO */}
+  <div className="absolute -inset-4 bg-gradient-to-r from-blue-600/20 via-purple-600/15 to-blue-600/20 blur-xl rounded-full animate-pulse" style={{ animationDuration: '6s' }} />
   
   {/* Capa 2: Contenedor del Logo con Glow */}
   <div className="relative">
     {/* Aura interna más concentrada */}
-    <div className="absolute inset-0 bg-blue-500/40 blur-2xl rounded-full" />
+    <div className="absolute inset-0 bg-blue-500/30 blur-lg rounded-full" />
     
     <div className="relative p-2.5 bg-gradient-to-br from-gray-900 via-gray-800 to-black rounded-2xl border border-white/20 shadow-[0_0_20px_rgba(59,130,246,0.3)]">
       <img 
@@ -329,10 +331,10 @@ const Header = ({ searchQuery = '', onSearchChange, onGoHome, hideSearchOnMobile
   </div>
 </button>
 
-          {/* Buscador centrado con glow - igual que el logo */}
+          {/* Buscador centrado con glow - igual que el logo OPTIMIZADO */}
           <div className="flex-1 max-w-2xl relative" ref={searchRef}>
-            {/* Resplandor de fondo PERMANENTE - igual que el logo */}
-            <div className="absolute -inset-6 bg-gradient-to-r from-blue-600/25 via-indigo-600/20 to-purple-600/25 blur-[35px] rounded-full animate-pulse" style={{ animationDuration: '6s' }} />
+            {/* Resplandor de fondo PERMANENTE - OPTIMIZADO */}
+            <div className="absolute -inset-4 bg-gradient-to-r from-blue-600/20 via-indigo-600/15 to-purple-600/20 blur-xl rounded-full animate-pulse" style={{ animationDuration: '6s' }} />
             
             <div className="relative">
               {/* Search icon with colored container and glow */}
@@ -430,10 +432,10 @@ const Header = ({ searchQuery = '', onSearchChange, onGoHome, hideSearchOnMobile
               </div>
             </div>
 
-            {/* Condiciones - Con efecto de importancia y glow mejorado */}
+            {/* Condiciones - Con efecto de importancia y glow mejorado OPTIMIZADO */}
             <div className="relative">
-              {/* Ambient glow permanente */}
-              <div className="absolute -inset-2 bg-gradient-to-r from-orange-500/40 to-red-600/40 blur-xl opacity-70 rounded-full animate-pulse" />
+              {/* Ambient glow permanente OPTIMIZADO */}
+              <div className="absolute -inset-2 bg-gradient-to-r from-orange-500/30 to-red-600/30 blur-lg opacity-60 rounded-full animate-pulse" />
               
               <button
                 onClick={() => setShowConditionsModal(true)}
@@ -461,7 +463,10 @@ const Header = ({ searchQuery = '', onSearchChange, onGoHome, hideSearchOnMobile
             
             {/* Puntos de Retiro - Con color azul */}
             <button
-              onClick={() => navigate('/puntos-de-retiro')}
+              onClick={() => {
+                navigate('/puntos-de-retiro');
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+              }}
               className="relative flex items-center gap-2 px-6 py-2.5
                        bg-gradient-to-br from-blue-500/20 to-indigo-500/20
                        hover:from-blue-500/30 hover:to-indigo-500/30

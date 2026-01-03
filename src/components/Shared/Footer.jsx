@@ -20,10 +20,10 @@ const Footer = () => {
 
   return (
     <footer className="w-full bg-[#0a0c12] text-white pt-16 pb-24 lg:pb-12 relative overflow-hidden border-t border-white/5">
-      {/* Elementos decorativos de fondo mejorados */}
-      <div className="absolute top-0 left-1/4 w-96 h-96 bg-blue-600/20 blur-[150px] rounded-full pointer-events-none animate-pulse" />
-      <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-emerald-600/20 blur-[150px] rounded-full pointer-events-none animate-pulse" />
-      <div className="absolute top-1/2 left-1/2 w-64 h-64 bg-purple-600/10 blur-[120px] rounded-full pointer-events-none" />
+      {/* Elementos decorativos de fondo OPTIMIZADOS */}
+      <div className="absolute top-0 left-1/4 w-96 h-96 bg-blue-600/15 blur-[80px] rounded-full pointer-events-none animate-pulse" />
+      <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-emerald-600/15 blur-[80px] rounded-full pointer-events-none animate-pulse" />
+      <div className="absolute top-1/2 left-1/2 w-64 h-64 bg-purple-600/8 blur-[60px] rounded-full pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 relative z-10">
         

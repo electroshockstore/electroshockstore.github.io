@@ -32,11 +32,14 @@ const ProductCard = memo(({ product, viewMode, onClick, index = 0, listName = 'P
   const productImage = useMemo(() => getProductImage(product), [product]);
   const isUsed = product.isUsed || false;
   
-  // OPTIMIZACIÓN: Intersection Observer para lazy loading
-  const [isVisible, setIsVisible] = useState(false);
+  // OPTIMIZACIÓN: Cargar inmediatamente los primeros 12 productos, lazy load para el resto
+  const [isVisible, setIsVisible] = useState(index < 12);
   const cardRef = useRef(null);
 
   useEffect(() => {
+    // Si ya es visible (primeros 12), no hacer nada
+    if (isVisible) return;
+
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
@@ -45,7 +48,7 @@ const ProductCard = memo(({ product, viewMode, onClick, index = 0, listName = 'P
         }
       },
       { 
-        rootMargin: '100px', // Cargar 100px antes de que sea visible
+        rootMargin: '200px', // Cargar 200px antes de que sea visible
         threshold: 0.01
       }
     );
@@ -59,7 +62,7 @@ const ProductCard = memo(({ product, viewMode, onClick, index = 0, listName = 'P
         observer.unobserve(cardRef.current);
       }
     };
-  }, []);
+  }, [isVisible]);
   
   const handleClick = useCallback(() => {
     trackSelectItem(product, index, listName);
@@ -77,11 +80,12 @@ const ProductCard = memo(({ product, viewMode, onClick, index = 0, listName = 'P
                    transition-all duration-300 cursor-pointer flex gap-3 sm:gap-4 items-center"
       >
         <div className="w-20 h-20 sm:w-24 sm:h-24 md:w-32 md:h-32 flex-shrink-0 bg-gray-50 rounded-lg p-2 relative overflow-hidden">
-          {isVisible ? (
-            <img src={productImage} alt={product.name} className="w-full h-full object-contain mix-blend-multiply" loading="lazy" />
-          ) : (
-            <div className="w-full h-full bg-gray-200 animate-pulse rounded" />
-          )}
+          <img 
+            src={productImage} 
+            alt={product.name} 
+            className="w-full h-full object-contain mix-blend-multiply" 
+            loading={index < 12 ? "eager" : "lazy"}
+          />
         </div>
         
         <div className="flex-1 min-w-0 flex flex-col gap-2">
@@ -118,15 +122,9 @@ const ProductCard = memo(({ product, viewMode, onClick, index = 0, listName = 'P
                  transition-all duration-300 cursor-pointer overflow-hidden flex flex-col h-full"
     >
       <div className="relative aspect-square bg-gradient-to-br from-gray-50 to-gray-100 overflow-hidden">
-        {isVisible ? (
-          <>
-            <ProductImage src={productImage} alt={product.name} />
-            <StockStatus stockStatus={stockStatus} />
-            <StockBadge stock={product.stock} stockStatus={stockStatus} isUsed={isUsed} />
-          </>
-        ) : (
-          <div className="w-full h-full bg-gray-200 animate-pulse" />
-        )}
+        <ProductImage src={productImage} alt={product.name} loading={index < 12 ? "eager" : "lazy"} />
+        <StockStatus stockStatus={stockStatus} />
+        <StockBadge stock={product.stock} stockStatus={stockStatus} isUsed={isUsed} />
       </div>
 
       <div className="p-2 sm:p-5 flex flex-col flex-1 justify-between gap-2 sm:gap-4">

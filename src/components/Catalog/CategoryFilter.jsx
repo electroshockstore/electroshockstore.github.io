@@ -107,10 +107,9 @@ const CategoryFilter = ({ selectedCategory, onCategoryChange }) => {
 
   return (
     <div className="relative group z-20 w-full">
-      {/* CAPAS DE RESPLANDOR - MOBILE Y DESKTOP */}
-      <div className="absolute -inset-2 bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 rounded-[2.5rem] opacity-30 blur-2xl group-hover:opacity-40 transition-opacity duration-500 -z-10"></div>
-      <div className="absolute -inset-1 bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-600 rounded-[2.5rem] opacity-20 blur-xl animate-pulse -z-10"></div>
-      <div className="absolute -inset-0.5 bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 rounded-[2.2rem] opacity-50 blur-sm -z-10"></div>
+      {/* CAPAS DE RESPLANDOR OPTIMIZADAS - blur reducido */}
+      <div className="absolute -inset-2 bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 rounded-[2.5rem] opacity-20 blur-lg group-hover:opacity-30 transition-opacity duration-500 -z-10"></div>
+      <div className="absolute -inset-1 bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-600 rounded-[2.5rem] opacity-15 blur-md animate-pulse -z-10"></div>
 
       <div className="relative">
         {/* MOBILE: DROPDOWN CON GLOW */}

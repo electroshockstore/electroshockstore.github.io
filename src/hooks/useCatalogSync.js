@@ -1,22 +1,18 @@
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import { getCategoryFromSlug } from '../utils/slugify';
 
 export const useCatalogSync = (categorySlug, selectedCategory, setSelectedCategory, clearSubFilters) => {
-  const [isTransitioning, setIsTransitioning] = useState(false);
-
   useEffect(() => {
     if (categorySlug) {
       const category = getCategoryFromSlug(categorySlug);
       if (category && category !== selectedCategory) {
-        setIsTransitioning(true);
-        // Limpiar filtros y cambiar categoría de forma síncrona
+        // Limpiar filtros y cambiar categoría de forma síncrona e inmediata
         clearSubFilters();
         setSelectedCategory(category);
-        // Pequeño delay para asegurar que el estado se actualice
-        setTimeout(() => setIsTransitioning(false), 50);
       }
     }
   }, [categorySlug, selectedCategory, setSelectedCategory, clearSubFilters]);
 
-  return isTransitioning;
+  // Siempre retornar false - no hay transición
+  return false;
 };

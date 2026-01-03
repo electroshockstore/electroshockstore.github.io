@@ -71,7 +71,7 @@ const ProductGrid = memo(({ products, viewMode, openModal }) => {
       <div className={gridClasses}>
         {products.map((product, index) => (
           <ProductCardWrapper
-            key={product.id}
+            key={`${product.id}-${product.category}`}
             product={product}
             viewMode={viewMode}
             onClick={handleOpenModal}

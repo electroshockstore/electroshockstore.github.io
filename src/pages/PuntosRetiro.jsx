@@ -28,7 +28,7 @@ const PuntosRetiro = () => {
 
         <HeroSection />
 
-        <section className="px-4 sm:px-6">
+        <section className="px-4 sm:px-6 pb-8">
           <div className="max-w-7xl mx-auto space-y-16 sm:space-y-20 md:space-y-24">
             <ImportantRulesBentoGrid rules={IMPORTANT_RULES} />
             <PickupPointsGrid pickupPoints={PICKUP_POINTS} />

@@ -122,10 +122,10 @@ const ImportantRulesBentoGrid = ({ rules = [] }) => {
                 <div className="flex-1">
                   <div className="flex items-center gap-2 mb-1.5 flex-wrap">
                     <h3 className="text-base font-black text-gray-900 leading-tight">
-                      Venta Particular
+                      Sin Local fisico
                     </h3>
                     <span className="px-2 py-0.5 bg-blue-600 text-white text-[8px] font-black rounded-full uppercase">
-                      Sin Local Físico
+                     stock de local
                     </span>
                     <span className="px-2 py-0.5 bg-blue-600 text-white text-[8px] font-black rounded-full uppercase">
                       Sin Garantía
@@ -225,15 +225,22 @@ const ImportantRulesBentoGrid = ({ rules = [] }) => {
             <span className="px-3 py-1 rounded-full bg-green-600 text-white text-[10px] font-black uppercase tracking-widest mb-2 sm:mb-3 inline-block">
               {rulesData[4]?.description}
             </span>
-            <div className="flex items-baseline gap-2 mb-1 sm:mb-2">
+            <div className="flex items-baseline gap-2 mb-2 sm:mb-3">
               <span className="text-5xl sm:text-6xl font-black text-red-600 tracking-tighter leading-none">NO</span>
               <span className="text-xl sm:text-2xl font-bold text-red-800 uppercase leading-none">
                 {rulesData[4]?.title}
               </span>
             </div>
-            <p className="text-xs sm:text-sm font-bold text-red-700 uppercase leading-tight">
-              {rulesData[4]?.subtitle}
-            </p>
+            <div className="flex flex-col gap-1.5">
+              <div className="flex items-center gap-2 text-xs sm:text-sm font-bold text-red-700">
+                <Ban className="w-4 h-4" />
+                NO se retira en mi Domicilio
+              </div>
+              <div className="flex items-center gap-2 text-xs sm:text-sm font-bold text-red-700">
+                <Ban className="w-4 h-4" />
+                NO vendo por Mercadolibre
+              </div>
+            </div>
           </div>
 
           {/* --- CARD 6: VENTA PARTICULAR --- */}
@@ -245,7 +252,7 @@ const ImportantRulesBentoGrid = ({ rules = [] }) => {
             {/* ✅ BADGES ARRIBA */}
             <div className="flex flex-wrap gap-2 mb-4 sm:mb-0 sm:absolute sm:top-4 sm:right-4 z-20">
               <span className="px-2 sm:px-3 py-1 bg-blue-600 rounded-lg text-white text-[10px] sm:text-[11px] font-black uppercase">
-                Sin Local Físico
+                Stock de local cerrado
               </span>
               <span className="px-2 sm:px-3 py-1 bg-blue-600 rounded-lg text-white text-[10px] sm:text-[11px] font-black uppercase">
                 Sin Garantía Escrita

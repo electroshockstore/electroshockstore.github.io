@@ -1,6 +1,6 @@
 import { Package } from 'lucide-react';
 
-const ProductImage = ({ src, alt, className = "" }) => {
+const ProductImage = ({ src, alt, className = "", loading = "lazy" }) => {
   return (
     <div className={`relative w-full h-full bg-white p-6 ${className}`}>
       <img
@@ -8,7 +8,7 @@ const ProductImage = ({ src, alt, className = "" }) => {
         alt={alt}
         className="w-full h-full object-contain
                  group-hover:scale-110 transition-all duration-500"
-        loading="lazy"
+        loading={loading}
         onError={(e) => {
           e.target.style.display = 'none';
           e.target.nextSibling.style.display = 'flex';

@@ -77,7 +77,7 @@ export const IMPORTANT_RULES = [
   },
   {
     icon: CheckCircle,
-    title: 'Venta Particular',
+    title: 'Sin Local fisico',
     subtitle: 'Sin local físico',
     description: 'Los productos se entregan sellados, Pago previo para apertura',
     gradient: 'from-blue-500 via-cyan-500 to-teal-500',
