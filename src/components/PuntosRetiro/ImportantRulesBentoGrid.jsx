@@ -3,6 +3,7 @@ import {
   CreditCard, 
   Truck,
   X,
+  Ban,
   DollarSign,
   AlertTriangle,
   CheckCircle,
@@ -27,11 +28,14 @@ const ImportantRulesBentoGrid = ({ rules = [] }) => {
             <div className="bg-pink-50 rounded-[2rem] p-4 border border-pink-100 flex flex-col justify-between relative overflow-hidden">
               <ShieldCheck className="absolute -right-2 -bottom-2 w-16 h-16 text-pink-300 opacity-20" />
               <div className="relative z-10">
+                <span className="inline-block px-2 py-0.5 bg-pink-600 text-white text-[8px] font-black rounded-full uppercase mb-2">
+                  Seguridad
+                </span>
                 <h3 className="text-xl font-black text-gray-900 leading-none mb-1">
-                  Sin Depósitos
+                  Sin Depósitos Previos
                 </h3>
                 <p className="text-[10px] font-bold text-pink-600 uppercase">
-                  100% Seguro
+                  Pagas al retirar
                 </p>
               </div>
             </div>
@@ -40,12 +44,22 @@ const ImportantRulesBentoGrid = ({ rules = [] }) => {
             <div className="bg-white rounded-[2rem] p-4 border border-gray-100 shadow-lg flex flex-col justify-between relative overflow-hidden">
               <AlertTriangle className="absolute -right-2 -bottom-2 w-16 h-16 text-orange-300 opacity-15" />
               <div className="relative z-10">
-                <h3 className="text-xl font-black text-gray-900 leading-none mb-1">
+                <span className="inline-block px-2 py-0.5 bg-black text-white text-[8px] font-black rounded-full uppercase mb-2">
+                  Transparencia
+                </span>
+                <h3 className="text-xl font-black text-gray-900 leading-none mb-2">
                   Pago Inmediato
                 </h3>
-                <p className="text-[10px] text-gray-600 font-semibold leading-tight">
-                  Efectivo o transferencia... No lo intenten estafadores
-                </p>
+                <div className="flex flex-col gap-1">
+                  <div className="flex items-center gap-1.5 text-[9px] font-bold text-emerald-700">
+                    <Banknote className="w-3 h-3" />
+                    Efectivo
+                  </div>
+                  <div className="flex items-center gap-1.5 text-[9px] font-bold text-blue-700">
+                    <CreditCard className="w-3 h-3" />
+                    Transferencia
+                  </div>
+                </div>
               </div>
             </div>
 
@@ -63,6 +77,9 @@ const ImportantRulesBentoGrid = ({ rules = [] }) => {
             <div className="bg-gradient-to-br from-red-50 to-rose-100 rounded-[2rem] p-4 border border-red-200 flex flex-col justify-center relative overflow-hidden">
               <Percent className="absolute -right-2 -bottom-2 w-16 h-16 text-red-300 opacity-20" />
               <div className="relative z-10">
+                <span className="inline-block px-2 py-0.5 bg-red-600 text-white text-[8px] font-black rounded-full uppercase mb-2">
+                  Atención
+                </span>
                 <div className="flex items-baseline gap-1 mb-0.5">
                   <span className="text-4xl font-black text-red-600 leading-none">10%</span>
                   <span className="text-sm font-black text-red-700 uppercase">Recargo</span>
@@ -77,29 +94,47 @@ const ImportantRulesBentoGrid = ({ rules = [] }) => {
             <div className="bg-gradient-to-br from-slate-50 to-gray-100 rounded-[2rem] p-4 border border-slate-200 flex flex-col justify-center relative overflow-hidden">
               <Truck className="absolute -right-2 -bottom-2 w-16 h-16 text-slate-400 opacity-20 rotate-12" />
               <div className="relative z-10">
-                <div className="flex items-baseline gap-1 mb-0.5">
+                <span className="inline-block px-2 py-0.5 bg-green-600 text-white text-[8px] font-black rounded-full uppercase mb-2">
+                  Importante
+                </span>
+                <div className="flex items-baseline gap-1 mb-1">
                   <span className="text-4xl font-black text-red-600 leading-none">NO</span>
                   <span className="text-sm font-black text-red-700 uppercase">Envíos</span>
                 </div>
-                <p className="text-[9px] font-bold text-slate-600 leading-tight">
-                  Retiros en PUNTOS SEGUROS
-                </p>
+                 <div className="flex flex-col gap-1">
+                  <div className="flex items-center gap-1.5 text-[9px] font-bold text-red-700">
+                    <Ban className="w-3 h-3" />
+                    NO Domicilio
+                  </div>
+                  <div className="flex items-center gap-1.5 text-[9px] font-bold text-red-700">
+                    <Ban className="w-3 h-3" />
+                     NO Mercadolibre
+                  </div>
+                   </div>
               </div>
             </div>
 
             {/* CARD 6: VENTA PARTICULAR */}
-            <div className="col-span-2 bg-blue-100 rounded-[2rem] p-4 border border-blue-200 flex items-center gap-3 relative overflow-hidden">
+            <div className="col-span-2 bg-blue-100 rounded-[2rem] p-4 border border-blue-200 relative overflow-hidden">
               <Zap className="absolute -right-2 -bottom-2 w-20 h-20 text-blue-300 opacity-15" />
-              <div className="w-10 h-10 bg-blue-600 rounded-xl flex items-center justify-center shrink-0">
-                <AlertTriangle className="w-5 h-5 text-white" />
-              </div>
-              <div className="flex-1 relative z-10">
-                <h3 className="text-base font-black text-gray-900 leading-tight mb-0.5">
-                  Venta Particular
-                </h3>
-                <p className="text-[10px] text-blue-800 font-bold leading-tight">
-                  Sin local físico. Productos sellados de fabrica.
-                </p>
+              <div className="flex items-start gap-3 relative z-10">
+              
+                <div className="flex-1">
+                  <div className="flex items-center gap-2 mb-1.5 flex-wrap">
+                    <h3 className="text-base font-black text-gray-900 leading-tight">
+                      Venta Particular
+                    </h3>
+                    <span className="px-2 py-0.5 bg-blue-600 text-white text-[8px] font-black rounded-full uppercase">
+                      Sin Local Físico
+                    </span>
+                    <span className="px-2 py-0.5 bg-blue-600 text-white text-[8px] font-black rounded-full uppercase">
+                      Sin Garantía
+                    </span>
+                  </div>
+                  <p className="text-[10px] text-blue-800 font-bold leading-tight">
+                    Productos sellados de Fábrica , Pago previo por apertura.
+                  </p>
+                </div>
               </div>
             </div>
 
