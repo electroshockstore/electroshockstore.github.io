@@ -1,5 +1,6 @@
 export { default as HeroSection } from './HeroSection';
 export { default as ImportantRulesSection } from './ImportantRulesSection';
+export { default as ImportantRulesBentoGrid } from './ImportantRulesBentoGrid';
 export { default as PickupPointsGrid } from './PickupPointsGrid';
 export { default as AdditionalInfoSection } from './AdditionalInfoSection';
 export { default as PickupPointCard } from './PickupPointCard';

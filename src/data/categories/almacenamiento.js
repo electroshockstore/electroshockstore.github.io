@@ -169,7 +169,7 @@ export const almacenamientoProducts = [
   },
   {
     id: 207,
-    name: "SSD Kingston NV2 250GB NVMe PCIe Generacion 4.0",
+    name: "Kingston NV2 250GB, M.2 NVMe PCIe Generacion 4.0",
     brand: "Kingston",
     model: "NV2",
     category: "Almacenamiento",
@@ -458,7 +458,7 @@ export const almacenamientoProducts = [
     brand: "Western Digital",
     model: "WD Elements Portable",
     category: "Almacenamiento",
-    price: 180000,
+    price: 170000,
     stock: 4,
     sku: "WD-2TB-ELEMENTS",
     description: "Disco duro externo Western Digital WD Elements 2TB USB 3.0",

@@ -4,7 +4,7 @@ import Footer from '../components/Shared/Footer';
 import FloatingChatButton from '../components/Shared/FloatingChatButton';
 import {
   HeroSection,
-  ImportantRulesSection,
+  ImportantRulesBentoGrid,
   PickupPointsGrid,
   AdditionalInfoSection
 } from '../components/PuntosRetiro';
@@ -26,11 +26,11 @@ const PuntosRetiro = () => {
       <main className="relative overflow-hidden">
         <div className="fixed inset-0 -z-10 bg-gradient-to-br from-blue-500/5 via-purple-500/5 to-pink-500/5" />
 
-        <HeroSection onBack={handleGoHome} />
+        <HeroSection />
 
-        <section className="py-6 sm:py-8 md:py-12 px-4 sm:px-6">
-          <div className="max-w-7xl mx-auto">
-            <ImportantRulesSection rules={IMPORTANT_RULES} />
+        <section className="px-4 sm:px-6">
+          <div className="max-w-7xl mx-auto space-y-16 sm:space-y-20 md:space-y-24">
+            <ImportantRulesBentoGrid rules={IMPORTANT_RULES} />
             <PickupPointsGrid pickupPoints={PICKUP_POINTS} />
             <AdditionalInfoSection />
           </div>

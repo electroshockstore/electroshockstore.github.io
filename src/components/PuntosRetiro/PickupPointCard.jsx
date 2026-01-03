@@ -4,9 +4,9 @@ import ScheduleGrid from './ScheduleGrid';
 
 const PickupPointCard = ({ point }) => {
   return (
-    <div className="group">
+    <div className="group h-full">
       {/* Apple-style card con glassmorphism */}
-      <div className="relative bg-white/5 backdrop-blur-2xl rounded-2xl sm:rounded-3xl border border-white/10 overflow-hidden hover:bg-white/[0.07] transition-all duration-500 shadow-2xl hover:shadow-emerald-500/20">
+      <div className="relative h-full flex flex-col bg-white/5 backdrop-blur-2xl rounded-2xl sm:rounded-3xl border border-white/10 overflow-hidden hover:bg-white/[0.07] transition-all duration-500 shadow-2xl hover:shadow-emerald-500/20">
         {/* Subtle mesh gradient background */}
         <div className="absolute inset-0 opacity-30">
           <div className="absolute inset-0 bg-gradient-to-br from-emerald-500/20 via-transparent to-blue-500/20" />
@@ -46,7 +46,7 @@ const PickupPointCard = ({ point }) => {
         </div>
 
         {/* Content - espaciado Apple */}
-        <div className="relative p-4 sm:p-8 space-y-4 sm:space-y-6">
+        <div className="relative flex-1 flex flex-col p-4 sm:p-8 space-y-4 sm:space-y-6">
           <SecurityFeatures security={point.security} />
           <ScheduleGrid 
             days={point.days}
@@ -59,7 +59,7 @@ const PickupPointCard = ({ point }) => {
             href={point.mapUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="group/btn relative flex items-center justify-center gap-2 sm:gap-3 w-full bg-gradient-to-b from-emerald-500 to-emerald-600 hover:from-emerald-400 hover:to-emerald-500 text-white font-bold py-3 sm:py-4 rounded-xl sm:rounded-2xl transition-all duration-300 shadow-lg shadow-emerald-500/25 hover:shadow-xl hover:shadow-emerald-500/40 hover:-translate-y-0.5"
+            className="group/btn relative flex items-center justify-center gap-2 sm:gap-3 w-full bg-gradient-to-b from-emerald-500 to-emerald-600 hover:from-emerald-400 hover:to-emerald-500 text-white font-bold py-3 sm:py-4 rounded-xl sm:rounded-2xl transition-all duration-300 shadow-lg shadow-emerald-500/25 hover:shadow-xl hover:shadow-emerald-500/40 hover:-translate-y-0.5 mt-auto"
           >
             <Navigation className="w-4 h-4 sm:w-5 sm:h-5" strokeWidth={2} />
             <span className="text-sm sm:text-base">Abrir en Maps</span>

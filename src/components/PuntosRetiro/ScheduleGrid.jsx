@@ -2,10 +2,10 @@ import { Calendar, Clock } from 'lucide-react';
 
 const ScheduleGrid = ({ days, schedule, weekendSchedule }) => {
   return (
-    <div className="space-y-3 sm:space-y-4">
-      {/* Grid 2 columnas - Mejorado para mobile */}
-      <div className="grid grid-cols-2 gap-3 sm:gap-4">
-        {/* Días */}
+    <div className="space-y-3 sm:space-y-4 flex-shrink-0">
+      {/* Grid 2 columnas - Días más ancho para evitar saltos de línea */}
+      <div className="grid gap-3 sm:gap-4" style={{ gridTemplateColumns: '1.4fr 1fr' }}>
+        {/* Días - Más ancho */}
         <div className="relative bg-white/5 backdrop-blur-xl rounded-xl sm:rounded-2xl border border-white/10 p-3 sm:p-5 overflow-hidden group hover:bg-white/[0.07] transition-all duration-300">
           <div className="flex flex-col gap-2 sm:gap-3">
             <div className="w-8 h-8 sm:w-10 sm:h-10 bg-gradient-to-br from-blue-400/20 to-blue-600/20 rounded-lg sm:rounded-xl flex items-center justify-center border border-blue-400/30">
@@ -13,7 +13,7 @@ const ScheduleGrid = ({ days, schedule, weekendSchedule }) => {
             </div>
             <div>
               <p className="text-[10px] sm:text-xs text-gray-400 font-medium mb-0.5 sm:mb-1 uppercase tracking-wide">Días</p>
-              <p className="text-sm sm:text-base font-bold text-white leading-tight">{days}</p>
+              <p className="text-sm sm:text-base font-bold text-white leading-tight whitespace-nowrap">{days}</p>
             </div>
           </div>
         </div>

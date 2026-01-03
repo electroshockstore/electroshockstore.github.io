@@ -2,7 +2,7 @@ import { Shield } from 'lucide-react';
 
 const SecurityFeatures = ({ security }) => {
   return (
-    <div className="relative bg-white/5 backdrop-blur-xl rounded-2xl border border-white/10 overflow-hidden">
+    <div className="relative bg-white/5 backdrop-blur-xl rounded-2xl border border-white/10 overflow-hidden flex-shrink-0">
       {/* Header con icono */}
       <div className="flex items-center gap-3 px-6 py-4 border-b border-white/10">
         <div className="relative">
