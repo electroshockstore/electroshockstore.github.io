@@ -95,14 +95,14 @@ const ProductDetailPage = () => {
   return (
     <div className="min-h-screen w-full flex flex-col">
       <Header searchQuery={searchQuery} onSearchChange={setSearchQuery} />
-      <main className="flex-1 w-full px-4 sm:px-6 py-4 sm:py-8">
-        <div className="mb-4 sm:mb-6">
+      <main className="flex-1 w-full px-0 sm:px-6 py-4 sm:py-8">
+        <div className="mb-4 sm:mb-6 px-4 sm:px-0">
           <CategoryFilter 
             selectedCategory={selectedCategory}
             onCategoryChange={handleCategoryChange}
           />
         </div>
-        <ProductDetail product={product} onClose={handleClose} viewOnly={true} isPage={true} />
+        <ProductDetail product={product} onClose={handleClose} isPage={true} />
       </main>
       <Footer />
       <ScrollButton />

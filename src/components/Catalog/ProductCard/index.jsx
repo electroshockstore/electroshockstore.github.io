@@ -72,7 +72,8 @@ const ProductCard = memo(({ product, viewMode, onClick, index = 0, listName = 'P
         ref={cardRef}
         onClick={handleClick}
         className="group relative bg-white rounded-xl border border-gray-100 p-3 sm:p-4
-                   hover:border-blue-500/30 hover:shadow-lg hover:shadow-blue-500/5 
+                   hover:border-blue-500/30 hover:shadow-xl hover:shadow-blue-500/10 
+                   shadow-lg shadow-gray-200/50
                    transition-all duration-300 cursor-pointer flex gap-3 sm:gap-4 items-center"
       >
         <div className="w-20 h-20 sm:w-24 sm:h-24 md:w-32 md:h-32 flex-shrink-0 bg-gray-50 rounded-lg p-2 relative overflow-hidden">
@@ -112,7 +113,8 @@ const ProductCard = memo(({ product, viewMode, onClick, index = 0, listName = 'P
       ref={cardRef}
       onClick={handleClick}
       className="group relative bg-white rounded-xl sm:rounded-2xl border border-gray-100 
-                 hover:border-blue-500/30 hover:shadow-xl hover:shadow-blue-500/5
+                 hover:border-blue-500/30 hover:shadow-2xl hover:shadow-blue-500/10
+                 shadow-lg shadow-gray-200/50
                  transition-all duration-300 cursor-pointer overflow-hidden flex flex-col h-full"
     >
       <div className="relative aspect-square bg-gradient-to-br from-gray-50 to-gray-100 overflow-hidden">

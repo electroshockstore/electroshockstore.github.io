@@ -18,7 +18,8 @@ const ProductCardMayoristaBlanco = memo(({ product, onClick, index = 0 }) => {
     <div 
       onClick={() => onClick(product)}
       className="group relative bg-white rounded-xl sm:rounded-2xl border border-gray-200
-                 hover:border-amber-500/50 hover:shadow-xl hover:shadow-amber-500/10
+                 hover:border-amber-500/50 hover:shadow-2xl hover:shadow-amber-500/10
+                 shadow-lg shadow-gray-200/50
                  transition-all duration-300 cursor-pointer overflow-hidden flex flex-col h-full"
     >
       {/* Badges superiores */}

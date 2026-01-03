@@ -9,7 +9,7 @@ const SortSelector = ({ sortOrder, onSortChange }) => {
   };
 
   return (
-    <div className="inline-flex bg-gray-100 rounded-full p-1 sm:p-1.5 shadow-[0_2px_8px_rgba(0,0,0,0.06)]">
+    <div className="inline-flex bg-gray-100 rounded-full p-1 sm:p-1.5 shadow-lg shadow-gray-300/50">
       <button
         onClick={handleToggle}
         className={`

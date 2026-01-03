@@ -85,17 +85,17 @@ const MetodosDePago = () => {
                 className="group relative"
               >
                 {/* Card */}
-                <div className={`relative bg-white rounded-3xl border-2 overflow-hidden shadow-[0_20px_60px_rgb(0,0,0,0.25)] ${method.id === 'efectivo' ? 'border-emerald-300' : 'border-blue-300'} backdrop-blur-sm`}>
+                <div className={`relative bg-white rounded-2xl sm:rounded-3xl border-2 overflow-hidden shadow-lg ${method.id === 'efectivo' ? 'border-emerald-300' : 'border-blue-300'}`}>
                   
                   {/* Background image for efectivo method */}
                   {method.id === 'efectivo' && (
                     <div 
-                      className="absolute inset-0 bg-cover bg-center"
+                      className="absolute inset-0 bg-cover bg-center "
                       style={{
                         backgroundImage: 'url(/images/cash_tiny.webp)',
                         backgroundSize: 'contain',
                         backgroundRepeat: 'no-repeat',
-                        backgroundPosition: 'right'
+                        backgroundPosition: 'right bottom'
                       }}
                     />
                   )}
@@ -108,40 +108,35 @@ const MetodosDePago = () => {
                         backgroundImage: 'url(/images/transfer_tiny.webp)',
                         backgroundSize: 'contain',
                         backgroundRepeat: 'no-repeat',
-                        backgroundPosition: 'right'
+                        backgroundPosition: 'right bottom'
                       }}
                     />
                   )}
                   
                   {/* Gradient background decoration */}
-                  <div className={`absolute top-0 right-0 w-64 h-64 bg-gradient-to-br ${method.bgColor} opacity-40 rounded-full blur-3xl transform translate-x-20 -translate-y-20`} />
+                  <div className={`absolute top-0 right-0 w-32 h-32 bg-gradient-to-br ${method.bgColor} opacity-40 rounded-full blur-3xl`} />
 
                   {/* Content */}
-                  <div className="relative p-3 sm:p-6 lg:p-6 pb-4 sm:pb-6">
+                  <div className="relative p-4 sm:p-6">
                     {/* Icon Circle */}
-                    <div className={`inline-flex p-3 sm:p-4 lg:p-5 rounded-xl sm:rounded-2xl bg-gradient-to-br ${method.gradient} shadow-[0_10px_30px_rgba(0,0,0,0.3)] sm:shadow-[0_15px_50px_rgba(0,0,0,0.4)] mb-4 sm:mb-6`}>
-                      <Icon className="h-6 w-6 sm:h-8 sm:w-8 lg:h-10 lg:w-10 text-white" strokeWidth={2.5} />
+                    <div className={`inline-flex p-3 sm:p-4 rounded-xl sm:rounded-2xl bg-gradient-to-br ${method.gradient} shadow-lg mb-3 sm:mb-4`}>
+                      <Icon className="h-5 w-5 sm:h-8 sm:w-8 text-white" strokeWidth={2.5} />
                     </div>
 
-                    {/* TÍTULO MEJORADO (MODERNO) */}
-                    <h3 className={`
-                        text-2xl sm:text-xl lg:text-5xl
-                        font-extrabold 
-                        tracking-tight 
-                        leading-snug 
-                        mb-1 sm:mb-2
-                        ${method.id === 'efectivo' ? 'text-emerald-700' : 'text-blue-700'}
-                    `}>
-                      {method.title}
-                    </h3>
-                    
-                    <p className={`font-semibold text-sm sm:text-base mb-0 ${method.id === 'efectivo' ? 'text-emerald-700' : 'text-blue-700'}`}>
-                      {method.description}
-                    </p>
+                    {/* Título y descripción */}
+                    <div className="max-w-[60%] sm:max-w-none">
+                      <h3 className={`text-xl sm:text-3xl lg:text-4xl font-extrabold tracking-tight leading-tight mb-1 sm:mb-2 ${method.id === 'efectivo' ? 'text-emerald-700' : 'text-blue-700'}`}>
+                        {method.title}
+                      </h3>
+                      
+                      <p className={`font-semibold text-xs sm:text-base ${method.id === 'efectivo' ? 'text-emerald-600' : 'text-blue-600'}`}>
+                        {method.description}
+                      </p>
+                    </div>
                   </div>
 
-                  {/* Bottom accent line - always visible */}
-                  <div className={`h-2 bg-gradient-to-r ${method.gradient}`} />
+                  {/* Bottom accent line */}
+                  <div className={`h-1.5 sm:h-2 bg-gradient-to-r ${method.gradient}`} />
                 </div>
               </div>
             );
@@ -160,39 +155,38 @@ const MetodosDePago = () => {
             </div>
           </div>
 
-         {/* Tips Grid */}
-<div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
+         {/* Tips Grid - Optimizado para mobile */}
+<div className="grid grid-cols-1 sm:grid-cols-3 gap-3 sm:gap-4">
   {securityTips.map((tip, index) => {
     const Icon = tip.icon;
 
     return (
       <div key={index} className="group relative">
-        {/* Card Principal con overflow-hidden para contener los bordes redondeados */}
-        <div className={`relative bg-white rounded-2xl sm:rounded-[2rem] border-2 border-gray-100 p-6 sm:p-7 
-          transition-all duration-500 shadow-[0_9px_30px_rgba(0,0,0,0.04)] 
-           h-full overflow-hidden flex flex-col`}
-        >
-          {/* Fondo sutil (Liquid Style) */}
-          <div className={`absolute inset-0 ${tip.bgColor} opacity-10 group-hover:opacity-20 transition-opacity duration-500`} />
+        <div className={`relative bg-white rounded-xl sm:rounded-2xl border-2 border-gray-100 p-4 sm:p-5 transition-all duration-300 shadow-sm hover:shadow-md h-full overflow-hidden flex flex-col`}>
+          
+          {/* Fondo sutil */}
+          <div className={`absolute inset-0 ${tip.bgColor} opacity-10 group-hover:opacity-20 transition-opacity duration-300`} />
 
-          {/* Icon Circle with Gradient */}
-          <div className="relative z-10">
-            <div className={`inline-flex p-3.5 rounded-2xl bg-gradient-to-br ${tip.gradient} shadow-lg mb-5 
-             `}>
-              <Icon className="h-6 w-6 sm:h-7 sm:w-7 text-white" strokeWidth={2.5} />
+          {/* Content */}
+          <div className="relative z-10 flex items-start gap-3 sm:flex-col sm:gap-0">
+            {/* Icon Circle */}
+            <div className={`inline-flex p-2.5 sm:p-3 rounded-xl bg-gradient-to-br ${tip.gradient} shadow-md mb-0 sm:mb-3 flex-shrink-0`}>
+              <Icon className="h-4 w-4 sm:h-5 sm:w-5 text-white" strokeWidth={2.5} />
             </div>
 
-            <h4 className="text-xl font-bold text-gray-900 mb-3 tracking-tight">
-              {tip.title}
-            </h4>
+            <div className="flex-1">
+              <h4 className="text-sm sm:text-base font-bold text-gray-900 mb-1 sm:mb-2 tracking-tight leading-tight">
+                {tip.title}
+              </h4>
 
-            <p className="text-sm text-gray-600 font-medium leading-relaxed">
-              {tip.description}
-            </p>
+              <p className="text-xs sm:text-sm text-gray-600 font-medium leading-snug">
+                {tip.description}
+              </p>
+            </div>
           </div>
 
-          {/* Bottom Border CORREGIDO: Adaptado perfectamente al redondeo */}
-          <div className={`absolute bottom-0 left-0 right-0 h-1.5 bg-gradient-to-r ${tip.gradient} transition-transform duration-500 transform origin-left`} />
+          {/* Bottom Border */}
+          <div className={`absolute bottom-0 left-0 right-0 h-1 sm:h-1.5 bg-gradient-to-r ${tip.gradient}`} />
         </div>
       </div>
     );
@@ -200,11 +194,11 @@ const MetodosDePago = () => {
 </div>
         </div>
 
-        {/* Footer Info */}
-        <div className="mt-6 sm:mt-8 text-center px-4">
-          <div className="inline-flex items-center gap-2 sm:gap-3 px-4 sm:px-6 py-3 sm:py-4 bg-gradient-to-r from-blue-50 to-emerald-50 rounded-xl sm:rounded-2xl border-2 border-blue-200 shadow-md">
+        {/* Footer Info - Optimizado */}
+        <div className="mt-6 sm:mt-8 px-2 sm:px-4">
+          <div className="flex items-center gap-2 sm:gap-3 px-3 sm:px-6 py-2.5 sm:py-4 bg-gradient-to-r from-blue-50 to-emerald-50 rounded-xl sm:rounded-2xl border-2 border-blue-200 shadow-md">
             <Sparkles className="h-4 w-4 sm:h-5 sm:w-5 text-blue-600 flex-shrink-0" />
-            <p className="text-xs sm:text-sm font-bold text-gray-800 text-center">
+            <p className="text-xs sm:text-sm font-bold text-gray-800">
               Verifica siempre que el monto y los datos sean correctos antes de confirmar
             </p>
           </div>

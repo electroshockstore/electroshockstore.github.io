@@ -9,7 +9,7 @@ const HeroSection = () => {
               ¿Dónde Retiro
             </span>
             <br />
-            <span className="text-white drop-shadow-2xl">Mi Compra?</span>
+            <span className="text-white drop-shadow-2xl">Los Productos?</span>
           </h1>
           
           <p className="text-lg sm:text-2xl md:text-3xl text-gray-300 max-w-4xl mx-auto leading-relaxed px-4 font-semibold">
