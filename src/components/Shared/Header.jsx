@@ -285,34 +285,67 @@ const Header = ({ searchQuery = '', onSearchChange, onGoHome, hideSearchOnMobile
           )}
         </div>
 
-        {/* Layout desktop: horizontal */}
+        {/* Layout desktop: horizontal WEB */}
         <div className="hidden sm:flex items-center justify-between gap-6">
-          {/* Logo - Clickeable */}
-          <button 
-            onClick={() => {
-              navigate('/');
-              onGoHome?.();
-            }}
-            className="flex items-center gap-3 flex-shrink-0 hover:opacity-80 transition-opacity"
-          >
-            <img 
-              src="/logotipo_tiny.png" 
-              alt="Shock-Store Logo" 
-              className="h-12 w-auto object-contain"
-            />
-            <div>
-              <h1 className="text-2xl font-black text-white leading-tight">Shock-Store</h1>
-              <h2 className="text-sm font-semibold text-blue-400">Catálogo</h2>
-            </div>
-          </button>
+          {/* Logo - Clickeable con efectos de luz mejorados */}
+<button 
+  onClick={() => {
+    navigate('/');
+    onGoHome?.();
+  }}
+  className="relative flex items-center gap-4 flex-shrink-0 group"
+>
+  {/* Capa 1: Resplandor de fondo PERMANENTE */}
+  {/* Quitamos opacity-0 para que brille siempre */}
+  <div className="absolute -inset-6 bg-gradient-to-r from-blue-600/25 via-purple-600/20 to-blue-600/25 blur-[35px] rounded-full animate-pulse" style={{ animationDuration: '6s' }} />
+  
+  {/* Capa 2: Contenedor del Logo con Glow */}
+  <div className="relative">
+    {/* Aura interna más concentrada */}
+    <div className="absolute inset-0 bg-blue-500/40 blur-2xl rounded-full" />
+    
+    <div className="relative p-2.5 bg-gradient-to-br from-gray-900 via-gray-800 to-black rounded-2xl border border-white/20 shadow-[0_0_20px_rgba(59,130,246,0.3)]">
+      <img 
+        src="/logotipo_tiny.png" 
+        alt="Shock-Store Logo" 
+      
+        className="h-10 w-auto object-contain relative z-10 filter drop-shadow-[0_0_12px_rgba(59,130,246,0.8)]" 
+      />
+    </div>
+  </div>
+  
+  {/* Capa 3: Texto con brillo constante */}
+  <div className="relative z-10 flex flex-col items-start">
+    <h1 className="text-5xl font-black tracking-tighter bg-gradient-to-r from-white via-blue-200 to-white bg-clip-text text-transparent drop-shadow-[0_0_10px_rgba(255,255,255,0.3)]">
+      Shock-Store
+    </h1>
+    <div className="flex items-center gap-2">
+      {/* Línea decorativa brillante */}
+      <div className="h-[3px] w-10 bg-gradient-to-r from-blue-400 to-transparent rounded-full shadow-[0_0_8px_rgba(59,130,246,0.6)]" />
+      <h2 className="text-[10px] font-black uppercase tracking-[0.3em] text-blue-400 drop-shadow-[0_0_5px_rgba(96,165,250,0.5)]">
+        Catálogo
+      </h2>
+    </div>
+  </div>
+</button>
 
-          {/* Buscador centrado */}
-          <div className="flex-1 max-w-2xl" ref={searchRef}>
+          {/* Buscador centrado con glow - igual que el logo */}
+          <div className="flex-1 max-w-2xl relative" ref={searchRef}>
+            {/* Resplandor de fondo PERMANENTE - igual que el logo */}
+            <div className="absolute -inset-6 bg-gradient-to-r from-blue-600/25 via-indigo-600/20 to-purple-600/25 blur-[35px] rounded-full animate-pulse" style={{ animationDuration: '6s' }} />
+            
             <div className="relative">
-              {/* Search icon with colored container */}
-              <div className="absolute left-3 top-1/2 -translate-y-1/2 z-10 bg-gradient-to-br from-blue-500 to-indigo-600 p-2 rounded-xl shadow-lg">
-                <Search className="h-4 w-4 text-white" strokeWidth={2.5} />
+              {/* Search icon with colored container and glow */}
+              <div className="absolute left-3 top-1/2 -translate-y-1/2 z-10">
+                <div className="relative">
+                  <div className="bg-gradient-to-br from-blue-500 to-indigo-600 p-2 rounded-xl shadow-lg">
+                    <Search className="h-4 w-4 text-white" strokeWidth={2.5} />
+                  </div>
+                  {/* Icon glow visible */}
+                  <div className="absolute inset-0 bg-blue-500 blur-xl opacity-60 rounded-xl" />
+                </div>
               </div>
+              
               <input
                 type="text"
                 value={localSearchQuery}
@@ -323,7 +356,8 @@ const Header = ({ searchQuery = '', onSearchChange, onGoHome, hideSearchOnMobile
                          text-white placeholder:text-white/70
                          focus:outline-none focus:ring-2 focus:ring-blue-500/50 focus:border-blue-500/50
                          hover:border-gray-600/50 hover:bg-gray-900
-                         transition-all duration-300 shadow-xl"
+                         transition-all duration-300 shadow-xl
+                         focus:shadow-blue-500/20 focus:shadow-2xl"
               />
               {localSearchQuery && (
                 <button
@@ -396,8 +430,11 @@ const Header = ({ searchQuery = '', onSearchChange, onGoHome, hideSearchOnMobile
               </div>
             </div>
 
-            {/* Condiciones - Con efecto de importancia */}
+            {/* Condiciones - Con efecto de importancia y glow mejorado */}
             <div className="relative">
+              {/* Ambient glow permanente */}
+              <div className="absolute -inset-2 bg-gradient-to-r from-orange-500/40 to-red-600/40 blur-xl opacity-70 rounded-full animate-pulse" />
+              
               <button
                 onClick={() => setShowConditionsModal(true)}
                 className="relative flex items-center gap-2 px-6 py-2.5
@@ -411,7 +448,7 @@ const Header = ({ searchQuery = '', onSearchChange, onGoHome, hideSearchOnMobile
                          hover:scale-105 active:scale-95
                          animate-button-float"
               >
-                {/* Glow effect */}
+                {/* Glow effect interno */}
                 <div className="absolute inset-0 bg-orange-400 rounded-full blur-lg opacity-50 animate-button-glow" />
                 
                 {/* Shine effect */}

@@ -51,7 +51,7 @@ const CategoryProductSection = ({ onCategoryClick }) => {
                         </span>
                     </h2>
                     <p className="text-sm sm:text-base text-gray-300 max-w-2xl mx-auto font-medium drop-shadow-[0_0_10px_rgba(255,255,255,0.2)]">
-                        Encontrá todo lo que necesitás para armar tu setup ideal
+                        Encontrá todo lo que necesitás para armar tu setup
                     </p>
                 </div>
 
@@ -201,18 +201,81 @@ const CategoryProductSection = ({ onCategoryClick }) => {
                     </div>
                 </div>
 
-                {/* Grid Mobile - Simple */}
-                <div className="block sm:hidden">
-                    <div className="grid grid-cols-2 gap-3">
-                        {allCategories.map((category) => (
-                            <CategoryCard
-                                key={category.id}
-                                category={category}
-                                onCategoryClick={handleCategoryClick}
-                                className="h-[140px]"
-                                textSize="text-sm font-semibold"
-                            />
-                        ))}
+                {/* Bento Grid Mobile - Optimizado y compacto */}
+                <div className="block sm:hidden px-3">
+                    <div className="grid grid-cols-4 gap-2 auto-rows-[100px]">
+                        {/* PROCESADORES - Grande destacado (2x2) */}
+                        <CategoryCard
+                            category={allCategories[0]}
+                            onCategoryClick={handleCategoryClick}
+                            className="col-span-2 row-span-2"
+                            textSize="text-base font-black"
+                            isLarge={true}
+                        />
+                        
+                        {/* FUENTES - Vertical (1x2) */}
+                        <CategoryCard
+                            category={allCategories[4]}
+                            onCategoryClick={handleCategoryClick}
+                            className="col-span-1 row-span-2"
+                            textSize="text-xs font-bold"
+                        />
+                        
+                        {/* MEMORIAS RAM - Vertical (1x2) */}
+                        <CategoryCard
+                            category={allCategories[2]}
+                            onCategoryClick={handleCategoryClick}
+                            className="col-span-1 row-span-2"
+                            textSize="text-xs font-bold"
+                        />
+                        
+                        {/* REFRIGERACION - Ancho (2x1) */}
+                        <CategoryCard
+                            category={allCategories[5]}
+                            onCategoryClick={handleCategoryClick}
+                            className="col-span-2 row-span-1"
+                            textSize="text-xs font-bold"
+                        />
+                        
+                        {/* MOTHERBOARD - Pequeño (1x1) */}
+                        <CategoryCard
+                            category={allCategories[1]}
+                            onCategoryClick={handleCategoryClick}
+                            className="col-span-1 row-span-1"
+                            textSize="text-[10px] font-semibold"
+                        />
+                        
+                        {/* TECLADOS - Pequeño (1x1) */}
+                        <CategoryCard
+                            category={allCategories[6]}
+                            onCategoryClick={handleCategoryClick}
+                            className="col-span-1 row-span-1"
+                            textSize="text-[10px] font-semibold"
+                        />
+                        
+                        {/* ALMACENAMIENTO - Ancho (2x1) */}
+                        <CategoryCard
+                            category={allCategories[3]}
+                            onCategoryClick={handleCategoryClick}
+                            className="col-span-2 row-span-1"
+                            textSize="text-xs font-bold"
+                        />
+                        
+                        {/* MOUSE - Pequeño (1x1) */}
+                        <CategoryCard
+                            category={allCategories[7]}
+                            onCategoryClick={handleCategoryClick}
+                            className="col-span-1 row-span-1"
+                            textSize="text-[10px] font-semibold"
+                        />
+                        
+                        {/* AURICULARES - Pequeño (1x1) */}
+                        <CategoryCard
+                            category={allCategories[8]}
+                            onCategoryClick={handleCategoryClick}
+                            className="col-span-1 row-span-1"
+                            textSize="text-[10px] font-semibold"
+                        />
                     </div>
                 </div>
             </div>
