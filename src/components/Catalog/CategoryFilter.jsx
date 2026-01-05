@@ -107,67 +107,51 @@ const CategoryFilter = ({ selectedCategory, onCategoryChange }) => {
 
   return (
     <div className="relative group z-20 w-full">
-      {/* CAPAS DE RESPLANDOR OPTIMIZADAS - blur reducido */}
-      <div className="absolute -inset-2 bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 rounded-[2.5rem] opacity-20 blur-lg group-hover:opacity-30 transition-opacity duration-500 -z-10"></div>
-      <div className="absolute -inset-1 bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-600 rounded-[2.5rem] opacity-15 blur-md animate-pulse -z-10"></div>
+      {/* CAPAS DE RESPLANDOR - SIEMPRE VISIBLES EN MOBILE Y DESKTOP */}
+      <div className="absolute -inset-3 bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 rounded-full opacity-30 blur-xl -z-10"></div>
+      <div className="absolute -inset-2 bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-600 rounded-full opacity-25 blur-lg animate-pulse -z-10"></div>
 
       <div className="relative">
-        {/* MOBILE: DROPDOWN CON MISMO ESTILO QUE DESKTOP */}
+        {/* MOBILE: DROPDOWN COMPACTO CON GLOW */}
         <div className="sm:hidden relative z-20" ref={dropdownRef}>
-          {/* Botón principal - Mismo estilo pill que desktop */}
+          {/* Botón principal - UNA SOLA LÍNEA */}
           <button
             onClick={() => setIsOpen(!isOpen)}
-            className="w-full flex items-center justify-between px-5 py-3.5 bg-white rounded-full shadow-[0_2px_8px_rgba(0,0,0,0.06)] border border-gray-100 hover:shadow-lg transition-all duration-300"
+            className="relative w-full flex items-center justify-between px-4 py-2.5 bg-white rounded-full shadow-lg border border-gray-100 hover:shadow-xl transition-all duration-300 hover:scale-[1.01]"
           >
-            <div className="flex items-center gap-3">
+            <div className="flex items-center gap-2.5">
               {selectedCategory ? (
                 <>
                   {(() => {
                     const Icon = getCategoryIcon(selectedCategory);
                     return (
-                      <div className={`p-2 rounded-xl bg-gradient-to-br ${getCategoryGradient(selectedCategory)} shadow-sm`}>
-                        <Icon className="h-5 w-5 text-white" strokeWidth={2.5} />
+                      <div className={`p-1.5 rounded-lg bg-gradient-to-br ${getCategoryGradient(selectedCategory)} shadow-md`}>
+                        <Icon className="h-4 w-4 text-white" strokeWidth={2.5} />
                       </div>
                     );
                   })()}
-                  <span className="font-bold text-gray-800">{selectedCategory}</span>
+                  <span className="font-bold text-gray-800 text-sm">{selectedCategory}</span>
                 </>
               ) : (
                 <>
-                  <div className="p-2 rounded-xl bg-gradient-to-br from-blue-500 to-blue-600 shadow-sm">
-                    <Grid3X3 className="h-5 w-5 text-white" strokeWidth={2.5} />
+                  <div className="p-1.5 rounded-lg bg-gradient-to-br from-blue-500 to-blue-600 shadow-md">
+                    <Grid3X3 className="h-4 w-4 text-white" strokeWidth={2.5} />
                   </div>
-                  <div className="flex flex-col items-start">
-                    <span className="font-bold text-gray-800 text-sm">Categorías</span>
-                    <span className="text-xs text-gray-500">Presiona para ver todas</span>
-                  </div>
+                  <span className="font-semibold text-gray-700 text-sm">Presiona para ver categorías</span>
                 </>
               )}
             </div>
             <ChevronDown 
-              className={`h-5 w-5 text-gray-400 transition-transform duration-300 ${isOpen ? 'rotate-180' : ''}`} 
+              className={`h-4 w-4 text-gray-400 transition-transform duration-300 ${isOpen ? 'rotate-180' : ''}`} 
               strokeWidth={2.5}
             />
           </button>
 
-          {/* Dropdown Menu - Estilo pill como desktop */}
+          {/* Dropdown Menu - Estilo Apple moderno */}
           {isOpen && (
-            <div className="absolute top-full left-0 right-0 mt-3 bg-white rounded-3xl shadow-2xl border border-gray-100 overflow-hidden z-50 animate-in fade-in slide-in-from-top-2 duration-200">
-              {/* Header del dropdown con indicador de scroll */}
-              <div className="sticky top-0 bg-gradient-to-b from-white to-white/95 backdrop-blur-sm px-5 py-3 border-b border-gray-100 z-10">
-                <div className="flex items-center justify-between">
-                  <span className="text-sm font-bold text-gray-700">Selecciona una categoría</span>
-                  <div className="flex items-center gap-1.5 text-xs text-blue-600 font-semibold">
-                    <span>Desliza</span>
-                    <svg className="w-4 h-4 animate-bounce" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M19 9l-7 7-7-7" />
-                    </svg>
-                  </div>
-                </div>
-              </div>
-              
-              {/* Lista de categorías con scroll - Estilo pill */}
-              <div className="max-h-[60vh] overflow-y-auto p-3 space-y-2 scrollbar-custom scrollbar-light">
+            <div className="absolute top-full left-0 right-0 mt-2 bg-white/95 backdrop-blur-xl rounded-3xl shadow-2xl border border-gray-200/50 overflow-hidden z-50 animate-in fade-in slide-in-from-top-2 duration-200">
+              {/* Lista de categorías - Grid compacto */}
+              <div className="max-h-[70vh] overflow-y-auto p-3 space-y-1 scrollbar-custom scrollbar-light">
                 {categories.map((category, index) => {
                   const Icon = getCategoryIcon(category);
                   const isSelected = selectedCategory === category;
@@ -179,46 +163,37 @@ const CategoryFilter = ({ selectedCategory, onCategoryChange }) => {
                         onCategoryChange(category);
                         setIsOpen(false);
                       }}
-                      style={{ animationDelay: `${index * 20}ms` }}
+                      style={{ animationDelay: `${index * 15}ms` }}
                       className={`
-                        w-full flex items-center gap-3 px-4 py-3 rounded-full font-bold
-                        transition-all duration-300 animate-in fade-in slide-in-from-left-2
+                        w-full flex items-center gap-3 px-3.5 py-2.5 rounded-2xl font-semibold text-sm
+                        transition-all duration-200 animate-in fade-in slide-in-from-left-1
                         ${isSelected 
-                          ? 'bg-gradient-to-r from-blue-600 to-blue-700 text-white shadow-[0_8px_20px_-4px_rgba(37,99,235,0.4)] scale-[1.02] z-10' 
-                          : 'text-gray-500 bg-slate-100/80 hover:bg-slate-100 hover:text-blue-600 border border-slate-100/50 hover:border-blue-200 shadow-[inset_0_1px_2px_rgba(0,0,0,0.02)]'
+                          ? 'bg-gradient-to-r from-blue-600 to-blue-700 text-white shadow-lg shadow-blue-500/25 scale-[1.01]' 
+                          : 'text-gray-700 bg-white hover:bg-gray-50 active:scale-[0.98]'
                         }
                       `}
                     >
                       <div className={`
-                        p-2 rounded-xl transition-all duration-300
+                        p-1.5 rounded-lg transition-all duration-200 flex-shrink-0
                         ${isSelected 
                           ? 'bg-white/20 backdrop-blur-sm' 
-                          : 'bg-white shadow-sm border border-slate-100'
+                          : 'bg-white shadow-sm border border-gray-100'
                         }
                       `}>
                         <Icon 
-                          className={`h-5 w-5 ${isSelected ? 'text-white' : getCategoryColor(category, false)}`} 
+                          className={`h-4 w-4 ${isSelected ? 'text-white' : getCategoryColor(category, false)}`} 
                           strokeWidth={2.5} 
                         />
                       </div>
-                      <span className="text-sm flex-1 text-left">
+                      <span className="flex-1 text-left">
                         {category}
                       </span>
                       {isSelected && (
-                        <svg className="w-5 h-5 text-white animate-in zoom-in duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
-                        </svg>
+                        <div className="w-1.5 h-1.5 rounded-full bg-white animate-pulse" />
                       )}
                     </button>
                   );
                 })}
-              </div>
-              
-              {/* Footer con indicador de más contenido */}
-              <div className="sticky bottom-0 bg-gradient-to-t from-white to-white/95 backdrop-blur-sm px-5 py-2.5 border-t border-gray-100">
-                <div className="text-center text-xs text-gray-500 font-medium">
-                  {categories.length} categorías disponibles
-                </div>
               </div>
             </div>
           )}

@@ -249,7 +249,7 @@ const Header = ({ searchQuery = '', onSearchChange, onGoHome, hideSearchOnMobile
                 type="text"
                 value={localSearchQuery}
                 onChange={(e) => setLocalSearchQuery(e.target.value)}
-                placeholder="¿Qué componente buscas? Ej: RTX 4060, Ryzen 5..."
+                placeholder="¿Qué componente buscas?"
                 autoFocus
                 className="w-full h-12 pl-14 pr-12 text-sm
                          bg-gray-900/90 backdrop-blur-xl border-2 border-blue-500/50 rounded-2xl 

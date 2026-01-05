@@ -96,7 +96,8 @@ const ProductDetailPage = () => {
     <div className="min-h-screen w-full flex flex-col">
       <Header searchQuery={searchQuery} onSearchChange={setSearchQuery} />
       <main className="flex-1 w-full px-0 sm:px-6 py-4 sm:py-8">
-        <div className="mb-4 sm:mb-6 px-4 sm:px-0">
+        {/* CategoryFilter - Solo Desktop */}
+        <div className="hidden sm:block mb-4 sm:mb-6 px-4 sm:px-0">
           <CategoryFilter 
             selectedCategory={selectedCategory}
             onCategoryChange={handleCategoryChange}
