@@ -3,15 +3,26 @@ import { useState, useRef, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Package, Search, FileText, MapPin, X, Home, Bot, ArrowRight } from 'lucide-react';
 import { useStock } from '../../context/StockContext';
+import CategoryFilter from '../Catalog/CategoryFilter';
+import { useFilter } from '../../context/FilterContext';
+import { getSlugFromCategory } from '../../utils/slugify';
 
 const Header = ({ searchQuery = '', onSearchChange, onGoHome, hideSearchOnMobile = false }) => {
   const [localSearchQuery, setLocalSearchQuery] = useState(''); // Estado local para el buscador
   const [isSearchOpen, setIsSearchOpen] = useState(false);
+  const [showMobileSearch, setShowMobileSearch] = useState(false); // Nuevo estado para mobile search
   const [searchResults, setSearchResults] = useState([]);
   const [showConditionsModal, setShowConditionsModal] = useState(false);
   const searchRef = useRef(null);
   const { products } = useStock();
   const navigate = useNavigate();
+  const { selectedCategory, setSelectedCategory } = useFilter();
+
+  const handleCategoryClick = (category) => {
+    setSelectedCategory(category);
+    const slug = getSlugFromCategory(category);
+    navigate(`/categoria/${slug}`);
+  };
 
   useEffect(() => {
     const query = localSearchQuery || '';
@@ -139,21 +150,27 @@ const Header = ({ searchQuery = '', onSearchChange, onGoHome, hideSearchOnMobile
             </button>
             
             <div className="flex items-center gap-2">
-              {/* Bot Helper - Mobile */}
-              <div className="flex items-center gap-1.5 mr-2 header-bot-enter">
-                <div className="relative">
-                  <div className="relative animate-bot-pulse">
-                    <div className="bg-gradient-to-br from-cyan-500 via-blue-600 to-indigo-600 rounded-full p-1.5 shadow-lg border-2 border-cyan-300/50">
-                      <Bot className="w-3 h-3 text-white" strokeWidth={2.5} />
-                    </div>
-                    <div className="absolute inset-0 bg-cyan-400 rounded-full blur-sm animate-bot-glow" />
-                  </div>
-                </div>
-                
-                <div className="animate-arrow-wiggle">
-                  <ArrowRight className="w-3 h-3 text-cyan-400" strokeWidth={3} />
-                </div>
-              </div>
+              {/* Search Icon - Mobile (reemplaza el bot) */}
+              {!showMobileSearch && (
+                <button
+                  onClick={() => setShowMobileSearch(true)}
+                  className="relative p-2.5
+                           bg-gradient-to-r from-blue-600 to-purple-600
+                           hover:from-blue-700 hover:to-purple-700
+                           rounded-full text-white
+                           transition-all duration-300 
+                           shadow-lg shadow-blue-500/40 hover:shadow-blue-500/60
+                           border-2 border-blue-400/40
+                           overflow-hidden group
+                           hover:scale-110 active:scale-95"
+                  aria-label="Buscar productos"
+                >
+                  {/* Shine effect */}
+                  <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700" />
+                  
+                  <Search className="h-4 w-4 relative z-10" strokeWidth={2.5} />
+                </button>
+              )}
 
               {/* Condiciones - Con efecto de importancia */}
               <div className="relative">
@@ -221,32 +238,36 @@ const Header = ({ searchQuery = '', onSearchChange, onGoHome, hideSearchOnMobile
             </div>
           </div>
           
-          {!hideSearchOnMobile && (
-            <div className="relative" ref={searchRef}>
+          {/* Search Input - Mobile (solo visible cuando se activa) */}
+          {showMobileSearch && !hideSearchOnMobile && (
+            <div className="relative animate-in fade-in slide-in-from-top-2 duration-200" ref={searchRef}>
               {/* Search icon with colored container */}
-              <div className="absolute left-2 top-1/2 -translate-y-1/2 z-10 bg-gradient-to-br from-blue-500 to-indigo-600 p-1.5 rounded-lg shadow-lg">
-                <Search className="h-3.5 w-3.5 text-white" strokeWidth={2.5} />
+              <div className="absolute left-3 top-1/2 -translate-y-1/2 z-10 bg-gradient-to-br from-blue-500 to-purple-600 p-2 rounded-lg shadow-lg">
+                <Search className="h-4 w-4 text-white" strokeWidth={2.5} />
               </div>
               <input
                 type="text"
                 value={localSearchQuery}
                 onChange={(e) => setLocalSearchQuery(e.target.value)}
-                placeholder="Buscar productos..."
-                className="w-full h-10 pl-11 pr-10 text-sm
-                         bg-gray-900/80 backdrop-blur-xl border border-gray-700/50 rounded-2xl 
-                         text-white placeholder:text-white/60
-                         focus:outline-none focus:ring-2 focus:ring-blue-500/50 focus:border-blue-500/50
-                         hover:border-gray-600/50 hover:bg-gray-900
-                         transition-all duration-300 shadow-xl"
+                placeholder="¿Qué componente buscas? Ej: RTX 4060, Ryzen 5..."
+                autoFocus
+                className="w-full h-12 pl-14 pr-12 text-sm
+                         bg-gray-900/90 backdrop-blur-xl border-2 border-blue-500/50 rounded-2xl 
+                         text-white placeholder:text-white/50
+                         focus:outline-none focus:ring-2 focus:ring-blue-500/50 focus:border-blue-500
+                         hover:border-blue-500/70 hover:bg-gray-900
+                         transition-all duration-300 shadow-xl shadow-blue-500/20"
               />
-              {localSearchQuery && (
-                <button
-                  onClick={handleClearSearch}
-                  className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 hover:text-white transition-colors"
-                >
-                  <X className="h-4 w-4" />
-                </button>
-              )}
+              <button
+                onClick={() => {
+                  setShowMobileSearch(false);
+                  setLocalSearchQuery('');
+                  setIsSearchOpen(false);
+                }}
+                className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 hover:text-white transition-colors p-1 hover:bg-gray-800 rounded-lg"
+              >
+                <X className="h-5 w-5" strokeWidth={2.5} />
+              </button>
                 
                 {isSearchOpen && searchResults.length > 0 && (
                   <div className="absolute top-full left-0 right-0 mt-2 bg-gray-900 border border-gray-800 rounded-2xl shadow-2xl overflow-hidden z-50 search-results-enter">
@@ -284,6 +305,16 @@ const Header = ({ searchQuery = '', onSearchChange, onGoHome, hideSearchOnMobile
                     ))}
                   </div>
                 )}
+            </div>
+          )}
+          
+          {/* CategoryFilter - Mobile (solo cuando no está el search visible) */}
+          {!showMobileSearch && !hideSearchOnMobile && (
+            <div className="animate-in fade-in slide-in-from-top-2 duration-200">
+              <CategoryFilter 
+                selectedCategory={selectedCategory}
+                onCategoryChange={handleCategoryClick}
+              />
             </div>
           )}
         </div>

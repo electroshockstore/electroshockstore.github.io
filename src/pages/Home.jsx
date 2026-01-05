@@ -62,8 +62,8 @@ const Home = () => {
 
       <main className="flex-1 w-full flex flex-col relative">
         <div className="w-full flex-1 flex flex-col">
-          {/* CategoryFilter - Mobile y Desktop */}
-          <div className="px-3 sm:px-4 py-3 sm:py-4 bg-[#0a0a0f]">
+          {/* CategoryFilter - Solo Desktop */}
+          <div className="hidden sm:block px-3 sm:px-4 py-3 sm:py-4 bg-[#0a0a0f]">
             <CategoryFilter 
               selectedCategory={null}
               onCategoryChange={handleCategoryClick}

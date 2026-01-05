@@ -112,11 +112,12 @@ const CategoryFilter = ({ selectedCategory, onCategoryChange }) => {
       <div className="absolute -inset-1 bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-600 rounded-[2.5rem] opacity-15 blur-md animate-pulse -z-10"></div>
 
       <div className="relative">
-        {/* MOBILE: DROPDOWN CON GLOW */}
+        {/* MOBILE: DROPDOWN CON MISMO ESTILO QUE DESKTOP */}
         <div className="sm:hidden relative z-20" ref={dropdownRef}>
+          {/* Botón principal - Mismo estilo pill que desktop */}
           <button
             onClick={() => setIsOpen(!isOpen)}
-            className="w-full flex items-center justify-between px-4 py-3 bg-white rounded-3xl shadow-[0_2px_8px_rgba(0,0,0,0.06)] border border-gray-100"
+            className="w-full flex items-center justify-between px-5 py-3.5 bg-white rounded-full shadow-[0_2px_8px_rgba(0,0,0,0.06)] border border-gray-100 hover:shadow-lg transition-all duration-300"
           >
             <div className="flex items-center gap-3">
               {selectedCategory ? (
@@ -136,7 +137,10 @@ const CategoryFilter = ({ selectedCategory, onCategoryChange }) => {
                   <div className="p-2 rounded-xl bg-gradient-to-br from-blue-500 to-blue-600 shadow-sm">
                     <Grid3X3 className="h-5 w-5 text-white" strokeWidth={2.5} />
                   </div>
-                  <span className="font-bold text-gray-500">Seleccionar categoría</span>
+                  <div className="flex flex-col items-start">
+                    <span className="font-bold text-gray-800 text-sm">Categorías</span>
+                    <span className="text-xs text-gray-500">Presiona para ver todas</span>
+                  </div>
                 </>
               )}
             </div>
@@ -146,11 +150,25 @@ const CategoryFilter = ({ selectedCategory, onCategoryChange }) => {
             />
           </button>
 
-          {/* Dropdown Menu con mismo estilo que desktop */}
+          {/* Dropdown Menu - Estilo pill como desktop */}
           {isOpen && (
-            <div className="absolute top-full left-0 right-0 mt-2 bg-white rounded-3xl shadow-2xl border border-gray-100 overflow-hidden z-50 animate-fadeIn p-2">
-              <div className="max-h-[60vh] overflow-y-auto space-y-1 pb-20">
-                {categories.map((category) => {
+            <div className="absolute top-full left-0 right-0 mt-3 bg-white rounded-3xl shadow-2xl border border-gray-100 overflow-hidden z-50 animate-in fade-in slide-in-from-top-2 duration-200">
+              {/* Header del dropdown con indicador de scroll */}
+              <div className="sticky top-0 bg-gradient-to-b from-white to-white/95 backdrop-blur-sm px-5 py-3 border-b border-gray-100 z-10">
+                <div className="flex items-center justify-between">
+                  <span className="text-sm font-bold text-gray-700">Selecciona una categoría</span>
+                  <div className="flex items-center gap-1.5 text-xs text-blue-600 font-semibold">
+                    <span>Desliza</span>
+                    <svg className="w-4 h-4 animate-bounce" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M19 9l-7 7-7-7" />
+                    </svg>
+                  </div>
+                </div>
+              </div>
+              
+              {/* Lista de categorías con scroll - Estilo pill */}
+              <div className="max-h-[60vh] overflow-y-auto p-3 space-y-2 scrollbar-custom scrollbar-light">
+                {categories.map((category, index) => {
                   const Icon = getCategoryIcon(category);
                   const isSelected = selectedCategory === category;
                   
@@ -161,17 +179,18 @@ const CategoryFilter = ({ selectedCategory, onCategoryChange }) => {
                         onCategoryChange(category);
                         setIsOpen(false);
                       }}
+                      style={{ animationDelay: `${index * 20}ms` }}
                       className={`
                         w-full flex items-center gap-3 px-4 py-3 rounded-full font-bold
-                        transition-all duration-300
+                        transition-all duration-300 animate-in fade-in slide-in-from-left-2
                         ${isSelected 
-                          ? 'bg-gradient-to-r from-blue-600 to-blue-700 text-white shadow-[0_8px_20px_-4px_rgba(37,99,235,0.4)] scale-[1.02]' 
-                          : 'text-gray-500 bg-slate-100/80 hover:bg-slate-100 hover:text-blue-600 border border-slate-100/50 hover:border-blue-200'
+                          ? 'bg-gradient-to-r from-blue-600 to-blue-700 text-white shadow-[0_8px_20px_-4px_rgba(37,99,235,0.4)] scale-[1.02] z-10' 
+                          : 'text-gray-500 bg-slate-100/80 hover:bg-slate-100 hover:text-blue-600 border border-slate-100/50 hover:border-blue-200 shadow-[inset_0_1px_2px_rgba(0,0,0,0.02)]'
                         }
                       `}
                     >
                       <div className={`
-                        p-2 rounded-xl transition-all duration-200
+                        p-2 rounded-xl transition-all duration-300
                         ${isSelected 
                           ? 'bg-white/20 backdrop-blur-sm' 
                           : 'bg-white shadow-sm border border-slate-100'
@@ -182,12 +201,24 @@ const CategoryFilter = ({ selectedCategory, onCategoryChange }) => {
                           strokeWidth={2.5} 
                         />
                       </div>
-                      <span className="text-sm">
+                      <span className="text-sm flex-1 text-left">
                         {category}
                       </span>
+                      {isSelected && (
+                        <svg className="w-5 h-5 text-white animate-in zoom-in duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
+                        </svg>
+                      )}
                     </button>
                   );
                 })}
+              </div>
+              
+              {/* Footer con indicador de más contenido */}
+              <div className="sticky bottom-0 bg-gradient-to-t from-white to-white/95 backdrop-blur-sm px-5 py-2.5 border-t border-gray-100">
+                <div className="text-center text-xs text-gray-500 font-medium">
+                  {categories.length} categorías disponibles
+                </div>
               </div>
             </div>
           )}

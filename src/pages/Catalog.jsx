@@ -53,8 +53,8 @@ const Catalog = () => {
       onSearchChange={setSearchQuery}
       onGoHome={handleGoHome}
     >
-      {/* Category Filter */}
-      <div className="px-4 sm:px-6 py-4 sm:py-6 relative z-30">
+      {/* Category Filter - Solo Desktop */}
+      <div className="hidden sm:block px-4 sm:px-6 py-4 sm:py-6 relative z-30">
         <CategoryFilter 
           selectedCategory={selectedCategory}
           onCategoryChange={handleCategoryChange}

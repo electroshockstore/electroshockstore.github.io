@@ -1,7 +1,7 @@
 // Card unificada de información del producto - Diseño moderno
 import { DollarSign } from 'lucide-react';
 import WhatsAppButton from '../../Shared/WhatsAppButton';
-import LiveChatButton from '../../Shared/LiveChatButton';
+import ShareButton from '../../Shared/ShareButton';
 
 const formatPrice = (price) => {
   return new Intl.NumberFormat('es-AR', {
@@ -53,7 +53,7 @@ const ProductInfoCard = ({
       <div className="p-4 sm:p-6 lg:p-8 pt-0 space-y-4">
         {/* Botones de contacto */}
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-          <LiveChatButton productName={name} className="relative overflow-hidden group" />
+          <ShareButton productName={name} product={product} className="relative overflow-hidden group" />
           <WhatsAppButton productName={name} product={product} className="relative overflow-hidden group" />
         </div>
         
