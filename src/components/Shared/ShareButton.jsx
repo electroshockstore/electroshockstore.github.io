@@ -9,15 +9,8 @@ const ShareButton = ({ productName, product, className = '' }) => {
   const getProductUrl = () => {
     if (typeof window === 'undefined') return '';
     
-    // Crear slug del producto para la URL
-    const slug = productName
-      .toLowerCase()
-      .normalize('NFD')
-      .replace(/[\u0300-\u036f]/g, '')
-      .replace(/[^a-z0-9]+/g, '-')
-      .replace(/^-+|-+$/g, '');
-    
-    return `${window.location.origin}/producto/${product?.id || slug}`;
+    // Usar la URL actual completa del navegador
+    return window.location.href;
   };
 
   // Copiar enlace al portapapeles
