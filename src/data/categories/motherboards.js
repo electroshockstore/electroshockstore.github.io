@@ -30,7 +30,7 @@ export const motherboardsProducts = [
     brand: "Gigabyte",
     model: "B650M Gaming WiFi",
     category: "Motherboards",
-    price: 180000,
+    price: 200000,
     stock: 1,
     ownConsumption: "40W - 55W", // Mayor consumo por WiFi y chipset B650
     maxPowerSupport: "Hasta 170W TDP", // Diseñada para manejar procesadores de alto rendimiento AM5
@@ -75,7 +75,7 @@ export const motherboardsProducts = [
     price: 180000,
     stock: 1,
     ownConsumption: "35W - 45W",
-    maxPowerSupport: "Hasta 125W (PL1)", // Apta para i5 e i7 (no serie K recomendado)
+    maxPowerSupport: "Hasta 125W (PL1)",
     images: ["/images/motherboard/B460m-a R2.0.webp"],
     description: "Mother Asus Prime B460M-A R2.0 Intel Socket 1200 DDR4 128GB",
     specifications: {
