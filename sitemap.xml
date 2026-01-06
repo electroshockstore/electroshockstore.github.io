@@ -166,7 +166,7 @@
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://www.jldev.com.ar/categoria/memorias-ram/xpg-adata-xpg-ddr4-d35g-spectrix-1</loc>
+    <loc>https://www.jldev.com.ar/categoria/memorias-ram/xpg-memoria-ram-xpg-d35g-spectrix-</loc>
     <lastmod>2026-01-06</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
@@ -274,7 +274,7 @@
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://www.jldev.com.ar/categoria/almacenamiento/kingston-kingston-nv2-250gb-m-2-nvme-pc</loc>
+    <loc>https://www.jldev.com.ar/categoria/almacenamiento/western-digital-ssd-western-digital-green-480g</loc>
     <lastmod>2026-01-06</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
@@ -298,7 +298,7 @@
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://www.jldev.com.ar/categoria/almacenamiento/western-digital-ssd-western-digital-green-480g</loc>
+    <loc>https://www.jldev.com.ar/categoria/almacenamiento/adata-ssd-adata-su650-256gb-2-5-nand</loc>
     <lastmod>2026-01-06</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
@@ -341,12 +341,6 @@
   </url>
   <url>
     <loc>https://www.jldev.com.ar/categoria/almacenamiento/western-digital-nvme-western-digital-green-sn3</loc>
-    <lastmod>2026-01-06</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.jldev.com.ar/categoria/almacenamiento/adata-ssd-adata-su650-256gb-2-5-nand</loc>
     <lastmod>2026-01-06</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
@@ -503,12 +497,6 @@
   </url>
   <url>
     <loc>https://www.jldev.com.ar/categoria/refrigeracion/redragon-redragon-cc-1013-air-cooler-12</loc>
-    <lastmod>2026-01-06</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.jldev.com.ar/categoria/refrigeracion/cooler-master-cooler-master-mf120-lite-argb-</loc>
     <lastmod>2026-01-06</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
@@ -826,31 +814,7 @@
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://www.jldev.com.ar/categoria/conectividad/redragon-camara-web-redragon-fobos-gw60</loc>
-    <lastmod>2026-01-06</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
     <loc>https://www.jldev.com.ar/categoria/conectividad/tp-link-adaptador-wifi-usb-300-mbps-tp</loc>
-    <lastmod>2026-01-06</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.jldev.com.ar/categoria/conectividad/kingston-tarjeta-de-memoria-kingston-mi</loc>
-    <lastmod>2026-01-06</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.jldev.com.ar/categoria/conectividad/kingston-pendrive-kingston-datatraveler</loc>
-    <lastmod>2026-01-06</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.jldev.com.ar/categoria/conectividad/kingston-kingston-micro-sd-128gb-canvas</loc>
     <lastmod>2026-01-06</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
