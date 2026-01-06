@@ -1,4 +1,5 @@
 import { useNavigate } from 'react-router-dom';
+import { useEffect } from 'react';
 import Header from '../components/Shared/Header';
 import Footer from '../components/Shared/Footer';
 import ScrollButton from '../components/Shared/ScrollButton';
@@ -6,6 +7,7 @@ import HeroCarousel from '../components/Home/HeroCarousel';
 import RevendedoresSection from '../components/Home/RevendedoresSection';
 import PCBuilderSection from '../components/Home/PCBuilderSection';
 import CategoryProductSection from '../components/Home/CategoryProductSection';
+import PuntosRetiroInfoSection from '../components/Home/PuntosRetiroInfoSection';
 import CategoryFilter from '../components/Catalog/CategoryFilter';
 import FloatingChatButton from '../components/Shared/FloatingChatButton';
 import { useFilter } from '../context/FilterContext';
@@ -24,6 +26,11 @@ const Home = () => {
     keywords: 'shock-store, componentes pc, hardware, gaming, tecnología',
     type: 'website'
   });
+
+  // Limpiar categoría seleccionada al entrar al Home
+  useEffect(() => {
+    setSelectedCategory(null);
+  }, [setSelectedCategory]);
 
   const handleCategoryClick = (category) => {
     setSelectedCategory(category);
@@ -95,6 +102,13 @@ const Home = () => {
             </div>
           </div>
 
+              {/* Puntos de Retiro Info Section */}
+          <div className="px-3 sm:px-4 mb-4 sm:mb-6">
+            <PuntosRetiroInfoSection />
+          </div>
+
+          
+
           {/* Desktop: Packs Ahorro después del PC Builder */}
           <div className="hidden sm:block px-3 sm:px-4 mb-4 sm:mb-6">
             <RevendedoresSection 
@@ -102,6 +116,8 @@ const Home = () => {
               onProductClick={handleRevendedorProductClick}
             />
           </div>
+
+      
           
           {/* Categories - Con padding en mobile */}
           <div className="px-3 sm:px-4 mb-6 sm:mb-10">

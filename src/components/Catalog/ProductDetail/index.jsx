@@ -5,6 +5,7 @@ import ProductImageSection from './ProductImageSection';
 import SpecsSection from './SpecsSection';
 import ProductInfoCard from './ProductInfoCard';
 import MetodosDePago from './MetodosDePago';
+import PuntosRetiroSection from './PuntosRetiroSection';
 
 const ProductDetail = memo(({ product, onClose, isPage = false }) => {
   const stockStatus = useMemo(() => {
@@ -54,7 +55,10 @@ const ProductDetail = memo(({ product, onClose, isPage = false }) => {
               </div>
             </div>
             <SpecsSection specifications={product.specifications} />
-            <MetodosDePago />
+            <div className="space-y-4 sm:space-y-6">
+              <MetodosDePago />
+              <PuntosRetiroSection />
+            </div>
           </div>
         </div>
       </div>
@@ -86,7 +90,10 @@ const ProductDetail = memo(({ product, onClose, isPage = false }) => {
                 </div>
               </div>
               <SpecsSection specifications={product.specifications} />
-              <MetodosDePago />
+              <div className="space-y-4 sm:space-y-6">
+                <MetodosDePago />
+                <PuntosRetiroSection />
+              </div>
             </div>
           </div>
         </div>

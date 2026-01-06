@@ -75,7 +75,7 @@ const MetodosDePago = () => {
         </div>
 
         {/* Payment Methods Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6 mb-8 sm:mb-10">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
           {paymentMethods.map((method) => {
             const Icon = method.icon;
             
@@ -141,67 +141,6 @@ const MetodosDePago = () => {
               </div>
             );
           })}
-        </div>
-
-        {/* Security Tips Section */}
-        <div className="relative">
-          {/* Section Header */}
-          <div className="text-center mb-4 sm:mb-6">
-            <div className="inline-flex items-center gap-2 sm:gap-3 px-4 sm:px-6 py-2 sm:py-3 bg-white rounded-xl sm:rounded-2xl border-2 border-gray-200 shadow-md">
-              <Shield className="h-4 w-4 sm:h-6 sm:w-6 text-gray-700" strokeWidth={2.5} />
-              <h3 className="text-lg sm:text-2xl font-black text-gray-900">
-                Tips de Seguridad
-              </h3>
-            </div>
-          </div>
-
-         {/* Tips Grid - Optimizado para mobile */}
-<div className="grid grid-cols-1 sm:grid-cols-3 gap-3 sm:gap-4">
-  {securityTips.map((tip, index) => {
-    const Icon = tip.icon;
-
-    return (
-      <div key={index} className="group relative">
-        <div className={`relative bg-white rounded-xl sm:rounded-2xl border-2 border-gray-100 p-4 sm:p-5 transition-all duration-300 shadow-sm hover:shadow-md h-full overflow-hidden flex flex-col`}>
-          
-          {/* Fondo sutil */}
-          <div className={`absolute inset-0 ${tip.bgColor} opacity-10 group-hover:opacity-20 transition-opacity duration-300`} />
-
-          {/* Content */}
-          <div className="relative z-10 flex items-start gap-3 sm:flex-col sm:gap-0">
-            {/* Icon Circle */}
-            <div className={`inline-flex p-2.5 sm:p-3 rounded-xl bg-gradient-to-br ${tip.gradient} shadow-md mb-0 sm:mb-3 flex-shrink-0`}>
-              <Icon className="h-4 w-4 sm:h-5 sm:w-5 text-white" strokeWidth={2.5} />
-            </div>
-
-            <div className="flex-1">
-              <h4 className="text-sm sm:text-base font-bold text-gray-900 mb-1 sm:mb-2 tracking-tight leading-tight">
-                {tip.title}
-              </h4>
-
-              <p className="text-xs sm:text-sm text-gray-600 font-medium leading-snug">
-                {tip.description}
-              </p>
-            </div>
-          </div>
-
-          {/* Bottom Border */}
-          <div className={`absolute bottom-0 left-0 right-0 h-1 sm:h-1.5 bg-gradient-to-r ${tip.gradient}`} />
-        </div>
-      </div>
-    );
-  })}
-</div>
-        </div>
-
-        {/* Footer Info - Optimizado */}
-        <div className="mt-6 sm:mt-8 px-2 sm:px-4">
-          <div className="flex items-center gap-2 sm:gap-3 px-3 sm:px-6 py-2.5 sm:py-4 bg-gradient-to-r from-blue-50 to-emerald-50 rounded-xl sm:rounded-2xl border-2 border-blue-200 shadow-md">
-            <Sparkles className="h-4 w-4 sm:h-5 sm:w-5 text-blue-600 flex-shrink-0" />
-            <p className="text-xs sm:text-sm font-bold text-gray-800">
-              Verifica siempre que el monto y los datos sean correctos antes de confirmar
-            </p>
-          </div>
         </div>
       </div>
     </div>

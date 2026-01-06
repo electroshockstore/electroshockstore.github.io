@@ -29,7 +29,7 @@ const PCBuilderSection = () => {
 
   const manualModeData = {
     // Estilo y Iconos
-    badge: 'Tú Tienes el Control',
+    badge: 'Arma Tu Combo Ideal',
     badgeIcon: Wrench,
     badgeColor: 'bg-purple-500/20 border border-purple-400/30 text-purple-300',
     

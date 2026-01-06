@@ -1,7 +1,7 @@
 
 import { useState, useRef, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Package, Search, FileText, MapPin, X, Home, Bot, ArrowRight } from 'lucide-react';
+import { Package, Search, FileText, MapPin, X, Home, Bot, ArrowRight, Store, Truck, Wallet, CheckCircle } from 'lucide-react';
 import { useStock } from '../../context/StockContext';
 import CategoryFilter from '../Catalog/CategoryFilter';
 import { useFilter } from '../../context/FilterContext';
@@ -13,10 +13,27 @@ const Header = ({ searchQuery = '', onSearchChange, onGoHome, hideSearchOnMobile
   const [showMobileSearch, setShowMobileSearch] = useState(false); // Nuevo estado para mobile search
   const [searchResults, setSearchResults] = useState([]);
   const [showConditionsModal, setShowConditionsModal] = useState(false);
+  const [currentPromoIndex, setCurrentPromoIndex] = useState(0); // Estado para el carousel
   const searchRef = useRef(null);
   const { products } = useStock();
   const navigate = useNavigate();
   const { selectedCategory, setSelectedCategory } = useFilter();
+
+  // Mensajes promocionales con emojis - Textos cortos
+  const promoMessages = [
+    { emoji: '🏪', text: 'Sin Local', gradient: 'from-emerald-400 via-green-400 to-teal-400' },
+    { emoji: '🚫', text: 'Sin Envíos', gradient: 'from-blue-400 via-cyan-400 to-sky-400' },
+    { emoji: '💰', text: 'Sin Anticipo', gradient: 'from-purple-400 via-pink-400 to-fuchsia-400' },
+    { emoji: '✅', text: 'Revisás y Pagás', gradient: 'from-orange-400 via-amber-400 to-yellow-400' }
+  ];
+
+  // Auto-scroll del carousel cada 3 segundos
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentPromoIndex((prev) => (prev + 1) % promoMessages.length);
+    }, 3000);
+    return () => clearInterval(interval);
+  }, [promoMessages.length]);
 
   const handleCategoryClick = (category) => {
     setSelectedCategory(category);
@@ -140,7 +157,7 @@ const Header = ({ searchQuery = '', onSearchChange, onGoHome, hideSearchOnMobile
                 navigate('/');
                 onGoHome?.();
               }}
-              className="flex items-center hover:opacity-80 transition-opacity"
+              className="flex items-center hover:opacity-80 transition-opacity flex-shrink-0"
             >
               <img 
                 src="/logotipo_tiny.png" 
@@ -149,7 +166,45 @@ const Header = ({ searchQuery = '', onSearchChange, onGoHome, hideSearchOnMobile
               />
             </button>
             
-            <div className="flex items-center gap-2">
+            {/* Carousel Promocional - Mobile */}
+            <div className="flex-1 mx-2 min-w-0">
+              <div className="relative h-7 flex items-center justify-center overflow-hidden rounded-xl bg-gradient-to-r from-gray-900/80 via-gray-800/80 to-gray-900/80 backdrop-blur-md border border-white/10">
+                {/* Glow effect */}
+                <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent animate-pulse" />
+                
+                {promoMessages.map((promo, index) => (
+                  <div
+                    key={index}
+                    className={`absolute inset-0 flex items-center justify-center gap-1.5 px-2 transition-all duration-700 ${
+                      index === currentPromoIndex
+                        ? 'opacity-100 scale-100'
+                        : 'opacity-0 scale-95'
+                    }`}
+                  >
+                    <span className="text-base leading-none">{promo.emoji}</span>
+                    <span className={`text-[11px] font-black bg-gradient-to-r ${promo.gradient} bg-clip-text text-transparent whitespace-nowrap tracking-tight`}>
+                      {promo.text}
+                    </span>
+                  </div>
+                ))}
+                
+                {/* Indicadores minimalistas */}
+                <div className="absolute bottom-0.5 left-1/2 -translate-x-1/2 flex gap-0.5">
+                  {promoMessages.map((_, index) => (
+                    <div
+                      key={index}
+                      className={`h-0.5 rounded-full transition-all duration-300 ${
+                        index === currentPromoIndex
+                          ? 'bg-white w-2.5'
+                          : 'bg-white/20 w-1'
+                      }`}
+                    />
+                  ))}
+                </div>
+              </div>
+            </div>
+            
+            <div className="flex items-center gap-2 flex-shrink-0">
               {/* Search Icon - Mobile (reemplaza el bot) */}
               {!showMobileSearch && (
                 <button

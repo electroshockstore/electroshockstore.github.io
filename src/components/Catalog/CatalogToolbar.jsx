@@ -17,7 +17,7 @@ const CatalogToolbar = ({
   if (!hasProducts) return null;
 
   return (
-    <div className="pb-4 flex justify-between lg:justify-end items-center gap-2">
+    <div className="pb-4 sm:pb-6 px-4 sm:px-0 flex justify-between lg:justify-end items-center gap-3">
       {/* Filtros Mobile */}
       {showFilters && (
         <div className="lg:hidden">
@@ -31,7 +31,7 @@ const CatalogToolbar = ({
       )}
       
       {/* Controles de Vista */}
-      <div className="flex items-center gap-2">
+      <div className="flex items-center gap-2 sm:gap-3">
         <SortSelector 
           sortOrder={sortOrder}
           onSortChange={onSortChange}

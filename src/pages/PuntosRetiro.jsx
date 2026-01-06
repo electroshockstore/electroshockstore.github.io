@@ -1,4 +1,6 @@
 import { useNavigate } from 'react-router-dom';
+import { useEffect } from 'react';
+import { useFilter } from '../context/FilterContext';
 import Header from '../components/Shared/Header';
 import Footer from '../components/Shared/Footer';
 import FloatingChatButton from '../components/Shared/FloatingChatButton';
@@ -12,6 +14,12 @@ import { PICKUP_POINTS, IMPORTANT_RULES } from '../components/PuntosRetiro/const
 
 const PuntosRetiro = () => {
   const navigate = useNavigate();
+  const { setSelectedCategory } = useFilter();
+
+  // Limpiar categoría seleccionada al entrar a Puntos de Retiro
+  useEffect(() => {
+    setSelectedCategory(null);
+  }, [setSelectedCategory]);
 
   const handleGoHome = () => navigate('/');
 

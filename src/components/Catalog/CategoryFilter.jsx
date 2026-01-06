@@ -3,7 +3,7 @@ import { categories } from '../../data';
 import { 
   Grid3X3, Zap, HardDrive, MemoryStick, Cpu, CircuitBoard, 
   Fan, ChevronDown, Headphones, Keyboard, Mouse, Gamepad2, 
-  Monitor, Wifi, Laptop, Layers, ChevronLeft, ChevronRight
+  Monitor, Wifi, Laptop, Layers, ChevronLeft, ChevronRight, X
 } from 'lucide-react';
 
 const CategoryFilter = ({ selectedCategory, onCategoryChange }) => {
@@ -147,55 +147,101 @@ const CategoryFilter = ({ selectedCategory, onCategoryChange }) => {
             />
           </button>
 
-          {/* Dropdown Menu - Estilo Apple moderno */}
+          {/* Modal Fullscreen - Mejor UX */}
           {isOpen && (
-            <div className="absolute top-full left-0 right-0 mt-2 bg-white/95 backdrop-blur-xl rounded-3xl shadow-2xl border border-gray-200/50 overflow-hidden z-50 animate-in fade-in slide-in-from-top-2 duration-200">
-              {/* Lista de categorías - Grid compacto */}
-              <div className="max-h-[70vh] overflow-y-auto p-3 space-y-1 scrollbar-custom scrollbar-light">
-                {categories.map((category, index) => {
-                  const Icon = getCategoryIcon(category);
-                  const isSelected = selectedCategory === category;
-                  
-                  return (
-                    <button
-                      key={category}
-                      onClick={() => {
-                        onCategoryChange(category);
-                        setIsOpen(false);
-                      }}
-                      style={{ animationDelay: `${index * 15}ms` }}
-                      className={`
-                        w-full flex items-center gap-3 px-3.5 py-2.5 rounded-2xl font-semibold text-sm
-                        transition-all duration-200 animate-in fade-in slide-in-from-left-1
-                        ${isSelected 
-                          ? 'bg-gradient-to-r from-blue-600 to-blue-700 text-white shadow-lg shadow-blue-500/25 scale-[1.01]' 
-                          : 'text-gray-700 bg-white hover:bg-gray-50 active:scale-[0.98]'
-                        }
-                      `}
-                    >
-                      <div className={`
-                        p-1.5 rounded-lg transition-all duration-200 flex-shrink-0
-                        ${isSelected 
-                          ? 'bg-white/20 backdrop-blur-sm' 
-                          : 'bg-white shadow-sm border border-gray-100'
-                        }
-                      `}>
-                        <Icon 
-                          className={`h-4 w-4 ${isSelected ? 'text-white' : getCategoryColor(category, false)}`} 
-                          strokeWidth={2.5} 
-                        />
-                      </div>
-                      <span className="flex-1 text-left">
-                        {category}
-                      </span>
-                      {isSelected && (
-                        <div className="w-1.5 h-1.5 rounded-full bg-white animate-pulse" />
-                      )}
-                    </button>
-                  );
-                })}
+            <>
+              {/* Backdrop */}
+              <div 
+                className="fixed inset-0 bg-black/60 backdrop-blur-sm z-[100] animate-in fade-in duration-200"
+                onClick={() => setIsOpen(false)}
+              />
+              
+              {/* Modal Content */}
+              <div className="fixed inset-0 z-[101] flex flex-col animate-in slide-in-from-bottom duration-300">
+                {/* Header del modal */}
+                <div className="bg-white/95 backdrop-blur-xl border-b border-gray-200 px-5 py-4 flex items-center justify-between shadow-lg">
+                  <div className="flex items-center gap-3">
+                    <div className="p-2 rounded-xl bg-gradient-to-br from-blue-500 to-purple-600 shadow-lg">
+                      <Grid3X3 className="h-5 w-5 text-white" strokeWidth={2.5} />
+                    </div>
+                    <div>
+                      <h2 className="text-lg font-bold text-gray-900">Categorías</h2>
+                      <p className="text-xs text-gray-500">{categories.length} disponibles</p>
+                    </div>
+                  </div>
+                  <button
+                    onClick={() => setIsOpen(false)}
+                    className="p-2 hover:bg-gray-100 rounded-full transition-colors"
+                  >
+                    <X className="h-6 w-6 text-gray-600" strokeWidth={2.5} />
+                  </button>
+                </div>
+
+                {/* Lista de categorías con scroll suave */}
+                <div className="flex-1 overflow-y-auto bg-gradient-to-b from-gray-50 to-white px-4 py-6">
+                  <div className="max-w-md mx-auto space-y-3">
+                    {categories.map((category, index) => {
+                      const Icon = getCategoryIcon(category);
+                      const isSelected = selectedCategory === category;
+                      const gradient = getCategoryGradient(category);
+                      
+                      return (
+                        <button
+                          key={category}
+                          onClick={() => {
+                            onCategoryChange(category);
+                            setIsOpen(false);
+                          }}
+                          style={{ animationDelay: `${index * 30}ms` }}
+                          className={`
+                            w-full flex items-center gap-4 px-5 py-4 rounded-2xl font-semibold text-base
+                            transition-all duration-200 animate-in fade-in slide-in-from-bottom-2
+                            ${isSelected 
+                              ? `bg-gradient-to-r ${gradient} text-white shadow-xl scale-[1.02]` 
+                              : 'text-gray-700 bg-white hover:bg-gray-50 shadow-md hover:shadow-lg active:scale-[0.98]'
+                            }
+                          `}
+                        >
+                          <div className={`
+                            p-3 rounded-xl transition-all duration-200 flex-shrink-0
+                            ${isSelected 
+                              ? 'bg-white/20 backdrop-blur-sm shadow-inner' 
+                              : `bg-gradient-to-br ${gradient} shadow-md`
+                            }
+                          `}>
+                            <Icon 
+                              className={`h-6 w-6 ${isSelected ? 'text-white' : 'text-white'}`} 
+                              strokeWidth={2.5} 
+                            />
+                          </div>
+                          <span className="flex-1 text-left">
+                            {category}
+                          </span>
+                          {isSelected && (
+                            <div className="flex items-center gap-2">
+                              <span className="text-xs font-bold opacity-90">Actual</span>
+                              <div className="w-2 h-2 rounded-full bg-white animate-pulse shadow-lg" />
+                            </div>
+                          )}
+                          {!isSelected && (
+                            <ChevronRight className="h-5 w-5 text-gray-400" strokeWidth={2.5} />
+                          )}
+                        </button>
+                      );
+                    })}
+                  </div>
+                </div>
+
+                {/* Footer con indicador */}
+                <div className="bg-white/95 backdrop-blur-xl border-t border-gray-200 px-5 py-4 shadow-lg">
+                  <div className="flex items-center justify-center gap-2 text-sm text-gray-600">
+                    <div className="w-8 h-1 bg-gray-300 rounded-full" />
+                    <span className="font-medium">Desliza para explorar</span>
+                    <div className="w-8 h-1 bg-gray-300 rounded-full" />
+                  </div>
+                </div>
               </div>
-            </div>
+            </>
           )}
         </div>
 

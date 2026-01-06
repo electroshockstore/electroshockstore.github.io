@@ -20,10 +20,10 @@ const CatalogContent = ({
   const hasProducts = products.length > 0;
 
   return (
-    <div className="flex flex-col lg:flex-row gap-6 min-h-[60vh] px-4 sm:px-6 pb-8">
+    <div className="flex flex-col lg:flex-row gap-6 min-h-[60vh] px-4 sm:px-6 pb-8 pt-4 sm:pt-6">
       {/* Sidebar Desktop */}
       {showSidebar && (
-        <aside className="hidden lg:block lg:flex-shrink-0 lg:pt-24">
+        <aside className="hidden lg:block lg:flex-shrink-0 lg:pt-20">
           <SidebarFilters
             selectedCategory={selectedCategory}
             filters={filters}
