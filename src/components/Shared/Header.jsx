@@ -306,7 +306,7 @@ const Header = ({ searchQuery = '', onSearchChange, onGoHome, hideSearchOnMobile
                 onChange={(e) => setLocalSearchQuery(e.target.value)}
                 placeholder="¿Qué componente buscas?"
                 autoFocus
-                className="w-full h-12 pl-14 pr-12 text-sm
+                className="w-full h-12 pl-14 pr-12 text-base
                          bg-gray-900/90 backdrop-blur-xl border-2 border-blue-500/50 rounded-2xl 
                          text-white placeholder:text-white/50
                          focus:outline-none focus:ring-2 focus:ring-blue-500/50 focus:border-blue-500
