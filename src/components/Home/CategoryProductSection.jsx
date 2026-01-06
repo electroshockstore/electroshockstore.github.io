@@ -290,7 +290,7 @@ const CategoryProductSection = ({ onCategoryClick }) => {
                 </div>
 
                 {/* CTA Button - Ver Más */}
-                <div className="flex justify-center pt-8 sm:pt-12">
+                <div className="flex justify-center pt-4">
                     <button
                         onClick={handleVerMas}
                         className="group relative inline-flex items-center gap-2 sm:gap-4 px-6 sm:px-10 md:px-12 py-3 sm:py-5 md:py-6 bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 hover:from-blue-400 hover:via-purple-400 hover:to-pink-400 rounded-xl sm:rounded-2xl font-bold sm:font-black text-white text-sm sm:text-lg md:text-xl shadow-xl sm:shadow-2xl shadow-blue-500/40 sm:shadow-blue-500/50 hover:shadow-2xl sm:hover:shadow-3xl hover:shadow-blue-500/60 sm:hover:shadow-blue-500/70 transition-all duration-500 hover:scale-105 sm:hover:scale-110 active:scale-95 border border-blue-400/30 sm:border-2 sm:border-blue-400/40 hover:border-blue-300/50 sm:hover:border-blue-300/60"
