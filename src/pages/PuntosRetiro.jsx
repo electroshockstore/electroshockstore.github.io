@@ -8,7 +8,8 @@ import {
   HeroSection,
   ImportantRulesBentoGrid,
   PickupPointsGrid,
-  AdditionalInfoSection
+  AdditionalInfoSection,
+  PaymentMethodsSection
 } from '../components/PuntosRetiro';
 import { PICKUP_POINTS, IMPORTANT_RULES } from '../components/PuntosRetiro/constants';
 
@@ -36,9 +37,9 @@ const PuntosRetiro = () => {
 
         <HeroSection />
 
-        <section className="px-4 sm:px-6 pb-8">
-          <div className="max-w-7xl mx-auto space-y-16 sm:space-y-20 md:space-y-24">
-            <ImportantRulesBentoGrid rules={IMPORTANT_RULES} />
+        <section className="py-6 sm:py-8 md:py-12 px-4 sm:px-6">
+          <div className="max-w-7xl mx-auto">
+            <ImportantRulesSection rules={IMPORTANT_RULES} />
             <PickupPointsGrid pickupPoints={PICKUP_POINTS} />
             <AdditionalInfoSection />
           </div>

@@ -75,7 +75,11 @@ export const motherboardsProducts = [
     price: 180000,
     stock: 1,
     ownConsumption: "35W - 45W",
+<<<<<<< HEAD
     maxPowerSupport: "Hasta 125W (PL1)", 
+=======
+    maxPowerSupport: "Hasta 125W (PL1)",
+>>>>>>> cdb42121255fb7a099ce2a53e64d7f4487867273
     images: ["/images/motherboard/B460m-a R2.0.webp"],
     description: "Mother Asus Prime B460M-A R2.0 Intel Socket 1200 DDR4 128GB",
     specifications: {
