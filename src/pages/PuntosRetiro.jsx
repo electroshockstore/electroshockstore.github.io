@@ -6,10 +6,10 @@ import Footer from '../components/Shared/Footer';
 import FloatingChatButton from '../components/Shared/FloatingChatButton';
 import {
   HeroSection,
-  ImportantRulesSection,
+  ImportantRulesBentoGrid,
   PickupPointsGrid,
   AdditionalInfoSection,
-  PaymentMethodsSection
+
 } from '../components/PuntosRetiro';
 import { PICKUP_POINTS, IMPORTANT_RULES } from '../components/PuntosRetiro/constants';
 
@@ -39,7 +39,8 @@ const PuntosRetiro = () => {
 
         <section className="py-6 sm:py-8 md:py-12 px-4 sm:px-6">
           <div className="max-w-7xl mx-auto">
-            <ImportantRulesSection rules={IMPORTANT_RULES} />
+            <ImportantRulesBentoGrid rules={IMPORTANT_RULES} />
+    
             <PickupPointsGrid pickupPoints={PICKUP_POINTS} />
             <AdditionalInfoSection />
           </div>
