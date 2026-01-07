@@ -6,7 +6,7 @@ import Footer from '../components/Shared/Footer';
 import FloatingChatButton from '../components/Shared/FloatingChatButton';
 import {
   HeroSection,
-  ImportantRulesBentoGrid,
+  ImportantRulesSection,
   PickupPointsGrid,
   AdditionalInfoSection,
   PaymentMethodsSection
