@@ -145,7 +145,7 @@ export const memoriasProducts = [
     brand: "ADATA",
     model: "XPG Gammix D35",
     category: "Memorias RAM",
-    price: 170000,
+    price: 180000,
     stock: 2,
     realPowerConsumption: "3.5W - 4.2W", // DDR4 a 1.35V consume más que DDR5 base
     images: ["/images/ram/ram_xpg_gamminxd35_ddr4.webp"],
@@ -162,7 +162,7 @@ export const memoriasProducts = [
     brand: "XPG",
     model: "Spectrix D35G",
     category: "Memorias RAM",
-    price: 185000,
+    price: 200000,
     stock: 3,
     realPowerConsumption: "4.0W - 5.0W", // El RGB suma ~0.8W bajo carga de efectos
     images: ["/images/ram/spectrix-d35g_16gb.webp"],

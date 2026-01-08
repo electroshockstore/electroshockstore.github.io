@@ -11,7 +11,7 @@ export const joystickProducts = [
     brand: "Sony",
     model: "DualSense",
     category: "Joystick",
-    price: 14500,
+    price: 145000,
     stock: 1,
     images: [
       "/images/joystick/ps5_galactic.webp",
@@ -276,7 +276,7 @@ export const joystickProducts = [
     brand: "Microsoft",
     model: "Xbox Wireless",
     category: "Joystick",
-    price: 115000,
+    price: 100000,
     stock: 1,
     images: [
       "/images/joystick/joyst_shockblue.webp",
