@@ -1,9 +1,46 @@
 // ═══════════════════════════════════════════════════════════════
 // RANGO DE IDs: 1100-1199 (Joystick)
-// Próximo ID disponible: 1107
+// Próximo ID disponible: 1108
 // IMPORTANTE: NO usar IDs fuera de este rango
 // ═══════════════════════════════════════════════════════════════
 export const joystickProducts = [
+
+{
+    id: 1099,
+    name: "Sony DualSense PS5 Galactic Purple",
+    brand: "Sony",
+    model: "DualSense",
+    category: "Joystick",
+    price: 14500,
+    stock: 1,
+    images: [
+      "/images/joystick/ps5_galactic.webp",
+      "/images/joystick/ps5_galactic_front.webp",
+      "/images/joystick/ps5_galactic_side.webp",
+      "/images/joystick/ps5_galactic_back.webp"
+    ],
+    description: "Joystick Sony DualSense PS5 Galactic Purple con retroalimentación háptica y gatillos adaptativos",
+    specifications: {
+      marca: "PlayStation",
+      modelo: "DualSense",
+      modeloDetallado: "CFI-ZCT1W",
+      color: "Galactic Purple",
+      conectividad: "Bluetooth / USB-C",
+      compatibilidad: "PlayStation 5 / PC",
+      vibracion: "Háptica",
+      gatillosAdaptativos: "Sí",
+      microfono: "Integrado",
+      bateriaRecargable: "Sí",
+      tipoControlador: "Inalámbrico",
+      touchpad: "Sí",
+      altavozIntegrado: "Sí",
+      jackAuriculares: "3.5mm",
+      barraLuz: "Sí",
+      giroscopio: "Sí",
+      acelerometro: "Sí"
+    }
+  },
+
   {
     id: 1100,
  name: "Microsoft inalambrico Carbon Black PC/ANDROID/CONSOLA",
@@ -313,5 +350,6 @@ export const joystickProducts = [
       touchpad: "Sí",
       conexionUSBOpcional: "Sí"
     }
-  }
+  },
+  
 ];

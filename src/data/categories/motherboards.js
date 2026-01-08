@@ -1,8 +1,76 @@
 // ═══════════════════════════════════════════════════════════════
 // RANGO DE IDs: 600-699 (Motherboards)
-// Próximo ID disponible: 607
+// Próximo ID disponible: 609
 // ═══════════════════════════════════════════════════════════════
 export const motherboardsProducts = [
+
+    {
+    id: 600,
+    name: "ASUS TUF Gaming A620M-PLUS WiFi AM5",
+    brand: "ASUS",
+    model: "TUF Gaming A620M-PLUS WiFi",
+    category: "Motherboards",
+    price: 190000,
+    stock: 1,
+    ownConsumption: "35W - 45W",
+    maxPowerSupport: "Hasta 120W (PPT recomendado)",
+    images: [
+      "/images/motherboard/a620m_tuf_plusiwfi.webp",
+      "/images/motherboard/a620m_tuf_plusiwfi_side.webp",
+      "/images/motherboard/a620m_tuf_plusiwfi_back.webp"
+    ],
+    description: "Motherboard Asus TUF Gaming A620M-PLUS WiFi AM5 con conectividad inalámbrica y soporte DDR5",
+    specifications: {
+      marca: "Asus",
+      linea: "TUF Gaming",
+      modelo: "A620M-PLUS WiFi",
+      socket: "AM5",
+      chipset: "AMD A620",
+      formato: "Micro-ATX",
+      tipoMemoriaRAM: "DDR5",
+      slotsMemoria: "4",
+      capacidadMaximaRAM: "128 GB",
+      velocidadRAMSoportada: "Hasta 7600 MHz (OC)",
+      conectividadInalambrica: "Wi-Fi + Bluetooth",
+      puertosM2: "2",
+      puertosSATA: "4"
+    }
+  },
+  {
+    id: 601,
+    name: "Gigabyte A620M Gaming X DDR5 AM5",
+    brand: "Gigabyte",
+    model: "A620M Gaming X",
+    category: "Motherboards",
+    price: 170000,
+    stock: 1,
+    ownConsumption: "30W - 40W",
+    maxPowerSupport: "Hasta 120W (PPT recomendado)",
+    images: [
+      "/images/motherboard/a620m-gamingx.webp",
+      "/images/motherboard/a620m-gamingx_front.webp",
+      "/images/motherboard/a620m-gamingx_side.webp"
+    ],
+    description: "Motherboard Gigabyte A620M Gaming X DDR5 AM5 para gaming con soporte Ryzen 7000/8000/9000",
+    specifications: {
+      marca: "Gigabyte",
+      linea: "Gaming",
+      modelo: "A620M Gaming X",
+      socket: "AM5",
+      chipset: "AMD A620",
+      formato: "Micro-ATX",
+      tipoMemoriaRAM: "DDR5",
+      slotsMemoria: "4",
+      capacidadMaximaRAM: "128 GB",
+      velocidadRAMSoportada: "Hasta 7600 MHz (OC)",
+      puertosM2: "2",
+      puertosSATA: "4",
+      red: "LAN Gigabit",
+      usoRecomendado: "Gaming"
+    }
+  }
+  ,
+
   {
     id: 602, 
     name: "ASUS Prime A520M-K AM4",
@@ -45,8 +113,29 @@ export const motherboardsProducts = [
       wifi: "Wi-Fi 6E incorporado"
     }
   },
+
   {
     id: 604,
+    name: "Gigabyte A620M H DDR5 AMD AM5",
+    brand: "Gigabyte",
+    model: "A620M H",
+    category: "Motherboards",
+    price: 120000,
+    stock: 1,
+    ownConsumption: "30W - 40W",
+    maxPowerSupport: "Hasta 120W (PPT recomendado)", 
+    images: ["/images/motherboard/a620m_h_ud.webp", "/images/motherboard/a620m_h_ud_front.webp"],
+    description: "Mother Gigabyte A620M H DDR5 AMD AM5 para Ryzen Serie 7000/8000/9000",
+    specifications: {
+      marca: "Gigabyte",
+      chipset: "AMD A620",
+      socket: "AM5",
+      vrm: "5+2+2 Digital VRM"
+    }
+  },
+
+  {
+    id: 605,
     name: "ASUS Prime B450M-A II CSM AM4",
     brand: "ASUS",
     model: "Prime B450M-A II CSM",
@@ -66,26 +155,7 @@ export const motherboardsProducts = [
       capacidadMaximaSoportada: "128 GB"
     }
   },
-  {
-    id: 605,
-    name: "ASUS Prime B460M-A R2.0 LGA1200",
-    brand: "ASUS",
-    model: "Prime B460M-A R2.0",
-    category: "Motherboards",
-    price: 180000,
-    stock: 1,
-    ownConsumption: "35W - 45W",
-    maxPowerSupport: "Hasta 125W (PL1)", 
-    images: ["/images/motherboard/B460m-a R2.0.webp"],
-    description: "Mother Asus Prime B460M-A R2.0 Intel Socket 1200 DDR4 128GB",
-    specifications: {
-      marca: "Asus",
-      socket: "LGA1200",
-      plataforma: "Intel",
-      chipset: "B460 (H470 en R2.0)",
-      tipoMemoriaRAM: "DDR4"
-    }
-  },
+
   {
     id: 606,
     name: "Gigabyte A520M K V2 UD DDR4 AM4",
@@ -107,7 +177,7 @@ export const motherboardsProducts = [
     }
   },
   {
-    id: 600,
+    id: 607,
     name: "Gigabyte B650M-H UD AMD AM5 DDR5",
     brand: "Gigabyte",
     model: "B650M-H",
@@ -125,23 +195,25 @@ export const motherboardsProducts = [
       soportePerfiles: "AMD EXPO / Intel XMP"
     }
   },
+
   {
-    id: 601,
-    name: "Gigabyte A620M H DDR5 AMD AM5",
-    brand: "Gigabyte",
-    model: "A620M H",
+    id: 608,
+    name: "ASUS Prime B460M-A R2.0 LGA1200",
+    brand: "ASUS",
+    model: "Prime B460M-A R2.0",
     category: "Motherboards",
-    price: 120000,
+    price: 180000,
     stock: 1,
-    ownConsumption: "30W - 40W",
-    maxPowerSupport: "Hasta 120W (PPT recomendado)", 
-    images: ["/images/motherboard/a620m_h_ud.webp", "/images/motherboard/a620m_h_ud_front.webp"],
-    description: "Mother Gigabyte A620M H DDR5 AMD AM5 para Ryzen Serie 7000/8000/9000",
+    ownConsumption: "35W - 45W",
+    maxPowerSupport: "Hasta 125W (PL1)", 
+    images: ["/images/motherboard/B460m-a R2.0.webp"],
+    description: "Mother Asus Prime B460M-A R2.0 Intel Socket 1200 DDR4 128GB",
     specifications: {
-      marca: "Gigabyte",
-      chipset: "AMD A620",
-      socket: "AM5",
-      vrm: "5+2+2 Digital VRM"
+      marca: "Asus",
+      socket: "LGA1200",
+      plataforma: "Intel",
+      chipset: "B460 (H470 en R2.0)",
+      tipoMemoriaRAM: "DDR4"
     }
-  }
+  },
 ];

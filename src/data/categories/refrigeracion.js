@@ -1,6 +1,6 @@
 // ═══════════════════════════════════════════════════════════════
 // RANGO DE IDs: 1200-1299 (Refrigeración)
-// Próximo ID disponible: 1207
+// Próximo ID disponible: 1208
 // ═══════════════════════════════════════════════════════════════
 export const refrigeracionProducts = [
   {
@@ -149,6 +149,36 @@ export const refrigeracionProducts = [
       conector: "4 pines PWM",
       color: "Negro",
       usoRecomendado: "Gabinete"
+    }
+  },
+  {
+    id: 1207,
+    name: "Formula V Ice Burg Plus ARGB 4P TDP 200W",
+    brand: "Formula V",
+    model: "Ice Burg Plus",
+    category: "Refrigeración",
+    price: 30000,
+    stock: 3,
+    fanConsumption: "2.5W",
+    maxTdpDissipation: "200W",
+    images: [
+      "/images/refrigeracion/iceburg_plus_formulav.webp",
+      "/images/refrigeracion/iceburg_plus_formulav_side.webp",
+      "/images/refrigeracion/iceburg_plus_formulav_back.webp"
+    ],
+    description: "CPU Cooler Formula V Ice Burg Plus ARGB con 4 heatpipes, ventilador 120mm PWM, TDP 200W, compatible AM5/AM4/1200/1700",
+    specifications: {
+      marca: "Formula V",
+      modelo: "Ice Burg Plus",
+      tipo: "Cooler por aire",
+      tdpSoportado: "200 W",
+      compatibilidadSocket: "AM5 / AM4 / LGA 1200 / LGA 1700",
+      ventiladorIncluido: "Sí",
+      tamañoVentilador: "120 mm",
+      iluminacion: "ARGB",
+      cantidadHeatpipes: "4",
+      conector: "4 pines PWM",
+      usoRecomendado: "Gaming / Alto rendimiento"
     }
   }
 ];

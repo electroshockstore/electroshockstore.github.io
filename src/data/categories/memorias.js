@@ -1,17 +1,80 @@
 // ═══════════════════════════════════════════════════════════════
 // RANGO DE IDs: 400-499 (Memorias RAM)
-// Próximo ID disponible: 416
+// Próximo ID disponible: 417
 // ═══════════════════════════════════════════════════════════════
 export const memoriasProducts = [
   // ========== DDR5 ==========
   {
-    id: 411,
+    id: 400,
+    name: "Kingston Fury Beast DDR5 16GB 5600MHz CL40",
+    brand: "Kingston",
+    model: "Fury Beast",
+    category: "Memorias RAM",
+    price: 300000,
+    stock: 2,
+    realPowerConsumption: "2.5W - 3.2W",
+    images: [
+      "/images/ram/furybeast_16.webp",
+      "/images/ram/furybeast_16_side.webp",
+      "/images/ram/furybeast_16_side2.webp"
+    ],
+    description: "Memoria RAM Kingston Fury Beast gamer color negro 16GB DDR5 5600MHz CL40 con disipador",
+    specifications: {
+      marca: "Kingston",
+      linea: "Fury Beast",
+      modelo: "KF556C40BB-16",
+      modeloDetallado: "KF556C40BB-16",
+      capacidad: "16 GB",
+      modulos: "1",
+      tipoMemoriaRAM: "DDR5 SDRAM",
+      formato: "UDIMM",
+      velocidad: "5600 MHz",
+      latencia: "CL40",
+      voltaje: "1.25 V",
+      ecc: "No",
+      disipador: "Sí",
+      color: "Negro"
+    }
+  },
+  {
+    id: 401,
+    name: "Patriot Viper Venom DDR5 16GB 6000MHz CL30 NO RGB",
+    brand: "Patriot",
+    model: "Viper Venom",
+    category: "Memorias RAM",
+    price: 350000,
+    stock: 1,
+    realPowerConsumption: "3.0W - 3.8W",
+    images: [
+      "/images/ram/patriot_venom.webp",
+      "/images/ram/patriot_venom_side.webp",
+      "/images/ram/patriot_venom_side2.webp"
+    ],
+    description: "Memoria RAM Patriot Viper Venom DDR5 16GB 6000 MT/s CL30 con disipador negro",
+    specifications: {
+      marca: "Patriot",
+      linea: "Viper Venom",
+      modelo: "PVV516G600C30",
+      capacidad: "16 GB",
+      modulos: "1",
+      tipoMemoriaRAM: "DDR5",
+      formato: "UDIMM",
+      velocidad: "6000 MT/s",
+      latencia: "CL30",
+      voltaje: "1.35 V",
+      ecc: "No",
+      disipador: "Sí",
+      color: "Negro"
+    }
+  },
+  {
+    id: 402,
     name: "ADATA XPG Lancer Blade DDR5 16GB 5600MHz",
     brand: "ADATA",
     model: "XPG Lancer Blade",
     category: "Memorias RAM",
     price: 290000,
-    stock: 2,
+    stock: 4,
     realPowerConsumption: "2.5W - 3.2W", // DDR5 es más eficiente por su PMIC integrado
     images: ["/images/ram/lancerblade_16gb_ddr5_sinrgb.webp"],
     description: "Memoria Ram Adata Xpg Lancer Blade 16gb 5600mhz DDR5, SIN RGB",
@@ -24,7 +87,7 @@ export const memoriasProducts = [
     }
   },
   {
-    id: 412,
+    id: 403,
     name: "NETAC Shadow 2 DDR5 16GB 4800MHz",
     brand: "NETAC",
     model: "Shadow 2",
@@ -42,7 +105,7 @@ export const memoriasProducts = [
     }
   },
   {
-    id: 409,
+    id: 404,
     name: "NEO FORZA DDR5 16GB 5200 CL42",
     brand: "Neo Forza",
     model: "DDR5 5200",
@@ -59,7 +122,7 @@ export const memoriasProducts = [
     }
   },
   {
-    id: 410,
+    id: 405,
     name: "Neo Forza DDR5 32GB 5200MHz CL42 UDIMM",
     brand: "Neo Forza",
     model: "NMUD532F82-5200JA10",
@@ -77,7 +140,7 @@ export const memoriasProducts = [
   },
   // ========== DDR4 PREMIUM (RGB y Disipadas) ==========
   {
-    id: 413,
+    id: 406,
     name: "ADATA XPG Gammix D35 DDR4 16GB 3200MHz",
     brand: "ADATA",
     model: "XPG Gammix D35",
@@ -94,7 +157,7 @@ export const memoriasProducts = [
     }
   },
   {
-    id: 400,
+    id: 407,
     name: "Adata Xpg DDR4 D35g Spectrix 16gb RGB",
     brand: "XPG",
     model: "Spectrix D35G",
@@ -111,7 +174,7 @@ export const memoriasProducts = [
     }
   },
   {
-    id: 407,
+    id: 408,
     name: "Adata Xpg DDR4 16gb Spectrix D35 RGB White",
     brand: "XPG",
     model: "Spectrix D35",
@@ -128,7 +191,7 @@ export const memoriasProducts = [
     }
   },
   {
-    id: 414,
+    id: 409,
     name: "NETAC Shadow DDR4 16GB 3200MHz",
     brand: "NETAC",
     model: "Shadow",
@@ -144,7 +207,7 @@ export const memoriasProducts = [
     }
   },
   {
-    id: 408,
+    id: 410,
     name: "HyperX Fury 16GB DDR4 2666MHz CL16",
     brand: "HyperX",
     model: "Fury",
@@ -162,7 +225,7 @@ export const memoriasProducts = [
   },
   // ========== BÁSICAS / OFFICE ==========
   {
-    id: 406,
+    id: 411,
     name: "Lexar 16GB DDR4 3200MHz UDIMM",
     brand: "Lexar",
     model: "LD4AU016G",
@@ -178,7 +241,7 @@ export const memoriasProducts = [
     }
   },
   {
-    id: 405,
+    id: 412,
     name: "Patriot Signature DDR4 16GB 3200MHz",
     brand: "Patriot",
     model: "Signature",
@@ -194,7 +257,7 @@ export const memoriasProducts = [
     }
   },
   {
-    id: 404,
+    id: 413,
     name: "NETAC BASIC DDR4 16GB 3200 MHZ C16",
     brand: "Netac",
     model: "Basic",
@@ -210,7 +273,7 @@ export const memoriasProducts = [
     }
   },
   {
-    id: 403,
+    id: 414,
     name: "ADATA DDR4 Premier 16GB 3200MHz",
     brand: "ADATA",
     model: "Premier",
@@ -226,7 +289,7 @@ export const memoriasProducts = [
     }
   },
   {
-    id: 402,
+    id: 415,
     name: "Adata 4GB DDR4 2666 MHz SODIMM",
     brand: "ADATA",
     model: "Premier",
@@ -242,7 +305,7 @@ export const memoriasProducts = [
     }
   },
   {
-    id: 415, // Ajustado al rango
+    id: 416,
     name: "Adata Premier 8GB U-DIMM DDR3 1600MHz",
     brand: "ADATA",
     model: "Premier",
@@ -256,5 +319,6 @@ export const memoriasProducts = [
       tipoMemoriaRAM: "DDR3",
       voltaje: "1.5 V"
     }
-  }
+  },
+ 
 ];

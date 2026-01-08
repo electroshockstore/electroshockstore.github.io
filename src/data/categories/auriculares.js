@@ -424,8 +424,38 @@ export const auricularesProducts = [
       "Sonido": "Estéreo",
       "Peso": "210 g"
     }
+  },
+  {
+    id: 814,
+    name: "Motorola XT220 - Inalámbrico Bluetooth & Jack 3.5mm Negro",
+    brand: "Motorola",
+    model: "XT220",
+    category: "Auriculares",
+    price: 45000,
+    stock: 2,
+    sku: "MOTO-XT220",
+    description: "Motorola XT220 inalámbrico Bluetooth & Jack 3.5mm color negro plegable con micrófono integrado",
+    images: [
+      "/images/auriculares/moto_xt220.webp",
+      "/images/auriculares/moto_xt220_side.webp",
+      "/images/auriculares/moto_xt220_side2.webp",
+      "/images/auriculares/moto_xt220_back.webp"
+    ],
+    specifications: {
+      "Marca": "Motorola",
+      "Línea": "Moto",
+      "Modelo": "XT220",
+      "Modelo alfanumérico": "94MXT-220W",
+      "Modelo detallado": "94MXT-220BLA_NS",
+      "Tipo": "Auriculares inalámbricos",
+      "Conectividad": "Bluetooth",
+      "Versión de Bluetooth": "5.0",
+      "Conector": "Jack 3.5 mm",
+      "Formato": "On-ear",
+      "Plegable": "Sí",
+      "Micrófono": "Integrado",
+      "Color": "Negro",
+      "Uso recomendado": "Música y llamadas"
+    }
   }
-  
-   
-  
 ];
