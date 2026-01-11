@@ -1,14 +1,35 @@
-# robots.txt para Shock-Store
+# robots.txt para Shock-Store - Componentes PC Berazategui
 User-agent: *
 Allow: /
+Allow: /categoria/
+Allow: /blog/
+Allow: /puntos-de-retiro
+Allow: /armatupc/
 Disallow: /404.html
+Disallow: /*.json$
+Disallow: /api/
 
-# Sitemap
+# Sitemap principal
 Sitemap: https://www.jldev.com.ar/sitemap.xml
 
-# Crawl-delay para bots más agresivos
+# Crawl-delay optimizado
 User-agent: Googlebot
 Crawl-delay: 0
+Allow: /
 
 User-agent: Bingbot
 Crawl-delay: 1
+Allow: /
+
+User-agent: Slurp
+Crawl-delay: 1
+
+# Bots de redes sociales
+User-agent: facebookexternalhit
+Allow: /
+
+User-agent: Twitterbot
+Allow: /
+
+User-agent: WhatsApp
+Allow: /
