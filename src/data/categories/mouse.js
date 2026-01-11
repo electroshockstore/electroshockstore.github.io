@@ -33,46 +33,50 @@ export const mouseProducts = [
     }
   },
   {
-    id: 45,
-    name: "Logitech M170 Rojo Inalámbrico",
+    id: 501,
+    name: "Logitech G203 Lightsync Varios colores",
     brand: "Logitech",
-    model: "M170",
+    model: "G203 Lightsync",
     category: "Mouse",
-    price: 10000,
-    stock: 15,
+    price: 30000,
+    stock: 27,
     images: [
-      "/images/mouse/logitech_m170_mouse.webp",
-      "/images/mouse/logitech_m170_mouse_side.webp",
-      "/images/mouse/logitech_m170_mouse_side2.webp"
+      "/images/mouse/logitech_g203_mouse.webp",
+      "/images/mouse/logitech_g203_mouse_specs1.webp",
+      "/images/mouse/logitech_g203_mouse_specs2.webp"
     ],
-    description: "Logitech M170 Rojo INALAMBRICO DONGLE",
+    description: "Mouse Logitech G203 Lightsync, CABLEADO RGB NEGRO",
     specifications: {
       marca: "Logitech",
-      linea: "M170",
-      modelo: "M170",
-      modeloAlfanumerico: "M170",
-      modeloDetallado: "Mouse sem fio M170 Logitech",
-      radioFrecuencia: "2.4 GHz",
-      tipoConectividad: "Inalámbrico 2.4 GHz",
-      alcanceMaximo: "10 m",
-      receptorUSB: "Sí",
-      interruptorEncendido: "Sí",
-      dimensiones: "97.7 x 61.5 x 35.2 mm",
-      peso: "70.5 g",
-      tipoSensor: "Óptico (Optical Tracking)",
-      dpi: "1000",
-      cantidadBotones: "3",
-      funcionalidadBotones: "Click izq/der, Click central (rueda)",
-      tipoScroll: "Rueda 2D óptica",
-      desplazamiento: "Línea por línea",
-      tipoPila: "1 × AA (incluida)",
-      duracionEstimada: "12 meses",
-      compatibilidadSO: "Windows 7/8/10/11, macOS 10.8+, ChromeOS, Linux 2.6+",
-      receptorNanoUSB: "Sí"
+      linea: "G Series",
+      modelo: "Lightsync",
+      modeloAlfanumerico: "G102 / G203",
+      modeloDetallado: "910-005790",
+      color: "Negro",
+      tipo: "Gaming, cableado",
+      tipoSensor: "Óptico",
+      resolucionMinimaDPI: "200",
+      resolucionMaximaDPI: "8000",
+      rangoDPI: "200-8000",
+      nivelesAjustables: "5",
+      pollingRate: "1000 Hz",
+      tiempoRespuesta: "1 ms",
+      cantidadBotones: "6",
+      botonesProgramables: "6",
+      iluminacionRGB: "Sí",
+      tecnologiaRGB: "LIGHTSYNC",
+      coloresRGB: "16.8 millones",
+      interfaz: "USB-A (cableado)",
+      longitudCable: "2.1 m",
+      dimensiones: "116.6 x 62.15 x 38.2 mm",
+      peso: "85 g",
+      compatibilidad: "Windows 7+, macOS 10.13+, ChromeOS",
+      softwareRequerido: "Logitech G HUB",
+      funciones: "Config DPI, Botones, RGB, Perfiles"
     }
   },
   {
-    id: 52,
+    id: 502,
     name: "Redragon Invader M719-RGB Negro",
     brand: "Redragon",
     model: "Invader M719-RGB",
@@ -116,7 +120,7 @@ export const mouseProducts = [
     }
   },
   {
-    id: 48,
+    id: 503,
     name: "Redragon Storm Elite M988 Negro",
     brand: "Redragon",
     model: "Storm Elite M988",
@@ -161,7 +165,7 @@ export const mouseProducts = [
     }
   },
   {
-    id: 49,
+    id: 504,
     name: "Redragon Cobra White M711-W RGB",
     brand: "Redragon",
     model: "Cobra White M711-W",
@@ -208,7 +212,7 @@ export const mouseProducts = [
     }
   },
   {
-    id: 50,
+    id: 505,
     name: "Redragon Gainer M610 RGB",
     brand: "Redragon",
     model: "Gainer M610",
@@ -243,51 +247,9 @@ export const mouseProducts = [
       tecnologiaSensor: "Pixart 3168"
     }
   },
+
   {
-    id: 46,
-    name: "Logitech G203 Lightsync Varios colores",
-    brand: "Logitech",
-    model: "G203 Lightsync",
-    category: "Mouse",
-    price: 30000,
-    stock: 27,
-    images: [
-      "/images/mouse/logitech_g203_mouse.webp",
-      "/images/mouse/logitech_g203_mouse_specs1.webp",
-      "/images/mouse/logitech_g203_mouse_specs2.webp"
-    ],
-    description: "Mouse Logitech G203 Lightsync, CABLEADO RGB NEGRO",
-    specifications: {
-      marca: "Logitech",
-      linea: "G Series",
-      modelo: "Lightsync",
-      modeloAlfanumerico: "G102 / G203",
-      modeloDetallado: "910-005790",
-      color: "Negro",
-      tipo: "Gaming, cableado",
-      tipoSensor: "Óptico",
-      resolucionMinimaDPI: "200",
-      resolucionMaximaDPI: "8000",
-      rangoDPI: "200-8000",
-      nivelesAjustables: "5",
-      pollingRate: "1000 Hz",
-      tiempoRespuesta: "1 ms",
-      cantidadBotones: "6",
-      botonesProgramables: "6",
-      iluminacionRGB: "Sí",
-      tecnologiaRGB: "LIGHTSYNC",
-      coloresRGB: "16.8 millones",
-      interfaz: "USB-A (cableado)",
-      longitudCable: "2.1 m",
-      dimensiones: "116.6 x 62.15 x 38.2 mm",
-      peso: "85 g",
-      compatibilidad: "Windows 7+, macOS 10.13+, ChromeOS",
-      softwareRequerido: "Logitech G HUB",
-      funciones: "Config DPI, Botones, RGB, Perfiles"
-    }
-  },
-  {
-    id: 47,
+    id: 506,
     name: "Razer Deathadder V2 Mini Negro",
     brand: "Razer",
     model: "Deathadder V2 Mini",
@@ -334,5 +296,46 @@ export const mouseProducts = [
       software: "Razer Synapse 3",
       funciones: "Config DPI, Botones, RGB, Perfiles"
     }
-  }
+  },
+
+  {
+    id: 507,
+    name: "Logitech M170 Rojo Inalámbrico",
+    brand: "Logitech",
+    model: "M170",
+    category: "Mouse",
+    price: 10000,
+    stock: 15,
+    images: [
+      "/images/mouse/logitech_m170_mouse.webp",
+      "/images/mouse/logitech_m170_mouse_side.webp",
+      "/images/mouse/logitech_m170_mouse_side2.webp"
+    ],
+    description: "Logitech M170 Rojo INALAMBRICO DONGLE",
+    specifications: {
+      marca: "Logitech",
+      linea: "M170",
+      modelo: "M170",
+      modeloAlfanumerico: "M170",
+      modeloDetallado: "Mouse sem fio M170 Logitech",
+      radioFrecuencia: "2.4 GHz",
+      tipoConectividad: "Inalámbrico 2.4 GHz",
+      alcanceMaximo: "10 m",
+      receptorUSB: "Sí",
+      interruptorEncendido: "Sí",
+      dimensiones: "97.7 x 61.5 x 35.2 mm",
+      peso: "70.5 g",
+      tipoSensor: "Óptico (Optical Tracking)",
+      dpi: "1000",
+      cantidadBotones: "3",
+      funcionalidadBotones: "Click izq/der, Click central (rueda)",
+      tipoScroll: "Rueda 2D óptica",
+      desplazamiento: "Línea por línea",
+      tipoPila: "1 × AA (incluida)",
+      duracionEstimada: "12 meses",
+      compatibilidadSO: "Windows 7/8/10/11, macOS 10.8+, ChromeOS, Linux 2.6+",
+      receptorNanoUSB: "Sí"
+    }
+  },
+
 ];
