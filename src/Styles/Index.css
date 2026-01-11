@@ -512,3 +512,61 @@
   display: inline-block;
   animation: marquee 15s linear infinite;
 }
+
+/* RGB Chroma Effect - Flowing gradient border */
+@keyframes rgb-flow {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.animate-rgb-flow {
+  background-size: 400% 400%;
+  animation: rgb-flow 4s ease-in-out infinite;
+}
+
+/* RGB Flowing Gradient Border - Pseudo-elemento con gradiente que rota */
+.animate-border-rotate {
+  position: relative;
+}
+
+.animate-border-rotate::before {
+  content: '';
+  position: absolute;
+  z-index: -1;
+  left: -50%;
+  top: -50%;
+  width: 200%;
+  height: 200%;
+  background: conic-gradient(
+    from 0deg,
+    #ef4444,
+    #f97316,
+    #eab308,
+    #84cc16,
+    #22c55e,
+    #14b8a6,
+    #06b6d4,
+    #3b82f6,
+    #6366f1,
+    #8b5cf6,
+    #a855f7,
+    #d946ef,
+    #ec4899,
+    #ef4444
+  );
+  animation: border-rotate 6s linear infinite;
+  will-change: transform;
+}
+
+@keyframes border-rotate {
+  100% {
+    transform: rotate(1turn);
+  }
+}

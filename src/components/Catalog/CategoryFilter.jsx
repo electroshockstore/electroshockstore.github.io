@@ -107,17 +107,19 @@ const CategoryFilter = ({ selectedCategory, onCategoryChange }) => {
 
   return (
     <div className="relative group z-20 w-full">
-      {/* CAPAS DE RESPLANDOR - SIEMPRE VISIBLES EN MOBILE Y DESKTOP */}
+      {/* CAPAS DE RESPLANDOR ORIGINALES */}
       <div className="absolute -inset-3 bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 rounded-full opacity-30 blur-xl -z-10"></div>
       <div className="absolute -inset-2 bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-600 rounded-full opacity-25 blur-lg animate-pulse -z-10"></div>
-
-      <div className="relative">
+      
+      {/* RGB FLOWING BORDER - Contenedor con borde animado */}
+      <div className="relative rounded-full overflow-hidden p-[3px] animate-border-rotate">
+        <div className="relative bg-white rounded-full z-10">
         {/* MOBILE: DROPDOWN COMPACTO CON GLOW */}
         <div className="sm:hidden relative z-20" ref={dropdownRef}>
           {/* Botón principal - UNA SOLA LÍNEA */}
           <button
             onClick={() => setIsOpen(!isOpen)}
-            className="relative w-full flex items-center justify-between px-4 py-2.5 bg-white rounded-full shadow-lg border border-gray-100 hover:shadow-xl transition-all duration-300 hover:scale-[1.01]"
+            className="relative w-full flex items-center justify-between px-4 py-2.5 bg-white rounded-full shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-[1.01]"
           >
             <div className="flex items-center gap-2.5">
               {selectedCategory ? (
@@ -246,7 +248,7 @@ const CategoryFilter = ({ selectedCategory, onCategoryChange }) => {
         </div>
 
         {/* DESKTOP: SEGMENTED CONTROL HORIZONTAL SIEMPRE EN UNA FILA */}
-        <div className="hidden sm:flex relative items-center group/carousel bg-white rounded-3xl p-2 shadow-[0_2px_8px_rgba(0,0,0,0.06)] overflow-hidden">
+        <div className="hidden sm:flex relative items-center group/carousel rounded-full p-2 shadow-[0_2px_8px_rgba(0,0,0,0.06)]">
           
           {/* Indicador Izquierdo */}
           {showLeftArrow && (
@@ -309,6 +311,7 @@ const CategoryFilter = ({ selectedCategory, onCategoryChange }) => {
               <ChevronRight size={20} strokeWidth={3} />
             </button>
           )}
+        </div>
         </div>
       </div>
     </div>
