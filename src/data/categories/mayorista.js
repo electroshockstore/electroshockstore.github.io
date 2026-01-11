@@ -378,8 +378,8 @@ export const mayoristaProducts = [
     model: "G203",
     category: "Mayorista",
     price: 100000, 
-    quantity: 4,
-    unitPrice: 30000,
+    quantity: 5,
+    unitPrice: 25000,
     stock: 8,
     images: [
       "/images/category_filter/g203_mayor.webp",

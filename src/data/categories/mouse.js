@@ -38,7 +38,7 @@ export const mouseProducts = [
     brand: "Logitech",
     model: "G203 Lightsync",
     category: "Mouse",
-    price: 30000,
+    price: 25000,
     stock: 27,
     images: [
       "/images/mouse/logitech_g203_mouse.webp",
