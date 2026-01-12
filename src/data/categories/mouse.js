@@ -10,6 +10,7 @@ export const mouseProducts = [
     brand: "Logitech",
     model: "G305",
     category: "Mouse",
+    manufacturerUrl: "https://www.logitech.com/es-roam/products/",
     price: 50000,
     stock: 5,
     images: [
@@ -38,6 +39,7 @@ export const mouseProducts = [
     brand: "Logitech",
     model: "G203 Lightsync",
     category: "Mouse",
+    manufacturerUrl: "https://www.logitech.com/es-roam/products/",
     price: 25000,
     stock: 27,
     images: [
@@ -81,6 +83,7 @@ export const mouseProducts = [
     brand: "Redragon",
     model: "Invader M719-RGB",
     category: "Mouse",
+    manufacturerUrl: "https://www.redragonzone.com/collections/",
     price: 20000,
     stock: 2,
     images: [
@@ -125,6 +128,7 @@ export const mouseProducts = [
     brand: "Redragon",
     model: "Storm Elite M988",
     category: "Mouse",
+    manufacturerUrl: "https://www.redragonzone.com/collections/",
     price: 35000,
     stock: 2,
     images: [
@@ -170,6 +174,7 @@ export const mouseProducts = [
     brand: "Redragon",
     model: "Cobra White M711-W",
     category: "Mouse",
+    manufacturerUrl: "https://www.redragonzone.com/collections/",
     price: 25000,
     stock: 2,
     images: [
@@ -217,6 +222,7 @@ export const mouseProducts = [
     brand: "Redragon",
     model: "Gainer M610",
     category: "Mouse",
+    manufacturerUrl: "https://www.redragonzone.com/collections/",
     price: 20000,
     stock: 2,
     images: [
@@ -254,6 +260,7 @@ export const mouseProducts = [
     brand: "Razer",
     model: "Deathadder V2 Mini",
     category: "Mouse",
+    manufacturerUrl: "https://www.razer.com/",
     price: 45000,
     stock: 4,
     images: [
@@ -304,6 +311,7 @@ export const mouseProducts = [
     brand: "Logitech",
     model: "M170",
     category: "Mouse",
+    manufacturerUrl: "https://www.logitech.com/es-roam/products/",
     price: 10000,
     stock: 15,
     images: [

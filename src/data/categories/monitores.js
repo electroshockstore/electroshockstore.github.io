@@ -45,6 +45,7 @@ export const monitoresProducts = [
     brand: "Samsung",
     model: "F24T35",
     category: "Monitores",
+    manufacturerUrl: "https://www.samsung.com/ar/monitors/",
     price: 200000,
     stock: 1,
     images: [

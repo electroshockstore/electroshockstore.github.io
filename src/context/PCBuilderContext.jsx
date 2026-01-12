@@ -21,7 +21,8 @@ export const PCBuilderProvider = ({ children }) => {
     psu: null,
     storage: [],
     case: null,
-    cooling: null
+    cooling: null,
+    monitor: null
   });
   
   const [assistedAnswers, setAssistedAnswers] = useState({
@@ -194,7 +195,9 @@ export const PCBuilderProvider = ({ children }) => {
         'motherboards': 'motherboard',
         'fuentes': 'psu',
         'refrigeración': 'cooling',
-        'refrigeracion': 'cooling'
+        'refrigeracion': 'cooling',
+        'placasdevideo': 'gpu',
+        'monitores': 'monitor'
       };
       
       const key = keyMap[categoryKey] || categoryKey;
@@ -242,7 +245,9 @@ export const PCBuilderProvider = ({ children }) => {
         'motherboards': 'motherboard',
         'fuentes': 'psu',
         'refrigeración': 'cooling',
-        'refrigeracion': 'cooling'
+        'refrigeracion': 'cooling',
+        'placasdevideo': 'gpu',
+        'monitores': 'monitor'
       };
       
       const key = keyMap[categoryKey] || categoryKey;
@@ -270,7 +275,8 @@ export const PCBuilderProvider = ({ children }) => {
       psu: null,
       storage: [],
       case: null,
-      cooling: null
+      cooling: null,
+      monitor: null
     });
     setWarnings([]);
     setCompatibilityStatus(new Map());

@@ -61,7 +61,7 @@ const SidebarFilters = ({ selectedCategory, filters, onFilterChange, onClearFilt
   };
 
   const FilterContent = () => (
-    <div className="bg-gradient-to-br from-white to-gray-50 rounded-2xl shadow-2xl shadow-gray-300/50 border border-gray-200/50 p-5 backdrop-blur-sm h-full overflow-y-auto">
+    <div className="bg-gradient-to-br from-white to-gray-50 rounded-2xl shadow-2xl mt-6 shadow-gray-300/50 border border-gray-200/50 p-5 backdrop-blur-sm h-full overflow-y-auto">
       {/* Imagen de categoría */}
       {getCategoryImage(selectedCategory) && (
         <div >

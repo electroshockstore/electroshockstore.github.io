@@ -89,13 +89,16 @@ const ProductGrid = ({
   onAddProduct
 }) => {
   const { pcBuild } = usePCBuilder();
+  
   if (!selectedCategory) {
     return (
-      <EmptyState
-        icon="🖥️"
-        title="Selecciona una categoría"
-        description="Elige un componente de la barra lateral para comenzar a armar tu PC"
-      />
+      <div className="h-full flex items-center justify-center p-8">
+        <img 
+          src="/images/arma_tu_pc.png" 
+          alt="Armá tu PC" 
+    className="w-full"
+        />
+      </div>
     );
   }
 

@@ -11,6 +11,7 @@ export const joystickProducts = [
     brand: "Sony",
     model: "DualSense",
     category: "Joystick",
+    manufacturerUrl: "https://www.playstation.com/es-ar/accessories/dualsense-wireless-controller/",
     price: 145000,
     stock: 1,
     images: [
@@ -47,6 +48,7 @@ export const joystickProducts = [
     brand: "Microsoft",
     model: "Xbox Wireless",
     category: "Joystick",
+    manufacturerUrl: "https://www.xbox.com/es-AR/accessories/controllers/xbox-wireless-controller",
     price: 110000,
     stock: 2,
     images: [
@@ -90,6 +92,7 @@ export const joystickProducts = [
     brand: "Sony",
     model: "DualSense",
     category: "Joystick",
+    manufacturerUrl: "https://www.playstation.com/es-ar/accessories/dualsense-wireless-controller/",
     price: 130000,
     stock: 1,
     images: [
@@ -137,6 +140,7 @@ export const joystickProducts = [
     brand: "Sony",
     model: "DualSense",
     category: "Joystick",
+    manufacturerUrl: "https://www.playstation.com/es-ar/accessories/dualsense-wireless-controller/",
     price: 115000,
     stock: 3,
     images: [
@@ -188,6 +192,7 @@ export const joystickProducts = [
     brand: "Sony",
     model: "DualShock 4",
     category: "Joystick",
+    manufacturerUrl: "https://www.playstation.com/es-ar/accessories/dualshock-4-wireless-controller/",
     price: 90000,
     stock: 8,
     images: [
@@ -237,6 +242,7 @@ export const joystickProducts = [
     brand: "Microsoft",
     model: "Xbox Wireless",
     category: "Joystick",
+    manufacturerUrl: "https://www.xbox.com/es-AR/accessories/controllers/xbox-wireless-controller",
     price: 100000,
     stock: 2,
     images: [
@@ -276,6 +282,7 @@ export const joystickProducts = [
     brand: "Microsoft",
     model: "Xbox Wireless",
     category: "Joystick",
+    manufacturerUrl: "https://www.xbox.com/es-AR/accessories/controllers/xbox-wireless-controller",
     price: 100000,
     stock: 1,
     images: [
@@ -316,6 +323,7 @@ export const joystickProducts = [
     brand: "T-Dagger",
     model: "Scorpio T-TGP802",
     category: "Joystick",
+    manufacturerUrl: "https://www.t-dagger.com/product/scorpio/",
     price: 40000,
     stock: 6,
     images: [

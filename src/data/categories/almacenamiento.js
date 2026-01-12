@@ -14,6 +14,7 @@ export const almacenamientoProducts = [
     stock: 1,
     sku: "ADATA-1TB-L710",
     description: "SSD M.2 NVMe Gen3 x4 de 1TB con disipador de aluminio incluido, lectura 2400 MB/s, escritura 1800 MB/s",
+    manufacturerUrl: "https://www.adata.com/ar/consumer/category/ssds/solid-state-drives-LEGEND-710/",
     images: [
       "/images/almacenamiento/adata_legend710_1tb.webp",
       "/images/almacenamiento/adata_legend710_512_side.webp",
@@ -41,6 +42,7 @@ export const almacenamientoProducts = [
     stock: 1,
     sku: "XPG-500-S20G",
     description: "SSD M.2 NVMe PCIe Gen3 x4 de 500GB con iluminación RGB direccionable, lectura 2500 MB/s, escritura 1800 MB/s",
+    manufacturerUrl: "https://www.xpg.com/es/xpg/818",
     images: [
       "/images/almacenamiento/xpg_spectrix_s20g.webp"
     ],
@@ -64,6 +66,7 @@ export const almacenamientoProducts = [
     stock: 3,
     sku: "LEXAR-1TB-NM620",
     description: "SSD M.2 NVMe Gen3 x4 de 1TB, lectura 3500 MB/s, escritura 3000 MB/s",
+    manufacturerUrl: "https://www.lexar.com/product/lexar-nm620-m-2-2280-nvme-ssd/",
     images: [
       "/images/almacenamiento/lexar_nm620_1tb.webp",
       "/images/almacenamiento/lexar_nm620_1tb_side.webp",
@@ -88,6 +91,7 @@ export const almacenamientoProducts = [
     stock: 2,
     sku: "KING-1TB-GEN4",
     description: "SSD M.2 NVMe Gen4 x4 de 1TB, lectura 3500 MB/s, escritura 2800 MB/s",
+    manufacturerUrl: "https://www.kingston.com/es/ssd/nv3-nvme-pcie-ssd",
     images: [
       "/images/almacenamiento/kingston_nv3_1tb.webp",
       "/images/almacenamiento/kingston_nv3_1tb_side.webp"
@@ -111,6 +115,7 @@ export const almacenamientoProducts = [
     stock: 4,
     sku: "ADATA-512-L710",
     description: "SSD M.2 NVMe Gen3 x4 de 512GB con disipador de aluminio incluido, lectura 2400 MB/s",
+    manufacturerUrl: "https://www.adata.com/ar/consumer/category/ssds/solid-state-drives-LEGEND-710/",
     images: [
       "/images/almacenamiento/adata_legend710_512.webp",
       "/images/almacenamiento/adata_legend710_512_side.webp",
@@ -134,6 +139,7 @@ export const almacenamientoProducts = [
     stock: 12,
     sku: "KING-960-A400",
     description: "SSD SATA III 2.5\" de 960GB, velocidades 500/450 MB/s, NAND 3D TLC",
+    manufacturerUrl: "https://www.kingston.com/es/ssd/a400-solid-state-drive",
     images: [
       "/images/almacenamiento/a400_960.webp",
       "/images/almacenamiento/a400_960_side.webp",
@@ -156,6 +162,7 @@ export const almacenamientoProducts = [
     stock: 1,
     sku: "SANDISK-1TB-PLUS",
     description: "SSD M.2 NVMe PCIe Gen3 x4 de 1TB, alta resistencia mecánica",
+    manufacturerUrl: "https://www.westerndigital.com/es-la/products/internal-drives/sandisk-ssd-plus-sata-iii-ssd",
     images: [
       "/images/almacenamiento/sandisk_ssdplus1tb.webp",
       "/images/almacenamiento/sandisk_ssdplus1tb_side.webp"
@@ -177,6 +184,7 @@ export const almacenamientoProducts = [
     stock: 6,
     sku: "KING-250-NV2",
     description: "SSD Kingston NV2 250GB NVMe PCIe 4.0 M.2 2280 con velocidades de hasta 3000 MB/s de lectura",
+    manufacturerUrl: "https://www.kingston.com/es/ssd/nv2-nvme-pcie-ssd",
     images: [
       "/images/almacenamiento/kingston_nv2_250gb.webp",
       "/images/almacenamiento/kingston_nv2_250gb_side.webp",
@@ -206,6 +214,7 @@ export const almacenamientoProducts = [
     stock: 5,
     sku: "LEXAR-512-NM620",
     description: "SSD M.2 NVMe Gen3 x4 de 512GB, lectura 3500 MB/s, escritura 3000 MB/s",
+    manufacturerUrl: "https://www.lexar.com/product/lexar-nm620-m-2-2280-nvme-ssd/",
     images: [
       "/images/almacenamiento/lexar_nm620_512.webp",
       "/images/almacenamiento/lexar_nm620_512_side.webp"
@@ -226,6 +235,7 @@ export const almacenamientoProducts = [
     stock: 5,
     sku: "PATRIOT-480-ELITE",
     description: "SSD SATA III 2.5\" de 480GB, lectura 450 MB/s, escritura 320 MB/s, 3D NAND",
+    manufacturerUrl: "https://viper.patriotmemory.com/products/patriot-burst-elite-ssd",
     images: [
       "/images/almacenamiento/patriot_elite_480.webp",
       "/images/almacenamiento/patriot_elite_480_side.webp",
@@ -247,6 +257,7 @@ export const almacenamientoProducts = [
     stock: 13,
     sku: "NETAC-480-N535S",
     description: "SSD SATA III 2.5\" de 480GB, lectura 560 MB/s, escritura 520 MB/s, 3D NAND TLC",
+    manufacturerUrl: "https://www.netac.com/product/n535s-ssd/",
     images: [
       "/images/almacenamiento/netac_n545s_480.webp",
       "/images/almacenamiento/netac_n545s_480_side.webp",
@@ -260,8 +271,7 @@ export const almacenamientoProducts = [
   },
   {
     id: 211,
-
- name: "SSD Western Digital Green 480GB SATA III 2.5\"",
+    name: "SSD Western Digital Green 480GB SATA III 2.5\"",
     brand: "Western Digital",
     model: "WD Green",
     category: "Almacenamiento",
@@ -269,6 +279,7 @@ export const almacenamientoProducts = [
     stock: 9,
     sku: "WD-480-GREEN",
     description: "SSD SATA III 2.5\" de 480GB, lectura 545 MB/s, bajo consumo energético",
+    manufacturerUrl: "https://www.westerndigital.com/es-la/products/internal-drives/wd-green-sata-ssd",
     images: [
       "/images/almacenamiento/wd_green480.webp",
       "/images/almacenamiento/wd_green480_side.webp",
@@ -290,6 +301,7 @@ export const almacenamientoProducts = [
     stock: 4,
     sku: "PATRIOT-960-ELITE",
     description: "SSD Patriot Burst Elite 960GB SATA3 2.5\", lectura 560 MB/s, escritura 540 MB/s",
+    manufacturerUrl: "https://viper.patriotmemory.com/products/patriot-burst-elite-ssd",
     images: [
       "/images/almacenamiento/patriot_burst_960.webp",
       "/images/almacenamiento/patriot_burst_960_side.webp",
@@ -311,6 +323,7 @@ export const almacenamientoProducts = [
     stock: 17,
     sku: "PATRIOT-240-ELITE",
     description: "SSD Patriot Burst Elite 240GB SATA3 2.5\", lectura 560 MB/s, escritura 540 MB/s",
+    manufacturerUrl: "https://viper.patriotmemory.com/products/patriot-burst-elite-ssd",
     images: [
       "/images/almacenamiento/patriot_burst_240.webp",
       "/images/almacenamiento/patriot_burst_240_side.webp",
@@ -332,6 +345,7 @@ export const almacenamientoProducts = [
     stock: 12,
     sku: "KING-480-A400",
     description: "SSD SATA III 2.5\" de 480GB, velocidades 500/450 MB/s, NAND 3D TLC",
+    manufacturerUrl: "https://www.kingston.com/es/ssd/a400-solid-state-drive",
     images: [
       "/images/almacenamiento/a400_480gb.webp",
       "/images/almacenamiento/a400_480gb_side.webp",
@@ -353,6 +367,7 @@ export const almacenamientoProducts = [
     stock: 4,
     sku: "ADATA-500-SWORD",
     description: "SSD M.2 NVMe Gen3 x4 de 500GB con disipador de aluminio, lectura 1800 MB/s",
+    manufacturerUrl: "https://www.adata.com/ar/consumer/category/ssds/solid-state-drives-SWORDFISH/",
     images: [
       "/images/almacenamiento/adata_swordfish500.webp",
       "/images/almacenamiento/adata_swordfish500_side.webp",
@@ -375,6 +390,7 @@ export const almacenamientoProducts = [
     stock: 5,
     sku: "WD-240-SN350",
     description: "SSD M.2 NVMe PCIe Gen3 x4 de 240GB, lectura 2400 MB/s, escritura 900 MB/s",
+    manufacturerUrl: "https://www.westerndigital.com/es-la/products/internal-drives/wd-green-sn350-nvme-ssd",
     images: [
       "/images/almacenamiento/nvme_wdgreen_240.webp",
       "/images/almacenamiento/nvme_wdgreen_240_side.webp"
@@ -395,6 +411,7 @@ export const almacenamientoProducts = [
     stock: 1,
     sku: "WD-480-SN350",
     description: "SSD M.2 NVMe PCIe Gen3 x4 de 480GB, lectura 2400 MB/s, escritura 1500 MB/s",
+    manufacturerUrl: "https://www.westerndigital.com/es-la/products/internal-drives/wd-green-sn350-nvme-ssd",
     images: [
       "/images/almacenamiento/nvme_wdgreen_480.webp",
       "/images/almacenamiento/nvme_wdgreen_480_side.webp"
@@ -415,6 +432,7 @@ export const almacenamientoProducts = [
     stock: 2,
     sku: "WD-500-SN350",
     description: "SSD M.2 NVMe PCIe Gen3 x4 de 500GB, lectura 2400 MB/s, escritura 1500 MB/s",
+    manufacturerUrl: "https://www.westerndigital.com/es-la/products/internal-drives/wd-green-sn350-nvme-ssd",
     images: [
       "/images/almacenamiento/nvme_wdgreen_500.webp",
       "/images/almacenamiento/nvme_wdgreen_500_side.webp"
@@ -436,6 +454,7 @@ export const almacenamientoProducts = [
     stock: 9,
     sku: "ADATA-256-SU650",
     description: "SSD Adata SU650 256GB 2.5\" NAND 3D, lectura 520 MB/s, escritura 450 MB/s",
+    manufacturerUrl: "https://www.adata.com/ar/consumer/category/ssds/solid-state-drives-SU650/",
     images: [
       "/images/almacenamiento/adatassd_250.webp",
       "/images/almacenamiento/adatassd_250_side.webp",
@@ -462,6 +481,7 @@ export const almacenamientoProducts = [
     stock: 4,
     sku: "WD-2TB-ELEMENTS",
     description: "Disco duro externo Western Digital WD Elements 2TB USB 3.0",
+    manufacturerUrl: "https://www.westerndigital.com/es-la/products/portable-drives/wd-elements-portable-usb-3-0-hdd",
     images: [
       "/images/almacenamiento/wd_elements_2tb.webp",
       "/images/almacenamiento/wd_elements_2tb_side.webp",
@@ -484,6 +504,7 @@ export const almacenamientoProducts = [
     stock: 3,
     sku: "WD-1TB-ELEMENTS",
     description: "Disco duro externo Western Digital WD Elements 1TB USB 3.0",
+    manufacturerUrl: "https://www.westerndigital.com/es-la/products/portable-drives/wd-elements-portable-usb-3-0-hdd",
     images: [
       "/images/almacenamiento/wd_elements_1tb.webp",
       "/images/almacenamiento/wd_elements_1tb_side.webp",
@@ -505,6 +526,7 @@ export const almacenamientoProducts = [
     stock: 4,
     sku: "SEAGATE-4TB-SKYHAWK",
     description: "Disco duro 3.5\" 4TB SATA III optimizado para videovigilancia 24/7, 5900 RPM, caché 256MB",
+    manufacturerUrl: "https://www.seagate.com/la/es/products/video-analytics-ai-surveillance-storage/skyhawk-hard-drive/",
     images: [
       "/images/almacenamiento/seagate_skyhawk_4tb.webp",
       "/images/almacenamiento/seagate_skyhawk_4tb_side.webp",

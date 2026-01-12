@@ -10,6 +10,7 @@ export const memoriasProducts = [
     brand: "Kingston",
     model: "Fury Beast",
     category: "Memorias RAM",
+    manufacturerUrl: "https://www.kingston.com/es/memory/gaming",
     price: 300000,
     stock: 2,
     realPowerConsumption: "2.5W - 3.2W",
@@ -73,6 +74,7 @@ export const memoriasProducts = [
     brand: "ADATA",
     model: "XPG Lancer Blade",
     category: "Memorias RAM",
+    manufacturerUrl: "https://www.adata.com/ar/consumer/category/memory/",
     price: 290000,
     stock: 4,
     realPowerConsumption: "2.5W - 3.2W", // DDR5 es más eficiente por su PMIC integrado
@@ -145,6 +147,7 @@ export const memoriasProducts = [
     brand: "ADATA",
     model: "XPG Gammix D35",
     category: "Memorias RAM",
+    manufacturerUrl: "https://www.adata.com/ar/consumer/category/memory/",
     price: 180000,
     stock: 2,
     realPowerConsumption: "3.5W - 4.2W", // DDR4 a 1.35V consume más que DDR5 base
@@ -162,6 +165,7 @@ export const memoriasProducts = [
     brand: "XPG",
     model: "Spectrix D35G",
     category: "Memorias RAM",
+    manufacturerUrl: "https://www.xpg.com/en/category/memory",
     price: 200000,
     stock: 3,
     realPowerConsumption: "4.0W - 5.0W", // El RGB suma ~0.8W bajo carga de efectos
@@ -179,6 +183,7 @@ export const memoriasProducts = [
     brand: "XPG",
     model: "Spectrix D35",
     category: "Memorias RAM",
+    manufacturerUrl: "https://www.xpg.com/en/category/memory",
     price: 185000,
     stock: 2,
     realPowerConsumption: "4.0W - 5.0W",
@@ -212,6 +217,7 @@ export const memoriasProducts = [
     brand: "HyperX",
     model: "Fury",
     category: "Memorias RAM",
+    manufacturerUrl: "https://www.hyperxgaming.com/latam/products/",
     price: 150000,
     stock: 1,
     realPowerConsumption: "2.8W - 3.2W", // Menor frecuencia y voltaje (1.2V) reduce el consumo
@@ -278,6 +284,7 @@ export const memoriasProducts = [
     brand: "ADATA",
     model: "Premier",
     category: "Memorias RAM",
+    manufacturerUrl: "https://www.adata.com/ar/consumer/category/memory/",
     price: 120000,
     stock: 5,
     realPowerConsumption: "2.8W - 3.4W",
@@ -294,6 +301,7 @@ export const memoriasProducts = [
     brand: "ADATA",
     model: "Premier",
     category: "Memorias RAM",
+    manufacturerUrl: "https://www.adata.com/ar/consumer/category/memory/",
     price: 40000,
     stock: 3,
     realPowerConsumption: "1.2W - 1.8W", // Módulo pequeño para Notebook
@@ -310,6 +318,7 @@ export const memoriasProducts = [
     brand: "ADATA",
     model: "Premier",
     category: "Memorias RAM",
+    manufacturerUrl: "https://www.adata.com/ar/consumer/category/memory/",
     price: 40000,
     stock: 2,
     realPowerConsumption: "3.0W - 4.5W", 

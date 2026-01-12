@@ -10,6 +10,7 @@ export const placasVideoProducts = [
     brand: "ASUS",
     model: "DUAL-RTX3050-O6G",
     category: "Placas de Video",
+    manufacturerUrl: "https://www.asus.com/graphics-cards/asus/dual/dual-rtx3050-o6g/",
     price: 350000, 
     stock: 1,
     isUsed: false,

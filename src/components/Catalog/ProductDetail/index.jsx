@@ -37,7 +37,7 @@ const ProductDetail = memo(({ product, onClose, isPage = false }) => {
     return (
       <div className="w-full max-w-7xl mx-auto px-0 sm:px-4">
         <div className="bg-gray-50 rounded-none sm:rounded-xl lg:rounded-3xl shadow-lg border-0 sm:border border-gray-200">
-          <DetailHeader onClose={onClose} isPage={true} />
+          <DetailHeader onClose={onClose} isPage={true} product={product} />
           <div className="px-3 sm:px-4 lg:px-8 py-3 sm:py-6 pb-6 sm:pb-8 space-y-4 sm:space-y-6">
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-4 sm:gap-6 items-stretch">
               <div className="lg:col-span-5">
@@ -72,7 +72,7 @@ const ProductDetail = memo(({ product, onClose, isPage = false }) => {
       <div className="fixed inset-0 z-[101] overflow-y-auto flex items-start justify-center py-8">
         <div className="w-full max-w-7xl">
           <div className="bg-gray-50 rounded-3xl shadow-2xl">
-            <DetailHeader onClose={onClose} />
+            <DetailHeader onClose={onClose} product={product} />
             <div className="px-4 sm:px-6 lg:px-8 py-4 sm:py-6 pb-6 sm:pb-8 space-y-4 sm:space-y-6">
               <div className="grid grid-cols-1 lg:grid-cols-12 gap-4 sm:gap-6 items-stretch">
                 <div className="lg:col-span-5">

@@ -1,17 +1,24 @@
 import { usePCBuilder } from '../../../context/PCBuilderContext';
-import { Zap, Check, Plus } from 'lucide-react';
+import { Zap, Check, Plus, X } from 'lucide-react';
 
 const CATEGORIES = [
   { key: 'Procesadores', label: 'Procesador', icon: '/images/icons/cpu_icon_tiny.webp', buildKey: 'cpu' },
   { key: 'Motherboards', label: 'Motherboard', icon: '/images/icons/motherboard_icon_tiny.webp', buildKey: 'motherboard' },
-  { key: 'Memorias RAM', label: 'Memoria RAM', icon: '/images/icons/ram_icon_tiny.webp', buildKey: 'ram' },
+  { key: 'Memorias RAM', label: 'Memoria RAM', icon: '/images/icons/ram_icon_tiny.webp', buildKey: 'ram', allowMultiple: true, maxCount: 2 },
+  { key: 'Placas de Video', label: 'Placa de Video', icon: '/images/icons/gpu_icon_tiny.webp', buildKey: 'gpu' },
   { key: 'Refrigeración', label: 'Refrigeracion', icon: '/images/icons/refrigeracion_icon_tiny.webp', buildKey: 'cooling' },
   { key: 'Almacenamiento', label: 'Almacenamiento', icon: '/images/icons/storage_icon_tiny.webp', buildKey: 'storage' },
-  { key: 'Fuentes', label: 'Fuente', icon: '/images/icons/psu_icon_tiny.webp', buildKey: 'psu' }
+  { key: 'Fuentes', label: 'Fuente', icon: '/images/icons/psu_icon_tiny.webp', buildKey: 'psu' },
+  { key: 'Monitores', label: 'Monitor', icon: '/images/icons/monitor_icon_tiny.webp', buildKey: 'monitor' }
 ];
 
-const MiniComponentCard = ({ category, component, isSelected, onClick }) => {
-  if (!component) {
+const MiniComponentCard = ({ category, component, isSelected, onClick, onRemove }) => {
+  const hasComponent = !!component;
+  const isMultiple = Array.isArray(component) && component.length > 0;
+  const displayComponent = isMultiple ? component[0] : component;
+  const count = isMultiple ? component.length : 0;
+  
+  if (!hasComponent && !isMultiple) {
     return (
       <button
         onClick={onClick}
@@ -28,7 +35,9 @@ const MiniComponentCard = ({ category, component, isSelected, onClick }) => {
         </div>
         <div className="flex-1 text-left min-w-0">
           <p className="text-sm font-bold text-gray-900 mb-0.5">{category.label}</p>
-          <p className="text-xs text-gray-400">Agregar componente</p>
+          <p className="text-xs text-gray-400">
+            {category.allowMultiple ? `Agregar (máx ${category.maxCount})` : 'Agregar componente'}
+          </p>
         </div>
       </button>
     );
@@ -38,42 +47,69 @@ const MiniComponentCard = ({ category, component, isSelected, onClick }) => {
     <button
       onClick={onClick}
       className={`
-        w-full p-3 rounded-xl border-2 transition-all duration-200 group flex items-center gap-3
+        w-full p-3 rounded-xl border-2 transition-all duration-200 group flex items-center gap-3 relative
         ${isSelected 
           ? 'border-blue-500 bg-blue-50 shadow-md' 
-          : 'border-gray-200 bg-white hover:border-blue-300 hover:shadow-sm'
+          : 'border-green-500 bg-green-50 hover:border-green-600 hover:shadow-sm'
         }
       `}
     >
-      <div className="w-12 h-12 bg-white rounded-lg p-1.5 flex items-center justify-center flex-shrink-0 border border-gray-100">
+      {/* Badge de cantidad para múltiples */}
+      {isMultiple && count > 1 && (
+        <div className="absolute -top-2 -right-2 w-6 h-6 bg-gradient-to-br from-purple-500 to-purple-600 rounded-full flex items-center justify-center shadow-lg border-2 border-white z-10">
+          <span className="text-xs font-black text-white">{count}</span>
+        </div>
+      )}
+      
+      <div className="w-12 h-12 bg-white rounded-lg p-1.5 flex items-center justify-center flex-shrink-0 border border-green-200">
         <img 
-          src={component.images?.[0] || component.image} 
-          alt={component.name}
+          src={displayComponent.images?.[0] || displayComponent.image} 
+          alt={displayComponent.name}
           className="max-w-full max-h-full object-contain"
         />
       </div>
       
       <div className="flex-1 text-left min-w-0">
         <div className="flex items-center gap-1.5 mb-1">
-          <span className="text-xs font-bold text-blue-600 uppercase tracking-wide">{category.label}</span>
-          {isSelected && <Check className="w-3.5 h-3.5 text-blue-600" strokeWidth={3} />}
+          <span className={`text-xs font-bold uppercase tracking-wide ${isSelected ? 'text-blue-600' : 'text-green-600'}`}>
+            {category.label}
+          </span>
+          <Check className={`w-3.5 h-3.5 ${isSelected ? 'text-blue-600' : 'text-green-600'}`} strokeWidth={3} />
         </div>
         <p className="text-sm font-semibold text-gray-900 truncate mb-1">
-          {component.name}
+          {displayComponent.name}
+          {isMultiple && count > 1 && <span className="text-purple-600"> x{count}</span>}
         </p>
-        <p className="text-base font-black text-gray-900">
-          ${component.price.toLocaleString('es-AR')}
-        </p>
+        <div className="flex items-center gap-2">
+          <p className="text-base font-black text-gray-900">
+            ${(displayComponent.price * (isMultiple ? count : 1)).toLocaleString('es-AR')}
+          </p>
+          <button
+            onClick={(e) => {
+              e.stopPropagation();
+              onRemove();
+            }}
+            className="ml-auto p-1 hover:bg-red-100 rounded-md transition-colors group/remove"
+            title="Eliminar componente"
+          >
+            <X className="w-4 h-4 text-gray-400 group-hover/remove:text-red-600" strokeWidth={2.5} />
+          </button>
+        </div>
       </div>
     </button>
   );
 };
 
 const CategorySidebar = ({ selectedCategory, onCategoryChange }) => {
-  const { pcBuild, totalWattage, recommendedWattage } = usePCBuilder();
+  const { pcBuild, totalWattage, recommendedWattage, removeComponent } = usePCBuilder();
   
   const getComponent = (buildKey) => {
     const value = pcBuild[buildKey];
+    // Para RAM, devolver el array completo si tiene elementos
+    if (buildKey === 'ram' && Array.isArray(value) && value.length > 0) {
+      return value;
+    }
+    // Para otros componentes, devolver el primer elemento del array o el valor directo
     return Array.isArray(value) ? (value.length > 0 ? value[0] : null) : (value || null);
   };
   
@@ -116,7 +152,7 @@ const CategorySidebar = ({ selectedCategory, onCategoryChange }) => {
             </div>
             <div>
               <h2 className="text-base font-black text-gray-900">Mi Combo</h2>
-              <p className="text-[10px] text-gray-500 font-semibold">{selectedCount} de 6</p>
+              <p className="text-[10px] text-gray-500 font-semibold">{selectedCount} de 8</p>
             </div>
           </div>
           
@@ -125,10 +161,10 @@ const CategorySidebar = ({ selectedCategory, onCategoryChange }) => {
             <div className="w-20 h-2 bg-gray-200 rounded-full overflow-hidden">
               <div 
                 className="h-full bg-gradient-to-r from-blue-500 to-blue-600 rounded-full transition-all duration-500"
-                style={{ width: `${(selectedCount/6)*100}%` }}
+                style={{ width: `${(selectedCount/8)*100}%` }}
               />
             </div>
-            <span className="text-xs font-black text-blue-600 min-w-[2rem] text-right">{Math.round((selectedCount/6)*100)}%</span>
+            <span className="text-xs font-black text-blue-600 min-w-[2rem] text-right">{Math.round((selectedCount/8)*100)}%</span>
           </div>
         </div>
         
@@ -194,6 +230,7 @@ const CategorySidebar = ({ selectedCategory, onCategoryChange }) => {
             component={getComponent(category.buildKey)}
             isSelected={selectedCategory === category.key}
             onClick={() => onCategoryChange(category.key)}
+            onRemove={() => removeComponent(category.key)}
           />
         ))}
       </div>
@@ -210,7 +247,7 @@ const CategorySidebar = ({ selectedCategory, onCategoryChange }) => {
           <div className="text-right">
             <div className="inline-flex items-center gap-1.5 bg-white/10 rounded-lg px-3 py-2 backdrop-blur-sm">
               <div className={`w-2 h-2 rounded-full ${getColorClass()} animate-pulse`} />
-              <span className="text-sm font-bold text-white">{selectedCount}/6</span>
+              <span className="text-sm font-bold text-white">{selectedCount}/8</span>
             </div>
           </div>
         </div>

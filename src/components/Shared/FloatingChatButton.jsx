@@ -1,10 +1,17 @@
 import { useState } from 'react';
 import { Send, X } from 'lucide-react'; 
+import { useLocation } from 'react-router-dom';
 import { useTawkTo } from '../../hooks/useTawkTo';
 
 const FloatingChatButton = () => {
   const [isExpanded, setIsExpanded] = useState(false);
   const { isOnline, openChat } = useTawkTo();
+  const location = useLocation();
+  
+  // Ocultar en PC Builder ya que tiene su propio botón de WhatsApp
+  if (location.pathname.includes('/pc-builder')) {
+    return null;
+  }
 
   const handleWhatsApp = () => {
     const phoneNumber = '5491125718382';

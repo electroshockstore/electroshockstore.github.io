@@ -13,6 +13,7 @@ export const procesadoresProducts = [
     stock: 1,
     powerConsumption: 88, 
     realPowerConsumption: "65W (TDP) / 88W (PPT Max Load)", 
+    manufacturerUrl: "https://www.amd.com/es/products/processors/desktops/ryzen.html",
     images: ["/images/procesadores/r7_5700.webp", "/images/procesadores/cooler_stock.webp"],
     description: "Procesador AMD Ryzen 7 5700 AM4 4.6 GHz Turbo con Cooler Wraith Stealth, sin integrada",
     specifications: {
@@ -36,6 +37,7 @@ export const procesadoresProducts = [
     stock: 4,
     powerConsumption: 88,
     realPowerConsumption: "65W (TDP) / 88W (PPT) - Puede alcanzar 125W con iGPU activa en carga", 
+    manufacturerUrl: "https://www.amd.com/es/products/processors/desktops/ryzen.html",
     images: ["/images/procesadores/r7_5700g.webp", "/images/procesadores/r7_5700g_specs.webp", "/images/procesadores/cooler_stock.webp"],
     description: "Procesador AMD Ryzen 7 5700G 8 núcleos y 4.6GHz con gráfica integrada Radeon Vega y Cooler Wraith Stealth",
     specifications: {
@@ -58,6 +60,7 @@ export const procesadoresProducts = [
     price: 315000,
     stock: 2,
     realPowerConsumption: "65W (TDP) / 88W (PPT Max Load)",
+    manufacturerUrl: "https://www.amd.com/en/products/processors/desktops/ryzen/7000-series/amd-ryzen-5-7600.html",
     images: ["/images/procesadores/r5_7600.webp", "/images/procesadores/r5_7600_cpu.webp", "/images/procesadores/r5_7600_specs.webp", "/images/procesadores/cooler_stock.webp"],
     description: "Procesador AMD Ryzen 5 7600 5.1GHz AM5 con integrada Vega y Cooler Wraith Stealth",
     specifications: {
@@ -81,6 +84,7 @@ export const procesadoresProducts = [
     price: 140000,
     stock: 2,
     realPowerConsumption: "65W (TDP) / 76W-82W (PPT Max Load)",
+    manufacturerUrl: "https://www.amd.com/es/support/downloads/drivers.html/processors/ryzen/ryzen-5000-series/amd-ryzen-5-5500.html",
     images: ["/images/procesadores/r5_5550.webp", "/images/procesadores/r5_5500_cooler.webp"],
     description: "Procesador AMD Ryzen 5 5500 4.2 GHz AM4 6 Core sin integrada con Cooler Wraith Stealth",
     specifications: {
@@ -103,6 +107,7 @@ export const procesadoresProducts = [
     price: 220000,
     stock: 1,
     realPowerConsumption: "65W (TDP) / 88W (PPT Max Load)",
+    manufacturerUrl: "https://www.amd.com/es/support/downloads/drivers.html/processors/ryzen/ryzen-5000-series/amd-ryzen-5-5600gt.html",
     images: ["/images/procesadores/r5_5600gt.webp", "/images/procesadores/r5_5600gt_specs.webp", "/images/procesadores/cooler_stock.webp"],
     description: "Procesador AMD Ryzen 5 5600GT con Cooler 6/12, 3.6GHz con gráficos integrados AMD Radeon Vega 7",
     specifications: {
@@ -124,6 +129,7 @@ export const procesadoresProducts = [
     price: 280000,
     stock: 1,
     realPowerConsumption: "65W (TDP) / 88W (PPT) - Hasta 105W con overclock de GPU",
+    manufacturerUrl: "https://www.amd.com/es/products/processors/desktops/ryzen/8000-series/amd-ryzen-5-8600g.html",
     images: ["/images/procesadores/ryzen5_5800g.webp", "/images/procesadores/ryzen5_5800g_side.webp"],
     description: "Procesador AMD Ryzen 5 8600G 5.0GHz AM5 con gráfica integrada Radeon 760M",
     specifications: {
@@ -146,6 +152,7 @@ export const procesadoresProducts = [
     price: 180000,
     stock: 1,
     realPowerConsumption: "65W (PL1) / 154W (PL2 Max Turbo Boost)", 
+    manufacturerUrl: "https://www.intel.la/content/www/xl/es/products/sku/212279/intel-core-i511400-processor-12m-cache-up-to-4-40-ghz/specifications.html",
     images: ["/images/procesadores/i5_11400.webp", "/images/procesadores/i5_11400_cpu.webp", "/images/procesadores/cooler_stock.webp"],
     description: "Procesador Intel Core i5 11400 4.4GHz 6 Cores con gráficos integrados Intel UHD Graphics 730",
     specifications: {
@@ -168,6 +175,7 @@ export const procesadoresProducts = [
     price: 210000,
     stock: 1,
     realPowerConsumption: "65W (TDP) / 67W-75W (PPT Max Load)", 
+    manufacturerUrl: "https://www.amd.com/es/products/processors/desktops/ryzen/8000-series/amd-ryzen-5-8400f.html",
     images: ["/images/procesadores/ryzen8400f.webp", "/images/procesadores/ryzen8400f_proce.webp", "/images/procesadores/ryzen8400f_side.webp", "/images/procesadores/cooler_stock.webp"],
     description: "AMD Ryzen 5 8400F 6 núcleos y 4.7GHz con Cooler Wraith Stealth, sin gráficos integrados",
     specifications: {
@@ -190,6 +198,7 @@ export const procesadoresProducts = [
     price: 90000,
     stock: 1,
     realPowerConsumption: "65W (TDP) / 85W (PPT con iGPU en carga)", 
+    manufacturerUrl: "https://www.amd.com/es/products/apu/amd-ryzen-3-3200g",
     images: ["/images/procesadores/ryzen3_3200g.webp", "/images/procesadores/ryzen3_3200g_top.webp", "/images/procesadores/ryzen3_3200g_side.webp", "/images/procesadores/cooler_stock.webp"],
     description: "AMD Ryzen 3 3200G de 4 núcleos y 4GHz con gráfica Radeon Vega 8",
     specifications: {
@@ -211,6 +220,7 @@ export const procesadoresProducts = [
     price: 90000,
     stock: 7,
     realPowerConsumption: "65W (TDP) / 72W (PPT Max Load)", 
+    manufacturerUrl: "https://www.amd.com/es/products/processors/desktops/ryzen/4000-series/amd-ryzen-5-4500.html",
     images: ["/images/procesadores/r5_4500.webp", "/images/procesadores/cooler_stock.webp"],
     description: "Procesador AMD Ryzen 5 4500 6 Núcleos 4.1GHz DDR4 sin integrada, con Cooler Wraith Stealth",
     specifications: {
@@ -233,6 +243,7 @@ export const procesadoresProducts = [
     price: 55000,
     stock: 5,
     realPowerConsumption: "35W (TDP) / 45W (Max Load)", 
+    manufacturerUrl: "https://www.amd.com/es/products/apu/amd-athlon-3000g",
     images: ["/images/procesadores/atlhon_300g.webp", "/images/procesadores/atlhon_300g_side.webp"],
     description: "Procesador AMD Athlon 3000G 2 núcleos, 3.5GHz con gráfica integrada Radeon Vega 3",
     specifications: {

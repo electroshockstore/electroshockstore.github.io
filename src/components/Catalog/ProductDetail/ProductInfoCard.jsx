@@ -1,5 +1,5 @@
 // Card unificada de información del producto - Diseño moderno
-import { DollarSign } from 'lucide-react';
+import { DollarSign, ExternalLink } from 'lucide-react';
 import WhatsAppButton from '../../Shared/WhatsAppButton';
 import ShareButton from '../../Shared/ShareButton';
 
@@ -37,6 +37,17 @@ const ProductInfoCard = ({
               <div className="px-3 py-1.5 sm:px-4 sm:py-2 lg:px-5 lg:py-2.5 bg-gray-100 text-gray-700 rounded-full text-xs sm:text-sm lg:text-base font-semibold border border-gray-200">
                 {model}
               </div>
+              {product.manufacturerUrl && (
+                <a
+                  href={product.manufacturerUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="px-3 py-1.5 sm:px-4 sm:py-2 lg:px-5 lg:py-2.5 bg-gradient-to-r from-emerald-500 to-emerald-600 text-white rounded-full text-xs sm:text-sm lg:text-base font-bold shadow-lg shadow-emerald-200 hover:from-emerald-600 hover:to-emerald-700 transition-all duration-300 flex items-center gap-1.5 group"
+                >
+                  <span>Web Fabricante</span>
+                  <ExternalLink className="h-3 w-3 sm:h-3.5 sm:w-3.5 lg:h-4 lg:w-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+                </a>
+              )}
             </div>
           </div>
 

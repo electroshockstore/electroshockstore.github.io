@@ -10,6 +10,7 @@ export const conectividadProducts = [
     brand: "Logitech",
     model: "C505",
     category: "Conectividad",
+    manufacturerUrl: "https://www.logitech.com/es-roam/products/",
     price: 50000,
     stock: 1,
     images: [
@@ -53,6 +54,7 @@ export const conectividadProducts = [
     brand: "Redragon",
     model: "Fobos GW600",
     category: "Conectividad",
+    manufacturerUrl: "https://www.redragonzone.com/collections/",
     price: 40000,
     stock: 1,
     images: [
@@ -89,6 +91,7 @@ export const conectividadProducts = [
     brand: "TP-Link",
     model: "TL-WN823N",
     category: "Conectividad",
+    manufacturerUrl: "https://www.tp-link.com/ar/home-networking/",
     price: 13000,
     stock: 2,
     images: [
@@ -122,6 +125,7 @@ export const conectividadProducts = [
     brand: "Kingston",
     model: "Canvas Select Plus 64GB",
     category: "Conectividad",
+    manufacturerUrl: "https://www.kingston.com/es/memory/gaming",
     price: 11000,
     stock: 9,
     images: [
@@ -152,6 +156,7 @@ export const conectividadProducts = [
     brand: "Kingston",
     model: "DataTraveler Exodia",
     category: "Conectividad",
+    manufacturerUrl: "https://www.kingston.com/es/memory/gaming",
     price: 11000,
     stock: 20,
     images: [
@@ -180,6 +185,7 @@ export const conectividadProducts = [
     brand: "Kingston",
     model: "Canvas Select Plus 128GB",
     category: "Conectividad",
+    manufacturerUrl: "https://www.kingston.com/es/memory/gaming",
     price: 21000,
     stock: 5,
     images: [

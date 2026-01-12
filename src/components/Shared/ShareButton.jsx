@@ -57,7 +57,7 @@ const ShareButton = ({ productName, product, className = '' }) => {
             Compartir
           </span>
           <span className="text-sm sm:text-base font-black">
-            Enviar producto
+            Este producto
           </span>
         </div>
 
