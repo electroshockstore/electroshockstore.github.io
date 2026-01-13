@@ -11,8 +11,6 @@ export const usePCBuilder = () => {
 };
 
 export const PCBuilderProvider = ({ children }) => {
-  const [mode, setMode] = useState('selection'); // 'selection' | 'assisted' | 'manual'
-  
   const [pcBuild, setPcBuild] = useState({
     cpu: null,
     motherboard: null,
@@ -23,12 +21,6 @@ export const PCBuilderProvider = ({ children }) => {
     case: null,
     cooling: null,
     monitor: null
-  });
-  
-  const [assistedAnswers, setAssistedAnswers] = useState({
-    budget: null,
-    usage: null,
-    gamingDetails: null
   });
   
   const [compatibilityStatus, setCompatibilityStatus] = useState(new Map());
@@ -259,13 +251,6 @@ export const PCBuilderProvider = ({ children }) => {
     });
   }, []);
   
-  const setAssistedAnswer = useCallback((question, answer) => {
-    setAssistedAnswers(prev => ({
-      ...prev,
-      [question]: answer
-    }));
-  }, []);
-  
   const clearConfiguration = useCallback(() => {
     setPcBuild({
       cpu: null,
@@ -289,13 +274,9 @@ export const PCBuilderProvider = ({ children }) => {
   }, []);
   
   const value = {
-    mode,
-    setMode,
     pcBuild,
     selectComponent,
     removeComponent,
-    assistedAnswers,
-    setAssistedAnswer,
     compatibilityStatus,
     setCompatibilityStatus,
     warnings,

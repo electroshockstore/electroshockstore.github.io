@@ -10,7 +10,7 @@ import { usePCBuilder } from '../../../context/PCBuilderContext';
 import { products } from '../../../data';
 import { getCompatibleProducts } from '../../../utils/compatibilityEngine';
 
-const ManualMode = ({ onModeChange, onGoHome }) => {
+const ManualMode = ({ onGoHome }) => {
   const { pcBuild, selectComponent, recommendedWattage, totalWattage, evaluatePSU, removeComponent } = usePCBuilder();
   const [selectedCategory, setSelectedCategory] = useState(null);
   const [selectedProduct, setSelectedProduct] = useState(null);
@@ -82,7 +82,6 @@ const ManualMode = ({ onModeChange, onGoHome }) => {
         <CategorySidebar 
           selectedCategory={selectedCategory}
           onCategoryChange={handleCategoryChange}
-          onModeChange={onModeChange}
         />
         
         <div className="flex-1 overflow-y-auto p-4 xl:p-8 bg-gradient-to-br from-white/80 via-blue-50/50 to-indigo-50/50 backdrop-blur-sm">

@@ -94,17 +94,18 @@ const Home = () => {
           <div className="sm:hidden mb-4">
             <PCBuilderSection />
           </div>
-          
-          {/* Desktop: PC Builder después del Hero */}
-          <div className="hidden sm:block mb-4 sm:mb-6 sm:px-4">
-            <div className="grid md:grid-cols-2 gap-3 sm:gap-4">
-              <PCBuilderSection />
-            </div>
-          </div>
 
-              {/* Puntos de Retiro Info Section */}
-          <div className="px-3 sm:px-4 mb-4 sm:mb-6">
+          {/* Mobile: Puntos de Retiro después del PC Builder - Sin padding */}
+          <div className="sm:hidden mb-4">
             <PuntosRetiroInfoSection />
+          </div>
+          
+          {/* Desktop: PC Builder y Puntos de Retiro en grid con altura fija */}
+          <div className="hidden sm:block mb-4 sm:mb-6 sm:px-4">
+            <div className="grid md:grid-cols-2 gap-3 sm:gap-4 h-[600px]">
+              <PCBuilderSection />
+              <PuntosRetiroInfoSection />
+            </div>
           </div>
 
           

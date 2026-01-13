@@ -35,7 +35,7 @@ function AnimatedRoutes() {
         <Route path="/categoria/:categorySlug" element={<div className="page-transition"><Catalog /></div>} />
         <Route path="/categoria/:categorySlug/:productSku" element={<div className="page-transition"><ProductDetailPage /></div>} />
         <Route path="/producto/:id" element={<div className="page-transition"><ProductDetailPage /></div>} />
-        <Route path="/armatupc/:mode" element={<div className="page-transition"><PCBuilder /></div>} />
+        <Route path="/armatupc" element={<div className="page-transition"><PCBuilder /></div>} />
         <Route path="/pc-builder" element={<div className="page-transition"><PCBuilder /></div>} />
         <Route path="/puntos-de-retiro" element={<div className="page-transition"><PuntosRetiro /></div>} />
       </Routes>

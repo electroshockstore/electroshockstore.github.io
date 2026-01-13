@@ -19,8 +19,7 @@ const PCBuilderCard = ({
     const navigate = useNavigate();
 
     const handleClick = () => {
-        const route = mode === 'assisted' ? '/armatupc/asistido' : '/armatupc/manual';
-        navigate(route);
+        navigate('/armatupc');
     };
 
     return (
@@ -56,7 +55,7 @@ const PCBuilderCard = ({
             <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-[#0a0a0f] to-transparent pointer-events-none z-20" />
 
             {/* Content */}
-            <div className="relative z-10 p-5 sm:p-8 lg:p-12 min-h-[320px] sm:min-h-[400px] lg:min-h-[500px] flex flex-col">
+            <div className="relative z-10 p-5 sm:p-8 lg:p-10 h-full flex flex-col">
                 {/* Header */}
                 <div className="flex-none mb-auto">
                     <div className={`inline-flex items-center gap-1.5 sm:gap-2 px-3 py-1.5 sm:px-4 sm:py-2 rounded-full ${badgeColor} backdrop-blur-sm mb-4 sm:mb-6`}>
