@@ -6,38 +6,32 @@ const PuntosRetiroInfoSection = () => {
 
   return (
     <section 
-      className="group relative w-full min-h-[500px] md:min-h-[550px] lg:min-h-[600px] xl:min-h-[650px] overflow-hidden md:rounded-2xl lg:rounded-[3rem] md:border md:border-blue-500/40 bg-[#0a0a0f] transition-all duration-500 md:hover:border-blue-500/60 md:ring-2 md:ring-blue-500/30 md:shadow-xl md:shadow-blue-900/50 md:hover:shadow-2xl md:hover:shadow-blue-900/60"
+      className="group relative w-full min-h-[500px] md:min-h-[550px] lg:min-h-[600px] xl:min-h-[650px] overflow-hidden md:rounded-2xl lg:rounded-[3rem] md:border md:border-blue-500/20 transition-all duration-500 md:hover:border-blue-500/40 md:ring-1 md:ring-blue-500/10"
       style={{ 
-        boxShadow: typeof window !== 'undefined' && window.innerWidth >= 768 ? '0 0 30px rgba(59, 130, 246, 0.4), 0 0 60px rgba(37, 99, 235, 0.2)' : 'none'
+        boxShadow: typeof window !== 'undefined' && window.innerWidth >= 768 ? '0 0 40px rgba(59, 130, 246, 0.15), 0 0 80px rgba(37, 99, 235, 0.08)' : 'none'
       }}
     >
       
-      {/* Fondo con Efectos */}
-      <div className="absolute inset-0 z-0 overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-blue-900/20 via-[#0a0a0f] to-purple-900/20 opacity-100" />
-        <div className="absolute -top-[30%] -left-[15%] w-[60%] h-[80%] bg-blue-600/30 blur-[150px] rounded-full animate-pulse" />
-        <div className="absolute -bottom-[30%] -right-[15%] w-[60%] h-[80%] bg-purple-600/30 blur-[150px] rounded-full animate-pulse" style={{ animationDelay: '2s' }} />
-      </div>
-
-      {/* Glow inferior - Solo desktop (igual que PCBuilder) */}
-      <div className="hidden md:block absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-blue-600/30 via-blue-500/10 to-transparent pointer-events-none z-20" />
-
       {/* Máscaras de difuminado superior e inferior - Solo en mobile */}
-      <div className="absolute top-0 left-0 right-0 h-20 bg-gradient-to-b from-[#0a0a0f] to-transparent z-[5] md:hidden pointer-events-none" />
-      <div className="absolute bottom-0 left-0 right-0 h-20 bg-gradient-to-t from-[#0a0a0f] to-transparent z-[5] md:hidden pointer-events-none" />
+      <div className="absolute top-0 left-0 right-0 h-24 bg-gradient-to-b from-[#0a0a0f] via-[#0a0a0f]/50 to-transparent z-[5] md:hidden pointer-events-none" />
+      <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-[#0a0a0f] via-[#0a0a0f]/50 to-transparent z-[5] md:hidden pointer-events-none" />
 
       <div className="relative z-10 w-full h-full flex items-center justify-center px-4 py-8 sm:px-8 sm:py-12 md:px-12 md:py-16 lg:px-16 lg:py-20 xl:px-20 xl:py-24">
         <div className="flex flex-col lg:grid lg:grid-cols-2 gap-6 sm:gap-8 md:gap-10 lg:gap-12 xl:gap-16 w-full max-w-7xl items-center">
           
           {/* IMAGEN - Primero en mobile, segundo en desktop */}
           <div className="relative flex items-center justify-center order-1 lg:order-2 w-full">
-            <div className="absolute w-full h-full bg-blue-500/20 blur-[100px] rounded-full animate-pulse" />
+            {/* Glow de la imagen */}
+            <div className="absolute w-[80%] h-[80%] bg-blue-500/20 blur-[120px] rounded-full animate-pulse" />
             
             <div className="relative w-full max-w-[280px] sm:max-w-[350px] md:max-w-[400px] lg:max-w-[450px] xl:max-w-[500px] 2xl:max-w-[550px] transform transition-all duration-1000 group-hover:scale-105 group-hover:-rotate-1">
               <img
                 src="/images/puntos_retiro.webp"
                 alt="Puntos de Retiro"
-                className="w-full h-auto object-contain drop-shadow-[0_30px_60px_rgba(0,0,0,0.7)] filter brightness-110"
+                className="w-full h-auto object-contain"
+                style={{
+                  filter: 'drop-shadow(0 0 40px rgba(59, 130, 246, 0.4)) drop-shadow(0 30px 60px rgba(0, 0, 0, 0.7)) brightness(1.1)'
+                }}
               />
               
           
@@ -57,13 +51,15 @@ const PuntosRetiroInfoSection = () => {
 
             {/* Título */}
             <div className="space-y-3 sm:space-y-4">
-              <h2 className="font-black tracking-tighter leading-[0.9]" style={{ fontSize: 'clamp(2rem, 5vw + 0.5rem, 4.5rem)' }}>
-                <span className="text-white block opacity-90">Coordiná la</span>
-                <span className="relative inline-block">
-                  <span className="bg-gradient-to-r from-blue-400 via-purple-400 to-cyan-400 bg-clip-text text-transparent filter drop-shadow-[0_0_40px_rgba(59,130,246,0.7)]">
-                    Entrega
-                  </span>
-                  <span className="absolute inset-0 bg-gradient-to-r from-blue-400 via-purple-400 to-cyan-400 bg-clip-text text-transparent blur-2xl opacity-40">
+              <h2 className="font-black tracking-tighter leading-[0.9] relative" style={{ fontSize: 'clamp(2rem, 5vw + 0.5rem, 4.5rem)' }}>
+                {/* Glow del título */}
+                <div className="absolute inset-0 blur-3xl opacity-30 bg-gradient-to-r from-blue-400 via-purple-400 to-cyan-400" />
+                
+                <span className="text-white block opacity-90 relative z-10">Coordiná la</span>
+                <span className="relative inline-block z-10">
+                  <span className="bg-gradient-to-r from-blue-400 via-purple-400 to-cyan-400 bg-clip-text text-transparent" style={{
+                    filter: 'drop-shadow(0 0 30px rgba(59, 130, 246, 0.6))'
+                  }}>
                     Entrega
                   </span>
                 </span>
