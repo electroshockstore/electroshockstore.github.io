@@ -6,15 +6,18 @@ const PuntosRetiroInfoSection = () => {
 
   return (
     <section 
-      className="group relative w-full min-h-[500px] md:min-h-[550px] lg:min-h-[600px] xl:min-h-[650px] overflow-hidden md:rounded-2xl lg:rounded-[3rem] md:border md:border-blue-500/20 transition-all duration-500 md:hover:border-blue-500/40 md:ring-1 md:ring-blue-500/10"
+      className="group relative w-full min-h-[500px] md:min-h-[550px] lg:min-h-[600px] xl:min-h-[650px] overflow-hidden sm:rounded-3xl transition-all duration-300 sm:border sm:border-cyan-500/40 sm:ring-2 sm:ring-cyan-500/30 sm:shadow-xl sm:shadow-cyan-900/50 hover:shadow-2xl hover:shadow-cyan-900/60"
       style={{ 
-        boxShadow: typeof window !== 'undefined' && window.innerWidth >= 768 ? '0 0 40px rgba(59, 130, 246, 0.15), 0 0 80px rgba(37, 99, 235, 0.08)' : 'none'
+        boxShadow: typeof window !== 'undefined' && window.innerWidth >= 640 ? '0 0 30px rgba(6, 182, 212, 0.4), 0 0 60px rgba(8, 145, 178, 0.2)' : 'none'
       }}
     >
       
+      {/* Glow inferior - Solo desktop (igual que PCBuilder) */}
+      <div className="hidden sm:block absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-cyan-600/30 via-cyan-500/10 to-transparent pointer-events-none z-20" />
+
       {/* Máscaras de difuminado superior e inferior - Solo en mobile */}
-      <div className="absolute top-0 left-0 right-0 h-24 bg-gradient-to-b from-[#0a0a0f] via-[#0a0a0f]/50 to-transparent z-[5] md:hidden pointer-events-none" />
-      <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-[#0a0a0f] via-[#0a0a0f]/50 to-transparent z-[5] md:hidden pointer-events-none" />
+      <div className="absolute top-0 left-0 right-0 h-10 bg-gradient-to-b from-[#0a0a0f] via-[#0a0a0f]/80 to-transparent z-[25] md:hidden pointer-events-none" />
+      <div className="absolute bottom-0 left-0 right-0 h-6 bg-gradient-to-t from-[#0a0a0f] via-[#0a0a0f]/80 to-transparent z-[25] md:hidden pointer-events-none" />
 
       <div className="relative z-10 w-full h-full flex items-center justify-center px-4 py-8 sm:px-8 sm:py-12 md:px-12 md:py-16 lg:px-16 lg:py-20 xl:px-20 xl:py-24">
         <div className="flex flex-col lg:grid lg:grid-cols-2 gap-6 sm:gap-8 md:gap-10 lg:gap-12 xl:gap-16 w-full max-w-7xl items-center">
@@ -71,15 +74,15 @@ const PuntosRetiroInfoSection = () => {
             </div>
 
             {/* Mini Cards */}
-            <div className="flex flex-col sm:grid sm:grid-cols-2 lg:grid-cols-3 gap-2.5 sm:gap-3 w-full max-w-xs sm:max-w-full">
+            <div className="grid grid-cols-3 gap-2 sm:gap-3 w-full">
               {[
                 { icon: Ban, text: 'Sin Anticipos', gradient: 'from-blue-500/10 to-purple-500/10', border: 'border-blue-400/30', iconColor: 'text-blue-300', glow: 'shadow-blue-500/20' },
                 { icon: MapPin, text: 'Puntos Seguros', gradient: 'from-purple-500/10 to-cyan-500/10', border: 'border-purple-400/30', iconColor: 'text-purple-300', glow: 'shadow-purple-500/20' },
                 { icon: Truck, text: 'Sin Envíos', gradient: 'from-cyan-500/10 to-blue-500/10', border: 'border-cyan-400/30', iconColor: 'text-cyan-300', glow: 'shadow-cyan-500/20' }
               ].map((item, i) => (
-                <div key={i} className={`group flex items-center gap-3 p-3 sm:flex-col sm:justify-center sm:gap-2.5 sm:p-4 lg:p-5 bg-gradient-to-br ${item.gradient} backdrop-blur-xl rounded-xl sm:rounded-2xl border ${item.border} ${item.glow} shadow-lg transform transition-all hover:scale-105 hover:shadow-2xl hover:border-opacity-60`}>
+                <div key={i} className={`group flex flex-col items-center justify-center gap-2 sm:gap-2.5 p-3 sm:p-4 lg:p-5 bg-gradient-to-br ${item.gradient} backdrop-blur-xl rounded-lg sm:rounded-xl lg:rounded-2xl border ${item.border} ${item.glow} shadow-lg transform transition-all hover:scale-105 hover:shadow-2xl hover:border-opacity-60`}>
                   <item.icon className={`w-5 h-5 sm:w-6 sm:h-6 lg:w-7 lg:h-7 ${item.iconColor} group-hover:scale-110 transition-transform flex-shrink-0`} strokeWidth={2.5} />
-                  <span className="font-bold text-white/90 text-xs sm:text-sm uppercase tracking-wide sm:text-center leading-tight">{item.text}</span>
+                  <span className="font-bold text-white/90 text-[0.65rem] sm:text-xs lg:text-sm uppercase tracking-wide text-center leading-tight">{item.text}</span>
                 </div>
               ))}
             </div>

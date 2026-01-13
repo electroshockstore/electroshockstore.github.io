@@ -52,7 +52,7 @@ const PCBuilderCard = ({
             <div className="hidden sm:block absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-purple-600/30 via-purple-500/10 to-transparent pointer-events-none z-20" />
             
             {/* Fade-out inferior */}
-            <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-[#0a0a0f] to-transparent pointer-events-none z-20" />
+            <div className="absolute bottom-0 left-0 right-0  bg-gradient-to-t from-[#0a0a0f] to-transparent pointer-events-none z-20" />
 
             {/* Content */}
             <div className="relative z-10 p-5 sm:p-8 lg:p-10 h-full flex flex-col">
