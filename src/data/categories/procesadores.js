@@ -4,30 +4,6 @@
 // ═══════════════════════════════════════════════════════════════
 export const procesadoresProducts = [
   {
-    id: 302, 
-    name: "AMD Ryzen 7 5700 AM4",
-    brand: "AMD",
-    model: "Ryzen 7 5700",
-    category: "Procesadores",
-    price: 220000,
-    stock: 1,
-    powerConsumption: 88, 
-    realPowerConsumption: "65W (TDP) / 88W (PPT Max Load)", 
-    manufacturerUrl: "https://www.amd.com/es/products/processors/desktops/ryzen.html",
-    images: ["/images/procesadores/r7_5700.webp", "/images/procesadores/cooler_stock.webp"],
-    description: "Procesador AMD Ryzen 7 5700 AM4 4.6 GHz Turbo con Cooler Wraith Stealth, sin integrada",
-    specifications: {
-      marca: "AMD",
-      linea: "Ryzen 7",
-      modelo: "5700",
-      socket: "AM4",
-      nucleos: "8",
-      hilos: "16",
-      tdp: "65 W",
-      graficosIntegrados: "No"
-    }
-  },
-  {
     id: 303,
     name: "AMD Ryzen 7 5700G AM4",
     brand: "AMD",

@@ -19,15 +19,6 @@ export const cpuCompatibilityData = {
     graficosIntegrados: true,
     uso_principal: ['General']
   },
-  // AMD Ryzen 7 5700 AM4
-  302: {
-    socket: 'AM4',
-    memoriaRAM: 'DDR4',
-    chipsetsCompatibles: ['A520', 'B450', 'B550', 'X570'],
-    consumo_watts: 65,
-    graficosIntegrados: false,
-    uso_principal: ['Gaming', 'Trabajo', 'General']
-  },
   // AMD Ryzen 7 5700G AM4
   303: {
     socket: 'AM4',
