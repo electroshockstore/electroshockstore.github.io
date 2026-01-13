@@ -121,8 +121,8 @@ export const procesadoresProducts = [
     }
   },
   {
-    id: 307,
-       name: "AMD Ryzen 5 8600G AM5 DDR5",
+    id: 300,
+    name: "AMD Ryzen 5 8600G AM5 DDR5",
     brand: "AMD",
     model: "Ryzen 5 8600G",
     category: "Procesadores",
@@ -212,8 +212,8 @@ export const procesadoresProducts = [
     }
   },
   {
-    id: 300,
-   name: "AMD Ryzen 5 4500 AM4",
+    id: 307,
+    name: "AMD Ryzen 5 4500 AM4",
     brand: "AMD",
     model: "Ryzen 5 4500",
     category: "Procesadores",

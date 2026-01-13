@@ -1,6 +1,7 @@
 import { usePCBuilder } from '../../../context/PCBuilderContext';
 import CompactProductCard from '../CompactProductCard';
 import CategoryReminder from './CategoryReminder';
+import armaTuPcImage from '/images/arma_tu_pc.webp';
 
 const EmptyState = ({ icon, title, description }) => (
   <div className="h-full flex flex-col items-center justify-center text-center px-6">
@@ -94,9 +95,9 @@ const ProductGrid = ({
     return (
       <div className="h-full flex items-center justify-center p-8">
         <img 
-          src="/images/arma_tu_pc.png" 
+          src={armaTuPcImage} 
           alt="Armá tu PC" 
-    className="w-full"
+          className="w-full"
         />
       </div>
     );

@@ -1,3 +1,5 @@
+import armaTuPcImage from '/images/arma_tu_pc.webp';
+
 // Extract key features from product specifications dynamically
 const extractKeyFeatures = (product) => {
   const features = [];
@@ -202,7 +204,7 @@ const EmptyPreview = ({ selectedCategory }) => {
     return (
       <div className="p-8 h-full flex flex-col items-center justify-center">
         <img 
-          src="/images/arma_tu_pc.webp" 
+          src={armaTuPcImage} 
           alt="Armá tu PC" 
           className="w-full max-w-md object-contain"
         />

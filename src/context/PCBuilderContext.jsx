@@ -68,9 +68,9 @@ export const PCBuilderProvider = ({ children }) => {
       total += pcBuild.ram.length * 5;
     }
     
-    // GPU - Extrae TDP de specifications.tdp o powerConsumption
+    // GPU - Extrae TDP de specifications.energia.tdp, specifications.tdp o powerConsumption
     if (pcBuild.gpu) {
-      const tdp = pcBuild.gpu.specifications?.tdp || pcBuild.gpu.powerConsumption;
+      const tdp = pcBuild.gpu.specifications?.energia?.tdp || pcBuild.gpu.specifications?.tdp || pcBuild.gpu.powerConsumption;
       if (tdp) {
         const tdpValue = typeof tdp === 'string' ? parseInt(tdp.replace(/\D/g, '')) : tdp;
         total += tdpValue;

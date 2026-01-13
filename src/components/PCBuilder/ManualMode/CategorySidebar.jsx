@@ -175,7 +175,7 @@ const CategorySidebar = ({ selectedCategory, onCategoryChange }) => {
               <div className={`p-1 rounded ${percentage < 60 ? 'bg-green-100' : percentage < 80 ? 'bg-yellow-100' : 'bg-red-100'}`}>
                 <Zap className={`w-3 h-3 ${getTextColorClass()}`} strokeWidth={2.5} fill="currentColor" />
               </div>
-              <span className="text-[10px] font-bold text-gray-600 uppercase">Consumo</span>
+              <span className="text-[10px] font-bold text-gray-600 uppercase">Consumo Fuente</span>
             </div>
             <p className={`text-2xl font-black ${getTextColorClass()}`}>
               {totalWattage}W
