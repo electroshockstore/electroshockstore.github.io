@@ -53,18 +53,18 @@ const PuntosRetiroInfoSection = () => {
               </div>
             </div>
 
-            {/* Badge Hi-Tech con MapPin - TAMAÑO CONTROLADO */}
-            <div className="inline-flex items-center gap-3 px-6 py-3 bg-white/5 backdrop-blur-xl rounded-full border border-white/10 shadow-[0_0_30px_rgba(147,51,234,0.4)]">
-              <MapPin style={{ width: 'clamp(1rem, 1.25vw, 1.25rem)', height: 'clamp(1rem, 1.25vw, 1.25rem)' }} className="text-purple-400 animate-pulse" strokeWidth={2.5} />
-              <span style={{ fontSize: 'clamp(0.875rem, 1vw, 1.125rem)' }} className="font-black text-purple-200 uppercase tracking-[0.2em] lg:tracking-[0.3em]">
+            {/* Badge Hi-Tech con MapPin - TAMAÑO MÁS CONTROLADO */}
+            <div className="inline-flex items-center gap-2.5 px-5 py-2.5 bg-white/5 backdrop-blur-xl rounded-full border border-white/10 shadow-[0_0_30px_rgba(147,51,234,0.4)]">
+              <MapPin style={{ width: 'clamp(0.875rem, 0.85vw, 1rem)', height: 'clamp(0.875rem, 0.85vw, 1rem)' }} className="text-purple-400 animate-pulse flex-shrink-0" strokeWidth={2.5} />
+              <span style={{ fontSize: 'clamp(0.75rem, 0.8vw, 0.9rem)' }} className="font-black text-purple-200 uppercase tracking-[0.15em] whitespace-nowrap">
                 Sin Local Físico
               </span>
             </div>
 
-            {/* Título Gigante e Interactivo - MÁS GRANDE CON CLAMP Y LÍMITES */}
-            <h2 className="font-black tracking-tighter leading-[0.9] text-white" style={{ fontSize: 'clamp(2.5rem, 5vw, 4.5rem)' }}>
-              Coordiná la <br />
-              <span className="relative">
+            {/* Título Gigante e Interactivo - TAMAÑOS CONTROLADOS */}
+            <h2 className="font-black tracking-tighter leading-[0.9]" style={{ fontSize: 'clamp(2rem, 3.5vw, 3rem)' }}>
+              <span className="text-white block">Coordiná la</span>
+              <span className="relative block">
                 <span className="bg-gradient-to-r from-blue-400 via-purple-400 to-cyan-400 bg-clip-text text-transparent filter drop-shadow-[0_0_40px_rgba(59,130,246,0.7)]">
                   Entrega
                 </span>
@@ -75,14 +75,14 @@ const PuntosRetiroInfoSection = () => {
               </span>
             </h2>
 
-            {/* Descripción con jerarquía - TAMAÑO CONTROLADO */}
-            <p className="text-gray-300 font-medium max-w-xl leading-relaxed" style={{ fontSize: 'clamp(1rem, 1.35vw, 1.5rem)' }}>
+            {/* Descripción con jerarquía - TAMAÑO MÁS CONTROLADO */}
+            <p className="text-gray-300 font-medium max-w-xl leading-relaxed" style={{ fontSize: 'clamp(0.875rem, 1vw, 1.125rem)' }}>
               <span className="text-white border-b-2 border-blue-500/50 font-bold">Revisás y pagás</span> en el momento. 
           
             </p>
 
-            {/* Mini Cards MODERNAS en bloque horizontal - MÁS GRANDES */}
-            <div className="flex flex-wrap justify-center lg:justify-start gap-3">
+            {/* Mini Cards MODERNAS en bloque horizontal - TAMAÑOS CONTROLADOS */}
+            <div className="flex flex-wrap justify-center lg:justify-start gap-2.5">
               {[
                 { icon: Ban, text: 'Sin Anticipos', color: 'from-red-500 to-orange-500', glow: 'shadow-[0_0_20px_rgba(239,68,68,0.4)]' },
                 { icon: MapPin, text: 'Puntos Seguros', color: 'from-blue-500 to-cyan-500', glow: 'shadow-[0_0_20px_rgba(59,130,246,0.4)]' },
@@ -90,32 +90,32 @@ const PuntosRetiroInfoSection = () => {
               ].map((item, i) => (
                 <div 
                   key={i} 
-                  className={`group/card relative flex items-center gap-3 px-5 py-3 bg-gradient-to-br ${item.color} rounded-xl border border-white/20 transition-all duration-300 hover:scale-105 hover:shadow-lg ${item.glow} cursor-default`}
+                  className={`group/card relative flex items-center gap-2 px-4 py-2.5 bg-gradient-to-br ${item.color} rounded-xl border border-white/20 transition-all duration-300 hover:scale-105 hover:shadow-lg ${item.glow} cursor-default`}
                 >
                   {/* Shine effect */}
                   <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent opacity-0 group-hover/card:opacity-100 transition-opacity rounded-xl" />
                   
-                  <item.icon style={{ width: 'clamp(1rem, 1.25vw, 1.25rem)', height: 'clamp(1rem, 1.25vw, 1.25rem)' }} className="relative z-10 text-white drop-shadow-lg" strokeWidth={3} />
-                  <span style={{ fontSize: 'clamp(0.875rem, 1vw, 1rem)' }} className="relative z-10 font-black text-white drop-shadow-md whitespace-nowrap">
+                  <item.icon style={{ width: 'clamp(0.875rem, 0.85vw, 1rem)', height: 'clamp(0.875rem, 0.85vw, 1rem)' }} className="relative z-10 text-white drop-shadow-lg flex-shrink-0" strokeWidth={3} />
+                  <span style={{ fontSize: 'clamp(0.75rem, 0.8vw, 0.85rem)' }} className="relative z-10 font-black text-white drop-shadow-md whitespace-nowrap">
                     {item.text}
                   </span>
                 </div>
               ))}
             </div>
 
-            {/* Botón Call to Action PRO - TAMAÑO CONTROLADO */}
+            {/* Botón Call to Action PRO - TAMAÑO MÁS CONTROLADO */}
             <button
               onClick={() => navigate('/puntos-de-retiro')}
-              className="group relative flex items-center gap-4 px-10 py-5 bg-gradient-to-r from-purple-500 via-blue-500 to-cyan-500 hover:from-purple-400 hover:via-blue-400 hover:to-cyan-400 rounded-2xl font-black text-white overflow-hidden transition-all duration-300 hover:scale-[1.05] shadow-2xl shadow-purple-500/60 hover:shadow-[0_0_50px_rgba(147,51,234,0.8)] active:scale-95 border-2 border-purple-400/40"
-              style={{ fontSize: 'clamp(1rem, 1.25vw, 1.25rem)' }}
+              className="group relative flex items-center gap-3 px-8 py-4 bg-gradient-to-r from-purple-500 via-blue-500 to-cyan-500 hover:from-purple-400 hover:via-blue-400 hover:to-cyan-400 rounded-2xl font-black text-white overflow-hidden transition-all duration-300 hover:scale-[1.05] shadow-2xl shadow-purple-500/60 hover:shadow-[0_0_50px_rgba(147,51,234,0.8)] active:scale-95 border-2 border-purple-400/40"
+              style={{ fontSize: 'clamp(0.875rem, 0.95vw, 1.05rem)' }}
             >
          
               {/* Shine effect interno */}
               <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity rounded-2xl" />
               
-              <MapPin style={{ width: 'clamp(1.25rem, 1.5vw, 1.5rem)', height: 'clamp(1.25rem, 1.5vw, 1.5rem)' }} className="relative z-10" />
-              <span className="relative z-10">¿Dónde retiro los Productos?</span>
-              <ArrowRight style={{ width: 'clamp(1.25rem, 1.5vw, 1.5rem)', height: 'clamp(1.25rem, 1.5vw, 1.5rem)' }} className="relative z-10 group-hover:translate-x-2 transition-transform" />
+              <MapPin style={{ width: 'clamp(1.125rem, 1.15vw, 1.25rem)', height: 'clamp(1.125rem, 1.15vw, 1.25rem)' }} className="relative z-10 flex-shrink-0" />
+              <span className="relative z-10 whitespace-nowrap">¿Dónde retiro los Productos?</span>
+              <ArrowRight style={{ width: 'clamp(1.125rem, 1.15vw, 1.25rem)', height: 'clamp(1.125rem, 1.15vw, 1.25rem)' }} className="relative z-10 group-hover:translate-x-2 transition-transform flex-shrink-0" />
             </button>
           </div>
 
