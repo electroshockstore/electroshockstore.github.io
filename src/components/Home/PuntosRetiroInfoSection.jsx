@@ -40,10 +40,7 @@ const PuntosRetiroInfoSection = () => {
                 className="w-full h-auto object-contain drop-shadow-[0_30px_60px_rgba(0,0,0,0.7)] filter brightness-110"
               />
               
-              {/* Logo Flotante */}
-              <div className="absolute -top-2 -right-2 sm:top-0 sm:-right-4 w-16 h-16 sm:w-20 sm:h-20 lg:w-24 lg:h-24 bg-white/10 backdrop-blur-3xl rounded-2xl lg:rounded-[2rem] border border-white/20 flex items-center justify-center shadow-2xl">
-                <img src="/logotipo_tiny.png" alt="Logo" className="h-10 sm:h-12 lg:h-16 w-auto object-contain" />
-              </div>
+          
             </div>
           </div>
           
