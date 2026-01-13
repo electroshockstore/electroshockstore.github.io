@@ -5,160 +5,144 @@ const PuntosRetiroInfoSection = () => {
   const navigate = useNavigate();
 
   return (
-    <section className="w-full h-full relative overflow-hidden border-y-0 sm:rounded-3xl sm:border sm:border-gray-800 sm:border-blue-500/40 sm:ring-2 sm:ring-blue-500/30 sm:shadow-xl sm:shadow-blue-900/50 bg-gradient-to-br from-[#0a0a0f] via-[#0f0f1a] to-[#1a1a2e]">
-      {/* Partículas de fondo animadas */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute top-10 left-10 w-64 h-64 bg-purple-500/10 rounded-full blur-3xl animate-pulse" />
-        <div className="absolute bottom-10 right-10 w-80 h-80 bg-blue-500/10 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s' }} />
+    <section className="group relative w-full min-h-[450px] overflow-hidden sm:rounded-[2.5rem] border border-blue-500/30 bg-[#0a0a0f] transition-all duration-500 hover:border-blue-500/60 shadow-2xl shadow-blue-900/20">
+      
+      {/* Fondo con Efectos Modernos y Glows MEJORADOS */}
+      <div className="absolute inset-0 z-0 overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-br from-blue-900/20 via-[#0a0a0f] to-purple-900/20 opacity-100" />
+        
+        {/* Glows Dinámicos Principales - MÁS INTENSOS */}
+        <div className="absolute -top-[30%] -left-[15%] w-[60%] h-[80%] bg-blue-600/30 blur-[150px] rounded-full animate-pulse" />
+        <div className="absolute -bottom-[30%] -right-[15%] w-[60%] h-[80%] bg-purple-600/30 blur-[150px] rounded-full animate-pulse" style={{ animationDelay: '2s' }} />
+        
+        {/* Glows adicionales para más profundidad */}
+        <div className="absolute top-1/4 left-1/4 w-[45%] h-[45%] bg-cyan-500/20 blur-[120px] rounded-full animate-pulse" style={{ animationDelay: '1s' }} />
+        <div className="absolute bottom-1/3 right-1/3 w-[40%] h-[40%] bg-indigo-500/25 blur-[110px] rounded-full animate-pulse" style={{ animationDelay: '3s' }} />
+        
+        {/* Glows centrales para iluminación focal */}
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[50%] h-[50%] bg-purple-500/15 blur-[140px] rounded-full animate-pulse" style={{ animationDelay: '1.5s' }} />
       </div>
 
-      {/* Mobile Layout - Vertical Stack */}
-      <div className="sm:hidden w-full relative z-10 px-4 py-8">
-        <div className="flex flex-col items-center text-center space-y-6">
-          {/* Badge */}
-          <div className="inline-flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-purple-500/30 to-blue-500/30 backdrop-blur-sm rounded-full shadow-2xl shadow-purple-500/40 border border-purple-400/50">
-            <MapPin className="w-4 h-4 text-purple-300 animate-pulse" />
-            <span className="text-sm font-bold text-purple-200 uppercase tracking-widest">
-              Sin Local Físico
-            </span>
-          </div>
+      <div className="relative z-10 w-full h-full flex items-center p-8 sm:p-12 lg:p-16">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 w-full max-w-[1400px] mx-auto items-center">
           
-          {/* Imagen */}
-          <div className="relative w-full max-w-[280px] h-[200px] flex items-center justify-center">
-            <div className="absolute inset-0 bg-gradient-to-br from-purple-500/20 to-blue-500/20 rounded-full blur-3xl animate-pulse" />
-            <img
-              src="/images/puntos_retiro.webp"
-              alt="Puntos de Retiro"
-              className="relative w-full h-full object-contain drop-shadow-[0_0_60px_rgba(147,51,234,0.5)] filter brightness-110 animate-float"
-            />
-          </div>
-          
-          {/* Título */}
-          <h2 className="text-4xl sm:text-5xl font-black tracking-tight leading-tight">
-            <span className="text-white drop-shadow-[0_0_30px_rgba(255,255,255,0.4)]">
-              Coordiná la{' '}
-            </span>
-            <span className="relative inline-block">
-              <span className="bg-gradient-to-r from-purple-300 via-blue-400 to-cyan-400 bg-clip-text text-transparent drop-shadow-[0_0_40px_rgba(147,51,234,0.8)]">
-                Entrega
-              </span>
-            </span>
-          </h2>
-          
-          {/* Descripción */}
-          <p className="text-lg text-gray-200 font-semibold">
-            <span className="text-purple-300 font-bold">Revisás y pagás</span> en el momento.
-          </p>
-
-          {/* Mini cards */}
-          <div className="flex flex-wrap gap-2 justify-center">
-            {[
-              { icon: Ban, text: 'Sin Anticipos', gradient: 'from-red-500 to-red-900' },
-              { icon: MapPin, text: 'Puntos Seguros', gradient: 'from-blue-400 to-cyan-500' },
-              { icon: Truck, text: 'NO Hacemos Envíos', gradient: 'from-yellow-300 to-yellow-900' }
-            ].map((item, index) => {
-              const Icon = item.icon;
-              return (
-                <div
-                  key={index}
-                  className="inline-flex items-center gap-2 px-3 py-2 bg-white/10 backdrop-blur-xl rounded-full border border-white/20"
-                >
-                  <div className={`p-1.5 rounded-lg bg-gradient-to-br ${item.gradient}`}>
-                    <Icon className="h-4 w-4 text-white" strokeWidth={2.5} />
-                  </div>
-                  <span className="text-sm font-bold text-white">{item.text}</span>
+          {/* LADO IZQUIERDO: CONTENIDO (7 columnas en desktop) */}
+          <div className="lg:col-span-7 flex flex-col items-center lg:items-start text-center lg:text-left space-y-8">
+            
+            {/* MOBILE: Imagen ARRIBA - MÁS GRANDE */}
+            <div className="lg:hidden relative w-full max-w-[400px] mb-6">
+              {/* Glow effect MÁS INTENSO */}
+              <div className="absolute inset-0 bg-blue-500/40 blur-[80px] rounded-full animate-pulse" />
+              <div className="absolute inset-0 bg-purple-500/30 blur-[100px] rounded-full animate-pulse" style={{ animationDelay: '1s' }} />
+              
+              <div className="relative transform transition-all duration-700 hover:scale-105 animate-float">
+                <img
+                  src="/images/puntos_retiro.webp"
+                  alt="Puntos de Retiro"
+                  className="w-full h-auto object-contain drop-shadow-[0_40px_80px_rgba(0,0,0,0.9)] filter brightness-115"
+                />
+                
+                {/* Logo bounce - MOBILE */}
+                <div className="absolute -top-5 -right-5 w-16 h-16 bg-purple-500/30 backdrop-blur-2xl rounded-3xl border border-white/20 flex items-center justify-center animate-bounce shadow-[0_0_30px_rgba(168,85,247,0.5)]">
+                  <img 
+                    src="/logotipo_tiny.png" 
+                    alt="Shock-Store Logo" 
+                    className="h-16 w-auto object-contain"
+                  />
                 </div>
-              );
-            })}
-          </div>
+              </div>
+            </div>
 
-          {/* CTA Button */}
-          <button
-            onClick={() => navigate('/puntos-de-retiro')}
-            className="group relative inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-purple-500 via-blue-500 to-cyan-500 hover:from-purple-400 hover:via-blue-400 hover:to-cyan-400 rounded-xl font-bold text-base text-white shadow-2xl shadow-purple-500/50 transition-all duration-300 hover:scale-105 active:scale-95 border-2 border-purple-400/40"
-          >
-            <MapPin className="w-5 h-5" />
-            <span>¿Dónde retiro los productos?</span>
-            <ArrowRight className="w-5 h-5" />
-          </button>
-        </div>
-      </div>
-
-      {/* Desktop Layout - Side by Side */}
-      <div className="hidden sm:flex w-full h-full relative z-10 px-6 lg:px-8 py-6 items-center">
-        <div className="w-full h-full grid grid-cols-[1.2fr_1fr] gap-6 items-center">
-          {/* Lado izquierdo - Contenido */}
-          <div className="flex flex-col justify-center space-y-4">
-            {/* Badge */}
-            <div className="inline-flex items-center gap-2.5 px-4 py-2 bg-gradient-to-r from-purple-500/30 to-blue-500/30 backdrop-blur-sm rounded-full shadow-2xl shadow-purple-500/40 border border-purple-400/50 w-fit">
-              <MapPin className="w-4 h-4 text-purple-300 animate-pulse" />
-              <span className="text-sm font-bold text-purple-200 uppercase tracking-widest">
+            {/* Badge Hi-Tech con MapPin - MÁS GRANDE */}
+            <div className="inline-flex items-center gap-3 px-6 py-3 bg-white/5 backdrop-blur-xl rounded-full border border-white/10 shadow-[0_0_30px_rgba(147,51,234,0.4)]">
+              <MapPin style={{ width: 'clamp(1.25rem, 1.5vw, 1.5rem)', height: 'clamp(1.25rem, 1.5vw, 1.5rem)' }} className="text-purple-400 animate-pulse" strokeWidth={2.5} />
+              <span style={{ fontSize: 'clamp(1rem, 1.2vw, 1.25rem)' }} className="font-black text-purple-200 uppercase tracking-[0.2em] lg:tracking-[0.3em]">
                 Sin Local Físico
               </span>
             </div>
-            
-            {/* Título */}
-            <h2 className="text-4xl lg:text-5xl xl:text-6xl font-black tracking-tight leading-[0.95]">
-              <span className="text-white drop-shadow-[0_0_30px_rgba(255,255,255,0.4)]">
-                Coordiná la{' '}
-              </span>
-              <br />
-              <span className="relative inline-block">
-                <span className="bg-gradient-to-r from-purple-300 via-blue-400 to-cyan-400 bg-clip-text text-transparent drop-shadow-[0_0_40px_rgba(147,51,234,0.8)]">
+
+            {/* Título Gigante e Interactivo - MÁS GRANDE CON CLAMP */}
+            <h2 className="font-black tracking-tighter leading-[0.9]" style={{ fontSize: 'clamp(3rem, 7vw, 6rem)' }}>
+              Coordiná la <br />
+              <span className="relative">
+                <span className="bg-gradient-to-r from-blue-400 via-purple-400 to-cyan-400 bg-clip-text text-transparent filter drop-shadow-[0_0_40px_rgba(59,130,246,0.7)]">
+                  Entrega
+                </span>
+                {/* Glow adicional en el título */}
+                <span className="absolute inset-0 bg-gradient-to-r from-blue-400 via-purple-400 to-cyan-400 bg-clip-text text-transparent blur-xl opacity-50">
                   Entrega
                 </span>
               </span>
             </h2>
-            
-            {/* Descripción */}
-            <p className="text-lg lg:text-xl text-gray-200 font-bold">
-              <span className="text-purple-300 font-black">Revisás y pagás</span> en el momento.
+
+            {/* Descripción con jerarquía - MÁS GRANDE */}
+            <p className="text-gray-300 font-medium max-w-xl leading-relaxed" style={{ fontSize: 'clamp(1.125rem, 1.75vw, 1.75rem)' }}>
+              <span className="text-white border-b-2 border-blue-500/50 font-bold">Revisás y pagás</span> en el momento. 
+          
             </p>
 
-            {/* Mini cards */}
-            <div className="flex flex-wrap gap-2">
+            {/* Mini Cards MODERNAS en bloque horizontal - MÁS GRANDES */}
+            <div className="flex flex-wrap justify-center lg:justify-start gap-3">
               {[
-                { icon: Ban, text: 'Sin Anticipos', gradient: 'from-red-500 to-red-900' },
-                { icon: MapPin, text: 'Puntos Seguros', gradient: 'from-blue-400 to-cyan-500' },
-                { icon: Truck, text: 'NO Hacemos Envíos', gradient: 'from-yellow-300 to-yellow-900' }
-              ].map((item, index) => {
-                const Icon = item.icon;
-                return (
-                  <div
-                    key={index}
-                    className="inline-flex items-center gap-2 px-3 py-2 bg-white/10 backdrop-blur-xl rounded-full border border-white/20"
-                  >
-                    <div className={`p-1.5 rounded-lg bg-gradient-to-br ${item.gradient}`}>
-                      <Icon className="h-4 w-4 text-white" strokeWidth={2.5} />
-                    </div>
-                    <span className="text-sm font-bold text-white">{item.text}</span>
-                  </div>
-                );
-              })}
+                { icon: Ban, text: 'Sin Anticipos', color: 'from-red-500 to-orange-500', glow: 'shadow-[0_0_20px_rgba(239,68,68,0.4)]' },
+                { icon: MapPin, text: 'Puntos Seguros', color: 'from-blue-500 to-cyan-500', glow: 'shadow-[0_0_20px_rgba(59,130,246,0.4)]' },
+                { icon: Truck, text: 'Sin Envíos', color: 'from-yellow-500 to-amber-600', glow: 'shadow-[0_0_20px_rgba(234,179,8,0.4)]' }
+              ].map((item, i) => (
+                <div 
+                  key={i} 
+                  className={`group/card relative flex items-center gap-3 px-5 py-3 bg-gradient-to-br ${item.color} rounded-xl border border-white/20 transition-all duration-300 hover:scale-105 hover:shadow-lg ${item.glow} cursor-default`}
+                >
+                  {/* Shine effect */}
+                  <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent opacity-0 group-hover/card:opacity-100 transition-opacity rounded-xl" />
+                  
+                  <item.icon style={{ width: 'clamp(1rem, 1.25vw, 1.25rem)', height: 'clamp(1rem, 1.25vw, 1.25rem)' }} className="relative z-10 text-white drop-shadow-lg" strokeWidth={3} />
+                  <span style={{ fontSize: 'clamp(0.875rem, 1vw, 1rem)' }} className="relative z-10 font-black text-white drop-shadow-md whitespace-nowrap">
+                    {item.text}
+                  </span>
+                </div>
+              ))}
             </div>
 
-            {/* CTA Button */}
+            {/* Botón Call to Action PRO con gradiente original - MÁS GRANDE */}
             <button
               onClick={() => navigate('/puntos-de-retiro')}
-              className="group relative inline-flex items-center gap-2.5 px-6 py-3 bg-gradient-to-r from-purple-500 via-blue-500 to-cyan-500 hover:from-purple-400 hover:via-blue-400 hover:to-cyan-400 rounded-xl font-bold text-base text-white shadow-2xl shadow-purple-500/50 transition-all duration-300 hover:scale-105 active:scale-95 border-2 border-purple-400/40 w-fit"
+              className="group relative flex items-center gap-4 px-12 py-6 bg-gradient-to-r from-purple-500 via-blue-500 to-cyan-500 hover:from-purple-400 hover:via-blue-400 hover:to-cyan-400 rounded-2xl font-black text-white overflow-hidden transition-all duration-300 hover:scale-[1.05] shadow-2xl shadow-purple-500/60 hover:shadow-[0_0_50px_rgba(147,51,234,0.8)] active:scale-95 border-2 border-purple-400/40"
+              style={{ fontSize: 'clamp(1.125rem, 1.5vw, 1.5rem)' }}
             >
-              <MapPin className="w-5 h-5" />
-              <span>¿Dónde retiro los productos?</span>
-              <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+         
+              {/* Shine effect interno */}
+              <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity rounded-2xl" />
+              
+              <MapPin className="relative z-10 w-6 h-6" />
+              <span className="relative z-10">¿Dónde retiro los Productos?</span>
+              <ArrowRight className="relative z-10 w-6 h-6 group-hover:translate-x-2 transition-transform" />
             </button>
           </div>
 
-          {/* Lado derecho - Imagen */}
-          <div className="relative flex items-center justify-center h-full">
-            <div className="absolute inset-0 bg-gradient-to-br from-purple-500/20 to-blue-500/20 rounded-full blur-3xl animate-pulse" />
-            <div className="relative w-full h-full max-h-[300px] flex items-center justify-center">
+          {/* LADO DERECHO: IMAGEN (5 columnas en desktop) - SOLO DESKTOP CON MÁS GLOW */}
+          <div className="hidden lg:flex lg:col-span-5 relative items-center justify-center">
+            {/* El "Aura" de la imagen con glow INTENSO */}
+            <div className="absolute w-[130%] h-[130%] bg-blue-500/40 blur-[120px] rounded-full animate-pulse" />
+            <div className="absolute w-[120%] h-[120%] bg-purple-500/30 blur-[140px] rounded-full animate-pulse" style={{ animationDelay: '1s' }} />
+            
+            <div className="relative w-full max-w-[500px] transform transition-all duration-700 group-hover:scale-110 group-hover:rotate-2 animate-float">
               <img
                 src="/images/puntos_retiro.webp"
                 alt="Puntos de Retiro"
-                className="w-full h-full object-contain drop-shadow-[0_0_80px_rgba(147,51,234,0.6)] filter brightness-110 animate-float"
+                className="w-full h-auto object-contain drop-shadow-[0_40px_80px_rgba(0,0,0,0.9)] filter brightness-115"
               />
+       
+              {/* Elemento flotante decorativo con bounce y glow - DESKTOP */}
+              <div className="absolute -top-5 -right-5 w-20 h-20 bg-purple-500/30 backdrop-blur-2xl rounded-3xl border border-white/20 flex items-center justify-center animate-bounce shadow-[0_0_30px_rgba(168,85,247,0.5)]">
+                <img 
+                  src="/logotipo_tiny.png" 
+                  alt="Shock-Store Logo" 
+                  className="h-20 w-auto object-contain"
+                />
+              </div>
             </div>
           </div>
+
         </div>
       </div>
     </section>
