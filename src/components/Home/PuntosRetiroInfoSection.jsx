@@ -5,7 +5,12 @@ const PuntosRetiroInfoSection = () => {
   const navigate = useNavigate();
 
   return (
-    <section className="group relative w-full min-h-[500px] md:min-h-[550px] lg:min-h-[600px] xl:min-h-[650px] overflow-hidden rounded-2xl sm:rounded-[3rem] border border-blue-500/30 bg-[#0a0a0f] transition-all duration-500 hover:border-blue-500/60 shadow-2xl shadow-blue-900/20">
+    <section 
+      className="group relative w-full min-h-[500px] md:min-h-[550px] lg:min-h-[600px] xl:min-h-[650px] overflow-hidden md:rounded-2xl lg:rounded-[3rem] md:border md:border-blue-500/40 bg-[#0a0a0f] transition-all duration-500 md:hover:border-blue-500/60 md:ring-2 md:ring-blue-500/30 md:shadow-xl md:shadow-blue-900/50 md:hover:shadow-2xl md:hover:shadow-blue-900/60"
+      style={{ 
+        boxShadow: typeof window !== 'undefined' && window.innerWidth >= 768 ? '0 0 30px rgba(59, 130, 246, 0.4), 0 0 60px rgba(37, 99, 235, 0.2)' : 'none'
+      }}
+    >
       
       {/* Fondo con Efectos */}
       <div className="absolute inset-0 z-0 overflow-hidden">
@@ -13,6 +18,13 @@ const PuntosRetiroInfoSection = () => {
         <div className="absolute -top-[30%] -left-[15%] w-[60%] h-[80%] bg-blue-600/30 blur-[150px] rounded-full animate-pulse" />
         <div className="absolute -bottom-[30%] -right-[15%] w-[60%] h-[80%] bg-purple-600/30 blur-[150px] rounded-full animate-pulse" style={{ animationDelay: '2s' }} />
       </div>
+
+      {/* Glow inferior - Solo desktop (igual que PCBuilder) */}
+      <div className="hidden md:block absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-blue-600/30 via-blue-500/10 to-transparent pointer-events-none z-20" />
+
+      {/* Máscaras de difuminado superior e inferior - Solo en mobile */}
+      <div className="absolute top-0 left-0 right-0 h-20 bg-gradient-to-b from-[#0a0a0f] to-transparent z-[5] md:hidden pointer-events-none" />
+      <div className="absolute bottom-0 left-0 right-0 h-20 bg-gradient-to-t from-[#0a0a0f] to-transparent z-[5] md:hidden pointer-events-none" />
 
       <div className="relative z-10 w-full h-full flex items-center justify-center px-4 py-8 sm:px-8 sm:py-12 md:px-12 md:py-16 lg:px-16 lg:py-20 xl:px-20 xl:py-24">
         <div className="flex flex-col lg:grid lg:grid-cols-2 gap-6 sm:gap-8 md:gap-10 lg:gap-12 xl:gap-16 w-full max-w-7xl items-center">
