@@ -1,6 +1,6 @@
 // ═══════════════════════════════════════════════════════════════
 // RANGO DE IDs: 600-699 (Motherboards)
-// Próximo ID disponible: 609
+// Próximo ID disponible: 610
 // ═══════════════════════════════════════════════════════════════
 export const motherboardsProducts = [
 
@@ -75,7 +75,7 @@ export const motherboardsProducts = [
 
   {
     id: 602, 
-    name: "ASUS Prime A520M-K AM4",
+    name: "ASUS Prime A520M-K AM4 DDR4",
     brand: "ASUS",
     model: "Prime A520M-K",
     category: "Motherboards",
@@ -95,8 +95,43 @@ export const motherboardsProducts = [
       tipoMemoriaRAM: "DDR4"
     }
   },
-  {
+   {
     id: 603,
+    name: "Asus Prime B550M-K AM4 DDR4 PCIe 4.0",
+    brand: "ASUS",
+    model: "Prime B550M-K",
+    category: "Motherboards",
+    manufacturerUrl: "https://www.asus.com/motherboards-components/motherboards/prime/prime-b550m-k/",
+    price: 110000,
+    stock: 1,
+    ownConsumption: "≈ 40W",
+    maxPowerSupport: "Hasta 142W (PPT recomendado)",
+    images: [
+      "/images/motherboard/asus_b550mk.webp",
+      "/images/motherboard/asus_b550mk_side.webp",
+      "/images/motherboard/asus_b550mk_back.webp",
+      "/images/motherboard/asus_b550mk_specs.webp"
+    ],
+    description: "Motherboard ASUS Prime B550M-K AM4 Micro-ATX con soporte DDR4 y PCIe 4.0",
+    specifications: {
+      marca: "ASUS",
+      linea: "Prime",
+      modelo: "B550M-K",
+      chipset: "AMD B550",
+      socket: "AM4",
+      formato: "Micro-ATX",
+      tipoMemoriaRAM: "DDR4",
+      capacidadMaximaRAM: "128 GB",
+      slotsMemoria: "2",
+      soportePCIe: "PCIe 4.0",
+      almacenamiento: "M.2 / SATA",
+      red: "Gigabit LAN",
+      consumoTDP: "≈ 40 W"
+    }
+  },
+
+  {
+    id: 604,
     name: "Gigabyte B650M Gaming WiFi DDR5 AM5",
     brand: "Gigabyte",
     model: "B650M Gaming WiFi",
@@ -119,7 +154,7 @@ export const motherboardsProducts = [
   },
 
   {
-    id: 604,
+    id: 605,
     name: "Gigabyte A620M H DDR5 AMD AM5",
     brand: "Gigabyte",
     model: "A620M H",
@@ -140,7 +175,7 @@ export const motherboardsProducts = [
   },
 
   {
-    id: 605,
+    id: 606,
     name: "ASUS Prime B450M-A II CSM AM4",
     brand: "ASUS",
     model: "Prime B450M-A II CSM",
@@ -163,7 +198,7 @@ export const motherboardsProducts = [
   },
 
   {
-    id: 606,
+    id: 607,
     name: "Gigabyte A520M K V2 UD DDR4 AM4",
     brand: "Gigabyte",
     model: "A520M K V2",
@@ -184,7 +219,7 @@ export const motherboardsProducts = [
     }
   },
   {
-    id: 607,
+    id: 608,
     name: "Gigabyte B650M-H UD AMD AM5 DDR5",
     brand: "Gigabyte",
     model: "B650M-H",
@@ -205,7 +240,7 @@ export const motherboardsProducts = [
   },
 
   {
-    id: 608,
+    id: 609,
     name: "ASUS Prime B460M-A R2.0 LGA1200",
     brand: "ASUS",
     model: "Prime B460M-A R2.0",
@@ -225,4 +260,5 @@ export const motherboardsProducts = [
       tipoMemoriaRAM: "DDR4"
     }
   },
+ 
 ];

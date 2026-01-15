@@ -80,5 +80,14 @@ export const motherboardCompatibilityData = {
     factorDeForma: 'Micro-ATX',
     slotsRAM: 4,
     uso_principal: ['General', 'Trabajo']
+  },
+  // ASUS Prime B550M-K AM4
+  609: {
+    socket: 'AM4',
+    chipset: 'B550',
+    tipoMemoriaRAM: 'DDR4',
+    factorDeForma: 'Micro-ATX',
+    slotsRAM: 2,
+    uso_principal: ['Gaming', 'Trabajo', 'General']
   }
 };

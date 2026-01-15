@@ -1,6 +1,6 @@
 // ═══════════════════════════════════════════════════════════════
 // RANGO DE IDs: 500-599 (Mouse)
-// Próximo ID disponible: 501
+// Próximo ID disponible: 512
 // IMPORTANTE: NO usar IDs fuera de este rango
 // ═══════════════════════════════════════════════════════════════
 export const mouseProducts = [
@@ -79,6 +79,36 @@ export const mouseProducts = [
   },
   {
     id: 502,
+    name: "Redragon Storm Pro M808-KS Negro Inalámbrico RGB",
+    brand: "Redragon",
+    model: "Storm Pro M808-KS",
+    category: "Mouse",
+    manufacturerUrl: "https://www.redragonzone.com/collections/",
+    price: 40000,
+    stock: 1,
+    images: [
+      "/images/mouse/RG_stormpro.webp",
+      "/images/mouse/RG_stormpro_side.webp",
+      "/images/mouse/RG_stormpro_specs.webp",
+      "/images/mouse/RG_stormpro_specs2.webp"
+    ],
+    description: "Mouse gamer inalámbrico Redragon Storm Pro M808-KS con sensor óptico hasta 16000 DPI y RGB",
+    specifications: {
+      marca: "Redragon",
+      linea: "Storm Pro",
+      modelo: "M808-KS",
+      tipo: "Mouse inalámbrico gamer",
+      tipoSensor: "Óptico",
+      dpiMaximo: "16000",
+      conectividad: "Wireless 2.4 GHz / USB",
+      iluminacionRGB: "Sí",
+      peso: "aprox. 85 g",
+      consumoTDP: "≈ 1 W"
+    }
+  },
+
+  {
+    id: 503,
     name: "Redragon Invader M719-RGB Negro",
     brand: "Redragon",
     model: "Invader M719-RGB",
@@ -123,7 +153,7 @@ export const mouseProducts = [
     }
   },
   {
-    id: 503,
+    id: 504,
     name: "Redragon Storm Elite M988 Negro",
     brand: "Redragon",
     model: "Storm Elite M988",
@@ -169,7 +199,7 @@ export const mouseProducts = [
     }
   },
   {
-    id: 504,
+    id: 505,
     name: "Redragon Cobra White M711-W RGB",
     brand: "Redragon",
     model: "Cobra White M711-W",
@@ -217,7 +247,7 @@ export const mouseProducts = [
     }
   },
   {
-    id: 505,
+    id: 506,
     name: "Redragon Gainer M610 RGB",
     brand: "Redragon",
     model: "Gainer M610",
@@ -255,7 +285,51 @@ export const mouseProducts = [
   },
 
   {
-    id: 506,
+    id: 507,
+    name: "Redragon K1ng M724 1K Negro Cableado",
+    brand: "Redragon",
+    model: "K1ng M724 1K",
+    category: "Mouse",
+    manufacturerUrl: "https://www.redragonzone.com/collections/",
+    price: 20000,
+    stock: 1,
+    images: [
+      "/images/mouse/rg_king1k.webp",
+      "/images/mouse/rg_king1k_front.webp",
+      "/images/mouse/rg_king1k_side.webp",
+      "/images/mouse/rg_king1k_side2.webp",
+      "/images/mouse/rg_king1k_side3.webp"
+    ],
+    description: "Mouse gamer cableado Redragon K1ng M724 1K con sensor PixArt PAW3327, ultraligero 42g, cable paracord",
+    specifications: {
+      marca: "Redragon",
+      linea: "M724 1K",
+      modelo: "K1ng M724 1K",
+      modeloAlfanumerico: "K1ng M724 1K Hz Negro Cableado",
+      tipo: "Mouse gamer cableado",
+      conectividad: "USB-C a USB-A cableado (paracord)",
+      tipoSensor: "Óptico",
+      modeloSensor: "PixArt PAW3327",
+      dpiMinimo: "200",
+      dpiMaximo: "12400",
+      rangoDPI: "200 – 12400 DPI (ajustable)",
+      pollingRate: "125 / 1000 Hz",
+      cantidadBotones: "5",
+      botonesProgramables: "5",
+      switches: "Huano Blue Shell Blue Dot (~20M clics)",
+      iluminacionRGB: "No",
+      orientacion: "Simétrico (diestro)",
+      agarreRecomendado: "Palm / Claw / Fingertip",
+      memoriaInterna: "Sí (perfiles configurables)",
+      peso: "≈ 42 g",
+      dimensiones: "120.8 x 64.3 x 37.9 mm",
+      compatibilidad: "Windows",
+      extras: "Botón DPI en la parte inferior, cable paracord flexible",
+      consumoTDP: "≈ 1–2 W"
+    }
+  },
+  {
+    id: 508,
     name: "Razer Deathadder V2 Mini Negro",
     brand: "Razer",
     model: "Deathadder V2 Mini",
@@ -304,9 +378,53 @@ export const mouseProducts = [
       funciones: "Config DPI, Botones, RGB, Perfiles"
     }
   },
+   {
+    id: 509,
+    name: "Redragon Griffin M607 RGB Negro",
+    brand: "Redragon",
+    model: "Griffin M607",
+    category: "Mouse",
+    manufacturerUrl: "https://www.redragonzone.com/collections/",
+    price: 15000,
+    stock: 3,
+    images: [
+      "/images/mouse/rg_griffin.webp",
+      "/images/mouse/rg_griffin_side.webp",
+      "/images/mouse/rg_griffin_side2.webp",
+      "/images/mouse/rg_griffin_side3.webp"
+    ],
+    description: "Mouse gamer cableado Redragon Griffin M607 RGB con sensor óptico Pixart P3212 hasta 7200 DPI",
+    specifications: {
+      marca: "Redragon",
+      modelo: "Griffin",
+      modeloAlfanumerico: "M607",
+      tipo: "Mouse gamer cableado",
+      conectividad: "USB cableado (mallado 1.8 m con conector USB chapado en oro)",
+      tipoSensor: "Óptico",
+      modeloSensor: "Pixart P3212",
+      dpiMinimo: "600",
+      dpiMaximo: "7200",
+      rangoDPI: "600-7200 DPI configurables",
+      cantidadBotones: "8",
+      botonesProgramables: "7",
+      pollingRate: "125 Hz / 1000 Hz",
+      switches: "Omron / Huano",
+      durabilidadClics: "10-20 millones",
+      iluminacionRGB: "Sí",
+      tipoRGB: "RGB Chroma configurable por software",
+      agarreRecomendado: "Palm / Claw",
+      orientacion: "Diestro",
+      peso: "107-151 g",
+      dimensiones: "127 x 81 x 41 mm",
+      softwareConfiguracion: "Windows (software para macros, DPI y RGB)",
+      compatibilidad: "Windows 10, 8, 7, Vista, XP (limitado en macOS/Linux)",
+      materialPatines: "TEFLON para deslizamiento suave",
+      consumoTDP: "≈ 1-2 W"
+    }
+  },
 
   {
-    id: 507,
+    id: 510,
     name: "Logitech M170 Rojo Inalámbrico",
     brand: "Logitech",
     model: "M170",
@@ -346,4 +464,5 @@ export const mouseProducts = [
     }
   },
 
+  
 ];

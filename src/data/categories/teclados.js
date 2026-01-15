@@ -83,7 +83,7 @@ export const tecladosProducts = [
     category: "Teclados",
     manufacturerUrl: "https://www.redragonzone.com/collections/",
     price: 80000,
-    stock: 1,
+    stock: 2,
     sku: "RED-EISA-K686",
     description: "Teclado mecánico 98% RGB con triple conectividad: 2.4Ghz, Bluetooth 5.0, USB-C. Switches lineales hot-swappable",
     images: [

@@ -1,6 +1,6 @@
 // ═══════════════════════════════════════════════════════════════
 // RANGO DE IDs: 400-499 (Memorias RAM)
-// Próximo ID disponible: 417
+// Próximo ID disponible: 419
 // ═══════════════════════════════════════════════════════════════
 export const memoriasProducts = [
   // ========== DDR5 ==========
@@ -140,9 +140,66 @@ export const memoriasProducts = [
       voltaje: "1.1V"
     }
   },
-  // ========== DDR4 PREMIUM (RGB y Disipadas) ==========
   {
     id: 406,
+    name: "Adata DDR5 8GB 5600MHz UDIMM",
+    brand: "ADATA",
+    model: "Premier",
+    category: "Memorias RAM",
+    manufacturerUrl: "https://www.adata.com/ar/consumer/category/memory/",
+    price: 130000,
+    stock: 6,
+    realPowerConsumption: "≈ 3W",
+    images: [
+      "/images/ram/adata_ddr5_8gb.webp",
+      "/images/ram/adata_ddr5_8gb_side.webp",
+      "/images/ram/adata_ddr5_8gb_side2.webp"
+    ],
+    description: "Memoria RAM ADATA Premier DDR5 8GB 5600MHz CL46 UDIMM",
+    specifications: {
+      marca: "ADATA",
+      linea: "Premier",
+      modelo: "AD5U56008G-S",
+      tipoMemoriaRAM: "DDR5",
+      capacidad: "8 GB",
+      velocidad: "5600 MHz",
+      formato: "UDIMM",
+      latencia: "CL46",
+      voltaje: "1.1 V",
+      compatibilidad: "Plataformas Intel y AMD DDR5"
+    }
+  },
+  {
+    id: 407,
+    name: "Netac Basic DDR5 8GB 4800MHz CL40",
+    brand: "Netac",
+    model: "Basic",
+    category: "Memorias RAM",
+    price: 130000,
+    stock: 5,
+    realPowerConsumption: "≈ 3W",
+    images: [
+      "/images/ram/netac_ddr5_8gb.webp",
+      "/images/ram/netac_ddr5_8gb_side.webp",
+      "/images/ram/netac_ddr5_8gb_specs.webp"
+    ],
+    description: "Memoria RAM Netac Basic DDR5 8GB 4800MHz CL40 UDIMM",
+    specifications: {
+      marca: "Netac",
+      linea: "Basic",
+      modelo: "NTBSD5P48SP-08",
+      tipoMemoriaRAM: "DDR5",
+      capacidad: "8 GB",
+      velocidad: "4800 MHz",
+      latencia: "CL40",
+      formato: "UDIMM",
+      voltaje: "1.1 V",
+      compatibilidad: "Plataformas DDR5 Intel / AMD"
+    }
+  },
+  // ========== DDR4 PREMIUM (RGB y Disipadas) ==========
+  {
+    id: 408,
     name: "ADATA XPG Gammix D35 DDR4 16GB 3200MHz",
     brand: "ADATA",
     model: "XPG Gammix D35",
@@ -160,7 +217,7 @@ export const memoriasProducts = [
     }
   },
   {
-    id: 407,
+    id: 409,
     name: "Adata Xpg DDR4 D35g Spectrix 16gb RGB",
     brand: "XPG",
     model: "Spectrix D35G",
@@ -178,7 +235,7 @@ export const memoriasProducts = [
     }
   },
   {
-    id: 408,
+    id: 410,
     name: "Adata Xpg DDR4 16gb Spectrix D35 RGB White",
     brand: "XPG",
     model: "Spectrix D35",
@@ -196,7 +253,7 @@ export const memoriasProducts = [
     }
   },
   {
-    id: 409,
+    id: 411,
     name: "NETAC Shadow DDR4 16GB 3200MHz",
     brand: "NETAC",
     model: "Shadow",
@@ -212,7 +269,7 @@ export const memoriasProducts = [
     }
   },
   {
-    id: 410,
+    id: 412,
     name: "HyperX Fury 16GB DDR4 2666MHz CL16",
     brand: "HyperX",
     model: "Fury",
@@ -231,7 +288,7 @@ export const memoriasProducts = [
   },
   // ========== BÁSICAS / OFFICE ==========
   {
-    id: 411,
+    id: 413,
     name: "Lexar 16GB DDR4 3200MHz UDIMM",
     brand: "Lexar",
     model: "LD4AU016G",
@@ -247,7 +304,7 @@ export const memoriasProducts = [
     }
   },
   {
-    id: 412,
+    id: 414,
     name: "Patriot Signature DDR4 16GB 3200MHz",
     brand: "Patriot",
     model: "Signature",
@@ -263,7 +320,7 @@ export const memoriasProducts = [
     }
   },
   {
-    id: 413,
+    id: 415,
     name: "NETAC BASIC DDR4 16GB 3200 MHZ C16",
     brand: "Netac",
     model: "Basic",
@@ -279,7 +336,7 @@ export const memoriasProducts = [
     }
   },
   {
-    id: 414,
+    id: 416,
     name: "ADATA DDR4 Premier 16GB 3200MHz",
     brand: "ADATA",
     model: "Premier",
@@ -296,7 +353,7 @@ export const memoriasProducts = [
     }
   },
   {
-    id: 415,
+    id: 417,
     name: "Adata 4GB DDR4 2666 MHz SODIMM",
     brand: "ADATA",
     model: "Premier",
@@ -313,7 +370,7 @@ export const memoriasProducts = [
     }
   },
   {
-    id: 416,
+    id: 418,
     name: "Adata Premier 8GB U-DIMM DDR3 1600MHz",
     brand: "ADATA",
     model: "Premier",

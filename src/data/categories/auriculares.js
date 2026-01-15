@@ -1,12 +1,12 @@
 // ═══════════════════════════════════════════════════════════════
 // RANGO DE IDs: 800-899 (Auriculares)
-// Próximo ID disponible: 815
+// Próximo ID disponible: 816
 // IMPORTANTE: NO usar IDs fuera de este rango
 // ═══════════════════════════════════════════════════════════════
 export const auricularesProducts = [
   {
     id: 800,
-    name: "Redragon Ire Pro H848 - Bluetooth Inalámbrico",
+    name: "Redragon Ire Pro H848 Negro- Bluetooth Inalámbrico dongle",
     brand: "Redragon",
     model: "Ire Pro H848",
     category: "Auriculares",
@@ -466,6 +466,37 @@ export const auricularesProducts = [
       "Micrófono": "Integrado",
       "Color": "Negro",
       "Uso recomendado": "Música y llamadas"
+    }
+  },
+  {
+    id: 815,
+    name: "Redragon Ire Pro Bluetooth Inalámbrico dongle",
+    brand: "Redragon",
+    model: "Ire Pro H848B",
+    category: "Auriculares",
+    manufacturerUrl: "https://www.redragonzone.com/collections/",
+    price: 65000,
+    stock: 1,
+    sku: "RED-IRE-H848B",
+    description: "Auriculares gaming inalámbricos Redragon Ire Pro H848B con Wireless 2.4 GHz y Bluetooth, RGB, autonomía 20 horas",
+    images: [
+      "/images/auriculares/irepro_white.webp",
+      "/images/auriculares/irepro_white_side.webp",
+      "/images/auriculares/irepro_white_side2.webp",
+      "/images/auriculares/irepro_white_side3.webp"
+    ],
+    specifications: {
+      "Marca": "Redragon",
+      "Línea": "Ire Pro",
+      "Modelo": "H848B",
+      "Tipo": "Auricular inalámbrico",
+      "Conectividad": "Wireless 2.4 GHz / Bluetooth",
+      "Respuesta en frecuencia": "100 Hz – 10 kHz",
+      "Impedancia": "32 Ω",
+      "Micrófono": "Integrado",
+      "Autonomía": "hasta 20 h",
+      "Iluminación": "RGB",
+      "Consumo_TDP": "≈ 5 W (en carga)"
     }
   }
 ];

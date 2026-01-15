@@ -1,6 +1,6 @@
 // ═══════════════════════════════════════════════════════════════
 // RANGO DE IDs: 300-399 (Procesadores)
-// Próximo ID disponible: 311
+// Próximo ID disponible: 312
 // ═══════════════════════════════════════════════════════════════
 export const procesadoresProducts = [
   {
@@ -34,7 +34,7 @@ export const procesadoresProducts = [
     model: "Ryzen 5 7600",
     category: "Procesadores",
     price: 315000,
-    stock: 2,
+    stock: 3,
     realPowerConsumption: "65W (TDP) / 88W (PPT Max Load)",
     manufacturerUrl: "https://www.amd.com/en/products/processors/desktops/ryzen/7000-series/amd-ryzen-5-7600.html",
     images: ["/images/procesadores/r5_7600.webp", "/images/procesadores/r5_7600_cpu.webp", "/images/procesadores/r5_7600_specs.webp", "/images/procesadores/cooler_stock.webp"],
@@ -96,8 +96,43 @@ export const procesadoresProducts = [
       graficosIntegrados: "AMD Radeon Vega 7"
     }
   },
+    {
+    id: 307,
+    name: "AMD Ryzen 5 8500G AM5 DDR5",
+    brand: "AMD",
+    model: "Ryzen 5 8500G",
+    category: "Procesadores",
+    price: 210000,
+    stock: 1,
+    realPowerConsumption: "65W (TDP) / 88W (PPT Max Load)",
+    manufacturerUrl: "https://www.amd.com/en/products/processors/desktops/ryzen/8000-series/amd-ryzen-5-8500g.html",
+    images: [
+      "/images/procesadores/ryzen5_8500g.webp",
+      "/images/procesadores/ryzen5_8500g_side.webp",
+      "/images/procesadores/ryzen5_8500g_side2.webp"
+    ],
+    description: "Procesador AMD Ryzen 5 8500G 6 núcleos, 12 hilos, hasta 5.0GHz con gráfica integrada AMD Radeon 740M",
+    specifications: {
+      marca: "AMD",
+      linea: "Ryzen 5",
+      modelo: "Ryzen 5 8500G",
+      modeloAlfanumerico: "100-100000931BOX",
+      arquitectura: "Zen 4",
+      socket: "AM5",
+      nucleos: "6",
+      hilos: "12",
+      frecuenciaBase: "3.5 GHz",
+      frecuenciaTurbo: "5.0 GHz",
+      graficosIntegrados: "AMD Radeon 740M",
+      memoriaRAM: "DDR5",
+      capacidadMaximaRAM: "256 GB",
+      procesoFabricacion: "4 nm",
+      tdp: "65 W",
+      consumoTDP: "65 W"
+    }
+  },
   {
-    id: 300,
+    id: 308,
     name: "AMD Ryzen 5 8600G AM5 DDR5",
     brand: "AMD",
     model: "Ryzen 5 8600G",
@@ -120,7 +155,7 @@ export const procesadoresProducts = [
   },
     
   {
-    id: 308,
+    id: 309,
     name: "Intel Core i5-11400 LGA1200",
     brand: "Intel",
     model: "Core i5-11400",
@@ -143,7 +178,7 @@ export const procesadoresProducts = [
     }
   },
   {
-    id: 309,
+    id: 310,
     name: "AMD Ryzen 5 8400F AM5",
     brand: "AMD",
     model: "Ryzen 5 8400F",
@@ -166,7 +201,7 @@ export const procesadoresProducts = [
     }
   },
   {
-    id: 310,
+    id: 311,
     name: "AMD Ryzen 3 3200G AM4",
     brand: "AMD",
     model: "Ryzen 3 3200G",
@@ -188,7 +223,7 @@ export const procesadoresProducts = [
     }
   },
   {
-    id: 307,
+    id: 312,
     name: "AMD Ryzen 5 4500 AM4",
     brand: "AMD",
     model: "Ryzen 5 4500",
@@ -211,7 +246,7 @@ export const procesadoresProducts = [
     }
   },
   {
-    id: 301,
+    id: 313,
     name: "AMD Athlon 3000G AM4",
     brand: "AMD",
     model: "Athlon 3000G",
@@ -231,5 +266,6 @@ export const procesadoresProducts = [
       tdp: "35 W",
       graficosIntegrados: "Radeon Vega 3"
     }
-  }
+  },
+
 ];

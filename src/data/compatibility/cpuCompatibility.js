@@ -90,5 +90,14 @@ export const cpuCompatibilityData = {
     consumo_watts: 65,
     graficosIntegrados: true,
     uso_principal: ['Multimedia', 'General']
+  },
+  // AMD Ryzen 5 8500G AM5
+  311: {
+    socket: 'AM5',
+    memoriaRAM: 'DDR5',
+    chipsetsCompatibles: ['A620', 'B650', 'X670', 'B650E', 'X670E'],
+    consumo_watts: 65,
+    graficosIntegrados: true,
+    uso_principal: ['Gaming', 'Multimedia', 'Trabajo', 'General']
   }
 };

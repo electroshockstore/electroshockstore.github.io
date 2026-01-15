@@ -1,6 +1,6 @@
 ﻿// ═══════════════════════════════════════════════════════════════
 // RANGO DE IDs: 200-299 (Almacenamiento)
-// Próximo ID disponible: 222
+// Próximo ID disponible: 223
 // IMPORTANTE: NO usar IDs fuera de este rango
 // ═══════════════════════════════════════════════════════════════
 export const almacenamientoProducts = [
@@ -39,7 +39,7 @@ export const almacenamientoProducts = [
     model: "XPG Spectrix S20G",
     category: "Almacenamiento",
     price: 120000,
-    stock: 1,
+    stock: 2,
     sku: "XPG-500-S20G",
     description: "SSD M.2 NVMe PCIe Gen3 x4 de 500GB con iluminación RGB direccionable, lectura 2500 MB/s, escritura 1800 MB/s",
     manufacturerUrl: "https://www.xpg.com/es/xpg/818",
@@ -181,7 +181,7 @@ export const almacenamientoProducts = [
     model: "NV2",
     category: "Almacenamiento",
     price: 70000,
-    stock: 6,
+    stock: 8,
     sku: "KING-250-NV2",
     description: "SSD Kingston NV2 250GB NVMe PCIe 4.0 M.2 2280 con velocidades de hasta 3000 MB/s de lectura",
     manufacturerUrl: "https://www.kingston.com/es/ssd/nv2-nvme-pcie-ssd",
@@ -247,8 +247,40 @@ export const almacenamientoProducts = [
       "Escritura": "320 MB/s"
     }
   },
+
   {
     id: 210,
+    name: "SSD Hiksemi Wave 960GB SATA",
+    brand: "Hiksemi",
+    model: "Wave HS-SSD-WAVE(S) 960G",
+    category: "Almacenamiento",
+    price: 150000,
+    stock: 2,
+    sku: "HIKSEMI-960GB-WAVE",
+    description: "SSD SATA III 2.5\" de 960GB con memoria 3D NAND, lectura 550 MB/s, escritura 500 MB/s",
+    manufacturerUrl: "https://www.hiksemi.com/",
+    images: [
+      "/images/almacenamiento/hiksemi_1tb.webp",
+      "/images/almacenamiento/hiksemi_1tb_side.webp",
+      "/images/almacenamiento/hiksemi_1tb_side2.webp"
+    ],
+    specifications: {
+      "Marca": "Hiksemi",
+      "Línea": "Wave",
+      "Modelo": "HS-SSD-WAVE(S) 960G",
+      "Capacidad": "960 GB",
+      "Interfaz": "SATA III 6 Gb/s",
+      "Formato": "2.5\"",
+      "Tipo de memoria": "3D NAND",
+      "Velocidad de lectura": "hasta 550 MB/s",
+      "Velocidad de escritura": "hasta 500 MB/s",
+      "Uso recomendado": "PC / Notebook",
+      "Consumo_TDP": "≈ 3 W"
+    }
+  },
+
+  {
+    id: 211,
     name: "SSD Netac N535S SATA III 480GB 2.5\"",
     brand: "Netac",
     model: "N535S",
@@ -270,7 +302,7 @@ export const almacenamientoProducts = [
     }
   },
   {
-    id: 211,
+    id: 212,
     name: "SSD Western Digital Green 480GB SATA III 2.5\"",
     brand: "Western Digital",
     model: "WD Green",
@@ -292,7 +324,7 @@ export const almacenamientoProducts = [
     }
   },
   {
-    id: 212,
+    id: 213,
     name: "SSD Patriot Burst Elite 960GB SATA3 2.5\"",
     brand: "Patriot",
     model: "Burst Elite",
@@ -314,7 +346,7 @@ export const almacenamientoProducts = [
     }
   },
   {
-    id: 213,
+    id: 214,
     name: "SSD Patriot Burst Elite 240GB SATA3 2.5\"",
     brand: "Patriot",
     model: "Burst Elite",
@@ -336,7 +368,7 @@ export const almacenamientoProducts = [
     }
   },
   {
-    id: 214,
+    id: 215,
     name: "Kingston A400 480GB - SSD SATA III 2.5\"",
     brand: "Kingston",
     model: "A400 SA400S37/480G",
@@ -358,7 +390,7 @@ export const almacenamientoProducts = [
     }
   },
   {
-    id: 215,
+    id: 216,
     name: "Adata Swordfish 500GB - M.2 NVMe Gen3",
     brand: "ADATA",
     model: "Swordfish ASWORDFISH-500G-C",
@@ -381,7 +413,7 @@ export const almacenamientoProducts = [
     }
   },
   {
-    id: 216,
+    id: 217,
     name: "NVME Western Digital Green SN350 240GB",
     brand: "Western Digital",
     model: "WD Green SN350",
@@ -402,7 +434,7 @@ export const almacenamientoProducts = [
     }
   },
   {
-    id: 217,
+    id: 218,
     name: "NVME Western Digital Green SN350 480GB",
     brand: "Western Digital",
     model: "WD Green SN350",
@@ -423,7 +455,7 @@ export const almacenamientoProducts = [
     }
   },
  {
-    id: 218,
+    id: 219,
     name: "NVME Western Digital Green SN350 500GB",
     brand: "Western Digital",
     model: "WD Green SN350",
@@ -445,7 +477,7 @@ export const almacenamientoProducts = [
   },
   
  { 
-  id: 219,
+  id: 220,
         name: "SSD Adata SU650 256GB 2.5\" NAND 3D",
     brand: "Adata",
     model: "Ultimate SU650",
@@ -469,10 +501,8 @@ export const almacenamientoProducts = [
   },
 
 
-
-
   {
-    id: 220,
+    id: 221,
     name: "Externo Western Digital WD Elements 2TB",
     brand: "Western Digital",
     model: "WD Elements Portable",
@@ -495,7 +525,7 @@ export const almacenamientoProducts = [
     }
   },
   {
-    id: 221,
+    id: 222,
     name: "Externo Western Digital WD Elements 1TB",
     brand: "Western Digital",
     model: "WD Elements Portable",
@@ -517,7 +547,7 @@ export const almacenamientoProducts = [
     }
   },
   {
-    id: 222,
+    id: 223,
     name: "HDD Seagate SkyHawk 4TB para Seguridad SATA ST4000VX016",
     brand: "Seagate",
     model: "SkyHawk ST4000VX016",
@@ -540,7 +570,8 @@ export const almacenamientoProducts = [
       "Caché": "256 MB",
       "Uso": "CCTV / Seguridad 24/7"
     }
-  }
+  },
+  
 ];
 
 
