@@ -13,7 +13,9 @@ import FloatingChatButton from '../components/Shared/FloatingChatButton';
 import { useFilter } from '../context/FilterContext';
 import { getSlugFromCategory } from '../utils/slugify';
 import { useSEO } from '../hooks/useSEO';
-import mayoristaProducts from '../data/categories/mayorista.json';
+import mayoristaData from '../data/categories/mayorista.json';
+
+const mayoristaProducts = mayoristaData.products;
 
 const Home = () => {
   const navigate = useNavigate();

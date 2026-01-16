@@ -1,9 +1,13 @@
 import { describe, test, expect } from 'vitest';
 import fc from 'fast-check';
 import { extendProductWithCompatibility, extendProductsWithCompatibility } from '../index';
-import procesadoresProducts from '../../categories/procesadores.json';
-import motherboardsProducts from '../../categories/motherboards.json';
-import memoriasProducts from '../../categories/memorias.json';
+import procesadoresData from '../../categories/procesadores.json';
+import motherboardsData from '../../categories/motherboards.json';
+import memoriasData from '../../categories/memorias.json';
+
+const procesadoresProducts = procesadoresData.products;
+const motherboardsProducts = motherboardsData.products;
+const memoriasProducts = memoriasData.products;
 
 // Feature: pc-builder-asistido, Property 2: RAM Type Consistency
 // Validates: Requirements 3.3, 11.3
