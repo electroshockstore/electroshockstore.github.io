@@ -33,7 +33,7 @@ collections:
         fields:
           - label: "Productos"
             name: "products"
-            widget: "list"
+            widget: "list"`n            summary: '{{fields.name}} - ${{fields.price}}'
             summary: '{{fields.name}} - ${{fields.price}}'
             fields:
               - {label: "ID", name: "id", widget: "number", value_type: "int"}
@@ -47,7 +47,7 @@ collections:
               - {label: "URL Fabricante", name: "manufacturerUrl", widget: "string", required: false}
               - label: "Imágenes"
                 name: "images"
-                widget: "list"
+                widget: "list"`n            summary: '{{fields.name}} - ${{fields.price}}'
                 field: {label: "Ruta", name: "path", widget: "image", media_folder: "/public/images"}
               - {label: "Descripción", name: "description", widget: "text"}
               - label: "Especificaciones"
@@ -69,7 +69,7 @@ collections:
         fields:
           - label: "Productos"
             name: "products"
-            widget: "list"
+            widget: "list"`n            summary: '{{fields.name}} - ${{fields.price}}'
             summary: '{{fields.name}} - ${{fields.price}}'
             fields:
               - {label: "ID", name: "id", widget: "number", value_type: "int"}
@@ -82,7 +82,7 @@ collections:
               - {label: "URL Fabricante", name: "manufacturerUrl", widget: "string", required: false}
               - label: "Imágenes"
                 name: "images"
-                widget: "list"
+                widget: "list"`n            summary: '{{fields.name}} - ${{fields.price}}'
                 field: {label: "Ruta", name: "path", widget: "image", media_folder: "/public/images"}
               - {label: "Descripción", name: "description", widget: "text"}
               - label: "Especificaciones"
@@ -102,7 +102,7 @@ collections:
         fields:
           - label: "Productos"
             name: "body"
-            widget: "list"
+            widget: "list"`n            summary: '{{fields.name}} - ${{fields.price}}'
             fields:
               - {label: "ID", name: "id", widget: "number", value_type: "int"}
               - {label: "Nombre", name: "name", widget: "string"}
@@ -114,7 +114,7 @@ collections:
               - {label: "URL Fabricante", name: "manufacturerUrl", widget: "string", required: false}
               - label: "Imágenes"
                 name: "images"
-                widget: "list"
+                widget: "list"`n            summary: '{{fields.name}} - ${{fields.price}}'
                 field: {label: "Ruta", name: "path", widget: "image", media_folder: "/public/images"}
               - {label: "Descripción", name: "description", widget: "text"}
       
@@ -124,7 +124,7 @@ collections:
         fields:
           - label: "Productos"
             name: "body"
-            widget: "list"
+            widget: "list"`n            summary: '{{fields.name}} - ${{fields.price}}'
             fields:
               - {label: "ID", name: "id", widget: "number", value_type: "int"}
               - {label: "Nombre", name: "name", widget: "string"}
@@ -136,7 +136,7 @@ collections:
               - {label: "URL Fabricante", name: "manufacturerUrl", widget: "string", required: false}
               - label: "Imágenes"
                 name: "images"
-                widget: "list"
+                widget: "list"`n            summary: '{{fields.name}} - ${{fields.price}}'
                 field: {label: "Ruta", name: "path", widget: "image", media_folder: "/public/images"}
               - {label: "Descripción", name: "description", widget: "text"}
       
@@ -146,7 +146,7 @@ collections:
         fields:
           - label: "Productos"
             name: "body"
-            widget: "list"
+            widget: "list"`n            summary: '{{fields.name}} - ${{fields.price}}'
             fields:
               - {label: "ID", name: "id", widget: "number", value_type: "int"}
               - {label: "Nombre", name: "name", widget: "string"}
@@ -158,7 +158,7 @@ collections:
               - {label: "URL Fabricante", name: "manufacturerUrl", widget: "string", required: false}
               - label: "Imágenes"
                 name: "images"
-                widget: "list"
+                widget: "list"`n            summary: '{{fields.name}} - ${{fields.price}}'
                 field: {label: "Ruta", name: "path", widget: "image", media_folder: "/public/images"}
               - {label: "Descripción", name: "description", widget: "text"}
       
@@ -168,7 +168,7 @@ collections:
         fields:
           - label: "Productos"
             name: "body"
-            widget: "list"
+            widget: "list"`n            summary: '{{fields.name}} - ${{fields.price}}'
             fields:
               - {label: "ID", name: "id", widget: "number", value_type: "int"}
               - {label: "Nombre", name: "name", widget: "string"}
@@ -180,7 +180,7 @@ collections:
               - {label: "URL Fabricante", name: "manufacturerUrl", widget: "string", required: false}
               - label: "Imágenes"
                 name: "images"
-                widget: "list"
+                widget: "list"`n            summary: '{{fields.name}} - ${{fields.price}}'
                 field: {label: "Ruta", name: "path", widget: "image", media_folder: "/public/images"}
               - {label: "Descripción", name: "description", widget: "text"}
       
@@ -190,7 +190,7 @@ collections:
         fields:
           - label: "Productos"
             name: "body"
-            widget: "list"
+            widget: "list"`n            summary: '{{fields.name}} - ${{fields.price}}'
             fields:
               - {label: "ID", name: "id", widget: "number", value_type: "int"}
               - {label: "Nombre", name: "name", widget: "string"}
@@ -202,7 +202,7 @@ collections:
               - {label: "URL Fabricante", name: "manufacturerUrl", widget: "string", required: false}
               - label: "Imágenes"
                 name: "images"
-                widget: "list"
+                widget: "list"`n            summary: '{{fields.name}} - ${{fields.price}}'
                 field: {label: "Ruta", name: "path", widget: "image", media_folder: "/public/images"}
               - {label: "Descripción", name: "description", widget: "text"}
       
@@ -212,7 +212,7 @@ collections:
         fields:
           - label: "Productos"
             name: "body"
-            widget: "list"
+            widget: "list"`n            summary: '{{fields.name}} - ${{fields.price}}'
             fields:
               - {label: "ID", name: "id", widget: "number", value_type: "int"}
               - {label: "Nombre", name: "name", widget: "string"}
@@ -223,7 +223,7 @@ collections:
               - {label: "Stock", name: "stock", widget: "number", value_type: "int"}
               - label: "Imágenes"
                 name: "images"
-                widget: "list"
+                widget: "list"`n            summary: '{{fields.name}} - ${{fields.price}}'
                 field: {label: "Ruta", name: "path", widget: "image", media_folder: "/public/images"}
               - {label: "Descripción", name: "description", widget: "text"}
       
@@ -233,7 +233,7 @@ collections:
         fields:
           - label: "Productos"
             name: "body"
-            widget: "list"
+            widget: "list"`n            summary: '{{fields.name}} - ${{fields.price}}'
             fields:
               - {label: "ID", name: "id", widget: "number", value_type: "int"}
               - {label: "Nombre", name: "name", widget: "string"}
@@ -244,7 +244,7 @@ collections:
               - {label: "Stock", name: "stock", widget: "number", value_type: "int"}
               - label: "Imágenes"
                 name: "images"
-                widget: "list"
+                widget: "list"`n            summary: '{{fields.name}} - ${{fields.price}}'
                 field: {label: "Ruta", name: "path", widget: "image", media_folder: "/public/images"}
               - {label: "Descripción", name: "description", widget: "text"}
       
@@ -254,7 +254,7 @@ collections:
         fields:
           - label: "Productos"
             name: "body"
-            widget: "list"
+            widget: "list"`n            summary: '{{fields.name}} - ${{fields.price}}'
             fields:
               - {label: "ID", name: "id", widget: "number", value_type: "int"}
               - {label: "Nombre", name: "name", widget: "string"}
@@ -265,7 +265,7 @@ collections:
               - {label: "Stock", name: "stock", widget: "number", value_type: "int"}
               - label: "Imágenes"
                 name: "images"
-                widget: "list"
+                widget: "list"`n            summary: '{{fields.name}} - ${{fields.price}}'
                 field: {label: "Ruta", name: "path", widget: "image", media_folder: "/public/images"}
               - {label: "Descripción", name: "description", widget: "text"}
       
@@ -275,7 +275,7 @@ collections:
         fields:
           - label: "Productos"
             name: "body"
-            widget: "list"
+            widget: "list"`n            summary: '{{fields.name}} - ${{fields.price}}'
             fields:
               - {label: "ID", name: "id", widget: "number", value_type: "int"}
               - {label: "Nombre", name: "name", widget: "string"}
@@ -286,7 +286,7 @@ collections:
               - {label: "Stock", name: "stock", widget: "number", value_type: "int"}
               - label: "Imágenes"
                 name: "images"
-                widget: "list"
+                widget: "list"`n            summary: '{{fields.name}} - ${{fields.price}}'
                 field: {label: "Ruta", name: "path", widget: "image", media_folder: "/public/images"}
               - {label: "Descripción", name: "description", widget: "text"}
       
@@ -296,7 +296,7 @@ collections:
         fields:
           - label: "Productos"
             name: "body"
-            widget: "list"
+            widget: "list"`n            summary: '{{fields.name}} - ${{fields.price}}'
             fields:
               - {label: "ID", name: "id", widget: "number", value_type: "int"}
               - {label: "Nombre", name: "name", widget: "string"}
@@ -307,7 +307,7 @@ collections:
               - {label: "Stock", name: "stock", widget: "number", value_type: "int"}
               - label: "Imágenes"
                 name: "images"
-                widget: "list"
+                widget: "list"`n            summary: '{{fields.name}} - ${{fields.price}}'
                 field: {label: "Ruta", name: "path", widget: "image", media_folder: "/public/images"}
               - {label: "Descripción", name: "description", widget: "text"}
       
@@ -317,7 +317,7 @@ collections:
         fields:
           - label: "Productos"
             name: "body"
-            widget: "list"
+            widget: "list"`n            summary: '{{fields.name}} - ${{fields.price}}'
             fields:
               - {label: "ID", name: "id", widget: "number", value_type: "int"}
               - {label: "Nombre", name: "name", widget: "string"}
@@ -328,7 +328,7 @@ collections:
               - {label: "Stock", name: "stock", widget: "number", value_type: "int"}
               - label: "Imágenes"
                 name: "images"
-                widget: "list"
+                widget: "list"`n            summary: '{{fields.name}} - ${{fields.price}}'
                 field: {label: "Ruta", name: "path", widget: "image", media_folder: "/public/images"}
               - {label: "Descripción", name: "description", widget: "text"}
       
@@ -338,7 +338,7 @@ collections:
         fields:
           - label: "Productos"
             name: "body"
-            widget: "list"
+            widget: "list"`n            summary: '{{fields.name}} - ${{fields.price}}'
             fields:
               - {label: "ID", name: "id", widget: "number", value_type: "int"}
               - {label: "Nombre", name: "name", widget: "string"}
@@ -349,6 +349,6 @@ collections:
               - {label: "Stock", name: "stock", widget: "number", value_type: "int"}
               - label: "Imágenes"
                 name: "images"
-                widget: "list"
+                widget: "list"`n            summary: '{{fields.name}} - ${{fields.price}}'
                 field: {label: "Ruta", name: "path", widget: "image", media_folder: "/public/images"}
               - {label: "Descripción", name: "description", widget: "text"}
