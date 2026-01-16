@@ -22,7 +22,6 @@ public_folder: "/images"
 publish_mode: editorial_workflow
 locale: 'es'
 
-# Colecciones - Archivos JSON
 collections:
   - name: "productos"
     label: "Productos"
@@ -31,78 +30,69 @@ collections:
         name: "procesadores"
         file: "src/data/categories/procesadores.json"
         fields:
-          - label: "Productos"
-            name: "products"
-            widget: "list"`n            summary: '{{fields.name}} - ${{fields.price}}'
-            summary: '{{fields.name}} - ${{fields.price}}'
-            fields:
-              - {label: "ID", name: "id", widget: "number", value_type: "int"}
-              - {label: "Nombre", name: "name", widget: "string"}
-              - {label: "Marca", name: "brand", widget: "string"}
-              - {label: "Modelo", name: "model", widget: "string"}
-              - {label: "Categoría", name: "category", widget: "hidden", default: "Procesadores"}
-              - {label: "Precio", name: "price", widget: "number", value_type: "int"}
-              - {label: "Stock", name: "stock", widget: "number", value_type: "int"}
-              - {label: "Consumo Real", name: "realPowerConsumption", widget: "string", required: false}
-              - {label: "URL Fabricante", name: "manufacturerUrl", widget: "string", required: false}
-              - label: "Imágenes"
-                name: "images"
-                widget: "list"`n            summary: '{{fields.name}} - ${{fields.price}}'
-                field: {label: "Ruta", name: "path", widget: "image", media_folder: "/public/images"}
-              - {label: "Descripción", name: "description", widget: "text"}
-              - label: "Especificaciones"
-                name: "specifications"
-                widget: "object"
-                collapsed: true
-                fields:
-                  - {label: "Marca", name: "marca", widget: "string", required: false}
-                  - {label: "Modelo", name: "modelo", widget: "string", required: false}
-                  - {label: "Socket", name: "socket", widget: "string", required: false}
-                  - {label: "Núcleos", name: "nucleos", widget: "string", required: false}
-                  - {label: "Hilos", name: "hilos", widget: "string", required: false}
-                  - {label: "TDP", name: "tdp", widget: "string", required: false}
-                  - {label: "Gráficos Integrados", name: "graficosIntegrados", widget: "string", required: false}
+        - label: "Productos"
+          name: "products"
+          widget: "list"
+          summary: '{{fields.name}} - ${{fields.price}}'
+          fields:
+            - {label: "ID", name: "id", widget: "number", value_type: "int"}
+            - {label: "Nombre", name: "name", widget: "string"}
+            - {label: "Marca", name: "brand", widget: "string"}
+            - {label: "Modelo", name: "model", widget: "string"}
+            - {label: "Categoría", name: "category", widget: "hidden", default: "Procesadores"}
+            - {label: "Precio", name: "price", widget: "number", value_type: "int"}
+            - {label: "Stock", name: "stock", widget: "number", value_type: "int"}
+            - {label: "Consumo Real", name: "realPowerConsumption", widget: "string", required: false}
+            - {label: "URL Fabricante", name: "manufacturerUrl", widget: "string", required: false}
+            - label: "Imágenes"
+              name: "images"
+              widget: "list"
+              field: {label: "Ruta", name: "path", widget: "string"}
+            - {label: "Descripción", name: "description", widget: "text"}
+            - label: "Especificaciones"
+              name: "specifications"
+              widget: "object"
+              collapsed: true
+              fields:
+                - {label: "Marca", name: "marca", widget: "string", required: false}
+                - {label: "Modelo", name: "modelo", widget: "string", required: false}
+                - {label: "Socket", name: "socket", widget: "string", required: false}
+                - {label: "Núcleos", name: "nucleos", widget: "string", required: false}
+                - {label: "Hilos", name: "hilos", widget: "string", required: false}
+                - {label: "TDP", name: "tdp", widget: "string", required: false}
+                - {label: "Gráficos Integrados", name: "graficosIntegrados", widget: "string", required: false}
       
       - label: "Memorias RAM"
         name: "memorias"
         file: "src/data/categories/memorias.json"
         fields:
-          - label: "Productos"
-            name: "products"
-            widget: "list"`n            summary: '{{fields.name}} - ${{fields.price}}'
-            summary: '{{fields.name}} - ${{fields.price}}'
-            fields:
-              - {label: "ID", name: "id", widget: "number", value_type: "int"}
-              - {label: "Nombre", name: "name", widget: "string"}
-              - {label: "Marca", name: "brand", widget: "string"}
-              - {label: "Modelo", name: "model", widget: "string"}
-              - {label: "Categoría", name: "category", widget: "hidden", default: "Memorias"}
-              - {label: "Precio", name: "price", widget: "number", value_type: "int"}
-              - {label: "Stock", name: "stock", widget: "number", value_type: "int"}
-              - {label: "URL Fabricante", name: "manufacturerUrl", widget: "string", required: false}
-              - label: "Imágenes"
-                name: "images"
-                widget: "list"`n            summary: '{{fields.name}} - ${{fields.price}}'
-                field: {label: "Ruta", name: "path", widget: "image", media_folder: "/public/images"}
-              - {label: "Descripción", name: "description", widget: "text"}
-              - label: "Especificaciones"
-                name: "specifications"
-                widget: "object"
-                collapsed: true
-                fields:
-                  - {label: "Marca", name: "marca", widget: "string", required: false}
-                  - {label: "Modelo", name: "modelo", widget: "string", required: false}
-                  - {label: "Tipo", name: "tipo", widget: "string", required: false}
-                  - {label: "Capacidad", name: "capacidad", widget: "string", required: false}
-                  - {label: "Velocidad", name: "velocidad", widget: "string", required: false}
+        - label: "Productos"
+          name: "products"
+          widget: "list"
+          summary: '{{fields.name}} - ${{fields.price}}'
+          fields:
+            - {label: "ID", name: "id", widget: "number", value_type: "int"}
+            - {label: "Nombre", name: "name", widget: "string"}
+            - {label: "Marca", name: "brand", widget: "string"}
+            - {label: "Modelo", name: "model", widget: "string"}
+            - {label: "Categoría", name: "category", widget: "hidden", default: "Memorias"}
+            - {label: "Precio", name: "price", widget: "number", value_type: "int"}
+            - {label: "Stock", name: "stock", widget: "number", value_type: "int"}
+            - {label: "URL Fabricante", name: "manufacturerUrl", widget: "string", required: false}
+            - label: "Imágenes"
+              name: "images"
+              widget: "list"
+              field: {label: "Ruta", name: "path", widget: "string"}
+            - {label: "Descripción", name: "description", widget: "text"}
       
       - label: "Almacenamiento"
         name: "almacenamiento"
         file: "src/data/categories/almacenamiento.json"
         fields:
           - label: "Productos"
-            name: "body"
-            widget: "list"`n            summary: '{{fields.name}} - ${{fields.price}}'
+            name: "products"
+            widget: "list"
+            summary: '{{fields.name}} - ${{fields.price}}'
             fields:
               - {label: "ID", name: "id", widget: "number", value_type: "int"}
               - {label: "Nombre", name: "name", widget: "string"}
@@ -114,8 +104,8 @@ collections:
               - {label: "URL Fabricante", name: "manufacturerUrl", widget: "string", required: false}
               - label: "Imágenes"
                 name: "images"
-                widget: "list"`n            summary: '{{fields.name}} - ${{fields.price}}'
-                field: {label: "Ruta", name: "path", widget: "image", media_folder: "/public/images"}
+                widget: "list"
+                field: {label: "Ruta", name: "path", widget: "string"}
               - {label: "Descripción", name: "description", widget: "text"}
       
       - label: "Motherboards"
@@ -123,8 +113,9 @@ collections:
         file: "src/data/categories/motherboards.json"
         fields:
           - label: "Productos"
-            name: "body"
-            widget: "list"`n            summary: '{{fields.name}} - ${{fields.price}}'
+            name: "products"
+            widget: "list"
+            summary: '{{fields.name}} - ${{fields.price}}'
             fields:
               - {label: "ID", name: "id", widget: "number", value_type: "int"}
               - {label: "Nombre", name: "name", widget: "string"}
@@ -136,8 +127,8 @@ collections:
               - {label: "URL Fabricante", name: "manufacturerUrl", widget: "string", required: false}
               - label: "Imágenes"
                 name: "images"
-                widget: "list"`n            summary: '{{fields.name}} - ${{fields.price}}'
-                field: {label: "Ruta", name: "path", widget: "image", media_folder: "/public/images"}
+                widget: "list"
+                field: {label: "Ruta", name: "path", widget: "string"}
               - {label: "Descripción", name: "description", widget: "text"}
       
       - label: "Mouse"
@@ -145,8 +136,9 @@ collections:
         file: "src/data/categories/mouse.json"
         fields:
           - label: "Productos"
-            name: "body"
-            widget: "list"`n            summary: '{{fields.name}} - ${{fields.price}}'
+            name: "products"
+            widget: "list"
+            summary: '{{fields.name}} - ${{fields.price}}'
             fields:
               - {label: "ID", name: "id", widget: "number", value_type: "int"}
               - {label: "Nombre", name: "name", widget: "string"}
@@ -158,8 +150,8 @@ collections:
               - {label: "URL Fabricante", name: "manufacturerUrl", widget: "string", required: false}
               - label: "Imágenes"
                 name: "images"
-                widget: "list"`n            summary: '{{fields.name}} - ${{fields.price}}'
-                field: {label: "Ruta", name: "path", widget: "image", media_folder: "/public/images"}
+                widget: "list"
+                field: {label: "Ruta", name: "path", widget: "string"}
               - {label: "Descripción", name: "description", widget: "text"}
       
       - label: "Teclados"
@@ -167,8 +159,9 @@ collections:
         file: "src/data/categories/teclados.json"
         fields:
           - label: "Productos"
-            name: "body"
-            widget: "list"`n            summary: '{{fields.name}} - ${{fields.price}}'
+            name: "products"
+            widget: "list"
+            summary: '{{fields.name}} - ${{fields.price}}'
             fields:
               - {label: "ID", name: "id", widget: "number", value_type: "int"}
               - {label: "Nombre", name: "name", widget: "string"}
@@ -180,8 +173,8 @@ collections:
               - {label: "URL Fabricante", name: "manufacturerUrl", widget: "string", required: false}
               - label: "Imágenes"
                 name: "images"
-                widget: "list"`n            summary: '{{fields.name}} - ${{fields.price}}'
-                field: {label: "Ruta", name: "path", widget: "image", media_folder: "/public/images"}
+                widget: "list"
+                field: {label: "Ruta", name: "path", widget: "string"}
               - {label: "Descripción", name: "description", widget: "text"}
       
       - label: "Auriculares"
@@ -189,8 +182,9 @@ collections:
         file: "src/data/categories/auriculares.json"
         fields:
           - label: "Productos"
-            name: "body"
-            widget: "list"`n            summary: '{{fields.name}} - ${{fields.price}}'
+            name: "products"
+            widget: "list"
+            summary: '{{fields.name}} - ${{fields.price}}'
             fields:
               - {label: "ID", name: "id", widget: "number", value_type: "int"}
               - {label: "Nombre", name: "name", widget: "string"}
@@ -202,8 +196,8 @@ collections:
               - {label: "URL Fabricante", name: "manufacturerUrl", widget: "string", required: false}
               - label: "Imágenes"
                 name: "images"
-                widget: "list"`n            summary: '{{fields.name}} - ${{fields.price}}'
-                field: {label: "Ruta", name: "path", widget: "image", media_folder: "/public/images"}
+                widget: "list"
+                field: {label: "Ruta", name: "path", widget: "string"}
               - {label: "Descripción", name: "description", widget: "text"}
       
       - label: "Fuentes"
@@ -211,8 +205,9 @@ collections:
         file: "src/data/categories/fuentes.json"
         fields:
           - label: "Productos"
-            name: "body"
-            widget: "list"`n            summary: '{{fields.name}} - ${{fields.price}}'
+            name: "products"
+            widget: "list"
+            summary: '{{fields.name}} - ${{fields.price}}'
             fields:
               - {label: "ID", name: "id", widget: "number", value_type: "int"}
               - {label: "Nombre", name: "name", widget: "string"}
@@ -223,8 +218,8 @@ collections:
               - {label: "Stock", name: "stock", widget: "number", value_type: "int"}
               - label: "Imágenes"
                 name: "images"
-                widget: "list"`n            summary: '{{fields.name}} - ${{fields.price}}'
-                field: {label: "Ruta", name: "path", widget: "image", media_folder: "/public/images"}
+                widget: "list"
+                field: {label: "Ruta", name: "path", widget: "string"}
               - {label: "Descripción", name: "description", widget: "text"}
       
       - label: "Refrigeración"
@@ -232,8 +227,9 @@ collections:
         file: "src/data/categories/refrigeracion.json"
         fields:
           - label: "Productos"
-            name: "body"
-            widget: "list"`n            summary: '{{fields.name}} - ${{fields.price}}'
+            name: "products"
+            widget: "list"
+            summary: '{{fields.name}} - ${{fields.price}}'
             fields:
               - {label: "ID", name: "id", widget: "number", value_type: "int"}
               - {label: "Nombre", name: "name", widget: "string"}
@@ -244,8 +240,8 @@ collections:
               - {label: "Stock", name: "stock", widget: "number", value_type: "int"}
               - label: "Imágenes"
                 name: "images"
-                widget: "list"`n            summary: '{{fields.name}} - ${{fields.price}}'
-                field: {label: "Ruta", name: "path", widget: "image", media_folder: "/public/images"}
+                widget: "list"
+                field: {label: "Ruta", name: "path", widget: "string"}
               - {label: "Descripción", name: "description", widget: "text"}
       
       - label: "Joystick"
@@ -253,8 +249,9 @@ collections:
         file: "src/data/categories/joystick.json"
         fields:
           - label: "Productos"
-            name: "body"
-            widget: "list"`n            summary: '{{fields.name}} - ${{fields.price}}'
+            name: "products"
+            widget: "list"
+            summary: '{{fields.name}} - ${{fields.price}}'
             fields:
               - {label: "ID", name: "id", widget: "number", value_type: "int"}
               - {label: "Nombre", name: "name", widget: "string"}
@@ -265,8 +262,8 @@ collections:
               - {label: "Stock", name: "stock", widget: "number", value_type: "int"}
               - label: "Imágenes"
                 name: "images"
-                widget: "list"`n            summary: '{{fields.name}} - ${{fields.price}}'
-                field: {label: "Ruta", name: "path", widget: "image", media_folder: "/public/images"}
+                widget: "list"
+                field: {label: "Ruta", name: "path", widget: "string"}
               - {label: "Descripción", name: "description", widget: "text"}
       
       - label: "Conectividad"
@@ -274,8 +271,9 @@ collections:
         file: "src/data/categories/conectividad.json"
         fields:
           - label: "Productos"
-            name: "body"
-            widget: "list"`n            summary: '{{fields.name}} - ${{fields.price}}'
+            name: "products"
+            widget: "list"
+            summary: '{{fields.name}} - ${{fields.price}}'
             fields:
               - {label: "ID", name: "id", widget: "number", value_type: "int"}
               - {label: "Nombre", name: "name", widget: "string"}
@@ -286,8 +284,8 @@ collections:
               - {label: "Stock", name: "stock", widget: "number", value_type: "int"}
               - label: "Imágenes"
                 name: "images"
-                widget: "list"`n            summary: '{{fields.name}} - ${{fields.price}}'
-                field: {label: "Ruta", name: "path", widget: "image", media_folder: "/public/images"}
+                widget: "list"
+                field: {label: "Ruta", name: "path", widget: "string"}
               - {label: "Descripción", name: "description", widget: "text"}
       
       - label: "Monitores"
@@ -295,8 +293,9 @@ collections:
         file: "src/data/categories/monitores.json"
         fields:
           - label: "Productos"
-            name: "body"
-            widget: "list"`n            summary: '{{fields.name}} - ${{fields.price}}'
+            name: "products"
+            widget: "list"
+            summary: '{{fields.name}} - ${{fields.price}}'
             fields:
               - {label: "ID", name: "id", widget: "number", value_type: "int"}
               - {label: "Nombre", name: "name", widget: "string"}
@@ -307,8 +306,8 @@ collections:
               - {label: "Stock", name: "stock", widget: "number", value_type: "int"}
               - label: "Imágenes"
                 name: "images"
-                widget: "list"`n            summary: '{{fields.name}} - ${{fields.price}}'
-                field: {label: "Ruta", name: "path", widget: "image", media_folder: "/public/images"}
+                widget: "list"
+                field: {label: "Ruta", name: "path", widget: "string"}
               - {label: "Descripción", name: "description", widget: "text"}
       
       - label: "Portátiles"
@@ -316,8 +315,9 @@ collections:
         file: "src/data/categories/portatiles.json"
         fields:
           - label: "Productos"
-            name: "body"
-            widget: "list"`n            summary: '{{fields.name}} - ${{fields.price}}'
+            name: "products"
+            widget: "list"
+            summary: '{{fields.name}} - ${{fields.price}}'
             fields:
               - {label: "ID", name: "id", widget: "number", value_type: "int"}
               - {label: "Nombre", name: "name", widget: "string"}
@@ -328,8 +328,8 @@ collections:
               - {label: "Stock", name: "stock", widget: "number", value_type: "int"}
               - label: "Imágenes"
                 name: "images"
-                widget: "list"`n            summary: '{{fields.name}} - ${{fields.price}}'
-                field: {label: "Ruta", name: "path", widget: "image", media_folder: "/public/images"}
+                widget: "list"
+                field: {label: "Ruta", name: "path", widget: "string"}
               - {label: "Descripción", name: "description", widget: "text"}
       
       - label: "Placas de Video"
@@ -337,8 +337,9 @@ collections:
         file: "src/data/categories/placas_video.json"
         fields:
           - label: "Productos"
-            name: "body"
-            widget: "list"`n            summary: '{{fields.name}} - ${{fields.price}}'
+            name: "products"
+            widget: "list"
+            summary: '{{fields.name}} - ${{fields.price}}'
             fields:
               - {label: "ID", name: "id", widget: "number", value_type: "int"}
               - {label: "Nombre", name: "name", widget: "string"}
@@ -349,6 +350,6 @@ collections:
               - {label: "Stock", name: "stock", widget: "number", value_type: "int"}
               - label: "Imágenes"
                 name: "images"
-                widget: "list"`n            summary: '{{fields.name}} - ${{fields.price}}'
-                field: {label: "Ruta", name: "path", widget: "image", media_folder: "/public/images"}
+                widget: "list"
+                field: {label: "Ruta", name: "path", widget: "string"}
               - {label: "Descripción", name: "description", widget: "text"}
