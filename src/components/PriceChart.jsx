@@ -1,6 +1,6 @@
 import { usePriceHistory } from '../hooks/usePriceHistory';
-import { AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
 import { TrendingUp, TrendingDown, Minus } from 'lucide-react';
+import { AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
 
 /**
  * Gráfico de histórico de precios - Moderno y grande
