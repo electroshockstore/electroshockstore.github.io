@@ -1,6 +1,15 @@
+import { lazy, Suspense } from 'react';
 import { usePriceHistory } from '../hooks/usePriceHistory';
 import { TrendingUp, TrendingDown, Minus } from 'lucide-react';
-import { AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
+
+// Lazy load Recharts para evitar problemas de inicialización circular en producción
+const AreaChart = lazy(() => import('recharts').then(module => ({ default: module.AreaChart })));
+const Area = lazy(() => import('recharts').then(module => ({ default: module.Area })));
+const XAxis = lazy(() => import('recharts').then(module => ({ default: module.XAxis })));
+const YAxis = lazy(() => import('recharts').then(module => ({ default: module.YAxis })));
+const CartesianGrid = lazy(() => import('recharts').then(module => ({ default: module.CartesianGrid })));
+const Tooltip = lazy(() => import('recharts').then(module => ({ default: module.Tooltip })));
+const ResponsiveContainer = lazy(() => import('recharts').then(module => ({ default: module.ResponsiveContainer })));
 
 /**
  * Gráfico de histórico de precios - Moderno y grande
@@ -39,7 +48,7 @@ export function PriceChart({ productId }) {
       <div className="bg-gradient-to-br from-gray-50 to-white px-6 py-4 border-b border-gray-200">
         <div className="flex items-center justify-between">
           <h3 className="text-lg font-bold text-gray-900">
-             Histórico de Precios
+            📊 Histórico de Precios
           </h3>
           
           {/* Badge grande y atractivo */}
@@ -63,64 +72,70 @@ export function PriceChart({ productId }) {
         </div>
       </div>
 
-      {/* Gráfico grande */}
+      {/* Gráfico grande con Suspense */}
       <div className="p-6 bg-gradient-to-br from-gray-50 to-white">
-        <ResponsiveContainer width="100%" height={300}>
-          <AreaChart data={chartData} margin={{ top: 10, right: 10, left: 10, bottom: 10 }}>
-            <defs>
-              <linearGradient id={`gradient-${productId}`} x1="0" y1="0" x2="0" y2="1">
-                <stop offset="5%" stopColor={lineColor} stopOpacity={0.4}/>
-                <stop offset="95%" stopColor={lineColor} stopOpacity={0.05}/>
-              </linearGradient>
-            </defs>
-            <CartesianGrid strokeDasharray="3 3" stroke="#e5e7eb" vertical={false} />
-            <XAxis 
-              dataKey="fecha" 
-              tick={{ fontSize: 12, fill: '#6b7280', fontWeight: 500 }}
-              stroke="#d1d5db"
-              tickLine={false}
-            />
-            <YAxis 
-              tickFormatter={formatPrice}
-              tick={{ fontSize: 12, fill: '#6b7280', fontWeight: 500 }}
-              stroke="#d1d5db"
-              tickLine={false}
-              width={60}
-            />
-            <Tooltip 
-              formatter={(value) => [`$${value.toLocaleString('es-AR')}`, 'Precio']}
-              contentStyle={{ 
-                backgroundColor: 'white', 
-                border: '2px solid #e5e7eb',
-                borderRadius: '12px',
-                fontSize: '14px',
-                fontWeight: '600',
-                padding: '12px',
-                boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1)'
-              }}
-              labelStyle={{ fontWeight: 'bold', color: '#374151' }}
-            />
-            <Area 
-              type="stepAfter" 
-              dataKey="precio" 
-              stroke={lineColor} 
-              strokeWidth={3}
-              fill={`url(#gradient-${productId})`}
-              dot={{ 
-                fill: lineColor, 
-                strokeWidth: 3, 
-                r: 5, 
-                stroke: 'white',
-                filter: 'drop-shadow(0 2px 4px rgba(0,0,0,0.1))'
-              }}
-              activeDot={{ 
-                r: 7,
-                strokeWidth: 3,
-                filter: 'drop-shadow(0 4px 6px rgba(0,0,0,0.2))'
-              }}
-            />
-          </AreaChart>
-        </ResponsiveContainer>
+        <Suspense fallback={
+          <div className="flex items-center justify-center h-[300px]">
+            <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-gray-900"></div>
+          </div>
+        }>
+          <ResponsiveContainer width="100%" height={300}>
+            <AreaChart data={chartData} margin={{ top: 10, right: 10, left: 10, bottom: 10 }}>
+              <defs>
+                <linearGradient id={`gradient-${productId}`} x1="0" y1="0" x2="0" y2="1">
+                  <stop offset="5%" stopColor={lineColor} stopOpacity={0.4}/>
+                  <stop offset="95%" stopColor={lineColor} stopOpacity={0.05}/>
+                </linearGradient>
+              </defs>
+              <CartesianGrid strokeDasharray="3 3" stroke="#e5e7eb" vertical={false} />
+              <XAxis 
+                dataKey="fecha" 
+                tick={{ fontSize: 12, fill: '#6b7280', fontWeight: 500 }}
+                stroke="#d1d5db"
+                tickLine={false}
+              />
+              <YAxis 
+                tickFormatter={formatPrice}
+                tick={{ fontSize: 12, fill: '#6b7280', fontWeight: 500 }}
+                stroke="#d1d5db"
+                tickLine={false}
+                width={60}
+              />
+              <Tooltip 
+                formatter={(value) => [`$${value.toLocaleString('es-AR')}`, 'Precio']}
+                contentStyle={{ 
+                  backgroundColor: 'white', 
+                  border: '2px solid #e5e7eb',
+                  borderRadius: '12px',
+                  fontSize: '14px',
+                  fontWeight: '600',
+                  padding: '12px',
+                  boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1)'
+                }}
+                labelStyle={{ fontWeight: 'bold', color: '#374151' }}
+              />
+              <Area 
+                type="stepAfter" 
+                dataKey="precio" 
+                stroke={lineColor} 
+                strokeWidth={3}
+                fill={`url(#gradient-${productId})`}
+                dot={{ 
+                  fill: lineColor, 
+                  strokeWidth: 3, 
+                  r: 5, 
+                  stroke: 'white',
+                  filter: 'drop-shadow(0 2px 4px rgba(0,0,0,0.1))'
+                }}
+                activeDot={{ 
+                  r: 7,
+                  strokeWidth: 3,
+                  filter: 'drop-shadow(0 4px 6px rgba(0,0,0,0.2))'
+                }}
+              />
+            </AreaChart>
+          </ResponsiveContainer>
+        </Suspense>
       </div>
     </div>
   );
