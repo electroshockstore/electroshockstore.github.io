@@ -218,7 +218,7 @@ export const memoriasProducts = [
   },
   {
     id: 409,
-    name: "Adata Xpg DDR4 D35g Spectrix 16gb RGB EXPO/XMP",
+    name: "Adata Xpg DDR4 D35g Spectrix 16gb RGB EXPO/XMP C16",
     brand: "XPG",
     model: "Spectrix D35G",
     category: "Memorias RAM",
@@ -231,17 +231,18 @@ export const memoriasProducts = [
     specifications: {
       tipoMemoriaRAM: "DDR4",
       rgb: "Sí",
-      voltaje: "1.35 V"
+      voltaje: "1.35 V",
+      cl: "16"
     }
   },
   {
     id: 410,
-    name: "Adata Xpg DDR4 16gb Spectrix D35 RGB White EXPO/XMP",
+    name: "Adata Xpg DDR4 16gb Spectrix D35 RGB White EXPO/XMP C16",
     brand: "XPG",
     model: "Spectrix D35",
     category: "Memorias RAM",
     manufacturerUrl: "https://www.xpg.com/en/category/memory",
-    price: 190000,
+    price: 200000,
     stock: 2,
     realPowerConsumption: "4.0W - 5.0W",
     images: ["/images/ram/spectrix_d35_white.webp"],
@@ -249,7 +250,8 @@ export const memoriasProducts = [
     specifications: {
       tipoMemoriaRAM: "DDR4",
       rgb: "Sí",
-      voltaje: "1.35V"
+      voltaje: "1.35V",
+      cl: "16"
     }
   },
   {

@@ -9,40 +9,5 @@
 </head>
 <body>
   <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
-  <script>
-    // Custom formatter para archivos JavaScript con export
-    CMS.registerCustomFormat('js-export', 'js', {
-      fromFile: function(text) {
-        // Extraer el array exportado del archivo JS
-        // Busca: export const nombreProducts = [...]
-        const match = text.match(/export\s+const\s+\w+Products\s*=\s*(\[[\s\S]*\]);?/);
-        if (match && match[1]) {
-          try {
-            // Evaluar el array de forma segura
-            const arrayStr = match[1];
-            const products = eval('(' + arrayStr + ')');
-            return { products: products };
-          } catch (e) {
-            console.error('Error parsing JS file:', e);
-            return { products: [] };
-          }
-        }
-        return { products: [] };
-      },
-      toFile: function(data) {
-        // Convertir de vuelta a formato JS con export
-        const products = data.products || [];
-        const varName = data.varName || 'products';
-        
-        // Generar el código JavaScript
-        let jsCode = `// Archivo generado por Decap CMS\n`;
-        jsCode += `export const ${varName}Products = `;
-        jsCode += JSON.stringify(products, null, 2);
-        jsCode += ';\n';
-        
-        return jsCode;
-      }
-    });
-  </script>
 </body>
 </html>

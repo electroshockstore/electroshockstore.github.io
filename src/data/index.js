@@ -1,21 +1,21 @@
 // Lazy loading de categorías de productos
 export const loadCategory = async (categoryName) => {
   const categoryMap = {
-    'Procesadores': () => import('./categories/procesadores.js'),
-    'Motherboards': () => import('./categories/motherboards.js'),
-    'Memorias RAM': () => import('./categories/memorias.js'),
-    'Almacenamiento': () => import('./categories/almacenamiento.js'),
-    'Fuentes': () => import('./categories/fuentes.js'),
-    'Refrigeración': () => import('./categories/refrigeracion.js'),
-    'Teclados': () => import('./categories/teclados.js'),
-    'Mouse': () => import('./categories/mouse.js'),
-    'Auriculares': () => import('./categories/auriculares.js'),
-    'Joystick': () => import('./categories/joystick.js'),
-    'Conectividad': () => import('./categories/conectividad.js'),
-    'Monitores': () => import('./categories/monitores.js'),
-    'Portátiles': () => import('./categories/portatiles.js'),
-    'Placas de Video': () => import('./categories/placas_video.js'),
-    'Mayorista': () => import('./categories/mayorista.js')
+    'Procesadores': () => import('./categories/procesadores.json'),
+    'Motherboards': () => import('./categories/motherboards.json'),
+    'Memorias RAM': () => import('./categories/memorias.json'),
+    'Almacenamiento': () => import('./categories/almacenamiento.json'),
+    'Fuentes': () => import('./categories/fuentes.json'),
+    'Refrigeración': () => import('./categories/refrigeracion.json'),
+    'Teclados': () => import('./categories/teclados.json'),
+    'Mouse': () => import('./categories/mouse.json'),
+    'Auriculares': () => import('./categories/auriculares.json'),
+    'Joystick': () => import('./categories/joystick.json'),
+    'Conectividad': () => import('./categories/conectividad.json'),
+    'Monitores': () => import('./categories/monitores.json'),
+    'Portátiles': () => import('./categories/portatiles.json'),
+    'Placas de Video': () => import('./categories/placas_video.json'),
+    'Mayorista': () => import('./categories/mayorista.json')
   };
 
   const loader = categoryMap[categoryName];
@@ -23,8 +23,8 @@ export const loadCategory = async (categoryName) => {
 
   try {
     const module = await loader();
-    const key = Object.keys(module).find(k => k.includes('Products'));
-    return module[key] || [];
+    // JSON imports return the array directly as default export
+    return module.default || [];
   } catch (error) {
     console.error(`Error loading category ${categoryName}:`, error);
     return [];
@@ -32,21 +32,21 @@ export const loadCategory = async (categoryName) => {
 };
 
 // Eager loading para uso inmediato (mantener compatibilidad)
-import { procesadoresProducts } from './categories/procesadores.js';
-import { motherboardsProducts } from './categories/motherboards.js';
-import { memoriasProducts } from './categories/memorias.js';
-import { almacenamientoProducts } from './categories/almacenamiento.js';
-import { fuentesProducts } from './categories/fuentes.js';
-import { refrigeracionProducts } from './categories/refrigeracion.js';
-import { tecladosProducts } from './categories/teclados.js';
-import { mouseProducts } from './categories/mouse.js';
-import { auricularesProducts } from './categories/auriculares.js';
-import { joystickProducts } from './categories/joystick.js';
-import { conectividadProducts } from './categories/conectividad.js';
-import { monitoresProducts } from './categories/monitores.js';
-import { portatilesProducts } from './categories/portatiles.js';
-import { placasVideoProducts } from './categories/placas_video.js';
-import { mayoristaProducts } from './categories/mayorista.js';
+import procesadoresProducts from './categories/procesadores.json';
+import motherboardsProducts from './categories/motherboards.json';
+import memoriasProducts from './categories/memorias.json';
+import almacenamientoProducts from './categories/almacenamiento.json';
+import fuentesProducts from './categories/fuentes.json';
+import refrigeracionProducts from './categories/refrigeracion.json';
+import tecladosProducts from './categories/teclados.json';
+import mouseProducts from './categories/mouse.json';
+import auricularesProducts from './categories/auriculares.json';
+import joystickProducts from './categories/joystick.json';
+import conectividadProducts from './categories/conectividad.json';
+import monitoresProducts from './categories/monitores.json';
+import portatilesProducts from './categories/portatiles.json';
+import placasVideoProducts from './categories/placas_video.json';
+import mayoristaProducts from './categories/mayorista.json';
 import { extendProductsWithCompatibility } from './compatibility/index.js';
 
 // Extend products with compatibility data

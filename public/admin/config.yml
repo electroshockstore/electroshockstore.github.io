@@ -22,19 +22,17 @@ public_folder: "/images"
 publish_mode: editorial_workflow
 locale: 'es'
 
-# Colecciones - Archivos únicos por categoría
+# Colecciones - Archivos JSON
 collections:
   - name: "productos"
     label: "Productos"
     files:
       - label: "Procesadores"
         name: "procesadores"
-        file: "src/data/categories/procesadores.js"
-        format: "js-export"
+        file: "src/data/categories/procesadores.json"
         fields:
-          - {label: "Variable Name", name: "varName", widget: "hidden", default: "procesadores"}
           - label: "Productos"
-            name: "products"
+            name: "body"
             widget: "list"
             fields:
               - {label: "ID", name: "id", widget: "number", value_type: "int"}
@@ -49,28 +47,27 @@ collections:
               - label: "Imágenes"
                 name: "images"
                 widget: "list"
-                field: {label: "Ruta", name: "path", widget: "string"}
+                field: {label: "Ruta", name: "path", widget: "image", media_folder: "/public/images"}
               - {label: "Descripción", name: "description", widget: "text"}
               - label: "Especificaciones"
                 name: "specifications"
                 widget: "object"
+                collapsed: true
                 fields:
-                  - {label: "Marca", name: "marca", widget: "string"}
-                  - {label: "Modelo", name: "modelo", widget: "string"}
-                  - {label: "Socket", name: "socket", widget: "string"}
-                  - {label: "Núcleos", name: "nucleos", widget: "string"}
-                  - {label: "Hilos", name: "hilos", widget: "string"}
-                  - {label: "TDP", name: "tdp", widget: "string"}
-                  - {label: "Gráficos Integrados", name: "graficosIntegrados", widget: "string"}
+                  - {label: "Marca", name: "marca", widget: "string", required: false}
+                  - {label: "Modelo", name: "modelo", widget: "string", required: false}
+                  - {label: "Socket", name: "socket", widget: "string", required: false}
+                  - {label: "Núcleos", name: "nucleos", widget: "string", required: false}
+                  - {label: "Hilos", name: "hilos", widget: "string", required: false}
+                  - {label: "TDP", name: "tdp", widget: "string", required: false}
+                  - {label: "Gráficos Integrados", name: "graficosIntegrados", widget: "string", required: false}
       
       - label: "Memorias RAM"
         name: "memorias"
-        file: "src/data/categories/memorias.js"
-        format: "js-export"
+        file: "src/data/categories/memorias.json"
         fields:
-          - {label: "Variable Name", name: "varName", widget: "hidden", default: "memorias"}
           - label: "Productos"
-            name: "products"
+            name: "body"
             widget: "list"
             fields:
               - {label: "ID", name: "id", widget: "number", value_type: "int"}
@@ -84,17 +81,25 @@ collections:
               - label: "Imágenes"
                 name: "images"
                 widget: "list"
-                field: {label: "Ruta", name: "path", widget: "string"}
+                field: {label: "Ruta", name: "path", widget: "image", media_folder: "/public/images"}
               - {label: "Descripción", name: "description", widget: "text"}
+              - label: "Especificaciones"
+                name: "specifications"
+                widget: "object"
+                collapsed: true
+                fields:
+                  - {label: "Marca", name: "marca", widget: "string", required: false}
+                  - {label: "Modelo", name: "modelo", widget: "string", required: false}
+                  - {label: "Tipo", name: "tipo", widget: "string", required: false}
+                  - {label: "Capacidad", name: "capacidad", widget: "string", required: false}
+                  - {label: "Velocidad", name: "velocidad", widget: "string", required: false}
       
       - label: "Almacenamiento"
         name: "almacenamiento"
-        file: "src/data/categories/almacenamiento.js"
-        format: "js-export"
+        file: "src/data/categories/almacenamiento.json"
         fields:
-          - {label: "Variable Name", name: "varName", widget: "hidden", default: "almacenamiento"}
           - label: "Productos"
-            name: "products"
+            name: "body"
             widget: "list"
             fields:
               - {label: "ID", name: "id", widget: "number", value_type: "int"}
@@ -108,17 +113,15 @@ collections:
               - label: "Imágenes"
                 name: "images"
                 widget: "list"
-                field: {label: "Ruta", name: "path", widget: "string"}
+                field: {label: "Ruta", name: "path", widget: "image", media_folder: "/public/images"}
               - {label: "Descripción", name: "description", widget: "text"}
       
       - label: "Motherboards"
         name: "motherboards"
-        file: "src/data/categories/motherboards.js"
-        format: "js-export"
+        file: "src/data/categories/motherboards.json"
         fields:
-          - {label: "Variable Name", name: "varName", widget: "hidden", default: "motherboards"}
           - label: "Productos"
-            name: "products"
+            name: "body"
             widget: "list"
             fields:
               - {label: "ID", name: "id", widget: "number", value_type: "int"}
@@ -132,17 +135,15 @@ collections:
               - label: "Imágenes"
                 name: "images"
                 widget: "list"
-                field: {label: "Ruta", name: "path", widget: "string"}
+                field: {label: "Ruta", name: "path", widget: "image", media_folder: "/public/images"}
               - {label: "Descripción", name: "description", widget: "text"}
       
       - label: "Mouse"
         name: "mouse"
-        file: "src/data/categories/mouse.js"
-        format: "js-export"
+        file: "src/data/categories/mouse.json"
         fields:
-          - {label: "Variable Name", name: "varName", widget: "hidden", default: "mouse"}
           - label: "Productos"
-            name: "products"
+            name: "body"
             widget: "list"
             fields:
               - {label: "ID", name: "id", widget: "number", value_type: "int"}
@@ -156,17 +157,15 @@ collections:
               - label: "Imágenes"
                 name: "images"
                 widget: "list"
-                field: {label: "Ruta", name: "path", widget: "string"}
+                field: {label: "Ruta", name: "path", widget: "image", media_folder: "/public/images"}
               - {label: "Descripción", name: "description", widget: "text"}
       
       - label: "Teclados"
         name: "teclados"
-        file: "src/data/categories/teclados.js"
-        format: "js-export"
+        file: "src/data/categories/teclados.json"
         fields:
-          - {label: "Variable Name", name: "varName", widget: "hidden", default: "teclados"}
           - label: "Productos"
-            name: "products"
+            name: "body"
             widget: "list"
             fields:
               - {label: "ID", name: "id", widget: "number", value_type: "int"}
@@ -180,17 +179,15 @@ collections:
               - label: "Imágenes"
                 name: "images"
                 widget: "list"
-                field: {label: "Ruta", name: "path", widget: "string"}
+                field: {label: "Ruta", name: "path", widget: "image", media_folder: "/public/images"}
               - {label: "Descripción", name: "description", widget: "text"}
       
       - label: "Auriculares"
         name: "auriculares"
-        file: "src/data/categories/auriculares.js"
-        format: "js-export"
+        file: "src/data/categories/auriculares.json"
         fields:
-          - {label: "Variable Name", name: "varName", widget: "hidden", default: "auriculares"}
           - label: "Productos"
-            name: "products"
+            name: "body"
             widget: "list"
             fields:
               - {label: "ID", name: "id", widget: "number", value_type: "int"}
@@ -204,5 +201,152 @@ collections:
               - label: "Imágenes"
                 name: "images"
                 widget: "list"
-                field: {label: "Ruta", name: "path", widget: "string"}
+                field: {label: "Ruta", name: "path", widget: "image", media_folder: "/public/images"}
+              - {label: "Descripción", name: "description", widget: "text"}
+      
+      - label: "Fuentes"
+        name: "fuentes"
+        file: "src/data/categories/fuentes.json"
+        fields:
+          - label: "Productos"
+            name: "body"
+            widget: "list"
+            fields:
+              - {label: "ID", name: "id", widget: "number", value_type: "int"}
+              - {label: "Nombre", name: "name", widget: "string"}
+              - {label: "Marca", name: "brand", widget: "string"}
+              - {label: "Modelo", name: "model", widget: "string"}
+              - {label: "Categoría", name: "category", widget: "hidden", default: "Fuentes"}
+              - {label: "Precio", name: "price", widget: "number", value_type: "int"}
+              - {label: "Stock", name: "stock", widget: "number", value_type: "int"}
+              - label: "Imágenes"
+                name: "images"
+                widget: "list"
+                field: {label: "Ruta", name: "path", widget: "image", media_folder: "/public/images"}
+              - {label: "Descripción", name: "description", widget: "text"}
+      
+      - label: "Refrigeración"
+        name: "refrigeracion"
+        file: "src/data/categories/refrigeracion.json"
+        fields:
+          - label: "Productos"
+            name: "body"
+            widget: "list"
+            fields:
+              - {label: "ID", name: "id", widget: "number", value_type: "int"}
+              - {label: "Nombre", name: "name", widget: "string"}
+              - {label: "Marca", name: "brand", widget: "string"}
+              - {label: "Modelo", name: "model", widget: "string"}
+              - {label: "Categoría", name: "category", widget: "hidden", default: "Refrigeración"}
+              - {label: "Precio", name: "price", widget: "number", value_type: "int"}
+              - {label: "Stock", name: "stock", widget: "number", value_type: "int"}
+              - label: "Imágenes"
+                name: "images"
+                widget: "list"
+                field: {label: "Ruta", name: "path", widget: "image", media_folder: "/public/images"}
+              - {label: "Descripción", name: "description", widget: "text"}
+      
+      - label: "Joystick"
+        name: "joystick"
+        file: "src/data/categories/joystick.json"
+        fields:
+          - label: "Productos"
+            name: "body"
+            widget: "list"
+            fields:
+              - {label: "ID", name: "id", widget: "number", value_type: "int"}
+              - {label: "Nombre", name: "name", widget: "string"}
+              - {label: "Marca", name: "brand", widget: "string"}
+              - {label: "Modelo", name: "model", widget: "string"}
+              - {label: "Categoría", name: "category", widget: "hidden", default: "Joystick"}
+              - {label: "Precio", name: "price", widget: "number", value_type: "int"}
+              - {label: "Stock", name: "stock", widget: "number", value_type: "int"}
+              - label: "Imágenes"
+                name: "images"
+                widget: "list"
+                field: {label: "Ruta", name: "path", widget: "image", media_folder: "/public/images"}
+              - {label: "Descripción", name: "description", widget: "text"}
+      
+      - label: "Conectividad"
+        name: "conectividad"
+        file: "src/data/categories/conectividad.json"
+        fields:
+          - label: "Productos"
+            name: "body"
+            widget: "list"
+            fields:
+              - {label: "ID", name: "id", widget: "number", value_type: "int"}
+              - {label: "Nombre", name: "name", widget: "string"}
+              - {label: "Marca", name: "brand", widget: "string"}
+              - {label: "Modelo", name: "model", widget: "string"}
+              - {label: "Categoría", name: "category", widget: "hidden", default: "Conectividad"}
+              - {label: "Precio", name: "price", widget: "number", value_type: "int"}
+              - {label: "Stock", name: "stock", widget: "number", value_type: "int"}
+              - label: "Imágenes"
+                name: "images"
+                widget: "list"
+                field: {label: "Ruta", name: "path", widget: "image", media_folder: "/public/images"}
+              - {label: "Descripción", name: "description", widget: "text"}
+      
+      - label: "Monitores"
+        name: "monitores"
+        file: "src/data/categories/monitores.json"
+        fields:
+          - label: "Productos"
+            name: "body"
+            widget: "list"
+            fields:
+              - {label: "ID", name: "id", widget: "number", value_type: "int"}
+              - {label: "Nombre", name: "name", widget: "string"}
+              - {label: "Marca", name: "brand", widget: "string"}
+              - {label: "Modelo", name: "model", widget: "string"}
+              - {label: "Categoría", name: "category", widget: "hidden", default: "Monitores"}
+              - {label: "Precio", name: "price", widget: "number", value_type: "int"}
+              - {label: "Stock", name: "stock", widget: "number", value_type: "int"}
+              - label: "Imágenes"
+                name: "images"
+                widget: "list"
+                field: {label: "Ruta", name: "path", widget: "image", media_folder: "/public/images"}
+              - {label: "Descripción", name: "description", widget: "text"}
+      
+      - label: "Portátiles"
+        name: "portatiles"
+        file: "src/data/categories/portatiles.json"
+        fields:
+          - label: "Productos"
+            name: "body"
+            widget: "list"
+            fields:
+              - {label: "ID", name: "id", widget: "number", value_type: "int"}
+              - {label: "Nombre", name: "name", widget: "string"}
+              - {label: "Marca", name: "brand", widget: "string"}
+              - {label: "Modelo", name: "model", widget: "string"}
+              - {label: "Categoría", name: "category", widget: "hidden", default: "Portátiles"}
+              - {label: "Precio", name: "price", widget: "number", value_type: "int"}
+              - {label: "Stock", name: "stock", widget: "number", value_type: "int"}
+              - label: "Imágenes"
+                name: "images"
+                widget: "list"
+                field: {label: "Ruta", name: "path", widget: "image", media_folder: "/public/images"}
+              - {label: "Descripción", name: "description", widget: "text"}
+      
+      - label: "Placas de Video"
+        name: "placas_video"
+        file: "src/data/categories/placas_video.json"
+        fields:
+          - label: "Productos"
+            name: "body"
+            widget: "list"
+            fields:
+              - {label: "ID", name: "id", widget: "number", value_type: "int"}
+              - {label: "Nombre", name: "name", widget: "string"}
+              - {label: "Marca", name: "brand", widget: "string"}
+              - {label: "Modelo", name: "model", widget: "string"}
+              - {label: "Categoría", name: "category", widget: "hidden", default: "Placas de Video"}
+              - {label: "Precio", name: "price", widget: "number", value_type: "int"}
+              - {label: "Stock", name: "stock", widget: "number", value_type: "int"}
+              - label: "Imágenes"
+                name: "images"
+                widget: "list"
+                field: {label: "Ruta", name: "path", widget: "image", media_folder: "/public/images"}
               - {label: "Descripción", name: "description", widget: "text"}
