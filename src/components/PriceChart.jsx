@@ -1,15 +1,15 @@
 import { lazy, Suspense } from 'react';
 import { usePriceHistory } from '../hooks/usePriceHistory';
 import { TrendingUp, TrendingDown, Minus } from 'lucide-react';
-
-// Lazy load Recharts para evitar problemas de inicialización circular en producción
-const AreaChart = lazy(() => import('recharts').then(module => ({ default: module.AreaChart })));
-const Area = lazy(() => import('recharts').then(module => ({ default: module.Area })));
-const XAxis = lazy(() => import('recharts').then(module => ({ default: module.XAxis })));
-const YAxis = lazy(() => import('recharts').then(module => ({ default: module.YAxis })));
-const CartesianGrid = lazy(() => import('recharts').then(module => ({ default: module.CartesianGrid })));
-const Tooltip = lazy(() => import('recharts').then(module => ({ default: module.Tooltip })));
-const ResponsiveContainer = lazy(() => import('recharts').then(module => ({ default: module.ResponsiveContainer })));
+import {
+  AreaChart,
+  Area,
+  XAxis,
+  YAxis,
+  CartesianGrid,
+  Tooltip,
+  ResponsiveContainer
+} from 'recharts';
 
 /**
  * Gráfico de histórico de precios - Moderno y grande
@@ -72,14 +72,9 @@ export function PriceChart({ productId }) {
         </div>
       </div>
 
-      {/* Gráfico grande con Suspense */}
+      {/* Gráfico grande */}
       <div className="p-6 bg-gradient-to-br from-gray-50 to-white">
-        <Suspense fallback={
-          <div className="flex items-center justify-center h-[300px]">
-            <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-gray-900"></div>
-          </div>
-        }>
-          <ResponsiveContainer width="100%" height={300}>
+        <ResponsiveContainer width="100%" height={300}>
             <AreaChart data={chartData} margin={{ top: 10, right: 10, left: 10, bottom: 10 }}>
               <defs>
                 <linearGradient id={`gradient-${productId}`} x1="0" y1="0" x2="0" y2="1">
@@ -135,7 +130,6 @@ export function PriceChart({ productId }) {
               />
             </AreaChart>
           </ResponsiveContainer>
-        </Suspense>
       </div>
     </div>
   );
