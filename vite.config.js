@@ -21,6 +21,10 @@ export default defineConfig({
             if (id.includes('lucide-react')) {
               return 'lucide-icons';
             }
+            // IMPORTANTE: Recharts debe ir en su propio chunk para evitar dependencias circulares
+            if (id.includes('recharts')) {
+              return 'recharts';
+            }
             return 'vendor';
           }
           
@@ -47,14 +51,18 @@ export default defineConfig({
     cssCodeSplit: true,
     sourcemap: false,
     target: 'es2015',
-    reportCompressedSize: false // Más rápido en build
+    reportCompressedSize: false,
+    commonjsOptions: {
+      // Ayuda con dependencias CJS como las de recharts
+      transformMixedEsModules: true
+    }
   },
   server: {
     port: 3000,
     open: true
   },
   optimizeDeps: {
-    include: ['react', 'react-dom', 'react-router-dom', 'framer-motion'],
+    include: ['react', 'react-dom', 'react-router-dom', 'framer-motion', 'recharts'],
     exclude: []
   }
 })
