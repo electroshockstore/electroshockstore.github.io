@@ -1,0 +1,1481 @@
+{
+  "100": {
+    "name": "Adata XPG Core Reactor II VE 850W - 80 Plus Gold Modular",
+    "h": [
+      [
+        1768571377217,
+        160000
+      ]
+    ]
+  },
+  "101": {
+    "name": "Gigabyte GP-UD750GM - 750W 80 Plus Gold Modular",
+    "h": [
+      [
+        1768571377217,
+        150000
+      ]
+    ]
+  },
+  "102": {
+    "name": "XPG Pylon 750W - 80 Plus Bronze",
+    "h": [
+      [
+        1768571377217,
+        90000
+      ]
+    ]
+  },
+  "103": {
+    "name": "Gigabyte GP-P650SS - 650W 80 Plus Gold",
+    "h": [
+      [
+        1768571377217,
+        80000
+      ]
+    ]
+  },
+  "104": {
+    "name": "Gigabyte P750BS - 750W 80 Plus Bronze",
+    "h": [
+      [
+        1768571377217,
+        90000
+      ]
+    ]
+  },
+  "105": {
+    "name": "Adata XPG Probe 700W - 80 Plus Bronze",
+    "h": [
+      [
+        1768571377217,
+        80000
+      ]
+    ]
+  },
+  "106": {
+    "name": "XPG Pylon 650W - 80 Plus Bronze",
+    "h": [
+      [
+        1768571377217,
+        70000
+      ]
+    ]
+  },
+  "107": {
+    "name": "Adata XPG Probe 600W - 80 Plus Bronze",
+    "h": [
+      [
+        1768571377217,
+        60000
+      ]
+    ]
+  },
+  "108": {
+    "name": "Thermaltake Smart 700W - 80 Plus White",
+    "h": [
+      [
+        1768571377217,
+        80000
+      ]
+    ]
+  },
+  "109": {
+    "name": "Thermaltake Smart  - 600W 80 Plus White",
+    "h": [
+      [
+        1768571377217,
+        70000
+      ]
+    ]
+  },
+  "110": {
+    "name": "Thermaltake TR2 TR2-600NL2NC - 600W",
+    "h": [
+      [
+        1768571377217,
+        70000
+      ]
+    ]
+  },
+  "111": {
+    "name": "Aureox ARXGU-80PBZ-550W - Unlimited Series 80 Plus",
+    "h": [
+      [
+        1768571377217,
+        60000
+      ]
+    ]
+  },
+  "112": {
+    "name": "Gigabyte P550B - 550W 80 Plus Bronze",
+    "h": [
+      [
+        1768571377217,
+        70000
+      ]
+    ]
+  },
+  "113": {
+    "name": "Aureox ARXGP-600W - Powerful Series",
+    "h": [
+      [
+        1768571377217,
+        55000
+      ]
+    ]
+  },
+  "114": {
+    "name": "Gigabyte GP-P450B - 450W 80 Plus Bronze",
+    "h": [
+      [
+        1768571377217,
+        55000
+      ]
+    ]
+  },
+  "200": {
+    "name": "Adata Legend 710 1TB - M.2 NVMe Gen3",
+    "h": [
+      [
+        1768571377217,
+        200000
+      ]
+    ]
+  },
+  "201": {
+    "name": "NVME XPG Spectrix S20G 500GB RGB",
+    "h": [
+      [
+        1768571377217,
+        120000
+      ]
+    ]
+  },
+  "202": {
+    "name": "Lexar NM620 1TB - M.2 NVMe Gen3",
+    "h": [
+      [
+        1768571377217,
+        200000
+      ]
+    ]
+  },
+  "203": {
+    "name": "Kingston NV3 1TB - M.2 NVMe Gen4",
+    "h": [
+      [
+        1768571377217,
+        220000
+      ]
+    ]
+  },
+  "204": {
+    "name": "Adata Legend 710 512GB - M.2 NVMe Gen3",
+    "h": [
+      [
+        1768571377217,
+        110000
+      ]
+    ]
+  },
+  "205": {
+    "name": "Kingston A400 960GB - SSD SATA III 2.5\"",
+    "h": [
+      [
+        1768571377217,
+        190000
+      ]
+    ]
+  },
+  "206": {
+    "name": "SSD SanDisk SSD Plus M.2 NVMe 1TB PCIe Gen3x4",
+    "h": [
+      [
+        1768571377217,
+        180000
+      ]
+    ]
+  },
+  "207": {
+    "name": "Kingston NV2 250GB, M.2 NVMe PCIe Generacion 4.0",
+    "h": [
+      [
+        1768571377217,
+        70000
+      ]
+    ]
+  },
+  "208": {
+    "name": "SSD Lexar NM620 512GB M.2 NVMe PCIe Gen3x4",
+    "h": [
+      [
+        1768571377217,
+        120000
+      ]
+    ]
+  },
+  "209": {
+    "name": "SSD Patriot Burst Elite 480GB SATA III 2.5\"",
+    "h": [
+      [
+        1768571377217,
+        100000
+      ]
+    ]
+  },
+  "210": {
+    "name": "SSD Hiksemi Wave 960GB SATA",
+    "h": [
+      [
+        1768571377217,
+        150000
+      ]
+    ]
+  },
+  "211": {
+    "name": "SSD Netac N535S SATA III 480GB 2.5\"",
+    "h": [
+      [
+        1768571377217,
+        90000
+      ]
+    ]
+  },
+  "212": {
+    "name": "SSD Western Digital Green 480GB SATA III 2.5\"",
+    "h": [
+      [
+        1768571377217,
+        90000
+      ]
+    ]
+  },
+  "213": {
+    "name": "SSD Patriot Burst Elite 960GB SATA3 2.5\"",
+    "h": [
+      [
+        1768571377217,
+        170000
+      ]
+    ]
+  },
+  "214": {
+    "name": "SSD Patriot Burst Elite 240GB SATA3 2.5\"",
+    "h": [
+      [
+        1768571377217,
+        60000
+      ]
+    ]
+  },
+  "215": {
+    "name": "Kingston A400 480GB - SSD SATA III 2.5\"",
+    "h": [
+      [
+        1768571377217,
+        90000
+      ]
+    ]
+  },
+  "216": {
+    "name": "Adata Swordfish 500GB - M.2 NVMe Gen3",
+    "h": [
+      [
+        1768571377217,
+        100000
+      ]
+    ]
+  },
+  "217": {
+    "name": "NVME Western Digital Green SN350 240GB",
+    "h": [
+      [
+        1768571377217,
+        50000
+      ]
+    ]
+  },
+  "218": {
+    "name": "NVME Western Digital Green SN350 480GB",
+    "h": [
+      [
+        1768571377217,
+        85000
+      ]
+    ]
+  },
+  "219": {
+    "name": "NVME Western Digital Green SN350 500GB",
+    "h": [
+      [
+        1768571377217,
+        90000
+      ]
+    ]
+  },
+  "220": {
+    "name": "SSD Adata SU650 256GB 2.5\" NAND 3D",
+    "h": [
+      [
+        1768571377217,
+        60000
+      ]
+    ]
+  },
+  "221": {
+    "name": "Externo Western Digital WD Elements 2TB",
+    "h": [
+      [
+        1768571377217,
+        170000
+      ]
+    ]
+  },
+  "222": {
+    "name": "Externo Western Digital WD Elements 1TB",
+    "h": [
+      [
+        1768571377217,
+        110000
+      ]
+    ]
+  },
+  "223": {
+    "name": "HDD Seagate SkyHawk 4TB para Seguridad SATA ST4000VX016",
+    "h": [
+      [
+        1768571377217,
+        130000
+      ]
+    ]
+  },
+  "303": {
+    "name": "AMD Ryzen 7 5700G AM4",
+    "h": [
+      [
+        1768571377217,
+        255000
+      ]
+    ]
+  },
+  "304": {
+    "name": "AMD Ryzen 5 7600 AM5",
+    "h": [
+      [
+        1768571377217,
+        315000
+      ]
+    ]
+  },
+  "305": {
+    "name": "AMD Ryzen 5 5500 AM4",
+    "h": [
+      [
+        1768571377217,
+        140000
+      ]
+    ]
+  },
+  "306": {
+    "name": "AMD Ryzen 5 5600GT AM4",
+    "h": [
+      [
+        1768571377217,
+        220000
+      ]
+    ]
+  },
+  "307": {
+    "name": "AMD Ryzen 5 8500G AM5 DDR5",
+    "h": [
+      [
+        1768571377217,
+        210000
+      ]
+    ]
+  },
+  "308": {
+    "name": "AMD Ryzen 5 8600G AM5 DDR5",
+    "h": [
+      [
+        1768571377217,
+        280000
+      ]
+    ]
+  },
+  "309": {
+    "name": "Intel Core i5-11400 LGA1200",
+    "h": [
+      [
+        1768571377217,
+        180000
+      ]
+    ]
+  },
+  "310": {
+    "name": "AMD Ryzen 5 8400F AM5",
+    "h": [
+      [
+        1768571377217,
+        210000
+      ]
+    ]
+  },
+  "311": {
+    "name": "AMD Ryzen 3 3200G AM4",
+    "h": [
+      [
+        1768571377217,
+        90000
+      ]
+    ]
+  },
+  "312": {
+    "name": "AMD Ryzen 5 4500 AM4",
+    "h": [
+      [
+        1768571377217,
+        90000
+      ]
+    ]
+  },
+  "313": {
+    "name": "AMD Athlon 3000G AM4",
+    "h": [
+      [
+        1768571377217,
+        55000
+      ]
+    ]
+  },
+  "400": {
+    "name": "Kingston Fury Beast DDR5 16GB 5600MHz CL40 EXPO/XMP",
+    "h": [
+      [
+        1768571377217,
+        300000
+      ],
+      [
+        1768572145924,
+        320000
+      ],
+      [
+        1768574084198,
+        300000
+      ],
+      [
+        1768574139899,
+        200000
+      ]
+    ]
+  },
+  "401": {
+    "name": "Patriot Viper Venom DDR5 16GB 6000MHz CL30 NO RGB EXPO/XMP ",
+    "h": [
+      [
+        1768571377217,
+        380000
+      ]
+    ]
+  },
+  "402": {
+    "name": "ADATA XPG Lancer Blade DDR5 16GB 6000mts CL30 EXPO/XMP",
+    "h": [
+      [
+        1768571377217,
+        340000
+      ]
+    ]
+  },
+  "403": {
+    "name": "NETAC Shadow 2 DDR5 16GB 4800MHz CL40",
+    "h": [
+      [
+        1768571377217,
+        290000
+      ]
+    ]
+  },
+  "404": {
+    "name": "NEO FORZA DDR5 16GB 5200 MMHz CL42",
+    "h": [
+      [
+        1768571377217,
+        220000
+      ]
+    ]
+  },
+  "405": {
+    "name": "Neo Forza DDR5 32GB 5200MHz CL42 UDIMM",
+    "h": [
+      [
+        1768571377217,
+        370000
+      ]
+    ]
+  },
+  "406": {
+    "name": "Adata DDR5 8GB 5600MHz UDIMM",
+    "h": [
+      [
+        1768571377217,
+        130000
+      ]
+    ]
+  },
+  "407": {
+    "name": "Netac Basic DDR5 8GB 4800MHz CL40",
+    "h": [
+      [
+        1768571377217,
+        130000
+      ]
+    ]
+  },
+  "408": {
+    "name": "ADATA XPG Gammix D35 DDR4 16GB 3200MHz EXPO/XMP",
+    "h": [
+      [
+        1768571377217,
+        190000
+      ]
+    ]
+  },
+  "409": {
+    "name": "Adata Xpg DDR4 D35g Spectrix 16gb RGB EXPO/XMP",
+    "h": [
+      [
+        1768571377217,
+        200000
+      ]
+    ]
+  },
+  "410": {
+    "name": "Adata Xpg DDR4 16gb Spectrix D35 RGB White EXPO/XMP",
+    "h": [
+      [
+        1768571377217,
+        190000
+      ]
+    ]
+  },
+  "411": {
+    "name": "NETAC Shadow DDR4 16GB 3200MHz",
+    "h": [
+      [
+        1768571377217,
+        150000
+      ]
+    ]
+  },
+  "412": {
+    "name": "HyperX Fury 16GB DDR4 2666MHz CL16",
+    "h": [
+      [
+        1768571377217,
+        160000
+      ]
+    ]
+  },
+  "413": {
+    "name": "Lexar 16GB DDR4 3200MHz UDIMM",
+    "h": [
+      [
+        1768571377217,
+        160000
+      ]
+    ]
+  },
+  "414": {
+    "name": "Patriot Signature DDR4 16GB 3200MHz",
+    "h": [
+      [
+        1768571377217,
+        140000
+      ]
+    ]
+  },
+  "415": {
+    "name": "NETAC BASIC DDR4 16GB 3200 MHZ C16",
+    "h": [
+      [
+        1768571377217,
+        120000
+      ]
+    ]
+  },
+  "416": {
+    "name": "ADATA DDR4 Premier 16GB 3200MHz",
+    "h": [
+      [
+        1768571377217,
+        140000
+      ]
+    ]
+  },
+  "417": {
+    "name": "Adata 4GB DDR4 2666 MHz SODIMM",
+    "h": [
+      [
+        1768571377217,
+        50000
+      ]
+    ]
+  },
+  "418": {
+    "name": "Adata Premier 8GB U-DIMM DDR3 1600MHz",
+    "h": [
+      [
+        1768571377217,
+        40000
+      ]
+    ]
+  },
+  "500": {
+    "name": "Logitech G305 Inalámbrico varios colores",
+    "h": [
+      [
+        1768571377217,
+        50000
+      ]
+    ]
+  },
+  "501": {
+    "name": "Logitech G203 Lightsync Varios colores",
+    "h": [
+      [
+        1768571377217,
+        25000
+      ]
+    ]
+  },
+  "502": {
+    "name": "Redragon Storm Pro M808-KS Negro Inalámbrico RGB",
+    "h": [
+      [
+        1768571377217,
+        40000
+      ]
+    ]
+  },
+  "503": {
+    "name": "Redragon Invader M719-RGB Negro",
+    "h": [
+      [
+        1768571377217,
+        20000
+      ]
+    ]
+  },
+  "504": {
+    "name": "Redragon Storm Elite M988 Negro",
+    "h": [
+      [
+        1768571377217,
+        35000
+      ]
+    ]
+  },
+  "505": {
+    "name": "Redragon Cobra White M711-W RGB",
+    "h": [
+      [
+        1768571377217,
+        25000
+      ]
+    ]
+  },
+  "506": {
+    "name": "Redragon Gainer M610 RGB",
+    "h": [
+      [
+        1768571377217,
+        20000
+      ]
+    ]
+  },
+  "507": {
+    "name": "Redragon K1ng M724 1K Negro Cableado",
+    "h": [
+      [
+        1768571377217,
+        20000
+      ]
+    ]
+  },
+  "508": {
+    "name": "Razer Deathadder V2 Mini Negro",
+    "h": [
+      [
+        1768571377217,
+        45000
+      ]
+    ]
+  },
+  "509": {
+    "name": "Redragon Griffin M607 RGB Negro",
+    "h": [
+      [
+        1768571377217,
+        15000
+      ]
+    ]
+  },
+  "510": {
+    "name": "Logitech M170 Rojo Inalámbrico",
+    "h": [
+      [
+        1768571377217,
+        10000
+      ]
+    ]
+  },
+  "600": {
+    "name": "ASUS TUF Gaming A620M-PLUS WiFi AM5",
+    "h": [
+      [
+        1768571377217,
+        190000
+      ]
+    ]
+  },
+  "601": {
+    "name": "Gigabyte A620M Gaming X DDR5 AM5",
+    "h": [
+      [
+        1768571377217,
+        170000
+      ]
+    ]
+  },
+  "602": {
+    "name": "ASUS Prime A520M-K AM4 DDR4",
+    "h": [
+      [
+        1768571377217,
+        80000
+      ]
+    ]
+  },
+  "603": {
+    "name": "Asus Prime B550M-K AM4 DDR4 PCIe 4.0",
+    "h": [
+      [
+        1768571377217,
+        110000
+      ]
+    ]
+  },
+  "604": {
+    "name": "Gigabyte B650M Gaming WiFi DDR5 AM5",
+    "h": [
+      [
+        1768571377217,
+        200000
+      ]
+    ]
+  },
+  "605": {
+    "name": "Gigabyte A620M H DDR5 AMD AM5",
+    "h": [
+      [
+        1768571377217,
+        120000
+      ]
+    ]
+  },
+  "606": {
+    "name": "ASUS Prime B450M-A II CSM AM4",
+    "h": [
+      [
+        1768571377217,
+        120000
+      ]
+    ]
+  },
+  "607": {
+    "name": "Gigabyte A520M K V2 UD DDR4 AM4",
+    "h": [
+      [
+        1768571377217,
+        80000
+      ]
+    ]
+  },
+  "608": {
+    "name": "Gigabyte B650M-H UD AMD AM5 DDR5",
+    "h": [
+      [
+        1768571377217,
+        145000
+      ]
+    ]
+  },
+  "609": {
+    "name": "ASUS Prime B460M-A R2.0 LGA1200",
+    "h": [
+      [
+        1768571377217,
+        180000
+      ]
+    ]
+  },
+  "698": {
+    "name": "Redragon Kumara K552W RGB Blanco",
+    "h": [
+      [
+        1768571377217,
+        50000
+      ]
+    ]
+  },
+  "699": {
+    "name": "Redragon Eisa Pro K686AK RGB Inalámbrico Diseño Anime",
+    "h": [
+      [
+        1768571377217,
+        100000
+      ]
+    ]
+  },
+  "700": {
+    "name": "Redragon Eisa K686WGB-RGB-MAX Inalambrico dongle ",
+    "h": [
+      [
+        1768571377217,
+        80000
+      ]
+    ]
+  },
+  "701": {
+    "name": "Logitech G413 - Mecánico Full Size RGB Alámbrico",
+    "h": [
+      [
+        1768571377217,
+        150000
+      ]
+    ]
+  },
+  "702": {
+    "name": "Redragon Fizz Pro K616 - Mecánico 60% RGB Inalámbrico",
+    "h": [
+      [
+        1768571377217,
+        55000
+      ]
+    ]
+  },
+  "703": {
+    "name": "Redragon S143 -Kit Teclado+ Mouse Mecánico RGB Alámbrico",
+    "h": [
+      [
+        1768571377217,
+        60000
+      ]
+    ]
+  },
+  "704": {
+    "name": "HyperX Alloy Core RGB - Membrana Full Size Alámbrico",
+    "h": [
+      [
+        1768571377217,
+        55000
+      ]
+    ]
+  },
+  "705": {
+    "name": "Redragon Fizz K617CT - Mecánico 60% RGB Alámbrico",
+    "h": [
+      [
+        1768571377217,
+        40000
+      ]
+    ]
+  },
+  "706": {
+    "name": "Redragon Horus Mini K632 - Mecánico 60% RGB Inalámbrico",
+    "h": [
+      [
+        1768571377217,
+        60000
+      ]
+    ]
+  },
+  "707": {
+    "name": "Redragon Ziggs K669 - Mecánico Full Size RGB Alámbrico",
+    "h": [
+      [
+        1768571377217,
+        45000
+      ]
+    ]
+  },
+  "708": {
+    "name": "Redragon Kumara K552 - Mecánico TKL RGB Alámbrico",
+    "h": [
+      [
+        1768571377217,
+        45000
+      ]
+    ]
+  },
+  "709": {
+    "name": "Razer Cyclosa + Abyssus - Kit 2x1 Retroiluminado Alámbrico",
+    "h": [
+      [
+        1768571377217,
+        70000
+      ]
+    ]
+  },
+  "710": {
+    "name": "Redragon S101-BA-Kit 3x1+RGB Alámbrico",
+    "h": [
+      [
+        1768571377217,
+        70000
+      ]
+    ]
+  },
+  "711": {
+    "name": "Logitech MK220 - Kit Teclado + Mouse Membrana Inalámbrico",
+    "h": [
+      [
+        1768571377217,
+        30000
+      ]
+    ]
+  },
+  "800": {
+    "name": "Redragon Ire Pro H848 Negro- Bluetooth Inalámbrico dongle",
+    "h": [
+      [
+        1768571377217,
+        65000
+      ]
+    ]
+  },
+  "801": {
+    "name": "Redragon Zeus Pro H510-PRO - Inalámbrico 7.1 USB/Bluetooth",
+    "h": [
+      [
+        1768571377217,
+        110000
+      ]
+    ]
+  },
+  "802": {
+    "name": "Redragon Zeus 2 H510 - Alámbrico 3.5mm Blanco",
+    "h": [
+      [
+        1768571377217,
+        80000
+      ]
+    ]
+  },
+  "803": {
+    "name": "Redragon Pandora 2 H350RGB-1 - USB 7.1 RGB Blanco",
+    "h": [
+      [
+        1768571377217,
+        70000
+      ]
+    ]
+  },
+  "804": {
+    "name": "Redragon Pelops H818 - Inalámbrico USB 7.1 RGB",
+    "h": [
+      [
+        1768571377217,
+        110000
+      ]
+    ]
+  },
+  "805": {
+    "name": "Razer Kraken X Console - Alámbrico 3.5mm. Consolas",
+    "h": [
+      [
+        1768571377217,
+        85000
+      ]
+    ]
+  },
+  "806": {
+    "name": "HyperX Cloud Stinger 2 - Alámbrico 3.5mm DTS:X",
+    "h": [
+      [
+        1768571377217,
+        70000
+      ]
+    ]
+  },
+  "807": {
+    "name": "Logitech G Series G435 - Inalámbrico Bluetooth/Dongle",
+    "h": [
+      [
+        1768571377217,
+        110000
+      ]
+    ]
+  },
+  "808": {
+    "name": "Razer Blackshark V2 X - Alámbrico 3.5mm 7.1 Verde",
+    "h": [
+      [
+        1768571377217,
+        80000
+      ]
+    ]
+  },
+  "809": {
+    "name": "HyperX Cloud Stinger 2 Core PS5 - Alámbrico 3.5mm Blanco",
+    "h": [
+      [
+        1768571377217,
+        75000
+      ]
+    ]
+  },
+  "810": {
+    "name": "Redragon Lamia 2 H320 - USB 7.1 RGB Blanco",
+    "h": [
+      [
+        1768571377217,
+        60000
+      ]
+    ]
+  },
+  "811": {
+    "name": "Skullcandy SLYR - Alámbrico 3.5mm Negro",
+    "h": [
+      [
+        1768571377217,
+        75000
+      ]
+    ]
+  },
+  "812": {
+    "name": "Trust GXT 307B Ravu - Alámbrico 3.5mm Negro/Azul",
+    "h": [
+      [
+        1768571377217,
+        40000
+      ]
+    ]
+  },
+  "813": {
+    "name": "Turtle Beach Recon 70 - Alámbrico 3.5mm Blanco PS5",
+    "h": [
+      [
+        1768571377217,
+        50000
+      ]
+    ]
+  },
+  "814": {
+    "name": "Motorola XT220 - Inalámbrico Bluetooth & Jack 3.5mm Negro",
+    "h": [
+      [
+        1768571377217,
+        45000
+      ]
+    ]
+  },
+  "815": {
+    "name": "Redragon Ire Pro Bluetooth Inalámbrico dongle",
+    "h": [
+      [
+        1768571377217,
+        65000
+      ]
+    ]
+  },
+  "900": {
+    "name": "Cámara Web HD Logitech C505",
+    "h": [
+      [
+        1768571377217,
+        50000
+      ]
+    ]
+  },
+  "901": {
+    "name": "Cámara web Redragon Fobos GW600 HD 30FPS color negro",
+    "h": [
+      [
+        1768571377217,
+        40000
+      ]
+    ]
+  },
+  "902": {
+    "name": "Adaptador Wifi USB 300 Mbps TP-Link TL-WN823N",
+    "h": [
+      [
+        1768571377217,
+        13000
+      ]
+    ]
+  },
+  "903": {
+    "name": "Tarjeta de Memoria Kingston Micro SD 64GB Clase 10",
+    "h": [
+      [
+        1768571377217,
+        11000
+      ]
+    ]
+  },
+  "904": {
+    "name": "Pendrive Kingston DataTraveler Exodia 64GB USB 3.2",
+    "h": [
+      [
+        1768571377217,
+        11000
+      ]
+    ]
+  },
+  "905": {
+    "name": "Kingston Micro SD 128GB Canvas Select Plus",
+    "h": [
+      [
+        1768571377217,
+        21000
+      ]
+    ]
+  },
+  "1000": {
+    "name": "Monitor LED Daewoo 19\" HD DWMGN19 HDMI/VGA",
+    "h": [
+      [
+        1768571377217,
+        120000
+      ]
+    ]
+  },
+  "1001": {
+    "name": "Samsung 24\" LED IPS 75Hz T35F",
+    "h": [
+      [
+        1768571377217,
+        200000
+      ]
+    ]
+  },
+  "1099": {
+    "name": "Sony DualSense PS5 Galactic Purple",
+    "h": [
+      [
+        1768571377217,
+        145000
+      ]
+    ]
+  },
+  "1100": {
+    "name": "Microsoft inalambrico Carbon Black PC/ANDROID/CONSOLA",
+    "h": [
+      [
+        1768571377217,
+        110000
+      ]
+    ]
+  },
+  "1101": {
+    "name": "Sony DualSense PS5 Cosmic Red",
+    "h": [
+      [
+        1768571377217,
+        130000
+      ]
+    ]
+  },
+  "1102": {
+    "name": "Sony DualSense PS5 White",
+    "h": [
+      [
+        1768571377217,
+        115000
+      ]
+    ]
+  },
+  "1103": {
+    "name": "Sony DualSense DualShock 4 V2 PS4",
+    "h": [
+      [
+        1768571377217,
+        90000
+      ]
+    ]
+  },
+  "1104": {
+    "name": "Microsoft inalambrico Robot White PC/ANDROID/CONSOLA",
+    "h": [
+      [
+        1768571377217,
+        100000
+      ]
+    ]
+  },
+  "1105": {
+    "name": "Microsoft inalambrico Shock Blue PC/ANDROID/CONSOLA",
+    "h": [
+      [
+        1768571377217,
+        100000
+      ]
+    ]
+  },
+  "1106": {
+    "name": "T-Dagger Scorpio Inalámbrico PC/ANDROID/CONSOLA",
+    "h": [
+      [
+        1768571377217,
+        40000
+      ]
+    ]
+  },
+  "1200": {
+    "name": "Aerocool Duo 12 Pro Kit 3 Fans RGB + Controladora",
+    "h": [
+      [
+        1768571377217,
+        60000
+      ]
+    ]
+  },
+  "1201": {
+    "name": "Formula V Oasis L240 - Watercooler ARGB Blanco 310W",
+    "h": [
+      [
+        1768571377217,
+        100000
+      ]
+    ]
+  },
+  "1202": {
+    "name": "Formula V Air Bridge Blanco ARGB x3 Fan",
+    "h": [
+      [
+        1768571377217,
+        50000
+      ]
+    ]
+  },
+  "1203": {
+    "name": "Cooler Master Hyper 420s ARGB Black",
+    "h": [
+      [
+        1768571377217,
+        45000
+      ]
+    ]
+  },
+  "1204": {
+    "name": "Cooler Master Hyper 411 Nano ARGB Black",
+    "h": [
+      [
+        1768571377217,
+        40000
+      ]
+    ]
+  },
+  "1205": {
+    "name": "Redragon CC-1013 - Air Cooler 120mm ARGB 180W",
+    "h": [
+      [
+        1768571377217,
+        45000
+      ]
+    ]
+  },
+  "1206": {
+    "name": "Cooler Master MF120 Lite ARGB Black",
+    "h": [
+      [
+        1768571377217,
+        10000
+      ]
+    ]
+  },
+  "1207": {
+    "name": "Formula V Ice Burg Plus ARGB 4P TDP 200W",
+    "h": [
+      [
+        1768571377217,
+        30000
+      ]
+    ]
+  },
+  "1300": {
+    "name": "Notebook HP Pavilion 15 Ryzen 7 3700U, 16GB 500gb nvme- SIN BATERIA",
+    "h": [
+      [
+        1768571377217,
+        650000
+      ]
+    ]
+  },
+  "1301": {
+    "name": "Notebook Lenovo IdeaPad 15TL05 i3-1115G4 pantalla tactil , impecable",
+    "h": [
+      [
+        1768571377217,
+        500000
+      ]
+    ]
+  },
+  "1302": {
+    "name": "Dell OptiPlex 3090 i5-10500 + Monitor Dell P2222H + Brazo VESA ",
+    "h": [
+      [
+        1768571377217,
+        550000
+      ]
+    ]
+  },
+  "1400": {
+    "name": "Nvidia GeForce Asus Dual RTX 3050 6GB OC PCIe 4.0",
+    "h": [
+      [
+        1768571377217,
+        350000
+      ]
+    ]
+  },
+  "1500": {
+    "name": "Logitech M170 Rojo Inalámbrico",
+    "h": [
+      [
+        1768571377217,
+        40000
+      ]
+    ]
+  },
+  "1501": {
+    "name": "Razer DeathAdder V2 Mini Negro",
+    "h": [
+      [
+        1768571377217,
+        120000
+      ]
+    ]
+  },
+  "1502": {
+    "name": "Redragon CC-1013 Air Cooler 120mm ARGB 180W",
+    "h": [
+      [
+        1768571377217,
+        110000
+      ]
+    ]
+  },
+  "1503": {
+    "name": "HyperX Alloy Core RGB Membrana Full Size Alámbrico",
+    "h": [
+      [
+        1768571377217,
+        135000
+      ]
+    ]
+  },
+  "1504": {
+    "name": "Redragon Kumara K552 Mecánico TKL RGB Alámbrico",
+    "h": [
+      [
+        1768571377217,
+        120000
+      ]
+    ]
+  },
+  "1505": {
+    "name": "Redragon S101-BA Kit 3x1 RGB Alámbrico",
+    "h": [
+      [
+        1768571377217,
+        100000
+      ]
+    ]
+  },
+  "1506": {
+    "name": "Razer Cyclosa + Abyssus Kit 2x1 Retroiluminado Alámbrico",
+    "h": [
+      [
+        1768571377217,
+        100000
+      ]
+    ]
+  },
+  "1507": {
+    "name": "Logitech MK220 Kit Teclado + Mouse Membrana Inalámbrico",
+    "h": [
+      [
+        1768571377217,
+        100000
+      ]
+    ]
+  },
+  "1508": {
+    "name": "Redragon Pandora 2 H350RGB-1 USB 7.1 RGB Blanco",
+    "h": [
+      [
+        1768571377217,
+        180000
+      ]
+    ]
+  },
+  "1509": {
+    "name": "ASUS Prime A520M-K AM4",
+    "h": [
+      [
+        1768571377217,
+        210000
+      ]
+    ]
+  },
+  "1510": {
+    "name": "T-Dagger Scorpio Inalámbrico PC/Android/Consola",
+    "h": [
+      [
+        1768571377217,
+        100000
+      ]
+    ]
+  },
+  "1511": {
+    "name": "Sony DualSense DualShock 4 V2 PS4",
+    "h": [
+      [
+        1768571377217,
+        240000
+      ]
+    ]
+  },
+  "1512": {
+    "name": "AMD Athlon 3000G AM4 con Gráfica Integrada Radeon Vega",
+    "h": [
+      [
+        1768571377217,
+        135000
+      ]
+    ]
+  },
+  "1513": {
+    "name": "Redragon Kumara K552 Mecánico TKL RGB Gaming",
+    "h": [
+      [
+        1768571377217,
+        120000
+      ]
+    ]
+  },
+  "1514": {
+    "name": "Logitech G203 Gaming RGB 8000 DPI",
+    "h": [
+      [
+        1768571377217,
+        100000
+      ]
+    ]
+  }
+}
