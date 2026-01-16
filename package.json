@@ -14,7 +14,8 @@
     "clean": "rm -rf dist node_modules/.vite",
     "analyze": "vite build --mode analyze",
     "setup:mcp": "node scripts/setup-mcp.js",
-    "optimize": "node scripts/optimize-all.js"
+    "optimize": "node scripts/optimize-all.js",
+    "save-prices": "node scripts/save-price-history.js"
   },
   "dependencies": {
     "autoprefixer": "^10.4.20",
@@ -24,7 +25,8 @@
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-router-dom": "^6.26.2",
-    "react-toastify": "^10.0.5"
+    "react-toastify": "^10.0.5",
+    "recharts": "^3.6.0"
   },
   "devDependencies": {
     "@eslint/js": "^9.9.0",

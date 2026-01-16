@@ -6,7 +6,7 @@ export const memoriasProducts = [
   // ========== DDR5 ==========
   {
     id: 400,
-    name: "Kingston Fury Beast DDR5 16GB 5600MHz CL40",
+    name: "Kingston Fury Beast DDR5 16GB 5600MHz CL40 EXPO/XMP",
     brand: "Kingston",
     model: "Fury Beast",
     category: "Memorias RAM",
@@ -39,7 +39,7 @@ export const memoriasProducts = [
   },
   {
     id: 401,
-    name: "Patriot Viper Venom DDR5 16GB 6000MHz CL30 NO RGB",
+    name: "Patriot Viper Venom DDR5 16GB 6000MHz CL30 NO RGB EXPO/XMP ",
     brand: "Patriot",
     model: "Viper Venom",
     category: "Memorias RAM",
@@ -70,7 +70,7 @@ export const memoriasProducts = [
   },
   {
     id: 402,
-    name: "ADATA XPG Lancer Blade DDR5 16GB 5600MHz",
+    name: "ADATA XPG Lancer Blade DDR5 16GB 6000mts CL30 EXPO/XMP",
     brand: "ADATA",
     model: "XPG Lancer Blade",
     category: "Memorias RAM",
@@ -84,7 +84,7 @@ export const memoriasProducts = [
       tipoMemoriaRAM: "DDR5",
       capacidad: "16 GB",
       velocidad: "5600 MHz",
-      voltaje: "1.25V",
+      voltaje: "1.35V",
       pmic: "Integrado (Power Management IC)"
     }
   },
@@ -112,7 +112,7 @@ export const memoriasProducts = [
     brand: "Neo Forza",
     model: "DDR5 5200",
     category: "Memorias RAM",
-    price: 230000,
+    price: 220000,
     stock: 2,
     realPowerConsumption: "2.4W - 3.0W",
     images: ["/images/ram/neo_forza_ddr5.webp"],
@@ -129,7 +129,7 @@ export const memoriasProducts = [
     brand: "Neo Forza",
     model: "NMUD532F82-5200JA10",
     category: "Memorias RAM",
-    price: 380000,
+    price: 370000,
     stock: 2,
     realPowerConsumption: "2.8W - 3.5W", // Mayor densidad de chips aumenta levemente el consumo
     images: ["/images/ram/neo_forza_ddr5.webp"],
@@ -200,7 +200,7 @@ export const memoriasProducts = [
   // ========== DDR4 PREMIUM (RGB y Disipadas) ==========
   {
     id: 408,
-    name: "ADATA XPG Gammix D35 DDR4 16GB 3200MHz",
+    name: "ADATA XPG Gammix D35 DDR4 16GB 3200MHz EXPO/XMP",
     brand: "ADATA",
     model: "XPG Gammix D35",
     category: "Memorias RAM",
@@ -218,7 +218,7 @@ export const memoriasProducts = [
   },
   {
     id: 409,
-    name: "Adata Xpg DDR4 D35g Spectrix 16gb RGB",
+    name: "Adata Xpg DDR4 D35g Spectrix 16gb RGB EXPO/XMP",
     brand: "XPG",
     model: "Spectrix D35G",
     category: "Memorias RAM",
@@ -236,7 +236,7 @@ export const memoriasProducts = [
   },
   {
     id: 410,
-    name: "Adata Xpg DDR4 16gb Spectrix D35 RGB White",
+    name: "Adata Xpg DDR4 16gb Spectrix D35 RGB White EXPO/XMP",
     brand: "XPG",
     model: "Spectrix D35",
     category: "Memorias RAM",

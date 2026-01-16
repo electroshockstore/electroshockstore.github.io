@@ -1,0 +1,2 @@
+# Este directorio contiene el histórico de precios
+# El archivo price-history.json se genera automáticamente con: npm run save-prices
