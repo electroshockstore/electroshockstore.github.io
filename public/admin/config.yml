@@ -1,4 +1,4 @@
-# Use DecapBridge classic auth (required)
+# Use DecapBridge classic auth
 backend:
   name: git-gateway
   repo: electroshockstore/electroshockstore.github.io
@@ -6,343 +6,189 @@ backend:
   identity_url: https://auth.decapbridge.com/sites/af5d7d9a-7b1b-43b5-b50b-b95646a676f2
   gateway_url: https://gateway.decapbridge.com
 
-# See who did what (optional)
 commit_messages:
-  create: Create {{collection}} "{{slug}}" - {{author-name}} <{{author-login}}> via DecapBridge
-  update: Update {{collection}} "{{slug}}" - {{author-name}} <{{author-login}}> via DecapBridge
-  delete: Delete {{collection}} "{{slug}}" - {{author-name}} <{{author-login}}> via DecapBridge
-  uploadMedia: Upload "{{path}}" - {{author-name}} <{{author-login}}> via DecapBridge
-  deleteMedia: Delete "{{path}}" - {{author-name}} <{{author-login}}> via DecapBridge
-  openAuthoring: Message {{message}} - {{author-name}} <{{author-login}}> via DecapBridge
+  create: Create {{collection}} "{{slug}}" - {{author-name}} via DecapBridge
+  update: Update {{collection}} "{{slug}}" - {{author-name}} via DecapBridge
+  delete: Delete {{collection}} "{{slug}}" - {{author-name}} via DecapBridge
+  uploadMedia: Upload "{{path}}" - {{author-name}} via DecapBridge
+  deleteMedia: Delete "{{path}}" - {{author-name}} via DecapBridge
 
-# Better Decap + Bridge logo (optional)
 logo_url: https://decapbridge.com/decapcms-with-bridge.svg
-
-# Add site links in Decap CMS (optional)
 site_url: https://www.jldev.com.ar
 
-# Configuración local para desarrollo (descomentar para trabajar localmente)
-# local_backend: true
+media_folder: "public/images"
+public_folder: "/images"
 
-# Configuración de medios
-media_folder: "public/images" # Donde se guardan las imágenes subidas
-public_folder: "/images" # Ruta pública de las imágenes
-
-# Configuración de publicación
-publish_mode: editorial_workflow # Permite draft/review/publish workflow
-
-# Idioma del CMS
+publish_mode: editorial_workflow
 locale: 'es'
 
-# Colecciones - Define los tipos de contenido que puedes editar
+# Colecciones - Archivos únicos por categoría
 collections:
-  # ============================================
-  # PRODUCTOS - PROCESADORES
-  # ============================================
-  - name: "procesadores"
-    label: "Procesadores"
-    label_singular: "Procesador"
-    folder: "src/data/categories"
-    identifier_field: "name"
-    extension: "js"
-    format: "frontmatter"
-    create: false # No crear nuevos archivos, solo editar existente
-    slug: "procesadores"
-    filter: {field: "category_type", value: "procesadores"}
-    fields:
-      - {label: "Tipo de Categoría", name: "category_type", widget: "hidden", default: "procesadores"}
-      - {label: "Título", name: "title", widget: "string", default: "Procesadores"}
-      - label: "Productos"
-        name: "products"
-        widget: "list"
+  - name: "productos"
+    label: "Productos"
+    files:
+      - label: "Procesadores"
+        name: "procesadores"
+        file: "src/data/categories/procesadores.js"
         fields:
-          - {label: "ID", name: "id", widget: "number", value_type: "int", min: 300, max: 399}
-          - {label: "Nombre", name: "name", widget: "string"}
-          - {label: "Marca", name: "brand", widget: "select", options: ["AMD", "Intel"]}
-          - {label: "Modelo", name: "model", widget: "string"}
-          - {label: "Categoría", name: "category", widget: "hidden", default: "Procesadores"}
-          - {label: "Precio", name: "price", widget: "number", value_type: "int"}
-          - {label: "Stock", name: "stock", widget: "number", value_type: "int", default: 0}
-          - {label: "Consumo Real", name: "realPowerConsumption", widget: "string", required: false}
-          - {label: "URL Fabricante", name: "manufacturerUrl", widget: "string", required: false}
-          - label: "Imágenes"
-            name: "images"
+          - label: "Productos"
+            name: "procesadoresProducts"
             widget: "list"
-            field: {label: "Ruta de Imagen", name: "image", widget: "string"}
-          - {label: "Descripción", name: "description", widget: "text"}
-          - label: "Especificaciones"
-            name: "specifications"
-            widget: "object"
             fields:
-              - {label: "Marca", name: "marca", widget: "string"}
-              - {label: "Línea", name: "linea", widget: "string", required: false}
-              - {label: "Modelo", name: "modelo", widget: "string"}
-              - {label: "Socket", name: "socket", widget: "string"}
-              - {label: "Núcleos", name: "nucleos", widget: "string"}
-              - {label: "Hilos", name: "hilos", widget: "string"}
-              - {label: "TDP", name: "tdp", widget: "string"}
-              - {label: "Gráficos Integrados", name: "graficosIntegrados", widget: "string"}
-              - {label: "Memoria RAM", name: "memoriaRAM", widget: "string", required: false}
-
-  # ============================================
-  # PRODUCTOS - MEMORIAS RAM
-  # ============================================
-  - name: "memorias"
-    label: "Memorias RAM"
-    label_singular: "Memoria RAM"
-    folder: "src/data/categories"
-    identifier_field: "name"
-    extension: "js"
-    format: "frontmatter"
-    create: false
-    slug: "memorias"
-    filter: {field: "category_type", value: "memorias"}
-    fields:
-      - {label: "Tipo de Categoría", name: "category_type", widget: "hidden", default: "memorias"}
-      - {label: "Título", name: "title", widget: "string", default: "Memorias RAM"}
-      - label: "Productos"
-        name: "products"
-        widget: "list"
+              - {label: "ID", name: "id", widget: "number", value_type: "int"}
+              - {label: "Nombre", name: "name", widget: "string"}
+              - {label: "Marca", name: "brand", widget: "string"}
+              - {label: "Modelo", name: "model", widget: "string"}
+              - {label: "Categoría", name: "category", widget: "hidden", default: "Procesadores"}
+              - {label: "Precio", name: "price", widget: "number", value_type: "int"}
+              - {label: "Stock", name: "stock", widget: "number", value_type: "int"}
+              - {label: "Consumo Real", name: "realPowerConsumption", widget: "string", required: false}
+              - {label: "URL Fabricante", name: "manufacturerUrl", widget: "string", required: false}
+              - label: "Imágenes"
+                name: "images"
+                widget: "list"
+                field: {label: "Ruta", name: "path", widget: "string"}
+              - {label: "Descripción", name: "description", widget: "text"}
+              - label: "Especificaciones"
+                name: "specifications"
+                widget: "object"
+                fields:
+                  - {label: "Marca", name: "marca", widget: "string"}
+                  - {label: "Modelo", name: "modelo", widget: "string"}
+                  - {label: "Socket", name: "socket", widget: "string"}
+                  - {label: "Núcleos", name: "nucleos", widget: "string"}
+                  - {label: "Hilos", name: "hilos", widget: "string"}
+                  - {label: "TDP", name: "tdp", widget: "string"}
+                  - {label: "Gráficos Integrados", name: "graficosIntegrados", widget: "string"}
+      
+      - label: "Memorias RAM"
+        name: "memorias"
+        file: "src/data/categories/memorias.js"
         fields:
-          - {label: "ID", name: "id", widget: "number", value_type: "int", min: 200, max: 299}
-          - {label: "Nombre", name: "name", widget: "string"}
-          - {label: "Marca", name: "brand", widget: "select", options: ["Kingston", "Corsair", "G.Skill", "Crucial", "Team Group", "ADATA", "Patriot"]}
-          - {label: "Modelo", name: "model", widget: "string"}
-          - {label: "Categoría", name: "category", widget: "hidden", default: "Memorias"}
-          - {label: "Precio", name: "price", widget: "number", value_type: "int"}
-          - {label: "Stock", name: "stock", widget: "number", value_type: "int", default: 0}
-          - {label: "Consumo de Energía", name: "powerConsumption", widget: "number", required: false}
-          - {label: "URL Fabricante", name: "manufacturerUrl", widget: "string", required: false}
-          - label: "Imágenes"
-            name: "images"
+          - label: "Productos"
+            name: "memoriasProducts"
             widget: "list"
-            field: {label: "Ruta de Imagen", name: "image", widget: "string"}
-          - {label: "Descripción", name: "description", widget: "text"}
-          - label: "Especificaciones"
-            name: "specifications"
-            widget: "object"
             fields:
-              - {label: "Marca", name: "marca", widget: "string"}
-              - {label: "Modelo", name: "modelo", widget: "string"}
-              - {label: "Tipo", name: "tipo", widget: "string"}
-              - {label: "Capacidad", name: "capacidad", widget: "string"}
-              - {label: "Velocidad", name: "velocidad", widget: "string"}
-              - {label: "Latencia", name: "latencia", widget: "string", required: false}
-
-  # ============================================
-  # PRODUCTOS - ALMACENAMIENTO
-  # ============================================
-  - name: "almacenamiento"
-    label: "Almacenamiento"
-    label_singular: "Dispositivo de Almacenamiento"
-    folder: "src/data/categories"
-    identifier_field: "name"
-    extension: "js"
-    format: "frontmatter"
-    create: false
-    slug: "almacenamiento"
-    filter: {field: "category_type", value: "almacenamiento"}
-    fields:
-      - {label: "Tipo de Categoría", name: "category_type", widget: "hidden", default: "almacenamiento"}
-      - {label: "Título", name: "title", widget: "string", default: "Almacenamiento"}
-      - label: "Productos"
-        name: "products"
-        widget: "list"
+              - {label: "ID", name: "id", widget: "number", value_type: "int"}
+              - {label: "Nombre", name: "name", widget: "string"}
+              - {label: "Marca", name: "brand", widget: "string"}
+              - {label: "Modelo", name: "model", widget: "string"}
+              - {label: "Categoría", name: "category", widget: "hidden", default: "Memorias"}
+              - {label: "Precio", name: "price", widget: "number", value_type: "int"}
+              - {label: "Stock", name: "stock", widget: "number", value_type: "int"}
+              - {label: "URL Fabricante", name: "manufacturerUrl", widget: "string", required: false}
+              - label: "Imágenes"
+                name: "images"
+                widget: "list"
+                field: {label: "Ruta", name: "path", widget: "string"}
+              - {label: "Descripción", name: "description", widget: "text"}
+      
+      - label: "Almacenamiento"
+        name: "almacenamiento"
+        file: "src/data/categories/almacenamiento.js"
         fields:
-          - {label: "ID", name: "id", widget: "number", value_type: "int", min: 100, max: 199}
-          - {label: "Nombre", name: "name", widget: "string"}
-          - {label: "Marca", name: "brand", widget: "select", options: ["Kingston", "Samsung", "Western Digital", "Seagate", "Crucial", "ADATA", "Gigabyte"]}
-          - {label: "Modelo", name: "model", widget: "string"}
-          - {label: "Categoría", name: "category", widget: "hidden", default: "Almacenamiento"}
-          - {label: "Precio", name: "price", widget: "number", value_type: "int"}
-          - {label: "Stock", name: "stock", widget: "number", value_type: "int", default: 0}
-          - {label: "Consumo de Energía", name: "powerConsumption", widget: "number", required: false}
-          - {label: "URL Fabricante", name: "manufacturerUrl", widget: "string", required: false}
-          - label: "Imágenes"
-            name: "images"
+          - label: "Productos"
+            name: "almacenamientoProducts"
             widget: "list"
-            field: {label: "Ruta de Imagen", name: "image", widget: "string"}
-          - {label: "Descripción", name: "description", widget: "text"}
-          - label: "Especificaciones"
-            name: "specifications"
-            widget: "object"
             fields:
-              - {label: "Marca", name: "marca", widget: "string"}
-              - {label: "Modelo", name: "modelo", widget: "string"}
-              - {label: "Tipo", name: "tipo", widget: "string"}
-              - {label: "Capacidad", name: "capacidad", widget: "string"}
-              - {label: "Interfaz", name: "interfaz", widget: "string", required: false}
-              - {label: "Velocidad Lectura", name: "velocidadLectura", widget: "string", required: false}
-              - {label: "Velocidad Escritura", name: "velocidadEscritura", widget: "string", required: false}
-
-  # ============================================
-  # PRODUCTOS - MOTHERBOARDS
-  # ============================================
-  - name: "motherboards"
-    label: "Motherboards"
-    label_singular: "Motherboard"
-    folder: "src/data/categories"
-    identifier_field: "name"
-    extension: "js"
-    format: "frontmatter"
-    create: false
-    slug: "motherboards"
-    filter: {field: "category_type", value: "motherboards"}
-    fields:
-      - {label: "Tipo de Categoría", name: "category_type", widget: "hidden", default: "motherboards"}
-      - {label: "Título", name: "title", widget: "string", default: "Motherboards"}
-      - label: "Productos"
-        name: "products"
-        widget: "list"
+              - {label: "ID", name: "id", widget: "number", value_type: "int"}
+              - {label: "Nombre", name: "name", widget: "string"}
+              - {label: "Marca", name: "brand", widget: "string"}
+              - {label: "Modelo", name: "model", widget: "string"}
+              - {label: "Categoría", name: "category", widget: "hidden", default: "Almacenamiento"}
+              - {label: "Precio", name: "price", widget: "number", value_type: "int"}
+              - {label: "Stock", name: "stock", widget: "number", value_type: "int"}
+              - {label: "URL Fabricante", name: "manufacturerUrl", widget: "string", required: false}
+              - label: "Imágenes"
+                name: "images"
+                widget: "list"
+                field: {label: "Ruta", name: "path", widget: "string"}
+              - {label: "Descripción", name: "description", widget: "text"}
+      
+      - label: "Motherboards"
+        name: "motherboards"
+        file: "src/data/categories/motherboards.js"
         fields:
-          - {label: "ID", name: "id", widget: "number", value_type: "int", min: 400, max: 499}
-          - {label: "Nombre", name: "name", widget: "string"}
-          - {label: "Marca", name: "brand", widget: "select", options: ["ASUS", "MSI", "Gigabyte", "ASRock", "EVGA", "Biostar"]}
-          - {label: "Modelo", name: "model", widget: "string"}
-          - {label: "Categoría", name: "category", widget: "hidden", default: "Motherboards"}
-          - {label: "Precio", name: "price", widget: "number", value_type: "int"}
-          - {label: "Stock", name: "stock", widget: "number", value_type: "int", default: 0}
-          - {label: "Consumo de Energía", name: "powerConsumption", widget: "number", required: false}
-          - {label: "URL Fabricante", name: "manufacturerUrl", widget: "string", required: false}
-          - label: "Imágenes"
-            name: "images"
+          - label: "Productos"
+            name: "motherboardsProducts"
             widget: "list"
-            field: {label: "Ruta de Imagen", name: "image", widget: "string"}
-          - {label: "Descripción", name: "description", widget: "text"}
-          - label: "Especificaciones"
-            name: "specifications"
-            widget: "object"
             fields:
-              - {label: "Marca", name: "marca", widget: "string"}
-              - {label: "Modelo", name: "modelo", widget: "string"}
-              - {label: "Socket", name: "socket", widget: "string"}
-              - {label: "Chipset", name: "chipset", widget: "string"}
-              - {label: "Factor de Forma", name: "factorForma", widget: "string"}
-              - {label: "Memoria RAM", name: "memoriaRAM", widget: "string"}
-              - {label: "Slots RAM", name: "slotsRAM", widget: "string", required: false}
-
-  # ============================================
-  # PRODUCTOS - PERIFÉRICOS (Mouse, Teclados, Auriculares)
-  # ============================================
-  - name: "mouse"
-    label: "Mouse"
-    label_singular: "Mouse"
-    folder: "src/data/categories"
-    identifier_field: "name"
-    extension: "js"
-    format: "frontmatter"
-    create: false
-    slug: "mouse"
-    filter: {field: "category_type", value: "mouse"}
-    fields:
-      - {label: "Tipo de Categoría", name: "category_type", widget: "hidden", default: "mouse"}
-      - {label: "Título", name: "title", widget: "string", default: "Mouse"}
-      - label: "Productos"
-        name: "products"
-        widget: "list"
+              - {label: "ID", name: "id", widget: "number", value_type: "int"}
+              - {label: "Nombre", name: "name", widget: "string"}
+              - {label: "Marca", name: "brand", widget: "string"}
+              - {label: "Modelo", name: "model", widget: "string"}
+              - {label: "Categoría", name: "category", widget: "hidden", default: "Motherboards"}
+              - {label: "Precio", name: "price", widget: "number", value_type: "int"}
+              - {label: "Stock", name: "stock", widget: "number", value_type: "int"}
+              - {label: "URL Fabricante", name: "manufacturerUrl", widget: "string", required: false}
+              - label: "Imágenes"
+                name: "images"
+                widget: "list"
+                field: {label: "Ruta", name: "path", widget: "string"}
+              - {label: "Descripción", name: "description", widget: "text"}
+      
+      - label: "Mouse"
+        name: "mouse"
+        file: "src/data/categories/mouse.js"
         fields:
-          - {label: "ID", name: "id", widget: "number", value_type: "int"}
-          - {label: "Nombre", name: "name", widget: "string"}
-          - {label: "Marca", name: "brand", widget: "string"}
-          - {label: "Modelo", name: "model", widget: "string"}
-          - {label: "Categoría", name: "category", widget: "hidden", default: "Mouse"}
-          - {label: "Precio", name: "price", widget: "number", value_type: "int"}
-          - {label: "Stock", name: "stock", widget: "number", value_type: "int", default: 0}
-          - {label: "URL Fabricante", name: "manufacturerUrl", widget: "string", required: false}
-          - label: "Imágenes"
-            name: "images"
+          - label: "Productos"
+            name: "mouseProducts"
             widget: "list"
-            field: {label: "Ruta de Imagen", name: "image", widget: "string"}
-          - {label: "Descripción", name: "description", widget: "text"}
-          - label: "Especificaciones"
-            name: "specifications"
-            widget: "object"
-            collapsed: true
             fields:
-              - {label: "Marca", name: "marca", widget: "string"}
-              - {label: "Modelo", name: "modelo", widget: "string"}
-              - {label: "Tipo de Conexión", name: "tipoConexion", widget: "string", required: false}
-              - {label: "DPI", name: "dpi", widget: "string", required: false}
-              - {label: "Sensor", name: "sensor", widget: "string", required: false}
-
-  - name: "teclados"
-    label: "Teclados"
-    label_singular: "Teclado"
-    folder: "src/data/categories"
-    identifier_field: "name"
-    extension: "js"
-    format: "frontmatter"
-    create: false
-    slug: "teclados"
-    filter: {field: "category_type", value: "teclados"}
-    fields:
-      - {label: "Tipo de Categoría", name: "category_type", widget: "hidden", default: "teclados"}
-      - {label: "Título", name: "title", widget: "string", default: "Teclados"}
-      - label: "Productos"
-        name: "products"
-        widget: "list"
+              - {label: "ID", name: "id", widget: "number", value_type: "int"}
+              - {label: "Nombre", name: "name", widget: "string"}
+              - {label: "Marca", name: "brand", widget: "string"}
+              - {label: "Modelo", name: "model", widget: "string"}
+              - {label: "Categoría", name: "category", widget: "hidden", default: "Mouse"}
+              - {label: "Precio", name: "price", widget: "number", value_type: "int"}
+              - {label: "Stock", name: "stock", widget: "number", value_type: "int"}
+              - {label: "URL Fabricante", name: "manufacturerUrl", widget: "string", required: false}
+              - label: "Imágenes"
+                name: "images"
+                widget: "list"
+                field: {label: "Ruta", name: "path", widget: "string"}
+              - {label: "Descripción", name: "description", widget: "text"}
+      
+      - label: "Teclados"
+        name: "teclados"
+        file: "src/data/categories/teclados.js"
         fields:
-          - {label: "ID", name: "id", widget: "number", value_type: "int"}
-          - {label: "Nombre", name: "name", widget: "string"}
-          - {label: "Marca", name: "brand", widget: "string"}
-          - {label: "Modelo", name: "model", widget: "string"}
-          - {label: "Categoría", name: "category", widget: "hidden", default: "Teclados"}
-          - {label: "Precio", name: "price", widget: "number", value_type: "int"}
-          - {label: "Stock", name: "stock", widget: "number", value_type: "int", default: 0}
-          - {label: "URL Fabricante", name: "manufacturerUrl", widget: "string", required: false}
-          - label: "Imágenes"
-            name: "images"
+          - label: "Productos"
+            name: "tecladosProducts"
             widget: "list"
-            field: {label: "Ruta de Imagen", name: "image", widget: "string"}
-          - {label: "Descripción", name: "description", widget: "text"}
-          - label: "Especificaciones"
-            name: "specifications"
-            widget: "object"
-            collapsed: true
             fields:
-              - {label: "Marca", name: "marca", widget: "string"}
-              - {label: "Modelo", name: "modelo", widget: "string"}
-              - {label: "Tipo", name: "tipo", widget: "string", required: false}
-              - {label: "Switch", name: "switch", widget: "string", required: false}
-              - {label: "Idioma", name: "idioma", widget: "string", required: false}
-
-  - name: "auriculares"
-    label: "Auriculares"
-    label_singular: "Auricular"
-    folder: "src/data/categories"
-    identifier_field: "name"
-    extension: "js"
-    format: "frontmatter"
-    create: false
-    slug: "auriculares"
-    filter: {field: "category_type", value: "auriculares"}
-    fields:
-      - {label: "Tipo de Categoría", name: "category_type", widget: "hidden", default: "auriculares"}
-      - {label: "Título", name: "title", widget: "string", default: "Auriculares"}
-      - label: "Productos"
-        name: "products"
-        widget: "list"
+              - {label: "ID", name: "id", widget: "number", value_type: "int"}
+              - {label: "Nombre", name: "name", widget: "string"}
+              - {label: "Marca", name: "brand", widget: "string"}
+              - {label: "Modelo", name: "model", widget: "string"}
+              - {label: "Categoría", name: "category", widget: "hidden", default: "Teclados"}
+              - {label: "Precio", name: "price", widget: "number", value_type: "int"}
+              - {label: "Stock", name: "stock", widget: "number", value_type: "int"}
+              - {label: "URL Fabricante", name: "manufacturerUrl", widget: "string", required: false}
+              - label: "Imágenes"
+                name: "images"
+                widget: "list"
+                field: {label: "Ruta", name: "path", widget: "string"}
+              - {label: "Descripción", name: "description", widget: "text"}
+      
+      - label: "Auriculares"
+        name: "auriculares"
+        file: "src/data/categories/auriculares.js"
         fields:
-          - {label: "ID", name: "id", widget: "number", value_type: "int"}
-          - {label: "Nombre", name: "name", widget: "string"}
-          - {label: "Marca", name: "brand", widget: "string"}
-          - {label: "Modelo", name: "model", widget: "string"}
-          - {label: "Categoría", name: "category", widget: "hidden", default: "Auriculares"}
-          - {label: "Precio", name: "price", widget: "number", value_type: "int"}
-          - {label: "Stock", name: "stock", widget: "number", value_type: "int", default: 0}
-          - {label: "URL Fabricante", name: "manufacturerUrl", widget: "string", required: false}
-          - label: "Imágenes"
-            name: "images"
+          - label: "Productos"
+            name: "auricularesProducts"
             widget: "list"
-            field: {label: "Ruta de Imagen", name: "image", widget: "string"}
-          - {label: "Descripción", name: "description", widget: "text"}
-          - label: "Especificaciones"
-            name: "specifications"
-            widget: "object"
-            collapsed: true
             fields:
-              - {label: "Marca", name: "marca", widget: "string"}
-              - {label: "Modelo", name: "modelo", widget: "string"}
-              - {label: "Tipo", name: "tipo", widget: "string", required: false}
-              - {label: "Conexión", name: "conexion", widget: "string", required: false}
-              - {label: "Micrófono", name: "microfono", widget: "string", required: false}
+              - {label: "ID", name: "id", widget: "number", value_type: "int"}
+              - {label: "Nombre", name: "name", widget: "string"}
+              - {label: "Marca", name: "brand", widget: "string"}
+              - {label: "Modelo", name: "model", widget: "string"}
+              - {label: "Categoría", name: "category", widget: "hidden", default: "Auriculares"}
+              - {label: "Precio", name: "price", widget: "number", value_type: "int"}
+              - {label: "Stock", name: "stock", widget: "number", value_type: "int"}
+              - {label: "URL Fabricante", name: "manufacturerUrl", widget: "string", required: false}
+              - label: "Imágenes"
+                name: "images"
+                widget: "list"
+                field: {label: "Ruta", name: "path", widget: "string"}
+              - {label: "Descripción", name: "description", widget: "text"}
