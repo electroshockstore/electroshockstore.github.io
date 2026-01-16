@@ -32,8 +32,9 @@ collections:
         file: "src/data/categories/procesadores.json"
         fields:
           - label: "Productos"
-            name: "body"
+            name: "products"
             widget: "list"
+            summary: '{{fields.name}} - ${{fields.price}}'
             fields:
               - {label: "ID", name: "id", widget: "number", value_type: "int"}
               - {label: "Nombre", name: "name", widget: "string"}
@@ -67,8 +68,9 @@ collections:
         file: "src/data/categories/memorias.json"
         fields:
           - label: "Productos"
-            name: "body"
+            name: "products"
             widget: "list"
+            summary: '{{fields.name}} - ${{fields.price}}'
             fields:
               - {label: "ID", name: "id", widget: "number", value_type: "int"}
               - {label: "Nombre", name: "name", widget: "string"}
