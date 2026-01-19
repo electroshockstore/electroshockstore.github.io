@@ -15,12 +15,19 @@ commit_messages:
 
 logo_url: https://decapbridge.com/decapcms-with-bridge.svg
 site_url: https://www.jldev.com.ar
+display_url: https://www.jldev.com.ar
 
 media_folder: "public/images"
 public_folder: "/images"
 
 publish_mode: editorial_workflow
 locale: 'es'
+
+# Habilitar preview en tiempo real
+show_preview_links: true
+slug:
+  encoding: "ascii"
+  clean_accents: true
 
 collections:
   - name: "productos"
