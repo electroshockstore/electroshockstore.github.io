@@ -11,7 +11,7 @@ export const conectividadProducts = [
     model: "C505",
     category: "Conectividad",
     manufacturerUrl: "https://www.logitech.com/es-roam/products/",
-    price: 50000,
+    price: 40000,
     stock: 1,
     images: [
       "/images/conectividad/cam_logitech.webp",

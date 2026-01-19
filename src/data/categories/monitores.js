@@ -6,7 +6,7 @@ export const monitoresProducts = [
     brand: "Daewoo",
     model: "DWMGN19",
     category: "Monitores",
-    price: 120000,
+    price: 100000,
     stock: 1,
     images: [
       "/images/monitores/daewo19.webp",

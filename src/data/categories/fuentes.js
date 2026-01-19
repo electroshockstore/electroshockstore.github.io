@@ -336,7 +336,7 @@ export const fuentesProducts = [
     model: "SPD-0600",
     category: "Fuentes",
     manufacturerUrl: "https://www.thermaltake.com/power-supply.html",
-    price: 70000,
+    price: 65000,
     stock: 2,
     sku: "TT-SMART-600",
     description: "Fuente ATX 600W con certificación 80 Plus White, eficiencia hasta 80%",
