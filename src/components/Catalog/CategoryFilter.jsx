@@ -220,6 +220,7 @@ const CategoryFilter = ({ selectedCategory, onCategoryChange }) => {
                       const isSelected = selectedCategory === category;
                       const gradient = getCategoryGradient(category);
                       const categoryImage = getCategoryImage(category);
+                      const isTopImage = index < 4;
                       
                       return (
                         <button
@@ -248,7 +249,8 @@ const CategoryFilter = ({ selectedCategory, onCategoryChange }) => {
                                 transition-all duration-300
                                 ${isSelected ? 'scale-110 brightness-110' : 'brightness-90 group-hover:brightness-100'}
                               `}
-                              loading="lazy"
+                              loading={isTopImage ? "eager" : "lazy"}
+                              fetchPriority={isTopImage ? "high" : "low"}
                               decoding="async"
                             />
                             

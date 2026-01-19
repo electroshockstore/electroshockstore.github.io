@@ -16,8 +16,7 @@
     "setup:mcp": "node scripts/setup-mcp.js",
     "optimize": "node scripts/optimize-all.js",
     "optimize:thumbnails": "node scripts/generate-category-thumbnails.js",
-    "save-prices": "node scripts/save-price-history.js",
-    "verify:decap": "node scripts/verify-decap-setup.js"
+    "save-prices": "node scripts/save-price-history.js"
   },
   "dependencies": {
     "autoprefixer": "^10.4.20",

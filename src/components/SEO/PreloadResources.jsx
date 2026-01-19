@@ -17,7 +17,8 @@ const PreloadResources = () => {
 
     const preconnectDomains = [
       'https://www.googletagmanager.com',
-      'https://embed.tawk.to'
+      'https://embed.tawk.to',
+      'https://raw.githubusercontent.com'
     ];
 
     preconnectDomains.forEach(domain => {
