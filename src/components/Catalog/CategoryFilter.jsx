@@ -6,84 +6,37 @@ import {
   Monitor, Wifi, Laptop, Layers, ChevronLeft, ChevronRight, X
 } from 'lucide-react';
 
-const LazyImage = ({ src, alt, className, onLoad }) => {
-  const [isLoaded, setIsLoaded] = useState(false);
-  const [isInView, setIsInView] = useState(false);
-  const imgRef = useRef(null);
-
-  useEffect(() => {
-    if (!imgRef.current) return;
-
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setIsInView(true);
-          observer.disconnect();
-        }
-      },
-      { rootMargin: '50px' }
-    );
-
-    observer.observe(imgRef.current);
-    return () => observer.disconnect();
-  }, []);
-
-  return (
-    <div ref={imgRef} className="relative w-full h-full">
-      {!isLoaded && (
-        <div className="absolute inset-0 bg-gradient-to-br from-gray-200 to-gray-300 animate-pulse" />
-      )}
-      
-      {isInView && (
-        <img
-          src={src}
-          alt={alt}
-          className={`${className} transition-opacity duration-300 ${isLoaded ? 'opacity-100' : 'opacity-0'}`}
-          loading="lazy"
-          onLoad={() => {
-            setIsLoaded(true);
-            onLoad?.();
-          }}
-        />
-      )}
-    </div>
-  );
-};
-
 const CategoryFilter = ({ selectedCategory, onCategoryChange }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [showLeftArrow, setShowLeftArrow] = useState(false);
   const [showRightArrow, setShowRightArrow] = useState(false);
-  const [loadedImages, setLoadedImages] = useState(0);
   
   const dropdownRef = useRef(null);
   const scrollContainerRef = useRef(null);
 
-  const getCategoryImage = (category, useThumbnail = true) => {
+  // Mapeo de imágenes para mobile - usar thumbnails optimizados
+  const getCategoryImage = (category) => {
     const imageMap = {
-      'Todos': 'builder.webp',
-      'Fuentes': 'fuentes.webp',
-      'Almacenamiento': 'almacenamiento.webp',
-      'Memorias RAM': 'memorias_ram.webp',
-      'Motherboards': 'motherboard.webp',
-      'Procesadores': 'procesadores.webp',
-      'Refrigeración': 'refrigeracion.webp',
-      'Auriculares': 'auriculares.webp',
-      'Teclados': 'teclado_mouse.webp',
-      'Mouse': 'g203_mayor.webp',
-      'Joystick': 'Joystikc.webp',
-      'Monitores': 'monitores.webp',
-      'Conectividad': 'conectividad.webp',
-      'Portátiles': 'portatiles.webp',
-      'Placas de Video': 'placas_video.webp'
+      'Todos': '/images/category_filter/thumbs/builder.webp',
+      'Fuentes': '/images/category_filter/thumbs/fuentes.webp',
+      'Almacenamiento': '/images/category_grid/thumbs/almacenamiento_grid_tiny.webp',
+      'Memorias RAM': '/images/category_filter/thumbs/memorias_ram.webp',
+      'Motherboards': '/images/category_filter/thumbs/motherboard.webp',
+      'Procesadores': '/images/category_filter/thumbs/procesadores.webp',
+      'Refrigeración': '/images/category_filter/thumbs/refrigeracion.webp',
+      'Auriculares': '/images/category_grid/thumbs/auriculares_grid_tiny.webp',
+      'Teclados': '/images/category_grid/thumbs/teclados_grid_tiny.webp',
+      'Mouse': '/images/category_grid/thumbs/mouse_grid_tiny.webp',
+      'Joystick': '/images/category_filter/thumbs/Joystikc.webp',
+      'Monitores': '/images/category_filter/thumbs/monitores.webp',
+      'Conectividad': '/images/category_filter/thumbs/conectividad.webp',
+      'Portátiles': '/images/category_filter/thumbs/portatiles.webp',
+      'Placas de Video': '/images/category_filter/thumbs/placas_video.webp'
     };
-    
-    const filename = imageMap[category] || 'builder.webp';
-    const basePath = '/images/category_filter';
-    
-    return useThumbnail ? `${basePath}/thumbs/${filename}` : `${basePath}/${filename}`;
+    return imageMap[category] || '/images/category_filter/thumbs/builder.webp';
   };
 
+  // Mappers originales de iconos y colores
   const getCategoryIcon = (category) => {
     const iconMap = {
       'Todos': Grid3X3, 'Fuentes': Zap, 'Almacenamiento': HardDrive,
@@ -116,6 +69,28 @@ const CategoryFilter = ({ selectedCategory, onCategoryChange }) => {
     return colorMap[category] || (isSelected ? 'text-gray-600' : 'text-gray-500');
   };
 
+  const getCategoryGradient = (category) => {
+    const gradientMap = {
+      'Todos': 'from-blue-500 to-blue-600',
+      'Fuentes': 'from-amber-500 to-amber-600',
+      'Almacenamiento': 'from-purple-500 to-purple-600',
+      'Memorias RAM': 'from-green-500 to-green-600',
+      'Motherboards': 'from-indigo-500 to-indigo-600',
+      'Procesadores': 'from-red-500 to-red-600',
+      'Refrigeración': 'from-cyan-500 to-cyan-600',
+      'Auriculares': 'from-pink-500 to-pink-600',
+      'Teclados': 'from-violet-500 to-violet-600',
+      'Mouse': 'from-orange-500 to-orange-600',
+      'Joystick': 'from-emerald-500 to-emerald-600',
+      'Monitores': 'from-slate-500 to-slate-600',
+      'Conectividad': 'from-teal-500 to-teal-600',
+      'Portátiles': 'from-sky-500 to-sky-600',
+      'Placas de Video': 'from-lime-500 to-lime-600'
+    };
+    return gradientMap[category] || 'from-gray-500 to-gray-600';
+  };
+
+  // Lógica de Scroll
   const checkScroll = () => {
     if (scrollContainerRef.current) {
       const { scrollLeft, scrollWidth, clientWidth } = scrollContainerRef.current;
@@ -130,6 +105,7 @@ const CategoryFilter = ({ selectedCategory, onCategoryChange }) => {
     return () => window.removeEventListener('resize', checkScroll);
   }, []);
 
+  // Cerrar dropdown al hacer clic fuera
   useEffect(() => {
     const handleClickOutside = (event) => {
       if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
@@ -151,18 +127,18 @@ const CategoryFilter = ({ selectedCategory, onCategoryChange }) => {
     }
   };
 
-  const handleImageLoad = () => {
-    setLoadedImages(prev => prev + 1);
-  };
-
   return (
     <div className="relative group z-20 w-full">
+      {/* CAPAS DE RESPLANDOR ORIGINALES */}
       <div className="absolute -inset-3 bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 rounded-full opacity-30 blur-xl -z-10"></div>
       <div className="absolute -inset-2 bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-600 rounded-full opacity-25 blur-lg animate-pulse -z-10"></div>
       
+      {/* RGB FLOWING BORDER - Contenedor con borde animado */}
       <div className="relative rounded-full overflow-hidden p-[3px] animate-border-rotate">
         <div className="relative bg-white rounded-full z-10">
+        {/* MOBILE: DROPDOWN COMPACTO CON GLOW */}
         <div className="sm:hidden relative z-20" ref={dropdownRef}>
+          {/* Botón principal mejorado con imagen */}
           <button
             onClick={() => setIsOpen(!isOpen)}
             className="relative w-full flex items-center justify-between px-4 py-3 bg-gradient-to-r from-white to-gray-50 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-[1.02] active:scale-[0.98] border border-gray-100"
@@ -170,12 +146,14 @@ const CategoryFilter = ({ selectedCategory, onCategoryChange }) => {
             <div className="flex items-center gap-3">
               {selectedCategory ? (
                 <>
+                  {/* Mini preview de la imagen de categoría */}
                   <div className="relative w-10 h-10 rounded-xl overflow-hidden shadow-md ring-2 ring-white">
-                    <LazyImage 
-                      src={getCategoryImage(selectedCategory, true)}
+                    <img 
+                      src={getCategoryImage(selectedCategory)}
                       alt={selectedCategory}
                       className="w-full h-full object-cover"
-                      onLoad={handleImageLoad}
+                      loading="lazy"
+                      decoding="async"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
                   </div>
@@ -205,14 +183,18 @@ const CategoryFilter = ({ selectedCategory, onCategoryChange }) => {
             </div>
           </button>
 
+          {/* Modal Fullscreen - Mejor UX */}
           {isOpen && (
             <>
+              {/* Backdrop */}
               <div 
                 className="fixed inset-0 bg-black/60 backdrop-blur-sm z-[100] animate-in fade-in duration-200"
                 onClick={() => setIsOpen(false)}
               />
               
+              {/* Modal Content */}
               <div className="fixed inset-0 z-[101] flex flex-col animate-in slide-in-from-bottom duration-300">
+                {/* Header del modal mejorado */}
                 <div className="bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 px-5 py-5 flex items-center justify-between shadow-2xl">
                   <div className="flex items-center gap-3">
                     <div className="p-2.5 rounded-xl bg-white/20 backdrop-blur-md shadow-lg border border-white/30">
@@ -220,9 +202,7 @@ const CategoryFilter = ({ selectedCategory, onCategoryChange }) => {
                     </div>
                     <div>
                       <h2 className="text-xl font-bold text-white drop-shadow-lg">Categorías</h2>
-                      <p className="text-xs text-white/80 font-medium">
-                        {loadedImages > 0 ? `${loadedImages}/${categories.length} cargadas` : `${categories.length} disponibles`}
-                      </p>
+                      <p className="text-xs text-white/80 font-medium">{categories.length} opciones disponibles</p>
                     </div>
                   </div>
                   <button
@@ -233,10 +213,13 @@ const CategoryFilter = ({ selectedCategory, onCategoryChange }) => {
                   </button>
                 </div>
 
+                {/* Grid de categorías con imágenes - Mobile optimizado */}
                 <div className="flex-1 overflow-y-auto bg-gradient-to-b from-gray-50 to-white px-3 py-4">
                   <div className="grid grid-cols-2 gap-3 max-w-md mx-auto">
                     {categories.map((category, index) => {
                       const isSelected = selectedCategory === category;
+                      const gradient = getCategoryGradient(category);
+                      const categoryImage = getCategoryImage(category);
                       
                       return (
                         <button
@@ -255,30 +238,35 @@ const CategoryFilter = ({ selectedCategory, onCategoryChange }) => {
                             }
                           `}
                         >
+                          {/* Imagen de fondo */}
                           <div className="relative aspect-[4/3] w-full">
-                            <LazyImage 
-                              src={getCategoryImage(category, true)}
+                            <img 
+                              src={categoryImage}
                               alt={category}
                               className={`
                                 absolute inset-0 w-full h-full object-cover
                                 transition-all duration-300
-                                ${isSelected ? 'scale-110 brightness-110' : 'brightness-90'}
+                                ${isSelected ? 'scale-110 brightness-110' : 'brightness-90 group-hover:brightness-100'}
                               `}
-                              onLoad={handleImageLoad}
+                              loading="lazy"
+                              decoding="async"
                             />
                             
+                            {/* Overlay gradient */}
                             <div className={`
                               absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent
                               transition-all duration-300
                               ${isSelected ? 'from-black/70 via-black/30' : ''}
                             `} />
                             
+                            {/* Badge de selección */}
                             {isSelected && (
                               <div className="absolute top-2 right-2 bg-blue-500 text-white px-2 py-1 rounded-full text-xs font-bold shadow-lg animate-in zoom-in-50 duration-200">
                                 ✓
                               </div>
                             )}
                             
+                            {/* Texto sobre la imagen */}
                             <div className="absolute inset-x-0 bottom-0 p-3 flex flex-col items-start gap-1">
                               <span className={`
                                 text-white font-bold leading-tight drop-shadow-lg
@@ -302,6 +290,7 @@ const CategoryFilter = ({ selectedCategory, onCategoryChange }) => {
                   </div>
                 </div>
 
+                {/* Footer mejorado */}
                 <div className="bg-white/95 backdrop-blur-xl border-t border-gray-200 px-5 py-3 shadow-lg">
                   <div className="flex items-center justify-center gap-2 text-xs text-gray-500">
                     <div className="w-6 h-1 bg-gradient-to-r from-blue-400 to-purple-400 rounded-full" />
@@ -314,8 +303,10 @@ const CategoryFilter = ({ selectedCategory, onCategoryChange }) => {
           )}
         </div>
 
+        {/* DESKTOP: SEGMENTED CONTROL HORIZONTAL SIEMPRE EN UNA FILA */}
         <div className="hidden sm:flex relative items-center group/carousel rounded-full p-2 shadow-[0_2px_8px_rgba(0,0,0,0.06)]">
           
+          {/* Indicador Izquierdo */}
           {showLeftArrow && (
             <button 
               onClick={() => handleScroll('left')}
@@ -325,6 +316,7 @@ const CategoryFilter = ({ selectedCategory, onCategoryChange }) => {
             </button>
           )}
 
+          {/* Contenedor de Items (NUNCA WRAP) */}
           <div 
             ref={scrollContainerRef}
             onScroll={checkScroll}
@@ -366,6 +358,7 @@ const CategoryFilter = ({ selectedCategory, onCategoryChange }) => {
             })}
           </div>
 
+          {/* Indicador Derecho */}
           {showRightArrow && (
             <button 
               onClick={() => handleScroll('right')}
