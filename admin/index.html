@@ -6,8 +6,135 @@
   <meta name="robots" content="noindex" />
   <title>Administrador de Contenido - Shock Store</title>
   <link rel="icon" type="image/png" href="/logotipo_tiny.png" />
+  <style>
+    /* Estilos personalizados para el CMS */
+    :root {
+      --primary-color: #3b82f6;
+      --secondary-color: #1e40af;
+    }
+    
+    /* Preview personalizado */
+    .preview-card {
+      background: white;
+      border-radius: 12px;
+      padding: 20px;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+      max-width: 400px;
+      margin: 20px auto;
+    }
+    
+    .preview-image {
+      width: 100%;
+      height: 200px;
+      object-fit: contain;
+      border-radius: 8px;
+      background: #f3f4f6;
+      margin-bottom: 16px;
+    }
+    
+    .preview-title {
+      font-size: 18px;
+      font-weight: bold;
+      color: #1f2937;
+      margin-bottom: 8px;
+    }
+    
+    .preview-price {
+      font-size: 24px;
+      font-weight: bold;
+      color: #3b82f6;
+      margin-bottom: 8px;
+    }
+    
+    .preview-stock {
+      display: inline-block;
+      padding: 4px 12px;
+      border-radius: 6px;
+      font-size: 14px;
+      font-weight: 600;
+      margin-bottom: 12px;
+    }
+    
+    .preview-stock.in-stock {
+      background: #d1fae5;
+      color: #065f46;
+    }
+    
+    .preview-stock.out-of-stock {
+      background: #fee2e2;
+      color: #991b1b;
+    }
+    
+    .preview-description {
+      color: #6b7280;
+      font-size: 14px;
+      line-height: 1.5;
+    }
+  </style>
 </head>
 <body>
   <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
+  <script>
+    // Preview personalizado para productos
+    const ProductPreview = createClass({
+      render: function() {
+        const entry = this.props.entry;
+        const products = entry.getIn(['data', 'products']);
+        
+        if (!products || products.size === 0) {
+          return h('div', {className: 'preview-card'},
+            h('p', {}, 'No hay productos para mostrar')
+          );
+        }
+        
+        // Mostrar el primer producto como preview
+        const product = products.get(0);
+        const name = product.get('name');
+        const price = product.get('price');
+        const stock = product.get('stock');
+        const description = product.get('description');
+        const images = product.get('images');
+        const firstImage = images && images.size > 0 ? images.get(0) : null;
+        
+        return h('div', {className: 'preview-card'},
+          firstImage && h('img', {
+            className: 'preview-image',
+            src: firstImage,
+            alt: name
+          }),
+          h('div', {className: 'preview-title'}, name),
+          h('div', {className: 'preview-price'}, 
+            '$' + (price ? price.toLocaleString('es-AR') : '0')
+          ),
+          h('div', {
+            className: stock > 0 ? 'preview-stock in-stock' : 'preview-stock out-of-stock'
+          }, stock > 0 ? `Stock: ${stock}` : 'Sin stock'),
+          h('div', {className: 'preview-description'}, description),
+          products.size > 1 && h('p', {style: {marginTop: '16px', color: '#6b7280', fontSize: '14px'}},
+            `+ ${products.size - 1} productos más en esta categoría`
+          )
+        );
+      }
+    });
+    
+    // Registrar el preview para todas las categorías
+    CMS.registerPreviewTemplate('procesadores', ProductPreview);
+    CMS.registerPreviewTemplate('memorias', ProductPreview);
+    CMS.registerPreviewTemplate('almacenamiento', ProductPreview);
+    CMS.registerPreviewTemplate('motherboards', ProductPreview);
+    CMS.registerPreviewTemplate('mouse', ProductPreview);
+    CMS.registerPreviewTemplate('teclados', ProductPreview);
+    CMS.registerPreviewTemplate('auriculares', ProductPreview);
+    CMS.registerPreviewTemplate('fuentes', ProductPreview);
+    CMS.registerPreviewTemplate('refrigeracion', ProductPreview);
+    CMS.registerPreviewTemplate('joystick', ProductPreview);
+    CMS.registerPreviewTemplate('conectividad', ProductPreview);
+    CMS.registerPreviewTemplate('monitores', ProductPreview);
+    CMS.registerPreviewTemplate('portatiles', ProductPreview);
+    CMS.registerPreviewTemplate('placas_video', ProductPreview);
+    
+    // Personalizar el logo y colores
+    CMS.registerPreviewStyle('/admin/preview.css');
+  </script>
 </body>
 </html>
