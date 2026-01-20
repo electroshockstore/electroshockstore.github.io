@@ -67,46 +67,48 @@ export function PriceChart({ productId }) {
 
   return (
     <div className="bg-white rounded-xl border border-gray-200 shadow-sm overflow-hidden">
-      {/* Header moderno */}
-      <div className="bg-gradient-to-br from-gray-50 to-white px-6 py-4 border-b border-gray-200">
-        <div className="flex items-center justify-between flex-wrap gap-3">
-          <h3 className="text-lg font-bold text-gray-900">
+      {/* Header moderno - Responsive */}
+      <div className="bg-gradient-to-br from-gray-50 to-white px-4 sm:px-6 py-4 border-b border-gray-200">
+        <div className="flex items-center justify-between gap-3">
+          {/* Título a la izquierda */}
+          <h3 className="text-base sm:text-lg font-bold text-gray-900 flex-shrink-0">
             Histórico de Precios
           </h3>
           
-          <div className="flex items-center gap-3">
+          {/* Precio e icono a la derecha */}
+          <div className="flex items-center gap-2 sm:gap-3 flex-shrink-0">
             {/* Precio actual */}
             <div className="text-right">
-              <div className="text-xs text-gray-500 font-medium">Precio Actual</div>
-              <div className="text-xl font-bold text-gray-900">
+              <div className="text-xs text-gray-500 font-medium hidden sm:block">Precio Actual</div>
+              <div className="text-lg sm:text-xl font-bold text-gray-900">
                 ${data[data.length - 1].price.toLocaleString('es-AR')}
               </div>
             </div>
             
             {/* Badge de cambio - solo icono */}
             {!isNeutral && (
-              <div className={`flex items-center justify-center p-3 rounded-xl shadow-md ${
+              <div className={`flex items-center justify-center p-2 sm:p-3 rounded-lg sm:rounded-xl shadow-md ${
                 isPositive 
                   ? 'bg-gradient-to-r from-red-500 to-red-600 text-white' 
                   : 'bg-gradient-to-r from-green-500 to-green-600 text-white'
               }`}>
-                <TrendIcon className="w-6 h-6" />
+                <TrendIcon className="w-5 h-5 sm:w-6 sm:h-6" />
               </div>
             )}
             
             {isNeutral && (
-              <div className="flex items-center justify-center p-3 rounded-xl bg-gradient-to-r from-blue-500 to-blue-600 text-white shadow-md">
-                <Minus className="w-6 h-6" />
+              <div className="flex items-center justify-center p-2 sm:p-3 rounded-lg sm:rounded-xl bg-gradient-to-r from-blue-500 to-blue-600 text-white shadow-md">
+                <Minus className="w-5 h-5 sm:w-6 sm:h-6" />
               </div>
             )}
           </div>
         </div>
       </div>
 
-      {/* Gráfico grande y atractivo */}
-      <div className="p-6 bg-gradient-to-br from-gray-50 to-white">
-        <ResponsiveContainer width="100%" height={350}>
-          <AreaChart data={chartData} margin={{ top: 20, right: 20, left: 10, bottom: 20 }}>
+      {/* Gráfico grande y atractivo - Responsive */}
+      <div className="p-4 sm:p-6 bg-gradient-to-br from-gray-50 to-white">
+        <ResponsiveContainer width="100%" height={300} className="sm:h-[350px]">
+          <AreaChart data={chartData} margin={{ top: 10, right: 5, left: -10, bottom: 10 }} className="sm:!m-[20px_20px_20px_10px]">
             <defs>
               <linearGradient id={`gradient-${productId}`} x1="0" y1="0" x2="0" y2="1">
                 <stop offset="5%" stopColor={gradientColor} stopOpacity={0.3}/>
@@ -118,21 +120,23 @@ export function PriceChart({ productId }) {
             
             <XAxis 
               dataKey="fecha" 
-              tick={{ fontSize: 13, fill: '#6b7280', fontWeight: 500 }}
+              tick={{ fontSize: 11, fill: '#6b7280', fontWeight: 500 }}
               stroke="#d1d5db"
               tickLine={false}
-              angle={-15}
+              angle={-25}
               textAnchor="end"
-              height={60}
+              height={50}
+              className="sm:text-[13px]"
             />
             
             <YAxis 
               domain={[yMin, yMax]}
               tickFormatter={formatPrice}
-              tick={{ fontSize: 13, fill: '#6b7280', fontWeight: 600 }}
+              tick={{ fontSize: 11, fill: '#6b7280', fontWeight: 600 }}
               stroke="#d1d5db"
               tickLine={false}
-              width={70}
+              width={55}
+              className="sm:text-[13px] sm:w-[70px]"
             />
             
             {/* Línea de referencia del promedio */}
@@ -173,17 +177,17 @@ export function PriceChart({ productId }) {
               type="monotone"
               dataKey="precio" 
               stroke={lineColor} 
-              strokeWidth={3}
+              strokeWidth={2.5}
               fill={`url(#gradient-${productId})`}
               dot={{ 
                 fill: lineColor, 
                 strokeWidth: 2, 
-                r: 5, 
+                r: 4, 
                 stroke: 'white'
               }}
               activeDot={{ 
-                r: 8,
-                strokeWidth: 3,
+                r: 7,
+                strokeWidth: 2,
                 stroke: 'white',
                 fill: lineColor,
                 filter: 'drop-shadow(0 4px 6px rgba(0,0,0,0.2))'

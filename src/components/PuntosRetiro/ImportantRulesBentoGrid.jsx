@@ -87,7 +87,7 @@ const ImportantRulesBentoGrid = ({ rules = [] }) => {
                   Atención
                 </span>
                 <div className="flex items-baseline  mb-0.5">
-                  <span className="text-3xl font-black text-red-600 leading-none">10%</span>
+                  <span className="text-4xl font-black text-red-600 leading-none">10%</span>
                   <span className="text-sm font-black text-red-700 uppercase">Recargo</span>
                 </div>
                 <p className="text-[9px] font-bold text-red-600 leading-tight">
