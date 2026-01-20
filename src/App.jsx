@@ -16,13 +16,9 @@ const ProductDetailPage = lazy(() => import("./pages/ProductDetailPage"));
 const PCBuilder = lazy(() => import("./pages/PCBuilder"));
 const PuntosRetiro = lazy(() => import("./pages/PuntosRetiro"));
 
-// Loading component moderno y atractivo
+// Loading component simple con logo real
 const PageLoader = () => (
-  <ModernLoader 
-    variant="orbit" 
-    message="Cargando" 
-    size="lg" 
-  />
+  <ModernLoader message="Cargando" />
 );
 
 function AnimatedRoutes() {
