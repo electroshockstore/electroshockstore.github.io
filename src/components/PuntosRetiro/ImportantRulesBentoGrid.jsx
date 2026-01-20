@@ -38,6 +38,9 @@ const ImportantRulesBentoGrid = ({ rules = [] }) => {
                   Pagas al retirar
                 </p>
               </div>
+                      <p className="text-sm text-gray-600 ">
+             Revisas y Pagas.No se deje engañar
+            </p>
             </div>
 
             {/* CARD 2: PAGO INMEDIATO */}
@@ -59,6 +62,9 @@ const ImportantRulesBentoGrid = ({ rules = [] }) => {
                     <CreditCard className="w-3 h-3" />
                     Transferencia
                   </div>
+                      <p className="text-sm text-gray-600 ">
+              Ni lo intenten estafadores
+            </p>
                 </div>
               </div>
             </div>
