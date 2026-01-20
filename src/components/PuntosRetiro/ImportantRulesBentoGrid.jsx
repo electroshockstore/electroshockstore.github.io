@@ -81,13 +81,13 @@ const ImportantRulesBentoGrid = ({ rules = [] }) => {
 
             {/* CARD 4: RECARGO 10% */}
             <div className="bg-gradient-to-br from-red-50 to-rose-100 rounded-[2rem] p-4 border border-red-200 flex flex-col justify-center relative overflow-hidden">
-              <Percent className="absolute -right-2 -bottom-2 w-16 h-16 text-red-300 opacity-20" />
+              <Percent className="absolute -right-1 -bottom-2 w-16 h-16 text-red-300 opacity-20" />
               <div className="relative z-10">
                 <span className="inline-block px-2 py-0.5 bg-red-600 text-white text-[8px] font-black rounded-full uppercase mb-2">
                   Atención
                 </span>
-                <div className="flex items-baseline gap-1 mb-0.5">
-                  <span className="text-4xl font-black text-red-600 leading-none">10%</span>
+                <div className="flex items-baseline  mb-0.5">
+                  <span className="text-3xl font-black text-red-600 leading-none">10%</span>
                   <span className="text-sm font-black text-red-700 uppercase">Recargo</span>
                 </div>
                 <p className="text-[9px] font-bold text-red-600 leading-tight">
