@@ -7,6 +7,7 @@ import ErrorBoundary from "./components/ErrorBoundary";
 import ErrorNotification from "./components/ErrorNotification";
 import { useErrorHandler } from "./hooks/useErrorHandler";
 import SkipToContent from "./components/SEO/SkipToContent";
+import ModernLoader from "./components/Shared/ModernLoader";
 
 // Lazy load de páginas principales
 const Home = lazy(() => import("./pages/Home"));
@@ -15,14 +16,13 @@ const ProductDetailPage = lazy(() => import("./pages/ProductDetailPage"));
 const PCBuilder = lazy(() => import("./pages/PCBuilder"));
 const PuntosRetiro = lazy(() => import("./pages/PuntosRetiro"));
 
-// Loading component simple y ligero
+// Loading component moderno y atractivo
 const PageLoader = () => (
-  <div className="min-h-screen flex items-center justify-center bg-gradient-to-b from-[#E5E7EB] to-[#C7CCD1]">
-    <div className="text-center">
-      <div className="w-16 h-16 border-4 border-blue-600 border-t-transparent rounded-full animate-spin mx-auto mb-4"></div>
-      <p className="text-gray-600 font-medium">Cargando...</p>
-    </div>
-  </div>
+  <ModernLoader 
+    variant="orbit" 
+    message="Cargando" 
+    size="lg" 
+  />
 );
 
 function AnimatedRoutes() {
