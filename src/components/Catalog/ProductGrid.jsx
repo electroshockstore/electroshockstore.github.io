@@ -58,7 +58,7 @@ const ProductGrid = memo(({ products, viewMode, openModal }) => {
 
   const gridClasses = useMemo(() => {
     return viewMode === 'grid' 
-      ? 'grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-2 sm:gap-4'
+      ? 'grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-1.5 sm:gap-4'
       : 'space-y-3 sm:space-y-4';
   }, [viewMode]);
 
@@ -67,7 +67,7 @@ const ProductGrid = memo(({ products, viewMode, openModal }) => {
   }
 
   return (
-    <div className="p-2 sm:p-4 md:p-6">
+    <div className="p-0 sm:p-4 md:p-6">
       <div className={`${gridClasses} transition-opacity duration-300 ease-out`}>
         {products.map((product, index) => (
           <div

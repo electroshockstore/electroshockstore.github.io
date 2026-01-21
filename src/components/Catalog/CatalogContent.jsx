@@ -39,7 +39,7 @@ const CatalogContent = ({
   }, [selectedCategory]);
 
   return (
-    <div className="flex flex-col lg:flex-row gap-6 min-h-[60vh] px-4 sm:px-6 pb-8 pt-4 sm:pt-6">
+    <div className="flex flex-col lg:flex-row gap-6 min-h-[60vh] px-2 sm:px-6 pb-8 pt-4 sm:pt-6">
       {/* Sidebar Desktop */}
       {showSidebar && (
         <aside className="hidden lg:block lg:flex-shrink-0 lg:pt-20">
