@@ -32,6 +32,11 @@ const ProductCard = memo(({ product, viewMode, onClick, index = 0, listName = 'P
   const productImage = useMemo(() => getProductImage(product), [product]);
   const isUsed = product.isUsed || false;
   
+  // Detectar si es DDR5
+  const isDDR5 = product.category === 'Memorias RAM' && 
+                 (product.name?.toUpperCase().includes('DDR5') || 
+                  product.specifications?.tipoMemoriaRAM?.toUpperCase().includes('DDR5'));
+  
   // OPTIMIZACIÓN: Cargar inmediatamente los primeros 12 productos, lazy load para el resto
   const [isVisible, setIsVisible] = useState(index < 12);
   const cardRef = useRef(null);
@@ -94,7 +99,7 @@ const ProductCard = memo(({ product, viewMode, onClick, index = 0, listName = 'P
           </p>
           
           <h3 className="font-bold text-sm sm:text-base md:text-lg text-gray-900 line-clamp-2 leading-tight">
-            {isUsed ? `${product.name} - USADA` : product.name}
+            {isUsed ? `${product.name } - USADA` : product.name}
           </h3>
           
           <div className="flex items-baseline gap-1">
@@ -129,7 +134,13 @@ const ProductCard = memo(({ product, viewMode, onClick, index = 0, listName = 'P
 
       <div className="p-2 sm:p-5 flex flex-col flex-1 justify-between gap-2 sm:gap-4">
         <div>
-           <ProductInfo name={product.name} brand={product.brand} model={product.model} isUsed={isUsed} />
+           <ProductInfo 
+             name={product.name} 
+             brand={product.brand} 
+             model={product.model} 
+             isUsed={isUsed}
+             isDDR5={isDDR5}
+           />
         </div>
         
         <div className="space-y-2 sm:space-y-3 pt-2 border-t border-gray-50">

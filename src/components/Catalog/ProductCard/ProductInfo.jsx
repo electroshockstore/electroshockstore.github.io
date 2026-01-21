@@ -1,13 +1,22 @@
-const ProductInfo = ({ name, brand, model, isUsed }) => {
+const ProductInfo = ({ name, brand, model, isUsed, isDDR5 }) => {
   const displayName = isUsed ? `${name} - USADA` : name;
   
   return (
     <div className="space-y-1 text-left">
-      {/* 1. Marca y Modelo */}
+      {/* 1. Marca, Logo DDR5 y Modelo */}
       <div className="flex items-center justify-between mb-1 sm:mb-2">
-        <span className="text-[10px] sm:text-xs font-bold text-blue-600 tracking-wider uppercase truncate">
-          {brand}
-        </span>
+        <div className="flex items-center gap-1.5">
+          <span className="text-[10px] sm:text-xs font-bold text-blue-600 tracking-wider uppercase truncate">
+            {brand}
+          </span>
+          {isDDR5 && (
+            <img 
+              src="/images/ram/ddr5_logo.png" 
+              alt="DDR5" 
+              className="w-10 h-10 sm:w-30 sm:h-20 "
+            />
+          )}
+        </div>
         <span className="text-[9px] sm:text-xs px-1.5 sm:px-2 py-0.5 bg-gray-100 text-gray-500 rounded-full truncate max-w-[40%]">
           {model}
         </span>

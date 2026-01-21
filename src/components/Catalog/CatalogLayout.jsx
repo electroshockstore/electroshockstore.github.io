@@ -6,18 +6,18 @@ import FloatingChatButton from '../Shared/FloatingChatButton';
 const CatalogLayout = ({ children, searchQuery, onSearchChange, onGoHome }) => {
   return (
 <div className="min-h-screen w-full relative overflow-hidden">
-  {/* Fondo base optimizado */}
-  <div className="absolute inset-0 bg-gradient-to-br from-gray-50 via-gray-100 to-gray-200" />
+  {/* Fondo base con más color */}
+  <div className="absolute inset-0 bg-gradient-to-br from-blue-50 via-purple-50 to-pink-50" />
 
-  {/* Elementos decorativos OPTIMIZADOS - blur reducido para mejor rendimiento */}
+  {/* Elementos decorativos con más intensidad */}
   <div className="absolute top-[-10%] left-[-5%] w-[40%] h-[40%]
-    bg-blue-100/40 blur-[60px] rounded-full" />
+    bg-blue-200/50 blur-[80px] rounded-full" />
 
   <div className="absolute top-[20%] right-[-5%] w-[35%] h-[35%]
-    bg-purple-100/30 blur-[50px] rounded-full" />
+    bg-purple-200/40 blur-[70px] rounded-full" />
 
   <div className="absolute bottom-[-10%] left-[30%] w-[40%] h-[40%]
-    bg-cyan-100/30 blur-[60px] rounded-full" />
+    bg-cyan-200/40 blur-[80px] rounded-full" />
 
   <div className="relative z-10 flex flex-col min-h-screen">
     <Header 
