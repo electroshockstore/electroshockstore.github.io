@@ -561,6 +561,43 @@
         "Caché": "256 MB",
         "Uso": "CCTV / Seguridad 24/7"
       }
+    },
+    {
+      "id": 224,
+      "name": "Kingston A400 SSD 240GB SATA III",
+      "brand": "Kingston",
+      "model": "A400",
+      "category": "Almacenamiento",
+      "price": 70000,
+      "stock": 2,
+      "sku": "KING-240-A400",
+      "description": "SSD Kingston A400 240GB SATA III 2.5\", lectura hasta 500 MB/s, escritura hasta 350 MB/s",
+      "manufacturerUrl": "https://www.kingston.com/es/ssd/a400-solid-state-drive",
+      "images": [
+        "/images/almacenamiento/kingston_a400_240.webp",
+        "/images/almacenamiento/kingston_a400_240_side.webp",
+        "/images/almacenamiento/kingston_a400_240_side2.webp",
+        "/images/almacenamiento/kingston_a400_240_side3.webp"
+      ],
+      "specifications": {
+        "Marca": "Kingston",
+        "Línea": "A400",
+        "Modelo": "SA400S37/240G",
+        "ModeloDetallado": "SA400S37/240G",
+        "Capacidad": "240 GB",
+        "Formato": "2.5\"",
+        "Interfaz": "SATA III 6 Gb/s",
+        "TipoMemoria": "NAND Flash",
+        "VelocidadLecturaSecuencial": "Hasta 500 MB/s",
+        "VelocidadEscrituraSecuencial": "Hasta 350 MB/s",
+        "SoporteTRIM": "Sí",
+        "SoporteSMART": "Sí",
+        "ConsumoEnergetico": "Bajo",
+        "ResistenteGolpes": "Sí",
+        "UsoRecomendado": "PC / Notebook",
+        "Peso": "41 g",
+        "PaisOrigen": "China / Taiwán"
+      }
     }
   ]
 }

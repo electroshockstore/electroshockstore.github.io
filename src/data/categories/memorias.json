@@ -208,7 +208,7 @@
       "model": "XPG Gammix D35",
       "category": "Memorias RAM",
       "manufacturerUrl": "https://www.adata.com/ar/consumer/category/memory/",
-      "price": 190000,
+      "price": 200000,
       "stock": 2,
       "realPowerConsumption": "3.5W - 4.2W",
       "images": [
@@ -263,8 +263,137 @@
         "cl": "16"
       }
     },
-    {
+
+ {
       "id": 411,
+      "name": "Adata XPG Gammix D35 DDR4 8GB 3200MHz CL16",
+      "brand": "ADATA",
+      "model": "XPG Gammix D35",
+      "category": "Memorias RAM",
+      "manufacturerUrl": "https://www.adata.com/ar/consumer/category/memory/",
+      "price": 90000,
+      "stock": 6,
+      "realPowerConsumption": "3.5W - 4.2W",
+      "images": [
+        "/images/ram/xpg_gammix8gb.webp",
+        "/images/ram/xpg_gammix8gb_side.webp",
+        "/images/ram/xpg_gammix8gb_side2.webp",
+        "/images/ram/xpg_gammix8gb_back.webp"
+      ],
+      "description": "Memoria RAM Adata XPG Gammix D35 DDR4 8GB 3200MHz CL16 con disipador de aluminio low-profile",
+      "specifications": {
+        "marca": "ADATA",
+        "linea": "XPG Gammix",
+        "modelo": "D35",
+        "modeloDetallado": "AX4U32008G16A-SBKD35",
+        "capacidadTotal": "8 GB",
+        "modulos": "1",
+        "configuracion": "1x8 GB",
+        "tipoMemoriaRAM": "DDR4",
+        "formato": "DIMM",
+        "velocidad": "3200 MHz",
+        "latencia": "CL16",
+        "voltaje": "1.35 V",
+        "compatibilidad": "Intel XMP 2.0",
+        "ecc": "No",
+        "buffered": "No",
+        "disipador": "Sí, aluminio low-profile",
+        "color": "Negro",
+        "usoRecomendado": "PC de escritorio / Gaming",
+        "velocidadTransferencia": "25.6 GB/s",
+        "pines": "288",
+        "paisOrigen": "China / Taiwán"
+      }
+    },
+    {
+      "id": 412,
+      "name": "Kingston Fury Beast DDR4 8GB 3200MHz CL16 XMP",
+      "brand": "Kingston",
+      "model": "Fury Beast",
+      "category": "Memorias RAM",
+      "manufacturerUrl": "https://www.kingston.com/es/memory/gaming",
+      "price": 95000,
+      "stock": 5,
+      "realPowerConsumption": "3.5W - 4.2W",
+      "images": [
+        "/images/ram/kingston_fury8gbddr4.webp",
+        "/images/ram/kingston_fury8gbddr4_side.webp",
+        "/images/ram/kingston_fury8gbddr4_side2.webp",
+        "/images/ram/kingston_fury8gbddr4_side3.webp"
+      ],
+      "description": "Memoria RAM Kingston Fury Beast DDR4 8GB 3200MHz CL16 con disipador, sin RGB",
+      "specifications": {
+        "marca": "Kingston",
+        "linea": "Fury Beast",
+        "modelo": "KF432C16BB/8",
+        "modeloDetallado": "KF432C16BB/8",
+        "capacidadTotal": "8 GB",
+        "modulos": "1",
+        "configuracion": "1x8 GB",
+        "tipoMemoriaRAM": "DDR4 SDRAM",
+        "formato": "DIMM",
+        "velocidad": "3200 MHz",
+        "latencia": "CL16",
+        "voltaje": "1.35 V",
+        "compatibilidad": "Intel XMP 2.0",
+        "ecc": "No",
+        "buffered": "No",
+        "disipador": "Sí",
+        "iluminacionRGB": "No",
+        "color": "Negro",
+        "usoRecomendado": "PC de escritorio / Gaming",
+        "velocidadTransferencia": "25.6 GB/s",
+        "pines": "288",
+        "paisOrigen": "China / Taiwán"
+      }
+    },
+    {
+      "id": 413,
+      "name": "Kingston Fury Beast RGB DDR4 8GB 3200MHz CL16 XMP",
+      "brand": "Kingston",
+      "model": "Fury Beast RGB",
+      "category": "Memorias RAM",
+      "manufacturerUrl": "https://www.kingston.com/es/memory/gaming",
+      "price": 110000,
+      "stock":1,
+      "realPowerConsumption": "4.0W - 5.0W",
+      "images": [
+        "/images/ram/kingston_furyRGB_8gbddr4.webp",
+        "/images/ram/kingston_furyRGB_8gbddr4_side.webp",
+        "/images/ram/kingston_furyRGB_8gbddr4_side2.webp",
+        "/images/ram/kingston_furyRGB_8gbddr4_side3.webp"
+      ],
+      "description": "Memoria RAM Kingston Fury Beast RGB DDR4 8GB 3200MHz CL16 con iluminación RGB direccionable",
+      "specifications": {
+        "marca": "Kingston",
+        "linea": "Fury Beast RGB",
+        "modelo": "KF432C16BBA/8",
+        "modeloDetallado": "KF432C16BBA/8",
+        "capacidadTotal": "8 GB",
+        "modulos": "1",
+        "configuracion": "1x8 GB",
+        "tipoMemoriaRAM": "DDR4 SDRAM",
+        "formato": "DIMM",
+        "velocidad": "3200 MHz",
+        "latencia": "CL16",
+        "voltaje": "1.35 V",
+        "compatibilidad": "Intel XMP 2.0",
+        "ecc": "No",
+        "buffered": "No",
+        "disipador": "Sí",
+        "iluminacionRGB": "Sí (RGB direccionable)",
+        "sincronizacionRGB": "ASUS Aura / MSI Mystic Light / Gigabyte RGB Fusion",
+        "color": "Negro",
+        "usoRecomendado": "PC de escritorio / Gaming",
+        "velocidadTransferencia": "25.6 GB/s",
+        "pines": "288",
+        "paisOrigen": "China / Taiwán"
+      }
+    },
+
+
+    {
+      "id": 414,
       "name": "NETAC Shadow DDR4 16GB 3200MHz",
       "brand": "NETAC",
       "model": "Shadow",
@@ -282,7 +411,7 @@
       }
     },
     {
-      "id": 412,
+      "id": 415,
       "name": "HyperX Fury 16GB DDR4 2666MHz CL16",
       "brand": "HyperX",
       "model": "Fury",
@@ -302,7 +431,7 @@
       }
     },
     {
-      "id": 413,
+      "id": 416,
       "name": "Lexar 16GB DDR4 3200MHz UDIMM",
       "brand": "Lexar",
       "model": "LD4AU016G",
@@ -320,7 +449,7 @@
       }
     },
     {
-      "id": 414,
+      "id": 417,
       "name": "Patriot Signature DDR4 16GB 3200MHz",
       "brand": "Patriot",
       "model": "Signature",
@@ -338,7 +467,7 @@
       }
     },
     {
-      "id": 415,
+      "id": 418,
       "name": "NETAC BASIC DDR4 16GB 3200 MHZ C16",
       "brand": "Netac",
       "model": "Basic",
@@ -356,7 +485,7 @@
       }
     },
     {
-      "id": 416,
+      "id": 419,
       "name": "ADATA DDR4 Premier 16GB 3200MHz",
       "brand": "ADATA",
       "model": "Premier",
@@ -375,7 +504,7 @@
       }
     },
     {
-      "id": 417,
+      "id": 420,
       "name": "Adata 4GB DDR4 2666 MHz SODIMM",
       "brand": "ADATA",
       "model": "Premier",
@@ -394,7 +523,7 @@
       }
     },
     {
-      "id": 418,
+      "id": 421,
       "name": "Adata Premier 8GB U-DIMM DDR3 1600MHz",
       "brand": "ADATA",
       "model": "Premier",
@@ -410,6 +539,45 @@
       "specifications": {
         "tipoMemoriaRAM": "DDR3",
         "voltaje": "1.5 V"
+      }
+    },
+   
+    {
+      "id": 422,
+      "name": "Kingston ValueRAM 8GB DDR4 3200MHz CL22",
+      "brand": "Kingston",
+      "model": "ValueRAM",
+      "category": "Memorias RAM",
+      "manufacturerUrl": "https://www.kingston.com/es/memory/valueram",
+      "price": 80000,
+      "stock": 4,
+      "realPowerConsumption": "2.8W - 3.4W",
+      "images": [
+        "/images/ram/KINGSTON_VALUE_DDR8GB.webp"
+      ],
+      "description": "Memoria RAM Kingston ValueRAM 8GB DDR4 3200MHz CL22 sin disipador, ideal para oficina",
+      "specifications": {
+        "marca": "Kingston",
+        "linea": "ValueRAM",
+        "modelo": "KVR32N22S8L/8",
+        "modeloDetallado": "KVR32N22S8L/8",
+        "capacidadTotal": "8 GB",
+        "modulos": "1",
+        "configuracion": "1x8 GB",
+        "tipoMemoriaRAM": "DDR4",
+        "formato": "UDIMM",
+        "velocidad": "3200 MHz",
+        "latencia": "CL22",
+        "voltaje": "1.2 V",
+        "compatibilidad": "JEDEC estándar",
+        "ecc": "No",
+        "buffered": "No",
+        "disipador": "No",
+        "iluminacionRGB": "No",
+        "usoRecomendado": "PC de escritorio / Oficina",
+        "velocidadTransferencia": "25.6 GB/s",
+        "pines": "288",
+        "paisOrigen": "China / Taiwán"
       }
     }
   ]

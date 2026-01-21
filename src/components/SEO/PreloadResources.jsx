@@ -2,7 +2,7 @@ import { useEffect } from 'react';
 
 const PreloadResources = () => {
   useEffect(() => {
-    // Precargar solo imágenes críticas del hero carousel
+ 
     const criticalImages = [
       '/images/hero/megaphone_tiny.webp'
     ];

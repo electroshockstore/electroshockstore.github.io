@@ -17,9 +17,7 @@ const PCBuilder = lazy(() => import("./pages/PCBuilder"));
 const PuntosRetiro = lazy(() => import("./pages/PuntosRetiro"));
 
 // Loading component simple con logo real
-const PageLoader = () => (
-  <ModernLoader message="Cargando" />
-);
+const PageLoader = () => <ModernLoader />;
 
 function AnimatedRoutes() {
   const location = useLocation();
