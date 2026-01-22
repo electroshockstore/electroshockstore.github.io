@@ -56,7 +56,7 @@ const Header = ({ searchQuery = '', onSearchChange, onGoHome, hideSearchOnMobile
             {/* Search Input - Mobile */}
             {showMobileSearch && !hideSearchOnMobile && (
               <div className="animate-in fade-in slide-in-from-top-2 duration-200">
-                <SearchBar isMobile />
+                <SearchBar isMobile onClose={handleSearchClose} />
               </div>
             )}
             

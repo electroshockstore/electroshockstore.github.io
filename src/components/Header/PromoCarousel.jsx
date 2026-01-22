@@ -57,7 +57,7 @@ const PromoCarousel = () => {
   }, []);
 
   return (
-    <div className="w-full bg-slate-950 py-1 overflow-hidden relative border-y border-white/5">
+    <div className="sm:hidden w-full bg-slate-950 py-1 overflow-hidden relative border-y border-white/5">
       {/* Background patterns */}
       <div className="absolute inset-0 opacity-20 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-blue-500/10 via-transparent to-transparent" />
       

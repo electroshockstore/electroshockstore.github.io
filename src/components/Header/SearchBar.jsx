@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { Search, X, Package } from 'lucide-react';
 import { useStock } from '../../context/StockContext';
 
-const SearchBar = ({ isMobile = false }) => {
+const SearchBar = ({ isMobile = false, onClose }) => {
   const [localSearchQuery, setLocalSearchQuery] = useState('');
   const [isSearchOpen, setIsSearchOpen] = useState(false);
   const [searchResults, setSearchResults] = useState([]);
@@ -52,6 +52,10 @@ const SearchBar = ({ isMobile = false }) => {
   const handleClearSearch = () => {
     setLocalSearchQuery('');
     setIsSearchOpen(false);
+    // Si es mobile y hay función onClose, cerrar el buscador
+    if (isMobile && onClose) {
+      onClose();
+    }
   };
 
   if (isMobile) {

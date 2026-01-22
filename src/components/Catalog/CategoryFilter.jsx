@@ -155,6 +155,12 @@ const CategoryFilter = ({ selectedCategory, onCategoryChange }) => {
     }
   };
 
+  // Handler optimizado para iOS
+  const handleToggle = (e) => {
+    e.preventDefault();
+    setIsOpen(!isOpen);
+  };
+
   return (
     <div className="relative group z-20 w-full">
       {/* CAPAS DE RESPLANDOR ORIGINALES */}
@@ -166,10 +172,11 @@ const CategoryFilter = ({ selectedCategory, onCategoryChange }) => {
         <div className="relative bg-white rounded-full z-10">
         {/* MOBILE: DROPDOWN COMPACTO CON GLOW */}
         <div className="sm:hidden relative z-20" ref={dropdownRef}>
-          {/* Botón principal mejorado con imagen - Animación rápida */}
+          {/* Botón principal mejorado con imagen - Optimizado para iOS */}
           <button
-            onClick={() => setIsOpen(!isOpen)}
-            className="relative w-full flex items-center justify-between px-4 py-3 bg-gradient-to-r from-white to-gray-50 rounded-full shadow-lg hover:shadow-xl transition-all duration-150 hover:scale-[1.02] active:scale-[0.98] border border-gray-100"
+            onTouchStart={handleToggle}
+            onClick={handleToggle}
+            className="relative w-full flex items-center justify-between px-4 py-3 bg-gradient-to-r from-white to-gray-50 rounded-full shadow-lg hover:shadow-xl transition-all duration-150 hover:scale-[1.02] active:scale-[0.98] border border-gray-100 touch-manipulation"
           >
             <div className="flex items-center gap-3">
               {selectedCategory ? (
