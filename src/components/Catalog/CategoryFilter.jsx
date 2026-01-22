@@ -183,39 +183,39 @@ const CategoryFilter = ({ selectedCategory, onCategoryChange }) => {
             </div>
           </button>
 
-          {/* Modal Fullscreen - Mejor UX */}
+          {/* Modal Fullscreen - Diseño Oscuro */}
           {isOpen && (
             <>
               {/* Backdrop */}
               <div 
-                className="fixed inset-0 bg-black/60 backdrop-blur-sm z-[100] animate-in fade-in duration-200"
+                className="fixed inset-0 bg-black/80 backdrop-blur-md z-[100] animate-in fade-in duration-200"
                 onClick={() => setIsOpen(false)}
               />
               
               {/* Modal Content */}
               <div className="fixed inset-0 z-[101] flex flex-col animate-in slide-in-from-bottom duration-300">
-                {/* Header del modal mejorado */}
-                <div className="bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 px-5 py-5 flex items-center justify-between shadow-2xl">
-                  <div className="flex items-center gap-3">
-                    <div className="p-2.5 rounded-xl bg-white/20 backdrop-blur-md shadow-lg border border-white/30">
-                      <Grid3X3 className="h-6 w-6 text-white" strokeWidth={2.5} />
+                {/* Header del modal - Estilo Header oscuro */}
+                <div className="bg-black border-b border-gray-800 px-5 py-6 flex items-center justify-between shadow-2xl">
+                  <div className="flex items-center gap-4">
+                    <div className="p-3 rounded-2xl bg-gradient-to-br from-blue-500 to-purple-600 shadow-xl">
+                      <Grid3X3 className="h-7 w-7 text-white" strokeWidth={2.5} />
                     </div>
                     <div>
-                      <h2 className="text-xl font-bold text-white drop-shadow-lg">Categorías</h2>
-                      <p className="text-xs text-white/80 font-medium">{categories.length} opciones disponibles</p>
+                      <h2 className="text-2xl font-bold text-white tracking-tight">Categorías</h2>
+                      <p className="text-sm text-gray-400 font-medium mt-0.5">{categories.length} opciones disponibles</p>
                     </div>
                   </div>
                   <button
                     onClick={() => setIsOpen(false)}
-                    className="p-2 hover:bg-white/20 rounded-full transition-all duration-200 active:scale-90 backdrop-blur-sm"
+                    className="p-2.5 hover:bg-gray-800 rounded-xl transition-all duration-200 active:scale-90"
                   >
-                    <X className="h-6 w-6 text-white" strokeWidth={2.5} />
+                    <X className="h-6 w-6 text-gray-400 hover:text-white transition-colors" strokeWidth={2.5} />
                   </button>
                 </div>
 
-                {/* Grid de categorías con imágenes - Mobile optimizado */}
-                <div className="flex-1 overflow-y-auto bg-gradient-to-b from-gray-50 to-white px-3 py-4">
-                  <div className="grid grid-cols-2 gap-3 max-w-md mx-auto">
+                {/* Grid de categorías - Fondo catalog-bg */}
+                <div className="flex-1 overflow-y-auto catalog-bg px-4 py-5">
+                  <div className="grid grid-cols-2 gap-4 max-w-md mx-auto">
                     {categories.map((category, index) => {
                       const isSelected = selectedCategory === category;
                       const gradient = getCategoryGradient(category);
@@ -231,11 +231,11 @@ const CategoryFilter = ({ selectedCategory, onCategoryChange }) => {
                           }}
                           style={{ animationDelay: `${index * 40}ms` }}
                           className={`
-                            relative overflow-hidden rounded-2xl font-bold text-sm
+                            relative overflow-hidden rounded-2xl font-bold
                             transition-all duration-300 animate-in fade-in zoom-in-95
                             ${isSelected 
-                              ? 'shadow-2xl scale-[1.02] ring-4 ring-blue-500/50' 
-                              : 'shadow-lg hover:shadow-xl active:scale-[0.97]'
+                              ? 'shadow-[0_20px_50px_rgba(0,0,0,0.4)] scale-[1.03] ring-4 ring-blue-500/60' 
+                              : 'shadow-[0_10px_30px_rgba(0,0,0,0.25)] hover:shadow-[0_15px_40px_rgba(0,0,0,0.35)] active:scale-[0.97]'
                             }
                           `}
                         >
@@ -247,41 +247,42 @@ const CategoryFilter = ({ selectedCategory, onCategoryChange }) => {
                               className={`
                                 absolute inset-0 w-full h-full object-cover
                                 transition-all duration-300
-                                ${isSelected ? 'scale-110 brightness-110' : 'brightness-90 group-hover:brightness-100'}
+                                ${isSelected ? 'scale-110 brightness-110' : 'brightness-90'}
                               `}
                               loading={isTopImage ? "eager" : "lazy"}
-                              fetchPriority={isTopImage ? "high" : "low"}
+                              fetchpriority={isTopImage ? "high" : "low"}
                               decoding="async"
                             />
                             
-                            {/* Overlay gradient */}
+                            {/* Overlay gradient más oscuro */}
                             <div className={`
-                              absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent
+                              absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent
                               transition-all duration-300
-                              ${isSelected ? 'from-black/70 via-black/30' : ''}
+                              ${isSelected ? 'from-black/80 via-black/40' : ''}
                             `} />
                             
                             {/* Badge de selección */}
                             {isSelected && (
-                              <div className="absolute top-2 right-2 bg-blue-500 text-white px-2 py-1 rounded-full text-xs font-bold shadow-lg animate-in zoom-in-50 duration-200">
-                                ✓
+                              <div className="absolute top-3 right-3 bg-blue-500 text-white px-3 py-1.5 rounded-full text-xs font-bold shadow-xl animate-in zoom-in-50 duration-200 flex items-center gap-1">
+                                <div className="w-1.5 h-1.5 rounded-full bg-white animate-pulse" />
+                                Activa
                               </div>
                             )}
                             
-                            {/* Texto sobre la imagen */}
-                            <div className="absolute inset-x-0 bottom-0 p-3 flex flex-col items-start gap-1">
+                            {/* Texto sobre la imagen - Más grande y visible */}
+                            <div className="absolute inset-x-0 bottom-0 p-4 flex flex-col items-start gap-1.5">
                               <span className={`
-                                text-white font-bold leading-tight drop-shadow-lg
+                                text-white font-bold leading-tight drop-shadow-[0_2px_8px_rgba(0,0,0,0.8)]
                                 transition-all duration-300
-                                ${isSelected ? 'text-base' : 'text-sm'}
+                                ${isSelected ? 'text-xl' : 'text-base'}
                               `}>
                                 {category}
                               </span>
                               
-                              {isSelected && (
-                                <div className="flex items-center gap-1 animate-in slide-in-from-bottom-2 duration-200">
-                                  <div className="w-1.5 h-1.5 rounded-full bg-blue-400 animate-pulse" />
-                                  <span className="text-xs text-blue-200 font-semibold">Activa</span>
+                              {!isSelected && (
+                                <div className="flex items-center gap-1.5 opacity-80">
+                                  <div className="w-1 h-1 rounded-full bg-gray-300" />
+                                  <span className="text-xs text-gray-300 font-medium">Toca para filtrar</span>
                                 </div>
                               )}
                             </div>
@@ -292,12 +293,12 @@ const CategoryFilter = ({ selectedCategory, onCategoryChange }) => {
                   </div>
                 </div>
 
-                {/* Footer mejorado */}
-                <div className="bg-white/95 backdrop-blur-xl border-t border-gray-200 px-5 py-3 shadow-lg">
-                  <div className="flex items-center justify-center gap-2 text-xs text-gray-500">
-                    <div className="w-6 h-1 bg-gradient-to-r from-blue-400 to-purple-400 rounded-full" />
-                    <span className="font-semibold">Toca una categoría para filtrar</span>
-                    <div className="w-6 h-1 bg-gradient-to-r from-purple-400 to-pink-400 rounded-full" />
+                {/* Footer oscuro */}
+                <div className="bg-black/95 backdrop-blur-xl border-t border-gray-800 px-5 py-4 shadow-2xl">
+                  <div className="flex items-center justify-center gap-3 text-sm text-gray-400">
+                    <div className="w-8 h-1 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full" />
+                    <span className="font-semibold">Selecciona una categoría</span>
+                    <div className="w-8 h-1 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full" />
                   </div>
                 </div>
               </div>
