@@ -585,6 +585,38 @@ export default {
             'transition-duration': '0.01ms !important',
           },
         },
+        
+        // ===== FONDO CATÁLOGO REUTILIZABLE =====
+        '.catalog-bg': {
+          'position': 'relative',
+          'background': 'linear-gradient(to bottom right, #eff6ff, #faf5ff, #fdf2f8)',
+        },
+        
+        '.catalog-bg::before': {
+          'content': '""',
+          'position': 'absolute',
+          'top': '-10%',
+          'left': '-5%',
+          'width': '40%',
+          'height': '40%',
+          'background-color': 'rgba(191, 219, 254, 0.5)',
+          'filter': 'blur(80px)',
+          'border-radius': '9999px',
+          'pointer-events': 'none',
+        },
+        
+        '.catalog-bg::after': {
+          'content': '""',
+          'position': 'absolute',
+          'top': '20%',
+          'right': '-5%',
+          'width': '35%',
+          'height': '35%',
+          'background-color': 'rgba(233, 213, 255, 0.4)',
+          'filter': 'blur(70px)',
+          'border-radius': '9999px',
+          'pointer-events': 'none',
+        },
       });
     }
   ]

@@ -14,6 +14,19 @@ const CategoryFilter = ({ selectedCategory, onCategoryChange }) => {
   const dropdownRef = useRef(null);
   const scrollContainerRef = useRef(null);
 
+  // Bloquear scroll del body cuando el modal está abierto
+  useEffect(() => {
+    if (isOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'unset';
+    }
+    
+    return () => {
+      document.body.style.overflow = 'unset';
+    };
+  }, [isOpen]);
+
   // Mapeo de imágenes para mobile - usar thumbnails optimizados
   const getCategoryImage = (category) => {
     const imageMap = {
@@ -188,14 +201,14 @@ const CategoryFilter = ({ selectedCategory, onCategoryChange }) => {
             <>
               {/* Backdrop */}
               <div 
-                className="fixed inset-0 bg-black/70 backdrop-blur-sm z-[100] animate-in fade-in duration-200"
+                className="fixed inset-0 bg-black/70 backdrop-blur-sm z-[90] animate-in fade-in duration-200"
                 onClick={() => setIsOpen(false)}
               />
               
               {/* Modal Content */}
-              <div className="fixed inset-0 z-[101] flex flex-col animate-in slide-in-from-bottom duration-300">
+              <div className="fixed inset-0 z-[91] flex flex-col animate-in slide-in-from-bottom duration-300 pointer-events-none">
                 {/* Header del modal - Negro moderno */}
-                <div className="bg-gradient-to-r from-gray-900 via-black to-gray-900 px-5 py-4 flex items-center justify-between shadow-2xl border-b border-gray-800">
+                <div className="bg-gradient-to-r from-gray-900 via-black to-gray-900 px-5 py-4 flex items-center justify-between shadow-2xl border-b border-gray-800 pointer-events-auto">
                   <div className="flex items-center gap-3">
                     <div className="p-2 rounded-xl bg-gradient-to-br from-blue-500/20 to-purple-500/20 backdrop-blur-md shadow-lg border border-white/10">
                       <Grid3X3 className="h-5 w-5 text-blue-400" strokeWidth={2.5} />
@@ -214,15 +227,7 @@ const CategoryFilter = ({ selectedCategory, onCategoryChange }) => {
                 </div>
 
                 {/* Grid de categorías - Fondo como catálogo */}
-                <div className="flex-1 overflow-y-auto relative">
-                  {/* Fondo con gradiente similar al catálogo */}
-                  <div className="absolute inset-0 bg-gradient-to-br from-blue-50 via-purple-50 to-pink-50" />
-                  
-                  {/* Elementos decorativos */}
-                  <div className="absolute top-[-10%] left-[-5%] w-[40%] h-[40%] bg-blue-200/50 blur-[80px] rounded-full" />
-                  <div className="absolute top-[20%] right-[-5%] w-[35%] h-[35%] bg-purple-200/40 blur-[70px] rounded-full" />
-                  <div className="absolute bottom-[-10%] left-[30%] w-[40%] h-[40%] bg-cyan-200/40 blur-[80px] rounded-full" />
-                  
+                <div className="flex-1 overflow-y-auto catalog-bg pointer-events-auto">
                   <div className="relative z-10 px-3 py-4">
                     <div className="grid grid-cols-2 gap-3 max-w-md mx-auto">
                       {categories.map((category, index) => {
@@ -304,7 +309,7 @@ const CategoryFilter = ({ selectedCategory, onCategoryChange }) => {
                 </div>
 
                 {/* Footer moderno */}
-                <div className="bg-gradient-to-r from-gray-900 via-black to-gray-900 border-t border-gray-800 px-5 py-3 shadow-2xl">
+                <div className="bg-gradient-to-r from-gray-900 via-black to-gray-900 border-t border-gray-800 px-5 py-3 shadow-2xl pointer-events-auto">
                   <div className="flex items-center justify-center gap-2 text-xs text-gray-400">
                     <div className="w-6 h-0.5 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full" />
                     <span className="font-semibold">Toca una categoría para filtrar</span>
