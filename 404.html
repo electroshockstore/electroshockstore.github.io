@@ -3,12 +3,17 @@
   <head>
     <meta charset="UTF-8" />
     
+    <!-- Eliminar delay de 300ms en iOS -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes" />
+    
     <!-- Favicon simple -->
     <link rel="icon" type="image/png" href="/logotipo_tiny.png" />
     <link rel="apple-touch-icon" href="/logotipo_tiny.png" />
     <link rel="manifest" href="/site.webmanifest" />
     
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#0a0a0f" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
     
     <!-- SEO Meta Tags -->
     <title>Shock-Store | Tecnología y Componentes PC - Berazategui</title>
@@ -99,7 +104,7 @@
       });
     </script>
 
-    <!-- Tawk.to Live Chat -->
+    <!-- Tawk.to Live Chat - DESHABILITADO TEMPORALMENTE (404 Error)
     <script type="text/javascript">
       var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
       (function(){
@@ -147,9 +152,19 @@
         return false;
       };
     </script>
-    <script type="module" crossorigin src="/assets/index-CQrLLiGc.js"></script>
-    <link rel="modulepreload" crossorigin href="/assets/vendor-vl-PQn4X.js">
-    <link rel="modulepreload" crossorigin href="/assets/react-vendor-Bc8wy9QJ.js">
+    -->
+    
+    <!-- Función stub para evitar errores mientras Tawk.to está deshabilitado -->
+    <script type="text/javascript">
+      window.Tawk_API = window.Tawk_API || {};
+      window.openTawkChat = function(initialMessage) {
+        console.info('Chat en vivo temporalmente no disponible. Por favor usa WhatsApp.');
+        return false;
+      };
+    </script>
+    <script type="module" crossorigin src="/assets/index-CaKaBh0w.js"></script>
+    <link rel="modulepreload" crossorigin href="/assets/vendor-CqKJk-vV.js">
+    <link rel="modulepreload" crossorigin href="/assets/react-vendor-BMdiV7dk.js">
     <link rel="modulepreload" crossorigin href="/assets/data-procesadores-qC-31hbg.js">
     <link rel="modulepreload" crossorigin href="/assets/data-motherboards-i6-FO8Kq.js">
     <link rel="modulepreload" crossorigin href="/assets/data-memorias-ClliD-7e.js">
@@ -165,10 +180,10 @@
     <link rel="modulepreload" crossorigin href="/assets/data-portatiles-Be6QRbzo.js">
     <link rel="modulepreload" crossorigin href="/assets/data-placas_video-CvIICd7D.js">
     <link rel="modulepreload" crossorigin href="/assets/data-mayorista-BTVVw3RS.js">
-    <link rel="modulepreload" crossorigin href="/assets/pc-builder-components-Dd_D7SuQ.js">
-    <link rel="modulepreload" crossorigin href="/assets/framer-motion-DiBORpYV.js">
+    <link rel="modulepreload" crossorigin href="/assets/pc-builder-components-1Auax_vI.js">
+    <link rel="modulepreload" crossorigin href="/assets/framer-motion-BE74Ec9E.js">
     <link rel="stylesheet" crossorigin href="/assets/react-vendor-w23F2EJY.css">
-    <link rel="stylesheet" crossorigin href="/assets/index-CQCF5v2E.css">
+    <link rel="stylesheet" crossorigin href="/assets/index-C3egLuQB.css">
   
     <!-- GitHub Pages SPA redirect script -->
     <script type="text/javascript">
