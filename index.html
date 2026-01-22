@@ -108,6 +108,9 @@
         s1.src='https://embed.tawk.to/693ab9ed2a271419893a1ccb';
         s1.charset='UTF-8';
         s1.setAttribute('crossorigin','*');
+        s1.onerror = function() {
+          console.warn('Tawk.to no pudo cargarse. El chat en vivo no estará disponible.');
+        };
         s0.parentNode.insertBefore(s1,s0);
       })();
 
@@ -138,13 +141,15 @@
             console.error('Error abriendo chat:', error);
             return false;
           }
+        } else {
+          console.warn('Tawk.to no está disponible');
         }
         return false;
       };
     </script>
-    <script type="module" crossorigin src="/assets/index-BLTxCLNh.js"></script>
-    <link rel="modulepreload" crossorigin href="/assets/vendor-BQgvbVNn.js">
-    <link rel="modulepreload" crossorigin href="/assets/react-vendor-BKLVU06e.js">
+    <script type="module" crossorigin src="/assets/index-D5ef13O2.js"></script>
+    <link rel="modulepreload" crossorigin href="/assets/vendor-vl-PQn4X.js">
+    <link rel="modulepreload" crossorigin href="/assets/react-vendor-Bc8wy9QJ.js">
     <link rel="modulepreload" crossorigin href="/assets/data-procesadores-qC-31hbg.js">
     <link rel="modulepreload" crossorigin href="/assets/data-motherboards-i6-FO8Kq.js">
     <link rel="modulepreload" crossorigin href="/assets/data-memorias-ClliD-7e.js">
@@ -160,10 +165,10 @@
     <link rel="modulepreload" crossorigin href="/assets/data-portatiles-Be6QRbzo.js">
     <link rel="modulepreload" crossorigin href="/assets/data-placas_video-CvIICd7D.js">
     <link rel="modulepreload" crossorigin href="/assets/data-mayorista-BTVVw3RS.js">
-    <link rel="modulepreload" crossorigin href="/assets/pc-builder-components-VCKg1dNe.js">
-    <link rel="modulepreload" crossorigin href="/assets/framer-motion-D3XWZLsE.js">
+    <link rel="modulepreload" crossorigin href="/assets/pc-builder-components-Q4wKvtNT.js">
+    <link rel="modulepreload" crossorigin href="/assets/framer-motion-DiBORpYV.js">
     <link rel="stylesheet" crossorigin href="/assets/react-vendor-w23F2EJY.css">
-    <link rel="stylesheet" crossorigin href="/assets/index-PcIypXy3.css">
+    <link rel="stylesheet" crossorigin href="/assets/index-DViJ0SgI.css">
   </head>
   <body>
     <div id="root"></div>
