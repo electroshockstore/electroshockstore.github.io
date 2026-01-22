@@ -31,7 +31,8 @@
         "ecc": "No",
         "disipador": "Sí",
         "color": "Negro"
-      }
+      },
+      "ddrType": "DDR5"
     },
     {
       "id": 401,
@@ -62,7 +63,8 @@
         "ecc": "No",
         "disipador": "Sí",
         "color": "Negro"
-      }
+      },
+      "ddrType": "DDR5"
     },
     {
       "id": 402,
@@ -84,7 +86,8 @@
         "velocidad": "5600 MHz",
         "voltaje": "1.35V",
         "pmic": "Integrado (Power Management IC)"
-      }
+      },
+      "ddrType": "DDR5"
     },
     {
       "id": 403,
@@ -104,7 +107,8 @@
         "capacidad": "16 GB",
         "velocidad": "4800 MHz",
         "voltaje": "1.1V"
-      }
+      },
+      "ddrType": "DDR5"
     },
     {
       "id": 404,
@@ -123,7 +127,8 @@
         "tipoMemoriaRAM": "DDR5",
         "velocidad": "5200 MHz",
         "voltaje": "1.25V"
-      }
+      },
+      "ddrType": "DDR5"
     },
     {
       "id": 405,
@@ -142,7 +147,8 @@
         "capacidadTotal": "32 GB",
         "tipoMemoriaRAM": "DDR5",
         "voltaje": "1.1V"
-      }
+      },
+      "ddrType": "DDR5"
     },
     {
       "id": 406,
@@ -171,7 +177,8 @@
         "latencia": "CL46",
         "voltaje": "1.1 V",
         "compatibilidad": "Plataformas Intel y AMD DDR5"
-      }
+      },
+      "ddrType": "DDR5"
     },
     {
       "id": 407,
@@ -199,7 +206,8 @@
         "formato": "UDIMM",
         "voltaje": "1.1 V",
         "compatibilidad": "Plataformas DDR5 Intel / AMD"
-      }
+      },
+      "ddrType": "DDR5"
     },
     {
       "id": 408,
@@ -219,7 +227,8 @@
         "tipoMemoria": "DDR4",
         "voltaje": "1.35V",
         "disipador": "Sí"
-      }
+      },
+      "ddrType": "DDR4"
     },
     {
       "id": 409,
@@ -240,7 +249,8 @@
         "rgb": "Sí",
         "voltaje": "1.35 V",
         "cl": "16"
-      }
+      },
+      "ddrType": "DDR4"
     },
     {
       "id": 410,
@@ -261,10 +271,10 @@
         "rgb": "Sí",
         "voltaje": "1.35V",
         "cl": "16"
-      }
+      },
+      "ddrType": "DDR4"
     },
-
- {
+    {
       "id": 411,
       "name": "Adata XPG Gammix D35 DDR4 8GB 3200MHz CL16",
       "brand": "ADATA",
@@ -303,7 +313,8 @@
         "velocidadTransferencia": "25.6 GB/s",
         "pines": "288",
         "paisOrigen": "China / Taiwán"
-      }
+      },
+      "ddrType": "DDR4"
     },
     {
       "id": 412,
@@ -345,7 +356,8 @@
         "velocidadTransferencia": "25.6 GB/s",
         "pines": "288",
         "paisOrigen": "China / Taiwán"
-      }
+      },
+      "ddrType": "DDR4"
     },
     {
       "id": 413,
@@ -355,7 +367,7 @@
       "category": "Memorias RAM",
       "manufacturerUrl": "https://www.kingston.com/es/memory/gaming",
       "price": 110000,
-      "stock":1,
+      "stock": 1,
       "realPowerConsumption": "4.0W - 5.0W",
       "images": [
         "/images/ram/kingston_furyRGB_8gbddr4.webp",
@@ -388,10 +400,9 @@
         "velocidadTransferencia": "25.6 GB/s",
         "pines": "288",
         "paisOrigen": "China / Taiwán"
-      }
+      },
+      "ddrType": "DDR4"
     },
-
-
     {
       "id": 414,
       "name": "NETAC Shadow DDR4 16GB 3200MHz",
@@ -408,7 +419,8 @@
       "specifications": {
         "tipoMemoriaRAM": "DDR4",
         "voltaje": "1.35V"
-      }
+      },
+      "ddrType": "DDR4"
     },
     {
       "id": 415,
@@ -428,7 +440,8 @@
         "tipo": "DDR4 SDRAM",
         "voltaje": "1.2V",
         "velocidad": "2666 MHz"
-      }
+      },
+      "ddrType": "DDR4"
     },
     {
       "id": 416,
@@ -446,7 +459,8 @@
       "specifications": {
         "voltaje": "1.2 V",
         "tipoMemoriaRAM": "DDR4"
-      }
+      },
+      "ddrType": "DDR4"
     },
     {
       "id": 417,
@@ -464,7 +478,8 @@
       "specifications": {
         "voltaje": "1.2 V",
         "tipoMemoriaRAM": "DDR4"
-      }
+      },
+      "ddrType": "DDR4"
     },
     {
       "id": 418,
@@ -482,7 +497,8 @@
       "specifications": {
         "voltaje": "1.35 V",
         "tipoMemoriaRAM": "DDR4"
-      }
+      },
+      "ddrType": "DDR4"
     },
     {
       "id": 419,
@@ -501,7 +517,8 @@
       "specifications": {
         "voltaje": "1.2 V",
         "tipoMemoriaRAM": "DDR4"
-      }
+      },
+      "ddrType": "DDR4"
     },
     {
       "id": 420,
@@ -520,7 +537,8 @@
       "specifications": {
         "formatoMemoriaRAM": "SODIMM",
         "voltaje": "1.2 V"
-      }
+      },
+      "ddrType": "DDR4"
     },
     {
       "id": 421,
@@ -539,9 +557,9 @@
       "specifications": {
         "tipoMemoriaRAM": "DDR3",
         "voltaje": "1.5 V"
-      }
+      },
+      "ddrType": "DDR3"
     },
-   
     {
       "id": 422,
       "name": "Kingston ValueRAM 8GB DDR4 3200MHz CL22",
@@ -578,7 +596,8 @@
         "velocidadTransferencia": "25.6 GB/s",
         "pines": "288",
         "paisOrigen": "China / Taiwán"
-      }
+      },
+      "ddrType": "DDR4"
     }
   ]
 }

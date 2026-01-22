@@ -3,6 +3,7 @@ import { Zap } from 'lucide-react';
 
 const SpecsSection = ({ specifications }) => {
   const [hoveredItem, setHoveredItem] = useState(null);
+  const [activeTab, setActiveTab] = useState('main'); // 'main' o 'additional'
 
   if (!specifications) return null;
 
@@ -50,7 +51,7 @@ const SpecsSection = ({ specifications }) => {
     
     return (
       <div 
-        className={`group relative p-4 rounded-lg transition-all duration-200 cursor-pointer border
+        className={`group relative p-3 sm:p-4 rounded-lg transition-all duration-200 cursor-pointer border
           ${isHovered 
             ? 'bg-gray-50 shadow-md border-gray-300 scale-[1.01]' 
             : 'bg-white border-gray-200 hover:border-gray-300'
@@ -59,17 +60,17 @@ const SpecsSection = ({ specifications }) => {
         onMouseLeave={() => setHoveredItem(null)}
       >
         <div className="flex items-center justify-between">
-          <div className="flex items-center gap-3 flex-1">
-            <div className={`w-1.5 h-6 rounded-full transition-all duration-200 ${
+          <div className="flex items-center gap-2 sm:gap-3 flex-1">
+            <div className={`w-1 sm:w-1.5 h-5 sm:h-6 rounded-full transition-all duration-200 ${
               isHovered 
                 ? 'bg-gray-800' 
                 : 'bg-gray-300'
             }`} />
-            <dt className="text-sm font-medium text-gray-700 flex-1">
+            <dt className="text-xs sm:text-sm font-medium text-gray-700 flex-1">
               {label}
             </dt>
           </div>
-          <dd className="text-sm ml-4 text-right">
+          <dd className="text-xs sm:text-sm ml-2 sm:ml-4 text-right">
             {renderValue(value)}
           </dd>
         </div>
@@ -81,9 +82,9 @@ const SpecsSection = ({ specifications }) => {
     if (specs.length === 0) return null;
     
     return (
-      <div className="space-y-4">
-        {/* Minimalist header */}
-        <div className="border-b border-gray-200 pb-3">
+      <div className="space-y-3 sm:space-y-4">
+        {/* Header - Solo visible en desktop */}
+        <div className="hidden lg:block border-b border-gray-200 pb-3">
           <div className="flex items-center gap-2">
             <div className={`w-2 h-2 rounded-full ${isLeft ? 'bg-gray-800' : 'bg-gray-600'}`} />
             <h3 className="font-semibold text-gray-900">{title}</h3>
@@ -108,20 +109,73 @@ const SpecsSection = ({ specifications }) => {
 
   return (
     <div className="bg-white rounded-xl border-2 border-gray-200 shadow-lg overflow-hidden">
-      <div className="p-6">
-        {/* Minimalist header */}
-        <div className="flex items-center gap-3 mb-6 pb-4 border-b border-gray-100">
-          <div className="w-8 h-8 bg-gray-100 rounded-lg flex items-center justify-center">
-            <Zap className="h-4 w-4 text-gray-700" />
+      <div className="p-4 sm:p-6">
+        {/* Header */}
+        <div className="flex items-center gap-3 mb-4 sm:mb-6 pb-3 sm:pb-4 border-b border-gray-100">
+          <div className="w-7 h-7 sm:w-8 sm:h-8 bg-gray-100 rounded-lg flex items-center justify-center">
+            <Zap className="h-3.5 w-3.5 sm:h-4 sm:w-4 text-gray-700" />
           </div>
           <div>
-            <h2 className="text-xl font-bold text-gray-900">Detalles Técnicos</h2>
-            <p className="text-gray-600 text-sm">Especificaciones del producto</p>
+            <h2 className="text-lg sm:text-xl font-bold text-gray-900">Detalles Técnicos</h2>
+            <p className="text-gray-600 text-xs sm:text-sm">Especificaciones del producto</p>
           </div>
         </div>
 
-        {/* Content - Two Columns */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+        {/* Tabs - Solo visible en mobile */}
+        <div className="lg:hidden mb-4">
+          <div className="flex gap-2 p-1 bg-gray-100 rounded-lg">
+            <button
+              onClick={() => setActiveTab('main')}
+              className={`flex-1 px-3 py-2 rounded-md text-sm font-semibold transition-all duration-200 ${
+                activeTab === 'main'
+                  ? 'bg-white text-gray-900 shadow-sm'
+                  : 'text-gray-600 hover:text-gray-900'
+              }`}
+            >
+              <div className="flex items-center justify-center gap-2">
+                <div className={`w-1.5 h-1.5 rounded-full ${activeTab === 'main' ? 'bg-gray-800' : 'bg-gray-400'}`} />
+                <span>Principales</span>
+                <span className="text-xs text-gray-500">({leftColumn.length})</span>
+              </div>
+            </button>
+            <button
+              onClick={() => setActiveTab('additional')}
+              className={`flex-1 px-3 py-2 rounded-md text-sm font-semibold transition-all duration-200 ${
+                activeTab === 'additional'
+                  ? 'bg-white text-gray-900 shadow-sm'
+                  : 'text-gray-600 hover:text-gray-900'
+              }`}
+            >
+              <div className="flex items-center justify-center gap-2">
+                <div className={`w-1.5 h-1.5 rounded-full ${activeTab === 'additional' ? 'bg-gray-600' : 'bg-gray-400'}`} />
+                <span>Adicional</span>
+                <span className="text-xs text-gray-500">({rightColumn.length})</span>
+              </div>
+            </button>
+          </div>
+        </div>
+
+        {/* Content */}
+        {/* Mobile: Tabs */}
+        <div className="lg:hidden">
+          {activeTab === 'main' && (
+            <SpecColumn 
+              specs={leftColumn} 
+              title="Características Principales" 
+              isLeft={true}
+            />
+          )}
+          {activeTab === 'additional' && (
+            <SpecColumn 
+              specs={rightColumn} 
+              title="Información Adicional" 
+              isLeft={false}
+            />
+          )}
+        </div>
+
+        {/* Desktop: Two Columns */}
+        <div className="hidden lg:grid lg:grid-cols-2 gap-8">
           <SpecColumn 
             specs={leftColumn} 
             title="Características Principales" 

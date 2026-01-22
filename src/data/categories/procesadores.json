@@ -26,7 +26,8 @@
         "hilos": "16",
         "tdp": "65 W",
         "graficosIntegrados": "AMD Radeon Vega"
-      }
+      },
+      "ddrType": "DDR4"
     },
     {
       "id": 304,
@@ -55,7 +56,8 @@
         "tdp": "65 W",
         "memoriaRAM": "DDR5",
         "graficosIntegrados": "Vega"
-      }
+      },
+      "ddrType": "DDR5"
     },
     {
       "id": 305,
@@ -81,7 +83,8 @@
         "hilos": "12",
         "tdp": "65 W",
         "graficosIntegrados": "No"
-      }
+      },
+      "ddrType": "DDR4"
     },
     {
       "id": 306,
@@ -107,7 +110,8 @@
         "hilos": "12",
         "tdp": "65 W",
         "graficosIntegrados": "AMD Radeon Vega 7"
-      }
+      },
+      "ddrType": "DDR4"
     },
     {
       "id": 307,
@@ -142,7 +146,8 @@
         "procesoFabricacion": "4 nm",
         "tdp": "65 W",
         "consumoTDP": "65 W"
-      }
+      },
+      "ddrType": "DDR5"
     },
     {
       "id": 308,
@@ -167,7 +172,8 @@
         "hilos": "12",
         "tdp": "65 W",
         "graficosIntegrados": "Radeon 760M"
-      }
+      },
+      "ddrType": "DDR5"
     },
     {
       "id": 309,
@@ -194,7 +200,8 @@
         "hilos": "12",
         "tdp": "65 W",
         "graficosIntegrados": "Intel UHD Graphics 730"
-      }
+      },
+      "ddrType": "DDR4"
     },
     {
       "id": 310,
@@ -222,7 +229,8 @@
         "tdp": "65 W",
         "memoriaRAM": "DDR5",
         "graficosIntegrados": "No"
-      }
+      },
+      "ddrType": "DDR5"
     },
     {
       "id": 311,
@@ -249,7 +257,8 @@
         "hilos": "4",
         "tdp": "65 W",
         "graficosIntegrados": "AMD Radeon Vega 8"
-      }
+      },
+      "ddrType": "DDR4"
     },
     {
       "id": 312,
@@ -275,7 +284,8 @@
         "hilos": "12",
         "tdp": "65 W",
         "graficosIntegrados": "No"
-      }
+      },
+      "ddrType": "DDR4"
     },
     {
       "id": 313,
@@ -300,7 +310,8 @@
         "hilos": "4",
         "tdp": "35 W",
         "graficosIntegrados": "Radeon Vega 3"
-      }
+      },
+      "ddrType": "DDR4"
     }
   ]
 }

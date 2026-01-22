@@ -1,9 +1,20 @@
-const ProductInfo = ({ name, brand, model, isUsed, isDDR5, isDDR4 }) => {
+const ProductInfo = ({ name, brand, model, isUsed, isDDR5, isDDR4, certType }) => {
   const displayName = isUsed ? `${name} - USADA` : name;
+  
+  // Mapeo de certificaciones a imágenes
+  const getCertImage = () => {
+    if (certType === '80_PLUS_GOLD') return '/images/fuentes/80_plusgold.webp';
+    if (certType === '80_PLUS_BRONZE') return '/images/fuentes/80_plusbz.webp';
+    // Puedes agregar más certificaciones aquí en el futuro
+    return null;
+  };
+  
+  const certImage = getCertImage();
+  const showBadge = isDDR5 || isDDR4 || certImage;
   
   return (
     <div className="space-y-1 text-left">
-      {/* 1. Marca y Logo DDR */}
+      {/* 1. Marca y Badges (DDR o Certificación) */}
       <div className="flex items-center justify-between mb-1 sm:mb-2">
         <div className="flex items-center gap-1.5">
           <span className="text-[10px] sm:text-xs font-bold text-blue-600 tracking-wider uppercase truncate">
@@ -11,7 +22,7 @@ const ProductInfo = ({ name, brand, model, isUsed, isDDR5, isDDR4 }) => {
           </span>
         </div>
         
-        {/* Logo DDR - Visible en mobile y desktop */}
+        {/* Badges - Visible en mobile y desktop */}
         <div className="flex items-center gap-2">
           {/* Logo DDR5 o DDR4 */}
           {isDDR5 && (
@@ -26,13 +37,23 @@ const ProductInfo = ({ name, brand, model, isUsed, isDDR5, isDDR4 }) => {
             <img 
               src="/images/ram/ddr4_logo.webp" 
               alt="DDR4" 
-              className="h-10 sm:h-6 w-auto object-contain"
+              className="h-10 sm:h-10 w-auto object-contain"
+              loading="lazy"
+            />
+          )}
+          
+          {/* Certificación 80 Plus */}
+          {certImage && (
+            <img 
+              src={certImage} 
+              alt={certType?.replace(/_/g, ' ')} 
+              className="h-10 sm:h-10 w-auto object-contain"
               loading="lazy"
             />
           )}
           
           {/* Modelo - Solo desktop */}
-          <span className="hidden sm:inline-block text-xs px-2 py-0.5 bg-gray-100 text-gray-500 rounded-full ">
+          <span className="hidden sm:inline-block text-xs px-2 py-0.5 bg-gray-100 text-gray-500 rounded-full truncate ">
             {model}
           </span>
         </div>

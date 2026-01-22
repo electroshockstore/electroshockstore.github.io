@@ -31,7 +31,8 @@
         "conectividadInalambrica": "Wi-Fi + Bluetooth",
         "puertosM2": "2",
         "puertosSATA": "4"
-      }
+      },
+      "ddrType": "DDR5"
     },
     {
       "id": 601,
@@ -65,7 +66,8 @@
         "puertosSATA": "4",
         "red": "LAN Gigabit",
         "usoRecomendado": "Gaming"
-      }
+      },
+      "ddrType": "DDR5"
     },
     {
       "id": 602,
@@ -90,7 +92,8 @@
         "vrm": "4+2 Fases de poder",
         "factorDeForma": "mATX",
         "tipoMemoriaRAM": "DDR4"
-      }
+      },
+      "ddrType": "DDR4"
     },
     {
       "id": 603,
@@ -124,7 +127,8 @@
         "almacenamiento": "M.2 / SATA",
         "red": "Gigabit LAN",
         "consumoTDP": "≈ 40 W"
-      }
+      },
+      "ddrType": "DDR4"
     },
     {
       "id": 604,
@@ -149,7 +153,8 @@
         "tipoMemoria": "DDR5",
         "lan": "2.5GbE",
         "wifi": "Wi-Fi 6E incorporado"
-      }
+      },
+      "ddrType": "DDR5"
     },
     {
       "id": 605,
@@ -172,7 +177,8 @@
         "chipset": "AMD A620",
         "socket": "AM5",
         "vrm": "5+2+2 Digital VRM"
-      }
+          },
+       "ddrType": "DDR5"
     },
     {
       "id": 606,
@@ -197,7 +203,8 @@
         "socket": "AM4",
         "chipset": "B450",
         "capacidadMaximaSoportada": "128 GB"
-      }
+        },
+       "ddrType": "DDR4"
     },
     {
       "id": 607,
@@ -221,7 +228,8 @@
         "chipset": "AMD A520",
         "socket": "AM4",
         "vrm": "4+2 Fases"
-      }
+        },
+       "ddrType": "DDR4"
     },
     {
       "id": 608,
@@ -244,7 +252,8 @@
         "chipset": "AMD B650",
         "vrm": "5+2+2 fases",
         "soportePerfiles": "AMD EXPO / Intel XMP"
-      }
+      },
+       "ddrType": "DDR5"
     },
     {
       "id": 609,
@@ -267,7 +276,8 @@
         "plataforma": "Intel",
         "chipset": "B460 (H470 en R2.0)",
         "tipoMemoriaRAM": "DDR4"
-      }
+      },
+      "ddrType": "DDR4"
     }
   ]
 }

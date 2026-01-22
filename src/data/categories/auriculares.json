@@ -34,33 +34,42 @@
     },
     {
       "id": 801,
-      "name": "Redragon Zeus Pro H510-PRO - Inalámbrico 7.1 USB/Bluetooth",
-      "brand": "Redragon",
-      "model": "Zeus Pro H510-PRO",
+      "name": "Logitech lightspeed G435- Inalámbrico Bluetooth/Dongle",
+      "brand": "Logitech G",
+      "model": "G435",
       "category": "Auriculares",
-      "manufacturerUrl": "https://www.redragonzone.com/collections/",
-      "price": 105000,
+      "price": 110000,
       "stock": 1,
-      "sku": "RED-ZEUS-PRO",
-      "description": "Auriculares gaming inalámbricos 7.1 con triple conectividad, almohadillas memory foam",
+      "sku": "LOGI-G435-WHT",
+      "description": "Auriculares gaming inalámbricos Lightspeed y Bluetooth con micrófonos duales beamforming, autonomía 18 horas, peso 165g",
       "images": [
-        "/images/auriculares/zeus_pro.webp",
-        "/images/auriculares/zeus_pro_side.webp",
-        "/images/auriculares/zeus_pro_front.webp"
+        "/images/auriculares/logitech_g435_auri.webp",
+        "/images/auriculares/logitech_g435_auri_side.webp",
+        "/images/auriculares/logitech_g435_auri_specs.webp",
+        "/images/auriculares/logitech_g435_auri_specs2.webp"
       ],
       "specifications": {
-        "Marca": "Redragon",
-        "Línea": "Gaming",
-        "Modelo": "Zeus Pro Wireless",
-        "Modelo alfanumérico": "H510-PRO",
+        "Marca": "Logitech G",
+        "Línea": "G Series",
+        "Modelo": "G435",
+        "Modelo alfanumérico": "G435",
+        "Modelo detallado": "Headset Logitech G435 blanco",
+        "Tipo de auricular": "Over-ear",
+        "Conectividad": "Inalámbrico Lightspeed (dongle USB) / Bluetooth",
+        "Compatibilidad": "PC / PlayStation 4 / PlayStation 5 / Dispositivos móviles / Tablets",
         "Respuesta en frecuencia": "20 Hz - 20 kHz",
-        "Tipo de conexión": "USB inalámbrico 2.4GHz / Bluetooth / Cable 3.5 mm",
-        "Sonido": "7.1 Virtual",
-        "Autonomía": "Hasta 20 horas",
-        "Micrófono": "Desmontable con cancelación de ruido",
-        "Almohadillas": "Memory Foam",
-        "Compatibilidad": "PC / PS4 / PS5 / Android / iOS",
-        "Iluminación": "No"
+        "Impedancia": "45 ohms",
+        "Sensibilidad": "83.1 dB SPL/mW",
+        "Micrófono": "Micrófonos duales integrados (beamforming) con cancelación de ruido digital",
+        "Respuesta en frecuencia micrófono": "100 Hz - 8 kHz",
+        "Autonomía": "Hasta 18 horas",
+        "Tipo de carga": "USB-C",
+        "Peso": "165 g",
+        "Controles": "Botones integrados en el auricular",
+        "Sonido envolvente": "Compatible con Windows Sonic",
+        "Material de almohadillas": "Espuma con tela transpirable",
+        "Color": "Blanco",
+        "Uso recomendado": "Gaming / Multimedia / Uso diario"
       }
     },
     {
@@ -216,48 +225,9 @@
         "Compatibilidad": "PC, PS4/PS5, Xbox, Switch, Celulares"
       }
     },
+
     {
       "id": 807,
-      "name": "HyperX Cloud Stinger 2 - Inalámbrico Bluetooth/Dongle",
-      "brand": "Logitech G",
-      "model": "G435",
-      "category": "Auriculares",
-      "price": 110000,
-      "stock": 1,
-      "sku": "LOGI-G435-WHT",
-      "description": "Auriculares gaming inalámbricos Lightspeed y Bluetooth con micrófonos duales beamforming, autonomía 18 horas, peso 165g",
-      "images": [
-        "/images/auriculares/logitech_g435_auri.webp",
-        "/images/auriculares/logitech_g435_auri_side.webp",
-        "/images/auriculares/logitech_g435_auri_specs.webp",
-        "/images/auriculares/logitech_g435_auri_specs2.webp"
-      ],
-      "specifications": {
-        "Marca": "Logitech G",
-        "Línea": "G Series",
-        "Modelo": "G435",
-        "Modelo alfanumérico": "G435",
-        "Modelo detallado": "Headset Logitech G435 blanco",
-        "Tipo de auricular": "Over-ear",
-        "Conectividad": "Inalámbrico Lightspeed (dongle USB) / Bluetooth",
-        "Compatibilidad": "PC / PlayStation 4 / PlayStation 5 / Dispositivos móviles / Tablets",
-        "Respuesta en frecuencia": "20 Hz - 20 kHz",
-        "Impedancia": "45 ohms",
-        "Sensibilidad": "83.1 dB SPL/mW",
-        "Micrófono": "Micrófonos duales integrados (beamforming) con cancelación de ruido digital",
-        "Respuesta en frecuencia micrófono": "100 Hz - 8 kHz",
-        "Autonomía": "Hasta 18 horas",
-        "Tipo de carga": "USB-C",
-        "Peso": "165 g",
-        "Controles": "Botones integrados en el auricular",
-        "Sonido envolvente": "Compatible con Windows Sonic",
-        "Material de almohadillas": "Espuma con tela transpirable",
-        "Color": "Blanco",
-        "Uso recomendado": "Gaming / Multimedia / Uso diario"
-      }
-    },
-    {
-      "id": 808,
       "name": "Razer Blackshark V2 X - Alámbrico 3.5mm 7.1 Verde",
       "brand": "Razer",
       "model": "Blackshark V2 X",
@@ -287,7 +257,7 @@
       }
     },
     {
-      "id": 809,
+      "id": 808,
       "name": "HyperX Cloud Stinger 2 Core PS5 - Alámbrico 3.5mm Blanco",
       "brand": "HyperX",
       "model": "Cloud Stinger Core 2 75X29AA",
@@ -318,7 +288,7 @@
       }
     },
     {
-      "id": 810,
+      "id": 809,
       "name": "Redragon Lamia 2 H320 - USB 7.1 RGB Blanco",
       "brand": "Redragon",
       "model": "Lamia 2 H320",
@@ -347,92 +317,9 @@
         "Compatibilidad": "PC"
       }
     },
+    
     {
-      "id": 811,
-      "name": "Skullcandy SLYR - Alámbrico 3.5mm Negro",
-      "brand": "Skullcandy",
-      "model": "SLYR S6SYY-Q763",
-      "category": "Auriculares",
-      "price": 60000,
-      "stock": 2,
-      "sku": "SKULL-SLYR",
-      "description": "Auriculares gaming estéreo multiplataforma con drivers 50mm, micrófono bi-direccional removible",
-      "images": [
-        "/images/auriculares/skullcandy_sylr.webp",
-        "/images/auriculares/skullcandy_sylr_side.webp",
-        "/images/auriculares/skullcandy_sylr_side2.webp"
-      ],
-      "specifications": {
-        "Marca": "Skullcandy",
-        "Línea": "Gaming",
-        "Modelo": "SLYR",
-        "Modelo alfanumérico": "S6SYY-Q763",
-        "Respuesta en frecuencia": "20 Hz - 20 kHz",
-        "Tamaño del driver": "50 mm",
-        "Sonido": "Stereo",
-        "Conectividad": "3.5 mm",
-        "Micrófono": "Bi-direccional removible",
-        "Compatibilidad": "PS5, PS4, Xbox, Switch, PC, Celulares"
-      }
-    },
-    {
-      "id": 812,
-      "name": "Trust GXT 307B Ravu - Alámbrico 3.5mm Negro/Azul",
-      "brand": "Trust",
-      "model": "GXT 307B Ravu",
-      "category": "Auriculares",
-      "price": 40000,
-      "stock": 1,
-      "sku": "TRUST-GXT307B",
-      "description": "Auriculares gaming estéreo multiplataforma con drivers 40mm, micrófono flexible",
-      "images": [
-        "/images/auriculares/auri_trust_ravu.webp",
-        "/images/auriculares/auri_trust_ravu_side.webp",
-        "/images/auriculares/auri_trust_ravu_front.webp"
-      ],
-      "specifications": {
-        "Marca": "Trust",
-        "Línea": "Gamer",
-        "Modelo": "Ravu",
-        "Modelo alfanumérico": "GXT 307B",
-        "Respuesta en frecuencia": "20 Hz - 20 kHz",
-        "Tamaño del driver": "40 mm",
-        "Sonido": "Stereo",
-        "Conectividad": "3.5 mm",
-        "Micrófono": "Flexible",
-        "Compatibilidad": "PC, PS4/PS5, Xbox, Switch, Celulares"
-      }
-    },
-    {
-      "id": 813,
-      "name": "Turtle Beach Recon 70 - Alámbrico 3.5mm Blanco PS5",
-      "brand": "Turtle Beach",
-      "model": "Recon 70",
-      "category": "Auriculares",
-      "price": 45000,
-      "stock": 3,
-      "sku": "TB-RECON70",
-      "description": "Auriculares gaming estéreo multiplataforma con micrófono flip-to-mute, peso 210g",
-      "images": [
-        "/images/auriculares/auri_recon70.webp",
-        "/images/auriculares/auri_recon70_side.webp",
-        "/images/auriculares/auri_recon70_specs.webp"
-      ],
-      "specifications": {
-        "Marca": "Turtle Beach",
-        "Línea": "Ear Force",
-        "Modelo": "Recon 70",
-        "Respuesta en frecuencia": "20 Hz - 20 kHz",
-        "Tipo de conexión": "Cable 3.5 mm",
-        "Compatibilidad": "PS5 / PS4 / Xbox One / Xbox Series / Switch / PC",
-        "Micrófono": "Flip-to-Mute",
-        "Almohadillas": "Cuero sintético ligero",
-        "Sonido": "Estéreo",
-        "Peso": "210 g"
-      }
-    },
-    {
-      "id": 814,
+      "id": 810,
       "name": "Motorola XT220 - Inalámbrico Bluetooth & Jack 3.5mm Negro",
       "brand": "Motorola",
       "model": "XT220",
@@ -465,7 +352,7 @@
       }
     },
     {
-      "id": 815,
+      "id": 811,
       "name": "Redragon Ire Pro Bluetooth Inalámbrico dongle",
       "brand": "Redragon",
       "model": "Ire Pro H848B",
@@ -493,6 +380,90 @@
         "Autonomía": "hasta 20 h",
         "Iluminación": "RGB",
         "Consumo_TDP": "≈ 5 W (en carga)"
+      }
+    },
+    {
+      "id": 812,
+      "name": "Skullcandy SLYR - Alámbrico 3.5mm Negro",
+      "brand": "Skullcandy",
+      "model": "SLYR S6SYY-Q763",
+      "category": "Auriculares",
+      "price": 60000,
+      "stock": 2,
+      "sku": "SKULL-SLYR",
+      "description": "Auriculares gaming estéreo multiplataforma con drivers 50mm, micrófono bi-direccional removible",
+      "images": [
+        "/images/auriculares/skullcandy_sylr.webp",
+        "/images/auriculares/skullcandy_sylr_side.webp",
+        "/images/auriculares/skullcandy_sylr_side2.webp"
+      ],
+      "specifications": {
+        "Marca": "Skullcandy",
+        "Línea": "Gaming",
+        "Modelo": "SLYR",
+        "Modelo alfanumérico": "S6SYY-Q763",
+        "Respuesta en frecuencia": "20 Hz - 20 kHz",
+        "Tamaño del driver": "50 mm",
+        "Sonido": "Stereo",
+        "Conectividad": "3.5 mm",
+        "Micrófono": "Bi-direccional removible",
+        "Compatibilidad": "PS5, PS4, Xbox, Switch, PC, Celulares"
+      }
+    },
+    {
+      "id": 813,
+      "name": "Trust GXT 307B Ravu - Alámbrico 3.5mm Negro/Azul",
+      "brand": "Trust",
+      "model": "GXT 307B Ravu",
+      "category": "Auriculares",
+      "price": 40000,
+      "stock": 1,
+      "sku": "TRUST-GXT307B",
+      "description": "Auriculares gaming estéreo multiplataforma con drivers 40mm, micrófono flexible",
+      "images": [
+        "/images/auriculares/auri_trust_ravu.webp",
+        "/images/auriculares/auri_trust_ravu_side.webp",
+        "/images/auriculares/auri_trust_ravu_front.webp"
+      ],
+      "specifications": {
+        "Marca": "Trust",
+        "Línea": "Gamer",
+        "Modelo": "Ravu",
+        "Modelo alfanumérico": "GXT 307B",
+        "Respuesta en frecuencia": "20 Hz - 20 kHz",
+        "Tamaño del driver": "40 mm",
+        "Sonido": "Stereo",
+        "Conectividad": "3.5 mm",
+        "Micrófono": "Flexible",
+        "Compatibilidad": "PC, PS4/PS5, Xbox, Switch, Celulares"
+      }
+    },
+    {
+      "id": 814,
+      "name": "Turtle Beach Recon 70 - Alámbrico 3.5mm Blanco PS5",
+      "brand": "Turtle Beach",
+      "model": "Recon 70",
+      "category": "Auriculares",
+      "price": 45000,
+      "stock": 3,
+      "sku": "TB-RECON70",
+      "description": "Auriculares gaming estéreo multiplataforma con micrófono flip-to-mute, peso 210g",
+      "images": [
+        "/images/auriculares/auri_recon70.webp",
+        "/images/auriculares/auri_recon70_side.webp",
+        "/images/auriculares/auri_recon70_specs.webp"
+      ],
+      "specifications": {
+        "Marca": "Turtle Beach",
+        "Línea": "Ear Force",
+        "Modelo": "Recon 70",
+        "Respuesta en frecuencia": "20 Hz - 20 kHz",
+        "Tipo de conexión": "Cable 3.5 mm",
+        "Compatibilidad": "PS5 / PS4 / Xbox One / Xbox Series / Switch / PC",
+        "Micrófono": "Flip-to-Mute",
+        "Almohadillas": "Cuero sintético ligero",
+        "Sonido": "Estéreo",
+        "Peso": "210 g"
       }
     }
   ]

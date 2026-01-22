@@ -32,17 +32,10 @@ const ProductCard = memo(({ product, viewMode, onClick, index = 0, listName = 'P
   const productImage = useMemo(() => getProductImage(product), [product]);
   const isUsed = product.isUsed || false;
   
-  // Detectar si es DDR5 o DDR4
-  const isDDR5 = (product.category === 'Memorias RAM' || product.category === 'Motherboards') && 
-                 (product.name?.toUpperCase().includes('DDR5') || 
-                  product.specifications?.tipoMemoriaRAM?.toUpperCase().includes('DDR5') ||
-                  product.specifications?.tipoMemoria?.toUpperCase().includes('DDR5'));
-  
-  const isDDR4 = (product.category === 'Memorias RAM' || product.category === 'Motherboards') && 
-                 !isDDR5 &&
-                 (product.name?.toUpperCase().includes('DDR4') || 
-                  product.specifications?.tipoMemoriaRAM?.toUpperCase().includes('DDR4') ||
-                  product.specifications?.tipoMemoria?.toUpperCase().includes('DDR4'));
+  // Leer directamente los campos del JSON (mucho más eficiente)
+  const isDDR5 = product.ddrType === 'DDR5';
+  const isDDR4 = product.ddrType === 'DDR4';
+  const certType = product.certType; // 80_PLUS_GOLD, 80_PLUS_BRONZE, etc.
   
   // OPTIMIZACIÓN: Cargar inmediatamente los primeros 12 productos, lazy load para el resto
   const [isVisible, setIsVisible] = useState(index < 12);
@@ -148,6 +141,7 @@ const ProductCard = memo(({ product, viewMode, onClick, index = 0, listName = 'P
              isUsed={isUsed}
              isDDR5={isDDR5}
              isDDR4={isDDR4}
+             certType={certType}
            />
         </div>
         
