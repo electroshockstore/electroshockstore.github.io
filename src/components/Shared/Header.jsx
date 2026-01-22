@@ -227,8 +227,8 @@ const Header = ({ searchQuery = '', onSearchChange, onGoHome, hideSearchOnMobile
                 </button>
               )}
 
-              {/* Condiciones - Con efecto de importancia */}
-              <div className="relative">
+              {/* Condiciones - Con efecto de importancia - SOLO DESKTOP */}
+              <div className="relative hidden sm:block">
                 <button
                   onClick={() => setShowConditionsModal(true)}
                   className="relative p-2.5
@@ -253,7 +253,7 @@ const Header = ({ searchQuery = '', onSearchChange, onGoHome, hideSearchOnMobile
                 </button>
               </div>
               
-              {/* Puntos de Retiro - Con color azul */}
+              {/* Puntos de Retiro - Con color azul - SOLO DESKTOP */}
               <button
                 onClick={() => {
                   navigate('/puntos-de-retiro');
@@ -266,7 +266,8 @@ const Header = ({ searchQuery = '', onSearchChange, onGoHome, hideSearchOnMobile
                          transition-all duration-300 
                          border border-blue-400/30 hover:border-blue-400/50
                          shadow-lg shadow-blue-500/20
-                         hover:scale-110 active:scale-95"
+                         hover:scale-110 active:scale-95
+                         hidden sm:block"
                 aria-label="Puntos de Retiro"
               >
                 <MapPin className="h-4 w-4 text-blue-300" strokeWidth={2.5} />
