@@ -109,11 +109,16 @@ const FloatingChatButton = () => {
         </div>
       )}
 
+      {/* Backdrop con blur cuando está expandido */}
+      {isExpanded && (
+        <div className="fixed inset-0 bg-black/20 backdrop-blur-sm z-40 transition-all duration-300 animate-in fade-in" />
+      )}
+
       <div className="fixed bottom-4 left-4 sm:bottom-6 sm:left-6 z-50 floating-chat-enter">
         
         {/* --- MENÚ EXPANDIDO --- */}
         {isExpanded && (
-          <div className="flex flex-col items-start gap-2 sm:gap-3 mb-2 sm:mb-3 chat-options-enter animate-in slide-in-from-bottom-4 fade-in duration-300">
+          <div className="relative flex flex-col items-start gap-2 sm:gap-3 mb-2 sm:mb-3 chat-options-enter animate-in slide-in-from-bottom-4 fade-in duration-300 z-50">
             
             {/* WhatsApp */}
             <button
@@ -183,7 +188,7 @@ const FloatingChatButton = () => {
         {/* --- BOTÓN PRINCIPAL CON EFECTOS --- */}
         <button
           onClick={toggleExpanded}
-          className="group relative bg-gradient-to-r from-green-500 via-green-600 to-green-700 hover:from-green-600 hover:via-green-700 hover:to-green-800 text-white rounded-lg sm:rounded-xl shadow-lg sm:shadow-2xl hover:shadow-green-500/50 transition-all duration-300 overflow-hidden hover:scale-105 hover:-translate-y-1"
+          className="group relative bg-gradient-to-r from-green-500 via-green-600 to-green-700 hover:from-green-600 hover:via-green-700 hover:to-green-800 text-white rounded-lg sm:rounded-xl shadow-lg sm:shadow-2xl hover:shadow-green-500/50 transition-all duration-300 overflow-hidden hover:scale-105 hover:-translate-y-1 z-50"
         >
           {/* Efecto Shine */}
           <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent animate-shine" style={{ width: '50%' }} />

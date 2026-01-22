@@ -108,6 +108,9 @@
         s1.src='https://embed.tawk.to/693ab9ed2a271419893a1ccb';
         s1.charset='UTF-8';
         s1.setAttribute('crossorigin','*');
+        s1.onerror = function() {
+          console.warn('Tawk.to no pudo cargarse. El chat en vivo no estará disponible.');
+        };
         s0.parentNode.insertBefore(s1,s0);
       })();
 
@@ -138,6 +141,8 @@
             console.error('Error abriendo chat:', error);
             return false;
           }
+        } else {
+          console.warn('Tawk.to no está disponible');
         }
         return false;
       };
