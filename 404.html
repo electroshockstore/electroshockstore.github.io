@@ -98,6 +98,50 @@
         send_page_view: true
       });
     </script>
+
+    <!-- Tawk.to Live Chat -->
+    <script type="text/javascript">
+      var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+      (function(){
+        var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+        s1.async=true;
+        s1.src='https://embed.tawk.to/693ab9ed2a271419893a1ccb';
+        s1.charset='UTF-8';
+        s1.setAttribute('crossorigin','*');
+        s0.parentNode.insertBefore(s1,s0);
+      })();
+
+      // Función global para abrir el chat directamente maximizado
+      window.openTawkChat = function(initialMessage) {
+        if (window.Tawk_API && window.Tawk_API.maximize) {
+          try {
+            // Mostrar el widget temporalmente
+            window.Tawk_API.showWidget();
+            
+            // Maximizar el chat
+            window.Tawk_API.maximize();
+            
+            // Enviar mensaje inicial si se proporciona
+            if (initialMessage) {
+              setTimeout(() => {
+                if (window.Tawk_API.addEvent) {
+                  window.Tawk_API.addEvent({
+                    event: 'message',
+                    message: initialMessage
+                  });
+                }
+              }, 1000);
+            }
+            
+            return true;
+          } catch (error) {
+            console.error('Error abriendo chat:', error);
+            return false;
+          }
+        }
+        return false;
+      };
+    </script>
     <script type="module" crossorigin src="/assets/index-BUEU8t6r.js"></script>
     <link rel="modulepreload" crossorigin href="/assets/vendor-BQgvbVNn.js">
     <link rel="modulepreload" crossorigin href="/assets/react-vendor-BKLVU06e.js">
