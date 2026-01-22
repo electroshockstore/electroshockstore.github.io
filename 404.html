@@ -3,17 +3,12 @@
   <head>
     <meta charset="UTF-8" />
     
-    <!-- Eliminar delay de 300ms en iOS -->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes" />
-    
     <!-- Favicon simple -->
     <link rel="icon" type="image/png" href="/logotipo_tiny.png" />
     <link rel="apple-touch-icon" href="/logotipo_tiny.png" />
     <link rel="manifest" href="/site.webmanifest" />
     
-    <meta name="theme-color" content="#0a0a0f" />
-    <meta name="apple-mobile-web-app-capable" content="yes" />
-    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     
     <!-- SEO Meta Tags -->
     <title>Shock-Store | Tecnología y Componentes PC - Berazategui</title>
@@ -104,7 +99,7 @@
       });
     </script>
 
-    <!-- Tawk.to Live Chat - DESHABILITADO TEMPORALMENTE (404 Error)
+    <!-- Tawk.to Live Chat -->
     <script type="text/javascript">
       var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
       (function(){
@@ -113,9 +108,6 @@
         s1.src='https://embed.tawk.to/693ab9ed2a271419893a1ccb';
         s1.charset='UTF-8';
         s1.setAttribute('crossorigin','*');
-        s1.onerror = function() {
-          console.warn('Tawk.to no pudo cargarse. El chat en vivo no estará disponible.');
-        };
         s0.parentNode.insertBefore(s1,s0);
       })();
 
@@ -146,25 +138,13 @@
             console.error('Error abriendo chat:', error);
             return false;
           }
-        } else {
-          console.warn('Tawk.to no está disponible');
         }
         return false;
       };
     </script>
-    -->
-    
-    <!-- Función stub para evitar errores mientras Tawk.to está deshabilitado -->
-    <script type="text/javascript">
-      window.Tawk_API = window.Tawk_API || {};
-      window.openTawkChat = function(initialMessage) {
-        console.info('Chat en vivo temporalmente no disponible. Por favor usa WhatsApp.');
-        return false;
-      };
-    </script>
-    <script type="module" crossorigin src="/assets/index-B8vkWxrp.js"></script>
-    <link rel="modulepreload" crossorigin href="/assets/vendor-CqKJk-vV.js">
-    <link rel="modulepreload" crossorigin href="/assets/react-vendor-BMdiV7dk.js">
+    <script type="module" crossorigin src="/assets/index-iKAcIyzd.js"></script>
+    <link rel="modulepreload" crossorigin href="/assets/vendor-BQgvbVNn.js">
+    <link rel="modulepreload" crossorigin href="/assets/react-vendor-BKLVU06e.js">
     <link rel="modulepreload" crossorigin href="/assets/data-procesadores-qC-31hbg.js">
     <link rel="modulepreload" crossorigin href="/assets/data-motherboards-i6-FO8Kq.js">
     <link rel="modulepreload" crossorigin href="/assets/data-memorias-ClliD-7e.js">
@@ -180,10 +160,10 @@
     <link rel="modulepreload" crossorigin href="/assets/data-portatiles-Be6QRbzo.js">
     <link rel="modulepreload" crossorigin href="/assets/data-placas_video-CvIICd7D.js">
     <link rel="modulepreload" crossorigin href="/assets/data-mayorista-BTVVw3RS.js">
-    <link rel="modulepreload" crossorigin href="/assets/pc-builder-components-B-MCihGw.js">
-    <link rel="modulepreload" crossorigin href="/assets/framer-motion-BE74Ec9E.js">
+    <link rel="modulepreload" crossorigin href="/assets/pc-builder-components-BRwPqxI9.js">
+    <link rel="modulepreload" crossorigin href="/assets/framer-motion-D3XWZLsE.js">
     <link rel="stylesheet" crossorigin href="/assets/react-vendor-w23F2EJY.css">
-    <link rel="stylesheet" crossorigin href="/assets/index-DKaf0K_e.css">
+    <link rel="stylesheet" crossorigin href="/assets/index-DA-LWeLk.css">
   
     <!-- GitHub Pages SPA redirect script -->
     <script type="text/javascript">
@@ -203,6 +183,6 @@
     </script>
   </head>
   <body>
-    <div id="root"></div>
+    <div id="root"></div>
   </body>
 </html>
