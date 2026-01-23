@@ -97,9 +97,7 @@ const CategoryFilter = ({ selectedCategory, onCategoryChange }) => {
 
   const handleCategorySelect = (category) => {
     setIsOpen(false);
-    requestAnimationFrame(() => {
-      onCategoryChange(category);
-    });
+    onCategoryChange(category);
   };
 
   return (
