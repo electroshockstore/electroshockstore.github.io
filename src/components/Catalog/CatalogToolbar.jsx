@@ -1,8 +1,9 @@
+import { memo } from 'react';
 import SortSelector from './SortSelector';
 import ViewToggleButton from './ViewToggleButton';
 import SidebarFilters from './SidebarFilters';
 
-const CatalogToolbar = ({ 
+const CatalogToolbar = memo(({ 
   showFilters,
   selectedCategory,
   filters,
@@ -43,6 +44,8 @@ const CatalogToolbar = ({
       </div>
     </div>
   );
-};
+});
+
+CatalogToolbar.displayName = 'CatalogToolbar';
 
 export default CatalogToolbar;

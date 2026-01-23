@@ -1,10 +1,11 @@
+import { useCallback } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { getSlugFromCategory, generateSKU } from '../utils/slugify';
 
 export const useCatalogNavigation = (setSelectedCategory, setSearchQuery, clearSubFilters) => {
   const navigate = useNavigate();
 
-  const handleCategoryChange = (category) => {
+  const handleCategoryChange = useCallback((category) => {
     setSelectedCategory(category);
     if (category && category !== 'Todos') {
       const slug = getSlugFromCategory(category);
@@ -12,27 +13,27 @@ export const useCatalogNavigation = (setSelectedCategory, setSearchQuery, clearS
     } else {
       navigate('/');
     }
-  };
+  }, [setSelectedCategory, navigate]);
 
-  const handleProductClick = (product) => {
+  const handleProductClick = useCallback((product) => {
     const categorySlug = getSlugFromCategory(product.category);
     const productSku = generateSKU(product.name, product.brand);
     navigate(`/categoria/${categorySlug}/${productSku}`, { 
       state: { productId: product.id } 
     });
-  };
+  }, [navigate]);
 
-  const handleGoHome = () => {
+  const handleGoHome = useCallback(() => {
     setSelectedCategory(null);
     setSearchQuery('');
     clearSubFilters();
     navigate('/');
-  };
+  }, [setSelectedCategory, setSearchQuery, clearSubFilters, navigate]);
 
-  const handleReset = () => {
+  const handleReset = useCallback(() => {
     clearSubFilters();
     navigate('/');
-  };
+  }, [clearSubFilters, navigate]);
 
   return {
     handleCategoryChange,

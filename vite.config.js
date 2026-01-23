@@ -12,8 +12,11 @@ export default defineConfig({
         manualChunks: (id) => {
           // Vendors principales
           if (id.includes('node_modules')) {
-            if (id.includes('react') || id.includes('react-dom') || id.includes('react-router')) {
-              return 'react-vendor';
+            if (id.includes('react') || id.includes('react-dom')) {
+              return 'react-core';
+            }
+            if (id.includes('react-router')) {
+              return 'react-router';
             }
             if (id.includes('framer-motion')) {
               return 'framer-motion';
@@ -21,9 +24,11 @@ export default defineConfig({
             if (id.includes('lucide-react')) {
               return 'lucide-icons';
             }
-            // IMPORTANTE: Recharts debe ir en su propio chunk para evitar dependencias circulares
             if (id.includes('recharts')) {
               return 'recharts';
+            }
+            if (id.includes('react-toastify')) {
+              return 'toastify';
             }
             return 'vendor';
           }
@@ -36,7 +41,7 @@ export default defineConfig({
           
           // Separar componentes grandes
           if (id.includes('src/components/PCBuilder/')) {
-            return 'pc-builder-components';
+            return 'pc-builder';
           }
           
           if (id.includes('src/Modules/')) {
@@ -53,7 +58,6 @@ export default defineConfig({
     target: 'es2015',
     reportCompressedSize: false,
     commonjsOptions: {
-      // Ayuda con dependencias CJS como las de recharts
       transformMixedEsModules: true
     }
   },
@@ -62,7 +66,10 @@ export default defineConfig({
     open: true
   },
   optimizeDeps: {
-    include: ['react', 'react-dom', 'react-router-dom', 'framer-motion', 'recharts'],
-    exclude: []
+    include: ['react', 'react-dom', 'react-router-dom'],
+    exclude: ['framer-motion']
+  },
+  esbuild: {
+    logOverride: { 'this-is-undefined-in-esm': 'silent' }
   }
 })

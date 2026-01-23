@@ -1,14 +1,14 @@
 import { useState, useRef, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Search, X, Package } from 'lucide-react';
-import { useStock } from '../../context/StockContext';
+import { useProducts } from '../../hooks/useProducts';
 
 const SearchBar = ({ isMobile = false, onClose }) => {
   const [localSearchQuery, setLocalSearchQuery] = useState('');
   const [isSearchOpen, setIsSearchOpen] = useState(false);
   const [searchResults, setSearchResults] = useState([]);
   const searchRef = useRef(null);
-  const { products } = useStock();
+  const { products } = useProducts();
   const navigate = useNavigate();
 
   useEffect(() => {

@@ -99,53 +99,52 @@
       });
     </script>
 
-    <!-- Tawk.to Live Chat -->
+    <!-- Tawk.to Live Chat - Carga diferida -->
     <script type="text/javascript">
-      var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
-      (function(){
-        var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
-        s1.async=true;
-        s1.src='https://embed.tawk.to/693ab9ed2a271419893a1ccb';
-        s1.charset='UTF-8';
-        s1.setAttribute('crossorigin','*');
-        s1.onerror = function() {
-          console.warn('Tawk.to no pudo cargarse. El chat en vivo no estará disponible.');
-        };
-        s0.parentNode.insertBefore(s1,s0);
-      })();
+      // Cargar Tawk.to solo después de que la página esté completamente cargada
+      window.addEventListener('load', function() {
+        setTimeout(function() {
+          var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+          (function(){
+            var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+            s1.async=true;
+            s1.src='https://embed.tawk.to/693ab9ed2a271419893a1ccb';
+            s1.charset='UTF-8';
+            s1.setAttribute('crossorigin','*');
+            s1.onerror = function() {
+              console.warn('Tawk.to no pudo cargarse. El chat en vivo no estará disponible.');
+            };
+            s0.parentNode.insertBefore(s1,s0);
+          })();
 
-      // Función global para abrir el chat directamente maximizado
-      window.openTawkChat = function(initialMessage) {
-        if (window.Tawk_API && window.Tawk_API.maximize) {
-          try {
-            // Mostrar el widget temporalmente
-            window.Tawk_API.showWidget();
-            
-            // Maximizar el chat
-            window.Tawk_API.maximize();
-            
-            // Enviar mensaje inicial si se proporciona
-            if (initialMessage) {
-              setTimeout(() => {
-                if (window.Tawk_API.addEvent) {
-                  window.Tawk_API.addEvent({
-                    event: 'message',
-                    message: initialMessage
-                  });
+          // Función global para abrir el chat directamente maximizado
+          window.openTawkChat = function(initialMessage) {
+            if (window.Tawk_API && window.Tawk_API.maximize) {
+              try {
+                window.Tawk_API.showWidget();
+                window.Tawk_API.maximize();
+                if (initialMessage) {
+                  setTimeout(() => {
+                    if (window.Tawk_API.addEvent) {
+                      window.Tawk_API.addEvent({
+                        event: 'message',
+                        message: initialMessage
+                      });
+                    }
+                  }, 1000);
                 }
-              }, 1000);
+                return true;
+              } catch (error) {
+                console.error('Error abriendo chat:', error);
+                return false;
+              }
+            } else {
+              console.warn('Tawk.to no está disponible');
             }
-            
-            return true;
-          } catch (error) {
-            console.error('Error abriendo chat:', error);
             return false;
-          }
-        } else {
-          console.warn('Tawk.to no está disponible');
-        }
-        return false;
-      };
+          };
+        }, 3000); // Cargar después de 3 segundos
+      });
     </script>
   </head>
   <body>

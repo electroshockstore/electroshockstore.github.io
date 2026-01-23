@@ -1,13 +1,13 @@
 import { useParams, useNavigate, useLocation } from 'react-router-dom';
 import { useEffect } from 'react';
-import { useStock } from '../context/StockContext';
+import { useProducts } from '../hooks/useProducts';
 import Header from '../components/Shared/Header';
 import ProductDetail from '../components/Catalog/ProductDetail/index';
 import Footer from '../components/Shared/Footer';
 import ScrollButton from '../components/Shared/ScrollButton';
 import CategoryFilter from '../components/Catalog/CategoryFilter';
 import { useFilter } from '../context/FilterContext';
-import { generateSKU, getSlugFromCategory } from '../utils/slugify';
+import { generateSKU } from '../utils/slugify';
 import { useProductSEO } from '../hooks/useSEO';
 import { useProductView } from '../hooks/useAnalytics';
 
@@ -15,7 +15,7 @@ const ProductDetailPage = () => {
   const { id, productSku, categorySlug } = useParams();
   const location = useLocation();
   const navigate = useNavigate();
-  const { getProductById, products } = useStock();
+  const { getProductById, products } = useProducts();
   const { searchQuery, setSearchQuery, selectedCategory, setSelectedCategory } = useFilter();
   
   // Buscar producto por ID (ruta legacy) o por SKU

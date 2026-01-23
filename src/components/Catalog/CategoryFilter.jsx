@@ -1,10 +1,11 @@
 import { useState, useRef, useEffect } from 'react';
 import { categories } from '../../data';
+import { Grid3X3, ChevronDown, ChevronLeft, ChevronRight, X } from 'lucide-react';
 import { 
-  Grid3X3, Zap, HardDrive, MemoryStick, Cpu, CircuitBoard, 
-  Fan, ChevronDown, Headphones, Keyboard, Mouse, Gamepad2, 
-  Monitor, Wifi, Laptop, Layers, ChevronLeft, ChevronRight, X
-} from 'lucide-react';
+  getCategoryIcon, 
+  getCategoryColor, 
+  getCategoryImage 
+} from '../../constants/categoryConfig';
 
 const CategoryFilter = ({ selectedCategory, onCategoryChange }) => {
   const [isOpen, setIsOpen] = useState(false);
@@ -13,82 +14,6 @@ const CategoryFilter = ({ selectedCategory, onCategoryChange }) => {
   
   const dropdownRef = useRef(null);
   const scrollContainerRef = useRef(null);
-
-  // Mapeo de imágenes para mobile - usar thumbnails optimizados
-  const getCategoryImage = (category) => {
-    const imageMap = {
-      'Todos': '/images/category_filter/thumbs/builder.webp',
-      'Fuentes': '/images/category_filter/thumbs/fuentes.webp',
-      'Almacenamiento': '/images/category_grid/thumbs/almacenamiento_grid_tiny.webp',
-      'Memorias RAM': '/images/category_filter/thumbs/memorias_ram.webp',
-      'Motherboards': '/images/category_filter/thumbs/motherboard.webp',
-      'Procesadores': '/images/category_filter/thumbs/procesadores.webp',
-      'Refrigeración': '/images/category_filter/thumbs/refrigeracion.webp',
-      'Auriculares': '/images/category_grid/thumbs/auriculares_grid_tiny.webp',
-      'Teclados': '/images/category_grid/thumbs/teclados_grid_tiny.webp',
-      'Mouse': '/images/category_grid/thumbs/mouse_grid_tiny.webp',
-      'Joystick': '/images/category_filter/thumbs/Joystikc.webp',
-      'Monitores': '/images/category_filter/thumbs/monitores.webp',
-      'Conectividad': '/images/category_filter/thumbs/conectividad.webp',
-      'Portátiles': '/images/category_filter/thumbs/portatiles.webp',
-      'Placas de Video': '/images/category_filter/thumbs/placas_video.webp'
-    };
-    return imageMap[category] || '/images/category_filter/thumbs/builder.webp';
-  };
-
-  // Mappers originales de iconos y colores
-  const getCategoryIcon = (category) => {
-    const iconMap = {
-      'Todos': Grid3X3, 'Fuentes': Zap, 'Almacenamiento': HardDrive,
-      'Memorias RAM': MemoryStick, 'Motherboards': CircuitBoard, 'Procesadores': Cpu,
-      'Refrigeración': Fan, 'Auriculares': Headphones, 'Teclados': Keyboard,
-      'Mouse': Mouse, 'Joystick': Gamepad2, 'Monitores': Monitor,
-      'Conectividad': Wifi, 'Portátiles': Laptop, 'Placas de Video': Layers
-    };
-    return iconMap[category] || Grid3X3;
-  };
-
-  const getCategoryColor = (category, isSelected) => {
-    const colorMap = {
-      'Todos': isSelected ? 'text-blue-600' : 'text-blue-500',
-      'Fuentes': isSelected ? 'text-amber-600' : 'text-amber-500',
-      'Almacenamiento': isSelected ? 'text-purple-600' : 'text-purple-500',
-      'Memorias RAM': isSelected ? 'text-green-600' : 'text-green-500',
-      'Motherboards': isSelected ? 'text-indigo-600' : 'text-indigo-500',
-      'Procesadores': isSelected ? 'text-red-600' : 'text-red-500',
-      'Refrigeración': isSelected ? 'text-cyan-600' : 'text-cyan-500',
-      'Auriculares': isSelected ? 'text-pink-600' : 'text-pink-500',
-      'Teclados': isSelected ? 'text-violet-600' : 'text-violet-500',
-      'Mouse': isSelected ? 'text-orange-600' : 'text-orange-500',
-      'Joystick': isSelected ? 'text-emerald-600' : 'text-emerald-500',
-      'Monitores': isSelected ? 'text-slate-600' : 'text-slate-500',
-      'Conectividad': isSelected ? 'text-teal-600' : 'text-teal-500',
-      'Portátiles': isSelected ? 'text-sky-600' : 'text-sky-500',
-      'Placas de Video': isSelected ? 'text-lime-600' : 'text-lime-500'
-    };
-    return colorMap[category] || (isSelected ? 'text-gray-600' : 'text-gray-500');
-  };
-
-  const getCategoryGradient = (category) => {
-    const gradientMap = {
-      'Todos': 'from-blue-500 to-blue-600',
-      'Fuentes': 'from-amber-500 to-amber-600',
-      'Almacenamiento': 'from-purple-500 to-purple-600',
-      'Memorias RAM': 'from-green-500 to-green-600',
-      'Motherboards': 'from-indigo-500 to-indigo-600',
-      'Procesadores': 'from-red-500 to-red-600',
-      'Refrigeración': 'from-cyan-500 to-cyan-600',
-      'Auriculares': 'from-pink-500 to-pink-600',
-      'Teclados': 'from-violet-500 to-violet-600',
-      'Mouse': 'from-orange-500 to-orange-600',
-      'Joystick': 'from-emerald-500 to-emerald-600',
-      'Monitores': 'from-slate-500 to-slate-600',
-      'Conectividad': 'from-teal-500 to-teal-600',
-      'Portátiles': 'from-sky-500 to-sky-600',
-      'Placas de Video': 'from-lime-500 to-lime-600'
-    };
-    return gradientMap[category] || 'from-gray-500 to-gray-600';
-  };
 
   // Lógica de Scroll
   const checkScroll = () => {
@@ -276,7 +201,6 @@ const CategoryFilter = ({ selectedCategory, onCategoryChange }) => {
                   <div className="grid grid-cols-2 gap-4 max-w-md mx-auto">
                     {categories.map((category, index) => {
                       const isSelected = selectedCategory === category;
-                      const gradient = getCategoryGradient(category);
                       const categoryImage = getCategoryImage(category);
                       const isTopImage = index < 4;
                       

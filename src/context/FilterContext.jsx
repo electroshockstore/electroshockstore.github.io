@@ -1,15 +1,13 @@
 import { createContext, useContext, useState, useEffect, useMemo, useCallback } from 'react';
-import { useStock } from './StockContext';
+import { products as allProducts } from '../data';
 import { normalizeFilterValue } from '../utils/filterNormalizers';
-import { getFilterKey, FILTER_KEY_ALIASES } from '../utils/filterConfig';
+import { FILTER_KEY_ALIASES } from '../utils/filterConfig';
 
 const FilterContext = createContext();
 
 export { FilterContext };
 
 export function FilterProvider({ children }) {
-  const stockContext = useStock();
-  const { products } = stockContext || { products: [] }; // Fallback seguro
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedCategory, setSelectedCategory] = useState(null);
   const [subFilters, setSubFilters] = useState({});
@@ -21,9 +19,7 @@ export function FilterProvider({ children }) {
 
   // OPTIMIZACIÓN CRÍTICA: Memoizar productos filtrados
   const filteredProducts = useMemo(() => {
-    if (!products || products.length === 0) return [];
-
-    let filtered = products;
+    let filtered = allProducts;
 
     if (searchQuery.trim()) {
       const query = searchQuery.toLowerCase();
@@ -78,7 +74,7 @@ export function FilterProvider({ children }) {
     }
 
     return filtered;
-  }, [products, searchQuery, selectedCategory, subFilters]);
+  }, [searchQuery, selectedCategory, subFilters]);
 
   const handleSubFilterChange = useCallback((filterType, values) => {
     setSubFilters(prev => ({

@@ -1,13 +1,13 @@
 import { useState, useMemo } from 'react';
 import { ChevronDown, ChevronUp, X, SlidersHorizontal } from 'lucide-react';
-import { useStock } from '../../context/StockContext';
+import { useProducts } from '../../hooks/useProducts';
 import { useCategoryFilters } from '../../hooks/useCategoryFilters';
 import { getFilterLabel } from '../../utils/filterConfig';
 
 const SidebarFilters = ({ selectedCategory, filters, onFilterChange, onClearFilters }) => {
   const [expandedSections, setExpandedSections] = useState({});
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
-  const { products } = useStock();
+  const { products } = useProducts();
 
   // Hook personalizado que maneja toda la lógica de filtros
   const categoryFilters = useCategoryFilters(selectedCategory, products);

@@ -1,4 +1,3 @@
-import React from 'react';
 import ReactDOM from 'react-dom/client'; 
 import App from "./App";
 import './Styles/Index.css';
@@ -8,7 +7,7 @@ import PreloadResources from './components/SEO/PreloadResources';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <React.StrictMode>
+  <>
     <PreloadResources />
     <App />
     <ToastContainer
@@ -19,11 +18,11 @@ root.render(
       newestOnTop={false}
       closeOnClick
       rtl={false}
-      pauseOnFocusLoss
+      pauseOnFocusLoss={false}
       draggable
       pauseOnHover
       limit={3}
       className="!w-auto !max-w-md"
     />
-  </React.StrictMode>
+  </>
 );

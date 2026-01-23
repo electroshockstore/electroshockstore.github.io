@@ -68,23 +68,15 @@ const ProductGrid = memo(({ products, viewMode, openModal }) => {
 
   return (
     <div className="p-0 sm:p-4 md:p-6">
-      <div className={`${gridClasses} transition-opacity duration-300 ease-out`}>
+      <div className={gridClasses}>
         {products.map((product, index) => (
-          <div
+          <ProductCardWrapper
             key={`${product.id}-${product.category}`}
-            className="opacity-0 animate-fadeIn"
-            style={{ 
-              animationDelay: `${Math.min(index * 30, 300)}ms`,
-              animationFillMode: 'forwards'
-            }}
-          >
-            <ProductCardWrapper
-              product={product}
-              viewMode={viewMode}
-              onClick={handleOpenModal}
-              index={index}
-            />
-          </div>
+            product={product}
+            viewMode={viewMode}
+            onClick={handleOpenModal}
+            index={index}
+          />
         ))}
       </div>
     </div>

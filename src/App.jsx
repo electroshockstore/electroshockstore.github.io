@@ -1,7 +1,6 @@
 import { lazy, Suspense } from 'react';
-import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { FilterProvider } from "./context/FilterContext";
-import { StockProvider } from "./context/StockContext";
 import { PCBuilderProvider } from "./context/PCBuilderContext";
 import ErrorBoundary from "./components/ErrorBoundary";
 import ErrorNotification from "./components/ErrorNotification";
@@ -20,18 +19,16 @@ const PuntosRetiro = lazy(() => import("./pages/PuntosRetiro"));
 const PageLoader = () => <ModernLoader />;
 
 function AnimatedRoutes() {
-  const location = useLocation();
-
   return (
     <Suspense fallback={<PageLoader />}>
-      <Routes location={location}>
-        <Route path="/" element={<div className="page-transition"><Home /></div>} />
-        <Route path="/categoria/:categorySlug" element={<div className="page-transition"><Catalog /></div>} />
-        <Route path="/categoria/:categorySlug/:productSku" element={<div className="page-transition"><ProductDetailPage /></div>} />
-        <Route path="/producto/:id" element={<div className="page-transition"><ProductDetailPage /></div>} />
-        <Route path="/armatupc" element={<div className="page-transition"><PCBuilder /></div>} />
-        <Route path="/pc-builder" element={<div className="page-transition"><PCBuilder /></div>} />
-        <Route path="/puntos-de-retiro" element={<div className="page-transition"><PuntosRetiro /></div>} />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/categoria/:categorySlug" element={<Catalog />} />
+        <Route path="/categoria/:categorySlug/:productSku" element={<ProductDetailPage />} />
+        <Route path="/producto/:id" element={<ProductDetailPage />} />
+        <Route path="/armatupc" element={<PCBuilder />} />
+        <Route path="/pc-builder" element={<PCBuilder />} />
+        <Route path="/puntos-de-retiro" element={<PuntosRetiro />} />
       </Routes>
     </Suspense>
   );
@@ -65,16 +62,14 @@ function AppContent() {
 function App() {
   return (
     <ErrorBoundary>
-      <StockProvider>
-        <FilterProvider>
-          <PCBuilderProvider>
-            <Router basename="/">
-              <SkipToContent />
-              <AppContent />
-            </Router>
-          </PCBuilderProvider>
-        </FilterProvider>
-      </StockProvider>
+      <FilterProvider>
+        <PCBuilderProvider>
+          <Router basename="/">
+            <SkipToContent />
+            <AppContent />
+          </Router>
+        </PCBuilderProvider>
+      </FilterProvider>
     </ErrorBoundary>
   );
 }

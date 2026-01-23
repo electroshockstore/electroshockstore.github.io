@@ -1,22 +1,27 @@
-import { useState, useMemo } from 'react';
+import { useState, useMemo, useCallback } from 'react';
 
 export const useCatalogState = (filteredProducts) => {
   const [viewMode, setViewMode] = useState('grid');
   const [sortOrder, setSortOrder] = useState(null);
 
   const sortedProducts = useMemo(() => {
-    if (!sortOrder) return filteredProducts;
+    if (!sortOrder || filteredProducts.length === 0) return filteredProducts;
     
-    return [...filteredProducts].sort((a, b) => {
-      const priceA = a.price || 0;
-      const priceB = b.price || 0;
-      return sortOrder === 'asc' ? priceA - priceB : priceB - priceA;
-    });
+    // Sort in-place es más rápido, pero necesitamos copia para no mutar
+    const sorted = filteredProducts.slice();
+    
+    if (sortOrder === 'asc') {
+      sorted.sort((a, b) => (a.price || 0) - (b.price || 0));
+    } else {
+      sorted.sort((a, b) => (b.price || 0) - (a.price || 0));
+    }
+    
+    return sorted;
   }, [filteredProducts, sortOrder]);
 
-  const toggleViewMode = () => {
+  const toggleViewMode = useCallback(() => {
     setViewMode(prev => prev === 'grid' ? 'list' : 'grid');
-  };
+  }, []);
 
   return {
     viewMode,

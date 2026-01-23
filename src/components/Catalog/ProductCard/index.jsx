@@ -1,48 +1,31 @@
-import { memo, useMemo, useCallback, useState, useEffect, useRef } from 'react';
+import { memo, useState, useEffect, useRef, useCallback } from 'react';
 import { trackSelectItem } from '../../../utils/analytics';
 import StockBadge from './StockBadge';
 import StockStatus from './StockStatus';
 import ProductImage from './ProductImage';
 import ProductInfo from './ProductInfo';
 import PriceDisplay from './PriceDisplay';
-import ViewDetailsButton from './ViewDetailsButton';
 
-const categoryImages = {
-  'Fuentes': 'https://images.unsplash.com/photo-1591799264318-7e6ef8ddb7ea?w=400',
-  'Almacenamiento': 'https://images.unsplash.com/photo-1597872200969-2b65d56bd16b?w=400',
-  'Memorias RAM': 'https://images.unsplash.com/photo-1562976540-1502c2145186?w=400',
-  'Motherboards': 'https://images.unsplash.com/photo-1555617981-dac3880eac6e?w=400',
-  'Procesadores': 'https://images.unsplash.com/photo-1555617981-dac3880eac6e?w=400',
-  'Refrigeración': 'https://images.unsplash.com/photo-1587202372634-32705e3bf49c?w=400'
-};
-
-const getProductImage = (product) => {
-  if (product.images?.length > 0) return product.images[0];
-  return categoryImages[product.category] || 'https://images.unsplash.com/photo-1591799264318-7e6ef8ddb7ea?w=400';
-};
-
-const stockStatus = { 
+// Constante estática - Se crea UNA SOLA VEZ
+const STOCK_STATUS = Object.freeze({ 
   text: 'Disponible', 
   color: 'from-emerald-400 to-emerald-600',
   textColor: 'text-emerald-700',
   badgeColor: 'text-emerald-700 bg-emerald-50 border-emerald-200'
-};
+});
 
 const ProductCard = memo(({ product, viewMode, onClick, index = 0, listName = 'Product List' }) => {
-  const productImage = useMemo(() => getProductImage(product), [product]);
-  const isUsed = product.isUsed || false;
+  // Destructuring directo - más rápido que acceder a product.x cada vez
+  const { images, isUsed = false, ddrType, certType, name, brand, price, stock } = product;
+  const productImage = images[0]; // Todos los productos tienen imágenes
+  const isDDR5 = ddrType === 'DDR5';
+  const isDDR4 = ddrType === 'DDR4';
   
-  // Leer directamente los campos del JSON (mucho más eficiente)
-  const isDDR5 = product.ddrType === 'DDR5';
-  const isDDR4 = product.ddrType === 'DDR4';
-  const certType = product.certType; // 80_PLUS_GOLD, 80_PLUS_BRONZE, etc.
-  
-  // OPTIMIZACIÓN: Cargar inmediatamente los primeros 12 productos, lazy load para el resto
-  const [isVisible, setIsVisible] = useState(index < 12);
+  // OPTIMIZACIÓN: Cargar inmediatamente los primeros 8 productos
+  const [isVisible, setIsVisible] = useState(index < 8);
   const cardRef = useRef(null);
 
   useEffect(() => {
-    // Si ya es visible (primeros 12), no hacer nada
     if (isVisible) return;
 
     const observer = new IntersectionObserver(
@@ -53,7 +36,7 @@ const ProductCard = memo(({ product, viewMode, onClick, index = 0, listName = 'P
         }
       },
       { 
-        rootMargin: '200px', // Cargar 200px antes de que sea visible
+        rootMargin: '300px',
         threshold: 0.01
       }
     );
@@ -62,17 +45,26 @@ const ProductCard = memo(({ product, viewMode, onClick, index = 0, listName = 'P
       observer.observe(cardRef.current);
     }
 
-    return () => {
-      if (cardRef.current) {
-        observer.unobserve(cardRef.current);
-      }
-    };
+    return () => observer.disconnect();
   }, [isVisible]);
   
   const handleClick = useCallback(() => {
     trackSelectItem(product, index, listName);
     onClick(product);
   }, [onClick, product, index, listName]);
+
+  // Placeholder mientras no es visible
+  if (!isVisible) {
+    return (
+      <div 
+        ref={cardRef}
+        className={viewMode === 'list' 
+          ? "bg-gray-100 rounded-xl h-24 sm:h-32 animate-pulse"
+          : "bg-gray-100 rounded-xl aspect-square animate-pulse"
+        }
+      />
+    );
+  }
 
   if (viewMode === 'list') {
     return (
@@ -87,30 +79,31 @@ const ProductCard = memo(({ product, viewMode, onClick, index = 0, listName = 'P
         <div className="w-20 h-20 sm:w-24 sm:h-24 md:w-32 md:h-32 flex-shrink-0 bg-gray-50 rounded-lg p-2 relative overflow-hidden">
           <img 
             src={productImage} 
-            alt={product.name} 
+            alt={name} 
             className="w-full h-full object-contain mix-blend-multiply" 
-            loading={index < 12 ? "eager" : "lazy"}
+            loading="lazy"
+            decoding="async"
           />
         </div>
         
         <div className="flex-1 min-w-0 flex flex-col gap-2">
           <p className="text-xs font-semibold text-blue-600 tracking-wide uppercase truncate">
-            {product.brand}
+            {brand}
           </p>
           
           <h3 className="font-bold text-sm sm:text-base md:text-lg text-gray-900 line-clamp-2 leading-tight">
-            {isUsed ? `${product.name } - USADA` : product.name}
+            {isUsed ? `${name} - USADA` : name}
           </h3>
           
           <div className="flex items-baseline gap-1">
             <span className="text-sm text-gray-400 font-medium">$</span>
             <span className="text-xl sm:text-2xl md:text-3xl font-black text-gray-900">
-              {product.price.toLocaleString('es-AR')}
+              {price.toLocaleString('es-AR')}
             </span>
           </div>
           
-          <span className={`hidden sm:inline-flex w-fit px-2.5 py-0.5 rounded-full text-xs font-medium border ${stockStatus.badgeColor}`}>
-            {stockStatus.text}
+          <span className={`hidden sm:inline-flex w-fit px-2.5 py-0.5 rounded-full text-xs font-medium border ${STOCK_STATUS.badgeColor}`}>
+            {STOCK_STATUS.text}
           </span>
         </div>
       </div>
@@ -127,16 +120,16 @@ const ProductCard = memo(({ product, viewMode, onClick, index = 0, listName = 'P
                  transition-all duration-300 cursor-pointer overflow-hidden flex flex-col h-full"
     >
       <div className="relative aspect-square bg-gradient-to-br from-gray-50 to-gray-100 overflow-hidden">
-        <ProductImage src={productImage} alt={product.name} loading={index < 12 ? "eager" : "lazy"} />
-        <StockStatus stockStatus={stockStatus} />
-        <StockBadge stock={product.stock} stockStatus={stockStatus} isUsed={isUsed} />
+        <ProductImage src={productImage} alt={name} loading="lazy" />
+        <StockStatus stockStatus={STOCK_STATUS} />
+        <StockBadge stock={stock} stockStatus={STOCK_STATUS} isUsed={isUsed} />
       </div>
 
       <div className="p-2 sm:p-5 flex flex-col flex-1 justify-between gap-2 sm:gap-4">
         <div>
            <ProductInfo 
-             name={product.name} 
-             brand={product.brand} 
+             name={name} 
+             brand={brand} 
              model={product.model} 
              isUsed={isUsed}
              isDDR5={isDDR5}
@@ -146,10 +139,19 @@ const ProductCard = memo(({ product, viewMode, onClick, index = 0, listName = 'P
         </div>
         
         <div className="space-y-2 sm:space-y-3 pt-2 border-t border-gray-50">
-           <PriceDisplay price={product.price} category={product.category} />
+           <PriceDisplay price={price} category={product.category} />
         </div>
       </div>
     </div>
+  );
+}, (prevProps, nextProps) => {
+  // Custom comparison para evitar re-renders innecesarios
+  return (
+    prevProps.product.id === nextProps.product.id &&
+    prevProps.product.price === nextProps.product.price &&
+    prevProps.product.stock === nextProps.product.stock &&
+    prevProps.viewMode === nextProps.viewMode &&
+    prevProps.index === nextProps.index
   );
 });
 
