@@ -595,7 +595,7 @@ export default {
         '.catalog-bg::before': {
           'content': '""',
           'position': 'absolute',
-          'top': '-10%',
+          'top': '-40%',
           'left': '-5%',
           'width': '40%',
           'height': '40%',

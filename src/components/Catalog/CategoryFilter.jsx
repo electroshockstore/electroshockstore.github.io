@@ -117,6 +117,43 @@ const CategoryFilter = ({ selectedCategory, onCategoryChange }) => {
     return () => document.removeEventListener('mousedown', handleClickOutside);
   }, []);
 
+  // Bloquear scroll del body cuando el modal está abierto
+  useEffect(() => {
+    if (isOpen) {
+      // Guardar el scroll actual
+      const scrollY = window.scrollY;
+      
+      // Bloquear scroll y touch
+      document.body.style.position = 'fixed';
+      document.body.style.top = `-${scrollY}px`;
+      document.body.style.width = '100%';
+      document.body.style.overflow = 'hidden';
+      document.body.style.touchAction = 'none';
+      
+      // Prevenir gestos táctiles en el documento
+      const preventTouch = (e) => {
+        if (e.target.closest('.category-grid-scroll')) {
+          // Permitir scroll solo en el grid
+          return;
+        }
+        e.preventDefault();
+      };
+      
+      document.addEventListener('touchmove', preventTouch, { passive: false });
+      
+      return () => {
+        // Restaurar scroll
+        document.body.style.position = '';
+        document.body.style.top = '';
+        document.body.style.width = '';
+        document.body.style.overflow = '';
+        document.body.style.touchAction = '';
+        document.removeEventListener('touchmove', preventTouch);
+        window.scrollTo(0, scrollY);
+      };
+    }
+  }, [isOpen]);
+
   const handleScroll = (direction) => {
     if (scrollContainerRef.current) {
       const scrollAmount = 300;
@@ -186,16 +223,30 @@ const CategoryFilter = ({ selectedCategory, onCategoryChange }) => {
           {/* Modal Fullscreen - Diseño Oscuro */}
           {isOpen && (
             <>
-              {/* Backdrop */}
+              {/* Backdrop - Fijo y sin scroll */}
               <div 
-                className="fixed inset-0 bg-black/80 backdrop-blur-md z-[100] animate-in fade-in duration-200"
+                className="fixed inset-0 bg-black/80 backdrop-blur-md z-[100] animate-in fade-in duration-150"
                 onClick={() => setIsOpen(false)}
+                onTouchMove={(e) => e.preventDefault()}
+                style={{ touchAction: 'none' }}
               />
               
-              {/* Modal Content */}
-              <div className="fixed inset-0 z-[101] flex flex-col animate-in slide-in-from-bottom duration-300">
-                {/* Header del modal - Estilo Header oscuro */}
-                <div className="bg-black border-b border-gray-800 px-5 py-6 flex items-center justify-between shadow-2xl">
+              {/* Modal Content - Completamente fijo */}
+              <div 
+                className="fixed inset-0 z-[101] flex flex-col animate-in slide-in-from-bottom duration-200"
+                onTouchMove={(e) => {
+                  // Solo permitir scroll en el grid
+                  if (!e.target.closest('.category-grid-scroll')) {
+                    e.preventDefault();
+                  }
+                }}
+                style={{ touchAction: 'none' }}
+              >
+                {/* Header del modal - Fijo en la parte superior */}
+                <div 
+                  className="flex-shrink-0 bg-black border-b border-gray-800 px-5 py-6 flex items-center justify-between shadow-2xl"
+                  onTouchMove={(e) => e.preventDefault()}
+                >
                   <div className="flex items-center gap-4">
                     <div className="p-3 rounded-2xl bg-gradient-to-br from-blue-500 to-purple-600 shadow-xl">
                       <Grid3X3 className="h-7 w-7 text-white" strokeWidth={2.5} />
@@ -213,8 +264,15 @@ const CategoryFilter = ({ selectedCategory, onCategoryChange }) => {
                   </button>
                 </div>
 
-                {/* Grid de categorías - Fondo catalog-bg */}
-                <div className="flex-1 overflow-y-auto catalog-bg px-4 py-5">
+                {/* Grid de categorías - Solo este contenedor tiene scroll */}
+                <div 
+                  className="category-grid-scroll flex-1 overflow-y-auto catalog-bg px-4 py-5"
+                  style={{ 
+                    overscrollBehavior: 'contain',
+                    WebkitOverflowScrolling: 'touch',
+                    touchAction: 'pan-y'
+                  }}
+                >
                   <div className="grid grid-cols-2 gap-4 max-w-md mx-auto">
                     {categories.map((category, index) => {
                       const isSelected = selectedCategory === category;
@@ -226,13 +284,17 @@ const CategoryFilter = ({ selectedCategory, onCategoryChange }) => {
                         <button
                           key={category}
                           onClick={() => {
-                            onCategoryChange(category);
+                            // Cerrar inmediatamente sin esperar animaciones
                             setIsOpen(false);
+                            // Ejecutar el cambio de categoría de forma inmediata
+                            requestAnimationFrame(() => {
+                              onCategoryChange(category);
+                            });
                           }}
                           style={{ animationDelay: `${index * 40}ms` }}
                           className={`
                             relative overflow-hidden rounded-2xl font-bold
-                            transition-all duration-300 animate-in fade-in zoom-in-95
+                            transition-all duration-150 animate-in fade-in zoom-in-95
                             ${isSelected 
                               ? 'shadow-[0_20px_50px_rgba(0,0,0,0.4)] scale-[1.03] ring-4 ring-blue-500/60' 
                               : 'shadow-[0_10px_30px_rgba(0,0,0,0.25)] hover:shadow-[0_15px_40px_rgba(0,0,0,0.35)] active:scale-[0.97]'
@@ -246,7 +308,7 @@ const CategoryFilter = ({ selectedCategory, onCategoryChange }) => {
                               alt={category}
                               className={`
                                 absolute inset-0 w-full h-full object-cover
-                                transition-all duration-300
+                                transition-all duration-150
                                 ${isSelected ? 'scale-110 brightness-110' : 'brightness-90'}
                               `}
                               loading={isTopImage ? "eager" : "lazy"}
@@ -257,7 +319,7 @@ const CategoryFilter = ({ selectedCategory, onCategoryChange }) => {
                             {/* Overlay gradient más oscuro */}
                             <div className={`
                               absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent
-                              transition-all duration-300
+                              transition-all duration-150
                               ${isSelected ? 'from-black/80 via-black/40' : ''}
                             `} />
                             
@@ -273,7 +335,7 @@ const CategoryFilter = ({ selectedCategory, onCategoryChange }) => {
                             <div className="absolute inset-x-0 bottom-0 p-4 flex flex-col items-start gap-1.5">
                               <span className={`
                                 text-white font-bold leading-tight drop-shadow-[0_2px_8px_rgba(0,0,0,0.8)]
-                                transition-all duration-300
+                                transition-all duration-150
                                 ${isSelected ? 'text-xl' : 'text-base'}
                               `}>
                                 {category}
@@ -293,8 +355,11 @@ const CategoryFilter = ({ selectedCategory, onCategoryChange }) => {
                   </div>
                 </div>
 
-                {/* Footer oscuro */}
-                <div className="bg-black/95 backdrop-blur-xl border-t border-gray-800 px-5 py-4 shadow-2xl">
+                {/* Footer oscuro - Fijo en la parte inferior */}
+                <div 
+                  className="flex-shrink-0 bg-black/95 backdrop-blur-xl border-t border-gray-800 px-5 py-4 shadow-2xl"
+                  onTouchMove={(e) => e.preventDefault()}
+                >
                   <div className="flex items-center justify-center gap-3 text-sm text-gray-400">
                     <div className="w-8 h-1 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full" />
                     <span className="font-semibold">Selecciona una categoría</span>

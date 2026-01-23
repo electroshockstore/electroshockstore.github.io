@@ -582,7 +582,8 @@
 }
 
 .animate-scroll-infinite {
-  animation: scroll-infinite 20s linear infinite;
+  animation: scroll-infinite 30s linear infinite;
+  will-change: transform;
 }
 
 .animate-scroll-infinite:hover {
