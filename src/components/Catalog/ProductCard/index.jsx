@@ -1,4 +1,4 @@
-import { memo, useState, useEffect, useRef, useCallback } from 'react';
+import { memo, useCallback } from 'react';
 import { trackSelectItem } from '../../../utils/analytics';
 import StockBadge from './StockBadge';
 import StockStatus from './StockStatus';
@@ -21,55 +21,18 @@ const ProductCard = memo(({ product, viewMode, onClick, index = 0, listName = 'P
   const isDDR5 = ddrType === 'DDR5';
   const isDDR4 = ddrType === 'DDR4';
   
-  // OPTIMIZACIÓN: Cargar inmediatamente los primeros 8 productos
-  const [isVisible, setIsVisible] = useState(index < 8);
-  const cardRef = useRef(null);
-
-  useEffect(() => {
-    if (isVisible) return;
-
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setIsVisible(true);
-          observer.disconnect();
-        }
-      },
-      { 
-        rootMargin: '300px',
-        threshold: 0.01
-      }
-    );
-
-    if (cardRef.current) {
-      observer.observe(cardRef.current);
-    }
-
-    return () => observer.disconnect();
-  }, [isVisible]);
-  
   const handleClick = useCallback(() => {
     trackSelectItem(product, index, listName);
     onClick(product);
   }, [onClick, product, index, listName]);
 
-  // Placeholder mientras no es visible
-  if (!isVisible) {
-    return (
-      <div 
-        ref={cardRef}
-        className={viewMode === 'list' 
-          ? "bg-gray-100 rounded-xl h-24 sm:h-32 animate-pulse"
-          : "bg-gray-100 rounded-xl aspect-square animate-pulse"
-        }
-      />
-    );
-  }
+  // Determinar si debe cargar eager (primeros 8 productos)
+  const imageLoading = index < 8 ? "eager" : "lazy";
+  const imageFetchPriority = index < 8 ? "high" : "low";
 
   if (viewMode === 'list') {
     return (
       <div 
-        ref={cardRef}
         onClick={handleClick}
         className="group relative bg-white rounded-xl border border-gray-100 p-3 sm:p-4
                    hover:border-blue-500/30 hover:shadow-xl hover:shadow-blue-500/10 
@@ -81,7 +44,8 @@ const ProductCard = memo(({ product, viewMode, onClick, index = 0, listName = 'P
             src={productImage} 
             alt={name} 
             className="w-full h-full object-contain mix-blend-multiply" 
-            loading="lazy"
+            loading={imageLoading}
+            fetchpriority={imageFetchPriority}
             decoding="async"
           />
         </div>
@@ -112,7 +76,6 @@ const ProductCard = memo(({ product, viewMode, onClick, index = 0, listName = 'P
 
   return (
     <div 
-      ref={cardRef}
       onClick={handleClick}
       className="group relative bg-white rounded-xl sm:rounded-2xl border border-gray-100 
                  hover:border-blue-500/30 hover:shadow-2xl hover:shadow-blue-500/10
@@ -120,7 +83,7 @@ const ProductCard = memo(({ product, viewMode, onClick, index = 0, listName = 'P
                  transition-all duration-300 cursor-pointer overflow-hidden flex flex-col h-full"
     >
       <div className="relative aspect-square bg-gradient-to-br from-gray-50 to-gray-100 overflow-hidden">
-        <ProductImage src={productImage} alt={name} loading="lazy" />
+        <ProductImage src={productImage} alt={name} loading={imageLoading} fetchpriority={imageFetchPriority} />
         <StockStatus stockStatus={STOCK_STATUS} />
         <StockBadge stock={stock} stockStatus={STOCK_STATUS} isUsed={isUsed} />
       </div>

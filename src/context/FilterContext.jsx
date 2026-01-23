@@ -2,14 +2,26 @@ import { createContext, useContext, useState, useEffect, useMemo, useCallback } 
 import { products as allProducts } from '../data';
 import { normalizeFilterValue } from '../utils/filterNormalizers';
 import { FILTER_KEY_ALIASES } from '../utils/filterConfig';
+import { getCategoryFromSlug } from '../utils/slugify';
 
 const FilterContext = createContext();
 
 export { FilterContext };
 
+// Helper para obtener categoría inicial desde URL
+const getInitialCategoryFromURL = () => {
+  const path = window.location.pathname;
+  const match = path.match(/\/categoria\/([^/]+)/);
+  if (match && match[1]) {
+    return getCategoryFromSlug(match[1]);
+  }
+  return null;
+};
+
 export function FilterProvider({ children }) {
   const [searchQuery, setSearchQuery] = useState('');
-  const [selectedCategory, setSelectedCategory] = useState(null);
+  // OPTIMIZACIÓN: Leer categoría inicial desde URL para evitar flash
+  const [selectedCategory, setSelectedCategory] = useState(getInitialCategoryFromURL);
   const [subFilters, setSubFilters] = useState({});
 
   // Limpiar subfiltros cuando cambia la categoría

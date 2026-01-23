@@ -123,21 +123,6 @@ export const isSlowConnection = () => {
 };
 
 /**
- * Optimizar imágenes según el dispositivo
- */
-export const getOptimizedImageUrl = (url, width = 800) => {
-  if (!url) return '';
-  
-  // Si es una URL de Unsplash, agregar parámetros de optimización
-  if (url.includes('unsplash.com')) {
-    return `${url}&w=${width}&q=80&fm=webp&fit=crop`;
-  }
-  
-  // Para imágenes locales, retornar tal cual (ya están optimizadas)
-  return url;
-};
-
-/**
  * Calcular prioridad de carga de recursos
  */
 export const getLoadPriority = (isAboveFold, isInteractive) => {

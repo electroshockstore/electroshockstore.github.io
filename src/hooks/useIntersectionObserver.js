@@ -40,29 +40,3 @@ export const useIntersectionObserver = (options = {}) => {
 
   return { elementRef, isVisible, hasBeenVisible };
 };
-
-/**
- * Hook para lazy loading de imágenes
- */
-export const useLazyImage = (src, placeholder = '') => {
-  const { elementRef, hasBeenVisible } = useIntersectionObserver({
-    threshold: 0,
-    rootMargin: '200px'
-  });
-
-  const [imageSrc, setImageSrc] = useState(placeholder);
-  const [isLoaded, setIsLoaded] = useState(false);
-
-  useEffect(() => {
-    if (hasBeenVisible && src) {
-      const img = new Image();
-      img.src = src;
-      img.onload = () => {
-        setImageSrc(src);
-        setIsLoaded(true);
-      };
-    }
-  }, [hasBeenVisible, src]);
-
-  return { elementRef, imageSrc, isLoaded };
-};

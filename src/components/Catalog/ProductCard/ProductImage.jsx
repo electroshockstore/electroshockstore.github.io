@@ -1,6 +1,6 @@
 import { Package } from 'lucide-react';
 
-const ProductImage = ({ src, alt, className = "", loading = "lazy" }) => {
+const ProductImage = ({ src, alt, className = "", loading = "lazy", fetchpriority = "auto" }) => {
   return (
     <div className={`relative w-full h-full bg-white p-6 ${className}`}>
       <img
@@ -9,6 +9,7 @@ const ProductImage = ({ src, alt, className = "", loading = "lazy" }) => {
         className="w-full h-full object-contain
                  group-hover:scale-110 transition-all duration-500"
         loading={loading}
+        fetchpriority={fetchpriority}
         onError={(e) => {
           e.target.style.display = 'none';
           e.target.nextSibling.style.display = 'flex';

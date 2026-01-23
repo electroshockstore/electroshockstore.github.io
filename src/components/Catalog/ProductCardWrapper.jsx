@@ -29,12 +29,8 @@ const ProductCardWrapper = memo(({ product, viewMode, onClick, index = 0, listNa
     />
   );
 }, (prevProps, nextProps) => {
-  // Custom comparison para evitar re-renders
-  return (
-    prevProps.product.id === nextProps.product.id &&
-    prevProps.viewMode === nextProps.viewMode &&
-    prevProps.index === nextProps.index
-  );
+  // Comparación simple - solo ID del producto
+  return prevProps.product.id === nextProps.product.id;
 });
 
 ProductCardWrapper.displayName = 'ProductCardWrapper';
