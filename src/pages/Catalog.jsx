@@ -74,6 +74,7 @@ const Catalog = () => {
         products={sortedProducts}
         onProductClick={handleProductClick}
         onReset={handleReset}
+        key={`${selectedCategory}-${viewMode}`}
       />
     </CatalogLayout>
   );

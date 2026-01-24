@@ -1,8 +1,17 @@
-import { useState, useMemo, useCallback } from 'react';
+import { useState, useMemo, useCallback, useEffect } from 'react';
 
 export const useCatalogState = (filteredProducts) => {
-  const [viewMode, setViewMode] = useState('grid');
+  // Recuperar viewMode de localStorage o usar 'grid' por defecto
+  const [viewMode, setViewMode] = useState(() => {
+    const saved = localStorage.getItem('catalogViewMode');
+    return saved || 'grid';
+  });
   const [sortOrder, setSortOrder] = useState(null);
+
+  // Guardar viewMode en localStorage cuando cambie
+  useEffect(() => {
+    localStorage.setItem('catalogViewMode', viewMode);
+  }, [viewMode]);
 
   const sortedProducts = useMemo(() => {
     if (!sortOrder || filteredProducts.length === 0) return filteredProducts;

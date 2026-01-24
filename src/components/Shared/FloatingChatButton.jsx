@@ -1,12 +1,10 @@
 import { useState } from 'react';
 import { Send, X, MapPin, FileText } from 'lucide-react'; 
 import { useLocation, useNavigate } from 'react-router-dom';
-import { useTawkTo } from '../../hooks/useTawkTo';
 
 const FloatingChatButton = () => {
   const [isExpanded, setIsExpanded] = useState(false);
   const [showConditionsModal, setShowConditionsModal] = useState(false);
-  const { isOnline, openChat } = useTawkTo();
   const location = useLocation();
   const navigate = useNavigate();
   
@@ -20,16 +18,6 @@ const FloatingChatButton = () => {
     const message = encodeURIComponent('Hola, vengo desde su catálogo web para realizar una consulta. ¿Podrían ayudarme?');
     const whatsappUrl = `https://wa.me/${phoneNumber}?text=${message}`;
     window.open(whatsappUrl, '_blank');
-    setIsExpanded(false);
-  };
-
-  const handleLiveChat = () => {
-    const initialMessage = 'Hola, vengo desde su catálogo web para realizar una consulta. ¿Podrían ayudarme?';
-    if (window.openTawkChat) {
-      window.openTawkChat(initialMessage);
-    } else {
-      openChat(initialMessage);
-    }
     setIsExpanded(false);
   };
 
@@ -136,27 +124,6 @@ const FloatingChatButton = () => {
               </div>
             </button>
 
-            {/* Chat en Vivo */}
-            <button
-              onClick={handleLiveChat}
-              className="flex items-center gap-2 sm:gap-3 bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white p-2 sm:p-3 rounded-lg sm:rounded-xl shadow-lg sm:shadow-xl hover:shadow-blue-500/50 transition-all duration-300 hover:scale-105 hover:translate-x-1"
-            >
-              <div className="w-8 h-8 sm:w-10 sm:h-10 bg-white/20 backdrop-blur-sm rounded-md sm:rounded-lg flex items-center justify-center border border-white/10">
-                <svg className="w-4 h-4 sm:w-5 sm:h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/>
-                </svg>
-              </div>
-              <div className="flex flex-col items-start min-w-0">
-                <div className="flex items-center gap-1">
-                  <span className="text-xs sm:text-sm font-bold leading-tight">Chat en Vivo</span>
-                  {isOnline && <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-green-400 rounded-full animate-pulse shadow-[0_0_10px_rgba(74,222,128,1)]"></div>}
-                </div>
-                <span className="text-xs opacity-90 hidden sm:block">
-                  {isOnline ? 'Agente disponible' : 'Deja tu mensaje'}
-                </span>
-              </div>
-            </button>
-
             {/* Puntos de Retiro - SOLO MOBILE */}
             <button
               onClick={handlePuntosRetiro}
@@ -210,9 +177,6 @@ const FloatingChatButton = () => {
                   </svg>
                 )}
               </div>
-              
-              {/* Online Indicator */}
-              <div className={`absolute -top-0.5 -right-0.5 sm:-top-1 sm:-right-1 w-3 h-3 sm:w-4 sm:h-4 rounded-full border-2 border-white shadow-lg animate-pulse ${isOnline ? 'bg-green-400' : 'bg-orange-400'}`} />
             </div>
 
             {/* Texto (solo Desktop) */}

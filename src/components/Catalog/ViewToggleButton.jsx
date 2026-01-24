@@ -15,6 +15,7 @@ const ViewToggleButton = memo(({ viewMode, toggleViewMode }) => {
             : 'text-gray-600 hover:text-gray-900 hover:bg-gray-50'
           }
         `}
+        aria-label="Vista en cuadrícula"
       >
         <Grid className="h-5 w-5 sm:h-6 sm:w-6" strokeWidth={2.5} />
       </button>
@@ -29,6 +30,7 @@ const ViewToggleButton = memo(({ viewMode, toggleViewMode }) => {
             : 'text-gray-600 hover:text-gray-900 hover:bg-gray-50'
           }
         `}
+        aria-label="Vista en lista"
       >
         <List className="h-5 w-5 sm:h-6 sm:w-6" strokeWidth={2.5} />
       </button>

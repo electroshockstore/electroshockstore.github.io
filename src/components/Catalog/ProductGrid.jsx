@@ -52,6 +52,8 @@ const EmptyState = memo(() => (
 EmptyState.displayName = 'EmptyState';
 
 const ProductGrid = memo(({ products, viewMode, openModal }) => {
+  console.log('ProductGrid viewMode:', viewMode);
+  
   const handleOpenModal = useCallback((product) => {
     openModal(product);
   }, [openModal]);
@@ -59,7 +61,7 @@ const ProductGrid = memo(({ products, viewMode, openModal }) => {
   const gridClasses = useMemo(() => {
     return viewMode === 'grid' 
       ? 'grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-1.5 sm:gap-4'
-      : 'space-y-3 sm:space-y-4';
+      : 'space-y-2.5 sm:space-y-3';
   }, [viewMode]);
 
   if (products.length === 0) {

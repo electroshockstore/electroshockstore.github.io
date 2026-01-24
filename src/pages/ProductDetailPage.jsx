@@ -7,7 +7,7 @@ import Footer from '../components/Shared/Footer';
 import ScrollButton from '../components/Shared/ScrollButton';
 import CategoryFilter from '../components/Catalog/CategoryFilter';
 import { useFilter } from '../context/FilterContext';
-import { generateSKU } from '../utils/slugify';
+import { generateSKU, getSlugFromCategory } from '../utils/slugify';
 import { useProductSEO } from '../hooks/useSEO';
 import { useProductView } from '../hooks/useAnalytics';
 

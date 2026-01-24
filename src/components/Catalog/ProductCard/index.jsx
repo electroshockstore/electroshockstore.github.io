@@ -34,41 +34,66 @@ const ProductCard = memo(({ product, viewMode, onClick, index = 0, listName = 'P
     return (
       <div 
         onClick={handleClick}
-        className="group relative bg-white rounded-xl border border-gray-100 p-3 sm:p-4
-                   hover:border-blue-500/30 hover:shadow-xl hover:shadow-blue-500/10 
-                   shadow-lg shadow-gray-200/50
-                   transition-all duration-300 cursor-pointer flex gap-3 sm:gap-4 items-center"
+        className="group relative bg-white rounded-lg border border-gray-200 p-3 sm:p-4
+                   hover:border-blue-400 hover:shadow-lg
+                   transition-all duration-200 cursor-pointer flex gap-3 sm:gap-4 items-center"
       >
-        <div className="w-20 h-20 sm:w-24 sm:h-24 md:w-32 md:h-32 flex-shrink-0 bg-gray-50 rounded-lg p-2 relative overflow-hidden">
+        {/* Imagen - Tamaño medio */}
+        <div className="w-16 h-16 sm:w-20 sm:h-20 flex-shrink-0 bg-gray-50 rounded-md p-2 relative overflow-hidden">
           <img 
             src={productImage} 
             alt={name} 
-            className="w-full h-full object-contain mix-blend-multiply" 
+            className="w-full h-full object-contain" 
             loading={imageLoading}
             fetchpriority={imageFetchPriority}
             decoding="async"
           />
         </div>
         
-        <div className="flex-1 min-w-0 flex flex-col gap-2">
-          <p className="text-xs font-semibold text-blue-600 tracking-wide uppercase truncate">
-            {brand}
-          </p>
-          
-          <h3 className="font-bold text-sm sm:text-base md:text-lg text-gray-900 line-clamp-2 leading-tight">
-            {isUsed ? `${name} - USADA` : name}
-          </h3>
-          
-          <div className="flex items-baseline gap-1">
-            <span className="text-sm text-gray-400 font-medium">$</span>
-            <span className="text-xl sm:text-2xl md:text-3xl font-black text-gray-900">
-              {price.toLocaleString('es-AR')}
-            </span>
+        {/* Info del producto - Layout horizontal */}
+        <div className="flex-1 min-w-0 flex items-center justify-between gap-3 sm:gap-6">
+          {/* Info: Marca + Nombre */}
+          <div className="flex-1 min-w-0">
+            <div className="flex items-center gap-2 mb-1">
+              <p className="text-xs sm:text-sm font-bold text-blue-600 uppercase flex-shrink-0">
+                {brand}
+              </p>
+              {isDDR5 && (
+                <span className="px-2 py-0.5 bg-purple-100 text-purple-700 text-[9px] sm:text-[10px] font-bold rounded">
+                  DDR5
+                </span>
+              )}
+              {isDDR4 && (
+                <span className="px-2 py-0.5 bg-blue-100 text-blue-700 text-[9px] sm:text-[10px] font-bold rounded">
+                  DDR4
+                </span>
+              )}
+              {certType && (
+                <span className="px-2 py-0.5 bg-amber-100 text-amber-700 text-[9px] sm:text-[10px] font-bold rounded">
+                  {certType}
+                </span>
+              )}
+            </div>
+            <h3 className="font-semibold text-sm sm:text-base text-gray-700 line-clamp-1">
+              {name}
+            </h3>
           </div>
           
-          <span className={`hidden sm:inline-flex w-fit px-2.5 py-0.5 rounded-full text-xs font-medium border ${STOCK_STATUS.badgeColor}`}>
-            {STOCK_STATUS.text}
+          {/* Stock badge */}
+          <span className={`hidden sm:inline-flex px-2.5 py-1 rounded-full text-[10px] font-medium ${STOCK_STATUS.badgeColor} flex-shrink-0`}>
+            ✓ Disponible
           </span>
+          
+          {/* Precio */}
+          <div className="flex-shrink-0 text-right">
+            <div className="flex items-baseline justify-end gap-0.5">
+              <span className="text-xs sm:text-sm text-gray-400 font-medium">$</span>
+              <span className="text-xl sm:text-2xl font-black text-gray-900">
+                {price.toLocaleString('es-AR')}
+              </span>
+            </div>
+            <p className="text-[10px] sm:text-xs text-gray-500 mt-0.5">Contado</p>
+          </div>
         </div>
       </div>
     );
