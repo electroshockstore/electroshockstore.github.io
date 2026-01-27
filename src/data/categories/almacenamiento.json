@@ -6,11 +6,11 @@
     
     {
       "id": 201,
-      "name": "NVME XPG Spectrix S20G 500GB RGB",
+      "name": "NVME XPG Spectrix S20G 500GB RGB Chip MICRON",
       "brand": "ADATA",
       "model": "XPG Spectrix S20G",
       "category": "Almacenamiento",
-      "price": 120000,
+      "price": 130000,
       "stock": 2,
       "sku": "XPG-500-S20G",
       "description": "SSD M.2 NVMe PCIe Gen3 x4 de 500GB con iluminación RGB direccionable, lectura 2500 MB/s, escritura 1800 MB/s",
@@ -25,16 +25,17 @@
         "Interfaz": "PCIe Gen3 x4",
         "Iluminación": "RGB Direccionable",
         "Lectura": "2500 MB/s",
+        "Chip": "3D TLC MICRON",
         "Escritura": "1800 MB/s"
       }
     },
     {
       "id": 202,
-      "name": "Lexar NM620 1TB - M.2 NVMe Gen3",
+      "name": "Lexar NM620 1TB - M.2 NVMe Gen3 Chip Micron",
       "brand": "Lexar",
       "model": "NM620",
       "category": "Almacenamiento",
-      "price": 200000,
+      "price": 220000,
       "stock": 3,
       "sku": "LEXAR-1TB-NM620",
       "description": "SSD M.2 NVMe Gen3 x4 de 1TB, lectura 3500 MB/s, escritura 3000 MB/s",
@@ -48,6 +49,7 @@
         "Marca": "Lexar",
         "Capacidad": "1 TB",
         "Interfaz": "PCIe Gen3 x4 NVMe 1.4",
+        "Chip": "3D TLC MICRON",
         "Lectura": "3500 MB/s",
         "Escritura": "3000 MB/s",
         "TBW": "500 TBW"
@@ -55,11 +57,11 @@
     },
     {
       "id": 203,
-      "name": "Kingston NV3 1TB - M.2 NVMe Gen4",
+      "name": "Kingston NV3 1TB - M.2 NVMe Gen4 Chip Micron",
       "brand": "Kingston",
       "model": "NV3 SNV3S/1000G",
       "category": "Almacenamiento",
-      "price": 230000,
+      "price": 250000,
       "stock": 3,
       "sku": "KING-1TB-GEN4",
       "description": "SSD M.2 NVMe Gen4 x4 de 1TB, lectura 3500 MB/s, escritura 2800 MB/s",
@@ -72,6 +74,8 @@
         "Marca": "Kingston",
         "Línea": "NV3",
         "Capacidad": "1 TB",
+         "Chip": "Micron B58R TLC",
+    
         "Interfaz": "PCIe Gen4 x4 NVMe",
         "Lectura": "3500 MB/s",
         "Escritura": "2800 MB/s"
@@ -79,7 +83,7 @@
     },
     {
       "id": 204,
-      "name": "Adata Legend 710 512GB - M.2 NVMe Gen3",
+      "name": "Adata Legend 710 512GB - M.2 NVMe Gen3 Chip MICRON",
       "brand": "ADATA",
       "model": "Legend 710 ALEG-710-512GCS",
       "category": "Almacenamiento",
@@ -97,6 +101,7 @@
         "Capacidad": "512 GB",
         "Interfaz": "PCIe Gen3 x4 NVMe 1.4",
         "Lectura": "2400 MB/s",
+          "Chip": "3D TLC MICRON",
         "Escritura": "1800 MB/s",
         "Disipador": "Incluido"
       }
@@ -130,7 +135,7 @@
       "brand": "SanDisk",
       "model": "SSD Plus M.2 NVMe",
       "category": "Almacenamiento",
-      "price": 180000,
+      "price": 220000,
       "stock": 1,
       "sku": "SANDISK-1TB-PLUS",
       "description": "SSD M.2 NVMe PCIe Gen3 x4 de 1TB, alta resistencia mecánica",
@@ -143,6 +148,7 @@
         "Capacidad": "1 TB",
         "Interfaz": "PCIe Gen3 x4 NVMe",
         "Formato": "M.2 2280",
+        "Chip":"Sandisk", 
         "Memoria": "3D NAND"
       }
     },
@@ -178,11 +184,11 @@
     },
     {
       "id": 208,
-      "name": "SSD Lexar NM620 512GB M.2 NVMe PCIe Gen3x4",
+      "name": "SSD Lexar NM620 512GB M.2 NVMe PCIe Gen3x4 Chip Micron",
       "brand": "Lexar",
       "model": "NM620",
       "category": "Almacenamiento",
-      "price": 120000,
+      "price": 150000,
       "stock": 5,
       "sku": "LEXAR-512-NM620",
       "description": "SSD M.2 NVMe Gen3 x4 de 512GB, lectura 3500 MB/s, escritura 3000 MB/s",
@@ -194,6 +200,7 @@
       "specifications": {
         "Capacidad": "512 GB",
         "Lectura": "3500 MB/s",
+          "Chip": "3D TLC MICRON",
         "Escritura": "2400 MB/s"
       }
     },
@@ -365,7 +372,7 @@
       "brand": "ADATA",
       "model": "Swordfish ASWORDFISH-500G-C",
       "category": "Almacenamiento",
-      "price": 100000,
+      "price": 120000,
       "stock": 4,
       "sku": "ADATA-500-SWORD",
       "description": "SSD M.2 NVMe Gen3 x4 de 500GB con disipador de aluminio, lectura 1800 MB/s",
@@ -409,7 +416,7 @@
       "brand": "Western Digital",
       "model": "WD Green SN350",
       "category": "Almacenamiento",
-      "price": 100000,
+      "price": 110000,
       "stock": 1,
       "sku": "WD-480-SN350",
       "description": "SSD M.2 NVMe PCIe Gen3 x4 de 480GB, lectura 2400 MB/s, escritura 1500 MB/s",
@@ -430,7 +437,7 @@
       "brand": "Western Digital",
       "model": "WD Green SN350",
       "category": "Almacenamiento",
-      "price": 110000,
+      "price": 140000,
       "stock": 2,
       "sku": "WD-500-SN350",
       "description": "SSD M.2 NVMe PCIe Gen3 x4 de 500GB, lectura 2400 MB/s, escritura 1500 MB/s",
