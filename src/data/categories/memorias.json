@@ -40,7 +40,7 @@
       "brand": "Patriot",
       "model": "Viper Venom",
       "category": "Memorias RAM",
-      "price": 380000,
+      "price": 370000,
       "stock": 1,
       "realPowerConsumption": "3.0W - 3.8W",
       "images": [
@@ -73,7 +73,7 @@
       "model": "XPG Lancer Blade",
       "category": "Memorias RAM",
       "manufacturerUrl": "https://www.adata.com/ar/consumer/category/memory/",
-      "price": 340000,
+      "price": 350000,
       "stock": 2,
       "realPowerConsumption": "2.5W - 3.2W",
       "images": [
@@ -95,7 +95,7 @@
       "brand": "NETAC",
       "model": "Shadow 2",
       "category": "Memorias RAM",
-      "price": 290000,
+      "price": 280000,
       "stock": 7,
       "realPowerConsumption": "2.2W - 2.8W",
       "images": [
@@ -116,7 +116,7 @@
       "brand": "Neo Forza",
       "model": "DDR5 5200",
       "category": "Memorias RAM",
-      "price": 220000,
+      "price": 210000,
       "stock": 2,
       "realPowerConsumption": "2.4W - 3.0W",
       "images": [
@@ -136,7 +136,7 @@
       "brand": "Neo Forza",
       "model": "NMUD532F82-5200JA10",
       "category": "Memorias RAM",
-      "price": 370000,
+      "price": 360000,
       "stock": 2,
       "realPowerConsumption": "2.8W - 3.5W",
       "images": [
