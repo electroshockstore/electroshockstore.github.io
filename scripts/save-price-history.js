@@ -21,23 +21,20 @@ const colors = {
 
 // Leer todos los productos de las categorías
 async function getAllProducts() {
-  const files = fs.readdirSync(CATEGORIES_DIR).filter(f => f.endsWith('.js'));
+  const files = fs.readdirSync(CATEGORIES_DIR).filter(f => f.endsWith('.json'));
   const allProducts = [];
 
   for (const file of files) {
     const filePath = path.join(CATEGORIES_DIR, file);
-    const content = fs.readFileSync(filePath, 'utf-8');
-    
-    // Extraer productos usando regex (más robusto que import dinámico)
-    const match = content.match(/export const \w+Products = \[([\s\S]*?)\];/);
-    if (match) {
-      try {
-        // Evaluar el array de productos
-        const productsArray = eval(`[${match[1]}]`);
-        allProducts.push(...productsArray);
-      } catch (error) {
-        console.error(`${colors.red}✗ Error parseando ${file}:${colors.reset}`, error.message);
+    try {
+      const content = fs.readFileSync(filePath, 'utf-8');
+      const data = JSON.parse(content);
+      
+      if (data.products && Array.isArray(data.products)) {
+        allProducts.push(...data.products);
       }
+    } catch (error) {
+      console.error(`${colors.red}✗ Error parseando ${file}:${colors.reset}`, error.message);
     }
   }
 
