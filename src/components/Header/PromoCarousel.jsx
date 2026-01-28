@@ -24,24 +24,28 @@ const PromoCarousel = () => {
     }
   ];
 
-  // Duplicar 3 veces para scroll infinito
-  const duplicatedMessages = [...promoMessages, ...promoMessages, ...promoMessages];
+  // Duplicar 4 veces para scroll infinito perfecto
+  const duplicatedMessages = [
+    ...promoMessages, 
+    ...promoMessages, 
+    ...promoMessages, 
+    ...promoMessages
+  ];
 
   return (
     <div className="sm:hidden w-full bg-slate-950 py-1.5 overflow-hidden relative border-y border-white/5">
-      {/* Keyframes optimizado - 15s para velocidad óptima */}
+      {/* Keyframes optimizado */}
       <style>{`
         @keyframes promo-scroll {
           0% { transform: translateX(0); }
-          100% { transform: translateX(calc(-100% / 3)); }
+          100% { transform: translateX(-50%); }
         }
         .promo-animate {
-          animation: promo-scroll 15s linear infinite;
-          transform: translateZ(0);
+          animation: promo-scroll 20s linear infinite;
         }
       `}</style>
       
-      {/* Fade edges más cortos */}
+      {/* Fade edges */}
       <div className="absolute left-0 top-0 bottom-0 w-12 bg-gradient-to-r from-slate-950 to-transparent z-10 pointer-events-none" />
       <div className="absolute right-0 top-0 bottom-0 w-12 bg-gradient-to-l from-slate-950 to-transparent z-10 pointer-events-none" />
       
