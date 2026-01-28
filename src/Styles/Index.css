@@ -680,7 +680,7 @@
 
 /* iOS: Reducir transforms en hover */
 .is-ios .group:hover img {
-  transform: scale(1.05) !important;
+  transform: none !important;
 }
 
 /* Mobile: Simplificar animaciones */
@@ -708,4 +708,32 @@
 /* iOS: Optimizar capas de composición */
 .is-ios .gpu-accelerated {
   will-change: auto !important;
+}
+
+/* iOS CRÍTICO: Desactivar TODOS los hovers en mobile */
+@media (max-width: 768px) {
+  .group:hover,
+  .group:hover *,
+  *:hover {
+    transform: none !important;
+    scale: 1 !important;
+  }
+  
+  /* Desactivar efectos de hover en imágenes */
+  .group:hover img {
+    transform: none !important;
+    scale: 1 !important;
+  }
+  
+  /* Desactivar overlays de hover */
+  .group:hover .absolute {
+    opacity: 0 !important;
+  }
+  
+  /* Simplificar sombras */
+  .shadow-lg,
+  .shadow-xl,
+  .shadow-2xl {
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08) !important;
+  }
 }

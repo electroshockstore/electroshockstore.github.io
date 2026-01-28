@@ -23,7 +23,6 @@ export const loadCategory = async (categoryName) => {
 
   try {
     const module = await loader();
-    // JSON imports return the object directly as default export
     return module.default?.products || module.default || [];
   } catch (error) {
     console.error(`Error loading category ${categoryName}:`, error);

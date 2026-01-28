@@ -30,10 +30,10 @@ export default defineConfig({
             return 'vendor';
           }
           
-          // Separar datos de categorías en chunks individuales
+          // CRÍTICO: Separar cada categoría en su propio chunk
           if (id.includes('src/data/categories/')) {
             const category = id.split('categories/')[1]?.split('.')[0];
-            return category ? `data-${category}` : 'data';
+            return category ? `category-${category}` : 'data';
           }
           
           // Separar componentes grandes
@@ -67,6 +67,6 @@ export default defineConfig({
   },
   esbuild: {
     logOverride: { 'this-is-undefined-in-esm': 'silent' },
-    drop: ['console', 'debugger'], // Remover console.log en producción
+    drop: process.env.NODE_ENV === 'production' ? ['console', 'debugger'] : [],
   }
 })

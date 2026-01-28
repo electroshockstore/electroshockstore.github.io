@@ -1,4 +1,4 @@
-import { memo, useCallback, useMemo } from 'react';
+import { memo, useCallback, useMemo, useState, useEffect } from 'react';
 import ProductCardWrapper from './ProductCardWrapper';
 
 const EmptyState = memo(() => (
@@ -51,9 +51,40 @@ const EmptyState = memo(() => (
 
 EmptyState.displayName = 'EmptyState';
 
+// Detectar mobile para renderizado progresivo
+const isMobile = typeof window !== 'undefined' && window.innerWidth < 768;
+const INITIAL_BATCH = isMobile ? 12 : 999; // Mobile: 12 productos, Desktop: todos
+const BATCH_SIZE = 8;
+
 const ProductGrid = memo(({ products, viewMode, openModal }) => {
-  console.log('ProductGrid viewMode:', viewMode);
+  const [displayCount, setDisplayCount] = useState(INITIAL_BATCH);
   
+  // Reset cuando cambian los productos
+  useEffect(() => {
+    setDisplayCount(INITIAL_BATCH);
+  }, [products]);
+
+  // OPTIMIZACIÓN iOS: Usar requestIdleCallback para no bloquear UI
+  useEffect(() => {
+    if (!isMobile || displayCount >= products.length) return;
+
+    const scheduleNextBatch = () => {
+      if ('requestIdleCallback' in window) {
+        // iOS: Renderizar en idle time
+        requestIdleCallback(() => {
+          setDisplayCount(prev => Math.min(prev + BATCH_SIZE, products.length));
+        }, { timeout: 100 });
+      } else {
+        // Fallback
+        setTimeout(() => {
+          setDisplayCount(prev => Math.min(prev + BATCH_SIZE, products.length));
+        }, 50);
+      }
+    };
+
+    scheduleNextBatch();
+  }, [displayCount, products.length]);
+
   const handleOpenModal = useCallback((product) => {
     openModal(product);
   }, [openModal]);
@@ -68,10 +99,12 @@ const ProductGrid = memo(({ products, viewMode, openModal }) => {
     return <EmptyState />;
   }
 
+  const visibleProducts = isMobile ? products.slice(0, displayCount) : products;
+
   return (
     <div className="p-0 sm:p-4 md:p-6">
       <div className={gridClasses}>
-        {products.map((product, index) => (
+        {visibleProducts.map((product, index) => (
           <ProductCardWrapper
             key={`${product.id}-${product.category}`}
             product={product}

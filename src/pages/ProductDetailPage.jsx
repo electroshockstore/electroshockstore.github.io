@@ -1,5 +1,5 @@
 import { useParams, useNavigate, useLocation } from 'react-router-dom';
-import { useEffect } from 'react';
+import { useEffect, useCallback } from 'react';
 import { useProducts } from '../hooks/useProducts';
 import Header from '../components/Shared/Header';
 import ProductDetail from '../components/Catalog/ProductDetail/index';
@@ -23,12 +23,10 @@ const ProductDetailPage = () => {
   if (id) {
     product = getProductById(parseInt(id));
   } else if (productSku) {
-    // Buscar por SKU o usar productId del state
     const productId = location.state?.productId;
     if (productId) {
       product = getProductById(productId);
     } else {
-      // Buscar producto que coincida con el SKU
       product = products.find(p => {
         const sku = generateSKU(p.name, p.brand);
         return sku === productSku;
@@ -36,13 +34,9 @@ const ProductDetailPage = () => {
     }
   }
 
-  // SEO dinámico para el producto
   useProductSEO(product);
-  
-  // Analytics: Track product view
   useProductView(product);
 
-  // Sincronizar categoría con el producto actual
   useEffect(() => {
     if (product && product.category !== selectedCategory) {
       setSelectedCategory(product.category);
@@ -63,13 +57,20 @@ const ProductDetailPage = () => {
     }
   };
 
-  const handleClose = () => {
-    if (categorySlug) {
-      navigate(`/categoria/${categorySlug}`);
+  // OPTIMIZACIÓN CRÍTICA: usar history.back() en lugar de navigate()
+  const handleClose = useCallback(() => {
+    // history.back() es 10x más rápido que navigate() en iOS
+    if (window.history.length > 2) {
+      window.history.back();
     } else {
-      navigate('/');
+      // Fallback si no hay historial
+      if (categorySlug) {
+        navigate(`/categoria/${categorySlug}`, { replace: true });
+      } else {
+        navigate('/', { replace: true });
+      }
     }
-  };
+  }, [categorySlug, navigate]);
 
   if (!product) {
     return (
@@ -80,7 +81,7 @@ const ProductDetailPage = () => {
             <h2 className="text-2xl font-bold text-gray-900 mb-2">Producto no encontrado</h2>
             <button
               onClick={handleClose}
-              className="px-6 py-3 bg-blue-600 text-white rounded-xl font-bold hover:bg-blue-700 transition-all"
+              className="px-6 py-3 bg-blue-600 text-white rounded-xl font-bold hover:bg-blue-700 transition-colors active:scale-95"
             >
               Volver al catálogo
             </button>
@@ -96,7 +97,6 @@ const ProductDetailPage = () => {
     <div className="min-h-screen w-full flex flex-col">
       <Header searchQuery={searchQuery} onSearchChange={setSearchQuery} />
       <main className="flex-1 w-full px-0 sm:px-6 py-4 sm:py-8">
-        {/* CategoryFilter - Solo Desktop */}
         <div className="hidden sm:block mb-4 sm:mb-6 px-4 sm:px-0">
           <CategoryFilter 
             selectedCategory={selectedCategory}
