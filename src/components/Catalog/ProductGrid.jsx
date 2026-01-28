@@ -1,4 +1,4 @@
-import { memo, useCallback, useMemo, useState, useEffect } from 'react';
+import { memo, useCallback, useMemo } from 'react';
 import ProductCardWrapper from './ProductCardWrapper';
 
 const EmptyState = memo(() => (
@@ -51,29 +51,9 @@ const EmptyState = memo(() => (
 
 EmptyState.displayName = 'EmptyState';
 
-// Detectar iOS
-const isIOS = typeof window !== 'undefined' && /iPad|iPhone|iPod/.test(navigator.userAgent);
-
 const ProductGrid = memo(({ products, viewMode, openModal }) => {
-  // OPTIMIZACIÓN iOS: Carga progresiva de productos
-  const [visibleCount, setVisibleCount] = useState(isIOS ? 12 : products.length);
+  console.log('ProductGrid viewMode:', viewMode);
   
-  useEffect(() => {
-    // Reset cuando cambian los productos
-    setVisibleCount(isIOS ? 12 : products.length);
-  }, [products]);
-
-  useEffect(() => {
-    if (!isIOS || visibleCount >= products.length) return;
-
-    // Cargar más productos progresivamente en iOS
-    const timer = setTimeout(() => {
-      setVisibleCount(prev => Math.min(prev + 12, products.length));
-    }, 100);
-
-    return () => clearTimeout(timer);
-  }, [visibleCount, products.length]);
-
   const handleOpenModal = useCallback((product) => {
     openModal(product);
   }, [openModal]);
@@ -88,12 +68,10 @@ const ProductGrid = memo(({ products, viewMode, openModal }) => {
     return <EmptyState />;
   }
 
-  const visibleProducts = isIOS ? products.slice(0, visibleCount) : products;
-
   return (
     <div className="p-0 sm:p-4 md:p-6">
       <div className={gridClasses}>
-        {visibleProducts.map((product, index) => (
+        {products.map((product, index) => (
           <ProductCardWrapper
             key={`${product.id}-${product.category}`}
             product={product}
@@ -103,15 +81,6 @@ const ProductGrid = memo(({ products, viewMode, openModal }) => {
           />
         ))}
       </div>
-      
-      {/* Indicador de carga progresiva solo en iOS */}
-      {isIOS && visibleCount < products.length && (
-        <div className="flex justify-center py-8">
-          <div className="animate-pulse text-gray-500 text-sm">
-            Cargando más productos...
-          </div>
-        </div>
-      )}
     </div>
   );
 });

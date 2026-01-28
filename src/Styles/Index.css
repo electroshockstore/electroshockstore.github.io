@@ -709,36 +709,3 @@
 .is-ios .gpu-accelerated {
   will-change: auto !important;
 }
-
-/* iOS: Optimizar transiciones - Usar solo opacity y transform */
-.is-ios * {
-  transition-property: opacity, transform, background-color, border-color !important;
-}
-
-/* iOS: Reducir complejidad de sombras */
-.is-ios .shadow-lg,
-.is-ios .shadow-xl,
-.is-ios .shadow-2xl {
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1) !important;
-}
-
-/* iOS: Simplificar backdrop-blur */
-.is-ios .backdrop-blur-xl,
-.is-ios .backdrop-blur-lg,
-.is-ios .backdrop-blur-md {
-  backdrop-filter: none !important;
-  background-color: rgba(255, 255, 255, 0.95) !important;
-}
-
-/* iOS: Optimizar rendering de listas */
-.is-ios [class*="grid"],
-.is-ios [class*="flex"] {
-  contain: layout style paint;
-}
-
-/* iOS: Forzar aceleración hardware solo donde importa */
-.is-ios .product-card-enter,
-.is-ios .page-transition {
-  transform: translateZ(0);
-  backface-visibility: hidden;
-}

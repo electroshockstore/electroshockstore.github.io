@@ -1,4 +1,4 @@
-import { createContext, useContext, useState, useEffect, useMemo, useCallback, useTransition } from 'react';
+import { createContext, useContext, useState, useEffect, useMemo, useCallback } from 'react';
 import { products as allProducts } from '../data';
 import { normalizeFilterValue } from '../utils/filterNormalizers';
 import { FILTER_KEY_ALIASES } from '../utils/filterConfig';
@@ -20,16 +20,16 @@ const getInitialCategoryFromURL = () => {
 
 export function FilterProvider({ children }) {
   const [searchQuery, setSearchQuery] = useState('');
+  // OPTIMIZACIÓN: Leer categoría inicial desde URL para evitar flash
   const [selectedCategory, setSelectedCategory] = useState(getInitialCategoryFromURL);
   const [subFilters, setSubFilters] = useState({});
-  const [isPending, startTransition] = useTransition();
 
   // Limpiar subfiltros cuando cambia la categoría
   useEffect(() => {
     setSubFilters({});
   }, [selectedCategory]);
 
-  // OPTIMIZACIÓN CRÍTICA: Memoizar productos filtrados con startTransition para iOS
+  // OPTIMIZACIÓN CRÍTICA: Memoizar productos filtrados
   const filteredProducts = useMemo(() => {
     let filtered = allProducts;
 
@@ -54,8 +54,10 @@ export function FilterProvider({ children }) {
           if (!product.specifications) return false;
           
           return activeFilters.every(([filterType, selectedValues]) => {
+            // Buscar el valor en el producto usando la clave exacta primero
             let specValue = product.specifications[filterType];
             
+            // Si no se encuentra con la clave exacta, buscar en aliases
             if (!specValue) {
               const possibleKeys = Object.entries(FILTER_KEY_ALIASES)
                 .filter(([, target]) => target === filterType)
@@ -87,12 +89,10 @@ export function FilterProvider({ children }) {
   }, [searchQuery, selectedCategory, subFilters]);
 
   const handleSubFilterChange = useCallback((filterType, values) => {
-    startTransition(() => {
-      setSubFilters(prev => ({
-        ...prev,
-        [filterType]: values
-      }));
-    });
+    setSubFilters(prev => ({
+      ...prev,
+      [filterType]: values
+    }));
   }, []);
 
   const clearFilters = useCallback(() => {
@@ -114,9 +114,8 @@ export function FilterProvider({ children }) {
     handleSubFilterChange,
     filteredProducts,
     clearFilters,
-    clearSubFilters,
-    isPending
-  }), [searchQuery, selectedCategory, subFilters, filteredProducts, handleSubFilterChange, clearFilters, clearSubFilters, isPending]);
+    clearSubFilters
+  }), [searchQuery, selectedCategory, subFilters, filteredProducts, handleSubFilterChange, clearFilters, clearSubFilters]);
 
   return (
     <FilterContext.Provider value={value}>

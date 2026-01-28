@@ -1,5 +1,5 @@
 import { useParams, useNavigate, useLocation } from 'react-router-dom';
-import { useEffect, useCallback, useRef } from 'react';
+import { useEffect } from 'react';
 import { useProducts } from '../hooks/useProducts';
 import Header from '../components/Shared/Header';
 import ProductDetail from '../components/Catalog/ProductDetail/index';
@@ -17,17 +17,18 @@ const ProductDetailPage = () => {
   const navigate = useNavigate();
   const { getProductById, products } = useProducts();
   const { searchQuery, setSearchQuery, selectedCategory, setSelectedCategory } = useFilter();
-  const isClosing = useRef(false);
   
   // Buscar producto por ID (ruta legacy) o por SKU
   let product;
   if (id) {
     product = getProductById(parseInt(id));
   } else if (productSku) {
+    // Buscar por SKU o usar productId del state
     const productId = location.state?.productId;
     if (productId) {
       product = getProductById(productId);
     } else {
+      // Buscar producto que coincida con el SKU
       product = products.find(p => {
         const sku = generateSKU(p.name, p.brand);
         return sku === productSku;
@@ -62,18 +63,13 @@ const ProductDetailPage = () => {
     }
   };
 
-  // OPTIMIZACIÓN iOS: Cierre inmediato sin esperar navegación
-  const handleClose = useCallback(() => {
-    if (isClosing.current) return;
-    isClosing.current = true;
-    
-    // Navegación inmediata sin delay
+  const handleClose = () => {
     if (categorySlug) {
-      navigate(`/categoria/${categorySlug}`, { replace: true });
+      navigate(`/categoria/${categorySlug}`);
     } else {
-      navigate('/', { replace: true });
+      navigate('/');
     }
-  }, [categorySlug, navigate]);
+  };
 
   if (!product) {
     return (
@@ -84,7 +80,7 @@ const ProductDetailPage = () => {
             <h2 className="text-2xl font-bold text-gray-900 mb-2">Producto no encontrado</h2>
             <button
               onClick={handleClose}
-              className="px-6 py-3 bg-blue-600 text-white rounded-xl font-bold hover:bg-blue-700 transition-colors active:scale-95"
+              className="px-6 py-3 bg-blue-600 text-white rounded-xl font-bold hover:bg-blue-700 transition-all"
             >
               Volver al catálogo
             </button>
