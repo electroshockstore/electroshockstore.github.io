@@ -24,33 +24,37 @@ const PromoCarousel = () => {
     }
   ];
 
-  // Duplicar mensajes suficientes veces para scroll infinito suave
-  const duplicatedMessages = [...promoMessages, ...promoMessages, ...promoMessages, ...promoMessages];
+  // Duplicar 3 veces para scroll infinito perfecto (12 items total)
+  const duplicatedMessages = [...promoMessages, ...promoMessages, ...promoMessages];
 
   return (
     <div className="sm:hidden w-full bg-slate-950 py-1 overflow-hidden relative border-y border-white/5">
-      {/* Keyframes inline */}
+      {/* Keyframes inline - Ajustado para mostrar todos los mensajes */}
       <style>{`
         @keyframes promo-scroll {
           0% {
             transform: translateX(0);
           }
           100% {
-            transform: translateX(-50%);
+            transform: translateX(calc(-100% / 3));
           }
         }
         .promo-animate {
-          animation: promo-scroll 10s linear infinite;
-          will-change: transform;
+          animation: promo-scroll 25s linear infinite;
+        }
+        @media (prefers-reduced-motion: reduce) {
+          .promo-animate {
+            animation: promo-scroll 40s linear infinite;
+          }
         }
       `}</style>
       
       {/* Background patterns */}
       <div className="absolute inset-0 opacity-20 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-blue-500/10 via-transparent to-transparent" />
       
-      {/* Fade edges con mayor suavidad */}
-      <div className="absolute left-0 top-0 bottom-0 w-32 bg-gradient-to-r from-slate-950 via-slate-950/80 to-transparent z-10 pointer-events-none" />
-      <div className="absolute right-0 top-0 bottom-0 w-32 bg-gradient-to-l from-slate-950 via-slate-950/80 to-transparent z-10 pointer-events-none" />
+      {/* Fade edges */}
+      <div className="absolute left-0 top-0 bottom-0 w-16 bg-gradient-to-r from-slate-950 to-transparent z-10 pointer-events-none" />
+      <div className="absolute right-0 top-0 bottom-0 w-16 bg-gradient-to-l from-slate-950 to-transparent z-10 pointer-events-none" />
       
       {/* Scrolling content - CSS Animation */}
       <div className="flex items-center whitespace-nowrap promo-animate">
@@ -59,25 +63,25 @@ const PromoCarousel = () => {
           return (
             <div
               key={index}
-              className="group flex items-center gap-4 px-8 flex-shrink-0"
+              className="flex items-center gap-3 px-6 flex-shrink-0"
             >
               {/* Icon Container */}
-              <div className="relative w-5 h-5 flex items-center justify-center">
-                <Icon className="w-5 h-5 text-white relative z-10" strokeWidth={2.5} />
+              <div className="w-4 h-4 flex items-center justify-center flex-shrink-0">
+                <Icon className="w-4 h-4 text-white" strokeWidth={2.5} />
               </div>
               
               {/* Gradient Text */}
               <span className={`
-                text-sm font-black tracking-tight uppercase
+                text-xs font-black tracking-tight uppercase
                 bg-gradient-to-r ${promo.gradient}
                 bg-clip-text text-transparent
-                filter drop-shadow-sm
+                drop-shadow-sm
               `}>
                 {promo.text}
               </span>
               
               {/* Diamond Separator */}
-              <div className="flex gap-1 ml-6 opacity-30">
+              <div className="flex gap-1 ml-4 opacity-30 flex-shrink-0">
                 <div className="w-1 h-1 rotate-45 bg-white" />
                 <div className="w-1 h-1 rotate-45 bg-white" />
               </div>
