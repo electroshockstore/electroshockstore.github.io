@@ -6,20 +6,26 @@ export const useCatalogNavigation = (setSelectedCategory, setSearchQuery, clearS
   const navigate = useNavigate();
 
   const handleCategoryChange = useCallback((category) => {
+    // Cambio inmediato de categoría
     setSelectedCategory(category);
+    
+    // Navegación con replace para evitar historial pesado en iOS
     if (category && category !== 'Todos') {
       const slug = getSlugFromCategory(category);
-      navigate(`/categoria/${slug}`);
+      navigate(`/categoria/${slug}`, { replace: true });
     } else {
-      navigate('/');
+      navigate('/', { replace: true });
     }
   }, [setSelectedCategory, navigate]);
 
   const handleProductClick = useCallback((product) => {
     const categorySlug = getSlugFromCategory(product.category);
     const productSku = generateSKU(product.name, product.brand);
+    
+    // Navegación inmediata sin delay
     navigate(`/categoria/${categorySlug}/${productSku}`, { 
-      state: { productId: product.id } 
+      state: { productId: product.id },
+      replace: false // Mantener en historial para volver
     });
   }, [navigate]);
 
@@ -27,12 +33,12 @@ export const useCatalogNavigation = (setSelectedCategory, setSearchQuery, clearS
     setSelectedCategory(null);
     setSearchQuery('');
     clearSubFilters();
-    navigate('/');
+    navigate('/', { replace: true });
   }, [setSelectedCategory, setSearchQuery, clearSubFilters, navigate]);
 
   const handleReset = useCallback(() => {
     clearSubFilters();
-    navigate('/');
+    navigate('/', { replace: true });
   }, [clearSubFilters, navigate]);
 
   return {

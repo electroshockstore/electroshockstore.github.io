@@ -40,7 +40,7 @@ const PromoCarousel = () => {
           }
         }
         .promo-animate {
-          animation: promo-scroll 30s linear infinite;
+          animation: promo-scroll 10s linear infinite;
           will-change: transform;
         }
       `}</style>
