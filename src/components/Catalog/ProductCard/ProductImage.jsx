@@ -6,10 +6,10 @@ const ProductImage = ({ src, alt, className = "", loading = "lazy", fetchpriorit
       <img
         src={src}
         alt={alt}
-        className="w-full h-full object-contain
-                 group-hover:scale-110 transition-all duration-500"
+        className="w-full h-full object-contain transition-transform duration-500 sm:group-hover:scale-110"
         loading={loading}
         fetchpriority={fetchpriority}
+        decoding="async"
         onError={(e) => {
           e.target.style.display = 'none';
           e.target.nextSibling.style.display = 'flex';
@@ -20,7 +20,8 @@ const ProductImage = ({ src, alt, className = "", loading = "lazy", fetchpriorit
         <Package className="h-16 w-16 text-gray-400" />
       </div>
       
-      <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"></div>
+      {/* Shine effect - Solo desktop */}
+      <div className="hidden sm:block absolute inset-0 bg-gradient-to-tr from-transparent via-white/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"></div>
     </div>
   );
 };

@@ -105,7 +105,10 @@ const HeroCarousel = () => {
     return () => clearInterval(timer);
   }, [nextSlide]);
 
+  // Precargar imágenes adyacentes solo en desktop
   useEffect(() => {
+    if (window.innerWidth < 768) return; // Skip en mobile
+    
     const nextIndex = (currentSlide + 1) % slides.length;
     const prevIndex = (currentSlide - 1 + slides.length) % slides.length;
     
@@ -128,10 +131,11 @@ const HeroCarousel = () => {
           <img 
             key={current.id}
             src={current.image} 
-            className="w-full h-full object-cover carousel-image-transition brightness-[0.8] sm:brightness-100" 
+            className="w-full h-full object-cover brightness-[0.8] sm:brightness-100" 
             alt=""
             loading={currentSlide === 0 ? "eager" : "lazy"}
             decoding="async"
+            fetchpriority={currentSlide === 0 ? "high" : "low"}
             width="1920"
             height="1080"
           />
@@ -149,7 +153,7 @@ const HeroCarousel = () => {
       <div className="relative z-20 h-full flex items-center py-4 sm:py-0">
         <div className="container mx-0 sm:mx-2 px-5 sm:px-6 md:px-12 lg:px-16">
           <div className="max-w-2xl lg:max-w-4xl">
-            <div key={current.id + '-text'} className="carousel-content-transition">
+            <div key={current.id + '-text'}>
                 {/* Tag - Landing style */}
                 <div className="flex items-center gap-2 sm:gap-4 mb-2 sm:mb-4 md:mb-6">
                   <div className={`h-[3px] sm:h-[3px] w-8 sm:w-12 bg-gradient-to-r ${current.gradient}`} />
@@ -173,8 +177,7 @@ const HeroCarousel = () => {
                   {current.points.map((point, idx) => (
                     <div 
                       key={idx}
-                      className="flex items-start gap-2 sm:gap-3 md:gap-4 group carousel-point-transition"
-                      style={{ animationDelay: `${0.1 + idx * 0.05}s` }}
+                      className="flex items-start gap-2 sm:gap-3 md:gap-4 group"
                     >
                       <div className="flex flex-col items-center pt-[3px] sm:pt-1">
                         <div className={`w-[2.5px] sm:w-[3px] h-4 sm:h-6 md:h-8 lg:h-10 bg-gradient-to-b ${point.highlight ? 'from-red-500 to-red-600' : current.gradient}`} />

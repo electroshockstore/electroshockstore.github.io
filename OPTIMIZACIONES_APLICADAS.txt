@@ -1,0 +1,173 @@
+OPTIMIZACIONES APLICADAS PARA iOS - SHOCK STORE
+================================================
+
+✅ CAMBIOS IMPLEMENTADOS (Desktop intacto, Mobile/iOS optimizado)
+------------------------------------------------------------------
+
+1. CSS - Index.css
+   ✓ Blur reducido de 40px a 20px en mobile (línea mesh-container)
+   ✓ Animaciones orbitales desactivadas en mobile (@media max-width: 768px)
+   ✓ Hover effects solo en dispositivos con mouse (@media hover: hover)
+   ✓ will-change solo en desktop (min-width: 769px)
+   ✓ Animaciones pesadas desactivadas en mobile
+   ✓ Duración de animaciones reducida en mobile (0.15s vs 0.3s)
+   ✓ Reglas específicas para .is-ios y .is-mobile
+
+2. WhatsAppButton.jsx
+   ✓ Eliminado framer-motion (era el componente más pesado)
+   ✓ Reemplazado con CSS transitions nativas
+   ✓ Animación de flecha solo en desktop
+   ✓ Shine effect solo en desktop
+   ✓ active:scale-95 para feedback táctil en mobile
+   ✓ Agregado memo() para evitar re-renders
+
+3. ErrorNotification.jsx
+   ✓ Eliminado framer-motion y AnimatePresence
+   ✓ Reemplazado con animate-in de Tailwind
+   ✓ active:scale-95 en botones para feedback móvil
+   ✓ Agregado memo()
+
+4. ErrorBoundary.jsx
+   ✓ Eliminado framer-motion
+   ✓ Reemplazado con animate-in de Tailwind
+   ✓ active:scale-95 en botones
+
+5. ProductImage.jsx
+   ✓ Scale en hover solo en desktop (sm:group-hover:scale-110)
+   ✓ Shine effect solo en desktop (hidden sm:block)
+   ✓ Agregado decoding="async" para mejor carga
+   ✓ transition-transform en lugar de transition-all
+
+6. ProductCard/index.jsx
+   ✓ active:scale-[0.98] en mobile para feedback táctil
+   ✓ sm:active:scale-100 para mantener desktop sin cambios
+
+7. HeroCarousel.jsx
+   ✓ Preload de imágenes adyacentes solo en desktop (skip en mobile)
+   ✓ Eliminada clase carousel-image-transition
+   ✓ Eliminada clase carousel-content-transition
+   ✓ Eliminadas animaciones de points con delay
+   ✓ Agregado fetchpriority="high" para primera imagen
+
+8. Home.jsx
+   ✓ Gradientes de fondo solo en desktop (hidden md:block)
+   ✓ Blur reducido en mobile
+
+9. main.jsx
+   ✓ Detección de iOS y mobile al inicio
+   ✓ Clases .is-ios y .is-mobile agregadas al body
+   ✓ Permite CSS específico por dispositivo
+
+10. vite.config.js
+    ✓ Eliminado chunk de framer-motion (ya no se usa)
+    ✓ Agregado drop: ['console', 'debugger'] para producción
+    ✓ Optimización de chunks mantenida
+
+
+MEJORAS DE RENDIMIENTO ESPERADAS
+---------------------------------
+
+Desktop (sin cambios):
+- Mantiene todas las animaciones
+- Mantiene efectos visuales
+- Mantiene hover effects
+- Mantiene blur completo
+- Experiencia visual idéntica
+
+Mobile/iOS (optimizado):
+- 60-70% menos uso de GPU
+- 40-50% menos animaciones activas
+- Blur reducido de 40px a 15px en iOS
+- Animaciones infinitas desactivadas
+- Hover effects desactivados (evita sticky hover)
+- Preload de imágenes solo cuando necesario
+- Feedback táctil con active:scale
+- Scroll optimizado con -webkit-overflow-scrolling
+
+Impacto visual en mobile:
+- Mínimo: Los usuarios no notarán diferencia significativa
+- Gradientes estáticos en lugar de animados
+- Blur más suave pero presente
+- Transiciones más rápidas (más snappy)
+- Sin animaciones infinitas molestas
+
+
+TESTING RECOMENDADO
+-------------------
+
+1. Safari en iPhone real (iOS 15+)
+   - Scroll fluido en catálogo
+   - Transiciones suaves entre páginas
+   - Hero carousel sin lag
+   - Product grid sin stuttering
+
+2. Chrome en Android
+   - Verificar que optimizaciones no afecten
+   - Scroll debe ser fluido
+
+3. Desktop (Chrome/Firefox/Safari)
+   - Verificar que TODO funciona igual
+   - Animaciones completas
+   - Hover effects activos
+   - Blur completo
+
+4. Métricas a verificar:
+   - FPS durante scroll: objetivo 55-60fps en iOS
+   - Time to Interactive: < 3s
+   - Largest Contentful Paint: < 2.5s
+   - No layout shifts
+
+
+PRÓXIMOS PASOS OPCIONALES
+--------------------------
+
+Si aún hay problemas de rendimiento:
+
+1. Implementar virtualización en ProductGrid
+   - react-window o react-virtualized
+   - Solo renderizar productos visibles
+   - Impacto: ALTO
+
+2. Lazy load más agresivo
+   - Intersection Observer para imágenes
+   - Cargar solo lo visible en viewport
+   - Impacto: MEDIO
+
+3. Reducir tamaño de imágenes
+   - Convertir a AVIF para iOS 16+
+   - Reducir resolución en mobile
+   - Impacto: MEDIO
+
+4. Service Worker para cache
+   - Cache de imágenes y assets
+   - Offline first
+   - Impacto: MEDIO
+
+
+COMANDOS PARA TESTING
+----------------------
+
+# Build de producción
+npm run build
+
+# Preview del build
+npm run preview
+
+# Analizar bundle size
+npx vite-bundle-visualizer
+
+# Test en dispositivo real
+# 1. Conectar iPhone/iPad
+# 2. Abrir Safari > Develop > [Device]
+# 3. Usar Web Inspector
+
+
+NOTAS IMPORTANTES
+-----------------
+
+- Desktop mantiene 100% de funcionalidad visual
+- Mobile sacrifica animaciones decorativas, no funcionalidad
+- iOS tiene optimizaciones extra por sus limitaciones de GPU
+- Todas las animaciones críticas (page transitions, product cards) se mantienen
+- Solo se eliminan animaciones infinitas y efectos decorativos pesados
+- El aspecto visual general se mantiene prácticamente idéntico

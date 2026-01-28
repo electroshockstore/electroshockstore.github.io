@@ -81,15 +81,24 @@
               border-color 0.2s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.smooth-hover:hover {
-  transform: translateY(-4px);
+/* Solo aplicar hover en dispositivos con mouse real */
+@media (hover: hover) and (pointer: fine) {
+  .smooth-hover:hover {
+    transform: translateY(-4px);
+  }
 }
 
 /* GPU acceleration hints */
 .gpu-accelerated {
-  will-change: transform;
   transform: translateZ(0);
   backface-visibility: hidden;
+}
+
+/* Mobile: Remover will-change para evitar capas excesivas */
+@media (min-width: 769px) {
+  .gpu-accelerated {
+    will-change: transform;
+  }
 }
 
 /* PC Builder Card animation */
@@ -360,6 +369,28 @@
   }
 }
 
+/* Mobile/iOS: Reducir animaciones pesadas */
+@media (max-width: 768px) {
+  .animate-pulse-ring,
+  .animate-wiggle,
+  .animate-accent-line,
+  .animate-float-particle-1,
+  .animate-float-particle-2,
+  .animate-bot-pulse,
+  .animate-bot-glow,
+  .animate-button-float,
+  .animate-button-glow,
+  .animate-shimmer {
+    animation: none !important;
+  }
+  
+  /* Mantener animaciones básicas pero más rápidas */
+  .page-transition,
+  .product-card-enter {
+    animation-duration: 0.15s !important;
+  }
+}
+
 /* --- CONFIGURACIÓN DE MALLA ABSTRACTA (OPTIMIZADA) --- */
 
 .mesh-container {
@@ -368,9 +399,17 @@
   left: 0;
   width: 100%;
   height: 100%;
-  filter: blur(40px) contrast(1.2); /* Reducido de 80px a 40px */
+  filter: blur(40px) contrast(1.2);
   opacity: 0.6;
-  will-change: transform; /* Optimización GPU */
+  will-change: transform;
+}
+
+/* iOS/Mobile: Reducir blur para mejor performance */
+@media (max-width: 768px) {
+  .mesh-container {
+    filter: blur(20px) contrast(1.1);
+    opacity: 0.4;
+  }
 }
 
 .blob {
@@ -401,6 +440,15 @@
 .animate-orbit-1 { animation: orbit-1 20s infinite ease-in-out; }
 .animate-orbit-2 { animation: orbit-2 25s infinite ease-in-out; }
 .animate-orbit-3 { animation: orbit-3 18s infinite ease-in-out; }
+
+/* Mobile/iOS: Desactivar animaciones orbitales pesadas */
+@media (max-width: 768px) {
+  .animate-orbit-1,
+  .animate-orbit-2,
+  .animate-orbit-3 {
+    animation: none !important;
+  }
+}
 
 /* Textura de Grano (Optimizada) */
 .bg-grain {
@@ -600,4 +648,64 @@
 
 .animate-scroll-infinite:hover {
   animation-play-state: paused;
+}
+
+/* ===== OPTIMIZACIONES ESPECÍFICAS PARA iOS ===== */
+
+/* iOS: Reducir blur y efectos pesados */
+.is-ios .mesh-container {
+  filter: blur(15px) contrast(1.05);
+  opacity: 0.3;
+}
+
+/* iOS: Desactivar animaciones infinitas */
+.is-ios .animate-pulse,
+.is-ios .animate-orbit-1,
+.is-ios .animate-orbit-2,
+.is-ios .animate-orbit-3,
+.is-ios .animate-shimmer,
+.is-ios .animate-pulse-ring,
+.is-ios .animate-wiggle,
+.is-ios .animate-bot-pulse,
+.is-ios .animate-bot-glow,
+.is-ios .animate-button-float,
+.is-ios .animate-button-glow {
+  animation: none !important;
+}
+
+/* iOS: Optimizar scroll */
+.is-ios * {
+  -webkit-overflow-scrolling: touch;
+}
+
+/* iOS: Reducir transforms en hover */
+.is-ios .group:hover img {
+  transform: scale(1.05) !important;
+}
+
+/* Mobile: Simplificar animaciones */
+.is-mobile .product-card-enter {
+  animation-duration: 0.2s !important;
+}
+
+.is-mobile .page-transition {
+  animation-duration: 0.15s !important;
+}
+
+/* iOS: Mejorar rendering de texto */
+.is-ios * {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* iOS: Prevenir zoom en inputs */
+.is-ios input,
+.is-ios select,
+.is-ios textarea {
+  font-size: 16px !important;
+}
+
+/* iOS: Optimizar capas de composición */
+.is-ios .gpu-accelerated {
+  will-change: auto !important;
 }

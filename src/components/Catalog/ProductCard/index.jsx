@@ -105,7 +105,8 @@ const ProductCard = memo(({ product, viewMode, onClick, index = 0, listName = 'P
       className="group relative bg-white rounded-xl sm:rounded-2xl border border-gray-100 
                  hover:border-blue-500/30 hover:shadow-2xl hover:shadow-blue-500/10
                  shadow-lg shadow-gray-200/50
-                 transition-all duration-300 cursor-pointer overflow-hidden flex flex-col h-full"
+                 transition-all duration-300 cursor-pointer overflow-hidden flex flex-col h-full
+                 active:scale-[0.98] sm:active:scale-100"
     >
       <div className="relative aspect-square bg-gradient-to-br from-gray-50 to-gray-100 overflow-hidden">
         <ProductImage src={productImage} alt={name} loading={imageLoading} fetchpriority={imageFetchPriority} />

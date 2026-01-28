@@ -1,25 +1,22 @@
-import { motion } from 'framer-motion';
+import { memo, useCallback } from 'react';
 import { trackWhatsAppClick } from '../../utils/analytics';
 
 const WhatsAppButton = ({ productName, product, className = "" }) => {
-  const handleWhatsApp = () => {
-    // Track WhatsApp click
+  const handleWhatsApp = useCallback(() => {
     if (product) {
       trackWhatsAppClick(product, 'consult');
     }
     
-    const phoneNumber = '5491125718382'; // +54 11 2571 8382
+    const phoneNumber = '5491125718382';
     const message = encodeURIComponent(`Hola, vi este producto en su catálogo web: "${productName}". Necesitaría más información. ¿Podrían ayudarme?`);
     const whatsappUrl = `https://wa.me/${phoneNumber}?text=${message}`;
     window.open(whatsappUrl, '_blank');
-  };
+  }, [product, productName]);
 
   return (
-    <motion.button
+    <button
       onClick={handleWhatsApp}
-      whileHover={{ scale: 1.02, y: -2 }}
-      whileTap={{ scale: 0.98 }}
-      className={`w-full flex items-center justify-center gap-3 bg-gradient-to-r from-green-500 to-green-600 hover:from-green-600 hover:to-green-700 text-white px-4 py-3 sm:px-6 sm:py-4 rounded-xl shadow-lg hover:shadow-green-500/50 transition-all duration-300 font-bold text-sm sm:text-base ${className}`}
+      className={`group w-full flex items-center justify-center gap-3 bg-gradient-to-r from-green-500 to-green-600 hover:from-green-600 hover:to-green-700 text-white px-4 py-3 sm:px-6 sm:py-4 rounded-xl shadow-lg hover:shadow-green-500/50 transition-all duration-300 font-bold text-sm sm:text-base active:scale-95 ${className}`}
     >
       {/* WhatsApp Icon */}
       <div className="flex-shrink-0">
@@ -38,25 +35,24 @@ const WhatsAppButton = ({ productName, product, className = "" }) => {
         </span>
       </div>
 
-      {/* Arrow */}
-      <motion.div
-        animate={{ x: [0, 3, 0] }}
-        transition={{ 
-          duration: 1.5,
-          repeat: Infinity,
-          ease: "easeInOut"
-        }}
-        className="flex-shrink-0"
-      >
+      {/* Arrow - Solo animación en desktop */}
+      <div className="flex-shrink-0 hidden sm:block group-hover:translate-x-1 transition-transform duration-300">
         <svg className="w-4 h-4 sm:w-5 sm:h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M13 7l5 5m0 0l-5 5m5-5H6" />
         </svg>
-      </motion.div>
+      </div>
 
-      {/* Shine effect */}
-      <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000 rounded-xl" />
-    </motion.button>
+      {/* Arrow mobile - Sin animación */}
+      <div className="flex-shrink-0 sm:hidden">
+        <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M13 7l5 5m0 0l-5 5m5-5H6" />
+        </svg>
+      </div>
+
+      {/* Shine effect - Solo desktop */}
+      <div className="hidden sm:block absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000 rounded-xl" />
+    </button>
   );
 };
 
-export default WhatsAppButton;
+export default memo(WhatsAppButton);

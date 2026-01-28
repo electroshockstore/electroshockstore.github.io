@@ -54,10 +54,9 @@ const Home = () => {
 
   return (
     <div className="min-h-screen w-full flex flex-col relative">
-      {/* Background Gradients - Simplificado */}
+      {/* Background Gradients - Solo desktop */}
       <div className="fixed inset-0 -z-10 bg-[#0a0a0f]">
-        {/* Gradientes solo en desktop */}
-        <div className="hidden sm:block absolute inset-0">
+        <div className="hidden md:block absolute inset-0">
           <div className="absolute w-1/2 h-1/2 bg-blue-900/10 rounded-full blur-3xl top-0 left-0" />
           <div className="absolute w-1/2 h-1/2 bg-purple-900/10 rounded-full blur-3xl bottom-0 right-0" />
         </div>
