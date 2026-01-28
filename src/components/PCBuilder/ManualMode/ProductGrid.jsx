@@ -121,7 +121,7 @@ const ProductGrid = ({
       <div className="mb-3 lg:mb-6">
         <div className="flex items-start justify-between gap-4 mb-3">
           <div>
-            <h2 className="text-lg lg:text-2xl xl:text-3xl font-bold text-gray-900 mb-1">
+            <h2 className="text-base sm:text-lg lg:text-2xl xl:text-3xl font-bold text-gray-900 mb-1">
               {selectedCategory}
             </h2>
             <p className="text-xs lg:text-sm text-gray-600">

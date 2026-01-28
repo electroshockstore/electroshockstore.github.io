@@ -54,7 +54,6 @@ const MiniComponentCard = ({ category, component, isSelected, onClick, onRemove 
         }
       `}
     >
-      {/* Badge de cantidad para múltiples */}
       {isMultiple && count > 1 && (
         <div className="absolute -top-2 -right-2 w-6 h-6 bg-gradient-to-br from-purple-500 to-purple-600 rounded-full flex items-center justify-center shadow-lg border-2 border-white z-10">
           <span className="text-xs font-black text-white">{count}</span>
@@ -84,16 +83,16 @@ const MiniComponentCard = ({ category, component, isSelected, onClick, onRemove 
           <p className="text-base font-black text-gray-900">
             ${(displayComponent.price * (isMultiple ? count : 1)).toLocaleString('es-AR')}
           </p>
-          <button
+          <div
             onClick={(e) => {
               e.stopPropagation();
               onRemove();
             }}
-            className="ml-auto p-1 hover:bg-red-100 rounded-md transition-colors group/remove"
+            className="ml-auto p-1 hover:bg-red-100 rounded-md transition-colors group/remove cursor-pointer"
             title="Eliminar componente"
           >
             <X className="w-4 h-4 text-gray-400 group-hover/remove:text-red-600" strokeWidth={2.5} />
-          </button>
+          </div>
         </div>
       </div>
     </button>
@@ -105,11 +104,9 @@ const CategorySidebar = ({ selectedCategory, onCategoryChange }) => {
   
   const getComponent = (buildKey) => {
     const value = pcBuild[buildKey];
-    // Para RAM, devolver el array completo si tiene elementos
     if (buildKey === 'ram' && Array.isArray(value) && value.length > 0) {
       return value;
     }
-    // Para otros componentes, devolver el primer elemento del array o el valor directo
     return Array.isArray(value) ? (value.length > 0 ? value[0] : null) : (value || null);
   };
   
@@ -138,11 +135,10 @@ const CategorySidebar = ({ selectedCategory, onCategoryChange }) => {
   };
 
   return (
-    <aside className="w-[22vw] min-w-[18rem] max-w-[24rem] bg-gray-50 border-r border-gray-200 flex flex-col h-screen sticky top-0">
+    <aside className="w-full lg:w-[22vw] lg:min-w-[18rem] lg:max-w-[24rem] bg-gray-50 border-r border-gray-200 flex flex-col h-screen sticky top-0">
       
-      {/* Header compacto y moderno */}
+      {/* Header - Visible en mobile y desktop */}
       <div className="flex-shrink-0 p-4 bg-white border-b border-gray-200">
-        {/* Título y progreso en una línea */}
         <div className="flex items-center justify-between mb-3">
           <div className="flex items-center gap-2">
             <div className="w-8 h-8 bg-gradient-to-br from-blue-500 to-blue-600 rounded-lg flex items-center justify-center shadow-md">
@@ -156,9 +152,9 @@ const CategorySidebar = ({ selectedCategory, onCategoryChange }) => {
             </div>
           </div>
           
-          {/* Barra de progreso compacta */}
+          {/* Barra de progreso - visible en mobile y desktop */}
           <div className="flex items-center gap-2">
-            <div className="w-20 h-2 bg-gray-200 rounded-full overflow-hidden">
+            <div className="w-16 lg:w-20 h-2 bg-gray-200 rounded-full overflow-hidden">
               <div 
                 className="h-full bg-gradient-to-r from-blue-500 to-blue-600 rounded-full transition-all duration-500"
                 style={{ width: `${(selectedCount/8)*100}%` }}
@@ -168,16 +164,15 @@ const CategorySidebar = ({ selectedCategory, onCategoryChange }) => {
           </div>
         </div>
         
-        {/* Stats en dos columnas */}
         <div className="grid grid-cols-2 gap-2 mb-3">
           <div className="bg-gradient-to-br from-amber-50 to-orange-50 rounded-lg p-2.5 border border-amber-200">
             <div className="flex items-center gap-1.5 mb-1">
               <div className={`p-1 rounded ${percentage < 60 ? 'bg-green-100' : percentage < 80 ? 'bg-yellow-100' : 'bg-red-100'}`}>
                 <Zap className={`w-3 h-3 ${getTextColorClass()}`} strokeWidth={2.5} fill="currentColor" />
               </div>
-              <span className="text-[10px] font-bold text-gray-600 uppercase">Consumo Fuente</span>
+              <span className="text-[10px] font-bold text-gray-600 uppercase">Consumo</span>
             </div>
-            <p className={`text-2xl font-black ${getTextColorClass()}`}>
+            <p className={`text-xl lg:text-2xl font-black ${getTextColorClass()}`}>
               {totalWattage}W
             </p>
           </div>
@@ -191,13 +186,12 @@ const CategorySidebar = ({ selectedCategory, onCategoryChange }) => {
               </div>
               <span className="text-[10px] font-bold text-gray-600 uppercase">Total</span>
             </div>
-            <p className="text-2xl font-black text-gray-900">
+            <p className="text-xl lg:text-2xl font-black text-gray-900">
               ${totalPrice.toLocaleString('es-AR')}
             </p>
           </div>
         </div>
         
-        {/* Botón WhatsApp */}
         <button
           onClick={() => {
             const components = Object.entries(pcBuild)
@@ -208,7 +202,7 @@ const CategorySidebar = ({ selectedCategory, onCategoryChange }) => {
               })
               .join('%0A');
             
-            const message = `¡Hola! Quiero este combo de PC:%0A%0A${components}%0A%0ATotal: $${totalPrice.toLocaleString('es-AR')}%0A%0A¿Está disponible?`;
+            const message = `¡Hola! Quiero este combo de PC:%0A%0A${components}%0A%0ATotal: ${totalPrice.toLocaleString('es-AR')}%0A%0A¿Está disponible?`;
             
             window.open(`https://wa.me/5491125718382?text=${message}`, '_blank');
           }}
@@ -224,19 +218,20 @@ const CategorySidebar = ({ selectedCategory, onCategoryChange }) => {
       {/* Lista de componentes */}
       <div className="flex-1 overflow-y-auto p-3 space-y-2">
         {CATEGORIES.map((category) => (
-          <MiniComponentCard
-            key={category.key}
-            category={category}
-            component={getComponent(category.buildKey)}
-            isSelected={selectedCategory === category.key}
-            onClick={() => onCategoryChange(category.key)}
-            onRemove={() => removeComponent(category.key)}
-          />
+          <div key={category.key}>
+            <MiniComponentCard
+              category={category}
+              component={getComponent(category.buildKey)}
+              isSelected={selectedCategory === category.key}
+              onClick={() => onCategoryChange(category.key)}
+              onRemove={() => removeComponent(category.key)}
+            />
+          </div>
         ))}
       </div>
       
-      {/* Footer con total - diseño limpio */}
-      <div className="flex-shrink-0 p-4 bg-gradient-to-br from-gray-900 to-gray-800 border-t border-gray-700">
+      {/* Footer - Solo visible en desktop */}
+      <div className="hidden lg:block flex-shrink-0 p-4 bg-gradient-to-br from-gray-900 to-gray-800 border-t border-gray-700">
         <div className="flex items-center justify-between">
           <div>
             <p className="text-xs font-bold text-gray-400 uppercase tracking-wide mb-1">Total Inversión</p>
