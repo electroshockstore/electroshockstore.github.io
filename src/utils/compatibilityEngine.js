@@ -1,12 +1,106 @@
 /**
  * Compatibility Engine - Sistema de validación de compatibilidad para PC Builder
+ * Versión mejorada con validación robusta
  */
+
+/**
+ * Extrae el socket de un producto (CPU o Motherboard)
+ */
+function getSocket(product) {
+  if (!product) return null;
+  
+  const socket = product.compatibility?.socket || 
+                 product.specifications?.socket || 
+                 product.specs?.socket ||
+                 null;
+  
+  // Normalizar el socket (quitar espacios, mayúsculas)
+  return socket ? socket.trim().toUpperCase() : null;
+}
+
+/**
+ * Extrae el tipo de RAM de un producto
+ */
+function getRAMType(product) {
+  if (!product) return null;
+  
+  // Buscar en múltiples ubicaciones posibles
+  const ramType = product.ddrType || // Root level (más común)
+                  product.compatibility?.memoriaRAM || 
+                  product.compatibility?.tipoMemoriaRAM ||
+                  product.specifications?.memoriaRAM ||
+                  product.specifications?.tipoMemoriaRAM ||
+                  product.compatibility?.tipo || // Para RAM modules
+                  product.specifications?.tipo ||
+                  product.specifications?.tipoMemoria ||
+                  null;
+  
+  // Normalizar el tipo de RAM (quitar espacios, mayúsculas)
+  return ramType ? ramType.trim().toUpperCase() : null;
+}
+
+/**
+ * Extrae el formato de RAM (DIMM/SODIMM)
+ */
+function getRAMFormat(product) {
+  if (!product) return 'DIMM'; // Default para desktop
+  
+  const formato = product.compatibility?.formato ||
+                  product.specifications?.formato ||
+                  product.specifications?.formatoMemoriaRAM ||
+                  null;
+  
+  // Si encontramos formato, normalizarlo
+  if (formato) {
+    const formatoUpper = formato.trim().toUpperCase();
+    // Detectar SODIMM
+    if (formatoUpper.includes('SODIMM') || formatoUpper.includes('SO-DIMM')) {
+      return 'SODIMM';
+    }
+    // Detectar DIMM/UDIMM
+    if (formatoUpper.includes('DIMM') || formatoUpper.includes('UDIMM')) {
+      return 'DIMM';
+    }
+  }
+  
+  return 'DIMM'; // Default para desktop
+}
+
+/**
+ * Extrae el consumo en watts
+ */
+function getPowerConsumption(product) {
+  return product.compatibility?.consumo_watts ||
+         product.powerConsumption ||
+         product.specifications?.consumo_watts ||
+         0;
+}
+
+/**
+ * Extrae la capacidad de la fuente en watts
+ */
+function getPSUCapacity(product) {
+  const capacity = product.compatibility?.capacidad_watts ||
+                   product.specifications?.potencia ||
+                   product.specifications?.capacidad ||
+                   null;
+  
+  if (!capacity) return null;
+  
+  // Si es string, extraer el número (ej: "650W" -> 650)
+  if (typeof capacity === 'string') {
+    const match = capacity.match(/(\d+)/);
+    return match ? parseInt(match[1]) : null;
+  }
+  
+  return capacity;
+}
 
 /**
  * Verifica la compatibilidad entre componentes
  */
 export function checkCompatibility(pcBuild, candidateProduct, category) {
-  if (!candidateProduct || !candidateProduct.compatibility) {
+  if (!candidateProduct) {
     return { compatible: true, status: 'neutral', reasons: [] };
   }
   
@@ -17,93 +111,155 @@ export function checkCompatibility(pcBuild, candidateProduct, category) {
   
   // ==================== PROCESADORES ====================
   if (category === 'Procesadores') {
+    const cpuSocket = getSocket(candidateProduct);
+    const cpuRAMType = getRAMType(candidateProduct);
+    
     // Validar socket con motherboard
     if (pcBuild.motherboard) {
-      const cpuSocket = candidateProduct.compatibility.socket;
-      const mbSocket = pcBuild.motherboard.compatibility?.socket;
+      const mbSocket = getSocket(pcBuild.motherboard);
       
-      if (cpuSocket && mbSocket && cpuSocket !== mbSocket) {
-        compatible = false;
-        reasons.push(`Socket incompatible: CPU ${cpuSocket} vs Motherboard ${mbSocket}`);
+      if (cpuSocket && mbSocket) {
+        if (cpuSocket === mbSocket) {
+          reasons.push(`✓ Socket ${cpuSocket} compatible con tu motherboard`);
+        } else {
+          compatible = false;
+          reasons.push(`✗ Socket incompatible: CPU ${cpuSocket} vs Motherboard ${mbSocket}`);
+        }
+      } else if (!cpuSocket) {
+        hasWarnings = true;
+        reasons.push(`⚠ Socket del CPU no especificado`);
       }
+    } else if (cpuSocket) {
+      reasons.push(`ℹ Socket: ${cpuSocket}`);
     }
     
     // Validar tipo de RAM
     if (pcBuild.ram.length > 0) {
-      const cpuRAMType = candidateProduct.compatibility.memoriaRAM;
-      const ramType = pcBuild.ram[0].compatibility?.tipo;
+      const ramType = getRAMType(pcBuild.ram[0]);
       
-      if (cpuRAMType && ramType && cpuRAMType !== ramType) {
-        compatible = false;
-        reasons.push(`RAM incompatible: CPU requiere ${cpuRAMType}, tienes ${ramType}`);
+      if (cpuRAMType && ramType) {
+        if (cpuRAMType === ramType) {
+          reasons.push(`✓ Compatible con tu RAM ${ramType}`);
+        } else {
+          compatible = false;
+          reasons.push(`✗ RAM incompatible: CPU requiere ${cpuRAMType}, tienes ${ramType}`);
+        }
       }
+    } else if (cpuRAMType) {
+      reasons.push(`ℹ Requiere RAM ${cpuRAMType}`);
+    }
+    
+    // Info sobre gráficos integrados
+    const hasIGPU = candidateProduct.compatibility?.graficosIntegrados ||
+                    candidateProduct.specifications?.graficosIntegrados;
+    if (hasIGPU && hasIGPU !== 'No') {
+      reasons.push(`✓ Incluye gráficos integrados`);
+    } else if (!pcBuild.gpu) {
+      hasWarnings = true;
+      reasons.push(`⚠ Sin gráficos integrados - necesitarás GPU dedicada`);
     }
   }
   
   // ==================== MOTHERBOARDS ====================
   if (category === 'Motherboards') {
+    const mbSocket = getSocket(candidateProduct);
+    const mbRAMType = getRAMType(candidateProduct);
+    
     // Validar socket con CPU
     if (pcBuild.cpu) {
-      const mbSocket = candidateProduct.compatibility.socket;
-      const cpuSocket = pcBuild.cpu.compatibility?.socket;
+      const cpuSocket = getSocket(pcBuild.cpu);
       
-      if (mbSocket && cpuSocket && mbSocket !== cpuSocket) {
-        compatible = false;
-        reasons.push(`Socket incompatible: Motherboard ${mbSocket} vs CPU ${cpuSocket}`);
+      if (mbSocket && cpuSocket) {
+        if (mbSocket === cpuSocket) {
+          reasons.push(`✓ Socket ${mbSocket} compatible con tu CPU`);
+        } else {
+          compatible = false;
+          reasons.push(`✗ Socket incompatible: Motherboard ${mbSocket} vs CPU ${cpuSocket}`);
+        }
+      } else if (!mbSocket) {
+        hasWarnings = true;
+        reasons.push(`⚠ Socket del motherboard no especificado`);
       }
+    } else if (mbSocket) {
+      reasons.push(`ℹ Socket: ${mbSocket}`);
     }
     
     // Validar tipo de RAM
     if (pcBuild.ram.length > 0) {
-      const mbRAMType = candidateProduct.compatibility.tipoMemoriaRAM;
-      const ramType = pcBuild.ram[0].compatibility?.tipo;
+      const ramType = getRAMType(pcBuild.ram[0]);
       
-      if (mbRAMType && ramType && mbRAMType !== ramType) {
-        compatible = false;
-        reasons.push(`RAM incompatible: Motherboard requiere ${mbRAMType}, tienes ${ramType}`);
+      if (mbRAMType && ramType) {
+        if (mbRAMType === ramType) {
+          reasons.push(`✓ Compatible con tu RAM ${ramType}`);
+        } else {
+          compatible = false;
+          reasons.push(`✗ RAM incompatible: Motherboard requiere ${mbRAMType}, tienes ${ramType}`);
+        }
       }
+    } else if (mbRAMType) {
+      reasons.push(`ℹ Requiere RAM ${mbRAMType}`);
     }
   }
   
   // ==================== MEMORIAS RAM ====================
   if (category === 'Memorias RAM') {
-    const ramType = candidateProduct.compatibility?.tipo;
-    const ramFormat = candidateProduct.compatibility?.formato;
+    const ramType = getRAMType(candidateProduct);
+    const ramFormat = getRAMFormat(candidateProduct);
     
-    // Rechazar SODIMM
+    // Rechazar SODIMM (para laptops)
     if (ramFormat === 'SODIMM') {
       compatible = false;
-      reasons.push(`SODIMM es para laptops, no para PC de escritorio`);
+      reasons.push(`✗ SODIMM es para laptops, no para PC de escritorio`);
       return { compatible, status: 'red', reasons };
     }
     
+    let hasValidation = false;
+    
     // Validar con CPU
     if (pcBuild.cpu) {
-      const cpuRAMType = pcBuild.cpu.compatibility?.memoriaRAM;
-      if (cpuRAMType && ramType && cpuRAMType !== ramType) {
-        compatible = false;
-        reasons.push(`CPU requiere ${cpuRAMType}, esta RAM es ${ramType}`);
+      const cpuRAMType = getRAMType(pcBuild.cpu);
+      
+      if (cpuRAMType && ramType) {
+        hasValidation = true;
+        if (cpuRAMType === ramType) {
+          reasons.push(`✓ Compatible con tu CPU (${ramType})`);
+        } else {
+          compatible = false;
+          reasons.push(`✗ CPU requiere ${cpuRAMType}, esta RAM es ${ramType}`);
+        }
       }
     }
     
     // Validar con Motherboard
     if (pcBuild.motherboard) {
-      const mbRAMType = pcBuild.motherboard.compatibility?.tipoMemoriaRAM;
-      if (mbRAMType && ramType && mbRAMType !== ramType) {
-        compatible = false;
-        reasons.push(`Motherboard requiere ${mbRAMType}, esta RAM es ${ramType}`);
+      const mbRAMType = getRAMType(pcBuild.motherboard);
+      
+      if (mbRAMType && ramType) {
+        hasValidation = true;
+        if (mbRAMType === ramType) {
+          reasons.push(`✓ Compatible con tu Motherboard (${ramType})`);
+        } else {
+          compatible = false;
+          reasons.push(`✗ Motherboard requiere ${mbRAMType}, esta RAM es ${ramType}`);
+        }
       }
+    }
+    
+    // Si no hay validación pero tenemos el tipo, mostrarlo
+    if (!hasValidation && ramType) {
+      reasons.push(`ℹ Tipo: ${ramType}`);
     }
   }
   
   // ==================== FUENTES (PSU) ====================
   if (category === 'Fuentes') {
-    const psuCapacity = candidateProduct.compatibility?.capacidad_watts;
+    const psuCapacity = getPSUCapacity(candidateProduct);
     const totalConsumption = calculateTotalPowerConsumption(pcBuild);
     
+    // Factor de picos de consumo
     let spikeFactor = 1.3;
     if (pcBuild.gpu) {
-      const gpuConsumption = pcBuild.gpu.compatibility?.consumo_watts || 0;
+      const gpuConsumption = getPowerConsumption(pcBuild.gpu);
       if (gpuConsumption > 250) spikeFactor = 1.5;
       else if (gpuConsumption >= 150) spikeFactor = 1.4;
     }
@@ -112,16 +268,18 @@ export function checkCompatibility(pcBuild, candidateProduct, category) {
     const recommendedWithMargin = Math.round(minRequired * 1.15);
     
     if (!psuCapacity) {
-      compatible = false;
-      reasons.push('Fuente sin especificación de potencia');
+      hasWarnings = true;
+      reasons.push('⚠ Fuente sin especificación de potencia');
     } else if (psuCapacity < minRequired) {
       compatible = false;
-      reasons.push(`⚠️ Insuficiente: Requiere ${minRequired}W mínimo, esta tiene ${psuCapacity}W`);
+      reasons.push(`✗ Insuficiente: Requiere ${minRequired}W mínimo, esta tiene ${psuCapacity}W`);
     } else if (psuCapacity < recommendedWithMargin) {
       hasWarnings = true;
-      reasons.push(`✓ Suficiente (${psuCapacity}W) pero sin margen para upgrades`);
+      reasons.push(`⚠ Suficiente (${psuCapacity}W) pero sin margen para upgrades`);
+      reasons.push(`ℹ Consumo actual: ${totalConsumption}W`);
     } else {
       reasons.push(`✓ Recomendada - ${psuCapacity}W con margen para upgrades`);
+      reasons.push(`ℹ Consumo actual: ${totalConsumption}W`);
     }
   }
   
@@ -141,23 +299,31 @@ export function checkCompatibility(pcBuild, candidateProduct, category) {
 }
 
 /**
- * Calcula el consumo total de energía
+ * Calcula el consumo total de energía del build
  */
 export function calculateTotalPowerConsumption(pcBuild) {
   let total = 0;
   
-  if (pcBuild.cpu?.compatibility?.consumo_watts) {
-    total += pcBuild.cpu.compatibility.consumo_watts;
+  // CPU
+  if (pcBuild.cpu) {
+    total += getPowerConsumption(pcBuild.cpu);
   }
   
-  if (pcBuild.gpu?.compatibility?.consumo_watts) {
-    total += pcBuild.gpu.compatibility.consumo_watts;
+  // GPU
+  if (pcBuild.gpu) {
+    total += getPowerConsumption(pcBuild.gpu);
   }
   
+  // RAM (aproximadamente 4W por módulo)
   total += pcBuild.ram.length * 4;
+  
+  // Storage (aproximadamente 5W por unidad)
   total += pcBuild.storage.length * 5;
   
+  // Motherboard (aproximadamente 60W)
   if (pcBuild.motherboard) total += 60;
+  
+  // Cooling (aproximadamente 10W)
   if (pcBuild.cooling) total += 10;
   
   return total;

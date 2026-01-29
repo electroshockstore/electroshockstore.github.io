@@ -24,6 +24,12 @@ const CompactProductCard = memo(({ product, compatibilityResult, isSelected, onC
       text: 'Compatible',
       bg: 'bg-green-50'
     },
+    yellow: {
+      border: 'border-yellow-400',
+      badge: 'bg-gradient-to-r from-yellow-500 to-orange-500',
+      text: 'Advertencia',
+      bg: 'bg-yellow-50'
+    },
     red: { 
       border: 'border-red-400', 
       badge: 'bg-gradient-to-r from-red-500 to-rose-600', 
@@ -62,6 +68,13 @@ const CompactProductCard = memo(({ product, compatibilityResult, isSelected, onC
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
             </svg>
             <span className="hidden lg:inline">Compatible</span>
+          </div>
+        ) : status === 'yellow' ? (
+          <div className={`${config.badge} text-white text-[9px] lg:text-xs font-bold px-1.5 lg:px-2.5 py-0.5 lg:py-1 rounded-full flex items-center gap-0.5 lg:gap-1 shadow-md`}>
+            <svg className="w-2.5 h-2.5 lg:w-3 lg:h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
+            </svg>
+            <span className="hidden lg:inline">Advertencia</span>
           </div>
         ) : status === 'red' ? (
           <div className={`${config.badge} text-white text-[9px] lg:text-xs font-bold px-1.5 lg:px-2.5 py-0.5 lg:py-1 rounded-full flex items-center gap-0.5 lg:gap-1 shadow-md`}>
@@ -115,12 +128,14 @@ const CompactProductCard = memo(({ product, compatibilityResult, isSelected, onC
           )}
         </div>
         
-        {/* Compatibility Reasons - Visible en mobile si es incompatible (red) */}
-        {reasons.length > 0 && status === 'red' && (
+        {/* Compatibility Reasons - Visible en mobile si es incompatible (red) o advertencia (yellow) */}
+        {reasons.length > 0 && (status === 'red' || status === 'yellow') && (
           <div className={`${config.bg} rounded-lg p-1.5 lg:p-2 space-y-0.5 lg:space-y-1 mb-2 lg:mb-3 border ${config.border}`}>
             {reasons.slice(0, 1).map((reason, idx) => (
               <div key={idx} className="text-[9px] lg:text-xs text-gray-700 flex items-start gap-1">
-                <span className="text-red-500 flex-shrink-0">⚠</span>
+                <span className={`flex-shrink-0 ${status === 'red' ? 'text-red-500' : 'text-yellow-600'}`}>
+                  ⚠
+                </span>
                 <span className="line-clamp-2 leading-tight">{reason}</span>
               </div>
             ))}
