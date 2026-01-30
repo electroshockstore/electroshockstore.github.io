@@ -203,9 +203,9 @@ const CategoryFilter = ({ selectedCategory, onCategoryChange }) => {
                     </button>
                   </div>
 
-                  {/* Grid de categorías - Mejorado con mejor fondo */}
+                  {/* Grid de categorías - Con fondo catalog-bg */}
                   <div
-                    className="category-grid-scroll flex-1 overflow-y-auto bg-gradient-to-b from-gray-900 via-gray-800 to-gray-900 px-4 py-6 relative"
+                    className="category-grid-scroll flex-1 overflow-y-auto catalog-bg px-4 py-6 relative"
                     style={{
                       overscrollBehavior: 'contain',
                       WebkitOverflowScrolling: 'touch',
@@ -230,8 +230,8 @@ const CategoryFilter = ({ selectedCategory, onCategoryChange }) => {
                               relative overflow-hidden rounded-2xl font-bold
                               transition-all duration-200 animate-in fade-in zoom-in-95
                               ${isSelected
-                                ? 'shadow-[0_20px_60px_rgba(59,130,246,0.4)] scale-[1.05] ring-2 ring-blue-400/80'
-                                : 'shadow-[0_10px_30px_rgba(0,0,0,0.4)] hover:shadow-[0_15px_40px_rgba(0,0,0,0.5)] active:scale-[0.97] hover:scale-[1.02]'
+                                ? 'shadow-[0_8px_30px_rgba(59,130,246,0.6),0_0_60px_rgba(59,130,246,0.3)] scale-[1.05] ring-2 ring-blue-400/80 box-glow-blue'
+                                : 'shadow-[0_8px_24px_rgba(0,0,0,0.3),0_4px_12px_rgba(0,0,0,0.2)] hover:shadow-[0_12px_32px_rgba(0,0,0,0.4),0_6px_16px_rgba(0,0,0,0.25)] active:scale-[0.97] hover:scale-[1.02]'
                               }
                             `}
                           >
