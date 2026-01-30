@@ -31,16 +31,16 @@ const ImportantRulesBentoGrid = ({ rules = [] }) => {
                 <span className="inline-block px-2 py-0.5 bg-pink-600 text-white text-[8px] font-black rounded-full uppercase mb-2">
                   Seguridad
                 </span>
-                <h3 className="text-xl font-black text-gray-900 leading-none mb-1">
+                <h3 className="text-lg font-black text-gray-900 leading-tight mb-1">
                   Sin Depósitos Previos
                 </h3>
-                <p className="text-[10px] font-bold text-pink-600 uppercase">
+                <p className="text-[10px] font-bold text-pink-600 uppercase mb-2">
                   Pagas al retirar
                 </p>
+                <p className="text-[11px] text-gray-600 font-medium leading-tight">
+                  Revisas y Pagas. No se deje engañar
+                </p>
               </div>
-                      <p className="text-sm text-gray-600 ">
-             Revisas y Pagas.No se deje engañar
-            </p>
             </div>
 
             {/* CARD 2: PAGO INMEDIATO */}
@@ -50,10 +50,10 @@ const ImportantRulesBentoGrid = ({ rules = [] }) => {
                 <span className="inline-block px-2 py-0.5 bg-black text-white text-[8px] font-black rounded-full uppercase mb-2">
                   Transparencia
                 </span>
-                <h3 className="text-xl font-black text-gray-900 leading-none mb-2">
+                <h3 className="text-lg font-black text-gray-900 leading-tight mb-2">
                   Pago Inmediato
                 </h3>
-                <div className="flex flex-col gap-1">
+                <div className="flex flex-col gap-1 mb-2">
                   <div className="flex items-center gap-1.5 text-[9px] font-bold text-emerald-700">
                     <Banknote className="w-3 h-3" />
                     Efectivo
@@ -62,10 +62,10 @@ const ImportantRulesBentoGrid = ({ rules = [] }) => {
                     <CreditCard className="w-3 h-3" />
                     Transferencia
                   </div>
-                      <p className="text-sm text-gray-600 ">
-              Ni lo intenten estafadores
-            </p>
                 </div>
+                <p className="text-[11px] text-gray-600 font-medium leading-tight">
+                  Ni lo intenten estafadores
+                </p>
               </div>
             </div>
 
@@ -86,9 +86,9 @@ const ImportantRulesBentoGrid = ({ rules = [] }) => {
                 <span className="inline-block px-2 py-0.5 bg-red-600 text-white text-[8px] font-black rounded-full uppercase mb-2">
                   Atención
                 </span>
-                <div className="flex items-baseline mb-0.5">
-                  <span className="text-4xl font-black text-red-600 leading-none">10%</span>
-                  <span className="text-md font-black">Recargo</span>
+                <div className="flex items-baseline gap-1 mb-1">
+                  <span className="text-3xl font-black text-red-600 leading-none">10%</span>
+                  <span className="text-sm font-black text-red-700 leading-none">Recargo</span>
                 </div>
                 <p className="text-[9px] font-bold text-red-600 leading-tight">
                   transferencias menores a $100.000
@@ -103,44 +103,43 @@ const ImportantRulesBentoGrid = ({ rules = [] }) => {
                 <span className="inline-block px-2 py-0.5 bg-green-600 text-white text-[8px] font-black rounded-full uppercase mb-2">
                   Importante
                 </span>
-                <div className="flex items-baseline gap-1 mb-1">
-                  <span className="text-4xl font-black text-red-600 leading-none">NO</span>
-                  <span className="text-sm font-black text-red-700 uppercase">Envíos</span>
+                <div className="flex items-baseline gap-1 mb-2">
+                  <span className="text-3xl font-black text-red-600 leading-none">NO</span>
+                  <span className="text-sm font-black text-red-700 uppercase leading-none">Envíos</span>
                 </div>
-                 <div className="flex flex-col gap-1">
+                <div className="flex flex-col gap-1">
                   <div className="flex items-center gap-1.5 text-[9px] font-bold text-red-700">
                     <Ban className="w-3 h-3" />
                     NO Domicilio
                   </div>
                   <div className="flex items-center gap-1.5 text-[9px] font-bold text-red-700">
                     <Ban className="w-3 h-3" />
-                     NO Mercadolibre
+                    NO Mercadolibre
                   </div>
-                   </div>
+                </div>
               </div>
             </div>
 
             {/* CARD 6: VENTA PARTICULAR */}
             <div className="col-span-2 bg-blue-100 rounded-[2rem] p-4 border border-blue-200 relative overflow-hidden">
               <Zap className="absolute -right-2 -bottom-2 w-20 h-20 text-blue-300 opacity-15" />
-              <div className="flex items-start gap-3 relative z-10">
-              
-                <div className="flex-1">
-                  <div className="flex items-center gap-2 mb-1.5 flex-wrap">
-                    <h3 className="text-base font-black text-gray-900 leading-tight">
-                      Sin Local fisico
-                    </h3>
-                    <span className="px-2 py-0.5 bg-blue-600 text-white text-[8px] font-black rounded-full uppercase">
-                     stock de local
+              <div className="relative z-10">
+                <div className="flex items-center gap-2 mb-2 flex-wrap">
+                  <h3 className="text-base font-black text-gray-900 leading-tight whitespace-nowrap">
+                    Sin Local físico
+                  </h3>
+                  <div className="flex items-center gap-1.5 flex-wrap">
+                    <span className="px-2 py-0.5 bg-blue-600 text-white text-[8px] font-black rounded-full uppercase whitespace-nowrap">
+                      Stock de local
                     </span>
-                    <span className="px-2 py-0.5 bg-blue-600 text-white text-[8px] font-black rounded-full uppercase">
+                    <span className="px-2 py-0.5 bg-blue-600 text-white text-[8px] font-black rounded-full uppercase whitespace-nowrap">
                       Sin Garantía
                     </span>
                   </div>
-                  <p className="text-[10px] text-blue-800 font-bold leading-tight">
-                    Productos sellados de Fábrica , Pago previo por apertura.
-                  </p>
                 </div>
+                <p className="text-[11px] text-blue-800 font-bold leading-tight">
+                  Productos sellados de Fábrica, Pago previo por apertura.
+                </p>
               </div>
             </div>
 
