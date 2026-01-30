@@ -103,10 +103,7 @@ const HeaderActions = ({
       
       {/* Puntos de Retiro */}
       <button
-        onClick={() => {
-          navigate('/puntos-de-retiro');
-          window.scrollTo({ top: 0, behavior: 'smooth' });
-        }}
+        onClick={() => navigate('/puntos-de-retiro')}
         className="relative flex items-center gap-2 px-6 py-2.5
                  bg-gradient-to-br from-blue-500/20 to-indigo-500/20
                  hover:from-blue-500/30 hover:to-indigo-500/30

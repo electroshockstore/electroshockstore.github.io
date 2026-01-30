@@ -23,7 +23,6 @@ const FloatingChatButton = () => {
 
   const handlePuntosRetiro = () => {
     navigate('/puntos-de-retiro');
-    window.scrollTo({ top: 0, behavior: 'smooth' });
     setIsExpanded(false);
   };
 
@@ -109,7 +108,7 @@ const FloatingChatButton = () => {
         
         {/* --- MENÚ EXPANDIDO --- */}
         {isExpanded && (
-          <div className="relative flex flex-col items-stretch gap-2.5 mb-3 chat-options-enter animate-in slide-in-from-bottom-4 fade-in duration-300 z-50 w-[300px] sm:w-auto">
+          <div className="relative flex flex-col items-stretch gap-3.5 mb-3 chat-options-enter animate-in slide-in-from-bottom-4 fade-in duration-300 z-50 w-[350px] sm:w-auto">
             
             {/* WhatsApp */}
             <button
@@ -123,7 +122,7 @@ const FloatingChatButton = () => {
               </div>
               <div className="flex-1 min-w-0 text-left">
                 <div className="font-bold text-base leading-tight text-white">Consultar por WhatsApp</div>
-                <div className="text-xs leading-tight text-white/75 mt-1">Respuesta inmediata y personalizada</div>
+                <div className="text-xs leading-tight text-white/75 mt-1">Respuesta inmediata </div>
               </div>
               <Send className="w-5 h-5 text-white/60 group-hover:text-white/90 group-hover:translate-x-1 transition-all duration-300 flex-shrink-0" strokeWidth={2.5} />
             </button>
@@ -153,7 +152,7 @@ const FloatingChatButton = () => {
               </div>
               <div className="flex-1 min-w-0 text-left">
                 <div className="font-bold text-base leading-tight text-white">Condiciones de Venta</div>
-                <div className="text-xs leading-tight text-white/75 mt-1">Métodos de pago y políticas</div>
+                <div className="text-xs leading-tight text-white/75 mt-1">Informacion Importante</div>
               </div>
               <Send className="w-5 h-5 text-white/60 group-hover:text-white/90 group-hover:translate-x-1 transition-all duration-300 flex-shrink-0" strokeWidth={2.5} />
             </button>

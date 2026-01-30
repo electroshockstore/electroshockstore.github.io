@@ -7,6 +7,7 @@ import ErrorNotification from "./components/ErrorNotification";
 import { useErrorHandler } from "./hooks/useErrorHandler";
 import SkipToContent from "./components/SEO/SkipToContent";
 import ModernLoader from "./components/Shared/ModernLoader";
+import ScrollToTop from "./components/Shared/ScrollToTop";
 
 // Lazy load de páginas principales
 const Home = lazy(() => import("./pages/Home"));
@@ -65,6 +66,7 @@ function App() {
       <FilterProvider>
         <PCBuilderProvider>
           <Router basename="/">
+            <ScrollToTop />
             <SkipToContent />
             <AppContent />
           </Router>
