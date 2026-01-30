@@ -156,12 +156,12 @@ const CategoryFilter = ({ selectedCategory, onCategoryChange }) => {
               </div>
             </button>
 
-            {/* Modal Fullscreen - Diseño Oscuro */}
+            {/* Modal Fullscreen - Diseño Moderno Mejorado */}
             {isOpen && (
               <>
                 {/* Backdrop - Fijo y sin scroll */}
                 <div
-                  className="fixed inset-0 bg-black/80 backdrop-blur-md z-[100] animate-in fade-in duration-150"
+                  className="fixed inset-0 bg-gradient-to-br from-black/90 via-gray-900/95 to-black/90 backdrop-blur-xl z-[100] animate-in fade-in duration-200"
                   onClick={() => setIsOpen(false)}
                   onTouchMove={(e) => e.preventDefault()}
                   style={{ touchAction: 'none' }}
@@ -169,7 +169,7 @@ const CategoryFilter = ({ selectedCategory, onCategoryChange }) => {
 
                 {/* Modal Content - Completamente fijo */}
                 <div
-                  className="fixed inset-0 z-[101] flex flex-col animate-in slide-in-from-bottom duration-200"
+                  className="fixed inset-0 z-[101] flex flex-col animate-in slide-in-from-bottom duration-300"
                   onTouchMove={(e) => {
                     if (!e.target.closest('.category-grid-scroll')) {
                       e.preventDefault();
@@ -177,38 +177,45 @@ const CategoryFilter = ({ selectedCategory, onCategoryChange }) => {
                   }}
                   style={{ touchAction: 'none' }}
                 >
-                  {/* Header del modal - Fijo en la parte superior */}
+                  {/* Header del modal - Mejorado con gradiente */}
                   <div
-                    className="flex-shrink-0 bg-black border-b border-gray-800 px-5 py-6 flex items-center justify-between shadow-2xl"
+                    className="flex-shrink-0 bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 border-b border-white/10 px-5 py-6 flex items-center justify-between shadow-2xl relative overflow-hidden"
                     onTouchMove={(e) => e.preventDefault()}
                   >
-                    <div className="flex items-center gap-4">
-                      <div className="p-3 rounded-2xl bg-gradient-to-br from-blue-500 to-purple-600 shadow-xl">
+                    {/* Glow decorativo */}
+                    <div className="absolute top-0 left-1/4 w-64 h-64 bg-blue-500/20 rounded-full blur-3xl" />
+                    <div className="absolute top-0 right-1/4 w-64 h-64 bg-purple-500/20 rounded-full blur-3xl" />
+                    
+                    <div className="flex items-center gap-4 relative z-10">
+                      <div className="p-3 rounded-2xl bg-gradient-to-br from-blue-500 via-blue-600 to-purple-600 shadow-xl box-glow-blue">
                         <Grid3X3 className="h-7 w-7 text-white" strokeWidth={2.5} />
                       </div>
                       <div>
-                        <h2 className="text-2xl font-bold text-white tracking-tight">Categorías</h2>
-                        <p className="text-sm text-gray-400 font-medium mt-0.5">{categories.length} opciones disponibles</p>
+                        <h2 className="text-2xl font-black text-white tracking-tight text-glow-blue">Categorías</h2>
+                        <p className="text-sm text-gray-400 font-semibold mt-0.5">{categories.length} opciones disponibles</p>
                       </div>
                     </div>
                     <button
                       onClick={() => setIsOpen(false)}
-                      className="p-2.5 hover:bg-gray-800 rounded-xl transition-all duration-200 active:scale-90"
+                      className="p-2.5 hover:bg-white/10 rounded-xl transition-all duration-200 active:scale-90 backdrop-blur-sm border border-white/10 relative z-10"
                     >
-                      <X className="h-6 w-6 text-gray-400 hover:text-white transition-colors" strokeWidth={2.5} />
+                      <X className="h-6 w-6 text-gray-300 hover:text-white transition-colors" strokeWidth={2.5} />
                     </button>
                   </div>
 
-                  {/* Grid de categorías - Solo este contenedor tiene scroll */}
+                  {/* Grid de categorías - Mejorado con mejor fondo */}
                   <div
-                    className="category-grid-scroll flex-1 overflow-y-auto catalog-bg px-4 py-5"
+                    className="category-grid-scroll flex-1 overflow-y-auto bg-gradient-to-b from-gray-900 via-gray-800 to-gray-900 px-4 py-6 relative"
                     style={{
                       overscrollBehavior: 'contain',
                       WebkitOverflowScrolling: 'touch',
                       touchAction: 'pan-y'
                     }}
                   >
-                    <div className="grid grid-cols-2 gap-4 max-w-md mx-auto">
+                    {/* Pattern decorativo sutil */}
+                    <div className="absolute inset-0 opacity-5 bg-grain pointer-events-none" />
+                    
+                    <div className="grid grid-cols-2 gap-4 max-w-md mx-auto relative z-10">
                       {categories.map((category, index) => {
                         const isSelected = selectedCategory === category;
                         const categoryImage = getCategoryImage(category);
@@ -218,13 +225,13 @@ const CategoryFilter = ({ selectedCategory, onCategoryChange }) => {
                           <button
                             key={category}
                             onClick={() => handleCategorySelect(category)}
-                            style={{ animationDelay: `${index * 40}ms` }}
+                            style={{ animationDelay: `${index * 30}ms` }}
                             className={`
                               relative overflow-hidden rounded-2xl font-bold
-                              transition-all duration-150 animate-in fade-in zoom-in-95
+                              transition-all duration-200 animate-in fade-in zoom-in-95
                               ${isSelected
-                                ? 'shadow-[0_20px_50px_rgba(0,0,0,0.4)] scale-[1.03] ring-4 ring-blue-500/60'
-                                : 'shadow-[0_10px_30px_rgba(0,0,0,0.25)] hover:shadow-[0_15px_40px_rgba(0,0,0,0.35)] active:scale-[0.97]'
+                                ? 'shadow-[0_20px_60px_rgba(59,130,246,0.4)] scale-[1.05] ring-2 ring-blue-400/80'
+                                : 'shadow-[0_10px_30px_rgba(0,0,0,0.4)] hover:shadow-[0_15px_40px_rgba(0,0,0,0.5)] active:scale-[0.97] hover:scale-[1.02]'
                               }
                             `}
                           >
@@ -234,8 +241,8 @@ const CategoryFilter = ({ selectedCategory, onCategoryChange }) => {
                                 alt={category}
                                 className={`
                                   absolute inset-0 w-full h-full object-cover
-                                  transition-all duration-150
-                                  ${isSelected ? 'scale-110 brightness-110' : 'brightness-90'}
+                                  transition-all duration-200
+                                  ${isSelected ? 'scale-110 brightness-110' : 'brightness-90 hover:brightness-100'}
                                 `}
                                 loading={isTopImage ? "eager" : "lazy"}
                                 fetchpriority={isTopImage ? "high" : "low"}
@@ -243,13 +250,13 @@ const CategoryFilter = ({ selectedCategory, onCategoryChange }) => {
                               />
 
                               <div className={`
-                                absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent
-                                transition-all duration-150
-                                ${isSelected ? 'from-black/80 via-black/40' : ''}
+                                absolute inset-0 bg-gradient-to-t from-black/95 via-black/60 to-transparent
+                                transition-all duration-200
+                                ${isSelected ? 'from-blue-900/90 via-black/50' : ''}
                               `} />
 
                               {isSelected && (
-                                <div className="absolute top-3 right-3 bg-blue-500 text-white px-3 py-1.5 rounded-full text-xs font-bold shadow-xl animate-in zoom-in-50 duration-200 flex items-center gap-1">
+                                <div className="absolute top-3 right-3 bg-gradient-to-r from-blue-500 to-blue-600 text-white px-3 py-1.5 rounded-full text-xs font-black shadow-xl animate-in zoom-in-50 duration-200 flex items-center gap-1.5 border border-white/20">
                                   <div className="w-1.5 h-1.5 rounded-full bg-white animate-pulse" />
                                   Activa
                                 </div>
@@ -257,17 +264,17 @@ const CategoryFilter = ({ selectedCategory, onCategoryChange }) => {
 
                               <div className="absolute inset-x-0 bottom-0 p-4 flex flex-col items-start gap-1.5">
                                 <span className={`
-                                  text-white font-bold leading-tight drop-shadow-[0_2px_8px_rgba(0,0,0,0.8)]
-                                  transition-all duration-150
-                                  ${isSelected ? 'text-xl' : 'text-base'}
+                                  text-white font-black leading-tight drop-shadow-[0_2px_12px_rgba(0,0,0,0.9)]
+                                  transition-all duration-200
+                                  ${isSelected ? 'text-xl text-glow-blue' : 'text-base'}
                                 `}>
                                   {category}
                                 </span>
 
                                 {!isSelected && (
-                                  <div className="flex items-center gap-1.5 opacity-80">
-                                    <div className="w-1 h-1 rounded-full bg-gray-300" />
-                                    <span className="text-xs text-gray-300 font-medium">Toca para filtrar</span>
+                                  <div className="flex items-center gap-1.5 opacity-90">
+                                    <div className="w-1 h-1 rounded-full bg-blue-400" />
+                                    <span className="text-xs text-gray-300 font-semibold">Toca para filtrar</span>
                                   </div>
                                 )}
                               </div>
@@ -278,15 +285,18 @@ const CategoryFilter = ({ selectedCategory, onCategoryChange }) => {
                     </div>
                   </div>
 
-                  {/* Footer oscuro - Fijo en la parte inferior */}
+                  {/* Footer mejorado - Fijo en la parte inferior */}
                   <div
-                    className="flex-shrink-0 bg-black/95 backdrop-blur-xl border-t border-gray-800 px-5 py-4 shadow-2xl"
+                    className="flex-shrink-0 bg-gradient-to-t from-gray-900 via-gray-800 to-gray-900 backdrop-blur-xl border-t border-white/10 px-5 py-5 shadow-2xl relative overflow-hidden"
                     onTouchMove={(e) => e.preventDefault()}
                   >
-                    <div className="flex items-center justify-center gap-3 text-sm text-gray-400">
-                      <div className="w-8 h-1 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full" />
-                      <span className="font-semibold">Selecciona una categoría</span>
-                      <div className="w-8 h-1 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full" />
+                    {/* Glow decorativo inferior */}
+                    <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-96 h-32 bg-gradient-to-t from-blue-500/10 to-transparent blur-2xl" />
+                    
+                    <div className="flex items-center justify-center gap-3 text-sm text-gray-300 relative z-10">
+                      <div className="w-10 h-1 bg-gradient-to-r from-transparent via-blue-500 to-transparent rounded-full" />
+                      <span className="font-bold">Selecciona una categoría</span>
+                      <div className="w-10 h-1 bg-gradient-to-r from-transparent via-purple-500 to-transparent rounded-full" />
                     </div>
                   </div>
                 </div>
