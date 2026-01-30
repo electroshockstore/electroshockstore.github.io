@@ -30,8 +30,8 @@ const RevendedoresSection = ({ products = [], onProductClick }) => {
             {/* Partículas de fondo animadas - Solo desktop */}
             <div className="hidden sm:block absolute inset-0 overflow-hidden pointer-events-none">
                 <div className="absolute top-20 left-10 w-96 h-96 bg-amber-500/15 rounded-full blur-3xl animate-pulse" />
-                <div className="absolute bottom-20 right-10 w-[500px] h-[500px] bg-orange-500/15 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s' }} />
-                <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-gradient-to-r from-amber-500/5 to-orange-500/5 rounded-full blur-3xl" />
+                <div className="absolute bottom-20 right-10 w-[500px] h-[500px] bg-orange-500/15 rounded-full blur-3xl animate-pulse [animation-delay:1s]" />
+                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-gradient-to-r from-amber-500/5 to-orange-500/5 rounded-full blur-3xl" />
             </div>
 
             <div className="w-full py-12 sm:py-16 md:py-20 relative z-10">
@@ -81,11 +81,11 @@ const RevendedoresSection = ({ products = [], onProductClick }) => {
                             key={product.id || index}
                             className={`
                                 transition-all duration-700 hover:scale-105 hover:z-20
-                                ${index === 0 ? 'transform scale-85 translate-y-6' : ''}
-                                ${index === 1 ? 'transform scale-92 translate-y-3' : ''}
-                                ${index === 2 ? 'transform scale-105 -translate-y-4 z-10 shadow-2xl shadow-amber-500/30' : ''}
-                                ${index === 3 ? 'transform scale-92 translate-y-3' : ''}
-                                ${index === 4 ? 'transform scale-85 translate-y-6' : ''}
+                                ${index === 0 ? 'scale-85 translate-y-6' : ''}
+                                ${index === 1 ? 'scale-92 translate-y-3' : ''}
+                                ${index === 2 ? 'scale-105 -translate-y-4 z-10 shadow-2xl shadow-amber-500/30' : ''}
+                                ${index === 3 ? 'scale-92 translate-y-3' : ''}
+                                ${index === 4 ? 'scale-85 translate-y-6' : ''}
                             `}
                             style={{
                                 flex: '1 1 0%',
@@ -119,8 +119,8 @@ const RevendedoresSection = ({ products = [], onProductClick }) => {
                         
                         {/* Partículas animadas mejoradas - Solo en desktop */}
                         <div className="hidden sm:block absolute -top-2 -right-2 w-3 md:w-4 h-3 md:h-4 bg-amber-300 rounded-full opacity-0 group-hover:opacity-100 animate-ping" />
-                        <div className="hidden sm:block absolute -bottom-2 -left-2 w-2 md:w-3 h-2 md:h-3 bg-orange-300 rounded-full opacity-0 group-hover:opacity-100 animate-ping" style={{ animationDelay: '0.3s' }} />
-                        <div className="hidden sm:block absolute top-1/2 -right-3 md:-right-4 w-1.5 md:w-2 h-1.5 md:h-2 bg-yellow-300 rounded-full opacity-0 group-hover:opacity-100 animate-ping" style={{ animationDelay: '0.6s' }} />
+                        <div className="hidden sm:block absolute -bottom-2 -left-2 w-2 md:w-3 h-2 md:h-3 bg-orange-300 rounded-full opacity-0 group-hover:opacity-100 animate-ping [animation-delay:0.3s]" />
+                        <div className="hidden sm:block absolute top-1/2 -right-3 md:-right-4 w-1.5 md:w-2 h-1.5 md:h-2 bg-yellow-300 rounded-full opacity-0 group-hover:opacity-100 animate-ping [animation-delay:0.6s]" />
                     </button>
                 </div>
             </div>

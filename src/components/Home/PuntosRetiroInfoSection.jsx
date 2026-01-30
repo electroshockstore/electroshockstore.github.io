@@ -6,10 +6,7 @@ const PuntosRetiroInfoSection = () => {
 
   return (
     <section 
-      className="group relative w-full min-h-[500px] md:min-h-[550px] lg:min-h-[600px] xl:min-h-[650px] overflow-hidden sm:rounded-3xl transition-all duration-300 sm:border sm:border-cyan-500/40 sm:ring-2 sm:ring-cyan-500/30 sm:shadow-xl sm:shadow-cyan-900/50 hover:shadow-2xl hover:shadow-cyan-900/60"
-      style={{ 
-        boxShadow: typeof window !== 'undefined' && window.innerWidth >= 640 ? '0 0 30px rgba(6, 182, 212, 0.4), 0 0 60px rgba(8, 145, 178, 0.2)' : 'none'
-      }}
+      className="group relative w-full min-h-[500px] md:min-h-[550px] lg:min-h-[600px] xl:min-h-[650px] overflow-hidden sm:rounded-3xl transition-all duration-300 sm:border sm:border-cyan-500/40 sm:ring-2 sm:ring-cyan-500/30 sm:shadow-xl sm:shadow-cyan-900/50 hover:shadow-2xl hover:shadow-cyan-900/60 sm:shadow-[0_0_30px_rgba(6,182,212,0.4),0_0_60px_rgba(8,145,178,0.2)]"
     >
       
       {/* Glow inferior - Solo desktop (igual que PCBuilder) */}
@@ -27,14 +24,11 @@ const PuntosRetiroInfoSection = () => {
             {/* Glow de la imagen */}
             <div className="absolute w-[80%] h-[80%] bg-blue-500/20 blur-[120px] rounded-full animate-pulse" />
             
-            <div className="relative w-full max-w-[280px] sm:max-w-[350px] md:max-w-[400px] lg:max-w-[450px] xl:max-w-[500px] 2xl:max-w-[550px] transform transition-all duration-1000 group-hover:scale-105 group-hover:-rotate-1">
+            <div className="relative w-full max-w-[280px] sm:max-w-[350px] md:max-w-[400px] lg:max-w-[450px] xl:max-w-[500px] 2xl:max-w-[550px] transition-all duration-1000 group-hover:scale-105 group-hover:-rotate-1">
               <img
                 src="/images/puntos_retiro.webp"
                 alt="Puntos de Retiro"
-                className="w-full h-auto object-contain"
-                style={{
-                  filter: 'drop-shadow(0 0 40px rgba(59, 130, 246, 0.4)) drop-shadow(0 30px 60px rgba(0, 0, 0, 0.7)) brightness(1.1)'
-                }}
+                className="w-full h-auto object-contain drop-shadow-[0_0_40px_rgba(59,130,246,0.4)] drop-shadow-[0_30px_60px_rgba(0,0,0,0.7)] brightness-110"
               />
               
           
@@ -54,15 +48,13 @@ const PuntosRetiroInfoSection = () => {
 
             {/* Título */}
             <div className="space-y-3 sm:space-y-4">
-              <h2 className="font-black tracking-tighter leading-[0.9] relative" style={{ fontSize: 'clamp(2rem, 5vw + 0.5rem, 4.5rem)' }}>
+              <h2 className="font-black tracking-tighter leading-[0.9] relative text-fluid-hero">
                 {/* Glow del título */}
                 <div className="absolute inset-0 blur-3xl opacity-30 bg-gradient-to-r from-blue-400 via-purple-400 to-cyan-400" />
                 
                 <span className="text-white block opacity-90 relative z-10">Coordiná la</span>
                 <span className="relative inline-block z-10">
-                  <span className="bg-gradient-to-r from-blue-400 via-purple-400 to-cyan-400 bg-clip-text text-transparent" style={{
-                    filter: 'drop-shadow(0 0 30px rgba(59, 130, 246, 0.6))'
-                  }}>
+                  <span className="bg-gradient-to-r from-blue-400 via-purple-400 to-cyan-400 bg-clip-text text-transparent drop-shadow-[0_0_30px_rgba(59,130,246,0.6)]">
                     Entrega
                   </span>
                 </span>
@@ -80,7 +72,7 @@ const PuntosRetiroInfoSection = () => {
                 { icon: MapPin, text: 'Puntos Seguros', gradient: 'from-purple-500/10 to-cyan-500/10', border: 'border-purple-400/30', iconColor: 'text-purple-300', glow: 'shadow-purple-500/20' },
                 { icon: Truck, text: 'Sin Envíos', gradient: 'from-cyan-500/10 to-blue-500/10', border: 'border-cyan-400/30', iconColor: 'text-cyan-300', glow: 'shadow-cyan-500/20' }
               ].map((item, i) => (
-                <div key={i} className={`group flex flex-col items-center justify-center gap-2 sm:gap-2.5 p-3 sm:p-4 lg:p-5 bg-gradient-to-br ${item.gradient} backdrop-blur-xl rounded-lg sm:rounded-xl lg:rounded-2xl border ${item.border} ${item.glow} shadow-lg transform transition-all hover:scale-105 hover:shadow-2xl hover:border-opacity-60`}>
+                <div key={i} className={`group flex flex-col items-center justify-center gap-2 sm:gap-2.5 p-3 sm:p-4 lg:p-5 bg-gradient-to-br ${item.gradient} backdrop-blur-xl rounded-lg sm:rounded-xl lg:rounded-2xl border ${item.border} ${item.glow} shadow-lg transition-all hover:scale-105 hover:shadow-2xl hover:border-opacity-60`}>
                   <item.icon className={`w-5 h-5 sm:w-6 sm:h-6 lg:w-7 lg:h-7 ${item.iconColor} group-hover:scale-110 transition-transform flex-shrink-0`} strokeWidth={2.5} />
                   <span className="font-bold text-white/90 text-[0.65rem] sm:text-xs lg:text-sm uppercase tracking-wide text-center leading-tight">{item.text}</span>
                 </div>

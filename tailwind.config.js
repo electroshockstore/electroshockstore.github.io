@@ -52,6 +52,10 @@ export default {
         'body': ['1rem', { lineHeight: '1.6', letterSpacing: '0', fontWeight: '400' }],
         'caption': ['0.875rem', { lineHeight: '1.5', letterSpacing: '0.01em', fontWeight: '400' }],
         'small': ['0.75rem', { lineHeight: '1.4', letterSpacing: '0.02em', fontWeight: '400' }],
+        // Fluid typography
+        'fluid-hero': 'clamp(2rem, 5vw + 0.5rem, 4.5rem)',
+        'fluid-xl': 'clamp(1.5rem, 4vw + 0.5rem, 3rem)',
+        'fluid-lg': 'clamp(1.25rem, 3vw + 0.5rem, 2rem)',
       },
       
       // Espaciado coherente basado en múltiplos de 4
@@ -60,6 +64,16 @@ export default {
         '22': '5.5rem',
         '26': '6.5rem',
         '30': '7.5rem',
+      },
+      
+      // Scales personalizadas
+      scale: {
+        '85': '0.85',
+        '92': '0.92',
+        '105': '1.05',
+        '110': '1.10',
+        '115': '1.15',
+        '120': '1.20',
       },
       
       // Bordes redondeados - Estilo Apple High-Round

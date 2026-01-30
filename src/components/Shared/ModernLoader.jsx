@@ -1,5 +1,5 @@
 /**
- * Loader simple con el logotipo real de Shock-Store
+ * Loader simple con el logotipo real de ElectroShock
  */
 const ModernLoader = () => {
   return (
@@ -7,7 +7,7 @@ const ModernLoader = () => {
       <div className="flex justify-center">
         <img 
           src="/logotipo_tiny.png" 
-          alt="Shock-Store" 
+          alt="ElectroShock" 
           className="w-48 h-48 animate-pulse"
         />
       </div>

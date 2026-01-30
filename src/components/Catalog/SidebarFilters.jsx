@@ -92,7 +92,7 @@ const SidebarFilters = ({ selectedCategory, filters, onFilterChange, onClearFilt
           {hasActiveFilters && (
             <button
               onClick={onClearFilters}
-              className="group text-sm text-red-500 hover:text-red-600 font-medium flex items-center gap-1.5 px-3 py-1.5 rounded-lg hover:bg-red-50 transition-all duration-300 transform hover:scale-105"
+              className="group text-sm text-red-500 hover:text-red-600 font-medium flex items-center gap-1.5 px-3 py-1.5 rounded-lg hover:bg-red-50 transition-all duration-300 hover:scale-105"
             >
               <X className="w-4 h-4 group-hover:rotate-90 transition-transform duration-300" />
               Limpiar
@@ -141,9 +141,9 @@ const SidebarFilters = ({ selectedCategory, filters, onFilterChange, onClearFilt
               </div>
               <div className="flex items-center gap-2">
                 {isExpanded ? (
-                  <ChevronUp className="w-5 h-5 text-gray-400 group-hover:text-blue-600 transition-all duration-300 transform group-hover:scale-110" />
+                  <ChevronUp className="w-5 h-5 text-gray-400 group-hover:text-blue-600 transition-all duration-300 group-hover:scale-110" />
                 ) : (
-                  <ChevronDown className="w-5 h-5 text-gray-400 group-hover:text-blue-600 transition-all duration-300 transform group-hover:scale-110" />
+                  <ChevronDown className="w-5 h-5 text-gray-400 group-hover:text-blue-600 transition-all duration-300 group-hover:scale-110" />
                 )}
               </div>
             </button>
@@ -155,7 +155,7 @@ const SidebarFilters = ({ selectedCategory, filters, onFilterChange, onClearFilt
                   return (
                     <label
                       key={option}
-                      className={`flex items-center gap-3 p-3 rounded-lg cursor-pointer transition-all duration-300 transform hover:scale-[1.02] hover:shadow-md ${
+                      className={`flex items-center gap-3 p-3 rounded-lg cursor-pointer transition-all duration-300 hover:scale-[1.02] hover:shadow-md ${
                         isSelected
                           ? 'bg-gradient-to-r from-blue-500 to-purple-500 text-white shadow-lg'
                           : 'bg-white hover:bg-gradient-to-r hover:from-blue-50 hover:to-purple-50 border border-gray-200'

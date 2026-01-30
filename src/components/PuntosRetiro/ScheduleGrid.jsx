@@ -5,7 +5,7 @@ const ScheduleGrid = memo(({ days, schedule, weekendSchedule }) => {
   return (
     <div className="space-y-3 sm:space-y-4 flex-shrink-0">
       {/* Grid 2 columnas ultra-optimizado */}
-      <div className="grid gap-3 sm:gap-4" style={{ gridTemplateColumns: '1.4fr 1fr' }}>
+      <div className="grid grid-cols-[1.4fr_1fr] gap-3 sm:gap-4">
         {/* Días */}
         <div className="relative bg-gray-800/50 rounded-xl sm:rounded-2xl border border-white/10 p-3 sm:p-5 overflow-hidden hover:bg-gray-800/70 transition-colors duration-200">
           <div className="flex flex-col gap-2 sm:gap-3">

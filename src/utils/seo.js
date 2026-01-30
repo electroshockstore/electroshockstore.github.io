@@ -77,7 +77,7 @@ export const generateProductSchema = (product) => {
       "availability": product.stock > 0 ? "https://schema.org/InStock" : "https://schema.org/OutOfStock",
       "seller": {
         "@type": "Organization",
-        "name": "Shock-Store"
+        "name": "ElectroShock"
       }
     }
   };
@@ -95,14 +95,14 @@ export const generateOrganizationSchema = () => {
   return {
     "@context": "https://schema.org",
     "@type": "Store",
-    "name": "Shock-Store",
-    "description": "Tienda de componentes de PC, periféricos gaming, hardware y tecnología en Berazategui y Florencio Varela",
+    "name": "ElectroShock",
+    "description": "Tienda de componentes de PC, periféricos gaming, hardware y tecnología en Zona Sur,  Buenos Aires. y Florencio Varela",
     "url": "https://www.jldev.com.ar",
     "logo": "https://www.jldev.com.ar/logotipo_tiny.png",
     "image": "https://www.jldev.com.ar/logotipo_tiny.png",
     "address": {
       "@type": "PostalAddress",
-      "addressLocality": "Berazategui",
+      "addressLocality": "Zona Sur,  Buenos Aires.",
       "addressRegion": "Buenos Aires",
       "addressCountry": "AR"
     },
@@ -153,11 +153,11 @@ export const generateProductKeywords = (product) => {
     product.brand,
     product.model,
     product.category,
-    'shock-store',
+    'ElectroShock',
     'componentes pc',
     'hardware',
     'tecnología',
-    'berazategui',
+    'Zona Sur,  Buenos Aires.',
     'florencio varela'
   ];
 
@@ -176,5 +176,5 @@ export const generateProductDescription = (product) => {
   const price = `$${product.price.toLocaleString('es-AR')}`;
   const stock = product.stock > 0 ? 'Disponible' : 'Sin stock';
   
-  return `${baseDesc}. Precio: ${price}. ${stock} en Shock-Store. Envíos a todo el país. Berazategui y Florencio Varela.`;
+  return `${baseDesc}. Precio: ${price}. ${stock} en ElectroShock. Envíos a todo el país. Zona Sur,  Buenos Aires. y Florencio Varela.`;
 };

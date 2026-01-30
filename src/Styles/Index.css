@@ -389,6 +389,31 @@
   .product-card-enter {
     animation-duration: 0.15s !important;
   }
+  
+  /* Reducir blur para mejor performance */
+  .blur-\[120px\] { 
+    filter: blur(40px) !important; 
+  }
+  .blur-\[80px\] { 
+    filter: blur(30px) !important; 
+  }
+  .blur-3xl { 
+    filter: blur(24px) !important; 
+  }
+  .blur-2xl { 
+    filter: blur(16px) !important; 
+  }
+  
+  /* Desactivar will-change en mobile para ahorrar memoria */
+  * {
+    will-change: auto !important;
+  }
+  
+  /* Simplificar sombras complejas */
+  .shadow-2xl,
+  .shadow-xl {
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15) !important;
+  }
 }
 
 /* --- CONFIGURACIÓN DE MALLA ABSTRACTA (OPTIMIZADA) --- */
@@ -708,4 +733,25 @@
 /* iOS: Optimizar capas de composición */
 .is-ios .gpu-accelerated {
   will-change: auto !important;
+}
+
+/* Low-end devices: Desactivar efectos pesados */
+.is-low-end .blur-\[120px\],
+.is-low-end .blur-\[80px\],
+.is-low-end .blur-3xl {
+  filter: none !important;
+}
+
+.is-low-end .animate-pulse,
+.is-low-end .animate-orbit-1,
+.is-low-end .animate-orbit-2,
+.is-low-end .animate-orbit-3 {
+  animation: none !important;
+}
+
+/* Reduce animations: Respetar preferencias del usuario */
+.reduce-animations * {
+  animation-duration: 0.01ms !important;
+  animation-iteration-count: 1 !important;
+  transition-duration: 0.01ms !important;
 }

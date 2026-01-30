@@ -1,17 +1,11 @@
 import { Store, Truck, ShieldCheck, CheckCircle2 } from 'lucide-react';
+import { useState, useEffect } from 'react';
 
 const PromoCarousel = () => {
-  const promoMessages = [
-    { 
-      icon: Store, 
-      text: 'No tenemos local físico', 
-      gradient: 'from-rose-400 via-pink-500 to-fuchsia-600',
-    },
-    { 
-      icon: Truck, 
-      text: 'No hacemos envíos', 
-      gradient: 'from-blue-400 via-cyan-500 to-teal-500',
-    },
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+  // Mensajes del carousel central (vertical)
+  const centerMessages = [
     { 
       icon: ShieldCheck, 
       text: 'Sin señas ni pagos previos', 
@@ -24,48 +18,52 @@ const PromoCarousel = () => {
     }
   ];
 
-  // Duplicar 4 veces para scroll infinito perfecto
-  const duplicatedMessages = [
-    ...promoMessages, 
-    ...promoMessages, 
-    ...promoMessages, 
-    ...promoMessages
-  ];
+  // Auto-rotate carousel
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentIndex((prev) => (prev + 1) % centerMessages.length);
+    }, 3000);
+    return () => clearInterval(interval);
+  }, [centerMessages.length]);
 
   return (
-    <div className="sm:hidden w-full bg-slate-950 py-1.5 overflow-hidden relative border-y border-white/5">
-      {/* Keyframes optimizado */}
-      <style>{`
-        @keyframes promo-scroll {
-          0% { transform: translateX(0); }
-          100% { transform: translateX(-50%); }
-        }
-        .promo-animate {
-          animation: promo-scroll 20s linear infinite;
-        }
-      `}</style>
-      
-      {/* Fade edges */}
-      <div className="absolute left-0 top-0 bottom-0 w-12 bg-gradient-to-r from-slate-950 to-transparent z-10 pointer-events-none" />
-      <div className="absolute right-0 top-0 bottom-0 w-12 bg-gradient-to-l from-slate-950 to-transparent z-10 pointer-events-none" />
-      
-      {/* Scrolling content */}
-      <div className="flex items-center whitespace-nowrap promo-animate">
-        {duplicatedMessages.map((promo, index) => {
-          const Icon = promo.icon;
-          return (
-            <div key={index} className="flex items-center gap-2.5 px-5 flex-shrink-0">
-              <Icon className="w-4 h-4 text-white flex-shrink-0" strokeWidth={2.5} />
-              <span className={`text-xs font-black tracking-tight uppercase bg-gradient-to-r ${promo.gradient} bg-clip-text text-transparent`}>
-                {promo.text}
-              </span>
-              <div className="flex gap-1 ml-3 opacity-30 flex-shrink-0">
-                <div className="w-1 h-1 rotate-45 bg-white" />
-                <div className="w-1 h-1 rotate-45 bg-white" />
-              </div>
-            </div>
-          );
-        })}
+    <div className="sm:hidden w-full bg-slate-950 py-2 overflow-hidden relative border-y border-white/5">
+      <div className="flex items-center justify-between px-3 gap-2">
+        {/* LEFT START - No hacemos envío */}
+        <div className="flex items-center gap-1.5 flex-shrink-0">
+          <Truck className="w-3.5 h-3.5 text-blue-400 flex-shrink-0" strokeWidth={2.5} />
+          <span className="text-[10px] font-black tracking-tight uppercase bg-gradient-to-r from-blue-400 via-cyan-500 to-teal-500 bg-clip-text text-transparent whitespace-nowrap">
+            No envíos
+          </span>
+        </div>
+
+        {/* CENTER - Vertical Carousel */}
+        <div className="flex-1 flex justify-center overflow-hidden h-5 relative">
+          <div 
+            className="flex flex-col transition-transform duration-500 ease-in-out"
+            style={{ transform: `translateY(-${currentIndex * 100}%)` }}
+          >
+            {centerMessages.map((promo, index) => {
+              const Icon = promo.icon;
+              return (
+                <div key={index} className="flex items-center justify-center gap-1.5 h-5 flex-shrink-0">
+                  <Icon className="w-3.5 h-3.5 text-white flex-shrink-0" strokeWidth={2.5} />
+                  <span className={`text-[10px] font-black tracking-tight uppercase bg-gradient-to-r ${promo.gradient} bg-clip-text text-transparent whitespace-nowrap`}>
+                    {promo.text}
+                  </span>
+                </div>
+              );
+            })}
+          </div>
+        </div>
+
+        {/* RIGHT END - No tenemos local físico */}
+        <div className="flex items-center gap-1.5 flex-shrink-0">
+          <Store className="w-3.5 h-3.5 text-rose-400 flex-shrink-0" strokeWidth={2.5} />
+          <span className="text-[10px] font-black tracking-tight uppercase bg-gradient-to-r from-rose-400 via-pink-500 to-fuchsia-600 bg-clip-text text-transparent whitespace-nowrap">
+            Sin local
+          </span>
+        </div>
       </div>
     </div>
   );

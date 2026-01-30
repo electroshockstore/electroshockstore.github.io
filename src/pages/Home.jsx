@@ -23,9 +23,9 @@ const Home = () => {
 
   // SEO para Home
   useSEO({
-    title: 'Shock-Store | Catálogo de Venta - Tecnología y Componentes PC',
-    description: 'Catálogo completo de productos Shock-Store. Encuentra los mejores componentes para PC, hardware gaming, periféricos y más.',
-    keywords: 'shock-store, componentes pc, hardware, gaming, tecnología',
+    title: 'ElectroShock | Catálogo de Venta - Tecnología y Componentes PC',
+    description: 'Catálogo completo de productos ElectroShock. Encuentra los mejores componentes para PC, hardware gaming, periféricos y más.',
+    keywords: 'ElectroShock, componentes pc, hardware, gaming, tecnología',
     type: 'website'
   });
 

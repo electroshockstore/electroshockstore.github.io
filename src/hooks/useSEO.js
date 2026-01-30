@@ -26,9 +26,9 @@ export const useSEO = ({
     const baseUrl = 'https://www.jldev.com.ar';
     
     // Títulos y descripciones más atractivos y sintetizados
-    const defaultTitle = 'Shock-Store | 🔥 Tecnología y Componentes PC - Berazategui';
-    const defaultDescription = '🚀 Tu tienda de tecnología en Berazategui. ✅ Componentes PC ⚡ Gaming 💻 Hardware 🎮 Periféricos. Catálogo actualizado, mejores precios y envíos rápidos.';
-    const defaultKeywords = 'shock-store, componentes pc, hardware gaming, periféricos, tecnología, berazategui, placas video, procesadores, memorias ram, ssd, fuentes, refrigeración';
+    const defaultTitle = 'ElectroShock | 🔥 Tecnología y Componentes PC - Zona Sur, Buenos Aires';
+    const defaultDescription = '🚀 Tu tienda de tecnología en Zona Sur, Buenos Aires. ✅ Componentes PC ⚡ Gaming 💻 Hardware 🎮 Periféricos. Catálogo actualizado, mejores precios y envíos rápidos.';
+    const defaultKeywords = 'ElectroShock, componentes pc, hardware gaming, periféricos, tecnología, Zona Sur, Buenos Aires, placas video, procesadores, memorias ram, ssd, fuentes, refrigeración';
     
     updateMetaTags({
       title: title || defaultTitle,
@@ -72,16 +72,16 @@ export const useSEO = ({
 
 export const useProductSEO = (product) => {
   const title = product 
-    ? `${product.name} - ${product.brand} | 🔥 Shock-Store`
-    : 'Shock-Store | 🔥 Tecnología y Componentes PC - Berazategui';
+    ? `${product.name} - ${product.brand} | 🔥 ElectroShock`
+    : 'ElectroShock | 🔥 Tecnología y Componentes PC - Zona Sur,  Buenos Aires.';
   
   const description = product 
-    ? `🚀 ${product.name} de ${product.brand} en Shock-Store. 💰 $${product.price?.toLocaleString()} ✅ Stock disponible ⚡ Envío rápido. ${generateProductDescription(product)}`
-    : '🚀 Catálogo completo Shock-Store. ✅ Componentes PC 🎮 Gaming 💻 Hardware 🖱️ Periféricos. Mejores precios y calidad garantizada.';
+    ? `🚀 ${product.name} de ${product.brand} en ElectroShock. 💰 $${product.price?.toLocaleString()} ✅ Stock disponible. ${generateProductDescription(product)}`
+    : '🚀 Catálogo completo ElectroShock. ✅ Componentes PC 🎮 Gaming 💻 Hardware 🖱️ Periféricos. Mejores precios y calidad garantizada.';
   
   const keywords = product 
-    ? `${generateProductKeywords(product)}, shock-store, berazategui, ${product.brand.toLowerCase()}, ${product.category.toLowerCase()}`
-    : 'shock-store, componentes pc, hardware gaming, tecnología, berazategui';
+    ? `${generateProductKeywords(product)}, ElectroShock, Zona Sur,  Buenos Aires., ${product.brand.toLowerCase()}, ${product.category.toLowerCase()}`
+    : 'ElectroShock, componentes pc, hardware gaming, tecnología, Zona Sur,  Buenos Aires.';
   
   const image = product?.images?.[0] || '/logotipo_tiny.png';
 
@@ -97,16 +97,16 @@ export const useProductSEO = (product) => {
 
 export const useCategorySEO = (category, productCount) => {
   const title = category 
-    ? `${category} | 🔥 Shock-Store - ${productCount} Productos Disponibles`
-    : 'Shock-Store | 🔥 Tecnología y Componentes PC - Berazategui';
+    ? `${category} | 🔥 ElectroShock - ${productCount} Productos Disponibles`
+    : 'ElectroShock | 🔥 Tecnología y Componentes PC - Zona Sur,  Buenos Aires.';
   
   const description = category
-    ? `🚀 Explorá ${productCount} productos de ${category.toLowerCase()} en Shock-Store Berazategui. ✅ Stock actualizado 💰 Mejores precios ⚡ Envío rápido 🎮 Gaming y tecnología.`
-    : '🚀 Catálogo completo Shock-Store. ✅ Componentes PC 🎮 Gaming 💻 Hardware 🖱️ Periféricos. Tu tienda de tecnología en Berazategui.';
+    ? `🚀 Explorá ${productCount} productos de ${category.toLowerCase()} en ElectroShock Zona Sur,  Buenos Aires.. ✅ Stock actualizado 💰 Mejores precios ⚡ Envío rápido 🎮 Gaming y tecnología.`
+    : '🚀 Catálogo completo ElectroShock. ✅ Componentes PC 🎮 Gaming 💻 Hardware 🖱️ Periféricos. Tu tienda de tecnología en Zona Sur,  Buenos Aires..';
   
   const keywords = category
-    ? `${category.toLowerCase()}, shock-store, componentes pc, hardware, tecnología, berazategui, gaming, ${category.toLowerCase()} gaming`
-    : 'shock-store, componentes pc, hardware gaming, tecnología, berazategui';
+    ? `${category.toLowerCase()}, ElectroShock, componentes pc, hardware, tecnología, Zona Sur,  Buenos Aires., gaming, ${category.toLowerCase()} gaming`
+    : 'ElectroShock, componentes pc, hardware gaming, tecnología, Zona Sur,  Buenos Aires.';
 
   useSEO({
     title,

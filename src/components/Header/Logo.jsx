@@ -16,7 +16,7 @@ const Logo = ({ onGoHome, isMobile = false }) => {
       >
         <img 
           src="/logotipo_tiny.png" 
-          alt="Shock-Store Logo" 
+          alt="ElectroShock Logo" 
           className="h-14 w-auto object-contain"
         />
       </button>
@@ -38,7 +38,7 @@ const Logo = ({ onGoHome, isMobile = false }) => {
         <div className="relative p-2.5 bg-gradient-to-br from-gray-900 via-gray-800 to-black rounded-2xl border border-white/20 shadow-[0_0_20px_rgba(59,130,246,0.3)]">
           <img 
             src="/logotipo_tiny.png" 
-            alt="Shock-Store Logo" 
+            alt="ElectroShock Logo" 
             className="h-10 w-auto object-contain relative z-10 filter drop-shadow-[0_0_12px_rgba(59,130,246,0.8)]" 
           />
         </div>
@@ -47,7 +47,7 @@ const Logo = ({ onGoHome, isMobile = false }) => {
       {/* Texto */}
       <div className="relative z-10 flex flex-col items-start">
         <h1 className="text-5xl font-black tracking-tighter bg-gradient-to-r from-white via-blue-200 to-white bg-clip-text text-transparent drop-shadow-[0_0_10px_rgba(255,255,255,0.3)]">
-          Shock-Store
+          Shock Store
         </h1>
         <div className="flex items-center gap-2">
           <div className="h-[3px] w-10 bg-gradient-to-r from-blue-400 to-transparent rounded-full shadow-[0_0_8px_rgba(59,130,246,0.6)]" />

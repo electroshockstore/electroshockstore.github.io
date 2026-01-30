@@ -22,7 +22,7 @@ const ImportantRulesBentoGrid = ({ rules = [] }) => {
         
         {/* Layout Mobile Optimizado */}
         <div className="lg:hidden max-w-md mx-auto">
-          <div className="grid gap-3" style={{ gridTemplateColumns: '1fr 1fr' }}>
+          <div className="grid grid-cols-2 gap-3">
             
             {/* CARD 1: SIN DEPÓSITOS */}
             <div className="bg-pink-50 rounded-[2rem] p-4 border border-pink-100 flex flex-col justify-between relative overflow-hidden">
@@ -175,13 +175,7 @@ const ImportantRulesBentoGrid = ({ rules = [] }) => {
             <img 
               src="/images/puntos_retiro.webp" 
               alt="Condiciones" 
-              className="w-full h-full object-contain p-4 relative z-20"
-              style={{ 
-                transform: 'translateY(-10px) scale(1.2)',
-                maxWidth: '130%',
-                maxHeight: '130%',
-                filter: 'drop-shadow(0 15px 30px rgba(219,39,119,.25))'
-              }}
+              className="w-full h-full object-contain p-4 relative z-20 -translate-y-2.5 scale-120 drop-shadow-[0_15px_30px_rgba(219,39,119,0.25)]"
             />
           </div>
 

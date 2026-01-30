@@ -4,17 +4,10 @@ import './Styles/Index.css';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import PreloadResources from './components/SEO/PreloadResources';
+import { initDeviceDetection } from './utils/deviceDetection';
 
-// Detectar iOS y agregar clase al body para optimizaciones específicas
-const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
-const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
-
-if (isIOS) {
-  document.body.classList.add('is-ios');
-}
-if (isMobile) {
-  document.body.classList.add('is-mobile');
-}
+// Inicializar detección de dispositivo para optimizaciones
+initDeviceDetection();
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(

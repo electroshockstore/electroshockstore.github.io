@@ -36,8 +36,8 @@ const CategoryProductSection = ({ onCategoryClick }) => {
             {/* Partículas de fondo animadas */}
             <div className="absolute inset-0 overflow-hidden pointer-events-none">
                 <div className="absolute top-20 left-10 w-72 h-72 bg-blue-500/10 rounded-full blur-3xl animate-pulse" />
-                <div className="absolute bottom-20 right-10 w-96 h-96 bg-purple-500/10 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s' }} />
-                <div className="absolute top-1/2 left-1/2 w-80 h-80 bg-pink-500/10 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '2s' }} />
+                <div className="absolute bottom-20 right-10 w-96 h-96 bg-purple-500/10 rounded-full blur-3xl animate-pulse [animation-delay:1s]" />
+                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-80 h-80 bg-pink-500/10 rounded-full blur-3xl animate-pulse [animation-delay:2s]" />
             </div>
 
             <div className="max-w-7xl mx-auto py-8 sm:py-12 md:py-16 px-0 sm:px-6 lg:px-8 relative z-10">
@@ -307,8 +307,8 @@ const CategoryProductSection = ({ onCategoryClick }) => {
                         
                         {/* Partículas animadas - Solo en desktop */}
                         <div className="hidden sm:block absolute -top-2 -right-2 w-3 md:w-4 h-3 md:h-4 bg-blue-300 rounded-full opacity-0 group-hover:opacity-100 animate-ping" />
-                        <div className="hidden sm:block absolute -bottom-2 -left-2 w-2 md:w-3 h-2 md:h-3 bg-purple-300 rounded-full opacity-0 group-hover:opacity-100 animate-ping" style={{ animationDelay: '0.3s' }} />
-                        <div className="hidden sm:block absolute top-1/2 -right-3 md:-right-4 w-1.5 md:w-2 h-1.5 md:h-2 bg-pink-300 rounded-full opacity-0 group-hover:opacity-100 animate-ping" style={{ animationDelay: '0.6s' }} />
+                        <div className="hidden sm:block absolute -bottom-2 -left-2 w-2 md:w-3 h-2 md:h-3 bg-purple-300 rounded-full opacity-0 group-hover:opacity-100 animate-ping [animation-delay:0.3s]" />
+                        <div className="hidden sm:block absolute top-1/2 -right-3 md:-right-4 w-1.5 md:w-2 h-1.5 md:h-2 bg-pink-300 rounded-full opacity-0 group-hover:opacity-100 animate-ping [animation-delay:0.6s]" />
                     </button>
                 </div>
             </div>
@@ -380,9 +380,9 @@ const CategoryCard = ({ category, onCategoryClick, className, textSize, isLarge 
         {isLarge && (
             <>
                 <div className="absolute top-4 right-4 w-3 h-3 bg-blue-400 rounded-full opacity-0 group-hover:opacity-100 animate-ping transition-opacity duration-500 shadow-[0_0_20px_rgba(59,130,246,0.8)]" />
-                <div className="absolute bottom-6 right-6 w-2 h-2 bg-purple-400 rounded-full opacity-0 group-hover:opacity-100 animate-ping transition-opacity duration-500 shadow-[0_0_15px_rgba(147,51,234,0.8)]" style={{ animationDelay: '0.5s' }} />
-                <div className="absolute top-1/3 right-8 w-2.5 h-2.5 bg-pink-400 rounded-full opacity-0 group-hover:opacity-100 animate-ping transition-opacity duration-500 shadow-[0_0_18px_rgba(236,72,153,0.8)]" style={{ animationDelay: '1s' }} />
-                <div className="absolute top-1/2 left-6 w-1.5 h-1.5 bg-cyan-400 rounded-full opacity-0 group-hover:opacity-100 animate-ping transition-opacity duration-500 shadow-[0_0_12px_rgba(34,211,238,0.8)]" style={{ animationDelay: '1.5s' }} />
+                <div className="absolute bottom-6 right-6 w-2 h-2 bg-purple-400 rounded-full opacity-0 group-hover:opacity-100 animate-ping transition-opacity duration-500 shadow-[0_0_15px_rgba(147,51,234,0.8)] [animation-delay:0.5s]" />
+                <div className="absolute top-1/3 right-8 w-2.5 h-2.5 bg-pink-400 rounded-full opacity-0 group-hover:opacity-100 animate-ping transition-opacity duration-500 shadow-[0_0_18px_rgba(236,72,153,0.8)] [animation-delay:1s]" />
+                <div className="absolute top-1/2 left-6 w-1.5 h-1.5 bg-cyan-400 rounded-full opacity-0 group-hover:opacity-100 animate-ping transition-opacity duration-500 shadow-[0_0_12px_rgba(34,211,238,0.8)] [animation-delay:1.5s]" />
             </>
         )}
 

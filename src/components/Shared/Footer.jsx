@@ -20,7 +20,7 @@ const Footer = () => {
       {/* Elementos decorativos de fondo OPTIMIZADOS */}
       <div className="absolute top-0 left-1/4 w-96 h-96 bg-blue-600/15 blur-[80px] rounded-full pointer-events-none animate-pulse" />
       <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-emerald-600/15 blur-[80px] rounded-full pointer-events-none animate-pulse" />
-      <div className="absolute top-1/2 left-1/2 w-64 h-64 bg-purple-600/8 blur-[60px] rounded-full pointer-events-none" />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-purple-600/8 blur-[60px] rounded-full pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 relative z-10">
         
@@ -35,7 +35,7 @@ const Footer = () => {
                   <img src="/logotipo_tiny.png" alt="Logo" className="h-10 w-auto" />
                 </div>
                 <div>
-                  <h3 className="text-2xl font-black tracking-tighter bg-gradient-to-r from-white via-blue-100 to-white bg-clip-text text-transparent">Shock-Store</h3>
+                  <h3 className="text-2xl font-black tracking-tighter bg-gradient-to-r from-white via-blue-100 to-white bg-clip-text text-transparent">ElectroShock</h3>
                   <div className="h-1 w-12 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full mt-1" />
                 </div>
               </div>
@@ -79,7 +79,7 @@ const Footer = () => {
                 </div>
                 <div>
                   <p className="text-[10px] font-black text-gray-500 uppercase tracking-wider">Email</p>
-                  <p className="text-sm font-black text-white">info@shock-store.com</p>
+                  <p className="text-sm font-black text-white">info@electroshock.com</p>
                 </div>
               </div>
             </div>
@@ -129,7 +129,7 @@ const Footer = () => {
                 >
                   <img 
                     src="/images/map_location.webp"
-                    alt="Mapa de ubicaciones Shock-Store"
+                    alt="Mapa de ubicaciones ElectroShock"
                     className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700"
                     loading="lazy"
                   />
@@ -155,7 +155,7 @@ const Footer = () => {
                   <img src="/logotipo_tiny.png" alt="Logo" className="h-14 w-auto" />
                 </div>
                 <div>
-                  <h3 className="text-4xl font-black tracking-tighter bg-gradient-to-r from-white via-blue-100 to-white bg-clip-text text-transparent">Shock-Store</h3>
+                  <h3 className="text-4xl font-black tracking-tighter bg-gradient-to-r from-white via-blue-100 to-white bg-clip-text text-transparent">ElectroShock</h3>
                   <div className="h-1 w-16 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full mt-1.5" />
                 </div>
               </div>
@@ -199,7 +199,7 @@ const Footer = () => {
                 </div>
                 <div>
                   <p className="text-[10px] font-black text-gray-500 uppercase tracking-wider">Email</p>
-                  <p className="text-base font-black text-white">info@shock-store.com</p>
+                  <p className="text-base font-black text-white">info@electroshock.com</p>
                 </div>
               </div>
             </div>
@@ -249,7 +249,7 @@ const Footer = () => {
                   >
                     <img 
                       src="/images/map_location.webp"
-                      alt="Mapa de ubicaciones Shock-Store"
+                      alt="Mapa de ubicaciones ElectroShock"
                       className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700"
                       loading="lazy"
                     />
@@ -269,7 +269,7 @@ const Footer = () => {
 
             <div className="w-10 h-[2px] bg-gradient-to-r from-transparent via-blue-500 to-transparent " />
             <p className="text-[11px] font-bold text-gray-500 uppercase tracking-[0.2em]">
-              © 2025 Shock-Store · Buenos Aires, Argentina
+              © 2025 ElectroShock · Buenos Aires, Argentina
             </p>
             <div className="w-10 h-[2px] bg-gradient-to-r from-transparent via-blue-500 to-transparent" />
           </div>
