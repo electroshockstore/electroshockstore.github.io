@@ -1,4 +1,4 @@
-# robots.txt para ElectroShock - Componentes PC Zona Sur, Buenos Aires
+# robots.txt para Shock-Store - Componentes PC Berazategui
 User-agent: *
 Allow: /
 Allow: /categoria/
