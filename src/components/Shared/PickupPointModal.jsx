@@ -153,29 +153,9 @@ const PickupPointModal = memo(({ isOpen, onClose, onSelectPoint, selectedPoint }
                         </div>
                       </div>
 
-                      {/* Fines de semana */}
-                      {point.weekendSchedule && (
-                        <div className={`flex items-center gap-2 rounded-lg px-2 py-1.5 border ${
-                          point.weekendSchedule === 'NO'
-                            ? 'bg-red-500/10 border-red-500/30'
-                            : 'bg-purple-500/10 border-purple-500/30'
-                        }`}>
-                          <Calendar className={`w-3.5 h-3.5 sm:w-4 sm:h-4 flex-shrink-0 ${
-                            point.weekendSchedule === 'NO' ? 'text-red-400' : 'text-purple-400'
-                          }`} strokeWidth={2} />
-                          <div className="min-w-0 flex-1">
-                            <p className="text-[9px] sm:text-[10px] text-gray-400 uppercase font-medium leading-tight">
-                              <span className="sm:hidden">Fin de Semana</span>
-                              <span className="hidden sm:inline">Fines de Semana</span>
-                            </p>
-                            <p className={`text-xs sm:text-sm font-bold leading-tight ${
-                              point.weekendSchedule === 'NO' ? 'text-red-400' : 'text-purple-400'
-                            }`}>
-                              {point.weekendSchedule}
-                            </p>
-                          </div>
-                        </div>
-                      )}
+                    
+                     
+                   
                     </div>
                   </button>
                 );
