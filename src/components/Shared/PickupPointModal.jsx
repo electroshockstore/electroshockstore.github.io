@@ -1,20 +1,33 @@
-import { memo } from 'react';
+import { memo, useEffect } from 'react';
 import { MapPin, X, Calendar, Clock, Shield, Camera, MapPinned } from 'lucide-react';
 import { PICKUP_POINTS } from '../PuntosRetiro/constants';
 
 const PickupPointModal = memo(({ isOpen, onClose, onSelectPoint, selectedPoint }) => {
+  // Bloquear scroll del body cuando el modal está abierto
+  useEffect(() => {
+    if (isOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
+    
+    return () => {
+      document.body.style.overflow = '';
+    };
+  }, [isOpen]);
+
   if (!isOpen) return null;
 
   return (
     <>
       {/* Backdrop */}
       <div 
-        className="fixed inset-0 bg-black/60 backdrop-blur-sm z-[100] animate-in fade-in duration-200"
+        className="fixed inset-0 bg-black/60 backdrop-blur-sm z-[9998] animate-in fade-in duration-200"
         onClick={onClose}
       />
 
       {/* Modal */}
-      <div className="fixed inset-0 z-[101] flex items-center justify-center p-3 sm:p-4 animate-in zoom-in-95 fade-in duration-200">
+      <div className="fixed inset-0 z-[9999] flex items-center justify-center p-3 sm:p-4 animate-in zoom-in-95 fade-in duration-200">
         <div className="relative bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 rounded-2xl sm:rounded-3xl shadow-2xl w-full max-w-2xl border border-gray-700/50 overflow-hidden max-h-[95vh] flex flex-col">
           {/* Decorative glow */}
           <div className="absolute top-0 left-1/2 -translate-x-1/2 w-64 h-64 bg-green-500/20 rounded-full blur-3xl" />
@@ -46,19 +59,16 @@ const PickupPointModal = memo(({ isOpen, onClose, onSelectPoint, selectedPoint }
                   <Shield className="w-4 h-4 sm:w-5 sm:h-5 text-emerald-400" strokeWidth={2} />
                   <p className="text-xs sm:text-sm font-bold text-emerald-400 uppercase">Todos los puntos cuentan con:</p>
                 </div>
-                <div className="grid grid-cols-1 sm:grid-cols-3 gap-2">
-                  <div className="flex items-center gap-2">
-                    <Shield className="w-3.5 h-3.5 text-emerald-400/70 flex-shrink-0" strokeWidth={2} />
-                    <span className="text-[10px] sm:text-xs text-gray-300">Seguridad Policial</span>
+                <div className="flex flex-wrap gap-x-4 gap-y-1.5">
+                  <div className="flex items-center gap-1.5">
+                    <Shield className="w-3 h-3 sm:w-3.5 sm:h-3.5 text-emerald-400/70 flex-shrink-0" strokeWidth={2} />
+                    <span className="text-[10px] sm:text-xs text-gray-300 whitespace-nowrap">Seguridad Policial</span>
                   </div>
-                  <div className="flex items-center gap-2">
-                    <Camera className="w-3.5 h-3.5 text-emerald-400/70 flex-shrink-0" strokeWidth={2} />
-                    <span className="text-[10px] sm:text-xs text-gray-300">Cámaras de Seguridad</span>
+                  <div className="flex items-center gap-1.5">
+                    <Camera className="w-3 h-3 sm:w-3.5 sm:h-3.5 text-emerald-400/70 flex-shrink-0" strokeWidth={2} />
+                    <span className="text-[10px] sm:text-xs text-gray-300 whitespace-nowrap">Cámaras de Seguridad</span>
                   </div>
-                  <div className="flex items-center gap-2">
-                    <MapPinned className="w-3.5 h-3.5 text-emerald-400/70 flex-shrink-0" strokeWidth={2} />
-                    <span className="text-[10px] sm:text-xs text-gray-300">Punto Seguro Transitable</span>
-                  </div>
+                
                 </div>
               </div>
             </div>
