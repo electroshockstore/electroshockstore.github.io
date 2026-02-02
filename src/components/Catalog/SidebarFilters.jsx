@@ -65,12 +65,12 @@ const SidebarFilters = ({ selectedCategory, filters, onFilterChange, onClearFilt
       {/* Imagen de categoría */}
       {getCategoryImage(selectedCategory) && (
         <div >
-          <div className="relative flex flex-col items-center">
+          <div className="relative flex flex-col items-center  ">
             {/* Sombra flotante debajo de la imagen */}
             <div className="absolute bottom-12 left-1/2 -translate-x-1/2 w-48 h-10 bg-gray-400/20 rounded-full blur-2xl"></div>
             
             {/* Contenedor de la imagen - tamaño máximo */}
-            <div className="relative w-full max-w-[280px] h-84 flex items-center justify-center ">
+            <div className="relative w-full max-w-[280px] h-84 flex items-center justify-center -mt-5 ">
               <img 
                 src={getCategoryImage(selectedCategory)} 
                 alt={selectedCategory}
