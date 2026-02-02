@@ -109,36 +109,26 @@ const ProductCard = memo(({ product, viewMode, onClick, index = 0, listName = 'P
                  active:scale-[0.98] sm:active:scale-100"
     >
       {/* Elementos geométricos decorativos modernos */}
-      <div className="absolute inset-0 pointer-events-none overflow-hidden">
-        {/* Barra diagonal superior derecha - Azul vibrante */}
-        <div className="absolute -top-8 -right-8 w-32 h-32 bg-gradient-to-br from-blue-500 to-cyan-400 opacity-15 group-hover:opacity-25 transition-opacity duration-300" 
-             style={{ clipPath: 'polygon(100% 0, 0 0, 100% 100%)' }} />
+      <div className="absolute inset-0 pointer-events-none overflow-hidden z-10">
+        {/* Círculo superior derecha - Azul */}
+        <div className="absolute -top-10 -right-10 w-30 h-30 bg-gradient-to-br from-blue-400/30 to-cyan-400/20 rounded-full blur-2xl group-hover:scale-125 transition-transform duration-500" />
         
-        {/* Círculo decorativo inferior izquierda - Púrpura */}
-        <div className="absolute -bottom-6 -left-6 w-24 h-24 rounded-full bg-gradient-to-tr from-purple-500 to-pink-400 opacity-12 group-hover:opacity-20 transition-opacity duration-300" />
+        {/* Círculo inferior izquierda - Púrpura */}
+        <div className="absolute -bottom-20 -left-10 w-32 h-30 bg-gradient-to-tr from-purple-400/30 to-pink-400/20 rounded-full blur-xl group-hover:scale-125 transition-transform duration-500" />
         
-        {/* Línea vertical derecha - Acento naranja */}
-        <div className="absolute top-0 right-8 w-1 h-20 bg-gradient-to-b from-orange-400 via-orange-500 to-transparent opacity-40" />
-        
-        {/* Pequeño cuadrado superior izquierda - Verde */}
-        <div className="absolute top-4 left-4 w-3 h-3 bg-gradient-to-br from-green-400 to-emerald-500 opacity-60 rotate-45" />
-        
-        {/* Línea horizontal inferior - Cyan */}
-        <div className="absolute bottom-0 left-0 right-0 h-0.5 bg-gradient-to-r from-transparent via-cyan-400 to-transparent opacity-30" />
-        
-        {/* Puntos decorativos - Grid pattern */}
-        <div className="absolute top-6 right-6 grid grid-cols-2 gap-1.5 opacity-40">
-          <div className="w-1 h-1 rounded-full bg-blue-500" />
-          <div className="w-1 h-1 rounded-full bg-purple-500" />
-          <div className="w-1 h-1 rounded-full bg-cyan-500" />
-          <div className="w-1 h-1 rounded-full bg-pink-500" />
+        {/* Forma geométrica angular - Naranja (esquina superior izquierda) */}
+        <div className="absolute top-0 left-0 w-10 h-10 opacity-20 group-hover:opacity-40 transition-opacity duration-300">
+          <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-orange-400 to-transparent" style={{ clipPath: 'polygon(0 0, 100% 0, 0 100%)' }} />
         </div>
+        
+       
+        
+       
       </div>
 
       <div className="relative aspect-square bg-gradient-to-br from-gray-50 to-gray-100 overflow-hidden">
-        {/* Glow de color en las esquinas para dar profundidad */}
-        <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-bl from-blue-400/20 via-transparent to-transparent" />
-        <div className="absolute bottom-0 left-0 w-32 h-32 bg-gradient-to-tr from-purple-400/20 via-transparent to-transparent" />
+        {/* Glow debajo de la imagen - Efecto de iluminación */}
+        <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-3/4 h-20 bg-gradient-to-t from-blue-800/300 via-cyan-800/200 to-transparent blur-2xl" />
         
         <ProductImage src={productImage} alt={name} loading={imageLoading} fetchpriority={imageFetchPriority} />
         <StockStatus stockStatus={STOCK_STATUS} />
@@ -146,9 +136,6 @@ const ProductCard = memo(({ product, viewMode, onClick, index = 0, listName = 'P
       </div>
 
       <div className="relative p-2 sm:p-5 flex flex-col flex-1 justify-between gap-2 sm:gap-4">
-        {/* Decoración geométrica en el contenido */}
-        <div className="absolute top-0 right-0 w-16 h-16 bg-gradient-to-bl from-blue-500/5 to-transparent rounded-bl-3xl" />
-        
         <div>
            <ProductInfo 
              name={name} 
