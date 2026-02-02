@@ -3,17 +3,29 @@ import { MapPin, X, Calendar, Clock, Shield, Camera, MapPinned } from 'lucide-re
 import { PICKUP_POINTS } from '../PuntosRetiro/constants';
 
 const PickupPointModal = memo(({ isOpen, onClose, onSelectPoint, selectedPoint }) => {
-  // Bloquear scroll del body cuando el modal está abierto
+  // Bloquear scroll del body cuando el modal está abierto (iOS compatible)
   useEffect(() => {
     if (isOpen) {
+      // Guardar posición actual del scroll
+      const scrollY = window.scrollY;
+      
+      // Aplicar estilos para bloquear scroll (iOS compatible)
+      document.body.style.position = 'fixed';
+      document.body.style.top = `-${scrollY}px`;
+      document.body.style.width = '100%';
       document.body.style.overflow = 'hidden';
-    } else {
-      document.body.style.overflow = '';
+      
+      return () => {
+        // Restaurar estilos
+        document.body.style.position = '';
+        document.body.style.top = '';
+        document.body.style.width = '';
+        document.body.style.overflow = '';
+        
+        // Restaurar posición del scroll
+        window.scrollTo(0, scrollY);
+      };
     }
-    
-    return () => {
-      document.body.style.overflow = '';
-    };
   }, [isOpen]);
 
   if (!isOpen) return null;
