@@ -1,5 +1,34 @@
 {
   "products": [
+
+    {
+      "id": 799,
+      "name": "Redragon Zeus Pro H510-pro - USB/Bluetooth 7.1 Inalámbricos",
+      "brand": "Redragon",
+      "model": "Zeus Pro Wireless",
+      "category": "Auriculares",
+      "price": 110000,
+      "stock": 1,
+      "sku": "RED-ZEUS-PRO-H510",
+      "description": "Auriculares gaming inalámbricos USB/Bluetooth con sonido 7.1, micrófono desmontable",
+      "images": [
+        "/images/auriculares/zeus_pro.webp",
+        "/images/auriculares/zeus_pro_front.webp",
+        "/images/auriculares/zeus_pro_side.webp"
+      ],
+      "specifications": {
+        "Marca": "Redragon",
+        "Línea": "Gaming",
+        "Modelo": "Zeus Pro Wireless",
+        "Modelo alfanumérico": "H510-PRO",
+        "Respuesta en frecuencia": "20 Hz - 20 kHz",
+        "Tipo de conexión": "USB Inalámbrico / Bluetooth",
+        "Sonido": "7.1 Surround",
+        "Micrófono": "Desmontable",
+        "Compatibilidad": "PC / PS4 / PS5 / Switch / Móviles"
+      }
+    },
+
     {
       "id": 800,
       "name": "Redragon Ire Pro H848 Negro- Bluetooth Inalámbrico dongle",
@@ -464,6 +493,72 @@
         "Almohadillas": "Cuero sintético ligero",
         "Sonido": "Estéreo",
         "Peso": "210 g"
+      }
+    },
+    
+    {
+      "id": 815,
+      "name": "Xiaomi Redmi Buds 6 Play - In-ear Bluetooth 5.4 Inalámbricos",
+      "brand": "Xiaomi",
+      "model": "Redmi Buds 6 Play",
+      "category": "Auriculares",
+      "price": 20000,
+      "stock": 3,
+      "sku": "XIA-BUDS6-PLAY",
+      "description": "Auriculares in-ear inalámbricos Bluetooth 5.4 con reducción de ruido IA, IPX4, hasta 36h autonomía",
+      "images": [
+        "/images/auriculares/xiaomi_buds6.webp",
+        "/images/auriculares/xiaomi_buds6_side.webp",
+        "/images/auriculares/xiaomi_buds6_side2.webp",
+        "/images/auriculares/xiaomi_buds6_side3.webp"
+      ],
+      "specifications": {
+        "Marca": "Xiaomi",
+        "Línea": "Redmi Buds",
+        "Modelo": "6 Play (M2420E1)",
+        "Tipo de auricular": "In-ear inalámbrico",
+        "Conectividad": "Bluetooth 5.4 (BLE/HFP/A2DP/AVRCP)",
+        "Respuesta en frecuencia": "20 Hz – 20 kHz",
+        "Impedancia": "16 Ω",
+        "Drivers": "10 mm dinámicos",
+        "Características adicionales": "Control táctil, reducción de ruido por IA, compatibilidad con asistentes de voz y Fast Pair",
+        "Batería auriculares": "57 mAh",
+        "Batería estuche": "600 mAh",
+        "Autonomía": "Hasta 7.5 h con una sola carga / hasta 36 h con estuche",
+        "Puerto de carga": "USB Tipo-C",
+        "Alcance Bluetooth": "Aprox. 10 m",
+        "Resistencia al agua": "IPX4",
+        "Contenido de la caja": "Auriculares, estuche de carga, manual, almohadillas",
+        "Peso": "3.6 g por auricular"
+      }
+    },
+    {
+      "id": 816,
+      "name": "Xiaomi Redmi Buds Essential - In-ear Bluetooth 5.2 Inalámbricos",
+      "brand": "Xiaomi",
+      "model": "Redmi Buds Essential",
+      "category": "Auriculares",
+      "price": 20000,
+      "stock": 3,
+      "sku": "XIA-BUDS-ESS",
+      "description": "Auriculares in-ear inalámbricos Bluetooth 5.2 con micrófono integrado, diseño cómodo",
+      "images": [
+        "/images/auriculares/xiaomi_escentials.webp",
+        "/images/auriculares/xiaomi_escentials_side.webp",
+        "/images/auriculares/xiaomi_escentials_side2.webp",
+        "/images/auriculares/xiaomi_escentials_specs.webp"
+      ],
+      "specifications": {
+        "Marca": "Xiaomi",
+        "Línea": "Redmi",
+        "Modelo": "Buds Essential (M2222E1)",
+        "Tipo de auricular": "In-ear Bluetooth",
+        "Conectividad": "Bluetooth 5.2",
+        "Respuesta en frecuencia": "10 Hz – 20 kHz",
+        "Funciones": "Micrófono integrado",
+        "Características adicionales": "Diseño cómodo, conectividad estable",
+        "Compatibilidad": "Android y iOS",
+        "Contenido de la caja": "Auriculares, estuche de carga, manual"
       }
     }
   ]

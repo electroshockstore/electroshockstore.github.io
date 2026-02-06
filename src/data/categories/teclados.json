@@ -508,6 +508,129 @@
         "Plug and Play": "Sí",
         "Receptor": "Nano receptor USB"
       }
+    },
+    {
+      "id": 712,
+      "name": "Logitech MK270 - Kit Teclado + Mouse Membrana Inalámbrico",
+      "brand": "Logitech",
+      "model": "MK270",
+      "category": "Teclados",
+      "price": 32000,
+      "stock": 10,
+      "sku": "LOGI-MK270",
+      "description": "Kit inalámbrico teclado de tijera + mouse óptico con receptor USB",
+      "images": [
+        "/images/teclados/teclado_mk270.webp",
+        "/images/teclados/teclado_mk270_side.webp",
+        "/images/teclados/teclado_mk270_side2.webp",
+        "/images/teclados/teclado_mk270_side3.webp"
+      ],
+      "specifications": {
+        "Marca": "Logitech",
+        "Modelo completo": "MK270 Wireless",
+        "Tipo de teclado": "De tijera",
+        "Modelo teclado": "MK270",
+        "Modelo mouse": "MK270",
+        "Conectividad": "Wireless 2.4 GHz con receptor USB",
+        "Funciones": "Plug & Play"
+      }
+    },
+    {
+      "id": 713,
+      "name": "Logitech MK470 Slim - Kit Teclado + Mouse Inalámbrico",
+      "brand": "Logitech",
+      "model": "MK470 Slim",
+      "category": "Teclados",
+      "price": 50000,
+      "stock": 4,
+      "sku": "LOGI-MK470",
+      "description": "Kit inalámbrico diseño slim y minimalista con teclas silenciosas y receptor USB",
+      "images": [
+        "/images/teclados/logitech_mk470.webp",
+        "/images/teclados/logitech_mk470_side.webp",
+        "/images/teclados/logitech_mk470_side2.webp",
+        "/images/teclados/logitech_mk470_side3.webp"
+      ],
+      "specifications": {
+        "Marca": "Logitech",
+        "Modelo": "920-009437",
+        "Tipo": "Wireless combo",
+        "Características": "Diseño slim y minimalista con receptor USB",
+        "Tecnología teclado": "Silent Touch (teclas silenciosas)",
+        "Funciones": "Plug & Play"
+      }
+    },
+    {
+      "id": 714,
+      "name": "Logitech G213 Gaming Lightsync RGB - Teclado Membrana",
+      "brand": "Logitech",
+      "model": "G213",
+      "category": "Teclados",
+      "price": 45000,
+      "stock": 1,
+      "sku": "LOGI-G213",
+      "description": "Teclado gaming con retroiluminación RGB Lightsync, arquitectura mecánico híbrido (mecha-membrana)",
+      "images": [
+        "/images/teclados/logitech_g213.webp",
+        "/images/teclados/logitech_g213_side.webp",
+        "/images/teclados/logitech_g213_side2.webp",
+        "/images/teclados/logitech_g213_side3.webp"
+      ],
+      "specifications": {
+        "Marca": "Logitech",
+        "Modelo": "G213",
+        "Tipo de teclado": "Gaming con retroiluminación RGB",
+        "Arquitectura": "Mecánico híbrido (mecha-membrana)",
+        "Funciones": "Teclas multimedia, retroiluminación programable"
+      }
+    },
+    {
+      "id": 715,
+      "name": "Logitech K400 Plus - Touchpad Inalámbrico",
+      "brand": "Logitech",
+      "model": "K400 Plus",
+      "category": "Teclados",
+      "price": 30000,
+      "stock": 1,
+      "sku": "LOGI-K400-PLUS",
+      "description": "Teclado inalámbrico con touchpad integrado, ideal para Smart TV y media center",
+      "images": [
+        "/images/teclados/logitech_k400plus.webp",
+        "/images/teclados/logitech_k400plus_side.webp",
+        "/images/teclados/logitech_k400plus_side2.webp",
+        "/images/teclados/logitech_k400plus_side3.webp"
+      ],
+      "specifications": {
+        "Marca": "Logitech",
+        "Modelo": "K400 Plus (920-007137)",
+        "Tipo": "Touchpad inalámbrico con teclado integrado",
+        "Tecnología": "Membrana",
+        "Conectividad": "2.4 GHz USB"
+      }
+    },
+    {
+      "id": 716,
+      "name": "Logitech K600 - Touchpad Inalámbrico ",
+      "brand": "Logitech",
+      "model": "K600",
+      "category": "Teclados",
+      "price": 40000,
+      "stock": 1,
+      "sku": "LOGI-K600",
+      "description": "Teclado inalámbrico con touchpad integrado para Smart TV, diseño ergonómico",
+      "images": [
+        "/images/teclados/logitech_k600.webp",
+        "/images/teclados/logitech_k600_side.webp",
+        "/images/teclados/logitech_k600_side2.webp"
+      ],
+      "specifications": {
+        "Marca": "Logitech",
+        "Modelo": "K600",
+        "Modelo detallado": "920-007137",
+        "Tipo": "Touchpad inalámbrico con teclado integrado",
+        "Tecnología": "Membrana",
+        "Conectividad": "Wireless 2.4 GHz"
+      }
     }
   ]
 }

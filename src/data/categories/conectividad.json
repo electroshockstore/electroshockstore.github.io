@@ -196,6 +196,141 @@
         "compatibilidad": "Smartphones / Cámaras / Consolas",
         "incluyeAdaptadorSD": "Sí"
       }
+    },
+    {
+      "id": 906,
+      "name": "TP-Link UB500 - Adaptador Bluetooth 5.3 USB Nano",
+      "brand": "TP-Link",
+      "model": "UB500",
+      "category": "Conectividad",
+      "price": 10000,
+      "stock": 8,
+      "sku": "TPL-UB500",
+      "description": "Adaptador Bluetooth 5.3 USB Nano para PC/Notebook, emparejamiento inalámbrico para teclados, mouses, auriculares",
+      "images": [
+        "/images/conectividad/tplink_bluetooth.webp",
+        "/images/conectividad/tplink_bluetooth_side.webp",
+        "/images/conectividad/tplink_bluetooth_side2.webp",
+        "/images/conectividad/tplink_bluetooth_side3.webp"
+      ],
+      "specifications": {
+        "Marca": "TP-Link",
+        "Modelo": "UB500 / UB500 Plus",
+        "Tecnología Bluetooth": "Bluetooth 5.3",
+        "Conector": "USB Nano",
+        "Compatibilidad": "PC/Notebook con Windows y otros dispositivos Bluetooth",
+        "Funciones": "Emparejamiento inalámbrico para teclados, mouses, auriculares y más",
+        "Tipo Driver": "Plug & Play (soporta perfiles estándar)",
+        "Alcance": "10 m aprox. (según entorno)"
+      }
+    },
+    {
+      "id": 907,
+      "name": "TP-Link Archer T3U Plus - Adaptador Wifi USB AC1300 Rompe Muros",
+      "brand": "TP-Link",
+      "model": "Archer T3U Plus",
+      "category": "Conectividad",
+      "price": 25000,
+      "stock": 1,
+      "sku": "TPL-T3U-PLUS",
+      "description": "Adaptador Wifi USB 3.0 AC1300 Dual Banda 2.4/5GHz con tecnología MU-MIMO para PC/Notebook",
+      "images": [
+        "/images/conectividad/tplink_ac1300.webp",
+        "/images/conectividad/tplink_ac1300_side.webp",
+        "/images/conectividad/tplink_ac1300_side2.webp",
+        "/images/conectividad/tplink_ac1300_side3.webp"
+      ],
+      "specifications": {
+        "Marca": "TP-Link",
+        "Línea": "Archer",
+        "Modelo": "T3U Plus",
+        "Tipos de frecuencias": "2.4 / 5 GHz",
+        "Estándar": "802.11ac (AC1300)",
+        "Tecnología": "MU-MIMO",
+        "Conector": "USB 3.0",
+        "Funciones": "Wi-Fi dual banda para PC/Notebook",
+        "Antenas": "Integradas"
+      }
+    },
+    {
+      "id": 908,
+      "name": "TP-Link Archer T3U Nano - Adaptador Wifi USB AC1300 Dual Banda",
+      "brand": "TP-Link",
+      "model": "Archer T3U Nano",
+      "category": "Conectividad",
+      "price": 20000,
+      "stock": 8,
+      "sku": "TPL-T3U-NANO",
+      "description": "Adaptador Wifi USB Nano AC1300 Dual Banda 2.4/5GHz con tecnología MU-MIMO, diseño compacto",
+      "images": [
+        "/images/conectividad/tplink_ac1300nano.webp",
+        "/images/conectividad/tplink_ac1300nano_side.webp",
+        "/images/conectividad/tplink_ac1300nano_side2.webp"
+      ],
+      "specifications": {
+        "Marca": "TP-Link",
+        "Línea": "Archer",
+        "Modelo": "T3U Nano AC1300",
+        "Tipos de frecuencias": "2.4 / 5 GHz",
+        "Estándar": "802.11ac",
+        "Conector": "USB",
+        "Tecnología": "MU-MIMO",
+        "Funciones": "Adaptador Wi-Fi USB dual banda",
+        "Antenas": "Integradas Nano"
+      }
+    },
+    {
+      "id": 909,
+      "name": "TP-Link Archer T2U Plus - Receptor Wifi USB AC600 Dual Banda",
+      "brand": "TP-Link",
+      "model": "Archer T2U Plus",
+      "category": "Conectividad",
+      "price": 17000,
+      "stock": 3,
+      "sku": "TPL-T2U-PLUS",
+      "description": "Receptor Wifi USB AC600 Dual Banda 2.4/5GHz para PC/Notebook",
+      "images": [
+        "/images/conectividad/tplink_ac600.webp",
+        "/images/conectividad/tplink_ac600_side.webp",
+        "/images/conectividad/tplink_ac600_side2.webp",
+        "/images/conectividad/tplink_ac600_specs.webp"
+      ],
+      "specifications": {
+        "Marca": "TP-Link",
+        "Línea": "Archer",
+        "Modelo": "T2U Plus",
+        "Tipos de frecuencias": "2.4 / 5 GHz",
+        "Estándar": "802.11ac (AC600)",
+        "Conector": "USB",
+        "Tecnología": "Doble banda",
+        "Funciones": "Adaptador Wi-Fi USB Dual Band"
+      }
+    },
+    {
+      "id": 910,
+      "name": "TP-Link RE200 - Repetidor Wifi AC750 Dual Banda",
+      "brand": "TP-Link",
+      "model": "RE200",
+      "category": "Conectividad",
+      "price": 30000,
+      "stock": 4,
+      "sku": "TPL-RE200",
+      "description": "Repetidor Wifi AC750 Dual Banda 2.4/5GHz, extiende señal Wi-Fi existente",
+      "images": [
+        "/images/conectividad/tplink_repetidor.webp",
+        "/images/conectividad/tplink_repetidor_side.webp",
+        "/images/conectividad/tplink_repetidor_side2.webp",
+        "/images/conectividad/tplink_repetidor_side3.webp"
+      ],
+      "specifications": {
+        "Marca": "TP-Link",
+        "Línea": "Repetidor",
+        "Modelo": "RE200",
+        "Frecuencias": "2.4 GHz / 5 GHz",
+        "Tipo de red": "Dual Band",
+        "Velocidad": "Hasta AC750 (cobertura aumentada)",
+        "Funciones": "Extiende señal Wi-Fi existente"
+      }
     }
   ]
 }

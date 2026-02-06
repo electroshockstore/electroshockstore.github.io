@@ -179,11 +179,15 @@
     ]
   },
   "200": {
-    "name": "Adata Legend 710 1TB - M.2 NVMe Gen3",
+    "name": "SSD Western Digital WD Green 2TB SATA III 2.5\"",
     "h": [
       [
         1768571377217,
         200000
+      ],
+      [
+        1770391978456,
+        145000
       ]
     ]
   },
@@ -1408,6 +1412,60 @@
       ]
     ]
   },
+  "712": {
+    "name": "Logitech MK270 - Kit Teclado + Mouse Membrana Inalámbrico",
+    "h": [
+      [
+        1770391978456,
+        32000
+      ]
+    ]
+  },
+  "713": {
+    "name": "Logitech MK470 Slim - Kit Teclado + Mouse Inalámbrico",
+    "h": [
+      [
+        1770391978456,
+        50000
+      ]
+    ]
+  },
+  "714": {
+    "name": "Logitech G213 Gaming Lightsync RGB - Teclado Membrana",
+    "h": [
+      [
+        1770391978456,
+        45000
+      ]
+    ]
+  },
+  "715": {
+    "name": "Logitech K400 Plus - Touchpad Inalámbrico",
+    "h": [
+      [
+        1770391978456,
+        30000
+      ]
+    ]
+  },
+  "716": {
+    "name": "Logitech K600 - Touchpad Inalámbrico ",
+    "h": [
+      [
+        1770391978456,
+        40000
+      ]
+    ]
+  },
+  "799": {
+    "name": "Redragon Zeus Pro H510-pro - USB/Bluetooth 7.1 Inalámbricos",
+    "h": [
+      [
+        1770391978456,
+        110000
+      ]
+    ]
+  },
   "800": {
     "name": "Redragon Ire Pro H848 Negro- Bluetooth Inalámbrico dongle",
     "h": [
@@ -1600,7 +1658,7 @@
     ]
   },
   "815": {
-    "name": "Redragon Ire Pro Bluetooth Inalámbrico dongle",
+    "name": "Xiaomi Redmi Buds 6 Play - In-ear Bluetooth 5.4 Inalámbricos",
     "h": [
       [
         1768571377217,
@@ -1609,6 +1667,19 @@
       [
         1768830448923,
         60000
+      ],
+      [
+        1770391978456,
+        20000
+      ]
+    ]
+  },
+  "816": {
+    "name": "Xiaomi Redmi Buds Essential - In-ear Bluetooth 5.2 Inalámbricos",
+    "h": [
+      [
+        1770391978456,
+        20000
       ]
     ]
   },
@@ -1667,6 +1738,51 @@
       [
         1768571377217,
         21000
+      ]
+    ]
+  },
+  "906": {
+    "name": "TP-Link UB500 - Adaptador Bluetooth 5.3 USB Nano",
+    "h": [
+      [
+        1770391978456,
+        10000
+      ]
+    ]
+  },
+  "907": {
+    "name": "TP-Link Archer T3U Plus - Adaptador Wifi USB AC1300 Rompe Muros",
+    "h": [
+      [
+        1770391978456,
+        25000
+      ]
+    ]
+  },
+  "908": {
+    "name": "TP-Link Archer T3U Nano - Adaptador Wifi USB AC1300 Dual Banda",
+    "h": [
+      [
+        1770391978456,
+        20000
+      ]
+    ]
+  },
+  "909": {
+    "name": "TP-Link Archer T2U Plus - Receptor Wifi USB AC600 Dual Banda",
+    "h": [
+      [
+        1770391978456,
+        17000
+      ]
+    ]
+  },
+  "910": {
+    "name": "TP-Link RE200 - Repetidor Wifi AC750 Dual Banda",
+    "h": [
+      [
+        1770391978456,
+        30000
       ]
     ]
   },

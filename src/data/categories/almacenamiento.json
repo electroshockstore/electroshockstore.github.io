@@ -2,8 +2,33 @@
 
 {
   "products": [
-   
-    
+    {
+      "id": 200,
+      "name": "SSD Western Digital WD Green 2TB SATA III 2.5\"",
+      "brand": "Western Digital",
+      "model": "WD Green 2TB",
+      "category": "Almacenamiento",
+      "price": 145000,
+      "stock": 3,
+      "sku": "WD-GREEN-2TB",
+      "description": "SSD Western Digital WD Green 2TB SATA III 2.5\", memoria NAND flash, ideal para almacenamiento masivo",
+      "manufacturerUrl": "https://www.westerndigital.com/products/internal-drives/wd-green-sata-ssd",
+      "images": [
+        "/images/almacenamiento/wd_green480.webp",
+        "/images/almacenamiento/wd_green480_side.webp",
+        "/images/almacenamiento/wd_green480_side2.webp"
+      ],
+      "specifications": {
+        "Marca": "Western Digital",
+        "Línea": "WD Green",
+        "Modelo detallado": "WDS200T2G0A",
+        "Capacidad": "2 TB",
+        "Formato": "2.5\" SATA",
+        "Tipo de memoria": "NAND flash",
+        "Interfaz": "SATA III",
+        "Velocidad": "Lectura/Escritura típica SATA"
+      }
+    },
     {
       "id": 201,
       "name": "NVME XPG Spectrix S20G 500GB RGB Chip MICRON",
@@ -482,7 +507,7 @@
       "model": "WD Elements Portable",
       "category": "Almacenamiento",
       "price": 170000,
-      "stock": 4,
+      "stock": 6,
       "sku": "WD-2TB-ELEMENTS",
       "description": "Disco duro externo Western Digital WD Elements 2TB USB 3.0",
       "manufacturerUrl": "https://www.westerndigital.com/es-la/products/portable-drives/wd-elements-portable-usb-3-0-hdd",
@@ -505,7 +530,7 @@
       "model": "WD Elements Portable",
       "category": "Almacenamiento",
       "price": 110000,
-      "stock": 3,
+      "stock": 4,
       "sku": "WD-1TB-ELEMENTS",
       "description": "Disco duro externo Western Digital WD Elements 1TB USB 3.0",
       "manufacturerUrl": "https://www.westerndigital.com/es-la/products/portable-drives/wd-elements-portable-usb-3-0-hdd",
