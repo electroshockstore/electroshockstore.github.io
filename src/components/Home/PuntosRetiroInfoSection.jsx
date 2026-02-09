@@ -1,12 +1,18 @@
 import { useNavigate } from 'react-router-dom';
 import { MapPin, Ban, Truck, ArrowRight } from 'lucide-react';
+import useScrollReveal from '../../hooks/useScrollReveal';
 
 const PuntosRetiroInfoSection = () => {
   const navigate = useNavigate();
+  const { elementRef, className } = useScrollReveal({ 
+    threshold: 0.15,
+    animation: 'slide-left' // Entra desde la derecha
+  });
 
   return (
     <section 
-      className="group relative w-full min-h-[500px] md:min-h-[550px] lg:min-h-[600px] xl:min-h-[650px] overflow-hidden sm:rounded-3xl transition-all duration-300 sm:border sm:border-cyan-500/40 sm:ring-2 sm:ring-cyan-500/30 sm:shadow-xl sm:shadow-cyan-900/50 hover:shadow-2xl hover:shadow-cyan-900/60 sm:shadow-[0_0_30px_rgba(6,182,212,0.4),0_0_60px_rgba(8,145,178,0.2)]"
+      ref={elementRef}
+      className={`${className} group relative w-full min-h-[500px] md:min-h-[550px] lg:min-h-[600px] xl:min-h-[650px] overflow-hidden sm:rounded-3xl transition-all duration-300 sm:border sm:border-cyan-500/40 sm:ring-2 sm:ring-cyan-500/30 sm:shadow-xl sm:shadow-cyan-900/50 hover:shadow-2xl hover:shadow-cyan-900/60 sm:shadow-[0_0_30px_rgba(6,182,212,0.4),0_0_60px_rgba(8,145,178,0.2)]`}
     >
       
       {/* Glow inferior - Solo desktop (igual que PCBuilder) */}

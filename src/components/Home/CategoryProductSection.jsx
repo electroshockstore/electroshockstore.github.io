@@ -1,5 +1,6 @@
 import { Sparkles, ArrowRight, Cpu } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
+import useScrollReveal from '../../hooks/useScrollReveal';
 
 // Todas las categorías reales del proyecto
 const allCategories = [
@@ -16,6 +17,10 @@ const allCategories = [
 
 const CategoryProductSection = ({ onCategoryClick }) => {
     const navigate = useNavigate();
+    const { elementRef, className } = useScrollReveal({ 
+        threshold: 0.1,
+        animation: 'scale' // Zoom in sutil
+    });
     
     const handleCategoryClick = (slug) => {
         window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -32,7 +37,10 @@ const CategoryProductSection = ({ onCategoryClick }) => {
     };
 
     return (
-        <section className="w-full flex-1 relative">
+        <section 
+            ref={elementRef}
+            className={`${className} w-full flex-1 relative`}
+        >
             {/* Partículas de fondo animadas */}
             <div className="absolute inset-0 overflow-hidden pointer-events-none">
                 <div className="absolute top-20 left-10 w-72 h-72 bg-blue-500/10 rounded-full blur-3xl animate-pulse" />

@@ -1,6 +1,41 @@
 import { useState, useEffect, useCallback, useMemo, useRef } from 'react';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 
+// Hook para parallax suave (solo desktop)
+const useParallax = () => {
+  const [scrollY, setScrollY] = useState(0);
+  const [isDesktop, setIsDesktop] = useState(false);
+
+  useEffect(() => {
+    // Detectar desktop
+    const checkDesktop = () => setIsDesktop(window.innerWidth >= 769);
+    checkDesktop();
+    window.addEventListener('resize', checkDesktop);
+
+    // Parallax solo en desktop
+    if (window.innerWidth < 769) return;
+
+    let ticking = false;
+    const handleScroll = () => {
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          setScrollY(window.scrollY);
+          ticking = false;
+        });
+        ticking = true;
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+      window.removeEventListener('resize', checkDesktop);
+    };
+  }, []);
+
+  return { scrollY, isDesktop };
+};
+
 const slides = [
   {
     id: 1,
@@ -71,12 +106,38 @@ const slides = [
 
 const HeroCarousel = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
+  const [prevSlide, setPrevSlide] = useState(0);
+  const [isTransitioning, setIsTransitioning] = useState(false);
   const [loadedImages, setLoadedImages] = useState(new Set([0])); // Precargar solo la primera
   const touchStartX = useRef(0);
   const touchEndX = useRef(0);
+  
+  // Parallax hook
+  const { scrollY, isDesktop } = useParallax();
 
-  const nextSlide = useCallback(() => setCurrentSlide((prev) => (prev + 1) % slides.length), []);
-  const prevSlide = useCallback(() => setCurrentSlide((prev) => (prev - 1 + slides.length) % slides.length), []);
+  const goToNextSlide = useCallback(() => {
+    if (isTransitioning) return;
+    setIsTransitioning(true);
+    setPrevSlide(currentSlide);
+    setCurrentSlide((prev) => (prev + 1) % slides.length);
+    setTimeout(() => setIsTransitioning(false), 800); // Duración de la transición
+  }, [currentSlide, isTransitioning]);
+  
+  const goToPrevSlide = useCallback(() => {
+    if (isTransitioning) return;
+    setIsTransitioning(true);
+    setPrevSlide(currentSlide);
+    setCurrentSlide((prev) => (prev - 1 + slides.length) % slides.length);
+    setTimeout(() => setIsTransitioning(false), 800);
+  }, [currentSlide, isTransitioning]);
+
+  const goToSlide = useCallback((index) => {
+    if (isTransitioning || index === currentSlide) return;
+    setIsTransitioning(true);
+    setPrevSlide(currentSlide);
+    setCurrentSlide(index);
+    setTimeout(() => setIsTransitioning(false), 800);
+  }, [currentSlide, isTransitioning]);
 
   // Touch handlers para swipe
   const handleTouchStart = useCallback((e) => {
@@ -93,17 +154,17 @@ const HeroCarousel = () => {
     
     if (Math.abs(diff) > swipeThreshold) {
       if (diff > 0) {
-        nextSlide();
+        goToNextSlide();
       } else {
-        prevSlide();
+        goToPrevSlide();
       }
     }
-  }, [nextSlide, prevSlide]);
+  }, [goToNextSlide, goToPrevSlide]);
 
   useEffect(() => {
-    const timer = setInterval(nextSlide, 8000);
+    const timer = setInterval(goToNextSlide, 8000);
     return () => clearInterval(timer);
-  }, [nextSlide]);
+  }, [goToNextSlide]);
 
   // Precargar imágenes adyacentes solo en desktop
   useEffect(() => {
@@ -116,6 +177,12 @@ const HeroCarousel = () => {
   }, [currentSlide]);
 
   const current = useMemo(() => slides[currentSlide], [currentSlide]);
+  const previous = useMemo(() => slides[prevSlide], [prevSlide]);
+
+  // Calcular transformaciones parallax (solo desktop)
+  const parallaxBg = isDesktop ? scrollY * 0.5 : 0; // Imagen de fondo más lenta
+  const parallaxContent = isDesktop ? scrollY * 0.15 : 0; // Contenido ligeramente más lento
+  const parallaxNav = isDesktop ? scrollY * 0.25 : 0; // Navegación velocidad media
 
   return (
     <section 
@@ -125,22 +192,52 @@ const HeroCarousel = () => {
       onTouchEnd={handleTouchEnd}
     >
       
-      {/* Background Image */}
+      {/* Background Images - Crossfade con parallax */}
       <div className="absolute right-0 top-0 w-full md:w-[70%] h-full z-0">
-        {loadedImages.has(currentSlide) && (
-          <img 
-            key={current.id}
-            src={current.image} 
-            className="w-full h-full object-cover brightness-[0.8] sm:brightness-100" 
-            alt=""
-            loading={currentSlide === 0 ? "eager" : "lazy"}
-            decoding="async"
-            fetchpriority={currentSlide === 0 ? "high" : "low"}
-            width="1920"
-            height="1080"
-          />
+        {/* Imagen anterior (fade out) */}
+        {loadedImages.has(prevSlide) && prevSlide !== currentSlide && (
+          <div 
+            className="absolute inset-0 will-change-transform transition-opacity duration-700 ease-out"
+            style={{
+              transform: isDesktop ? `translate3d(0, ${parallaxBg}px, 0)` : 'none',
+              opacity: isTransitioning ? 0 : 1
+            }}
+          >
+            <img 
+              src={previous.image} 
+              className="w-full h-full object-cover brightness-[0.8] sm:brightness-100" 
+              alt=""
+              loading="lazy"
+              decoding="async"
+              width="1920"
+              height="1080"
+            />
+            <div className="absolute inset-0 bg-gradient-to-r from-[#020617] via-[#020617]/70 md:via-[#020617]/40 to-transparent" />
+          </div>
         )}
-        <div className="absolute inset-0 bg-gradient-to-r from-[#020617] via-[#020617]/70 md:via-[#020617]/40 to-transparent" />
+        
+        {/* Imagen actual (fade in) */}
+        {loadedImages.has(currentSlide) && (
+          <div 
+            className="absolute inset-0 will-change-transform transition-opacity duration-700 ease-out"
+            style={{
+              transform: isDesktop ? `translate3d(0, ${parallaxBg}px, 0)` : 'none',
+              opacity: isTransitioning ? 1 : 1
+            }}
+          >
+            <img 
+              src={current.image} 
+              className="w-full h-full object-cover brightness-[0.8] sm:brightness-100" 
+              alt=""
+              loading={currentSlide === 0 ? "eager" : "lazy"}
+              decoding="async"
+              fetchpriority={currentSlide === 0 ? "high" : "low"}
+              width="1920"
+              height="1080"
+            />
+            <div className="absolute inset-0 bg-gradient-to-r from-[#020617] via-[#020617]/70 md:via-[#020617]/40 to-transparent" />
+          </div>
+        )}
       </div>
 
       {/* Fade-out superior - Mobile y Desktop */}
@@ -149,14 +246,22 @@ const HeroCarousel = () => {
       {/* Fade-out inferior - Mobile y Desktop */}
       <div className="absolute bottom-0 left-0 right-0 h-20 sm:h-32 bg-gradient-to-t from-[#0a0a0f] to-transparent pointer-events-none z-10" />
 
-      {/* Contenido - Landing style */}
-      <div className="relative z-20 h-full flex items-center py-4 sm:py-0">
+      {/* Contenido - Landing style con parallax y animaciones */}
+      <div 
+        className="relative z-20 h-full flex items-center py-4 sm:py-0 will-change-transform"
+        style={{
+          transform: isDesktop ? `translate3d(0, ${parallaxContent}px, 0)` : 'none'
+        }}
+      >
         <div className="container mx-0 sm:mx-2 px-5 sm:px-6 md:px-12 lg:px-16">
           <div className="max-w-2xl lg:max-w-4xl">
-            <div key={current.id + '-text'}>
+            <div 
+              key={current.id + '-text'}
+              className="animate-hero-content-enter"
+            >
                 {/* Tag - Landing style */}
                 <div className="flex items-center gap-2 sm:gap-4 mb-2 sm:mb-4 md:mb-6">
-                  <div className={`h-[3px] sm:h-[3px] w-8 sm:w-12 bg-gradient-to-r ${current.gradient}`} />
+                  <div className={`h-[3px] sm:h-[3px] w-8 sm:w-12 bg-gradient-to-r ${current.gradient} animate-hero-line-expand`} />
                   <span className="text-white font-black text-[10px] sm:text-xs tracking-[0.25em] sm:tracking-[0.4em] uppercase">
                     {current.tag}
                   </span>
@@ -172,12 +277,13 @@ const HeroCarousel = () => {
                   {current.description}
                 </p>
 
-                {/* Points - Legibles */}
+                {/* Points - Legibles con stagger */}
                 <div className="grid grid-cols-1 gap-2 sm:gap-4 md:grid-cols-2 md:gap-6 lg:gap-8">
                   {current.points.map((point, idx) => (
                     <div 
                       key={idx}
-                      className="flex items-start gap-2 sm:gap-3 md:gap-4 group"
+                      className="flex items-start gap-2 sm:gap-3 md:gap-4 group animate-hero-point-enter"
+                      style={{ animationDelay: `${idx * 0.1}s` }}
                     >
                       <div className="flex flex-col items-center pt-[3px] sm:pt-1">
                         <div className={`w-[2.5px] sm:w-[3px] h-4 sm:h-6 md:h-8 lg:h-10 bg-gradient-to-b ${point.highlight ? 'from-red-500 to-red-600' : current.gradient}`} />
@@ -193,8 +299,13 @@ const HeroCarousel = () => {
         </div>
       </div>
 
-      {/* Navegación */}
-      <div className="absolute bottom-3 sm:bottom-8 md:bottom-12 right-4 sm:right-8 md:right-12 z-30 flex flex-col items-end gap-2 sm:gap-4 md:gap-6">
+      {/* Navegación con parallax */}
+      <div 
+        className="absolute bottom-3 sm:bottom-8 md:bottom-12 right-4 sm:right-8 md:right-12 z-30 flex flex-col items-end gap-2 sm:gap-4 md:gap-6 will-change-transform"
+        style={{
+          transform: isDesktop ? `translate3d(0, ${parallaxNav}px, 0)` : 'none'
+        }}
+      >
         {/* Contador */}
         <div className="flex items-baseline gap-1.5 sm:gap-2 md:gap-3">
           <span className="text-3xl sm:text-6xl md:text-7xl lg:text-8xl font-black text-white leading-none">
@@ -210,7 +321,7 @@ const HeroCarousel = () => {
           {slides.map((_, idx) => (
             <button
               key={idx}
-              onClick={() => setCurrentSlide(idx)}
+              onClick={() => goToSlide(idx)}
               aria-label={`Ir a slide ${idx + 1}`}
               className={`h-[2.5px] sm:h-[3px] md:h-[4px] transition-all duration-500 rounded-full ${
                 idx === currentSlide 
@@ -224,16 +335,18 @@ const HeroCarousel = () => {
         {/* Botones - Solo desktop */}
         <div className="hidden sm:flex gap-3 md:gap-4">
           <button 
-            onClick={prevSlide}
+            onClick={goToPrevSlide}
             aria-label="Slide anterior"
-            className="p-3 md:p-4 rounded-full border border-white/10 text-white hover:bg-white hover:text-black transition-all group active:scale-95"
+            disabled={isTransitioning}
+            className="p-3 md:p-4 rounded-full border border-white/10 text-white hover:bg-white hover:text-black transition-all group active:scale-95 disabled:opacity-50 disabled:cursor-not-allowed"
           >
             <ChevronLeft className="w-6 h-6 md:w-7 md:h-7" />
           </button>
           <button 
-            onClick={nextSlide}
+            onClick={goToNextSlide}
             aria-label="Siguiente slide"
-            className="p-3 md:p-4 rounded-full border border-white/10 text-white hover:bg-white hover:text-black transition-all group active:scale-95"
+            disabled={isTransitioning}
+            className="p-3 md:p-4 rounded-full border border-white/10 text-white hover:bg-white hover:text-black transition-all group active:scale-95 disabled:opacity-50 disabled:cursor-not-allowed"
           >
             <ChevronRight className="w-6 h-6 md:w-7 md:h-7" />
           </button>

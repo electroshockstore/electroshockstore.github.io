@@ -1,5 +1,6 @@
-import { memo, useCallback, useMemo, useState, useEffect } from 'react';
+import { memo, useCallback, useMemo, useState, useEffect, useRef } from 'react';
 import ProductCardWrapper from './ProductCardWrapper';
+import useScrollReveal from '../../hooks/useScrollReveal';
 
 const EmptyState = memo(() => (
   <div className="flex flex-col items-center justify-center py-16 sm:py-24">
@@ -51,10 +52,44 @@ const EmptyState = memo(() => (
 
 EmptyState.displayName = 'EmptyState';
 
+// Componente para grupo de productos con scroll reveal
+const ProductGroup = memo(({ products, viewMode, openModal, groupIndex, gridClasses }) => {
+  const { elementRef, className } = useScrollReveal({ 
+    threshold: 0.1,
+    animation: 'fade-in' // Fade simple para no distraer del contenido
+  });
+
+  return (
+    <div 
+      ref={elementRef}
+      className={className}
+    >
+      <div className={gridClasses}>
+        {products.map((product, index) => (
+          <ProductCardWrapper
+            key={`${product.id}-${product.category}`}
+            product={product}
+            viewMode={viewMode}
+            onClick={openModal}
+            index={index}
+            // Stagger interno del grupo
+            style={{ 
+              animationDelay: `${index * 0.05}s` 
+            }}
+          />
+        ))}
+      </div>
+    </div>
+  );
+});
+
+ProductGroup.displayName = 'ProductGroup';
+
 // Detectar mobile SOLO para iOS
 const isIOS = typeof window !== 'undefined' && /iPad|iPhone|iPod/.test(navigator.userAgent);
 const INITIAL_BATCH = isIOS ? 12 : 999;
 const BATCH_SIZE = 8;
+const GROUP_SIZE = 8; // Productos por grupo para scroll reveal
 
 const ProductGrid = memo(({ products, viewMode, openModal }) => {
   const [displayCount, setDisplayCount] = useState(INITIAL_BATCH);
@@ -83,25 +118,34 @@ const ProductGrid = memo(({ products, viewMode, openModal }) => {
       : 'space-y-2.5 sm:space-y-3';
   }, [viewMode]);
 
+  // Dividir productos en grupos
+  const productGroups = useMemo(() => {
+    const visibleProducts = isIOS ? products.slice(0, displayCount) : products;
+    const groups = [];
+    
+    for (let i = 0; i < visibleProducts.length; i += GROUP_SIZE) {
+      groups.push(visibleProducts.slice(i, i + GROUP_SIZE));
+    }
+    
+    return groups;
+  }, [products, displayCount]);
+
   if (products.length === 0) {
     return <EmptyState />;
   }
 
-  const visibleProducts = isIOS ? products.slice(0, displayCount) : products;
-
   return (
-    <div className="p-0 sm:p-4 md:p-6">
-      <div className={gridClasses}>
-        {visibleProducts.map((product, index) => (
-          <ProductCardWrapper
-            key={`${product.id}-${product.category}`}
-            product={product}
-            viewMode={viewMode}
-            onClick={handleOpenModal}
-            index={index}
-          />
-        ))}
-      </div>
+    <div className="p-0 sm:p-4 md:p-6 space-y-0">
+      {productGroups.map((group, groupIndex) => (
+        <ProductGroup
+          key={`group-${groupIndex}`}
+          products={group}
+          viewMode={viewMode}
+          openModal={handleOpenModal}
+          groupIndex={groupIndex}
+          gridClasses={gridClasses}
+        />
+      ))}
     </div>
   );
 });

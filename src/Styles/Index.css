@@ -4,6 +4,202 @@
 
 .font-outfit { font-family: 'Outfit', sans-serif; }
 
+/* ===== SMOOTH SCROLL GLOBAL (Solo Desktop) ===== */
+@media (min-width: 769px) {
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+/* Mobile: Scroll nativo para mejor performance */
+@media (max-width: 768px) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+/* ===== HERO CAROUSEL TRANSITIONS (Premium & Optimized) ===== */
+
+/* Animación de entrada del contenido - Fade + Slide up */
+@keyframes heroContentEnter {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-hero-content-enter {
+  animation: heroContentEnter 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* Animación de la línea decorativa - Expand from left */
+@keyframes heroLineExpand {
+  from {
+    transform: scaleX(0);
+    transform-origin: left;
+  }
+  to {
+    transform: scaleX(1);
+    transform-origin: left;
+  }
+}
+
+.animate-hero-line-expand {
+  animation: heroLineExpand 0.6s cubic-bezier(0.16, 1, 0.3, 1) 0.2s backwards;
+}
+
+/* Animación de los puntos - Fade + Slide con stagger */
+@keyframes heroPointEnter {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.animate-hero-point-enter {
+  animation: heroPointEnter 0.6s cubic-bezier(0.16, 1, 0.3, 1) backwards;
+}
+
+/* Desktop only: Aplicar animaciones solo en desktop */
+@media (max-width: 768px) {
+  .animate-hero-content-enter,
+  .animate-hero-line-expand,
+  .animate-hero-point-enter {
+    animation-duration: 0.3s !important;
+  }
+}
+
+/* ===== SCROLL REVEAL - VERSIÓN SUTIL Y PROFESIONAL ===== */
+
+/* 1. Fade In suave - Sin movimiento, solo opacity */
+@keyframes scrollFadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* 2. Slide Up - Sube suavemente desde abajo */
+@keyframes scrollSlideUp {
+  from {
+    opacity: 0;
+    transform: translateY(80px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* 3. Slide Left - Entra desde la derecha */
+@keyframes scrollSlideLeft {
+  from {
+    opacity: 0;
+    transform: translateX(80px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* 4. Slide Right - Entra desde la izquierda */
+@keyframes scrollSlideRight {
+  from {
+    opacity: 0;
+    transform: translateX(-80px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* 5. Scale - Zoom in sutil */
+@keyframes scrollScale {
+  from {
+    opacity: 0;
+    transform: scale(0.92);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Clase base - elemento oculto hasta que sea visible */
+.scroll-reveal {
+  opacity: 0;
+}
+
+/* Variantes de animación - Más lentas y fluidas */
+.scroll-reveal.is-visible.fade-in {
+  animation: scrollFadeIn 1.4s ease-out forwards;
+}
+
+.scroll-reveal.is-visible.slide-up {
+  animation: scrollSlideUp 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.scroll-reveal.is-visible.slide-left {
+  animation: scrollSlideLeft 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.scroll-reveal.is-visible.slide-right {
+  animation: scrollSlideRight 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.scroll-reveal.is-visible.scale {
+  animation: scrollScale 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* Mobile: Mostrar todo inmediatamente */
+@media (max-width: 768px) {
+  .scroll-reveal {
+    opacity: 1 !important;
+    animation: none !important;
+    transform: none !important;
+  }
+}
+
+/* ===== PRODUCT CARD STAGGER (Para catálogo) ===== */
+
+/* Animación sutil para cards individuales dentro de grupos */
+@keyframes productCardReveal {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Aplicar a cards cuando el grupo es visible */
+.scroll-reveal.is-visible .product-card-enter {
+  animation: productCardReveal 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* Mobile: Sin animación en cards */
+@media (max-width: 768px) {
+  .scroll-reveal.is-visible .product-card-enter {
+    animation: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}
+
 /* ===== OPTIMIZACIONES DE PERFORMANCE ===== */
 
 /* Page transitions - Reemplazo de framer-motion */
@@ -363,9 +559,14 @@
   .animate-button-float,
   .animate-button-glow,
   .search-results-enter,
-  .modal-scale-enter {
+  .modal-scale-enter,
+  .animate-hero-content-enter,
+  .animate-hero-line-expand,
+  .animate-hero-point-enter,
+  .scroll-reveal {
     animation: none !important;
     transition: none !important;
+    opacity: 1 !important;
   }
 }
 
@@ -388,6 +589,13 @@
   .page-transition,
   .product-card-enter {
     animation-duration: 0.15s !important;
+  }
+  
+  /* Hero transitions más rápidas en mobile */
+  .animate-hero-content-enter,
+  .animate-hero-line-expand,
+  .animate-hero-point-enter {
+    animation-duration: 0.3s !important;
   }
   
   /* Reducir blur de forma inteligente - mantener diseño pero optimizar */

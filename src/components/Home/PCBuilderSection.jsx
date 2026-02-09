@@ -1,7 +1,13 @@
 import { Wrench } from 'lucide-react';
 import PCBuilderCard from './PCBuilderCard';
+import useScrollReveal from '../../hooks/useScrollReveal';
 
 const PCBuilderSection = () => {
+  const { elementRef, className } = useScrollReveal({ 
+    threshold: 0.15,
+    animation: 'slide-right' // Entra desde la izquierda
+  });
+
   const manualModeData = {
     // Estilo y Iconos
     badge: 'Arma Tu Combo Ideal',
@@ -24,7 +30,10 @@ const PCBuilderSection = () => {
     // Estilo de Botón
     buttonGradient: 'bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-500 hover:to-pink-500 hover:shadow-purple-500/50',
     delay: 0.4,
-    mode: 'manual'
+    mode: 'manual',
+    // Pasar ref y clase para scroll reveal
+    scrollRef: elementRef,
+    scrollClass: className
   };
 
   return (
