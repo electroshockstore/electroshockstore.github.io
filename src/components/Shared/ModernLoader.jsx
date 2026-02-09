@@ -57,7 +57,7 @@ const ModernLoader = () => {
           </div>
 
           <p className="text-sm text-gray-400 font-medium animate-pulse">
-            Cargando experiencia premium...
+            Cargando ...
           </p>
         </div>
       </div>
