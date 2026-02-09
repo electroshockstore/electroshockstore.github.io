@@ -40,7 +40,8 @@ const slides = [
   {
     id: 1,
     tag: "VERIFICADO",
-    title: "COMPRÁ CON SEGURIDAD",
+    title: "COMPRÁ CON",
+    titleHighlight: "SEGURIDAD",
     description: "¡NO TE DEJES ENGAÑAR!",
     points: [
       { text: "Solo venta web oficial, verificada y segura.", positive: true },
@@ -48,12 +49,14 @@ const slides = [
       { text: "Asesores autorizados solo en chat oficial.", positive: true }
     ],
     gradient: "from-blue-600 to-cyan-400",
+    highlightColor: "bg-blue-500",
     image: "/images/hero/megaphone_tiny.webp"
   },
   {
     id: 2,
     tag: "CONFIANZA",
-    title: "SIN DEPÓSITOS",
+    title: "SIN",
+    titleHighlight: "DEPÓSITOS",
     description: "¡NO TE DEJES ENGAÑAR!",
     points: [
       { text: "¡ATENCIÓN! NO pedimos dinero previo", highlight: true },
@@ -61,12 +64,14 @@ const slides = [
       { text: "Revisás antes de abonar", positive: true }
     ],
     gradient: "from-emerald-500 to-teal-400",
+    highlightColor: "bg-emerald-500",
     image: "/images/hero/stop_tiny.webp"
   },
   {
     id: 3,
     tag: "LEER ATENTAMENTE",
     title: "CONDICIONES",
+    titleHighlight: "IMPORTANTES",
     description: "Información importante sobre la operación.",
     points: [
       { text: "NO PERMUTO", highlight: true },
@@ -74,12 +79,14 @@ const slides = [
       { text: "Recargo en transf. < $100.000", highlight: true }
     ],
     gradient: "from-orange-500 to-red-500",
+    highlightColor: "bg-orange-500",
     image: "/images/hero/methods_tiny.webp"
   },
   {
     id: 4,
     tag: "STOCK",
-    title: "VENTA PARTICULAR",
+    title: "VENTA",
+    titleHighlight: "PARTICULAR",
     description: "Liquidación de stock sellado.",
     points: [
       { text: "SOY PARTICULAR - SIN LOCAL", highlight: true },
@@ -87,12 +94,14 @@ const slides = [
       { text: "Sin factura ni garantía escrita", highlight: true }
     ],
     gradient: "from-purple-600 to-pink-500",
+    highlightColor: "bg-purple-500",
     image: "/images/hero/atenttion_tiny.webp"
   },
   {
     id: 5,
     tag: "ENTREGAS",
-    title: "PUNTOS RETIRO",
+    title: "PUNTOS",
+    titleHighlight: "RETIRO",
     description: "Horarios fijos y seguros.",
     points: [
       { text: "Berazategui Centro (16:00hs)", positive: true },
@@ -100,6 +109,7 @@ const slides = [
       { text: "NO viajo a otros puntos", highlight: true }
     ],
     gradient: "from-cyan-500 to-blue-600",
+    highlightColor: "bg-cyan-500",
     image: "/images/hero/location_tiny.webp"
   }
 ];
@@ -192,7 +202,7 @@ const HeroCarousel = () => {
       onTouchEnd={handleTouchEnd}
     >
       
-      {/* Background Images - Crossfade con parallax */}
+      {/* Background Images - Crossfade con parallax y animación de entrada */}
       <div className="absolute right-0 top-0 w-full md:w-[70%] h-full z-0">
         {/* Imagen anterior (fade out) */}
         {loadedImages.has(prevSlide) && prevSlide !== currentSlide && (
@@ -216,10 +226,11 @@ const HeroCarousel = () => {
           </div>
         )}
         
-        {/* Imagen actual (fade in) */}
+        {/* Imagen actual (fade in + slide in cinematográfico) */}
         {loadedImages.has(currentSlide) && (
           <div 
-            className="absolute inset-0 will-change-transform transition-opacity duration-700 ease-out"
+            key={`image-${current.id}`}
+            className="absolute inset-0 will-change-transform transition-opacity duration-700 ease-out hero-image-enter"
             style={{
               transform: isDesktop ? `translate3d(0, ${parallaxBg}px, 0)` : 'none',
               opacity: isTransitioning ? 1 : 1
@@ -255,42 +266,89 @@ const HeroCarousel = () => {
       >
         <div className="container mx-0 sm:mx-2 px-5 sm:px-6 md:px-12 lg:px-16">
           <div className="max-w-2xl lg:max-w-4xl">
-            <div 
-              key={current.id + '-text'}
-              className="animate-hero-content-enter"
-            >
-                {/* Tag - Landing style */}
-                <div className="flex items-center gap-2 sm:gap-4 mb-2 sm:mb-4 md:mb-6">
-                  <div className={`h-[3px] sm:h-[3px] w-8 sm:w-12 bg-gradient-to-r ${current.gradient} animate-hero-line-expand`} />
-                  <span className="text-white font-black text-[10px] sm:text-xs tracking-[0.25em] sm:tracking-[0.4em] uppercase">
-                    {current.tag}
-                  </span>
+            <div key={current.id + '-text'}>
+                {/* Tag - Maximalist style con badge premium - Responsive */}
+                <div className="flex items-center gap-2 sm:gap-4 mb-3 sm:mb-5 md:mb-7">
+                  <div className={`h-[2px] sm:h-[4px] w-6 sm:w-16 bg-gradient-to-r ${current.gradient} hero-line-expand shadow-[0_0_10px_currentColor] sm:shadow-[0_0_20px_currentColor]`} />
+                  <div className={`inline-flex items-center gap-1.5 sm:gap-2 px-2 sm:px-4 py-1 sm:py-2 bg-gradient-to-r ${current.gradient} rounded-full hero-tag-enter shadow-md sm:shadow-lg`}>
+                    <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-white rounded-full animate-pulse" />
+                    <span className="text-white font-black text-[9px] sm:text-xs tracking-[0.2em] sm:tracking-[0.4em] uppercase">
+                      {current.tag}
+                    </span>
+                  </div>
                 </div>
 
-                {/* Título - GRANDE tipo landing */}
-                <h1 className="text-[36px] sm:text-5xl md:text-7xl lg:text-8xl xl:text-9xl font-black text-white leading-[0.95] sm:leading-[0.85] tracking-tighter mb-2.5 sm:mb-4 md:mb-6 lg:mb-8">
-                  {current.title}
+                {/* Título - Maximalist con marker highlight - Responsive */}
+                <h1 className="text-[32px] sm:text-5xl md:text-7xl lg:text-8xl xl:text-9xl font-black leading-[0.95] sm:leading-[0.85] tracking-tighter mb-3 sm:mb-5 md:mb-7 lg:mb-10">
+                  {/* Primera parte del título */}
+                  {current.title.split(' ').map((word, idx) => (
+                    <span key={idx} className="hero-title-word inline-block mr-2 sm:mr-4 md:mr-6 text-white drop-shadow-[0_2px_10px_rgba(0,0,0,0.8)] sm:drop-shadow-[0_4px_20px_rgba(0,0,0,0.8)]">
+                      {word}
+                    </span>
+                  ))}
+                  
+                  {/* Palabra destacada con marker effect - Responsive */}
+                  <span className="hero-title-word inline-block relative">
+                    {/* Marker background - Efecto resaltador */}
+                    <span className={`absolute inset-0 ${current.highlightColor} -skew-x-3 sm:-skew-x-6 -rotate-1 opacity-90 blur-[0.5px] sm:blur-[1px]`} />
+                    
+                    {/* Texto sobre el marker */}
+                    <span className="relative text-black px-2 sm:px-4 md:px-6 inline-block drop-shadow-none font-black">
+                      {current.titleHighlight}
+                    </span>
+                    
+                    {/* Glow effect - Más sutil en mobile */}
+                    <span className={`absolute inset-0 ${current.highlightColor} blur-md sm:blur-xl opacity-30 sm:opacity-50 animate-pulse`} />
+                  </span>
                 </h1>
 
-                {/* Subtítulo - Destacado */}
-                <p className="text-[15px] sm:text-xl md:text-2xl lg:text-3xl text-slate-200 font-bold mb-4 sm:mb-6 md:mb-8 lg:mb-12 italic leading-tight">
-                  {current.description}
-                </p>
+                {/* Subtítulo - Maximalist con underline animado - Responsive */}
+                <div className="relative inline-block mb-4 sm:mb-8 md:mb-10 lg:mb-14 hero-description-enter">
+                  <p className="text-[13px] sm:text-xl md:text-2xl lg:text-3xl text-white font-black italic leading-tight relative z-10">
+                    {current.description}
+                  </p>
+                  {/* Underline decorativo animado - Más sutil en mobile */}
+                  <div className={`absolute -bottom-0.5 sm:-bottom-2 left-0 right-0 h-1 sm:h-3 bg-gradient-to-r ${current.gradient} opacity-30 sm:opacity-50 blur-[2px] sm:blur-sm animate-pulse`} />
+                  <div className={`absolute -bottom-0.5 sm:-bottom-2 left-0 w-full h-[2px] sm:h-[4px] bg-gradient-to-r ${current.gradient}`} />
+                </div>
 
-                {/* Points - Legibles con stagger */}
-                <div className="grid grid-cols-1 gap-2 sm:gap-4 md:grid-cols-2 md:gap-6 lg:gap-8">
+                {/* Points - Maximalist con badges y efectos - Responsive */}
+                <div className="grid grid-cols-1 gap-2 sm:gap-5 md:grid-cols-2 md:gap-7 lg:gap-9">
                   {current.points.map((point, idx) => (
                     <div 
                       key={idx}
-                      className="flex items-start gap-2 sm:gap-3 md:gap-4 group animate-hero-point-enter"
-                      style={{ animationDelay: `${idx * 0.1}s` }}
+                      className="flex items-start gap-2 sm:gap-4 md:gap-5 group hero-point-enter"
                     >
-                      <div className="flex flex-col items-center pt-[3px] sm:pt-1">
-                        <div className={`w-[2.5px] sm:w-[3px] h-4 sm:h-6 md:h-8 lg:h-10 bg-gradient-to-b ${point.highlight ? 'from-red-500 to-red-600' : current.gradient}`} />
+                      {/* Icono decorativo con glow - Responsive */}
+                      <div className="flex flex-col items-center pt-[3px] sm:pt-1.5 relative flex-shrink-0">
+                        {/* Glow del icono - Más sutil en mobile */}
+                        <div className={`absolute inset-0 w-4 h-4 sm:w-8 sm:h-8 bg-gradient-to-br ${point.highlight ? 'from-red-500 to-red-600' : current.gradient} rounded-full blur-sm sm:blur-md opacity-40 sm:opacity-60 animate-pulse`} />
+                        
+                        {/* Icono - Más pequeño en mobile */}
+                        <div className={`relative w-4 h-4 sm:w-6 sm:h-6 md:w-7 md:h-7 rounded-full bg-gradient-to-br ${point.highlight ? 'from-red-500 to-red-600' : current.gradient} flex items-center justify-center shadow-md sm:shadow-lg`}>
+                          {point.highlight ? (
+                            <span className="text-white text-[10px] sm:text-sm font-black">!</span>
+                          ) : (
+                            <span className="text-white text-[10px] sm:text-sm font-black">✓</span>
+                          )}
+                        </div>
+                        
+                        {/* Línea conectora - Más delgada en mobile */}
+                        <div className={`w-[2px] sm:w-[4px] h-3 sm:h-6 md:h-8 bg-gradient-to-b ${point.highlight ? 'from-red-500 to-red-600' : current.gradient} mt-0.5 sm:mt-1`} />
                       </div>
-                      <span className={`text-[12px] sm:text-base md:text-lg lg:text-xl font-bold tracking-tight leading-[1.4] sm:leading-snug ${point.highlight ? 'text-red-400' : 'text-white'}`}>
-                        {point.text}
-                      </span>
+                      
+                      {/* Texto con background sutil - Responsive */}
+                      <div className={`flex-1 px-2 sm:px-4 py-1.5 sm:py-3 rounded-md sm:rounded-lg backdrop-blur-sm ${
+                        point.highlight 
+                          ? 'bg-red-500/10 border border-red-500/30' 
+                          : 'bg-white/5 border border-white/10'
+                      } transition-all duration-300 hover:bg-white/10 hover:border-white/20`}>
+                        <span className={`text-[11px] sm:text-base md:text-lg lg:text-xl font-bold tracking-tight leading-[1.3] sm:leading-snug ${
+                          point.highlight ? 'text-red-300' : 'text-white'
+                        }`}>
+                          {point.text}
+                        </span>
+                      </div>
                     </div>
                   ))}
                 </div>
