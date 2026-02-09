@@ -66,14 +66,14 @@
       "model": "Ryzen 5 5500",
       "category": "Procesadores",
       "price": 150000,
-      "stock": 2,
+      "stock": 0,
       "realPowerConsumption": "65W (TDP) / 76W-82W (PPT Max Load)",
       "manufacturerUrl": "https://www.amd.com/es/support/downloads/drivers.html/processors/ryzen/ryzen-5000-series/amd-ryzen-5-5500.html",
       "images": [
         "/images/procesadores/r5_5550.webp",
         "/images/procesadores/r5_5500_cooler.webp"
       ],
-      "description": "Procesador AMD Ryzen 5 5500 4.2 GHz AM4 6 Core sin integrada con Cooler Wraith Stealth",
+      "description": "Procesador AMD Ryzen 5 5500 4.2 GHz AM4 6 Core sin integrada con Cooler Wraith Stealth - SIN STOCK DISPONIBLE",
       "specifications": {
         "marca": "AMD",
         "linea": "Ryzen 5",
