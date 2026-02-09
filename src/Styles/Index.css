@@ -904,7 +904,78 @@
 }
 
 .animate-float {
-  animation: float 6s ease-in-out infinite;
+  animation: float 3s ease-in-out infinite;
+}
+
+/* ===== LOADER ANIMATIONS ===== */
+
+/* Partículas orbitales alrededor del logo */
+@keyframes orbitParticle1 {
+  0% {
+    transform: translate(-50%, -50%) rotate(0deg) translateX(80px) rotate(0deg);
+  }
+  100% {
+    transform: translate(-50%, -50%) rotate(360deg) translateX(80px) rotate(-360deg);
+  }
+}
+
+@keyframes orbitParticle2 {
+  0% {
+    transform: translate(50%, -50%) rotate(120deg) translateX(80px) rotate(-120deg);
+  }
+  100% {
+    transform: translate(50%, -50%) rotate(480deg) translateX(80px) rotate(-480deg);
+  }
+}
+
+@keyframes orbitParticle3 {
+  0% {
+    transform: translate(-50%, 50%) rotate(240deg) translateX(80px) rotate(-240deg);
+  }
+  100% {
+    transform: translate(-50%, 50%) rotate(600deg) translateX(80px) rotate(-600deg);
+  }
+}
+
+.animate-orbit-particle-1 {
+  animation: orbitParticle1 4s linear infinite;
+}
+
+.animate-orbit-particle-2 {
+  animation: orbitParticle2 5s linear infinite;
+}
+
+.animate-orbit-particle-3 {
+  animation: orbitParticle3 6s linear infinite;
+}
+
+/* Barra de progreso animada */
+@keyframes loadingBar {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(400%);
+  }
+}
+
+.animate-loading-bar {
+  animation: loadingBar 2s ease-in-out infinite;
+}
+
+/* Gradiente animado para texto */
+@keyframes gradientX {
+  0%, 100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+.animate-gradient-x {
+  background-size: 200% 200%;
+  animation: gradientX 3s ease infinite;
 }
 
 /* Marquee animation for promotional slider */
