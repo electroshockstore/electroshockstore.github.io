@@ -64,7 +64,7 @@ const slides = [
     gradient: "from-orange-500 to-red-500",
     highlightColor: "bg-orange-500",
     image: "/images/hero/methods_tiny.webp",
-    imagePosition: "left" // Imagen más a la izquierda
+    imagePosition: "left" 
   },
   {
     id: 4,
@@ -173,15 +173,6 @@ const HeroCarousel = () => {
   const current = useMemo(() => slides[currentSlide], [currentSlide]);
   const previous = useMemo(() => slides[prevSlide], [prevSlide]);
 
-  // Calcular posición de imagen según configuración del slide
-  const getImagePositionClasses = (position) => {
-    if (position === 'left') {
-      return 'md:w-[60%] md:right-0 lg:w-[65%] xl:w-[70%]';
-    }
-    // Por defecto 'right' - más desplazada a la derecha
-    return 'md:w-[65%] md:right-[-10%] lg:w-[70%] lg:right-[-15%] xl:w-[75%] xl:right-[-20%]';
-  };
-
   return (
     <section 
       className="relative w-full h-[280px] sm:h-[600px] md:h-[700px] lg:h-[800px] bg-[#020617] overflow-hidden z-10 touch-pan-y"
@@ -190,8 +181,12 @@ const HeroCarousel = () => {
       onTouchEnd={handleTouchEnd}
     >
       
-      {/* Background Images - Posición dinámica según slide */}
-      <div className={`absolute right-0 top-0 w-full h-full z-0 transition-all duration-700 ${getImagePositionClasses(current.imagePosition)}`}>
+      {/* Background Images - Posición estática optimizada para rendimiento */}
+      <div className={`absolute right-0 top-0 h-full z-0 transition-opacity duration-700 ${
+        current.imagePosition === 'left' 
+          ? 'w-[85%] right-[-15%] md:w-[60%] md:right-0 lg:w-[65%] xl:w-[70%]'
+          : 'w-[85%] right-[-15%] md:w-[65%] md:right-[-10%] lg:w-[70%] lg:right-[-15%] xl:w-[75%] xl:right-[-20%]'
+      }`}>
         {/* Imagen anterior (fade out) */}
         {loadedImages.has(prevSlide) && prevSlide !== currentSlide && (
           <div 
@@ -248,19 +243,19 @@ const HeroCarousel = () => {
         <div className="container mx-0 sm:mx-2 px-5 sm:px-6 md:px-12 lg:px-16">
           <div className="max-w-2xl lg:max-w-3xl xl:max-w-4xl">
             <div key={current.id + '-text'}>
-                {/* Tag - Badge estilo premium con gradiente */}
-                <div className="flex items-center gap-2 sm:gap-3 mb-3 sm:mb-5 md:mb-6">
-                  <div className={`h-[2px] sm:h-[3px] w-8 sm:w-12 bg-gradient-to-r ${current.gradient} hero-line-expand`} />
-                  <div className={`inline-flex items-center gap-1.5 sm:gap-2 px-2.5 sm:px-4 py-1 sm:py-1.5 bg-gradient-to-r ${current.gradient} rounded-full hero-tag-enter shadow-lg`}>
-                    <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-white rounded-full animate-pulse" />
-                    <span className="text-white font-black text-[9px] sm:text-xs tracking-[0.25em] sm:tracking-[0.35em] uppercase">
+                {/* Tag - Badge más pequeño en mobile, posicionado arriba */}
+                <div className="flex items-center gap-1.5 sm:gap-3 mb-1.5 sm:mb-5 md:mb-6">
+                  <div className={`h-[2px] sm:h-[3px] w-6 sm:w-12 bg-gradient-to-r ${current.gradient} hero-line-expand`} />
+                  <div className={`inline-flex items-center gap-1 sm:gap-2 px-1.5 sm:px-4 py-0.5 sm:py-1.5 bg-gradient-to-r ${current.gradient} rounded-full hero-tag-enter shadow-lg`}>
+                    <div className="w-1 h-1 sm:w-2 sm:h-2 bg-white rounded-full animate-pulse" />
+                    <span className="text-white font-black text-[7px] sm:text-xs tracking-[0.2em] sm:tracking-[0.35em] uppercase">
                       {current.tag}
                     </span>
                   </div>
                 </div>
 
-                {/* Título - BRUTALIST/MAXIMALIST - Protagonista absoluto - Reducido en mobile */}
-                <h1 className="text-[28px] sm:text-6xl md:text-8xl lg:text-9xl xl:text-[12rem] font-black leading-[0.85] sm:leading-[0.8] tracking-[-0.03em] mb-3 sm:mb-6 md:mb-8 lg:mb-12">
+                {/* Título - MAXIMIZADO en mobile - PROTAGONISTA ABSOLUTO */}
+                <h1 className="text-[42px] sm:text-6xl md:text-8xl lg:text-9xl xl:text-[12rem] font-black leading-[0.8] sm:leading-[0.8] tracking-[-0.03em] mb-2 sm:mb-6 md:mb-8 lg:mb-12">
                   {/* Primera parte del título - BRUTAL */}
                   {current.title.split(' ').map((word, idx) => (
                     <span 
@@ -298,29 +293,29 @@ const HeroCarousel = () => {
                 </h1>
 
                 {/* Subtítulo - Con underline decorativo animado */}
-                <div className="relative inline-block mb-3 sm:mb-10 md:mb-14 lg:mb-16 hero-description-enter">
-                  <p className="text-[12px] sm:text-2xl md:text-3xl lg:text-4xl text-white font-black italic leading-tight relative z-10">
+                <div className="relative inline-block mb-2 sm:mb-10 md:mb-14 lg:mb-16 hero-description-enter">
+                  <p className="text-[11px] sm:text-2xl md:text-3xl lg:text-4xl text-white font-black italic leading-tight relative z-10">
                     {current.description}
                   </p>
                   {/* Underline decorativo animado con gradiente */}
-                  <div className={`absolute -bottom-1 sm:-bottom-2 left-0 right-0 h-1 sm:h-3 bg-gradient-to-r ${current.gradient} opacity-40 sm:opacity-50 blur-[2px] sm:blur-sm animate-pulse`} />
-                  <div className={`absolute -bottom-1 sm:-bottom-2 left-0 w-full h-[3px] sm:h-[5px] bg-gradient-to-r ${current.gradient}`} />
+                  <div className={`absolute -bottom-0.5 sm:-bottom-2 left-0 right-0 h-1 sm:h-3 bg-gradient-to-r ${current.gradient} opacity-40 sm:opacity-50 blur-[2px] sm:blur-sm animate-pulse`} />
+                  <div className={`absolute -bottom-0.5 sm:-bottom-2 left-0 w-full h-[2px] sm:h-[5px] bg-gradient-to-r ${current.gradient}`} />
                 </div>
 
-                {/* Points - 3 columnas en desktop para ahorrar espacio - Reducido en mobile */}
-                <div className="space-y-1.5 sm:space-y-0 sm:grid sm:grid-cols-3 sm:gap-4 md:gap-5 lg:gap-6">
+                {/* Points - Grid 2 columnas en mobile, 3 en desktop */}
+                <div className="grid grid-cols-2 gap-x-2 gap-y-1 sm:grid-cols-3 sm:gap-4 md:gap-5 lg:gap-6">
                   {current.points.map((point, idx) => (
                     <div 
                       key={idx}
-                      className="flex items-center gap-1.5 sm:gap-3 group hero-point-enter"
+                      className="flex items-center gap-1 sm:gap-3 group hero-point-enter"
                     >
                       {/* Icono BRUTAL - Más pequeño en mobile */}
                       <div className="flex-shrink-0">
-                        <div className={`w-4 h-4 sm:w-7 sm:h-7 md:w-8 md:h-8 ${point.highlight ? 'bg-red-600' : 'bg-white'} flex items-center justify-center font-black text-black sm:shadow-[4px_4px_0px_rgba(0,0,0,0.8)]`}>
+                        <div className={`w-3 h-3 sm:w-7 sm:h-7 md:w-8 md:h-8 ${point.highlight ? 'bg-red-600' : 'bg-white'} flex items-center justify-center font-black text-black sm:shadow-[4px_4px_0px_rgba(0,0,0,0.8)]`}>
                           {point.highlight ? (
-                            <span className="text-white text-[10px] sm:text-lg md:text-xl">!</span>
+                            <span className="text-white text-[8px] sm:text-lg md:text-xl">!</span>
                           ) : (
-                            <span className="text-black text-[10px] sm:text-lg md:text-xl">✓</span>
+                            <span className="text-black text-[8px] sm:text-lg md:text-xl">✓</span>
                           )}
                         </div>
                       </div>
@@ -328,10 +323,10 @@ const HeroCarousel = () => {
                       {/* Texto BRUTAL - Más pequeño en mobile */}
                       <div className={`flex-1 ${
                         point.highlight 
-                          ? 'border-l-2 sm:border-l-4 border-red-600 pl-1.5 sm:pl-3' 
-                          : 'border-l-2 sm:border-l-4 border-white/30 pl-1.5 sm:pl-3'
+                          ? 'border-l-[1.5px] sm:border-l-4 border-red-600 pl-1 sm:pl-3' 
+                          : 'border-l-[1.5px] sm:border-l-4 border-white/30 pl-1 sm:pl-3'
                       }`}>
-                        <span className={`text-[9px] sm:text-sm md:text-base lg:text-lg font-black uppercase tracking-tight leading-tight ${
+                        <span className={`text-[7.5px] sm:text-sm md:text-base lg:text-lg font-black uppercase tracking-tight leading-tight ${
                           point.highlight ? 'text-red-400' : 'text-white'
                         }`}
                         style={{
