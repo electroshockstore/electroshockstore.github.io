@@ -11,17 +11,19 @@ import {
   ShieldCheck,
   Zap
 } from 'lucide-react';
+import useScrollReveal from '../../hooks/useScrollReveal';
 import { IMPORTANT_RULES } from './constants';
 
 const ImportantRulesBentoGrid = ({ rules = [] }) => {
   const rulesData = rules.length > 0 ? rules : IMPORTANT_RULES;
+  const { elementRef: gridRef, className: gridClass } = useScrollReveal({ threshold: 0.1, animation: 'fade-in' });
 
   return (
     <div className="w-full bg-transparent p-2 sm:p-4 lg:p-6 font-sans">
       <div className="w-full max-w-6xl mx-auto">
         
         {/* Layout Mobile Optimizado */}
-        <div className="lg:hidden max-w-md mx-auto">
+        <div ref={gridRef} className={`${gridClass} lg:hidden max-w-md mx-auto`}>
           <div className="grid grid-cols-2 gap-3">
             
             {/* CARD 1: SIN DEPÓSITOS */}
@@ -147,10 +149,10 @@ const ImportantRulesBentoGrid = ({ rules = [] }) => {
         </div>
 
         {/* Layout Desktop: Bento Grid */}
-        <div className="hidden lg:grid lg:grid-cols-3 gap-4 auto-rows-min">
+        <div ref={gridRef} className={`${gridClass} hidden lg:grid lg:grid-cols-3 gap-4 auto-rows-min`}>
 
           {/* --- CARD 1: SEGURIDAD --- */}
-          <div className="lg:row-span-2 rounded-[2rem] bg-pink-100 p-5 sm:p-6 flex flex-col justify-between border border-pink-200 relative overflow-hidden group">
+          <div className="lg:row-span-2 rounded-[2rem] bg-pink-100 p-5 sm:p-6 flex flex-col justify-between border border-pink-200 relative overflow-hidden group hero-point-enter" style={{ animationDelay: '0.5s' }}>
             <DollarSign className="absolute -right-4 -bottom-4 w-32 h-32 text-pink-600 opacity-5 -rotate-12 group-hover:opacity-10 group-hover:scale-110 transition-all duration-500" />
             <div className="relative z-10">
               <span className="px-3 py-1 rounded-full bg-pink-600 text-white text-[10px] font-black uppercase tracking-widest mb-3 sm:mb-4 inline-block">
@@ -168,8 +170,8 @@ const ImportantRulesBentoGrid = ({ rules = [] }) => {
             </div>
           </div>
 
-          {/* --- CARD 2: IMAGEN CENTRAL --- */}
-          <div className="lg:row-span-3 rounded-[2rem] bg-white border border-pink-100 relative flex items-center justify-center overflow-visible shadow-sm min-h-[300px] sm:min-h-[400px]">
+          {/* --- CARD 2: IMAGEN CENTRAL --- PRIMERO */}
+          <div className="lg:row-span-3 rounded-[2rem] bg-white border border-pink-100 relative flex items-center justify-center overflow-visible shadow-sm min-h-[300px] sm:min-h-[400px] hero-image-enter">
             <div className="absolute w-48 h-48 bg-pink-100 rounded-full blur-3xl opacity-50" />
             <img 
               src="/images/puntos_retiro.webp" 
@@ -179,7 +181,7 @@ const ImportantRulesBentoGrid = ({ rules = [] }) => {
           </div>
 
           {/* --- CARD 3: PAGO --- */}
-          <div className="lg:row-span-2 rounded-[2rem] bg-white p-5 sm:p-6 border border-gray-100 shadow-sm relative overflow-hidden group">
+          <div className="lg:row-span-2 rounded-[2rem] bg-white p-5 sm:p-6 border border-gray-100 shadow-sm relative overflow-hidden group hero-point-enter" style={{ animationDelay: '0.7s' }}>
             <AlertTriangle className="absolute -right-4 -bottom-4 w-32 h-32 text-orange-400 opacity-5 group-hover:opacity-10 transition-all duration-500" />
             <span className="px-3 py-1 rounded-full bg-black text-white text-[10px] font-black uppercase tracking-widest mb-3 sm:mb-4 inline-block">
               Transparencia
@@ -201,7 +203,7 @@ const ImportantRulesBentoGrid = ({ rules = [] }) => {
           </div>
 
           {/* --- CARD 4: RECARGO --- */}
-          <div className="rounded-[2rem] bg-gradient-to-br from-red-50 to-rose-100 p-5 sm:p-6 border border-red-200 relative overflow-hidden flex flex-col">
+          <div className="rounded-[2rem] bg-gradient-to-br from-red-50 to-rose-100 p-5 sm:p-6 border border-red-200 relative overflow-hidden flex flex-col hero-point-enter" style={{ animationDelay: '0.9s' }}>
             <Percent className="absolute -right-2 -bottom-2 w-24 h-24 text-red-600 opacity-5" />
             <span className="px-3 py-1 rounded-full bg-red-600 text-white text-[10px] font-black uppercase tracking-widest mb-2 sm:mb-3 inline-block">
               {rulesData[3]?.description}
@@ -218,7 +220,7 @@ const ImportantRulesBentoGrid = ({ rules = [] }) => {
           </div>
 
           {/* --- CARD 5: NO ENVÍOS --- */}
-          <div className="rounded-[2rem] bg-gradient-to-br from-slate-50 to-gray-100 p-5 sm:p-6 border border-slate-200 relative overflow-hidden flex flex-col">
+          <div className="rounded-[2rem] bg-gradient-to-br from-slate-50 to-gray-100 p-5 sm:p-6 border border-slate-200 relative overflow-hidden flex flex-col hero-point-enter" style={{ animationDelay: '1.1s' }}>
             <Truck className="absolute -right-6 -bottom-6 w-24 h-24 text-slate-500 opacity-5 rotate-12" />
             <X className="absolute right-4 bottom-4 w-10 h-10 text-red-600 opacity-20" />
             <span className="px-3 py-1 rounded-full bg-green-600 text-white text-[10px] font-black uppercase tracking-widest mb-2 sm:mb-3 inline-block">
@@ -243,7 +245,7 @@ const ImportantRulesBentoGrid = ({ rules = [] }) => {
           </div>
 
           {/* --- CARD 6: VENTA PARTICULAR --- */}
-          <div className="lg:col-span-3 rounded-[2rem] sm:rounded-[2.5rem] bg-blue-100 p-5 sm:p-6 lg:p-8 border border-blue-200 relative overflow-hidden">
+          <div className="lg:col-span-3 rounded-[2rem] sm:rounded-[2.5rem] bg-blue-100 p-5 sm:p-6 lg:p-8 border border-blue-200 relative overflow-hidden hero-point-enter" style={{ animationDelay: '1.3s' }}>
 
             {/* Watermark */}
             <CheckCircle className="absolute right-10 -bottom-6 w-48 h-48 text-blue-600 opacity-5" />
