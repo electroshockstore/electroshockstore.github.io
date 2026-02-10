@@ -108,8 +108,8 @@ const ProductCard = memo(({ product, viewMode, onClick, index = 0, listName = 'P
                  transition-all duration-300 cursor-pointer overflow-hidden flex flex-col h-full
                  active:scale-[0.98] sm:active:scale-100"
     >
-      {/* Elementos geométricos decorativos modernos */}
-      <div className="absolute inset-0 pointer-events-none overflow-hidden z-10">
+      {/* Elementos geométricos decorativos modernos - Solo desktop */}
+      <div className="hidden md:block absolute inset-0 pointer-events-none overflow-hidden z-10">
         {/* Círculo superior derecha - Azul */}
         <div className="absolute -top-10 -right-10 w-30 h-30 bg-gradient-to-br from-blue-400/30 to-cyan-400/20 rounded-full blur-2xl group-hover:scale-125 transition-transform duration-500" />
         
@@ -120,15 +120,11 @@ const ProductCard = memo(({ product, viewMode, onClick, index = 0, listName = 'P
         <div className="absolute top-0 left-0 w-10 h-10 opacity-20 group-hover:opacity-40 transition-opacity duration-300">
           <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-orange-400 to-transparent" style={{ clipPath: 'polygon(0 0, 100% 0, 0 100%)' }} />
         </div>
-        
-       
-        
-       
       </div>
 
       <div className="relative aspect-square bg-gradient-to-br from-gray-50 to-gray-100 overflow-hidden">
-        {/* Glow debajo de la imagen - Efecto de iluminación */}
-        <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-3/4 h-20 bg-gradient-to-t from-blue-800/300 via-cyan-800/200 to-transparent blur-2xl" />
+        {/* Glow debajo de la imagen - Efecto de iluminación - Solo desktop */}
+        <div className="hidden md:block absolute bottom-0 left-1/2 -translate-x-1/2 w-3/4 h-20 bg-gradient-to-t from-blue-800/300 via-cyan-800/200 to-transparent blur-2xl" />
         
         <ProductImage src={productImage} alt={name} loading={imageLoading} fetchpriority={imageFetchPriority} />
         <StockStatus stockStatus={STOCK_STATUS} />

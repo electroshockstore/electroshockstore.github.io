@@ -6,8 +6,8 @@
 const ModernLoader = () => {
   return (
     <div className="fixed inset-0 z-[9999] flex items-center justify-center bg-[#0a0a0f] overflow-hidden">
-      {/* Partículas de fondo animadas */}
-      <div className="absolute inset-0 overflow-hidden">
+      {/* Partículas de fondo animadas - Solo desktop */}
+      <div className="hidden md:block absolute inset-0 overflow-hidden">
         <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-blue-500/20 rounded-full blur-3xl animate-pulse" />
         <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-purple-500/20 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s' }} />
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-cyan-500/10 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '0.5s' }} />
@@ -25,8 +25,8 @@ const ModernLoader = () => {
             <div className="absolute inset-0 rounded-full border-2 border-cyan-500/30 animate-ping" style={{ animationDelay: '1s' }} />
           </div>
 
-          {/* Glow de fondo del logo */}
-          <div className="absolute inset-0 bg-gradient-to-r from-blue-500 via-purple-500 to-cyan-500 rounded-full blur-3xl opacity-50 animate-pulse" />
+          {/* Glow de fondo del logo - Solo desktop */}
+          <div className="hidden md:block absolute inset-0 bg-gradient-to-r from-blue-500 via-purple-500 to-cyan-500 rounded-full blur-3xl opacity-50 animate-pulse" />
           
           {/* Logo */}
           <div className="relative w-32 h-32 sm:w-40 sm:h-40 md:w-48 md:h-48 animate-float">
@@ -52,7 +52,7 @@ const ModernLoader = () => {
           </h2>
           
           {/* Barra de progreso animada */}
-          <div className="w-48 sm:w-64 h-1.5 bg-gray-800/50 rounded-full overflow-hidden backdrop-blur-sm">
+          <div className="w-48 sm:w-64 h-1.5 bg-gray-800/50 rounded-full overflow-hidden md:backdrop-blur-sm">
             <div className="h-full bg-gradient-to-r from-blue-500 via-purple-500 to-cyan-500 rounded-full animate-loading-bar shadow-[0_0_20px_rgba(59,130,246,0.6)]" />
           </div>
 

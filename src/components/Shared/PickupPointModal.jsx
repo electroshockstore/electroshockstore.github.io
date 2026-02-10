@@ -32,17 +32,17 @@ const PickupPointModal = memo(({ isOpen, onClose, onSelectPoint, selectedPoint }
 
   return (
     <>
-      {/* Backdrop */}
+      {/* Backdrop - Blur solo en desktop */}
       <div 
-        className="fixed inset-0 bg-black/60 backdrop-blur-sm z-[9998] animate-in fade-in duration-200"
+        className="fixed inset-0 bg-black/60 md:backdrop-blur-sm z-[9998] animate-in fade-in duration-200"
         onClick={onClose}
       />
 
       {/* Modal */}
       <div className="fixed inset-0 z-[9999] flex items-center justify-center p-3 sm:p-4 animate-in zoom-in-95 fade-in duration-200">
         <div className="relative bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 rounded-2xl sm:rounded-3xl shadow-2xl w-full max-w-2xl border border-gray-700/50 overflow-hidden max-h-[95vh] flex flex-col">
-          {/* Decorative glow */}
-          <div className="absolute top-0 left-1/2 -translate-x-1/2 w-64 h-64 bg-green-500/20 rounded-full blur-3xl" />
+          {/* Decorative glow - Solo desktop */}
+          <div className="hidden md:block absolute top-0 left-1/2 -translate-x-1/2 w-64 h-64 bg-green-500/20 rounded-full blur-3xl" />
           
           {/* Header */}
           <div className="relative px-4 sm:px-6 pt-4 sm:pt-6 pb-3 sm:pb-4 border-b border-gray-700/50 flex-shrink-0">

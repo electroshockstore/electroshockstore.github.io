@@ -1,56 +1,38 @@
 import { useState, useEffect, useCallback, useMemo, useRef } from 'react';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 
-// Hook para parallax suave (solo desktop)
-const useParallax = () => {
-  const [scrollY, setScrollY] = useState(0);
+// Hook para detectar desktop (sin parallax)
+const useDesktopDetection = () => {
   const [isDesktop, setIsDesktop] = useState(false);
 
   useEffect(() => {
-    // Detectar desktop
     const checkDesktop = () => setIsDesktop(window.innerWidth >= 769);
     checkDesktop();
     window.addEventListener('resize', checkDesktop);
 
-    // Parallax solo en desktop
-    if (window.innerWidth < 769) return;
-
-    let ticking = false;
-    const handleScroll = () => {
-      if (!ticking) {
-        window.requestAnimationFrame(() => {
-          setScrollY(window.scrollY);
-          ticking = false;
-        });
-        ticking = true;
-      }
-    };
-
-    window.addEventListener('scroll', handleScroll, { passive: true });
     return () => {
-      window.removeEventListener('scroll', handleScroll);
       window.removeEventListener('resize', checkDesktop);
     };
   }, []);
 
-  return { scrollY, isDesktop };
+  return { isDesktop };
 };
 
 const slides = [
   {
     id: 1,
     tag: "VERIFICADO",
-    title: "COMPRÁ CON",
-    titleHighlight: "SEGURIDAD",
+    title: "COMPRÁ",
+    titleHighlight: "SEGURO",
     description: "¡NO TE DEJES ENGAÑAR!",
     points: [
-      { text: "Solo venta web oficial, verificada y segura.", positive: true },
-      { text: "¡ATENCIÓN! No tenemos Instagram ni Facebook.", highlight: true },
-      { text: "Asesores autorizados solo en chat oficial.", positive: true }
+      { text: "No tenemos Instagram ni Facebook.", highlight: true },
+      { text: "Solo Whatsapp Oficial.", positive: true }
     ],
     gradient: "from-blue-600 to-cyan-400",
     highlightColor: "bg-blue-500",
-    image: "/images/hero/megaphone_tiny.webp"
+    image: "/images/hero/megaphone_tiny.webp",
+    imagePosition: "left" // Imagen más a la izquierda
   },
   {
     id: 2,
@@ -59,28 +41,30 @@ const slides = [
     titleHighlight: "DEPÓSITOS",
     description: "¡NO TE DEJES ENGAÑAR!",
     points: [
-      { text: "¡ATENCIÓN! NO pedimos dinero previo", highlight: true },
-      { text: "Pagás al recibir el producto", positive: true },
-      { text: "Revisás antes de abonar", positive: true }
+      { text: "NO pedimos dinero previo", highlight: true },
+      { text: "Revisás y Pagás al momento", positive: true },
+    
     ],
     gradient: "from-emerald-500 to-teal-400",
     highlightColor: "bg-emerald-500",
-    image: "/images/hero/stop_tiny.webp"
+    image: "/images/hero/stop_tiny.webp",
+    imagePosition: "right" // Imagen más a la derecha
   },
   {
     id: 3,
     tag: "LEER ATENTAMENTE",
     title: "CONDICIONES",
     titleHighlight: "IMPORTANTES",
-    description: "Información importante sobre la operación.",
+    description: "Condiciones De Venta.",
     points: [
+       { text: "Efectivo o transferencia INMEDIATA", positive: false },
       { text: "NO PERMUTO", highlight: true },
-      { text: "Efectivo o transferencia INMEDIATA", positive: false },
       { text: "Recargo en transf. < $100.000", highlight: true }
     ],
     gradient: "from-orange-500 to-red-500",
     highlightColor: "bg-orange-500",
-    image: "/images/hero/methods_tiny.webp"
+    image: "/images/hero/methods_tiny.webp",
+    imagePosition: "left" // Imagen más a la izquierda
   },
   {
     id: 4,
@@ -95,7 +79,8 @@ const slides = [
     ],
     gradient: "from-purple-600 to-pink-500",
     highlightColor: "bg-purple-500",
-    image: "/images/hero/atenttion_tiny.webp"
+    image: "/images/hero/atenttion_tiny.webp",
+    imagePosition: "right" // Imagen más a la derecha
   },
   {
     id: 5,
@@ -110,7 +95,8 @@ const slides = [
     ],
     gradient: "from-cyan-500 to-blue-600",
     highlightColor: "bg-cyan-500",
-    image: "/images/hero/location_tiny.webp"
+    image: "/images/hero/location_tiny.webp",
+    imagePosition: "left" // Imagen más a la izquierda
   }
 ];
 
@@ -122,8 +108,8 @@ const HeroCarousel = () => {
   const touchStartX = useRef(0);
   const touchEndX = useRef(0);
   
-  // Parallax hook
-  const { scrollY, isDesktop } = useParallax();
+  // Desktop detection hook
+  const { isDesktop } = useDesktopDetection();
 
   const goToNextSlide = useCallback(() => {
     if (isTransitioning) return;
@@ -176,10 +162,8 @@ const HeroCarousel = () => {
     return () => clearInterval(timer);
   }, [goToNextSlide]);
 
-  // Precargar imágenes adyacentes solo en desktop
+  // Precargar imágenes adyacentes (mobile y desktop)
   useEffect(() => {
-    if (window.innerWidth < 768) return; // Skip en mobile
-    
     const nextIndex = (currentSlide + 1) % slides.length;
     const prevIndex = (currentSlide - 1 + slides.length) % slides.length;
     
@@ -189,10 +173,14 @@ const HeroCarousel = () => {
   const current = useMemo(() => slides[currentSlide], [currentSlide]);
   const previous = useMemo(() => slides[prevSlide], [prevSlide]);
 
-  // Calcular transformaciones parallax (solo desktop)
-  const parallaxBg = isDesktop ? scrollY * 0.5 : 0; // Imagen de fondo más lenta
-  const parallaxContent = isDesktop ? scrollY * 0.15 : 0; // Contenido ligeramente más lento
-  const parallaxNav = isDesktop ? scrollY * 0.25 : 0; // Navegación velocidad media
+  // Calcular posición de imagen según configuración del slide
+  const getImagePositionClasses = (position) => {
+    if (position === 'left') {
+      return 'md:w-[60%] md:right-0 lg:w-[65%] xl:w-[70%]';
+    }
+    // Por defecto 'right' - más desplazada a la derecha
+    return 'md:w-[65%] md:right-[-10%] lg:w-[70%] lg:right-[-15%] xl:w-[75%] xl:right-[-20%]';
+  };
 
   return (
     <section 
@@ -202,14 +190,13 @@ const HeroCarousel = () => {
       onTouchEnd={handleTouchEnd}
     >
       
-      {/* Background Images - Crossfade con parallax y animación de entrada */}
-      <div className="absolute right-0 top-0 w-full md:w-[70%] h-full z-0">
+      {/* Background Images - Posición dinámica según slide */}
+      <div className={`absolute right-0 top-0 w-full h-full z-0 transition-all duration-700 ${getImagePositionClasses(current.imagePosition)}`}>
         {/* Imagen anterior (fade out) */}
         {loadedImages.has(prevSlide) && prevSlide !== currentSlide && (
           <div 
-            className="absolute inset-0 will-change-transform transition-opacity duration-700 ease-out"
+            className="absolute inset-0 transition-opacity duration-700 ease-out"
             style={{
-              transform: isDesktop ? `translate3d(0, ${parallaxBg}px, 0)` : 'none',
               opacity: isTransitioning ? 0 : 1
             }}
           >
@@ -222,7 +209,7 @@ const HeroCarousel = () => {
               width="1920"
               height="1080"
             />
-            <div className="absolute inset-0 bg-gradient-to-r from-[#020617] via-[#020617]/70 md:via-[#020617]/40 to-transparent" />
+            <div className="absolute inset-0 bg-gradient-to-r from-[#020617] via-[#020617]/70 md:via-[#020617]/50 to-transparent" />
           </div>
         )}
         
@@ -230,9 +217,8 @@ const HeroCarousel = () => {
         {loadedImages.has(currentSlide) && (
           <div 
             key={`image-${current.id}`}
-            className="absolute inset-0 will-change-transform transition-opacity duration-700 ease-out hero-image-enter"
+            className="absolute inset-0 transition-opacity duration-700 ease-out hero-image-enter"
             style={{
-              transform: isDesktop ? `translate3d(0, ${parallaxBg}px, 0)` : 'none',
               opacity: isTransitioning ? 1 : 1
             }}
           >
@@ -246,7 +232,7 @@ const HeroCarousel = () => {
               width="1920"
               height="1080"
             />
-            <div className="absolute inset-0 bg-gradient-to-r from-[#020617] via-[#020617]/70 md:via-[#020617]/40 to-transparent" />
+            <div className="absolute inset-0 bg-gradient-to-r from-[#020617] via-[#020617]/70 md:via-[#020617]/50 to-transparent" />
           </div>
         )}
       </div>
@@ -257,95 +243,99 @@ const HeroCarousel = () => {
       {/* Fade-out inferior - Mobile y Desktop */}
       <div className="absolute bottom-0 left-0 right-0 h-20 sm:h-32 bg-gradient-to-t from-[#0a0a0f] to-transparent pointer-events-none z-10" />
 
-      {/* Contenido - Landing style con parallax y animaciones */}
-      <div 
-        className="relative z-20 h-full flex items-center py-4 sm:py-0 will-change-transform"
-        style={{
-          transform: isDesktop ? `translate3d(0, ${parallaxContent}px, 0)` : 'none'
-        }}
-      >
+      {/* Contenido - Landing style sin parallax */}
+      <div className="relative z-20 h-full flex items-center py-4 sm:py-0">
         <div className="container mx-0 sm:mx-2 px-5 sm:px-6 md:px-12 lg:px-16">
-          <div className="max-w-2xl lg:max-w-4xl">
+          <div className="max-w-2xl lg:max-w-3xl xl:max-w-4xl">
             <div key={current.id + '-text'}>
-                {/* Tag - Maximalist style con badge premium - Responsive */}
-                <div className="flex items-center gap-2 sm:gap-4 mb-3 sm:mb-5 md:mb-7">
-                  <div className={`h-[2px] sm:h-[4px] w-6 sm:w-16 bg-gradient-to-r ${current.gradient} hero-line-expand shadow-[0_0_10px_currentColor] sm:shadow-[0_0_20px_currentColor]`} />
-                  <div className={`inline-flex items-center gap-1.5 sm:gap-2 px-2 sm:px-4 py-1 sm:py-2 bg-gradient-to-r ${current.gradient} rounded-full hero-tag-enter shadow-md sm:shadow-lg`}>
-                    <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-white rounded-full animate-pulse" />
-                    <span className="text-white font-black text-[9px] sm:text-xs tracking-[0.2em] sm:tracking-[0.4em] uppercase">
-                      {current.tag}
-                    </span>
-                  </div>
+                {/* Tag - BRUTAL minimalista - No roba protagonismo */}
+                <div className="flex items-center gap-2 mb-2 sm:mb-4 md:mb-6">
+                  <div className={`h-[2px] sm:h-[3px] w-6 sm:w-12 ${current.highlightColor} hero-line-expand`} />
+                  <span className="text-white/60 font-black text-[8px] sm:text-xs tracking-[0.3em] uppercase">
+                    {current.tag}
+                  </span>
                 </div>
 
-                {/* Título - Maximalist con marker highlight - Responsive */}
-                <h1 className="text-[32px] sm:text-5xl md:text-7xl lg:text-8xl xl:text-9xl font-black leading-[0.95] sm:leading-[0.85] tracking-tighter mb-3 sm:mb-5 md:mb-7 lg:mb-10">
-                  {/* Primera parte del título */}
+                {/* Título - BRUTALIST/MAXIMALIST - Protagonista absoluto - Reducido en mobile */}
+                <h1 className="text-[28px] sm:text-6xl md:text-8xl lg:text-9xl xl:text-[12rem] font-black leading-[0.85] sm:leading-[0.8] tracking-[-0.03em] mb-3 sm:mb-6 md:mb-8 lg:mb-12">
+                  {/* Primera parte del título - BRUTAL */}
                   {current.title.split(' ').map((word, idx) => (
-                    <span key={idx} className="hero-title-word inline-block mr-2 sm:mr-4 md:mr-6 text-white drop-shadow-[0_2px_10px_rgba(0,0,0,0.8)] sm:drop-shadow-[0_4px_20px_rgba(0,0,0,0.8)]">
+                    <span 
+                      key={idx} 
+                      className="hero-title-word inline-block mr-1.5 sm:mr-4 md:mr-6 text-white"
+                      style={{
+                        textShadow: '2px 2px 0px rgba(0,0,0,0.9), 4px 4px 0px rgba(0,0,0,0.5)',
+                        WebkitTextStroke: '0.5px rgba(255,255,255,0.1)'
+                      }}
+                    >
                       {word}
                     </span>
                   ))}
                   
-                  {/* Palabra destacada con marker effect - Responsive */}
+                  {/* Palabra destacada - MAXIMALIST MARKER EFFECT */}
                   <span className="hero-title-word inline-block relative">
-                    {/* Marker background - Efecto resaltador */}
-                    <span className={`absolute inset-0 ${current.highlightColor} -skew-x-3 sm:-skew-x-6 -rotate-1 opacity-90 blur-[0.5px] sm:blur-[1px]`} />
+                    {/* Múltiples capas de marker para efecto 3D brutal */}
+                    <span className={`absolute inset-0 ${current.highlightColor} -skew-x-6 rotate-[-2deg] opacity-95 translate-x-1 translate-y-1`} />
+                    <span className={`absolute inset-0 ${current.highlightColor} -skew-x-6 rotate-[-1deg] opacity-90`} />
                     
-                    {/* Texto sobre el marker */}
-                    <span className="relative text-black px-2 sm:px-4 md:px-6 inline-block drop-shadow-none font-black">
+                    {/* Texto sobre el marker - ULTRA BOLD */}
+                    <span 
+                      className="relative text-black px-2 sm:px-5 md:px-8 inline-block font-black uppercase"
+                      style={{
+                        textShadow: '1px 1px 0px rgba(0,0,0,0.3)',
+                        letterSpacing: '-0.02em'
+                      }}
+                    >
                       {current.titleHighlight}
                     </span>
                     
-                    {/* Glow effect - Más sutil en mobile */}
-                    <span className={`absolute inset-0 ${current.highlightColor} blur-md sm:blur-xl opacity-30 sm:opacity-50 animate-pulse`} />
+                    {/* Glow effect brutal - Solo desktop */}
+                    <span className={`hidden sm:block absolute inset-0 ${current.highlightColor} blur-2xl opacity-60 animate-pulse`} />
                   </span>
                 </h1>
 
-                {/* Subtítulo - Maximalist con underline animado - Responsive */}
-                <div className="relative inline-block mb-4 sm:mb-8 md:mb-10 lg:mb-14 hero-description-enter">
-                  <p className="text-[13px] sm:text-xl md:text-2xl lg:text-3xl text-white font-black italic leading-tight relative z-10">
+                {/* Subtítulo - BRUTAL con borde grueso - Reducido en mobile */}
+                <div className="relative inline-block mb-3 sm:mb-10 md:mb-14 lg:mb-16 hero-description-enter">
+                  <p 
+                    className="text-[11px] sm:text-2xl md:text-3xl lg:text-4xl text-white font-black uppercase leading-tight relative z-10 px-2 sm:px-4 py-0.5 sm:py-2 bg-black/60 border-l-3 sm:border-l-8 border-white"
+                    style={{
+                      textShadow: '1px 1px 0px rgba(0,0,0,0.8)'
+                    }}
+                  >
                     {current.description}
                   </p>
-                  {/* Underline decorativo animado - Más sutil en mobile */}
-                  <div className={`absolute -bottom-0.5 sm:-bottom-2 left-0 right-0 h-1 sm:h-3 bg-gradient-to-r ${current.gradient} opacity-30 sm:opacity-50 blur-[2px] sm:blur-sm animate-pulse`} />
-                  <div className={`absolute -bottom-0.5 sm:-bottom-2 left-0 w-full h-[2px] sm:h-[4px] bg-gradient-to-r ${current.gradient}`} />
                 </div>
 
-                {/* Points - Maximalist con badges y efectos - Responsive */}
-                <div className="grid grid-cols-1 gap-2 sm:gap-5 md:grid-cols-2 md:gap-7 lg:gap-9">
+                {/* Points - 3 columnas en desktop para ahorrar espacio - Reducido en mobile */}
+                <div className="space-y-1.5 sm:space-y-0 sm:grid sm:grid-cols-3 sm:gap-4 md:gap-5 lg:gap-6">
                   {current.points.map((point, idx) => (
                     <div 
                       key={idx}
-                      className="flex items-start gap-2 sm:gap-4 md:gap-5 group hero-point-enter"
+                      className="flex items-center gap-1.5 sm:gap-3 group hero-point-enter"
                     >
-                      {/* Icono decorativo con glow - Responsive */}
-                      <div className="flex flex-col items-center pt-[3px] sm:pt-1.5 relative flex-shrink-0">
-                        {/* Glow del icono - Más sutil en mobile */}
-                        <div className={`absolute inset-0 w-4 h-4 sm:w-8 sm:h-8 bg-gradient-to-br ${point.highlight ? 'from-red-500 to-red-600' : current.gradient} rounded-full blur-sm sm:blur-md opacity-40 sm:opacity-60 animate-pulse`} />
-                        
-                        {/* Icono - Más pequeño en mobile */}
-                        <div className={`relative w-4 h-4 sm:w-6 sm:h-6 md:w-7 md:h-7 rounded-full bg-gradient-to-br ${point.highlight ? 'from-red-500 to-red-600' : current.gradient} flex items-center justify-center shadow-md sm:shadow-lg`}>
+                      {/* Icono BRUTAL - Más pequeño en mobile */}
+                      <div className="flex-shrink-0">
+                        <div className={`w-4 h-4 sm:w-7 sm:h-7 md:w-8 md:h-8 ${point.highlight ? 'bg-red-600' : 'bg-white'} flex items-center justify-center font-black text-black sm:shadow-[4px_4px_0px_rgba(0,0,0,0.8)]`}>
                           {point.highlight ? (
-                            <span className="text-white text-[10px] sm:text-sm font-black">!</span>
+                            <span className="text-white text-[10px] sm:text-lg md:text-xl">!</span>
                           ) : (
-                            <span className="text-white text-[10px] sm:text-sm font-black">✓</span>
+                            <span className="text-black text-[10px] sm:text-lg md:text-xl">✓</span>
                           )}
                         </div>
-                        
-                        {/* Línea conectora - Más delgada en mobile */}
-                        <div className={`w-[2px] sm:w-[4px] h-3 sm:h-6 md:h-8 bg-gradient-to-b ${point.highlight ? 'from-red-500 to-red-600' : current.gradient} mt-0.5 sm:mt-1`} />
                       </div>
                       
-                      {/* Texto con background sutil - Responsive */}
-                      <div className={`flex-1 px-2 sm:px-4 py-1.5 sm:py-3 rounded-md sm:rounded-lg backdrop-blur-sm ${
+                      {/* Texto BRUTAL - Más pequeño en mobile */}
+                      <div className={`flex-1 ${
                         point.highlight 
-                          ? 'bg-red-500/10 border border-red-500/30' 
-                          : 'bg-white/5 border border-white/10'
-                      } transition-all duration-300 hover:bg-white/10 hover:border-white/20`}>
-                        <span className={`text-[11px] sm:text-base md:text-lg lg:text-xl font-bold tracking-tight leading-[1.3] sm:leading-snug ${
-                          point.highlight ? 'text-red-300' : 'text-white'
-                        }`}>
+                          ? 'border-l-2 sm:border-l-4 border-red-600 pl-1.5 sm:pl-3' 
+                          : 'border-l-2 sm:border-l-4 border-white/30 pl-1.5 sm:pl-3'
+                      }`}>
+                        <span className={`text-[9px] sm:text-sm md:text-base lg:text-lg font-black uppercase tracking-tight leading-tight ${
+                          point.highlight ? 'text-red-400' : 'text-white'
+                        }`}
+                        style={{
+                          textShadow: '1px 1px 0px rgba(0,0,0,0.8)'
+                        }}>
                           {point.text}
                         </span>
                       </div>
@@ -357,34 +347,34 @@ const HeroCarousel = () => {
         </div>
       </div>
 
-      {/* Navegación con parallax */}
-      <div 
-        className="absolute bottom-3 sm:bottom-8 md:bottom-12 right-4 sm:right-8 md:right-12 z-30 flex flex-col items-end gap-2 sm:gap-4 md:gap-6 will-change-transform"
-        style={{
-          transform: isDesktop ? `translate3d(0, ${parallaxNav}px, 0)` : 'none'
-        }}
-      >
-        {/* Contador */}
-        <div className="flex items-baseline gap-1.5 sm:gap-2 md:gap-3">
-          <span className="text-3xl sm:text-6xl md:text-7xl lg:text-8xl font-black text-white leading-none">
+      {/* Navegación sin parallax - Más pequeña en mobile */}
+      <div className="absolute bottom-3 sm:bottom-8 md:bottom-12 right-3 sm:right-8 md:right-12 z-30 flex flex-col items-end gap-2 sm:gap-5">
+        {/* Contador BRUTAL - Más pequeño en mobile */}
+        <div className="flex items-baseline gap-1.5 sm:gap-2">
+          <span 
+            className="text-3xl sm:text-7xl md:text-8xl lg:text-9xl font-black text-white leading-none"
+            style={{
+              textShadow: '2px 2px 0px rgba(0,0,0,0.8)'
+            }}
+          >
             {String(currentSlide + 1).padStart(2, '0')}
           </span>
-          <span className="text-white/20 font-black text-base sm:text-2xl md:text-3xl">
-            / {String(slides.length).padStart(2, '0')}
+          <span className="text-white/30 font-black text-base sm:text-3xl">
+            /{String(slides.length).padStart(2, '0')}
           </span>
         </div>
         
-        {/* Indicadores */}
-        <div className="flex gap-1.5 sm:gap-1.5 md:gap-2">
+        {/* Indicadores BRUTALES - Cuadrados */}
+        <div className="flex gap-2">
           {slides.map((_, idx) => (
             <button
               key={idx}
               onClick={() => goToSlide(idx)}
               aria-label={`Ir a slide ${idx + 1}`}
-              className={`h-[2.5px] sm:h-[3px] md:h-[4px] transition-all duration-500 rounded-full ${
+              className={`transition-all duration-300 ${
                 idx === currentSlide 
-                  ? `w-8 sm:w-12 md:w-16 bg-gradient-to-r ${current.gradient}` 
-                  : 'w-3 sm:w-4 md:w-6 bg-white/20 hover:bg-white/40'
+                  ? `w-8 sm:w-12 h-[4px] sm:h-[6px] ${current.highlightColor}` 
+                  : 'w-4 sm:w-6 h-[4px] sm:h-[6px] bg-white/20 hover:bg-white/40'
               }`}
             />
           ))}

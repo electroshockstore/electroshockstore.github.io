@@ -41,8 +41,8 @@ const CategoryProductSection = ({ onCategoryClick }) => {
             ref={elementRef}
             className={`${className} w-full flex-1 relative`}
         >
-            {/* Partículas de fondo animadas */}
-            <div className="absolute inset-0 overflow-hidden pointer-events-none">
+            {/* Partículas de fondo animadas - Solo desktop */}
+            <div className="hidden md:block absolute inset-0 overflow-hidden pointer-events-none">
                 <div className="absolute top-20 left-10 w-72 h-72 bg-blue-500/10 rounded-full blur-3xl animate-pulse" />
                 <div className="absolute bottom-20 right-10 w-96 h-96 bg-purple-500/10 rounded-full blur-3xl animate-pulse [animation-delay:1s]" />
                 <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-80 h-80 bg-pink-500/10 rounded-full blur-3xl animate-pulse [animation-delay:2s]" />
@@ -51,7 +51,7 @@ const CategoryProductSection = ({ onCategoryClick }) => {
             <div className="max-w-7xl mx-auto py-8 sm:py-12 md:py-16 px-0 sm:px-6 lg:px-8 relative z-10">
                 {/* Encabezado */}
                 <div className="text-center mb-6 sm:mb-10 px-4">
-                    <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-gradient-to-r from-blue-500/20 to-purple-500/20 backdrop-blur-sm rounded-full mb-3 shadow-lg shadow-blue-500/30 border border-blue-500/30">
+                    <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-gradient-to-r from-blue-500/20 to-purple-500/20 md:backdrop-blur-sm rounded-full mb-3 shadow-lg shadow-blue-500/30 border border-blue-500/30">
                         <Sparkles className="w-3.5 h-3.5 text-blue-400 animate-pulse" />
                         <span className="text-xs font-semibold text-blue-300 uppercase tracking-wider">
                             Descubrí lo mejor
@@ -65,7 +65,7 @@ const CategoryProductSection = ({ onCategoryClick }) => {
                             <span className="bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent drop-shadow-[0_0_30px_rgba(147,51,234,0.5)]">
                                 categorías
                             </span>
-                            <span className="absolute inset-0 bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 blur-3xl opacity-40 -z-10 animate-pulse" />
+                            <span className="hidden md:block absolute inset-0 bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 blur-3xl opacity-40 -z-10 animate-pulse" />
                         </span>
                     </h2>
                     <p className="text-sm sm:text-base text-gray-300 max-w-2xl mx-auto font-medium drop-shadow-[0_0_10px_rgba(255,255,255,0.2)]">
@@ -306,8 +306,8 @@ const CategoryProductSection = ({ onCategoryClick }) => {
                         {/* Efecto de brillo animado */}
                         <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 sm:via-white/30 to-transparent opacity-0 group-hover:opacity-100 rounded-xl sm:rounded-2xl transition-opacity duration-500 animate-pulse" />
                         
-                        {/* Resplandor de fondo */}
-                        <div className="absolute inset-0 bg-gradient-to-r from-blue-400 to-purple-400 rounded-xl sm:rounded-2xl blur-lg sm:blur-xl opacity-0 group-hover:opacity-50 sm:group-hover:opacity-60 transition-opacity duration-500 -z-10 scale-110" />
+                        {/* Resplandor de fondo - Solo desktop */}
+                        <div className="hidden md:block absolute inset-0 bg-gradient-to-r from-blue-400 to-purple-400 rounded-xl sm:rounded-2xl blur-lg sm:blur-xl opacity-0 group-hover:opacity-50 sm:group-hover:opacity-60 transition-opacity duration-500 -z-10 scale-110" />
                         
                         <Cpu className="w-4 h-4 sm:w-6 md:w-7 group-hover:rotate-12 group-hover:scale-110 transition-transform duration-500" />
                         <span className="relative z-10 tracking-wide text-xs sm:text-base md:text-lg">Ver más</span>
