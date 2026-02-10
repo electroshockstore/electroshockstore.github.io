@@ -204,15 +204,15 @@ const SidebarFilters = ({ selectedCategory, filters, onFilterChange, onClearFilt
       </button>
 
       {/* Drawer mobile */}
-      <div className={`lg:hidden fixed inset-0 z-50 transition-opacity duration-300 ${isDrawerOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'}`}>
+      <div className={`drawer-container lg:hidden fixed inset-0 z-50 ${isDrawerOpen ? 'drawer-open' : ''}`}>
         {/* Overlay */}
         <div 
-          className="absolute inset-0 bg-black/60 backdrop-blur-sm"
+          className="drawer-overlay absolute inset-0 bg-black/60 backdrop-blur-sm"
           onClick={() => setIsDrawerOpen(false)}
         />
         
         {/* Drawer */}
-        <div className={`absolute top-0 left-0 bottom-0 w-[85%] max-w-sm bg-white shadow-2xl transition-transform duration-300 pb-24 ${isDrawerOpen ? 'translate-x-0' : '-translate-x-full'}`}>
+        <div className="drawer-panel absolute top-0 left-0 bottom-0 w-[85%] max-w-sm bg-white shadow-2xl pb-24">
           <FilterContent />
         </div>
       </div>

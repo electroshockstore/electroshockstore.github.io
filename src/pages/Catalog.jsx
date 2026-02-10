@@ -1,4 +1,5 @@
 import { useParams } from 'react-router-dom';
+import { useEffect } from 'react';
 import { useFilter } from '../context/FilterContext';
 import { useCatalogState } from '../hooks/useCatalogState';
 import { useCatalogNavigation } from '../hooks/useCatalogNavigation';
@@ -23,6 +24,11 @@ const Catalog = () => {
     filteredProducts,
     clearSubFilters
   } = useFilter();
+
+  // Scroll al inicio al montar la página
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   // Custom Hooks
   const { viewMode, sortOrder, sortedProducts, setSortOrder, toggleViewMode } = useCatalogState(filteredProducts);

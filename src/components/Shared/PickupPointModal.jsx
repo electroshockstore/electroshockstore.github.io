@@ -1,11 +1,15 @@
-import { memo, useEffect } from 'react';
+import { memo, useEffect, useState } from 'react';
 import { MapPin, X, Calendar, Clock, Shield, Camera, MapPinned } from 'lucide-react';
 import { PICKUP_POINTS } from '../PuntosRetiro/constants';
 
 const PickupPointModal = memo(({ isOpen, onClose, onSelectPoint, selectedPoint }) => {
+  const [isAnimating, setIsAnimating] = useState(false);
+
   // Bloquear scroll del body cuando el modal está abierto (iOS compatible)
   useEffect(() => {
     if (isOpen) {
+      setIsAnimating(true);
+      
       // Guardar posición actual del scroll
       const scrollY = window.scrollY;
       
@@ -24,6 +28,7 @@ const PickupPointModal = memo(({ isOpen, onClose, onSelectPoint, selectedPoint }
         
         // Restaurar posición del scroll
         window.scrollTo(0, scrollY);
+        setIsAnimating(false);
       };
     }
   }, [isOpen]);
@@ -32,15 +37,17 @@ const PickupPointModal = memo(({ isOpen, onClose, onSelectPoint, selectedPoint }
 
   return (
     <>
-      {/* Backdrop - Blur solo en desktop */}
+      {/* Backdrop - Blur solo en desktop con transición suave */}
       <div 
-        className="fixed inset-0 bg-black/60 md:backdrop-blur-sm z-[9998] animate-in fade-in duration-200"
+        className={`fixed inset-0 bg-black/60 md:backdrop-blur-sm z-[9998] transition-opacity duration-300 ${
+          isAnimating ? 'opacity-100' : 'opacity-0'
+        }`}
         onClick={onClose}
       />
 
-      {/* Modal */}
-      <div className="fixed inset-0 z-[9999] flex items-center justify-center p-3 sm:p-4 animate-in zoom-in-95 fade-in duration-200">
-        <div className="relative bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 rounded-2xl sm:rounded-3xl shadow-2xl w-full max-w-2xl border border-gray-700/50 overflow-hidden max-h-[95vh] flex flex-col">
+      {/* Modal con transición premium */}
+      <div className="fixed inset-0 z-[9999] flex items-center justify-center p-3 sm:p-4">
+        <div className={`modal-scale-enter relative bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 rounded-2xl sm:rounded-3xl shadow-2xl w-full max-w-2xl border border-gray-700/50 overflow-hidden max-h-[95vh] flex flex-col`}>
           {/* Decorative glow - Solo desktop */}
           <div className="hidden md:block absolute top-0 left-1/2 -translate-x-1/2 w-64 h-64 bg-green-500/20 rounded-full blur-3xl" />
           

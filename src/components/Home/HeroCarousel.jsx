@@ -239,8 +239,9 @@ const HeroCarousel = () => {
       <div className="absolute bottom-0 left-0 right-0 h-20 sm:h-32 bg-gradient-to-t from-[#0a0a0f] to-transparent pointer-events-none z-10" />
 
       {/* Contenido - Landing style sin parallax */}
-      <div className="relative z-20 h-full flex items-center py-4 sm:py-0">
-        <div className="container mx-0 sm:mx-2 px-5 sm:px-6 md:px-12 lg:px-16">
+  <div className="relative z-20 h-full flex items-start pt-10 sm:pt-1">
+
+        <div className="container mx-0 sm:mx-2 px-5 sm:px-6 md:px-12 lg:px-16 ">
           <div className="max-w-2xl lg:max-w-3xl xl:max-w-4xl">
             <div key={current.id + '-text'}>
                 {/* Tag - Badge más pequeño en mobile, posicionado arriba */}
@@ -255,7 +256,7 @@ const HeroCarousel = () => {
                 </div>
 
                 {/* Título - MAXIMIZADO en mobile - PROTAGONISTA ABSOLUTO */}
-                <h1 className="text-[42px] sm:text-6xl md:text-8xl lg:text-9xl xl:text-[12rem] font-black leading-[0.8] sm:leading-[0.8] tracking-[-0.03em] mb-2 sm:mb-6 md:mb-8 lg:mb-12">
+                <h1 className="text-[52px] sm:text-6xl md:text-8xl lg:text-9xl xl:text-[12rem] font-black leading-[0.8] sm:leading-[0.8] tracking-[-0.03em] mb-2 sm:mb-6 md:mb-8 lg:mb-12">
                   {/* Primera parte del título - BRUTAL */}
                   {current.title.split(' ').map((word, idx) => (
                     <span 
@@ -323,7 +324,7 @@ const HeroCarousel = () => {
                       {/* Texto BRUTAL - Más pequeño en mobile */}
                       <div className={`flex-1 ${
                         point.highlight 
-                          ? 'border-l-[1.5px] sm:border-l-4 border-red-600 pl-1 sm:pl-3' 
+                          ? 'border-l-[.5px] sm:border-l-4 border-red-600 pl-1 sm:pl-3' 
                           : 'border-l-[1.5px] sm:border-l-4 border-white/30 pl-1 sm:pl-3'
                       }`}>
                         <span className={`text-[7.5px] sm:text-sm md:text-base lg:text-lg font-black uppercase tracking-tight leading-tight ${

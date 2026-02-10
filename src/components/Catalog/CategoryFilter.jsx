@@ -101,7 +101,7 @@ const CategoryFilter = ({ selectedCategory, onCategoryChange }) => {
   };
 
   return (
-    <div className="relative group z-20 w-full">
+    <div className="relative group z-20 w-full category-filter">
       {/* CAPAS DE RESPLANDOR ORIGINALES */}
       <div className="absolute -inset-3 bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 rounded-full opacity-30 blur-xl -z-10"></div>
       <div className="absolute -inset-2 bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-600 rounded-full opacity-25 blur-lg animate-pulse -z-10"></div>
@@ -110,7 +110,7 @@ const CategoryFilter = ({ selectedCategory, onCategoryChange }) => {
       <div className="relative rounded-full overflow-hidden p-[3px] animate-border-rotate">
         <div className="relative bg-white rounded-full z-10">
           {/* MOBILE: DROPDOWN COMPACTO CON GLOW */}
-          <div className="sm:hidden relative z-20" ref={dropdownRef}>
+          <div className={`category-dropdown sm:hidden relative z-20 ${isOpen ? 'dropdown-open' : ''}`} ref={dropdownRef}>
             {/* Botón principal mejorado con imagen */}
             <button
               onClick={() => setIsOpen(!isOpen)}
@@ -150,7 +150,7 @@ const CategoryFilter = ({ selectedCategory, onCategoryChange }) => {
               <div className="flex items-center gap-2">
                 <span className="text-xs text-gray-400 font-medium hidden xs:block">Ver más</span>
                 <ChevronDown
-                  className={`h-5 w-5 text-gray-400 transition-transform duration-300 ${isOpen ? 'rotate-180' : ''}`}
+                  className="dropdown-icon h-5 w-5 text-gray-400 transition-transform duration-300"
                   strokeWidth={2.5}
                 />
               </div>

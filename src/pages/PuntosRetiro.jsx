@@ -17,6 +17,11 @@ const PuntosRetiro = () => {
   const navigate = useNavigate();
   const { setSelectedCategory } = useFilter();
 
+  // Scroll al inicio al montar la página
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   // Limpiar categoría seleccionada al entrar a Puntos de Retiro
   useEffect(() => {
     setSelectedCategory(null);

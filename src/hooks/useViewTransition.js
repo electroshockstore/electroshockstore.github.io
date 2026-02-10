@@ -5,18 +5,30 @@ import { useCallback } from 'react';
  * Proporciona transiciones suaves entre estados con mejor rendimiento
  */
 export const useViewTransition = () => {
-  const startTransition = useCallback((callback) => {
+  const startTransition = useCallback((callback, options = {}) => {
+    const { scrollToTop = false } = options;
+
     // Verificar si el navegador soporta View Transitions API
     if (!document.startViewTransition) {
       // Fallback: ejecutar callback directamente
       callback();
+      if (scrollToTop) {
+        window.scrollTo({ top: 0, behavior: 'instant' });
+      }
       return;
     }
 
     // Usar View Transitions API
-    document.startViewTransition(() => {
+    const transition = document.startViewTransition(() => {
       callback();
     });
+
+    // Si se requiere scroll al top, hacerlo después de que el DOM se actualice
+    if (scrollToTop) {
+      transition.updateCallbackDone.then(() => {
+        window.scrollTo({ top: 0, behavior: 'instant' });
+      });
+    }
   }, []);
 
   return { startTransition };
@@ -31,7 +43,7 @@ export const useNavigateWithTransition = () => {
   const navigateWithTransition = useCallback((navigateFunction) => {
     startTransition(() => {
       navigateFunction();
-    });
+    }, { scrollToTop: true });
   }, [startTransition]);
 
   return navigateWithTransition;

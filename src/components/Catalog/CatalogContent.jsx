@@ -24,7 +24,7 @@ const CatalogContent = ({
     <div className="flex flex-col lg:flex-row gap-6 min-h-[60vh] px-2 sm:px-6 pb-8 pt-4 sm:pt-6">
       {/* Sidebar Desktop */}
       {showSidebar && (
-        <aside className="hidden lg:block lg:flex-shrink-0 lg:pt-20">
+        <aside className="hidden lg:block lg:flex-shrink-0 lg:pt-20 filters-sidebar">
           <SidebarFilters
             selectedCategory={selectedCategory}
             filters={filters}
@@ -35,7 +35,7 @@ const CatalogContent = ({
       )}
       
       {/* Main Content */}
-      <div className="flex-1 min-w-0">
+      <div className="flex-1 min-w-0 view-mode-container">
         <CatalogToolbar
           showFilters={showSidebar}
           selectedCategory={selectedCategory}

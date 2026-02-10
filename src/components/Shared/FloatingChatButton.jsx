@@ -113,7 +113,7 @@ const FloatingChatButton = () => {
             {/* WhatsApp */}
             <button
               onClick={handleWhatsApp}
-              className="group flex items-center gap-3.5 bg-gradient-to-r from-green-500 to-green-600 hover:from-green-600 hover:to-green-700 text-white px-4 py-3.5 rounded-2xl shadow-xl hover:shadow-green-500/50 transition-all duration-300 hover:scale-[1.02] hover:translate-x-1 md:backdrop-blur-md border border-white/20"
+              className="group flex items-center gap-3.5 bg-gradient-to-r from-green-500 to-green-600 hover:from-green-600 hover:to-green-700 text-white px-4 py-3.5 rounded-2xl shadow-xl hover:shadow-green-500/50 btn-premium md:backdrop-blur-md border border-white/20"
             >
               <div className="w-14 h-14 bg-white/25 md:backdrop-blur-sm rounded-xl flex items-center justify-center border border-white/30 group-hover:scale-110 transition-transform duration-300 flex-shrink-0">
                 <svg className="w-7 h-7" fill="currentColor" viewBox="0 0 24 24">
@@ -130,31 +130,31 @@ const FloatingChatButton = () => {
             {/* Puntos de Retiro - SOLO MOBILE */}
             <button
               onClick={handlePuntosRetiro}
-              className="sm:hidden group flex items-center gap-3.5 bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-600 hover:to-blue-700 text-white px-4 py-3.5 rounded-2xl shadow-xl hover:shadow-cyan-500/50 transition-all duration-300 hover:scale-[1.02] hover:translate-x-1 md:backdrop-blur-md border border-white/20"
+              className="sm:hidden group flex items-center gap-3.5 bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-600 hover:to-blue-700 text-white px-4 py-3.5 rounded-2xl shadow-xl hover:shadow-cyan-500/50 btn-premium md:backdrop-blur-md border border-white/20"
             >
-              <div className="w-14 h-14 bg-white/25 md:backdrop-blur-sm rounded-xl flex items-center justify-center border border-white/30 group-hover:scale-110 transition-transform duration-300 flex-shrink-0">
+              <div className="w-14 h-14 bg-white/25 md:backdrop-blur-sm rounded-xl flex items-center justify-center border border-white/30 hover-scale flex-shrink-0">
                 <MapPin className="w-7 h-7" strokeWidth={2.5} />
               </div>
               <div className="flex-1 min-w-0 text-left">
                 <div className="font-bold text-base leading-tight text-white">Puntos de Retiro</div>
                 <div className="text-xs leading-tight text-white/75 mt-1">Ver ubicaciones y horarios</div>
               </div>
-              <Send className="w-5 h-5 text-white/60 group-hover:text-white/90 group-hover:translate-x-1 transition-all duration-300 flex-shrink-0" strokeWidth={2.5} />
+              <Send className="w-5 h-5 text-white/60 group-hover:text-white/90 group-hover:translate-x-1 transition-fast-premium flex-shrink-0" strokeWidth={2.5} />
             </button>
 
             {/* Condiciones - SOLO MOBILE */}
             <button
               onClick={handleCondiciones}
-              className="sm:hidden group flex items-center gap-3.5 bg-gradient-to-r from-orange-500 to-red-600 hover:from-orange-600 hover:to-red-700 text-white px-4 py-3.5 rounded-2xl shadow-xl hover:shadow-orange-500/50 transition-all duration-300 hover:scale-[1.02] hover:translate-x-1 md:backdrop-blur-md border border-white/20"
+              className="sm:hidden group flex items-center gap-3.5 bg-gradient-to-r from-orange-500 to-red-600 hover:from-orange-600 hover:to-red-700 text-white px-4 py-3.5 rounded-2xl shadow-xl hover:shadow-orange-500/50 btn-premium md:backdrop-blur-md border border-white/20"
             >
-              <div className="w-14 h-14 bg-white/25 md:backdrop-blur-sm rounded-xl flex items-center justify-center border border-white/30 group-hover:scale-110 transition-transform duration-300 flex-shrink-0">
+              <div className="w-14 h-14 bg-white/25 md:backdrop-blur-sm rounded-xl flex items-center justify-center border border-white/30 hover-scale flex-shrink-0">
                 <FileText className="w-7 h-7" strokeWidth={2.5} />
               </div>
               <div className="flex-1 min-w-0 text-left">
                 <div className="font-bold text-base leading-tight text-white">Condiciones de Venta</div>
                 <div className="text-xs leading-tight text-white/75 mt-1">Informacion Importante</div>
               </div>
-              <Send className="w-5 h-5 text-white/60 group-hover:text-white/90 group-hover:translate-x-1 transition-all duration-300 flex-shrink-0" strokeWidth={2.5} />
+              <Send className="w-5 h-5 text-white/60 group-hover:text-white/90 group-hover:translate-x-1 transition-fast-premium flex-shrink-0" strokeWidth={2.5} />
             </button>
           </div>
         )}
@@ -162,7 +162,7 @@ const FloatingChatButton = () => {
         {/* --- BOTÓN PRINCIPAL CON EFECTOS --- */}
         <button
           onClick={toggleExpanded}
-          className="group relative bg-gradient-to-r from-green-500 via-green-600 to-green-700 hover:from-green-600 hover:via-green-700 hover:to-green-800 text-white rounded-lg sm:rounded-xl shadow-lg sm:shadow-2xl hover:shadow-green-500/50 transition-all duration-300 overflow-hidden hover:scale-105 hover:-translate-y-1 z-50"
+          className="group relative bg-gradient-to-r from-green-500 via-green-600 to-green-700 hover:from-green-600 hover:via-green-700 hover:to-green-800 text-white rounded-lg sm:rounded-xl shadow-lg sm:shadow-2xl hover:shadow-green-500/50 btn-premium overflow-hidden z-50"
         >
           {/* Efecto Shine */}
           <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent animate-shine" style={{ width: '50%' }} />
@@ -171,10 +171,10 @@ const FloatingChatButton = () => {
           <div className="absolute inset-0 rounded-lg sm:rounded-xl border-2 sm:border-4 border-green-400 animate-pulse-ring" />
 
           {/* Contenido */}
-          <div className="relative flex items-center gap-2 sm:gap-4 p-3 sm:p-4">
+          <div className={`chat-button-content relative flex items-center gap-2 sm:gap-4 p-3 sm:p-4 ${isExpanded ? 'expanded' : ''}`}>
             
             {/* Icon Container con Wiggle */}
-            <div className={`relative transition-transform duration-300 ${isExpanded ? 'rotate-180' : 'animate-wiggle'}`}>
+            <div className="chat-icon relative transition-fast-premium">
               <div className="w-8 h-8 sm:w-12 sm:h-12 bg-white/20 md:backdrop-blur-sm rounded-md sm:rounded-lg flex items-center justify-center border border-white/30">
                 {isExpanded ? (
                   <X className="w-4 h-4 sm:w-6 sm:h-6" strokeWidth={2.5} />
@@ -197,7 +197,7 @@ const FloatingChatButton = () => {
             </div>
 
             {/* Arrow Icon con Bounce */}
-            <div className={`hidden sm:block transition-transform duration-300 ${isExpanded ? 'rotate-90' : 'animate-arrow-bounce'}`}>
+            <div className="chat-arrow hidden sm:block transition-transform duration-300">
               <Send className="w-4 h-4 text-white/80" strokeWidth={2.5} />
             </div>
           </div>

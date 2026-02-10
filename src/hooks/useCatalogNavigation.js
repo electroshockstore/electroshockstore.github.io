@@ -1,23 +1,28 @@
 import { useCallback } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 import { getSlugFromCategory, generateSKU } from '../utils/slugify';
 import { useViewTransition } from './useViewTransition';
 
 export const useCatalogNavigation = (setSelectedCategory, setSearchQuery, clearSubFilters) => {
   const navigate = useNavigate();
+  const location = useLocation();
   const { startTransition } = useViewTransition();
 
   const handleCategoryChange = useCallback((category) => {
+    const targetPath = category && category !== 'Todos' 
+      ? `/categoria/${getSlugFromCategory(category)}`
+      : '/';
+    
+    // No navegar si ya estás en la ruta
+    if (location.pathname === targetPath) {
+      return;
+    }
+
     startTransition(() => {
       setSelectedCategory(category);
-      if (category && category !== 'Todos') {
-        const slug = getSlugFromCategory(category);
-        navigate(`/categoria/${slug}`);
-      } else {
-        navigate('/');
-      }
+      navigate(targetPath);
     });
-  }, [setSelectedCategory, navigate, startTransition]);
+  }, [setSelectedCategory, navigate, location.pathname, startTransition]);
 
   const handleProductClick = useCallback((product) => {
     startTransition(() => {
@@ -30,20 +35,31 @@ export const useCatalogNavigation = (setSelectedCategory, setSearchQuery, clearS
   }, [navigate, startTransition]);
 
   const handleGoHome = useCallback(() => {
+    // No navegar si ya estás en home
+    if (location.pathname === '/') {
+      return;
+    }
+
     startTransition(() => {
       setSelectedCategory(null);
       setSearchQuery('');
       clearSubFilters();
       navigate('/');
     });
-  }, [setSelectedCategory, setSearchQuery, clearSubFilters, navigate, startTransition]);
+  }, [setSelectedCategory, setSearchQuery, clearSubFilters, navigate, location.pathname, startTransition]);
 
   const handleReset = useCallback(() => {
+    // No navegar si ya estás en home
+    if (location.pathname === '/') {
+      clearSubFilters();
+      return;
+    }
+
     startTransition(() => {
       clearSubFilters();
       navigate('/');
     });
-  }, [clearSubFilters, navigate, startTransition]);
+  }, [clearSubFilters, navigate, location.pathname, startTransition]);
 
   return {
     handleCategoryChange,

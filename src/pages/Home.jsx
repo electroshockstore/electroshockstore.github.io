@@ -21,6 +21,11 @@ const Home = () => {
   const navigate = useNavigate();
   const { searchQuery, setSearchQuery, setSelectedCategory, clearSubFilters } = useFilter();
 
+  // Scroll al inicio al montar la página
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   // SEO para Home
   useSEO({
     title: 'ElectroShock | Catálogo de Venta - Tecnología y Componentes PC',

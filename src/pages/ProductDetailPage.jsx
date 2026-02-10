@@ -18,6 +18,11 @@ const ProductDetailPage = () => {
   const { getProductById, products } = useProducts();
   const { searchQuery, setSearchQuery, selectedCategory, setSelectedCategory } = useFilter();
   
+  // Scroll al inicio al montar la página
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+  
   // Buscar producto por ID (ruta legacy) o por SKU
   let product;
   if (id) {

@@ -6,27 +6,31 @@ import ProductCardMayoristaBlanco from './ProductCardMayoristaBlanco';
 const isMayoristaProduct = (product) => 
   product.category === 'Mayorista' && product.quantity && product.unitPrice;
 
-const ProductCardWrapper = memo(({ product, viewMode, onClick, index = 0, listName = 'Product List' }) => {
+const ProductCardWrapper = memo(({ product, viewMode, onClick, index = 0, listName = 'Product List', style }) => {
   // Usar el card especial para Mayorista
   if (isMayoristaProduct(product)) {
     return (
-      <ProductCardMayoristaBlanco
-        product={product}
-        onClick={onClick}
-        index={index}
-      />
+      <div className="product-card-enter" style={style}>
+        <ProductCardMayoristaBlanco
+          product={product}
+          onClick={onClick}
+          index={index}
+        />
+      </div>
     );
   }
 
   // Card estándar para productos normales
   return (
-    <ProductCard
-      product={product}
-      viewMode={viewMode}
-      onClick={onClick}
-      index={index}
-      listName={listName}
-    />
+    <div className="product-card-enter" style={style}>
+      <ProductCard
+        product={product}
+        viewMode={viewMode}
+        onClick={onClick}
+        index={index}
+        listName={listName}
+      />
+    </div>
   );
 }, (prevProps, nextProps) => {
   // Comparación simple - solo ID del producto

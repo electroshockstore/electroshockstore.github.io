@@ -1,6 +1,6 @@
 const EmptyState = ({ onReset }) => {
   return (
-    <div className="flex flex-col items-center justify-center min-h-[50vh] text-center px-4">
+    <div className="flex flex-col items-center justify-center min-h-[50vh] text-center px-4 empty-state">
       <div className="bg-gradient-to-br from-gray-800 to-gray-900 rounded-3xl p-12 shadow-2xl border border-gray-700/50 max-w-md">
         <div className="bg-blue-500/20 backdrop-blur-sm p-6 rounded-full w-24 h-24 mx-auto mb-6 flex items-center justify-center">
           <svg className="w-12 h-12 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">

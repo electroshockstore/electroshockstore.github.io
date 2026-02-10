@@ -1,18 +1,8 @@
-import { useEffect } from 'react';
-import { useLocation } from 'react-router-dom';
-
 /**
- * ScrollToTop - Componente que hace scroll al inicio en cada cambio de ruta
- * Usa 'instant' para evitar animaciones que puedan causar problemas en mobile
+ * ScrollToTop - Desactivado para evitar vibración
+ * Las páginas mantienen scroll natural para transiciones suaves
  */
 const ScrollToTop = () => {
-  const { pathname } = useLocation();
-
-  useEffect(() => {
-    // Scroll instantáneo al inicio en cada cambio de ruta
-    window.scrollTo({ top: 0, behavior: 'instant' });
-  }, [pathname]);
-
   return null;
 };
 

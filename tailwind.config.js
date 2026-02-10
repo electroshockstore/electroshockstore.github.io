@@ -169,13 +169,13 @@ export default {
           600: '#DC2626',
         },
       },
-      // Animaciones coherentes
+      // Animaciones coherentes y premium
       animation: {
-        'float': 'float 6s ease-in-out infinite',
-        'fadeIn': 'fadeIn 0.3s ease-out',
-        'slideIn': 'slideIn 0.4s ease-out',
-        'slide-up': 'slideUp 0.3s ease-out',
-        'scale-in': 'scaleIn 0.2s ease-out',
+        'float': 'float 6s var(--ease-in-out-soft) infinite',
+        'fadeIn': 'fadeIn 0.3s var(--ease-out-expo)',
+        'slideIn': 'slideIn 0.4s var(--ease-out-expo)',
+        'slide-up': 'slideUp 0.3s var(--ease-out-expo)',
+        'scale-in': 'scaleIn 0.2s var(--ease-out-expo)',
       },
       keyframes: {
         float: {
@@ -195,7 +195,7 @@ export default {
           '100%': { opacity: '1', transform: 'translateY(0)' },
         },
         scaleIn: {
-          '0%': { opacity: '0', transform: 'scale(0.95)' },
+          '0%': { opacity: '0', transform: 'scale(0.96)' },
           '100%': { opacity: '1', transform: 'scale(1)' },
         },
       },

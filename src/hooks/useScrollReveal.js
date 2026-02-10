@@ -9,14 +9,14 @@ import { useEffect, useRef, useState } from 'react';
  * @param {number} options.threshold - Porcentaje visible para activar (default: 0.1)
  * @param {string} options.rootMargin - Margen del viewport (default: '0px 0px -50px 0px')
  * @param {boolean} options.triggerOnce - Activar solo una vez (default: true)
- * @param {string} options.animation - Tipo de animación: 'fade-in', 'slide-up', 'slide-left', 'slide-right', 'scale' (default: 'fade-in')
+ * @param {string} options.animation - Tipo de animación (default: 'fade-in')
  */
 const useScrollReveal = (options = {}) => {
   const {
     threshold = 0.1,
     rootMargin = '0px 0px -50px 0px',
     triggerOnce = true,
-    animation = 'fade-in' // fade-in, slide-up, slide-left, slide-right, scale
+    animation = 'fade-in'
   } = options;
 
   const elementRef = useRef(null);

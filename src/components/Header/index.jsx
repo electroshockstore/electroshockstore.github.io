@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { useFilter } from '../../context/FilterContext';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 import { getSlugFromCategory } from '../../utils/slugify';
 import CategoryFilter from '../Catalog/CategoryFilter';
 import ConditionsModal from './ConditionsModal';
@@ -14,11 +14,18 @@ const Header = ({ searchQuery = '', onSearchChange, onGoHome, hideSearchOnMobile
   const [showConditionsModal, setShowConditionsModal] = useState(false);
   const { selectedCategory, setSelectedCategory } = useFilter();
   const navigate = useNavigate();
+  const location = useLocation();
 
   const handleCategoryClick = (category) => {
+    const targetPath = `/categoria/${getSlugFromCategory(category)}`;
+    
+    // No navegar si ya estás en la ruta
+    if (location.pathname === targetPath) {
+      return;
+    }
+    
     setSelectedCategory(category);
-    const slug = getSlugFromCategory(category);
-    navigate(`/categoria/${slug}`);
+    navigate(targetPath);
   };
 
   const handleSearchToggle = () => {

@@ -1,9 +1,14 @@
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 
 const Logo = ({ onGoHome, isMobile = false }) => {
   const navigate = useNavigate();
+  const location = useLocation();
 
   const handleClick = () => {
+    // No navegar si ya estás en home
+    if (location.pathname === '/') {
+      return;
+    }
     navigate('/');
     onGoHome?.();
   };

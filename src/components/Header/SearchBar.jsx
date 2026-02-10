@@ -60,7 +60,7 @@ const SearchBar = ({ isMobile = false, onClose }) => {
 
   if (isMobile) {
     return (
-      <div className="relative" ref={searchRef}>
+      <div className="search-container relative" ref={searchRef}>
         <div className="absolute left-3 top-1/2 -translate-y-1/2 z-10 pointer-events-none">
           <div className="bg-gradient-to-br from-blue-500 to-purple-600 p-2 rounded-lg shadow-lg">
             <Search className="h-4 w-4 text-white" strokeWidth={2.5} />
@@ -82,7 +82,7 @@ const SearchBar = ({ isMobile = false, onClose }) => {
         />
         <button
           onClick={handleClearSearch}
-          className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 hover:text-white transition-colors p-1 hover:bg-gray-800 rounded-lg z-10"
+          className="clear-button absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 hover:text-white transition-colors p-1 hover:bg-gray-800 rounded-lg z-10"
         >
           <X className="h-5 w-5" strokeWidth={2.5} />
         </button>
@@ -129,7 +129,7 @@ const SearchBar = ({ isMobile = false, onClose }) => {
 
   // Desktop version
   return (
-    <div className="flex-1 max-w-2xl relative" ref={searchRef}>
+    <div className="search-container flex-1 max-w-2xl relative" ref={searchRef}>
       <div className="absolute -inset-4 bg-gradient-to-r from-blue-600/20 via-indigo-600/15 to-purple-600/20 blur-xl rounded-full animate-pulse pointer-events-none" style={{ animationDuration: '6s' }} />
       
       <div className="relative">
@@ -156,14 +156,12 @@ const SearchBar = ({ isMobile = false, onClose }) => {
                    focus:shadow-blue-500/20 focus:shadow-2xl
                    cursor-text"
         />
-        {localSearchQuery && (
-          <button
-            onClick={handleClearSearch}
-            className="absolute right-4 top-1/2 -translate-y-1/2 text-gray-400 hover:text-white transition-colors z-10"
-          >
-            <X className="h-5 w-5" />
-          </button>
-        )}
+        <button
+          onClick={handleClearSearch}
+          className="clear-button absolute right-4 top-1/2 -translate-y-1/2 text-gray-400 hover:text-white transition-colors z-10"
+        >
+          <X className="h-5 w-5" />
+        </button>
         
         {isSearchOpen && searchResults.length > 0 && (
           <div className="absolute top-full left-0 right-0 mt-2 bg-gray-900 border border-gray-800 rounded-2xl shadow-2xl overflow-hidden z-50 search-results-enter">

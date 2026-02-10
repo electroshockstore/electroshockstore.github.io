@@ -4,6 +4,23 @@
 
 .font-outfit { font-family: 'Outfit', sans-serif; }
 
+/* ===== SISTEMA DE EASING PREMIUM ===== */
+:root {
+  /* Curvas de Apple/Framer Motion - Ultra suaves */
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-out-quint: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+  --ease-smooth: cubic-bezier(0.4, 0, 0.2, 1);
+  --ease-in-out-soft: cubic-bezier(0.45, 0, 0.55, 1);
+  
+  /* Timings coherentes */
+  --duration-instant: 150ms;
+  --duration-fast: 200ms;
+  --duration-normal: 300ms;
+  --duration-slow: 400ms;
+  --duration-slower: 500ms;
+}
+
 /* ===== SMOOTH SCROLL GLOBAL (Solo Desktop) ===== */
 @media (min-width: 769px) {
   html {
@@ -192,7 +209,7 @@
   }
 }
 
-/* ===== SCROLL REVEAL - VERSIÓN SUTIL Y PROFESIONAL ===== */
+/* ===== SCROLL REVEAL - VERSIÓN PREMIUM Y SUTIL ===== */
 
 /* 1. Fade In suave - Sin movimiento, solo opacity */
 @keyframes scrollFadeIn {
@@ -208,7 +225,7 @@
 @keyframes scrollSlideUp {
   from {
     opacity: 0;
-    transform: translateY(80px);
+    transform: translateY(40px);
   }
   to {
     opacity: 1;
@@ -220,7 +237,7 @@
 @keyframes scrollSlideLeft {
   from {
     opacity: 0;
-    transform: translateX(80px);
+    transform: translateX(40px);
   }
   to {
     opacity: 1;
@@ -232,7 +249,7 @@
 @keyframes scrollSlideRight {
   from {
     opacity: 0;
-    transform: translateX(-80px);
+    transform: translateX(-40px);
   }
   to {
     opacity: 1;
@@ -240,11 +257,11 @@
   }
 }
 
-/* 5. Scale - Zoom in sutil */
+/* 5. Scale - Zoom in muy sutil */
 @keyframes scrollScale {
   from {
     opacity: 0;
-    transform: scale(0.92);
+    transform: scale(0.98);
   }
   to {
     opacity: 1;
@@ -257,25 +274,25 @@
   opacity: 0;
 }
 
-/* Variantes de animación - Más lentas y fluidas */
+/* Variantes de animación - Más suaves y fluidas */
 .scroll-reveal.is-visible.fade-in {
-  animation: scrollFadeIn 1.4s ease-out forwards;
+  animation: scrollFadeIn 0.8s var(--ease-out-expo) forwards;
 }
 
 .scroll-reveal.is-visible.slide-up {
-  animation: scrollSlideUp 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  animation: scrollSlideUp 0.9s var(--ease-out-expo) forwards;
 }
 
 .scroll-reveal.is-visible.slide-left {
-  animation: scrollSlideLeft 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  animation: scrollSlideLeft 0.9s var(--ease-out-expo) forwards;
 }
 
 .scroll-reveal.is-visible.slide-right {
-  animation: scrollSlideRight 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  animation: scrollSlideRight 0.9s var(--ease-out-expo) forwards;
 }
 
 .scroll-reveal.is-visible.scale {
-  animation: scrollScale 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  animation: scrollScale 0.9s var(--ease-out-expo) forwards;
 }
 
 /* Mobile: Mostrar todo inmediatamente */
@@ -287,31 +304,28 @@
   }
 }
 
-/* ===== PRODUCT CARD STAGGER (Para catálogo) ===== */
+/* ===== PRODUCT CARD STAGGER PREMIUM ===== */
 
-/* Animación sutil para cards individuales dentro de grupos */
+/* Animación simple - Solo fade in */
 @keyframes productCardReveal {
   from {
     opacity: 0;
-    transform: translateY(10px);
   }
   to {
     opacity: 1;
-    transform: translateY(0);
   }
 }
 
 /* Aplicar a cards cuando el grupo es visible */
 .scroll-reveal.is-visible .product-card-enter {
-  animation: productCardReveal 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  animation: productCardReveal 0.6s var(--ease-out-expo) backwards;
 }
 
-/* Mobile: Sin animación en cards */
+/* Mobile: Mostrar inmediatamente */
 @media (max-width: 768px) {
   .scroll-reveal.is-visible .product-card-enter {
     animation: none !important;
     opacity: 1 !important;
-    transform: none !important;
   }
 }
 
@@ -332,32 +346,6 @@
     transform: translateY(0);
   }
 }
-
-/* Product card animations - Stagger effect */
-.product-card-enter {
-  animation: productCardEnter 0.3s ease-out backwards;
-}
-
-@keyframes productCardEnter {
-  from {
-    opacity: 0;
-    transform: translateY(20px) scale(0.95);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0) scale(1);
-  }
-}
-
-/* Stagger delays para primeros items */
-.product-card-enter:nth-child(1) { animation-delay: 0.05s; }
-.product-card-enter:nth-child(2) { animation-delay: 0.08s; }
-.product-card-enter:nth-child(3) { animation-delay: 0.11s; }
-.product-card-enter:nth-child(4) { animation-delay: 0.14s; }
-.product-card-enter:nth-child(5) { animation-delay: 0.17s; }
-.product-card-enter:nth-child(6) { animation-delay: 0.20s; }
-.product-card-enter:nth-child(7) { animation-delay: 0.23s; }
-.product-card-enter:nth-child(8) { animation-delay: 0.26s; }
 
 /* Fade in animation for category filter items */
 @keyframes fadeIn {
@@ -385,11 +373,13 @@
   animation: shimmer 2s infinite;
 }
 
-/* Smooth hover transitions */
+/* ===== MICRO-INTERACCIONES PREMIUM ===== */
+
+/* Smooth hover transitions - Optimizado */
 .smooth-hover {
-  transition: transform 0.2s cubic-bezier(0.4, 0, 0.2, 1),
-              box-shadow 0.2s cubic-bezier(0.4, 0, 0.2, 1),
-              border-color 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: transform var(--duration-fast) var(--ease-out-expo),
+              box-shadow var(--duration-fast) var(--ease-out-expo),
+              border-color var(--duration-fast) var(--ease-smooth);
 }
 
 /* Solo aplicar hover en dispositivos con mouse real */
@@ -397,6 +387,96 @@
   .smooth-hover:hover {
     transform: translateY(-4px);
   }
+}
+
+/* Botón premium - Efecto press + glow */
+.btn-premium {
+  position: relative;
+  transition: transform var(--duration-instant) var(--ease-out-expo),
+              box-shadow var(--duration-fast) var(--ease-smooth);
+}
+
+.btn-premium:active {
+  transform: scale(0.98);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .btn-premium:hover {
+    transform: translateY(-1px);
+  }
+  
+  .btn-premium:hover::before {
+    opacity: 1;
+  }
+}
+
+.btn-premium::before {
+  content: '';
+  position: absolute;
+  inset: -2px;
+  border-radius: inherit;
+  background: inherit;
+  filter: blur(8px);
+  opacity: 0;
+  z-index: -1;
+  transition: opacity var(--duration-normal) var(--ease-smooth);
+}
+
+/* Card premium - Lift effect suave */
+.card-premium {
+  transition: transform var(--duration-normal) var(--ease-out-expo),
+              box-shadow var(--duration-normal) var(--ease-out-expo);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .card-premium:hover {
+    transform: translateY(-8px) scale(1.02);
+  }
+}
+
+/* Input premium - Focus elegante */
+.input-premium {
+  transition: border-color var(--duration-fast) var(--ease-smooth),
+              box-shadow var(--duration-fast) var(--ease-smooth),
+              transform var(--duration-fast) var(--ease-out-expo);
+}
+
+.input-premium:focus {
+  transform: translateY(-1px);
+}
+
+/* Ripple effect sutil */
+@keyframes ripple {
+  0% {
+    transform: scale(0);
+    opacity: 0.6;
+  }
+  100% {
+    transform: scale(2.5);
+    opacity: 0;
+  }
+}
+
+.ripple-effect {
+  position: relative;
+  overflow: hidden;
+}
+
+.ripple-effect::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.5);
+  border-radius: 50%;
+  transform: translate(-50%, -50%) scale(0);
+  pointer-events: none;
+}
+
+.ripple-effect:active::after {
+  animation: ripple 0.6s var(--ease-out-expo);
 }
 
 /* GPU acceleration hints */
@@ -1279,24 +1359,31 @@
 
 /* ===== VIEW TRANSITIONS API ===== */
 
-/* Transición por defecto para todas las páginas */
-::view-transition-old(root),
-::view-transition-new(root) {
-  animation-duration: 0.3s;
+/* Mantener la posición durante la transición para evitar saltos */
+::view-transition-group(root) {
+  animation-duration: 0.25s;
   animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-/* Fade suave para la página saliente */
-::view-transition-old(root) {
-  animation-name: fade-out;
-}
-
-/* Fade + slide para la página entrante */
+/* Transición por defecto para todas las páginas */
+::view-transition-old(root),
 ::view-transition-new(root) {
-  animation-name: fade-in-slide;
+  animation-duration: 0.25s;
+  animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  mix-blend-mode: normal;
 }
 
-@keyframes fade-out {
+/* Fade suave para la página saliente - sin movimiento */
+::view-transition-old(root) {
+  animation-name: fade-out-smooth;
+}
+
+/* Fade suave para la página entrante - sin movimiento */
+::view-transition-new(root) {
+  animation-name: fade-in-smooth;
+}
+
+@keyframes fade-out-smooth {
   from {
     opacity: 1;
   }
@@ -1305,14 +1392,12 @@
   }
 }
 
-@keyframes fade-in-slide {
+@keyframes fade-in-smooth {
   from {
     opacity: 0;
-    transform: translateY(10px);
   }
   to {
     opacity: 1;
-    transform: translateY(0);
   }
 }
 
@@ -1441,5 +1526,546 @@
   ::view-transition-new(sidebar) {
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
+  }
+}
+
+/* ===== VIEW TRANSITIONS PARA LISTADOS Y FILTROS ===== */
+
+/* Transiciones para grid de productos */
+.product-grid {
+  view-transition-name: product-grid;
+}
+
+::view-transition-old(product-grid),
+::view-transition-new(product-grid) {
+  animation-duration: 0.3s;
+  animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+::view-transition-old(product-grid) {
+  animation-name: grid-fade-out;
+}
+
+::view-transition-new(product-grid) {
+  animation-name: grid-fade-in;
+}
+
+@keyframes grid-fade-out {
+  from {
+    opacity: 1;
+    transform: scale(1);
+  }
+  to {
+    opacity: 0;
+    transform: scale(0.98);
+  }
+}
+
+@keyframes grid-fade-in {
+  from {
+    opacity: 0;
+    transform: scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Transiciones para cards individuales de productos */
+.product-card {
+  view-transition-name: var(--product-id);
+}
+
+/* Transiciones para filtros activos */
+.active-filters {
+  view-transition-name: active-filters;
+}
+
+::view-transition-old(active-filters),
+::view-transition-new(active-filters) {
+  animation-duration: 0.25s;
+  animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+::view-transition-old(active-filters) {
+  animation-name: filters-slide-out;
+}
+
+::view-transition-new(active-filters) {
+  animation-name: filters-slide-in;
+}
+
+@keyframes filters-slide-out {
+  from {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes filters-slide-in {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Transiciones para cambio de vista (grid/list) */
+.view-mode-container {
+  view-transition-name: view-mode;
+}
+
+::view-transition-old(view-mode),
+::view-transition-new(view-mode) {
+  animation-duration: 0.35s;
+  animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+::view-transition-old(view-mode) {
+  animation-name: view-mode-out;
+}
+
+::view-transition-new(view-mode) {
+  animation-name: view-mode-in;
+}
+
+@keyframes view-mode-out {
+  from {
+    opacity: 1;
+    transform: scale(1) rotate(0deg);
+  }
+  to {
+    opacity: 0;
+    transform: scale(0.95) rotate(-2deg);
+  }
+}
+
+@keyframes view-mode-in {
+  from {
+    opacity: 0;
+    transform: scale(0.95) rotate(2deg);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) rotate(0deg);
+  }
+}
+
+/* Transiciones para contador de productos */
+.product-count {
+  view-transition-name: product-count;
+}
+
+::view-transition-old(product-count),
+::view-transition-new(product-count) {
+  animation-duration: 0.2s;
+  animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+::view-transition-old(product-count) {
+  animation-name: count-fade-out;
+}
+
+::view-transition-new(product-count) {
+  animation-name: count-fade-in;
+}
+
+@keyframes count-fade-out {
+  from {
+    opacity: 1;
+    transform: scale(1);
+  }
+  to {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+}
+
+@keyframes count-fade-in {
+  from {
+    opacity: 0;
+    transform: scale(1.2);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Transiciones para ordenamiento */
+.sort-dropdown {
+  view-transition-name: sort-dropdown;
+}
+
+::view-transition-old(sort-dropdown),
+::view-transition-new(sort-dropdown) {
+  animation-duration: 0.2s;
+  animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Transiciones para categorías */
+.category-filter {
+  view-transition-name: category-filter;
+}
+
+::view-transition-old(category-filter),
+::view-transition-new(category-filter) {
+  animation-duration: 0.3s;
+  animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+::view-transition-old(category-filter) {
+  animation-name: category-slide-out;
+}
+
+::view-transition-new(category-filter) {
+  animation-name: category-slide-in;
+}
+
+@keyframes category-slide-out {
+  from {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+}
+
+@keyframes category-slide-in {
+  from {
+    opacity: 0;
+    transform: translateX(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Transiciones para sidebar de filtros */
+.filters-sidebar {
+  view-transition-name: filters-sidebar;
+}
+
+::view-transition-old(filters-sidebar),
+::view-transition-new(filters-sidebar) {
+  animation-duration: 0.25s;
+  animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+::view-transition-old(filters-sidebar) {
+  animation-name: sidebar-collapse;
+}
+
+::view-transition-new(filters-sidebar) {
+  animation-name: sidebar-expand;
+}
+
+@keyframes sidebar-collapse {
+  from {
+    opacity: 1;
+    transform: translateX(0) scale(1);
+  }
+  to {
+    opacity: 0;
+    transform: translateX(-30px) scale(0.95);
+  }
+}
+
+@keyframes sidebar-expand {
+  from {
+    opacity: 0;
+    transform: translateX(-30px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0) scale(1);
+  }
+}
+
+/* Animación para items individuales de filtro */
+.filter-item {
+  view-transition-name: var(--filter-id);
+}
+
+/* Transiciones para badges de filtros activos */
+.filter-badge {
+  view-transition-name: var(--badge-id);
+}
+
+::view-transition-old(filter-badge),
+::view-transition-new(filter-badge) {
+  animation-duration: 0.2s;
+  animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Transiciones para empty states */
+.empty-state {
+  view-transition-name: empty-state;
+}
+
+::view-transition-old(empty-state),
+::view-transition-new(empty-state) {
+  animation-duration: 0.3s;
+  animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+::view-transition-new(empty-state) {
+  animation-name: empty-state-appear;
+}
+
+@keyframes empty-state-appear {
+  from {
+    opacity: 0;
+    transform: translateY(20px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* Optimización: Deshabilitar transiciones complejas en mobile para mejor performance */
+@media (max-width: 768px) {
+  ::view-transition-old(product-grid),
+  ::view-transition-new(product-grid),
+  ::view-transition-old(view-mode),
+  ::view-transition-new(view-mode) {
+    animation-duration: 0.2s;
+  }
+  
+  @keyframes grid-fade-out {
+    from { opacity: 1; }
+    to { opacity: 0; }
+  }
+  
+  @keyframes grid-fade-in {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+}
+
+/* ===== SELECTORES :has() PARA ESTADOS VISUALES ===== */
+
+/* Drawer mobile - Simplifica clases condicionales */
+.drawer-container {
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s;
+}
+
+.drawer-container:has(.drawer-open),
+.drawer-container.drawer-open {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.drawer-panel {
+  transform: translateX(-100%);
+  transition: transform 0.3s;
+}
+
+.drawer-container:has(.drawer-open) .drawer-panel,
+.drawer-container.drawer-open .drawer-panel {
+  transform: translateX(0);
+}
+
+/* Chat button - Rotaciones y animaciones basadas en estado */
+.chat-button-content:not(.expanded) .chat-icon {
+  animation: wiggle 2s ease-in-out infinite;
+}
+
+.chat-button-content.expanded .chat-icon {
+  transform: rotate(180deg);
+}
+
+.chat-button-content:not(.expanded) .chat-arrow {
+  animation: arrow-bounce 2s ease-in-out infinite;
+}
+
+.chat-button-content.expanded .chat-arrow {
+  transform: rotate(90deg);
+}
+
+/* Category dropdown - Rotación del icono */
+.category-dropdown.dropdown-open .dropdown-icon {
+  transform: rotate(180deg);
+}
+
+/* Input con valor - Mostrar botón clear */
+.search-container:has(input:not(:placeholder-shown)) .clear-button {
+  opacity: 1;
+  pointer-events: auto;
+  transform: scale(1);
+}
+
+.search-container .clear-button {
+  opacity: 0;
+  pointer-events: none;
+  transform: scale(0.8);
+  transition: all 0.2s;
+}
+
+/* Caso 2: Input con valor - mostrar botón de limpiar */
+.search-container:has(input:not(:placeholder-shown)) .clear-button {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* Caso 3: Checkbox checked - cambiar estilo del label */
+.filter-item:has(input[type="checkbox"]:checked) {
+  background-color: rgb(239 246 255);
+  border-color: rgb(59 130 246);
+}
+
+.filter-item:has(input[type="checkbox"]:checked) .filter-label {
+  color: rgb(29 78 216);
+  font-weight: 600;
+}
+
+/* Caso 4: Card con imagen cargada - fade in suave */
+.product-card:has(img[data-loaded="true"]) {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* Caso 5: Contenedor con items seleccionados - mostrar badge */
+.category-button:has(.selected-indicator) {
+  background: linear-gradient(135deg, rgb(59 130 246), rgb(147 51 234));
+  color: white;
+}
+
+/* Caso 6: Form con errores - resaltar container */
+.form-group:has(input:invalid:not(:placeholder-shown)) {
+  border-color: rgb(239 68 68);
+}
+
+.form-group:has(input:invalid:not(:placeholder-shown)) label {
+  color: rgb(220 38 38);
+}
+
+/* Caso 7: Accordion expandido - rotar icono */
+.accordion-item:has(.accordion-content[data-expanded="true"]) .accordion-icon {
+  transform: rotate(180deg);
+}
+
+/* Caso 8: Hover en parent - highlight children */
+.product-grid:has(.product-card:hover) .product-card:not(:hover) {
+  opacity: 0.6;
+  transform: scale(0.98);
+}
+
+/* Caso 9: Modal abierto - bloquear scroll del body */
+body:has(.modal-open) {
+  overflow: hidden;
+}
+
+/* Caso 10: Sidebar con filtros activos - mostrar badge */
+.filters-sidebar:has(.active-filter) .clear-all-button {
+  display: flex;
+}
+
+/* Caso 11: Empty state - centrar contenido */
+.catalog-content:has(.empty-state) {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 60vh;
+}
+
+/* Caso 12: Dropdown abierto - cambiar icono */
+.dropdown:has(.dropdown-menu[data-open="true"]) .dropdown-icon {
+  transform: rotate(180deg);
+}
+
+/* Caso 13: Card con badge - ajustar padding */
+.product-card:has(.discount-badge) {
+  padding-top: 2.5rem;
+}
+
+/* Caso 14: Grid con items impares - centrar último */
+.product-grid:has(.product-card:nth-child(odd):last-child) .product-card:last-child {
+  grid-column: span 2;
+  max-width: 50%;
+  margin: 0 auto;
+}
+
+/* Caso 15: Tabs con contenido activo - highlight tab */
+.tabs-container:has([data-tab="main"][data-active="true"]) .tab-main {
+  background-color: rgb(31 41 55);
+  color: white;
+}
+
+.tabs-container:has([data-tab="additional"][data-active="true"]) .tab-additional {
+  background-color: rgb(75 85 99);
+  color: white;
+}
+
+/* Caso 16: Botón con loading - deshabilitar hover */
+button:has(.loading-spinner) {
+  pointer-events: none;
+  opacity: 0.7;
+}
+
+/* Caso 17: Card expandida - cambiar layout del grid */
+.category-grid:has(.category-card.expanded) {
+  grid-template-columns: 1fr;
+}
+
+.category-grid:has(.category-card.expanded) .category-card:not(.expanded) {
+  display: none;
+}
+
+/* Caso 18: Input focus - highlight container */
+.input-group:has(input:focus) {
+  border-color: rgb(59 130 246);
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+/* Caso 19: Lista con items seleccionados - mostrar toolbar */
+.product-list:has(.product-item.selected) .bulk-actions-toolbar {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+/* Caso 20: Sidebar colapsado - ajustar main content */
+.layout:has(.sidebar.collapsed) .main-content {
+  margin-left: 4rem;
+}
+
+/* Optimización: Deshabilitar :has() complejos en mobile */
+@media (max-width: 768px) {
+  /* Simplificar selectores pesados */
+  .product-grid:has(.product-card:hover) .product-card:not(:hover) {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Fallback para navegadores sin soporte de :has() */
+@supports not (selector(:has(*))) {
+  /* Usar clases tradicionales como fallback */
+  .drawer-open .drawer-overlay {
+    opacity: 1;
+    pointer-events: auto;
+  }
+  
+  .drawer-open .drawer-panel {
+    transform: translateX(0);
+  }
+  
+  .filter-item.checked {
+    background-color: rgb(239 246 255);
+    border-color: rgb(59 130 246);
   }
 }
