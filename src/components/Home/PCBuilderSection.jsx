@@ -5,39 +5,23 @@ import useScrollReveal from '../../hooks/useScrollReveal';
 const PCBuilderSection = () => {
   const { elementRef, className } = useScrollReveal({ 
     threshold: 0.15,
-    animation: 'slide-right' // Entra desde la izquierda
+    animation: 'slide-right'
   });
 
-  const manualModeData = {
-    // Estilo y Iconos
-    badge: 'Arma Tu Combo Ideal',
-    badgeIcon: Wrench,
-    badgeColor: 'bg-purple-500/20 border border-purple-400/30 text-purple-300',
-    
-    // Contenido Simplificado (Selección Manual)
-    title: 'ELIGE TUS',
-    titleHighlight: 'COMPONENTES',
-    titleHighlightColor: 'text-purple-400',
-    description: 'Selecciona cada pieza por tu cuenta. Nosotros te avisamos si algo no es compatible.',
-    features: [
-      'Selección manual completa',
-      'Avisos de incompatibilidad (Semáforo)',
-      'Revisión de rendimiento (Bottlenecks)'
-    ],
-    buttonText: 'Empezar a Elegir',
-    buttonIcon: Wrench,
-    
-    // Estilo de Botón
-    buttonGradient: 'bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-500 hover:to-pink-500 hover:shadow-purple-500/50',
-    delay: 0.4,
-    mode: 'manual',
-    // Pasar ref y clase para scroll reveal
-    scrollRef: elementRef,
-    scrollClass: className
-  };
-
   return (
-    <PCBuilderCard {...manualModeData} />
+   <PCBuilderCard 
+  badge="Elegí tus componentes"
+  badgeIcon={Wrench}
+  badgeColor="bg-purple-500/20 border border-purple-400/30 text-purple-300"
+  title="Armá tu"
+  titleHighlight="Combo ideal"
+  description="Seleccioná cada pieza por tu cuenta. Nosotros te avisamos si algún componente no es compatible."
+  buttonText="Empezar a elegir"
+  buttonIcon={Wrench}
+  scrollRef={elementRef}
+  scrollClass={className}
+/>
+
   );
 };
 

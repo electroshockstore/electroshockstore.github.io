@@ -61,8 +61,10 @@ const SearchBar = ({ isMobile = false, onClose }) => {
   if (isMobile) {
     return (
       <div className="relative" ref={searchRef}>
-        <div className="absolute left-3 top-1/2 -translate-y-1/2 z-10 bg-gradient-to-br from-blue-500 to-purple-600 p-2 rounded-lg shadow-lg">
-          <Search className="h-4 w-4 text-white" strokeWidth={2.5} />
+        <div className="absolute left-3 top-1/2 -translate-y-1/2 z-10 pointer-events-none">
+          <div className="bg-gradient-to-br from-blue-500 to-purple-600 p-2 rounded-lg shadow-lg">
+            <Search className="h-4 w-4 text-white" strokeWidth={2.5} />
+          </div>
         </div>
         <input
           type="text"
@@ -75,11 +77,12 @@ const SearchBar = ({ isMobile = false, onClose }) => {
                    text-white placeholder:text-white/50
                    focus:outline-none focus:ring-2 focus:ring-blue-500/50 focus:border-blue-500
                    hover:border-blue-500/70 hover:bg-gray-900
-                   transition-all duration-300 shadow-xl shadow-blue-500/20"
+                   transition-all duration-300 shadow-xl shadow-blue-500/20
+                   cursor-text"
         />
         <button
           onClick={handleClearSearch}
-          className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 hover:text-white transition-colors p-1 hover:bg-gray-800 rounded-lg"
+          className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 hover:text-white transition-colors p-1 hover:bg-gray-800 rounded-lg z-10"
         >
           <X className="h-5 w-5" strokeWidth={2.5} />
         </button>
@@ -127,15 +130,15 @@ const SearchBar = ({ isMobile = false, onClose }) => {
   // Desktop version
   return (
     <div className="flex-1 max-w-2xl relative" ref={searchRef}>
-      <div className="absolute -inset-4 bg-gradient-to-r from-blue-600/20 via-indigo-600/15 to-purple-600/20 blur-xl rounded-full animate-pulse" style={{ animationDuration: '6s' }} />
+      <div className="absolute -inset-4 bg-gradient-to-r from-blue-600/20 via-indigo-600/15 to-purple-600/20 blur-xl rounded-full animate-pulse pointer-events-none" style={{ animationDuration: '6s' }} />
       
       <div className="relative">
-        <div className="absolute left-3 top-1/2 -translate-y-1/2 z-10">
+        <div className="absolute left-3 top-1/2 -translate-y-1/2 z-10 pointer-events-none">
           <div className="relative">
             <div className="bg-gradient-to-br from-blue-500 to-indigo-600 p-2 rounded-xl shadow-lg">
               <Search className="h-4 w-4 text-white" strokeWidth={2.5} />
             </div>
-            <div className="absolute inset-0 bg-blue-500 blur-xl opacity-60 rounded-xl" />
+            <div className="absolute inset-0 bg-blue-500 blur-xl opacity-60 rounded-xl pointer-events-none" />
           </div>
         </div>
         
@@ -150,12 +153,13 @@ const SearchBar = ({ isMobile = false, onClose }) => {
                    focus:outline-none focus:ring-2 focus:ring-blue-500/50 focus:border-blue-500/50
                    hover:border-gray-600/50 hover:bg-gray-900
                    transition-all duration-300 shadow-xl
-                   focus:shadow-blue-500/20 focus:shadow-2xl"
+                   focus:shadow-blue-500/20 focus:shadow-2xl
+                   cursor-text"
         />
         {localSearchQuery && (
           <button
             onClick={handleClearSearch}
-            className="absolute right-4 top-1/2 -translate-y-1/2 text-gray-400 hover:text-white transition-colors"
+            className="absolute right-4 top-1/2 -translate-y-1/2 text-gray-400 hover:text-white transition-colors z-10"
           >
             <X className="h-5 w-5" />
           </button>

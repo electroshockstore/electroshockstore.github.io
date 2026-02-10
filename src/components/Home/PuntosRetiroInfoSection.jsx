@@ -67,7 +67,7 @@ const PuntosRetiroInfoSection = () => {
               </h2>
               
               <p className="text-gray-400 font-medium max-w-xl leading-relaxed mx-auto lg:mx-0 text-base sm:text-lg md:text-xl">
-                <span className="text-white border-b-4 border-blue-500/50 pb-1 font-extrabold">Revisás y pagás</span> en el momento del retiro. Seguridad total en tu compra.
+                <span className="text-white border-b-4 border-blue-500/50 pb-1 font-extrabold">Revisás y pagás</span> en el momento del retiro. 
               </p>
             </div>
 

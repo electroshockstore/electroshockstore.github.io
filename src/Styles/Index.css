@@ -1276,3 +1276,170 @@
   animation-iteration-count: 1 !important;
   transition-duration: 0.01ms !important;
 }
+
+/* ===== VIEW TRANSITIONS API ===== */
+
+/* Transición por defecto para todas las páginas */
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation-duration: 0.3s;
+  animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Fade suave para la página saliente */
+::view-transition-old(root) {
+  animation-name: fade-out;
+}
+
+/* Fade + slide para la página entrante */
+::view-transition-new(root) {
+  animation-name: fade-in-slide;
+}
+
+@keyframes fade-out {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes fade-in-slide {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Transiciones específicas para elementos con view-transition-name */
+
+/* Transición para imágenes de productos */
+::view-transition-old(product-image),
+::view-transition-new(product-image) {
+  animation-duration: 0.4s;
+  animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+::view-transition-old(product-image) {
+  animation-name: scale-fade-out;
+}
+
+::view-transition-new(product-image) {
+  animation-name: scale-fade-in;
+}
+
+@keyframes scale-fade-out {
+  from {
+    opacity: 1;
+    transform: scale(1);
+  }
+  to {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+}
+
+@keyframes scale-fade-in {
+  from {
+    opacity: 0;
+    transform: scale(1.05);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Transición para modales */
+::view-transition-old(modal),
+::view-transition-new(modal) {
+  animation-duration: 0.25s;
+  animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+::view-transition-old(modal) {
+  animation-name: modal-fade-out;
+}
+
+::view-transition-new(modal) {
+  animation-name: modal-fade-in;
+}
+
+@keyframes modal-fade-out {
+  from {
+    opacity: 1;
+    transform: scale(1);
+  }
+  to {
+    opacity: 0;
+    transform: scale(0.98);
+  }
+}
+
+@keyframes modal-fade-in {
+  from {
+    opacity: 0;
+    transform: scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Transición para filtros y sidebar */
+::view-transition-old(sidebar),
+::view-transition-new(sidebar) {
+  animation-duration: 0.2s;
+  animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+::view-transition-old(sidebar) {
+  animation-name: slide-out-left;
+}
+
+::view-transition-new(sidebar) {
+  animation-name: slide-in-left;
+}
+
+@keyframes slide-out-left {
+  from {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+}
+
+@keyframes slide-in-left {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Reducir motion para usuarios con preferencias de accesibilidad */
+@media (prefers-reduced-motion: reduce) {
+  ::view-transition-old(root),
+  ::view-transition-new(root),
+  ::view-transition-old(product-image),
+  ::view-transition-new(product-image),
+  ::view-transition-old(modal),
+  ::view-transition-new(modal),
+  ::view-transition-old(sidebar),
+  ::view-transition-new(sidebar) {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+  }
+}

@@ -1,5 +1,5 @@
 import { useNavigate } from 'react-router-dom';
-import { ChevronRight, CheckCircle2 } from 'lucide-react';
+import { ChevronRight } from 'lucide-react';
 
 const PCBuilderCard = ({ 
     badge, 
@@ -7,14 +7,9 @@ const PCBuilderCard = ({
     badgeColor, 
     title, 
     titleHighlight, 
-    titleHighlightColor,
     description, 
-    features, 
     buttonText, 
     buttonIcon: ButtonIcon,
-    buttonGradient,
-    delay,
-    mode = 'manual',
     scrollRef,
     scrollClass = ''
 }) => {
@@ -33,7 +28,6 @@ const PCBuilderCard = ({
                 border-y sm:border border-gray-800 sm:border-purple-500/40 sm:ring-2 sm:ring-purple-500/30
                 sm:shadow-xl sm:shadow-purple-900/50 hover:shadow-2xl hover:shadow-purple-900/60 ${scrollClass}`}
             style={{ 
-                animationDelay: `${delay * 0.15}s`,
                 boxShadow: window.innerWidth >= 640 ? '0 0 30px rgba(168, 85, 247, 0.4), 0 0 60px rgba(147, 51, 234, 0.2)' : 'none'
             }}
         >
@@ -46,38 +40,60 @@ const PCBuilderCard = ({
                     decoding="async"
                     width="1920"
                     height="1080"
-                    className="w-full h-full object-cover brightness-[0.7] sm:group-hover:brightness-[0.85] transition-all duration-300"
+                    className="w-full h-full object-cover brightness-[0.65] sm:group-hover:brightness-[0.8] transition-all duration-300"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent" />
             </div>
 
             {/* Glow inferior - Solo desktop */}
             <div className="hidden sm:block absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-purple-600/30 via-purple-500/10 to-transparent pointer-events-none z-20" />
             
             {/* Fade-out inferior */}
-            <div className="absolute bottom-0 left-0 right-0  bg-gradient-to-t from-[#0a0a0f] to-transparent pointer-events-none z-20" />
+            <div className="absolute bottom-0 left-0 right-0 h-20 bg-gradient-to-t from-[#0a0a0f] to-transparent pointer-events-none z-20" />
 
             {/* Content */}
             <div className="relative z-10 p-5 sm:p-8 lg:p-10 h-full flex flex-col">
                 {/* Header */}
                 <div className="flex-none mb-auto">
+                    {/* Badge original */}
                     <div className={`inline-flex items-center gap-1.5 sm:gap-2 px-3 py-1.5 sm:px-4 sm:py-2 rounded-full ${badgeColor} backdrop-blur-sm mb-4 sm:mb-6`}>
                         <BadgeIcon className="w-4 h-4 sm:w-5 sm:h-5" />
                         <span className="text-xs sm:text-sm font-bold uppercase tracking-wider">{badge}</span>
                     </div>
 
-                    <h3 className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-black text-white mb-3 sm:mb-4 leading-[1.1]">
+                    {/* Título BRUTALIST - MAXIMIZADO en desktop */}
+                    <h3 className="text-4xl sm:text-6xl lg:text-7xl xl:text-8xl 2xl:text-9xl font-black text-white mb-4 sm:mb-6 leading-[0.9] tracking-tight"
+                        style={{
+                            textShadow: '3px 3px 0px rgba(0,0,0,0.8), 6px 6px 0px rgba(0,0,0,0.4)'
+                        }}>
                         {title}
                         <br />
-                        <span className={titleHighlightColor}>{titleHighlight}</span>
+                        {/* Highlight con efecto marker moderno */}
+                        <span className="relative inline-block mt-1 sm:mt-2">
+                            <span className="absolute inset-0 bg-gradient-to-r from-purple-600 to-pink-600 -skew-x-6 rotate-[-1deg] opacity-95 blur-[0.5px]" />
+                            <span className="relative text-black px-2 sm:px-4 font-black"
+                                style={{
+                                    textShadow: '1px 1px 0px rgba(0,0,0,0.2)'
+                                }}>
+                                {titleHighlight}
+                            </span>
+                            {/* Glow sutil */}
+                            <span className="absolute inset-0 bg-gradient-to-r from-purple-600 to-pink-600 blur-xl opacity-50 animate-pulse" />
+                        </span>
                     </h3>
 
-                    <p className="text-sm sm:text-lg lg:text-xl text-gray-300 leading-relaxed">
-                        {description}
-                    </p>
+                    {/* Description con underline decorativo */}
+                    <div className="relative inline-block">
+                        <p className="text-sm sm:text-lg lg:text-xl text-white font-bold italic leading-tight relative z-10">
+                            {description}
+                        </p>
+                        {/* Underline decorativo animado */}
+                        <div className="absolute -bottom-1 left-0 right-0 h-1 sm:h-2 bg-gradient-to-r from-purple-600 to-pink-600 opacity-40 blur-sm animate-pulse" />
+                        <div className="absolute -bottom-1 left-0 w-full h-[3px] bg-gradient-to-r from-purple-600 to-pink-600" />
+                    </div>
                 </div>
 
-                {/* CTA Modern Style - Next.js/Astro inspired con glow */}
+                {/* CTA original - Next.js/Astro inspired con glow */}
                 <div className="flex-none mt-auto pt-6 sm:pt-8">
                     <div className="relative inline-block">
                         {/* Glow effect del botón */}

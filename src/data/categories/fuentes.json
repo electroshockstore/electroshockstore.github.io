@@ -111,7 +111,7 @@
     },
     {
       "id": 103,
-      "name": "Gigabyte GP-P650SS - 650W 80 Plus Gold",
+      "name": "Gigabyte GP-P650SS - 650W 80 Plus Silver",
       "brand": "Gigabyte",
       "model": "GP-P650SS",
       "category": "Fuentes",
@@ -119,7 +119,7 @@
       "price": 75000,
       "stock": 5,
       "sku": "GB-P650SS",
-      "description": "Fuente ATX 650W con certificación 80 Plus Gold, eficiencia hasta 90%, ventilador FDB 120mm",
+      "description": "Fuente ATX 650W con certificación 80 Plus Silver, eficiencia hasta 90%, ventilador FDB 120mm",
       "images": [
         "/images/fuentes/gigabyte_p650s_bl.webp",
         "/images/fuentes/gigabyte_p650s_side.webp",
@@ -130,7 +130,7 @@
         "Marca": "Gigabyte",
         "Modelo": "GP-P650SS",
         "Potencia": "650W",
-        "Certificacion": "80 Plus Gold",
+        "Certificacion": "80 Plus Silver",
         "Frecuencia": "50 Hz x 60 Hz",
         "Eficiencia": "Hasta 90%",
         "Formato": "ATX",

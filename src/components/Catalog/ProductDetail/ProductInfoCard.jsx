@@ -2,15 +2,7 @@
 import { DollarSign, ExternalLink } from 'lucide-react';
 import WhatsAppButton from '../../Shared/WhatsAppButton';
 import ShareButton from '../../Shared/ShareButton';
-
-const formatPrice = (price) => {
-  return new Intl.NumberFormat('es-AR', {
-    style: 'currency',
-    currency: 'ARS',
-    minimumFractionDigits: 0
-  }).format(price);
-};
-
+import { formatPriceNumber } from '../../../utils/priceFormatter';
 
 const ProductInfoCard = ({ 
   name, 
@@ -68,19 +60,16 @@ const ProductInfoCard = ({
           <WhatsAppButton productName={name} product={product} className="relative overflow-hidden group" />
         </div>
         
-        {/* Precio */}
+        {/* Precio - Icono azul + número sin símbolo $ */}
         <div className="relative overflow-hidden bg-gradient-to-r from-blue-50 to-emerald-50 rounded-lg p-4 sm:p-6 lg:p-8 shadow-md border-2 border-blue-200 group">
           <div className="relative flex items-center justify-between gap-3">
             <div className="flex items-center gap-2 sm:gap-3">
               <div className="p-1.5 sm:p-2 lg:p-3 bg-blue-600/20 rounded-lg">
                 <DollarSign className="h-4 w-4 sm:h-5 sm:w-5 lg:h-6 lg:w-6 text-blue-600" strokeWidth={2.5} />
               </div>
-              <span className="text-xs sm:text-sm lg:text-base font-bold text-gray-800 uppercase tracking-wide">
-                Precio
-              </span>
             </div>
             <div className="text-2xl sm:text-4xl lg:text-7xl font-black text-gray-800 tracking-tight">
-              {formatPrice(price)}
+              {formatPriceNumber(price)}
             </div>
           </div>
         </div>

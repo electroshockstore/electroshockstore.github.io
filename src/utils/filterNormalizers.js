@@ -7,11 +7,45 @@
 export const normalizeBrand = (value) => {
   const valueStr = value.toString().toLowerCase().trim();
   
+  // Marcas especiales con variaciones
   if (valueStr.includes('xpg') || valueStr === 'adata') return 'ADATA';
+  if (valueStr.includes('giga-byte') || valueStr.includes('gigabyte')) return 'Gigabyte';
   if (valueStr.includes('playstation') || valueStr.includes('sony')) return 'Sony/PlayStation';
   if (valueStr.includes('microsoft') || valueStr.includes('xbox')) return 'Microsoft/Xbox';
   
-  return value.charAt(0).toUpperCase() + value.slice(1).toLowerCase();
+  // Mantener capitalización correcta para marcas conocidas
+  const brandMap = {
+    'gigabyte': 'Gigabyte',
+    'giga-byte technology': 'Gigabyte',
+    'thermaltake': 'Thermaltake',
+    'aureox': 'Aureox',
+    'kingston': 'Kingston',
+    'adata': 'ADATA',
+    'xpg': 'ADATA',
+    'logitech': 'Logitech',
+    'razer': 'Razer',
+    'redragon': 'Redragon',
+    'hyperx': 'HyperX',
+    'corsair': 'Corsair',
+    'asus': 'ASUS',
+    'msi': 'MSI',
+    'asrock': 'ASRock',
+    'amd': 'AMD',
+    'intel': 'Intel',
+    'nvidia': 'NVIDIA',
+    'western digital': 'Western Digital',
+    'wd': 'WD',
+    'seagate': 'Seagate',
+    'sandisk': 'SanDisk',
+    'samsung': 'Samsung',
+    'crucial': 'Crucial',
+    'patriot': 'Patriot',
+    'lexar': 'Lexar',
+    'netac': 'Netac',
+    'hiksemi': 'Hiksemi'
+  };
+  
+  return brandMap[valueStr] || value.charAt(0).toUpperCase() + value.slice(1).toLowerCase();
 };
 
 // Normalizar RGB/Iluminación
@@ -43,6 +77,23 @@ export const normalizeConnectivity = (value) => {
   
   const isWireless = valueStr.includes('inalámbrico') || valueStr.includes('wireless') || 
                      valueStr.includes('bluetooth') || valueStr === 'sí' || valueStr.includes('2.4');
+  
+  return isWireless ? 'Inalámbrico' : 'Alámbrico';
+};
+
+// Normalizar conectividad para teclados (detecta cualquier tipo de inalámbrico)
+export const normalizeKeyboardConnectivity = (value) => {
+  const valueStr = value.toString().toLowerCase().trim();
+  
+  // Detectar inalámbrico (Bluetooth, 2.4GHz, Wireless, Dongle)
+  const isWireless = valueStr.includes('inalámbrico') || 
+                     valueStr.includes('wireless') || 
+                     valueStr.includes('bluetooth') || 
+                     valueStr.includes('2.4ghz') ||
+                     valueStr.includes('2.4 ghz') ||
+                     valueStr.includes('dongle') ||
+                     valueStr.includes('triple modo') ||
+                     valueStr.includes('3 modos');
   
   return isWireless ? 'Inalámbrico' : 'Alámbrico';
 };
@@ -145,6 +196,8 @@ export const normalizeCapacity = (value) => {
 export const normalizeArchitecture = (value) => {
   const valueStr = value.toString().toLowerCase();
   
+  if (valueStr.includes('mecánico') && valueStr.includes('inalámbrico')) return 'Inalámbrico';
+  if (valueStr.includes('membrana') && valueStr.includes('inalámbrico')) return 'Inalámbrico';
   if (valueStr.includes('mecánico')) return 'Mecánico';
   if (valueStr.includes('membrana')) return 'Membrana';
   
@@ -171,24 +224,25 @@ export const normalizeDPI = (value) => {
 export const normalizeStorageFormat = (value) => {
   const valueStr = value.toString().toLowerCase().trim();
   
-  // M.2 NVMe
-  if (valueStr.includes('m.2') && (valueStr.includes('nvme') || valueStr.includes('pcie'))) {
-    return 'M.2, NVMe';
+  // Externo - debe detectarse primero
+  if (valueStr.includes('externo') || valueStr.includes('portable') || valueStr.includes('hdd externo') || valueStr.includes('elements')) {
+    return 'Externo';
+  }
+  
+  // M.2 (cualquier variante: M.2 2280, M.2 NVMe, NVMe, PCIe Gen)
+  if (valueStr.includes('m.2') || valueStr.includes('m2') || 
+      valueStr.includes('nvme') || valueStr.includes('pcie gen')) {
+    return 'M.2';
   }
   
   // SSD 2.5" SATA
-  if (valueStr.includes('2.5') || (valueStr.includes('sata') && !valueStr.includes('3.5'))) {
-    return 'SSD 2.5" (SATA)';
+  if (valueStr.includes('2.5') || (valueStr.includes('sata') && !valueStr.includes('3.5') && !valueStr.includes('externo'))) {
+    return 'SATA';
   }
   
   // HDD 3.5"
   if (valueStr.includes('3.5')) {
     return 'HDD';
-  }
-  
-  // Externo
-  if (valueStr.includes('externo') || valueStr.includes('portable') || valueStr.includes('hdd externo')) {
-    return 'Externo';
   }
   
   return value;
@@ -198,13 +252,14 @@ export const normalizeStorageFormat = (value) => {
 const NORMALIZER_MAP = {
   'marca': normalizeBrand,
   'Marca': normalizeBrand,
+  'Marca de la fuente': normalizeBrand,
   'rgb': normalizeRGB,
   'iluminacionRGB': normalizeRGB,
   'Iluminación': normalizeRGB,
   'tipoMemoriaRAM': normalizeMemoryType,
   'tipoMemoria': normalizeMemoryType,
   'tipoConectividad': normalizeConnectivity,
-  'Conectividad': normalizeHeadphoneConnection,
+  'Conectividad': normalizeKeyboardConnectivity,
   'Tipo de conexión': normalizeHeadphoneConnection,
   'inalambrico': normalizeConnectivity,
   'tipoBateria': normalizeBattery,
@@ -212,7 +267,9 @@ const NORMALIZER_MAP = {
   'compatibilidad': normalizeCompatibility,
   'Compatibilidad': normalizeHeadphoneCompatibility,
   'Potencia': normalizePower,
+  'Potencia Continua': normalizePower,
   'Certificacion': normalizeCertification,
+  'Certificación': normalizeCertification,
   'capacidadTotal': normalizeCapacity,
   'Capacidad': normalizeCapacity,
   'Capacidad total': normalizeCapacity,

@@ -27,7 +27,7 @@
         "Formato": "Tenkeyless (TKL)",
         "Idioma": "Español",
         "Retroiluminación": "RGB",
-        "Conectividad": "USB",
+        "Conectividad": "Alámbrico",
         "Color": "Blanco",
         "Material": "Plástico ABS",
         "Anti-ghosting": "Sí",
@@ -58,7 +58,7 @@
         "Línea": "Eisa",
         "Modelo": "K686AK",
         "Modelo detallado": "K686AK-RGB-PRO",
-        "Arquitectura": "Mecánico",
+        "Arquitectura": "Mecánico Inalámbrico",
         "Tipo de switch": "Redragon Red",
         "Formato": "75%",
         "Idioma": "Inglés",
@@ -93,7 +93,7 @@
       "specifications": {
         "Marca": "Redragon",
         "Modelo": "K686WGB (Eisa)",
-        "Arquitectura": "Mecánico",
+        "Arquitectura": "Mecánico Inalámbrico",
         "Distribución": "Inglés US",
         "Tamaño": "98% (100 teclas)",
         "Conectividad": "Triple modo (2.4Ghz, Bluetooth 5.0, USB-C)",
@@ -125,6 +125,7 @@
         "Arquitectura": "Mecánico",
         "Tipo de switch": "Romer-G Táctil",
         "Iluminación": "RGB por tecla con software Logitech G HUB",
+        "Conectividad": "Alámbrico",
         "Material del chasis": "Aluminio aeronáutico cepillado",
         "Anti-ghosting": "Sí, 100% anti-ghosting",
         "N-Key Rollover": "Sí",
@@ -160,7 +161,7 @@
         "Marca": "Redragon",
         "Línea": "Fizz Pro",
         "Modelo": "K616-RGB",
-        "Arquitectura": "Mecánico",
+        "Arquitectura": "Mecánico Inalámbrico",
         "Tipo de switch": "Redragon Red (lineales) o Brown (táctiles) según versión",
         "Formato": "60% compacto",
         "Iluminación": "RGB completa con 20 modos",
@@ -205,6 +206,7 @@
         "Tipo de switch": "Redragon Red (lineales)",
         "Formato del teclado": "60% compacto",
         "Iluminación del teclado": "RGB con 20 modos",
+        "Conectividad": "Alámbrico",
         "Conexión del teclado": "USB-C desmontable",
         "Keycaps": "Doble inyección",
         "Anti-ghosting": "100% N-Key Rollover",
@@ -242,6 +244,7 @@
         "Modelo detallado": "HX-KB5ME2-LA",
         "Arquitectura": "Membrana",
         "Iluminación": "RGB dinámico con 3 zonas",
+        "Conectividad": "Alámbrico",
         "Materiales": "Placa superior de acero reforzado",
         "Anti-ghosting": "Sí, 100% anti-ghosting",
         "Keycaps": "ABS",
@@ -278,6 +281,7 @@
         "Tipo de switch": "Redragon Brown o Red (según versión)",
         "Formato": "60% compacto",
         "Iluminación": "RGB con 18 modos",
+        "Conectividad": "Alámbrico",
         "Keycaps": "Translúcidas, doble inyección",
         "Conexión": "USB-C desmontable",
         "Anti-ghosting": "Sí, N-Key Rollover",
@@ -308,7 +312,7 @@
         "Marca": "Redragon",
         "Línea": "Horus Mini",
         "Modelo": "K632-RGB",
-        "Arquitectura": "Mecánico",
+        "Arquitectura": "Mecánico Inalámbrico",
         "Tipo de switch": "Redragon Red (lineales)",
         "Formato": "60%",
         "Iluminación": "RGB con 20 efectos",
@@ -347,6 +351,7 @@
         "Arquitectura": "Mecánico",
         "Tipo de switch": "Outemu Blue",
         "Iluminación": "RGB con 18 modos",
+        "Conectividad": "Alámbrico",
         "Distribución": "Español Latinoamérica",
         "Anti-ghosting": "100% N-Key Rollover",
         "Keycaps": "ABS doble inyección",
@@ -384,6 +389,7 @@
         "Tipo de switch": "Outemu Red (lineal)",
         "Formato": "TKL (87 teclas)",
         "Iluminación": "RGB con 19 modos",
+        "Conectividad": "Alámbrico",
         "Distribución": "Español Latinoamérica",
         "Anti-ghosting": "100% N-Key Rollover",
         "Keycaps": "ABS doble inyección",
@@ -417,6 +423,7 @@
         "Modelo del mouse": "Abyssus",
         "Arquitectura del teclado": "Membrana",
         "Iluminación del teclado": "Retroiluminación azul",
+        "Conectividad": "Alámbrico",
         "Tipo de teclas": "De perfil bajo, membrana silenciosa",
         "Anti-ghosting": "Sí, hasta 10 teclas",
         "Teclas multimedia": "Sí, mediante combinaciones",
@@ -458,6 +465,7 @@
         "Arquitectura del teclado": "Membrana",
         "Tipo de switch": "Membrana silenciosa",
         "Iluminación del teclado": "RGB Rainbow con 7 modos",
+        "Conectividad": "Alámbrico",
         "Conexión del teclado": "USB 2.0",
         "Reposamuñecas": "Integrado",
         "Teclas multimedia": "Sí, dedicadas",
@@ -493,8 +501,9 @@
         "Modelo": "MK220",
         "Modelo del teclado": "K220",
         "Modelo del mouse": "M150",
-        "Arquitectura del teclado": "Membrana",
+        "Arquitectura del teclado": "Membrana Inalámbrico",
         "Tipo de conexión": "Inalámbrico 2.4 GHz",
+        "Conectividad": "Inalámbrico",
         "Alcance inalámbrico": "Hasta 10 metros",
         "Diseño del teclado": "Compacto (36% más pequeño que un teclado estándar)",
         "Distribución": "Español LATAM",
@@ -529,9 +538,10 @@
         "Marca": "Logitech",
         "Modelo completo": "MK270 Wireless",
         "Tipo de teclado": "De tijera",
+        "Arquitectura": "Membrana Inalámbrico",
         "Modelo teclado": "MK270",
         "Modelo mouse": "MK270",
-        "Conectividad": "Wireless 2.4 GHz con receptor USB",
+        "Conectividad": "Inalámbrico",
         "Funciones": "Plug & Play"
       }
     },
@@ -558,7 +568,9 @@
         "Marca": "Logitech",
         "Modelo": "920-009437",
         "Tipo": "Wireless combo",
+        "Arquitectura": "Membrana Inalámbrico",
         "Características": "Diseño slim y minimalista con receptor USB",
+        "Conectividad": "Inalámbrico",
         "Tecnología teclado": "Silent Touch (teclas silenciosas)",
         "Funciones": "Plug & Play"
       }
@@ -583,7 +595,8 @@
         "Marca": "Logitech",
         "Modelo": "G213",
         "Tipo de teclado": "Gaming con retroiluminación RGB",
-        "Arquitectura": "Mecánico híbrido (mecha-membrana)",
+        "Arquitectura": "Membrana",
+        "Conectividad": "Alámbrico",
         "Funciones": "Teclas multimedia, retroiluminación programable"
       }
     },
@@ -608,7 +621,8 @@
         "Modelo": "K400 Plus (920-007137)",
         "Tipo": "Touchpad inalámbrico con teclado integrado",
         "Tecnología": "Membrana",
-        "Conectividad": "2.4 GHz USB"
+        "Arquitectura": "Membrana Inalámbrico",
+        "Conectividad": "Inalámbrico"
       }
     },
     {
@@ -632,7 +646,8 @@
         "Modelo detallado": "920-007137",
         "Tipo": "Touchpad inalámbrico con teclado integrado",
         "Tecnología": "Membrana",
-        "Conectividad": "Wireless 2.4 GHz"
+        "Arquitectura": "Membrana Inalámbrico",
+        "Conectividad": "Inalámbrico"
       }
     }
   ]

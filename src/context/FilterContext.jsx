@@ -18,6 +18,17 @@ const getInitialCategoryFromURL = () => {
   return null;
 };
 
+// Helper para aplicar View Transition si está disponible
+const applyViewTransition = (callback) => {
+  if (!document.startViewTransition) {
+    callback();
+    return;
+  }
+  document.startViewTransition(() => {
+    callback();
+  });
+};
+
 export function FilterProvider({ children }) {
   const [searchQuery, setSearchQuery] = useState('');
   // OPTIMIZACIÓN: Leer categoría inicial desde URL para evitar flash
@@ -89,20 +100,26 @@ export function FilterProvider({ children }) {
   }, [searchQuery, selectedCategory, subFilters]);
 
   const handleSubFilterChange = useCallback((filterType, values) => {
-    setSubFilters(prev => ({
-      ...prev,
-      [filterType]: values
-    }));
+    applyViewTransition(() => {
+      setSubFilters(prev => ({
+        ...prev,
+        [filterType]: values
+      }));
+    });
   }, []);
 
   const clearFilters = useCallback(() => {
-    setSearchQuery('');
-    setSelectedCategory(null);
-    setSubFilters({});
+    applyViewTransition(() => {
+      setSearchQuery('');
+      setSelectedCategory(null);
+      setSubFilters({});
+    });
   }, []);
 
   const clearSubFilters = useCallback(() => {
-    setSubFilters({});
+    applyViewTransition(() => {
+      setSubFilters({});
+    });
   }, []);
 
   const value = useMemo(() => ({

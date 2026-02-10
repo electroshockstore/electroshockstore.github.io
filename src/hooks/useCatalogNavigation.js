@@ -1,39 +1,49 @@
 import { useCallback } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { getSlugFromCategory, generateSKU } from '../utils/slugify';
+import { useViewTransition } from './useViewTransition';
 
 export const useCatalogNavigation = (setSelectedCategory, setSearchQuery, clearSubFilters) => {
   const navigate = useNavigate();
+  const { startTransition } = useViewTransition();
 
   const handleCategoryChange = useCallback((category) => {
-    setSelectedCategory(category);
-    if (category && category !== 'Todos') {
-      const slug = getSlugFromCategory(category);
-      navigate(`/categoria/${slug}`);
-    } else {
-      navigate('/');
-    }
-  }, [setSelectedCategory, navigate]);
+    startTransition(() => {
+      setSelectedCategory(category);
+      if (category && category !== 'Todos') {
+        const slug = getSlugFromCategory(category);
+        navigate(`/categoria/${slug}`);
+      } else {
+        navigate('/');
+      }
+    });
+  }, [setSelectedCategory, navigate, startTransition]);
 
   const handleProductClick = useCallback((product) => {
-    const categorySlug = getSlugFromCategory(product.category);
-    const productSku = generateSKU(product.name, product.brand);
-    navigate(`/categoria/${categorySlug}/${productSku}`, { 
-      state: { productId: product.id } 
+    startTransition(() => {
+      const categorySlug = getSlugFromCategory(product.category);
+      const productSku = generateSKU(product.name, product.brand);
+      navigate(`/categoria/${categorySlug}/${productSku}`, { 
+        state: { productId: product.id } 
+      });
     });
-  }, [navigate]);
+  }, [navigate, startTransition]);
 
   const handleGoHome = useCallback(() => {
-    setSelectedCategory(null);
-    setSearchQuery('');
-    clearSubFilters();
-    navigate('/');
-  }, [setSelectedCategory, setSearchQuery, clearSubFilters, navigate]);
+    startTransition(() => {
+      setSelectedCategory(null);
+      setSearchQuery('');
+      clearSubFilters();
+      navigate('/');
+    });
+  }, [setSelectedCategory, setSearchQuery, clearSubFilters, navigate, startTransition]);
 
   const handleReset = useCallback(() => {
-    clearSubFilters();
-    navigate('/');
-  }, [clearSubFilters, navigate]);
+    startTransition(() => {
+      clearSubFilters();
+      navigate('/');
+    });
+  }, [clearSubFilters, navigate, startTransition]);
 
   return {
     handleCategoryChange,

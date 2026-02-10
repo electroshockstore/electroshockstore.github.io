@@ -1,10 +1,8 @@
-
-
 {
   "products": [
     {
       "id": 200,
-      "name": "SSD Western Digital WD Green 2TB SATA III 2.5\"",
+      "name": "SSD Western Digital Green 2TB SATA III 2.5\"",
       "brand": "Western Digital",
       "model": "WD Green 2TB",
       "category": "Almacenamiento",
@@ -31,7 +29,7 @@
     },
     {
       "id": 201,
-      "name": "NVME XPG Spectrix S20G 500GB RGB Chip MICRON",
+      "name": " XPG Spectrix S20G 500GB RGB M.2 NVMe. Chip MICRON",
       "brand": "ADATA",
       "model": "XPG Spectrix S20G",
       "category": "Almacenamiento",
@@ -51,7 +49,8 @@
         "Iluminación": "RGB Direccionable",
         "Lectura": "2500 MB/s",
         "Chip": "3D TLC MICRON",
-        "Escritura": "1800 MB/s"
+        "Escritura": "1800 MB/s",
+        "Formato": "M.2"
       }
     },
     {
@@ -77,7 +76,8 @@
         "Chip": "3D TLC MICRON",
         "Lectura": "3500 MB/s",
         "Escritura": "3000 MB/s",
-        "TBW": "500 TBW"
+        "TBW": "500 TBW",
+        "Formato": "M.2"
       }
     },
     {
@@ -99,11 +99,11 @@
         "Marca": "Kingston",
         "Línea": "NV3",
         "Capacidad": "1 TB",
-         "Chip": "Micron B58R TLC",
-    
+        "Chip": "Micron B58R TLC",
         "Interfaz": "PCIe Gen4 x4 NVMe",
         "Lectura": "3500 MB/s",
-        "Escritura": "2800 MB/s"
+        "Escritura": "2800 MB/s",
+        "Formato": "M.2"
       }
     },
     {
@@ -126,9 +126,10 @@
         "Capacidad": "512 GB",
         "Interfaz": "PCIe Gen3 x4 NVMe 1.4",
         "Lectura": "2400 MB/s",
-          "Chip": "3D TLC MICRON",
+        "Chip": "3D TLC MICRON",
         "Escritura": "1800 MB/s",
-        "Disipador": "Incluido"
+        "Disipador": "Incluido",
+        "Formato": "M.2"
       }
     },
     {
@@ -156,7 +157,7 @@
     },
     {
       "id": 206,
-      "name": "SSD SanDisk SSD Plus M.2 NVMe 1TB PCIe Gen3x4",
+      "name": " SanDisk SSD Plus M.2 NVMe 1TB PCIe Gen3x4",
       "brand": "SanDisk",
       "model": "SSD Plus M.2 NVMe",
       "category": "Almacenamiento",
@@ -173,7 +174,7 @@
         "Capacidad": "1 TB",
         "Interfaz": "PCIe Gen3 x4 NVMe",
         "Formato": "M.2 2280",
-        "Chip":"Sandisk", 
+        "Chip": "Sandisk",
         "Memoria": "3D NAND"
       }
     },
@@ -225,8 +226,9 @@
       "specifications": {
         "Capacidad": "512 GB",
         "Lectura": "3500 MB/s",
-          "Chip": "3D TLC MICRON",
-        "Escritura": "2400 MB/s"
+        "Chip": "3D TLC MICRON",
+        "Escritura": "2400 MB/s",
+        "Formato": "M.2"
       }
     },
     {
@@ -411,7 +413,8 @@
         "Capacidad": "500 GB",
         "Interfaz": "PCIe Gen3 x4 NVMe",
         "Lectura": "1800 MB/s",
-        "Disipador": "Aluminio cepillado"
+        "Disipador": "Aluminio cepillado",
+        "Formato": "M.2"
       }
     },
     {
@@ -432,7 +435,8 @@
       "specifications": {
         "Capacidad": "240 GB",
         "Interfaz": "PCIe Gen3 x4",
-        "Lectura": "2400 MB/s"
+        "Lectura": "2400 MB/s",
+        "Formato": "M.2"
       }
     },
     {
@@ -453,7 +457,8 @@
       "specifications": {
         "Capacidad": "480 GB",
         "Lectura": "2400 MB/s",
-        "Escritura": "1500 MB/s"
+        "Escritura": "1500 MB/s",
+        "Formato": "M.2"
       }
     },
     {
@@ -474,7 +479,8 @@
       "specifications": {
         "Capacidad": "500 GB",
         "Lectura": "2400 MB/s",
-        "Escritura": "1500 MB/s"
+        "Escritura": "1500 MB/s",
+        "Formato": "M.2"
       }
     },
     {

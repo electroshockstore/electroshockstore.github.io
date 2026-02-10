@@ -33,6 +33,7 @@ export const FILTER_KEY_ALIASES = {
   // Marca
   'MARCA': 'Marca',
   'brand': 'Marca',
+  'Marca de la fuente': 'Marca',
   
   // Capacidad
   'Capacidad total': 'capacidadTotal',
@@ -44,6 +45,13 @@ export const FILTER_KEY_ALIASES = {
   'Factor de forma': 'formato',
   'Formato': 'formato',
   'Tipo': 'formato',
+  'factorDeForma': 'formato',
+  
+  // Potencia (fuentes)
+  'Potencia Continua': 'Potencia',
+  
+  // Certificación (fuentes)
+  'Certificación': 'Certificacion',
   
   // Conexión (auriculares) - Conectividad es alias de Tipo de conexión
   'Conectividad': 'Tipo de conexión'

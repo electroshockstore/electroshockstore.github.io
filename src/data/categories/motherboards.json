@@ -89,9 +89,9 @@
         "marca": "Asus",
         "chipset": "AMD A520",
         "socket": "AM4",
-        "vrm": "4+2 Fases de poder",
-        "factorDeForma": "mATX",
-        "tipoMemoriaRAM": "DDR4"
+        "formato": "Micro-ATX",
+        "tipoMemoriaRAM": "DDR4",
+        "vrm": "4+2 Fases de poder"
       },
       "ddrType": "DDR4"
     },
@@ -149,8 +149,10 @@
       "specifications": {
         "marca": "Gigabyte",
         "socket": "AM5",
+        "chipset": "AMD B650",
+        "formato": "Micro-ATX",
+        "tipoMemoriaRAM": "DDR5",
         "vrm": "5+2+2 Digital VRM Solution",
-        "tipoMemoria": "DDR5",
         "lan": "2.5GbE",
         "wifi": "Wi-Fi 6E incorporado"
       },
@@ -176,6 +178,8 @@
         "marca": "Gigabyte",
         "chipset": "AMD A620",
         "socket": "AM5",
+        "formato": "Micro-ATX",
+        "tipoMemoriaRAM": "DDR5",
         "vrm": "5+2+2 Digital VRM"
           },
        "ddrType": "DDR5"
@@ -202,6 +206,8 @@
         "modelo": "B450M-A II CSM",
         "socket": "AM4",
         "chipset": "B450",
+        "formato": "Micro-ATX",
+        "tipoMemoriaRAM": "DDR4",
         "capacidadMaximaSoportada": "128 GB"
         },
        "ddrType": "DDR4"
@@ -227,6 +233,8 @@
         "linea": "Ultra Durable",
         "chipset": "AMD A520",
         "socket": "AM4",
+        "formato": "Micro-ATX",
+        "tipoMemoriaRAM": "DDR4",
         "vrm": "4+2 Fases"
         },
        "ddrType": "DDR4"
@@ -249,7 +257,10 @@
       "description": "Mother Gigabyte B650M-H UD AMD AM5 DDR5 con soporte para Ryzen 7000/8000/9000",
       "specifications": {
         "marca": "Gigabyte",
+        "socket": "AM5",
         "chipset": "AMD B650",
+        "formato": "Micro-ATX",
+        "tipoMemoriaRAM": "DDR5",
         "vrm": "5+2+2 fases",
         "soportePerfiles": "AMD EXPO / Intel XMP"
       },
