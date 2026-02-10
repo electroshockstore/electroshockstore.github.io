@@ -248,12 +248,15 @@ const HeroCarousel = () => {
         <div className="container mx-0 sm:mx-2 px-5 sm:px-6 md:px-12 lg:px-16">
           <div className="max-w-2xl lg:max-w-3xl xl:max-w-4xl">
             <div key={current.id + '-text'}>
-                {/* Tag - BRUTAL minimalista - No roba protagonismo */}
-                <div className="flex items-center gap-2 mb-2 sm:mb-4 md:mb-6">
-                  <div className={`h-[2px] sm:h-[3px] w-6 sm:w-12 ${current.highlightColor} hero-line-expand`} />
-                  <span className="text-white/60 font-black text-[8px] sm:text-xs tracking-[0.3em] uppercase">
-                    {current.tag}
-                  </span>
+                {/* Tag - Badge estilo premium con gradiente */}
+                <div className="flex items-center gap-2 sm:gap-3 mb-3 sm:mb-5 md:mb-6">
+                  <div className={`h-[2px] sm:h-[3px] w-8 sm:w-12 bg-gradient-to-r ${current.gradient} hero-line-expand`} />
+                  <div className={`inline-flex items-center gap-1.5 sm:gap-2 px-2.5 sm:px-4 py-1 sm:py-1.5 bg-gradient-to-r ${current.gradient} rounded-full hero-tag-enter shadow-lg`}>
+                    <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-white rounded-full animate-pulse" />
+                    <span className="text-white font-black text-[9px] sm:text-xs tracking-[0.25em] sm:tracking-[0.35em] uppercase">
+                      {current.tag}
+                    </span>
+                  </div>
                 </div>
 
                 {/* Título - BRUTALIST/MAXIMALIST - Protagonista absoluto - Reducido en mobile */}
@@ -294,16 +297,14 @@ const HeroCarousel = () => {
                   </span>
                 </h1>
 
-                {/* Subtítulo - BRUTAL con borde grueso - Reducido en mobile */}
+                {/* Subtítulo - Con underline decorativo animado */}
                 <div className="relative inline-block mb-3 sm:mb-10 md:mb-14 lg:mb-16 hero-description-enter">
-                  <p 
-                    className="text-[11px] sm:text-2xl md:text-3xl lg:text-4xl text-white font-black uppercase leading-tight relative z-10 px-2 sm:px-4 py-0.5 sm:py-2 bg-black/60 border-l-3 sm:border-l-8 border-white"
-                    style={{
-                      textShadow: '1px 1px 0px rgba(0,0,0,0.8)'
-                    }}
-                  >
+                  <p className="text-[12px] sm:text-2xl md:text-3xl lg:text-4xl text-white font-black italic leading-tight relative z-10">
                     {current.description}
                   </p>
+                  {/* Underline decorativo animado con gradiente */}
+                  <div className={`absolute -bottom-1 sm:-bottom-2 left-0 right-0 h-1 sm:h-3 bg-gradient-to-r ${current.gradient} opacity-40 sm:opacity-50 blur-[2px] sm:blur-sm animate-pulse`} />
+                  <div className={`absolute -bottom-1 sm:-bottom-2 left-0 w-full h-[3px] sm:h-[5px] bg-gradient-to-r ${current.gradient}`} />
                 </div>
 
                 {/* Points - 3 columnas en desktop para ahorrar espacio - Reducido en mobile */}
