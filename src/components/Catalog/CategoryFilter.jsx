@@ -102,21 +102,12 @@ const CategoryFilter = ({ selectedCategory, onCategoryChange }) => {
 
   return (
     <div className="relative group z-20 w-full category-filter">
-      {/* CAPAS DE RESPLANDOR OPTIMIZADAS - Usando will-change y transform para GPU */}
-      <div 
-        className="absolute -inset-3 bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 rounded-full opacity-30 blur-xl -z-10"
-        style={{ willChange: 'transform', transform: 'translateZ(0)' }}
-      ></div>
-      <div 
-        className="absolute -inset-2 bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-600 rounded-full opacity-25 blur-lg animate-pulse -z-10"
-        style={{ willChange: 'opacity, transform', transform: 'translateZ(0)' }}
-      ></div>
+      {/* CAPAS DE RESPLANDOR ORIGINALES */}
+      <div className="absolute -inset-3 bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 rounded-full opacity-30 blur-xl -z-10"></div>
+      <div className="absolute -inset-2 bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-600 rounded-full opacity-25 blur-lg animate-pulse -z-10"></div>
 
-      {/* RGB FLOWING BORDER - Contenedor con borde animado optimizado */}
-      <div 
-        className="relative rounded-full overflow-hidden p-[3px] animate-border-rotate"
-        style={{ willChange: 'transform', transform: 'translateZ(0)' }}
-      >
+      {/* RGB FLOWING BORDER - Contenedor con borde animado */}
+      <div className="relative rounded-full overflow-hidden p-[3px] animate-border-rotate">
         <div className="relative bg-white rounded-full z-10">
           {/* MOBILE: DROPDOWN COMPACTO CON GLOW */}
           <div className={`category-dropdown sm:hidden relative z-20 ${isOpen ? 'dropdown-open' : ''}`} ref={dropdownRef}>
@@ -191,15 +182,9 @@ const CategoryFilter = ({ selectedCategory, onCategoryChange }) => {
                     className="flex-shrink-0 bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 border-b border-white/10 px-5 py-6 flex items-center justify-between shadow-2xl relative overflow-hidden"
                     onTouchMove={(e) => e.preventDefault()}
                   >
-                    {/* Glow decorativo optimizado con GPU acceleration */}
-                    <div 
-                      className="absolute top-0 left-1/4 w-64 h-64 bg-blue-500/20 rounded-full blur-3xl"
-                      style={{ willChange: 'transform', transform: 'translateZ(0)' }}
-                    />
-                    <div 
-                      className="absolute top-0 right-1/4 w-64 h-64 bg-purple-500/20 rounded-full blur-3xl"
-                      style={{ willChange: 'transform', transform: 'translateZ(0)' }}
-                    />
+                    {/* Glow decorativo */}
+                    <div className="absolute top-0 left-1/4 w-64 h-64 bg-blue-500/20 rounded-full blur-3xl" />
+                    <div className="absolute top-0 right-1/4 w-64 h-64 bg-purple-500/20 rounded-full blur-3xl" />
                     
                     <div className="flex items-center gap-4 relative z-10">
                       <div className="p-3 rounded-2xl bg-gradient-to-br from-blue-500 via-blue-600 to-purple-600 shadow-xl box-glow-blue">
@@ -240,6 +225,7 @@ const CategoryFilter = ({ selectedCategory, onCategoryChange }) => {
                           <button
                             key={category}
                             onClick={() => handleCategorySelect(category)}
+                            style={{ animationDelay: `${index * 30}ms` }}
                             className={`
                               relative overflow-hidden rounded-2xl font-bold
                               transition-all duration-200 animate-in fade-in zoom-in-95
@@ -248,11 +234,6 @@ const CategoryFilter = ({ selectedCategory, onCategoryChange }) => {
                                 : 'shadow-[0_8px_24px_rgba(0,0,0,0.3),0_4px_12px_rgba(0,0,0,0.2)] hover:shadow-[0_12px_32px_rgba(0,0,0,0.4),0_6px_16px_rgba(0,0,0,0.25)] active:scale-[0.97] hover:scale-[1.02]'
                               }
                             `}
-                            style={{ 
-                              animationDelay: `${index * 30}ms`,
-                              willChange: isSelected ? 'transform, box-shadow' : 'auto',
-                              transform: 'translateZ(0)'
-                            }}
                           >
                             <div className="relative aspect-[4/3] w-full">
                               <img
@@ -309,11 +290,8 @@ const CategoryFilter = ({ selectedCategory, onCategoryChange }) => {
                     className="flex-shrink-0 bg-gradient-to-t from-gray-900 via-gray-800 to-gray-900 backdrop-blur-xl border-t border-white/10 px-5 py-5 shadow-2xl relative overflow-hidden"
                     onTouchMove={(e) => e.preventDefault()}
                   >
-                    {/* Glow decorativo inferior optimizado */}
-                    <div 
-                      className="absolute bottom-0 left-1/2 -translate-x-1/2 w-96 h-32 bg-gradient-to-t from-blue-500/10 to-transparent blur-2xl"
-                      style={{ willChange: 'transform', transform: 'translateZ(0)' }}
-                    />
+                    {/* Glow decorativo inferior */}
+                    <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-96 h-32 bg-gradient-to-t from-blue-500/10 to-transparent blur-2xl" />
                     
                     <div className="flex items-center justify-center gap-3 text-sm text-gray-300 relative z-10">
                       <div className="w-10 h-1 bg-gradient-to-r from-transparent via-blue-500 to-transparent rounded-full" />

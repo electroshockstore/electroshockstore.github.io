@@ -942,60 +942,40 @@
 
 .font-outfit { font-family: 'Outfit', sans-serif; }
 
-/* ===== AMBIENT GLOWS - OPTIMIZADOS PARA PERFORMANCE ===== */
+/* ===== AMBIENT GLOWS - OPTIMIZADOS PARA MOBILE ===== */
 
-/* Desktop: Glows completos con GPU acceleration */
+/* Desktop: Glows completos */
 .text-glow-blue { 
-  text-shadow: 0 0 20px rgba(59, 130, 246, 0.5), 0 0 40px rgba(59, 130, 246, 0.3);
-  will-change: text-shadow;
-  transform: translateZ(0);
+  text-shadow: 0 0 20px rgba(59, 130, 246, 0.5), 0 0 40px rgba(59, 130, 246, 0.3); 
 }
 .text-glow-emerald { 
-  text-shadow: 0 0 20px rgba(16, 185, 129, 0.5), 0 0 40px rgba(16, 185, 129, 0.3);
-  will-change: text-shadow;
-  transform: translateZ(0);
+  text-shadow: 0 0 20px rgba(16, 185, 129, 0.5), 0 0 40px rgba(16, 185, 129, 0.3); 
 }
 .text-glow-orange { 
-  text-shadow: 0 0 20px rgba(249, 115, 22, 0.5), 0 0 40px rgba(249, 115, 22, 0.3);
-  will-change: text-shadow;
-  transform: translateZ(0);
+  text-shadow: 0 0 20px rgba(249, 115, 22, 0.5), 0 0 40px rgba(249, 115, 22, 0.3); 
 }
 .text-glow-purple { 
-  text-shadow: 0 0 20px rgba(168, 85, 247, 0.5), 0 0 40px rgba(168, 85, 247, 0.3);
-  will-change: text-shadow;
-  transform: translateZ(0);
+  text-shadow: 0 0 20px rgba(168, 85, 247, 0.5), 0 0 40px rgba(168, 85, 247, 0.3); 
 }
 .text-glow-cyan { 
-  text-shadow: 0 0 20px rgba(6, 182, 212, 0.5), 0 0 40px rgba(6, 182, 212, 0.3);
-  will-change: text-shadow;
-  transform: translateZ(0);
+  text-shadow: 0 0 20px rgba(6, 182, 212, 0.5), 0 0 40px rgba(6, 182, 212, 0.3); 
 }
 .text-glow-red { 
-  text-shadow: 0 0 20px rgba(239, 68, 68, 0.5), 0 0 40px rgba(239, 68, 68, 0.3);
-  will-change: text-shadow;
-  transform: translateZ(0);
+  text-shadow: 0 0 20px rgba(239, 68, 68, 0.5), 0 0 40px rgba(239, 68, 68, 0.3); 
 }
 
-/* Box glows para componentes con GPU acceleration */
+/* Box glows para componentes */
 .box-glow-blue { 
-  box-shadow: 0 0 30px rgba(59, 130, 246, 0.3), 0 0 60px rgba(59, 130, 246, 0.15);
-  will-change: box-shadow;
-  transform: translateZ(0);
+  box-shadow: 0 0 30px rgba(59, 130, 246, 0.3), 0 0 60px rgba(59, 130, 246, 0.15); 
 }
 .box-glow-emerald { 
-  box-shadow: 0 0 30px rgba(16, 185, 129, 0.3), 0 0 60px rgba(16, 185, 129, 0.15);
-  will-change: box-shadow;
-  transform: translateZ(0);
+  box-shadow: 0 0 30px rgba(16, 185, 129, 0.3), 0 0 60px rgba(16, 185, 129, 0.15); 
 }
 .box-glow-orange { 
-  box-shadow: 0 0 30px rgba(249, 115, 22, 0.3), 0 0 60px rgba(249, 115, 22, 0.15);
-  will-change: box-shadow;
-  transform: translateZ(0);
+  box-shadow: 0 0 30px rgba(249, 115, 22, 0.3), 0 0 60px rgba(249, 115, 22, 0.15); 
 }
 .box-glow-purple { 
-  box-shadow: 0 0 30px rgba(168, 85, 247, 0.3), 0 0 60px rgba(168, 85, 247, 0.15);
-  will-change: box-shadow;
-  transform: translateZ(0);
+  box-shadow: 0 0 30px rgba(168, 85, 247, 0.3), 0 0 60px rgba(168, 85, 247, 0.15); 
 }
 
 /* Mobile: Glows más sutiles pero presentes */
@@ -1238,7 +1218,7 @@
   animation: rgb-flow 4s ease-in-out infinite;
 }
 
-/* RGB Flowing Gradient Border - Optimizado con GPU acceleration */
+/* RGB Flowing Gradient Border - Pseudo-elemento con gradiente que rota */
 .animate-border-rotate {
   position: relative;
 }
@@ -1270,14 +1250,11 @@
   );
   animation: border-rotate 6s linear infinite;
   will-change: transform;
-  transform: translateZ(0);
-  backface-visibility: hidden;
-  perspective: 1000px;
 }
 
 @keyframes border-rotate {
   100% {
-    transform: rotate(1turn) translateZ(0);
+    transform: rotate(1turn);
   }
 }
 
