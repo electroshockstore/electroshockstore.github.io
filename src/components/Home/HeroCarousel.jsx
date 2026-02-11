@@ -298,13 +298,7 @@ const HeroCarousel = () => {
                 ease: [0.16, 1, 0.3, 1]
               }}
               className="absolute inset-0"
-              style={{ 
-                willChange: isTransitioning ? 'opacity, transform' : 'auto',
-                transform: 'translateZ(0)',
-                WebkitTransform: 'translateZ(0)',
-                backfaceVisibility: 'hidden',
-                WebkitBackfaceVisibility: 'hidden'
-              }}
+              style={{ willChange: 'opacity, transform' }}
             >
               <img 
                 src={current.image} 
@@ -315,21 +309,8 @@ const HeroCarousel = () => {
                 fetchpriority={currentSlide === 0 ? "high" : "low"}
                 width="1920"
                 height="1080"
-                style={{
-                  willChange: 'auto',
-                  transform: 'translateZ(0)',
-                  WebkitTransform: 'translateZ(0)',
-                  backfaceVisibility: 'hidden',
-                  WebkitBackfaceVisibility: 'hidden'
-                }}
               />
-              <div 
-                className="absolute inset-0 bg-gradient-to-r from-[#020617] via-[#020617]/70 md:via-[#020617]/50 to-transparent"
-                style={{
-                  transform: 'translateZ(0)',
-                  WebkitTransform: 'translateZ(0)'
-                }}
-              />
+              <div className="absolute inset-0 bg-gradient-to-r from-[#020617] via-[#020617]/70 md:via-[#020617]/50 to-transparent" />
             </motion.div>
           )}
         </AnimatePresence>
@@ -422,8 +403,8 @@ const HeroCarousel = () => {
                       {current.titleHighlight}
                     </span>
                     
-                    {/* Glow effect - Solo desktop - SIN BLUR en mobile para performance */}
-                    <span className={`hidden sm:block absolute inset-0 ${current.highlightColor} blur-xl opacity-60`} style={{ willChange: 'auto' }} />
+                    {/* Glow effect - Solo desktop - Optimizado para iOS */}
+                    <span className={`hidden sm:block absolute inset-0 ${current.highlightColor} ${isIOS ? 'blur-xl' : 'blur-2xl'} opacity-60 ${isIOS ? '' : 'animate-pulse'}`} />
                   </motion.span>
                 </h1>
 
@@ -436,8 +417,8 @@ const HeroCarousel = () => {
                   <p className="text-[11px] sm:text-2xl md:text-3xl lg:text-4xl text-white font-black italic leading-tight relative z-10">
                     {current.description}
                   </p>
-                  {/* Underline decorativo - SIN BLUR en mobile */}
-                  <div className={`hidden sm:block absolute -bottom-0.5 sm:-bottom-2 left-0 right-0 h-1 sm:h-3 bg-gradient-to-r ${current.gradient} opacity-40 sm:opacity-50 blur-sm`} />
+                  {/* Underline decorativo - Optimizado para iOS */}
+                  <div className={`absolute -bottom-0.5 sm:-bottom-2 left-0 right-0 h-1 sm:h-3 bg-gradient-to-r ${current.gradient} opacity-40 sm:opacity-50 ${isIOS ? 'blur-sm' : 'blur-sm animate-pulse'}`} />
                   <div className={`absolute -bottom-0.5 sm:-bottom-2 left-0 w-full h-[2px] sm:h-[5px] bg-gradient-to-r ${current.gradient}`} />
                 </motion.div>
 
