@@ -1,5 +1,6 @@
 import { useState, useEffect, useCallback, useMemo, useRef } from 'react';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
+import { motion, AnimatePresence } from 'framer-motion';
 
 // Hook para detectar desktop (sin parallax)
 const useDesktopDetection = () => {
@@ -185,55 +186,50 @@ const HeroCarousel = () => {
       onTouchEnd={handleTouchEnd}
     >
       
-      {/* Background Images - Posición estática optimizada para rendimiento */}
-      <div className={`absolute right-0 top-0 h-full z-0 transition-opacity duration-700 ${
+      {/* Background Images - Con Framer Motion para control explícito */}
+      <div className={`absolute right-0 top-0 h-full z-0 ${
         current.imagePosition === 'left' 
           ? 'w-[85%] right-[-15%] md:w-[60%] md:right-0 lg:w-[65%] xl:w-[70%]'
           : 'w-[85%] right-[-15%] md:w-[65%] md:right-[-10%] lg:w-[70%] lg:right-[-15%] xl:w-[75%] xl:right-[-20%]'
       }`}>
-        {/* Imagen anterior (fade out) */}
-        {loadedImages.has(prevSlide) && prevSlide !== currentSlide && (
-          <div 
-            className="absolute inset-0 transition-opacity duration-700 ease-out"
-            style={{
-              opacity: isTransitioning ? 0 : 1
-            }}
-          >
-            <img 
-              src={previous.image} 
-              className="w-full h-full object-cover brightness-[0.8] sm:brightness-100" 
-              alt=""
-              loading="lazy"
-              decoding="async"
-              width="1920"
-              height="1080"
-            />
-            <div className="absolute inset-0 bg-gradient-to-r from-[#020617] via-[#020617]/70 md:via-[#020617]/50 to-transparent" />
-          </div>
-        )}
-        
-        {/* Imagen actual (fade in + slide in cinematográfico) */}
-        {loadedImages.has(currentSlide) && (
-          <div 
-            key={`image-${current.id}`}
-            className="absolute inset-0 transition-opacity duration-700 ease-out hero-image-enter"
-            style={{
-              opacity: isTransitioning ? 1 : 1
-            }}
-          >
-            <img 
-              src={current.image} 
-              className="w-full h-full object-cover brightness-[0.8] sm:brightness-100" 
-              alt=""
-              loading={currentSlide === 0 ? "eager" : "lazy"}
-              decoding="async"
-              fetchpriority={currentSlide === 0 ? "high" : "low"}
-              width="1920"
-              height="1080"
-            />
-            <div className="absolute inset-0 bg-gradient-to-r from-[#020617] via-[#020617]/70 md:via-[#020617]/50 to-transparent" />
-          </div>
-        )}
+        <AnimatePresence mode="wait">
+          {loadedImages.has(currentSlide) && (
+            <motion.div
+              key={`hero-image-${current.id}`}
+              initial={{ 
+                opacity: 0,
+                x: 100,
+                scale: 1.1
+              }}
+              animate={{ 
+                opacity: 1,
+                x: 0,
+                scale: 1
+              }}
+              exit={{ 
+                opacity: 0,
+                transition: { duration: 0.7 }
+              }}
+              transition={{
+                duration: 1,
+                ease: [0.16, 1, 0.3, 1] // cubic-bezier equivalente
+              }}
+              className="absolute inset-0"
+            >
+              <img 
+                src={current.image} 
+                className="w-full h-full object-cover brightness-[0.8] sm:brightness-100" 
+                alt=""
+                loading={currentSlide === 0 ? "eager" : "lazy"}
+                decoding="async"
+                fetchpriority={currentSlide === 0 ? "high" : "low"}
+                width="1920"
+                height="1080"
+              />
+              <div className="absolute inset-0 bg-gradient-to-r from-[#020617] via-[#020617]/70 md:via-[#020617]/50 to-transparent" />
+            </motion.div>
+          )}
+        </AnimatePresence>
       </div>
 
       {/* Fade-out superior - Mobile y Desktop */}
