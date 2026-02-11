@@ -3,8 +3,12 @@ import useIOSDetection from '../../hooks/useIOSDetection';
 
 const HeroSection = () => {
   const isIOS = useIOSDetection();
-  // Variantes de animación
-  const titleVariants = {
+  
+  // Variantes de animación - Deshabilitadas en iOS
+  const titleVariants = isIOS ? {
+    hidden: { opacity: 1, y: 0 },
+    visible: { opacity: 1, y: 0 }
+  } : {
     hidden: { opacity: 0, y: 30 },
     visible: (i) => ({
       opacity: 1,
@@ -17,7 +21,10 @@ const HeroSection = () => {
     })
   };
 
-  const descriptionVariants = {
+  const descriptionVariants = isIOS ? {
+    hidden: { opacity: 1, y: 0 },
+    visible: { opacity: 1, y: 0 }
+  } : {
     hidden: { opacity: 0, y: 20 },
     visible: {
       opacity: 1,
@@ -32,7 +39,7 @@ const HeroSection = () => {
 
   return (
     <section className="relative py-12 sm:py-16 md:py-24 px-4 sm:px-6 overflow-hidden">
-      {/* Animated background blobs - Optimizado para iOS */}
+      {/* Animated background blobs - Deshabilitado en iOS */}
       <div className="absolute inset-0 -z-10">
         <motion.div 
           className={`absolute top-20 left-10 w-72 h-72 bg-blue-500/20 rounded-full ${isIOS ? 'blur-2xl' : 'blur-3xl'}`}
@@ -71,7 +78,7 @@ const HeroSection = () => {
               initial="hidden"
               animate="visible"
               variants={titleVariants}
-              style={{ willChange: 'opacity, transform' }}
+              style={isIOS ? {} : { willChange: 'opacity, transform' }}
             >
               ¿
             </motion.span>
@@ -83,7 +90,7 @@ const HeroSection = () => {
               initial="hidden"
               animate="visible"
               variants={titleVariants}
-              style={{ willChange: 'opacity, transform' }}
+              style={isIOS ? {} : { willChange: 'opacity, transform' }}
             >
               {/* Múltiples capas de marker para efecto 3D brutal */}
               <span className="absolute inset-0 bg-blue-500 -skew-x-6 rotate-[-2deg] opacity-95 translate-x-1 translate-y-1" />
@@ -100,7 +107,7 @@ const HeroSection = () => {
                 Dónde Retiro
               </span>
               
-              {/* Glow effect brutal - Solo desktop - Optimizado para iOS */}
+              {/* Glow effect brutal - Solo desktop - Sin animate-pulse en iOS */}
               <span className={`hidden sm:block absolute inset-0 bg-blue-500 ${isIOS ? 'blur-xl' : 'blur-2xl'} opacity-60 ${isIOS ? '' : 'animate-pulse'}`} />
             </motion.span>
             
@@ -113,7 +120,7 @@ const HeroSection = () => {
               initial="hidden"
               animate="visible"
               variants={titleVariants}
-              style={{ willChange: 'opacity, transform' }}
+              style={isIOS ? {} : { willChange: 'opacity, transform' }}
             >
               Los
             </motion.span>
@@ -123,7 +130,7 @@ const HeroSection = () => {
               initial="hidden"
               animate="visible"
               variants={titleVariants}
-              style={{ willChange: 'opacity, transform' }}
+              style={isIOS ? {} : { willChange: 'opacity, transform' }}
             >
               Productos?
             </motion.span>
@@ -134,7 +141,7 @@ const HeroSection = () => {
             variants={descriptionVariants}
             initial="hidden"
             animate="visible"
-            style={{ willChange: 'opacity, transform' }}
+            style={isIOS ? {} : { willChange: 'opacity, transform' }}
           >
             Elegí el punto más cercano y coordiná tu entrega <span className="text-blue-400 font-black">segura</span>
           </motion.p>

@@ -102,45 +102,83 @@ const slides = [
   }
 ];
 
-// Variantes de animación optimizadas (solo opacity + transform)
-const animationVariants = {
-  // Tag y línea
-  tagLine: {
-    initial: { opacity: 0, scaleX: 0 },
-    animate: { opacity: 1, scaleX: 1 },
-    transition: { duration: 0.5, ease: [0.16, 1, 0.3, 1] }
-  },
-  tag: {
-    initial: { opacity: 0, scale: 0.8 },
-    animate: { opacity: 1, scale: 1 },
-    transition: { duration: 0.4, delay: 0.2, ease: [0.16, 1, 0.3, 1] }
-  },
-  // Título
-  titleWord: {
-    initial: { opacity: 0, y: 30 },
-    animate: { opacity: 1, y: 0 },
-    transition: { duration: 0.6, ease: [0.16, 1, 0.3, 1] }
-  },
-  // Descripción
-  description: {
-    initial: { opacity: 0, y: 20 },
-    animate: { opacity: 1, y: 0 },
-    transition: { duration: 0.5, delay: 0.4, ease: [0.16, 1, 0.3, 1] }
-  },
-  // Puntos (stagger)
-  pointsContainer: {
-    animate: {
-      transition: {
-        staggerChildren: 0.08,
-        delayChildren: 0.5
+// Variantes de animación optimizadas (solo opacity + transform) - Deshabilitadas en iOS
+const getAnimationVariants = (isIOS) => {
+  if (isIOS) {
+    // iOS: Sin animaciones, todo visible inmediatamente
+    return {
+      tagLine: {
+        initial: { opacity: 1, scaleX: 1 },
+        animate: { opacity: 1, scaleX: 1 },
+        transition: { duration: 0 }
+      },
+      tag: {
+        initial: { opacity: 1, scale: 1 },
+        animate: { opacity: 1, scale: 1 },
+        transition: { duration: 0 }
+      },
+      titleWord: {
+        initial: { opacity: 1, y: 0 },
+        animate: { opacity: 1, y: 0 },
+        transition: { duration: 0 }
+      },
+      description: {
+        initial: { opacity: 1, y: 0 },
+        animate: { opacity: 1, y: 0 },
+        transition: { duration: 0 }
+      },
+      pointsContainer: {
+        animate: {
+          transition: {
+            staggerChildren: 0,
+            delayChildren: 0
+          }
+        }
+      },
+      point: {
+        initial: { opacity: 1, x: 0 },
+        animate: { opacity: 1, x: 0 },
+        transition: { duration: 0 }
       }
-    }
-  },
-  point: {
-    initial: { opacity: 0, x: -20 },
-    animate: { opacity: 1, x: 0 },
-    transition: { duration: 0.4, ease: [0.16, 1, 0.3, 1] }
+    };
   }
+  
+  // Desktop/Android: Animaciones completas
+  return {
+    tagLine: {
+      initial: { opacity: 0, scaleX: 0 },
+      animate: { opacity: 1, scaleX: 1 },
+      transition: { duration: 0.5, ease: [0.16, 1, 0.3, 1] }
+    },
+    tag: {
+      initial: { opacity: 0, scale: 0.8 },
+      animate: { opacity: 1, scale: 1 },
+      transition: { duration: 0.4, delay: 0.2, ease: [0.16, 1, 0.3, 1] }
+    },
+    titleWord: {
+      initial: { opacity: 0, y: 30 },
+      animate: { opacity: 1, y: 0 },
+      transition: { duration: 0.6, ease: [0.16, 1, 0.3, 1] }
+    },
+    description: {
+      initial: { opacity: 0, y: 20 },
+      animate: { opacity: 1, y: 0 },
+      transition: { duration: 0.5, delay: 0.4, ease: [0.16, 1, 0.3, 1] }
+    },
+    pointsContainer: {
+      animate: {
+        transition: {
+          staggerChildren: 0.08,
+          delayChildren: 0.5
+        }
+      }
+    },
+    point: {
+      initial: { opacity: 0, x: -20 },
+      animate: { opacity: 1, x: 0 },
+      transition: { duration: 0.4, ease: [0.16, 1, 0.3, 1] }
+    }
+  };
 };
 
 const HeroCarousel = () => {
@@ -220,6 +258,9 @@ const HeroCarousel = () => {
 
   const current = useMemo(() => slides[currentSlide], [currentSlide]);
   const previous = useMemo(() => slides[prevSlide], [prevSlide]);
+  
+  // Obtener variantes de animación según el dispositivo
+  const animationVariants = useMemo(() => getAnimationVariants(isIOS), [isIOS]);
 
   return (
     <section 
@@ -297,12 +338,12 @@ const HeroCarousel = () => {
                   <motion.div 
                     className={`h-[2px] sm:h-[3px] w-6 sm:w-12 bg-gradient-to-r ${current.gradient} origin-left`}
                     {...animationVariants.tagLine}
-                    style={{ willChange: 'opacity, transform' }}
+                    style={isIOS ? {} : { willChange: 'opacity, transform' }}
                   />
                   <motion.div 
                     className={`inline-flex items-center gap-1 sm:gap-2 px-1.5 sm:px-4 py-0.5 sm:py-1.5 bg-gradient-to-r ${current.gradient} rounded-full shadow-lg`}
                     {...animationVariants.tag}
-                    style={{ willChange: 'opacity, transform' }}
+                    style={isIOS ? {} : { willChange: 'opacity, transform' }}
                   >
                     <div className="w-1 h-1 sm:w-2 sm:h-2 bg-white rounded-full animate-pulse" />
                     <span className="text-white font-black text-[7px] sm:text-xs tracking-[0.2em] sm:tracking-[0.35em] uppercase">
@@ -328,7 +369,7 @@ const HeroCarousel = () => {
                       style={{
                         textShadow: '2px 2px 0px rgba(0,0,0,0.9), 4px 4px 0px rgba(0,0,0,0.5)',
                         WebkitTextStroke: '0.5px rgba(255,255,255,0.1)',
-                        willChange: 'opacity, transform'
+                        ...(isIOS ? {} : { willChange: 'opacity, transform' })
                       }}
                     >
                       {word}
@@ -341,11 +382,11 @@ const HeroCarousel = () => {
                     initial={{ opacity: 0, scale: 0.8, y: 30 }}
                     animate={{ opacity: 1, scale: 1, y: 0 }}
                     transition={{ 
-                      duration: 0.7, 
-                      delay: 0.5,
+                      duration: isIOS ? 0 : 0.7, 
+                      delay: isIOS ? 0 : 0.5,
                       ease: [0.16, 1, 0.3, 1] 
                     }}
-                    style={{ willChange: 'opacity, transform' }}
+                    style={isIOS ? {} : { willChange: 'opacity, transform' }}
                   >
                     {/* Capas de marker */}
                     <span className={`absolute inset-0 ${current.highlightColor} -skew-x-6 rotate-[-2deg] opacity-95 translate-x-1 translate-y-1`} />
@@ -371,7 +412,7 @@ const HeroCarousel = () => {
                 <motion.div 
                   className="relative inline-block mb-2 sm:mb-10 md:mb-14 lg:mb-16"
                   {...animationVariants.description}
-                  style={{ willChange: 'opacity, transform' }}
+                  style={isIOS ? {} : { willChange: 'opacity, transform' }}
                 >
                   <p className="text-[11px] sm:text-2xl md:text-3xl lg:text-4xl text-white font-black italic leading-tight relative z-10">
                     {current.description}
@@ -391,7 +432,7 @@ const HeroCarousel = () => {
                       key={idx}
                       className="flex items-center gap-1 sm:gap-3 group"
                       variants={animationVariants.point}
-                      style={{ willChange: 'opacity, transform' }}
+                      style={isIOS ? {} : { willChange: 'opacity, transform' }}
                     >
                       {/* Icono */}
                       <div className="flex-shrink-0">

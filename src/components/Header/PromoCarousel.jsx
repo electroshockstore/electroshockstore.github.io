@@ -1,11 +1,8 @@
 import { Store, Truck, ShieldCheck, CheckCircle2 } from 'lucide-react';
 import { useState, useEffect } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import useIOSDetection from '../../hooks/useIOSDetection';
 
 const PromoCarousel = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
-  const isIOS = useIOSDetection();
 
   // Mensajes del carousel central (vertical)
   const centerMessages = [
@@ -40,34 +37,30 @@ const PromoCarousel = () => {
           </span>
         </div>
 
-        {/* CENTER - Vertical Carousel con Framer Motion */}
+        {/* CENTER - Vertical Carousel con CSS transitions (mejor para iOS) */}
         <div className="flex-1 flex justify-center overflow-hidden h-5 relative">
-          <AnimatePresence mode="wait">
-            <motion.div
-              key={currentIndex}
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -20 }}
-              transition={{ 
-                duration: 0.4,
-                ease: [0.16, 1, 0.3, 1]
-              }}
-              className="flex items-center justify-center gap-1.5 h-5 absolute inset-0"
-            >
-              {(() => {
-                const promo = centerMessages[currentIndex];
-                const Icon = promo.icon;
-                return (
-                  <>
-                    <Icon className="w-3.5 h-3.5 text-white flex-shrink-0" strokeWidth={2.5} />
-                    <span className={`text-[10px] font-black tracking-tight uppercase bg-gradient-to-r ${promo.gradient} bg-clip-text text-transparent whitespace-nowrap`}>
-                      {promo.text}
-                    </span>
-                  </>
-                );
-              })()}
-            </motion.div>
-          </AnimatePresence>
+          {centerMessages.map((promo, idx) => {
+            const Icon = promo.icon;
+            const isActive = idx === currentIndex;
+            
+            return (
+              <div
+                key={idx}
+                className={`flex items-center justify-center gap-1.5 h-5 absolute inset-0 transition-all duration-400 ease-out ${
+                  isActive 
+                    ? 'opacity-100 translate-y-0' 
+                    : idx < currentIndex 
+                      ? 'opacity-0 -translate-y-5' 
+                      : 'opacity-0 translate-y-5'
+                }`}
+              >
+                <Icon className="w-3.5 h-3.5 text-white flex-shrink-0" strokeWidth={2.5} />
+                <span className={`text-[10px] font-black tracking-tight uppercase bg-gradient-to-r ${promo.gradient} bg-clip-text text-transparent whitespace-nowrap`}>
+                  {promo.text}
+                </span>
+              </div>
+            );
+          })}
         </div>
 
         {/* RIGHT END - No tenemos local físico */}
