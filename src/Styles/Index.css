@@ -4,6 +4,53 @@
 
 .font-outfit { font-family: 'Outfit', sans-serif; }
 
+/* ===== OPTIMIZACIONES CRÍTICAS PARA iOS/MOBILE ===== */
+
+/* Eliminar backdrop-blur en mobile - Asesino #1 de performance en iOS */
+@media (max-width: 768px) {
+  .md\:backdrop-blur-sm,
+  .md\:backdrop-blur,
+  .md\:backdrop-blur-md,
+  .md\:backdrop-blur-lg,
+  .md\:backdrop-blur-xl,
+  .backdrop-blur-sm,
+  .backdrop-blur,
+  .backdrop-blur-md,
+  .backdrop-blur-lg,
+  .backdrop-blur-xl {
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+  }
+}
+
+/* GPU Acceleration para elementos animados */
+.gpu-accelerated {
+  transform: translateZ(0);
+  -webkit-transform: translateZ(0);
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  perspective: 1000px;
+  -webkit-perspective: 1000px;
+}
+
+/* Optimización de imágenes - Forzar decodificación asíncrona */
+img {
+  image-rendering: -webkit-optimize-contrast;
+  image-rendering: crisp-edges;
+}
+
+/* Eliminar tap highlight en iOS */
+* {
+  -webkit-tap-highlight-color: transparent;
+  -webkit-touch-callout: none;
+}
+
+/* Smooth scrolling optimizado */
+.smooth-scroll {
+  -webkit-overflow-scrolling: touch;
+  scroll-behavior: smooth;
+}
+
 /* ===== SISTEMA DE EASING PREMIUM ===== */
 :root {
   /* Curvas de Apple/Framer Motion - Ultra suaves */

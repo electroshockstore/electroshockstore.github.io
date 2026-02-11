@@ -37,8 +37,16 @@ const PromoCarousel = () => {
           </span>
         </div>
 
-        {/* CENTER - Vertical Carousel con CSS transitions (mejor para iOS) */}
-        <div className="flex-1 flex justify-center overflow-hidden h-5 relative">
+        {/* CENTER - Vertical Carousel OPTIMIZADO para iOS */}
+        <div 
+          className="flex-1 flex justify-center overflow-hidden h-5 relative"
+          style={{
+            WebkitTransform: 'translateZ(0)',
+            transform: 'translateZ(0)',
+            WebkitBackfaceVisibility: 'hidden',
+            backfaceVisibility: 'hidden'
+          }}
+        >
           {centerMessages.map((promo, idx) => {
             const Icon = promo.icon;
             const isActive = idx === currentIndex;
@@ -53,6 +61,14 @@ const PromoCarousel = () => {
                       ? 'opacity-0 -translate-y-5' 
                       : 'opacity-0 translate-y-5'
                 }`}
+                style={{
+                  willChange: isActive ? 'transform, opacity' : 'auto',
+                  WebkitTransform: 'translateZ(0)',
+                  transform: 'translateZ(0)',
+                  WebkitBackfaceVisibility: 'hidden',
+                  backfaceVisibility: 'hidden',
+                  visibility: isActive ? 'visible' : 'hidden'
+                }}
               >
                 <Icon className="w-3.5 h-3.5 text-white flex-shrink-0" strokeWidth={2.5} />
                 <span className={`text-[10px] font-black tracking-tight uppercase bg-gradient-to-r ${promo.gradient} bg-clip-text text-transparent whitespace-nowrap`}>
