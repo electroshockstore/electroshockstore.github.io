@@ -11,20 +11,20 @@ import {
   ShieldCheck,
   Zap
 } from 'lucide-react';
-import useScrollReveal from '../../hooks/useScrollReveal';
+import MotionReveal from '../Shared/MotionReveal';
 import { IMPORTANT_RULES } from './constants';
 
 const ImportantRulesBentoGrid = ({ rules = [] }) => {
   const rulesData = rules.length > 0 ? rules : IMPORTANT_RULES;
-  const { elementRef: gridRef, className: gridClass } = useScrollReveal({ threshold: 0.1, animation: 'fade-in' });
 
   return (
     <div className="w-full bg-transparent p-2 sm:p-4 lg:p-6 font-sans">
       <div className="w-full max-w-6xl mx-auto">
         
         {/* Layout Mobile Optimizado */}
-        <div ref={gridRef} className={`${gridClass} lg:hidden max-w-md mx-auto`}>
-          <div className="grid grid-cols-2 gap-3">
+        <MotionReveal animation="fade-in" duration={0.7}>
+          <div className="lg:hidden max-w-md mx-auto">
+            <div className="grid grid-cols-2 gap-3">
             
             {/* CARD 1: SIN DEPÓSITOS */}
             <div className="bg-pink-50 rounded-[2rem] p-4 border border-pink-100 flex flex-col justify-between relative overflow-hidden">
@@ -275,6 +275,7 @@ const ImportantRulesBentoGrid = ({ rules = [] }) => {
             </div>
 
           </div>
+        </MotionReveal>
 
         </div>
       </div>

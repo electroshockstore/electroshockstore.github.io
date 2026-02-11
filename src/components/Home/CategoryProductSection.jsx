@@ -1,6 +1,7 @@
 import { Sparkles, ArrowRight, Cpu } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
-import useScrollReveal from '../../hooks/useScrollReveal';
+import { motion } from 'framer-motion';
+import MotionReveal from '../Shared/MotionReveal';
 
 // Todas las categorías reales del proyecto
 const allCategories = [
@@ -17,10 +18,6 @@ const allCategories = [
 
 const CategoryProductSection = ({ onCategoryClick }) => {
     const navigate = useNavigate();
-    const { elementRef, className } = useScrollReveal({ 
-        threshold: 0.1,
-        animation: 'scale' // Zoom in sutil
-    });
     
     const handleCategoryClick = (slug) => {
         window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -37,9 +34,11 @@ const CategoryProductSection = ({ onCategoryClick }) => {
     };
 
     return (
-        <section 
-            ref={elementRef}
-            className={`${className} w-full flex-1 relative`}
+        <MotionReveal 
+            as="section"
+            animation="scale"
+            duration={0.7}
+            className="w-full flex-1 relative"
         >
             {/* Partículas de fondo animadas - Solo desktop */}
             <div className="hidden md:block absolute inset-0 overflow-hidden pointer-events-none">
@@ -320,77 +319,154 @@ const CategoryProductSection = ({ onCategoryClick }) => {
                     </button>
                 </div>
             </div>
-        </section>
+        </MotionReveal>
     );
 };
 
 
-// --- Componente Reutilizable para la Tarjeta ---
-const CategoryCard = ({ category, onCategoryClick, className, textSize, isLarge = false }) => (
-    <button
+// --- Componente Optimizado con Framer Motion ---
+const CategoryCard = ({ category, onCategoryClick, className, textSize, isLarge = false }) => {
+  // Variantes de animación optimizadas
+  const glowVariants = {
+    initial: { opacity: 0, scale: 0.95 },
+    hover: { 
+      opacity: 1, 
+      scale: 1,
+      transition: { duration: 0.4, ease: [0.16, 1, 0.3, 1] }
+    }
+  };
+
+  const imageVariants = {
+    initial: { scale: 1 },
+    hover: { 
+      scale: 1.1,
+      transition: { duration: 0.7, ease: [0.16, 1, 0.3, 1] }
+    }
+  };
+
+  return (
+    <motion.button
         onClick={() => onCategoryClick && onCategoryClick(category.slug)}
-        className={`group relative w-full overflow-hidden rounded-2xl sm:rounded-3xl transition-all duration-500 hover:scale-[1.02] active:scale-[0.98] focus:outline-none focus:ring-2 focus:ring-blue-500/50 bg-gray-900 ${className}`}
+        className={`group relative w-full overflow-hidden rounded-2xl sm:rounded-3xl focus:outline-none focus:ring-2 focus:ring-blue-500/50 bg-gray-900 ${className}`}
         aria-label={`Explorar categoría ${category.name}`}
+        whileHover="hover"
+        whileTap={{ scale: 0.98 }}
+        initial="initial"
         style={{
             boxShadow: isLarge 
                 ? '0 20px 60px rgba(0,0,0,0.6), 0 8px 32px rgba(59,130,246,0.2), 0 0 0 1px rgba(255,255,255,0.15), inset 0 1px 0 rgba(255,255,255,0.1)'
-                : '0 12px 40px rgba(0,0,0,0.5), 0 4px 20px rgba(59,130,246,0.15), 0 0 0 1px rgba(255,255,255,0.12), inset 0 1px 0 rgba(255,255,255,0.08)'
+                : '0 12px 40px rgba(0,0,0,0.5), 0 4px 20px rgba(59,130,246,0.15), 0 0 0 1px rgba(255,255,255,0.12), inset 0 1px 0 rgba(255,255,255,0.08)',
+            willChange: 'transform'
         }}
     >
-        {/* Glow border animado - MUY intenso */}
-        <div className={`absolute inset-0 rounded-3xl opacity-0 group-hover:opacity-100 transition-all duration-700 ${isLarge ? 'animate-pulse' : ''}`}
-             style={{
-                 boxShadow: isLarge 
+        {/* Glow border animado - Optimizado con Motion */}
+        <motion.div 
+            className="absolute inset-0 rounded-3xl pointer-events-none"
+            variants={glowVariants}
+            style={{
+                boxShadow: isLarge 
                     ? '0 0 60px rgba(59, 130, 246, 0.9), 0 0 120px rgba(147, 51, 234, 0.7), 0 0 180px rgba(236, 72, 153, 0.5), inset 0 0 40px rgba(59, 130, 246, 0.3)'
-                    : '0 0 40px rgba(59, 130, 246, 0.8), 0 0 80px rgba(147, 51, 234, 0.6), 0 0 120px rgba(236, 72, 153, 0.4), inset 0 0 25px rgba(59, 130, 246, 0.2)'
-             }} />
+                    : '0 0 40px rgba(59, 130, 246, 0.8), 0 0 80px rgba(147, 51, 234, 0.6), 0 0 120px rgba(236, 72, 153, 0.4), inset 0 0 25px rgba(59, 130, 246, 0.2)',
+                willChange: 'opacity, transform'
+            }} 
+        />
 
-        {/* Resplandor de fondo permanente */}
-        <div className={`absolute inset-0 rounded-3xl transition-opacity duration-500 ${isLarge ? 'opacity-40' : 'opacity-25'} group-hover:opacity-70`}
-             style={{
-                 boxShadow: isLarge
+        {/* Resplandor de fondo permanente - Optimizado */}
+        <motion.div 
+            className="absolute inset-0 rounded-3xl pointer-events-none"
+            initial={{ opacity: isLarge ? 0.4 : 0.25 }}
+            whileHover={{ opacity: 0.7 }}
+            transition={{ duration: 0.5 }}
+            style={{
+                boxShadow: isLarge
                     ? '0 0 40px rgba(59, 130, 246, 0.3), 0 0 80px rgba(147, 51, 234, 0.2)'
-                    : '0 0 25px rgba(59, 130, 246, 0.2), 0 0 50px rgba(147, 51, 234, 0.15)'
-             }} />
+                    : '0 0 25px rgba(59, 130, 246, 0.2), 0 0 50px rgba(147, 51, 234, 0.15)',
+                willChange: 'opacity'
+            }} 
+        />
 
-        {/* Imagen de fondo */}
+        {/* Imagen de fondo - Optimizada con Motion */}
         <div className="absolute inset-0 bg-gray-900">
-            <img
+            <motion.img
                 src={category.image}
                 alt={category.name}
-                className="w-full h-full object-cover transition-all duration-700 group-hover:scale-110 group-hover:brightness-125 group-hover:contrast-110"
+                className="w-full h-full object-cover"
+                variants={imageVariants}
                 loading="eager"
                 onError={(e) => {
                     e.target.style.display = 'none';
                 }}
+                style={{ willChange: 'transform' }}
             />
         </div>
 
-        {/* Overlay oscuro con gradiente mejorado */}
+        {/* Overlay oscuro con gradiente */}
         <div className={`absolute inset-0 ${isLarge 
             ? 'bg-gradient-to-br from-black/85 via-black/65 to-black/35' 
             : 'bg-gradient-to-t from-black/90 via-black/55 to-black/15'
         }`} />
 
-        {/* Glow effect en hover - MUY intenso */}
-        <div className={`absolute inset-0 transition-all duration-700 ${isLarge
-            ? 'bg-gradient-to-br from-blue-500/0 via-purple-500/0 to-pink-500/0 group-hover:from-blue-500/50 group-hover:via-purple-500/50 group-hover:to-pink-500/50'
-            : 'bg-gradient-to-tr from-blue-500/0 via-purple-500/0 to-pink-500/0 group-hover:from-blue-500/35 group-hover:via-purple-500/35 group-hover:to-pink-500/35'
-        }`} />
+        {/* Glow effect en hover - Optimizado */}
+        <motion.div 
+            className={`absolute inset-0 pointer-events-none ${isLarge
+                ? 'bg-gradient-to-br from-blue-500/50 via-purple-500/50 to-pink-500/50'
+                : 'bg-gradient-to-tr from-blue-500/35 via-purple-500/35 to-pink-500/35'
+            }`}
+            initial={{ opacity: 0 }}
+            whileHover={{ opacity: 1 }}
+            transition={{ duration: 0.7 }}
+            style={{ willChange: 'opacity' }}
+        />
 
-        {/* Brillo intenso en hover */}
-        <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/30 to-white/40 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+        {/* Brillo intenso en hover - Optimizado */}
+        <motion.div 
+            className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/30 to-white/40 pointer-events-none"
+            initial={{ opacity: 0 }}
+            whileHover={{ opacity: 1 }}
+            transition={{ duration: 0.5 }}
+            style={{ willChange: 'opacity' }}
+        />
 
-        {/* Efecto de cristal/vidrio */}
-        <div className="absolute inset-0 bg-gradient-to-b from-white/10 via-transparent to-transparent opacity-60 group-hover:opacity-80 transition-opacity duration-500" />
+        {/* Efecto de cristal/vidrio - Optimizado */}
+        <motion.div 
+            className="absolute inset-0 bg-gradient-to-b from-white/10 via-transparent to-transparent pointer-events-none"
+            initial={{ opacity: 0.6 }}
+            whileHover={{ opacity: 0.8 }}
+            transition={{ duration: 0.5 }}
+            style={{ willChange: 'opacity' }}
+        />
 
-        {/* Partículas flotantes para cards grandes */}
+        {/* Partículas flotantes para cards grandes - Optimizadas */}
         {isLarge && (
             <>
-                <div className="absolute top-4 right-4 w-3 h-3 bg-blue-400 rounded-full opacity-0 group-hover:opacity-100 animate-ping transition-opacity duration-500 shadow-[0_0_20px_rgba(59,130,246,0.8)]" />
-                <div className="absolute bottom-6 right-6 w-2 h-2 bg-purple-400 rounded-full opacity-0 group-hover:opacity-100 animate-ping transition-opacity duration-500 shadow-[0_0_15px_rgba(147,51,234,0.8)] [animation-delay:0.5s]" />
-                <div className="absolute top-1/3 right-8 w-2.5 h-2.5 bg-pink-400 rounded-full opacity-0 group-hover:opacity-100 animate-ping transition-opacity duration-500 shadow-[0_0_18px_rgba(236,72,153,0.8)] [animation-delay:1s]" />
-                <div className="absolute top-1/2 left-6 w-1.5 h-1.5 bg-cyan-400 rounded-full opacity-0 group-hover:opacity-100 animate-ping transition-opacity duration-500 shadow-[0_0_12px_rgba(34,211,238,0.8)] [animation-delay:1.5s]" />
+                <motion.div 
+                    className="absolute top-4 right-4 w-3 h-3 bg-blue-400 rounded-full shadow-[0_0_20px_rgba(59,130,246,0.8)] pointer-events-none"
+                    initial={{ opacity: 0, scale: 0 }}
+                    whileHover={{ opacity: 1, scale: 1 }}
+                    transition={{ duration: 0.5 }}
+                    style={{ willChange: 'opacity, transform' }}
+                />
+                <motion.div 
+                    className="absolute bottom-6 right-6 w-2 h-2 bg-purple-400 rounded-full shadow-[0_0_15px_rgba(147,51,234,0.8)] pointer-events-none"
+                    initial={{ opacity: 0, scale: 0 }}
+                    whileHover={{ opacity: 1, scale: 1 }}
+                    transition={{ duration: 0.5, delay: 0.1 }}
+                    style={{ willChange: 'opacity, transform' }}
+                />
+                <motion.div 
+                    className="absolute top-1/3 right-8 w-2.5 h-2.5 bg-pink-400 rounded-full shadow-[0_0_18px_rgba(236,72,153,0.8)] pointer-events-none"
+                    initial={{ opacity: 0, scale: 0 }}
+                    whileHover={{ opacity: 1, scale: 1 }}
+                    transition={{ duration: 0.5, delay: 0.2 }}
+                    style={{ willChange: 'opacity, transform' }}
+                />
+                <motion.div 
+                    className="absolute top-1/2 left-6 w-1.5 h-1.5 bg-cyan-400 rounded-full shadow-[0_0_12px_rgba(34,211,238,0.8)] pointer-events-none"
+                    initial={{ opacity: 0, scale: 0 }}
+                    whileHover={{ opacity: 1, scale: 1 }}
+                    transition={{ duration: 0.5, delay: 0.3 }}
+                    style={{ willChange: 'opacity, transform' }}
+                />
             </>
         )}
 
@@ -406,39 +482,70 @@ const CategoryCard = ({ category, onCategoryClick, className, textSize, isLarge 
                     {category.name}
                 </h3>
                 
-                {/* Descripción adicional para cards grandes */}
+                {/* Descripción adicional para cards grandes - Optimizada */}
                 {isLarge && (
-                    <p className="text-gray-200 text-sm opacity-0 group-hover:opacity-100 transition-opacity duration-500 mb-3 filter drop-shadow-lg"
-                       style={{ textShadow: '0 1px 4px rgba(0,0,0,0.8), 0 0 15px rgba(59,130,246,0.4)' }}>
+                    <motion.p 
+                        className="text-gray-200 text-sm mb-3 filter drop-shadow-lg"
+                        initial={{ opacity: 0 }}
+                        whileHover={{ opacity: 1 }}
+                        transition={{ duration: 0.5 }}
+                        style={{ 
+                            textShadow: '0 1px 4px rgba(0,0,0,0.8), 0 0 15px rgba(59,130,246,0.4)',
+                            willChange: 'opacity'
+                        }}
+                    >
                         {category.name === 'PROCESADORES' && 'Intel, AMD y más'}
                         {category.name === 'ALMACENAMIENTO' && 'SSD, HDD, NVMe'}
-                    </p>
+                    </motion.p>
                 )}
                 
                 <div className="relative mt-1.5 sm:mt-2">
-                    <div className={`${isLarge ? 'h-1.5 w-16' : 'h-1 sm:h-1 w-8 sm:w-12'} bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 rounded-full ${isLarge ? 'group-hover:w-28' : 'group-hover:w-16 sm:group-hover:w-20'} transition-all duration-500 filter drop-shadow-lg`} 
-                         style={{ 
-                             boxShadow: isLarge 
+                    <motion.div 
+                        className={`${isLarge ? 'h-1.5' : 'h-1 sm:h-1'} bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 rounded-full filter drop-shadow-lg`}
+                        initial={{ width: isLarge ? '4rem' : '2rem' }}
+                        whileHover={{ width: isLarge ? '7rem' : '4rem' }}
+                        transition={{ duration: 0.5 }}
+                        style={{ 
+                            boxShadow: isLarge 
                                 ? '0 0 30px rgba(59, 130, 246, 0.9), 0 0 60px rgba(147, 51, 234, 0.7), 0 4px 20px rgba(0,0,0,0.5)' 
-                                : '0 0 20px rgba(59, 130, 246, 0.8), 0 0 40px rgba(147, 51, 234, 0.6), 0 2px 10px rgba(0,0,0,0.4)' 
-                         }} />
+                                : '0 0 20px rgba(59, 130, 246, 0.8), 0 0 40px rgba(147, 51, 234, 0.6), 0 2px 10px rgba(0,0,0,0.4)',
+                            willChange: 'width'
+                        }} 
+                    />
                 </div>
             </div>
         </div>
 
-        {/* Borde con glow en hover - MUY intenso */}
-        <div className={`absolute inset-0 rounded-3xl border-2 transition-all duration-500 ${isLarge 
-            ? 'border-blue-400/30 group-hover:border-blue-300/80 group-hover:shadow-[0_0_50px_rgba(59,130,246,0.8),0_0_100px_rgba(147,51,234,0.6)]'
-            : 'border-blue-400/20 group-hover:border-blue-300/60 group-hover:shadow-[0_0_30px_rgba(59,130,246,0.7),0_0_60px_rgba(147,51,234,0.5)]'
-        }`} />
+        {/* Borde con glow en hover - Optimizado */}
+        <motion.div 
+            className={`absolute inset-0 rounded-3xl border-2 pointer-events-none ${isLarge 
+                ? 'border-blue-400/30'
+                : 'border-blue-400/20'
+            }`}
+            whileHover={{
+                borderColor: isLarge ? 'rgba(147, 197, 253, 0.8)' : 'rgba(147, 197, 253, 0.6)',
+                boxShadow: isLarge 
+                    ? '0 0 50px rgba(59,130,246,0.8), 0 0 100px rgba(147,51,234,0.6)'
+                    : '0 0 30px rgba(59,130,246,0.7), 0 0 60px rgba(147,51,234,0.5)'
+            }}
+            transition={{ duration: 0.5 }}
+            style={{ willChange: 'border-color, box-shadow' }}
+        />
 
-        {/* Efecto de ondas en hover */}
-        <div className="absolute inset-0 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-700"
-             style={{
-                 background: `radial-gradient(circle at 50% 50%, rgba(59,130,246,0.1) 0%, transparent 70%)`
-             }} />
-    </button>
-);
+        {/* Efecto de ondas en hover - Optimizado */}
+        <motion.div 
+            className="absolute inset-0 rounded-3xl pointer-events-none"
+            initial={{ opacity: 0 }}
+            whileHover={{ opacity: 1 }}
+            transition={{ duration: 0.7 }}
+            style={{
+                background: `radial-gradient(circle at 50% 50%, rgba(59,130,246,0.1) 0%, transparent 70%)`,
+                willChange: 'opacity'
+            }} 
+        />
+    </motion.button>
+  );
+};
 
 
 // Exportamos el componente principal

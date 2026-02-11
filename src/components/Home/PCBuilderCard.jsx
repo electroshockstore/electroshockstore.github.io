@@ -9,9 +9,7 @@ const PCBuilderCard = ({
     titleHighlight, 
     description, 
     buttonText, 
-    buttonIcon: ButtonIcon,
-    scrollRef,
-    scrollClass = ''
+    buttonIcon: ButtonIcon
 }) => {
     const navigate = useNavigate();
 
@@ -21,12 +19,11 @@ const PCBuilderCard = ({
 
     return (
         <div
-            ref={scrollRef}
             onClick={handleClick}
-            className={`pc-builder-card-enter group relative overflow-hidden sm:rounded-3xl transition-all duration-300 cursor-pointer 
+            className="pc-builder-card-enter group relative overflow-hidden sm:rounded-3xl transition-all duration-300 cursor-pointer 
                 active:scale-[0.98] sm:hover:scale-[1.02]
                 border-y sm:border border-gray-800 sm:border-purple-500/40 sm:ring-2 sm:ring-purple-500/30
-                sm:shadow-xl sm:shadow-purple-900/50 hover:shadow-2xl hover:shadow-purple-900/60 ${scrollClass}`}
+                sm:shadow-xl sm:shadow-purple-900/50 hover:shadow-2xl hover:shadow-purple-900/60"
             style={{ 
                 boxShadow: window.innerWidth >= 640 ? '0 0 30px rgba(168, 85, 247, 0.4), 0 0 60px rgba(147, 51, 234, 0.2)' : 'none'
             }}

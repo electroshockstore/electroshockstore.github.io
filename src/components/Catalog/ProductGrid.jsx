@@ -1,6 +1,7 @@
 import { memo, useCallback, useMemo, useState, useEffect, useRef } from 'react';
+import { motion } from 'framer-motion';
 import ProductCardWrapper from './ProductCardWrapper';
-import useScrollReveal from '../../hooks/useScrollReveal';
+import useMotionReveal from '../../hooks/useMotionReveal';
 
 const EmptyState = memo(() => (
   <div className="flex flex-col items-center justify-center py-16 sm:py-24">
@@ -52,18 +53,12 @@ const EmptyState = memo(() => (
 
 EmptyState.displayName = 'EmptyState';
 
-// Componente para grupo de productos con scroll reveal
+// Componente para grupo de productos con scroll reveal optimizado
 const ProductGroup = memo(({ products, viewMode, openModal, groupIndex, gridClasses }) => {
-  const { elementRef, className } = useScrollReveal({ 
-    threshold: 0.1,
-    animation: 'fade-in' // Fade simple para no distraer del contenido
-  });
+  const motionProps = useMotionReveal('fade-in', 0, 0.5);
 
   return (
-    <div 
-      ref={elementRef}
-      className={className}
-    >
+    <motion.div {...motionProps}>
       <div className={gridClasses}>
         {products.map((product, index) => (
           <ProductCardWrapper
@@ -79,7 +74,7 @@ const ProductGroup = memo(({ products, viewMode, openModal, groupIndex, gridClas
           />
         ))}
       </div>
-    </div>
+    </motion.div>
   );
 });
 

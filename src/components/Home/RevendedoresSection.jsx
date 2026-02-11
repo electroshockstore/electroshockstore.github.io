@@ -1,14 +1,10 @@
 import { Package, ArrowRight } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import ProductCardMayorista from './ProductCardMayorista';
-import useScrollReveal from '../../hooks/useScrollReveal';
+import MotionReveal from '../Shared/MotionReveal';
 
 const RevendedoresSection = ({ products = [], onProductClick }) => {
     const navigate = useNavigate();
-    const { elementRef, className } = useScrollReveal({ 
-        threshold: 0.1,
-        animation: 'slide-up' // Sube desde abajo
-    });
 
     // Productos fijos para mostrar en Home - Mobile (3 originales)
     const featuredProductsMobile = products.filter(p => 
@@ -31,9 +27,11 @@ const RevendedoresSection = ({ products = [], onProductClick }) => {
     };
 
     return (
-        <section 
-            ref={elementRef}
-            className={`${className} w-full flex-1 relative overflow-hidden`}
+        <MotionReveal
+            as="section"
+            animation="slide-up"
+            duration={0.7}
+            className="w-full flex-1 relative overflow-hidden"
         >
             {/* Partículas de fondo animadas - Solo desktop */}
             <div className="hidden sm:block absolute inset-0 overflow-hidden pointer-events-none">
@@ -132,7 +130,7 @@ const RevendedoresSection = ({ products = [], onProductClick }) => {
                     </button>
                 </div>
             </div>
-        </section>
+        </MotionReveal>
     );
 };
 
