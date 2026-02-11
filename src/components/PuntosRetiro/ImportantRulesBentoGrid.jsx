@@ -145,11 +145,13 @@ const ImportantRulesBentoGrid = ({ rules = [] }) => {
               </div>
             </div>
 
+            </div>
           </div>
-        </div>
+        </MotionReveal>
 
         {/* Layout Desktop: Bento Grid */}
-        <div ref={gridRef} className={`${gridClass} hidden lg:grid lg:grid-cols-3 gap-4 auto-rows-min`}>
+        <MotionReveal animation="fade-in" duration={0.7}>
+          <div className="hidden lg:grid lg:grid-cols-3 gap-4 auto-rows-min">
 
           {/* --- CARD 1: SEGURIDAD --- */}
           <div className="lg:row-span-2 rounded-[2rem] bg-pink-100 p-5 sm:p-6 flex flex-col justify-between border border-pink-200 relative overflow-hidden group hero-point-enter" style={{ animationDelay: '0.3s' }}>
@@ -275,9 +277,9 @@ const ImportantRulesBentoGrid = ({ rules = [] }) => {
             </div>
 
           </div>
+          </div>
         </MotionReveal>
 
-        </div>
       </div>
     </div>
   );
