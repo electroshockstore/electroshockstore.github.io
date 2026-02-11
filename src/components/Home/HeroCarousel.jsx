@@ -101,6 +101,47 @@ const slides = [
   }
 ];
 
+// Variantes de animación optimizadas (solo opacity + transform)
+const animationVariants = {
+  // Tag y línea
+  tagLine: {
+    initial: { opacity: 0, scaleX: 0 },
+    animate: { opacity: 1, scaleX: 1 },
+    transition: { duration: 0.5, ease: [0.16, 1, 0.3, 1] }
+  },
+  tag: {
+    initial: { opacity: 0, scale: 0.8 },
+    animate: { opacity: 1, scale: 1 },
+    transition: { duration: 0.4, delay: 0.2, ease: [0.16, 1, 0.3, 1] }
+  },
+  // Título
+  titleWord: {
+    initial: { opacity: 0, y: 30 },
+    animate: { opacity: 1, y: 0 },
+    transition: { duration: 0.6, ease: [0.16, 1, 0.3, 1] }
+  },
+  // Descripción
+  description: {
+    initial: { opacity: 0, y: 20 },
+    animate: { opacity: 1, y: 0 },
+    transition: { duration: 0.5, delay: 0.4, ease: [0.16, 1, 0.3, 1] }
+  },
+  // Puntos (stagger)
+  pointsContainer: {
+    animate: {
+      transition: {
+        staggerChildren: 0.08,
+        delayChildren: 0.5
+      }
+    }
+  },
+  point: {
+    initial: { opacity: 0, x: -20 },
+    animate: { opacity: 1, x: 0 },
+    transition: { duration: 0.4, ease: [0.16, 1, 0.3, 1] }
+  }
+};
+
 const HeroCarousel = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [prevSlide, setPrevSlide] = useState(0);
@@ -186,7 +227,7 @@ const HeroCarousel = () => {
       onTouchEnd={handleTouchEnd}
     >
       
-      {/* Background Images - Con Framer Motion para control explícito */}
+      {/* Background Images - Optimizado con GPU acceleration */}
       <div className={`absolute right-0 top-0 h-full z-0 ${
         current.imagePosition === 'left' 
           ? 'w-[85%] right-[-15%] md:w-[60%] md:right-0 lg:w-[65%] xl:w-[70%]'
@@ -198,23 +239,23 @@ const HeroCarousel = () => {
               key={`hero-image-${current.id}`}
               initial={{ 
                 opacity: 0,
-                x: 100,
-                scale: 1.1
+                scale: 1.05
               }}
               animate={{ 
                 opacity: 1,
-                x: 0,
                 scale: 1
               }}
               exit={{ 
                 opacity: 0,
-                transition: { duration: 0.7 }
+                scale: 0.95,
+                transition: { duration: 0.5, ease: [0.16, 1, 0.3, 1] }
               }}
               transition={{
-                duration: 1,
-                ease: [0.16, 1, 0.3, 1] // cubic-bezier equivalente
+                duration: 0.8,
+                ease: [0.16, 1, 0.3, 1]
               }}
               className="absolute inset-0"
+              style={{ willChange: 'opacity, transform' }}
             >
               <img 
                 src={current.image} 
@@ -238,46 +279,77 @@ const HeroCarousel = () => {
       {/* Fade-out inferior - Mobile y Desktop */}
       <div className="absolute bottom-0 left-0 right-0 h-20 sm:h-32 bg-gradient-to-t from-[#0a0a0f] to-transparent pointer-events-none z-10" />
 
-      {/* Contenido - Landing style sin parallax */}
-  <div className="relative z-20 h-full flex items-start pt-10 sm:pt-1" key={`slide-content-${current.id}-${animationKey}`}>
-
-        <div className="container mx-0 sm:mx-2 px-5 sm:px-6 md:px-12 lg:px-16 ">
+      {/* Contenido - Con animaciones Framer Motion optimizadas */}
+      <div className="relative z-20 h-full flex items-start pt-10 sm:pt-1">
+        <div className="container mx-0 sm:mx-2 px-5 sm:px-6 md:px-12 lg:px-16">
           <div className="max-w-2xl lg:max-w-3xl xl:max-w-4xl">
-            <div>
-                {/* Tag - Badge más pequeño en mobile, posicionado arriba */}
+            <AnimatePresence mode="wait">
+              <motion.div
+                key={`content-${current.id}`}
+                initial="initial"
+                animate="animate"
+                exit={{ opacity: 0, transition: { duration: 0.3 } }}
+              >
+                {/* Tag - Badge con animación */}
                 <div className="flex items-center gap-1.5 sm:gap-3 mb-1.5 sm:mb-5 md:mb-6">
-                  <div className={`h-[2px] sm:h-[3px] w-6 sm:w-12 bg-gradient-to-r ${current.gradient} hero-line-expand`} />
-                  <div className={`inline-flex items-center gap-1 sm:gap-2 px-1.5 sm:px-4 py-0.5 sm:py-1.5 bg-gradient-to-r ${current.gradient} rounded-full hero-tag-enter shadow-lg`}>
+                  <motion.div 
+                    className={`h-[2px] sm:h-[3px] w-6 sm:w-12 bg-gradient-to-r ${current.gradient} origin-left`}
+                    {...animationVariants.tagLine}
+                    style={{ willChange: 'opacity, transform' }}
+                  />
+                  <motion.div 
+                    className={`inline-flex items-center gap-1 sm:gap-2 px-1.5 sm:px-4 py-0.5 sm:py-1.5 bg-gradient-to-r ${current.gradient} rounded-full shadow-lg`}
+                    {...animationVariants.tag}
+                    style={{ willChange: 'opacity, transform' }}
+                  >
                     <div className="w-1 h-1 sm:w-2 sm:h-2 bg-white rounded-full animate-pulse" />
                     <span className="text-white font-black text-[7px] sm:text-xs tracking-[0.2em] sm:tracking-[0.35em] uppercase">
                       {current.tag}
                     </span>
-                  </div>
+                  </motion.div>
                 </div>
 
-                {/* Título - MAXIMIZADO en mobile - PROTAGONISTA ABSOLUTO */}
+                {/* Título - Con animación stagger en palabras */}
                 <h1 className="text-[52px] sm:text-6xl md:text-8xl lg:text-9xl xl:text-[12rem] font-black leading-[0.8] sm:leading-[0.8] tracking-[-0.03em] mb-2 sm:mb-6 md:mb-8 lg:mb-12">
-                  {/* Primera parte del título - BRUTAL */}
+                  {/* Primera parte del título */}
                   {current.title.split(' ').map((word, idx) => (
-                    <span 
-                      key={idx} 
-                      className="hero-title-word inline-block mr-1.5 sm:mr-4 md:mr-6 text-white"
+                    <motion.span
+                      key={`word-${idx}`}
+                      className="inline-block mr-1.5 sm:mr-4 md:mr-6 text-white"
+                      initial={{ opacity: 0, y: 30 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ 
+                        duration: 0.6, 
+                        delay: 0.3 + (idx * 0.1),
+                        ease: [0.16, 1, 0.3, 1] 
+                      }}
                       style={{
                         textShadow: '2px 2px 0px rgba(0,0,0,0.9), 4px 4px 0px rgba(0,0,0,0.5)',
-                        WebkitTextStroke: '0.5px rgba(255,255,255,0.1)'
+                        WebkitTextStroke: '0.5px rgba(255,255,255,0.1)',
+                        willChange: 'opacity, transform'
                       }}
                     >
                       {word}
-                    </span>
+                    </motion.span>
                   ))}
                   
-                  {/* Palabra destacada - MAXIMALIST MARKER EFFECT */}
-                  <span className="hero-title-word inline-block relative">
-                    {/* Múltiples capas de marker para efecto 3D brutal */}
+                  {/* Palabra destacada - MARKER EFFECT */}
+                  <motion.span 
+                    className="inline-block relative"
+                    initial={{ opacity: 0, scale: 0.8, y: 30 }}
+                    animate={{ opacity: 1, scale: 1, y: 0 }}
+                    transition={{ 
+                      duration: 0.7, 
+                      delay: 0.5,
+                      ease: [0.16, 1, 0.3, 1] 
+                    }}
+                    style={{ willChange: 'opacity, transform' }}
+                  >
+                    {/* Capas de marker */}
                     <span className={`absolute inset-0 ${current.highlightColor} -skew-x-6 rotate-[-2deg] opacity-95 translate-x-1 translate-y-1`} />
                     <span className={`absolute inset-0 ${current.highlightColor} -skew-x-6 rotate-[-1deg] opacity-90`} />
                     
-                    {/* Texto sobre el marker - ULTRA BOLD */}
+                    {/* Texto sobre el marker */}
                     <span 
                       className="relative text-black px-2 sm:px-5 md:px-8 inline-block font-black uppercase"
                       style={{
@@ -288,29 +360,38 @@ const HeroCarousel = () => {
                       {current.titleHighlight}
                     </span>
                     
-                    {/* Glow effect brutal - Solo desktop */}
+                    {/* Glow effect - Solo desktop */}
                     <span className={`hidden sm:block absolute inset-0 ${current.highlightColor} blur-2xl opacity-60 animate-pulse`} />
-                  </span>
+                  </motion.span>
                 </h1>
 
-                {/* Subtítulo - Con underline decorativo animado */}
-                <div className="relative inline-block mb-2 sm:mb-10 md:mb-14 lg:mb-16 hero-description-enter">
+                {/* Subtítulo - Con underline animado */}
+                <motion.div 
+                  className="relative inline-block mb-2 sm:mb-10 md:mb-14 lg:mb-16"
+                  {...animationVariants.description}
+                  style={{ willChange: 'opacity, transform' }}
+                >
                   <p className="text-[11px] sm:text-2xl md:text-3xl lg:text-4xl text-white font-black italic leading-tight relative z-10">
                     {current.description}
                   </p>
-                  {/* Underline decorativo animado con gradiente */}
+                  {/* Underline decorativo */}
                   <div className={`absolute -bottom-0.5 sm:-bottom-2 left-0 right-0 h-1 sm:h-3 bg-gradient-to-r ${current.gradient} opacity-40 sm:opacity-50 blur-[2px] sm:blur-sm animate-pulse`} />
                   <div className={`absolute -bottom-0.5 sm:-bottom-2 left-0 w-full h-[2px] sm:h-[5px] bg-gradient-to-r ${current.gradient}`} />
-                </div>
+                </motion.div>
 
-                {/* Points - Grid 2 columnas en mobile, 3 en desktop */}
-                <div className="grid grid-cols-2 gap-x-2 gap-y-1 sm:grid-cols-3 sm:gap-4 md:gap-5 lg:gap-6">
+                {/* Points - Con stagger animation */}
+                <motion.div 
+                  className="grid grid-cols-2 gap-x-2 gap-y-1 sm:grid-cols-3 sm:gap-4 md:gap-5 lg:gap-6"
+                  variants={animationVariants.pointsContainer}
+                >
                   {current.points.map((point, idx) => (
-                    <div 
+                    <motion.div
                       key={idx}
-                      className="flex items-center gap-1 sm:gap-3 group hero-point-enter"
+                      className="flex items-center gap-1 sm:gap-3 group"
+                      variants={animationVariants.point}
+                      style={{ willChange: 'opacity, transform' }}
                     >
-                      {/* Icono BRUTAL - Más pequeño en mobile */}
+                      {/* Icono */}
                       <div className="flex-shrink-0">
                         <div className={`w-3 h-3 sm:w-7 sm:h-7 md:w-8 md:h-8 ${point.highlight ? 'bg-red-600' : 'bg-white'} flex items-center justify-center font-black text-black sm:shadow-[4px_4px_0px_rgba(0,0,0,0.8)]`}>
                           {point.highlight ? (
@@ -321,7 +402,7 @@ const HeroCarousel = () => {
                         </div>
                       </div>
                       
-                      {/* Texto BRUTAL - Más pequeño en mobile */}
+                      {/* Texto */}
                       <div className={`flex-1 ${
                         point.highlight 
                           ? 'border-l-[.5px] sm:border-l-4 border-red-600 pl-1 sm:pl-3' 
@@ -336,10 +417,11 @@ const HeroCarousel = () => {
                           {point.text}
                         </span>
                       </div>
-                    </div>
+                    </motion.div>
                   ))}
-                </div>
-              </div>
+                </motion.div>
+              </motion.div>
+            </AnimatePresence>
           </div>
         </div>
       </div>
