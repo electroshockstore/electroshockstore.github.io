@@ -1,7 +1,6 @@
 import { Sparkles, ArrowRight, Cpu } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import MotionReveal from '../Shared/MotionReveal';
 
 // Todas las categorías reales del proyecto
 const allCategories = [
@@ -34,12 +33,7 @@ const CategoryProductSection = ({ onCategoryClick }) => {
     };
 
     return (
-        <MotionReveal 
-            as="section"
-            animation="scale"
-            duration={0.7}
-            className="w-full flex-1 relative"
-        >
+        <section className="w-full flex-1 relative">
             {/* Partículas de fondo animadas - Solo desktop */}
             <div className="hidden md:block absolute inset-0 overflow-hidden pointer-events-none">
                 <div className="absolute top-20 left-10 w-72 h-72 bg-blue-500/10 rounded-full blur-3xl animate-pulse" />
@@ -319,7 +313,7 @@ const CategoryProductSection = ({ onCategoryClick }) => {
                     </button>
                 </div>
             </div>
-        </MotionReveal>
+        </section>
     );
 };
 

@@ -20,8 +20,8 @@ const PCBuilderCard = ({
     return (
         <div
             onClick={handleClick}
-            className="pc-builder-card-enter group relative overflow-hidden sm:rounded-3xl transition-all duration-300 cursor-pointer 
-                active:scale-[0.98] sm:hover:scale-[1.02]
+            className="pc-builder-card-enter group relative h-full overflow-hidden sm:rounded-3xl transition-all duration-300 cursor-pointer 
+                active:scale-[0.98]
                 border-y sm:border border-gray-800 sm:border-purple-500/40 sm:ring-2 sm:ring-purple-500/30
                 sm:shadow-xl sm:shadow-purple-900/50 hover:shadow-2xl hover:shadow-purple-900/60"
             style={{ 

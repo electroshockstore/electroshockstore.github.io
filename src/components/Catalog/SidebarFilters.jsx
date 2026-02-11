@@ -1,4 +1,5 @@
 import { useState, useMemo } from 'react';
+import { motion } from 'framer-motion';
 import { ChevronDown, ChevronUp, X, SlidersHorizontal } from 'lucide-react';
 import { useProducts } from '../../hooks/useProducts';
 import { useCategoryFilters } from '../../hooks/useCategoryFilters';
@@ -64,7 +65,15 @@ const SidebarFilters = ({ selectedCategory, filters, onFilterChange, onClearFilt
     <div className="bg-gradient-to-br from-white to-gray-50 rounded-2xl shadow-2xl mt-6 shadow-gray-300/50 border border-gray-200/50 p-5 backdrop-blur-sm h-full overflow-y-auto">
       {/* Imagen de categoría */}
       {getCategoryImage(selectedCategory) && (
-        <div >
+        <motion.div
+          initial={{ opacity: 0, scale: 0.9 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ 
+            duration: 0.5,
+            ease: [0.16, 1, 0.3, 1]
+          }}
+          key={selectedCategory}
+        >
           <div className="relative flex flex-col items-center  ">
             {/* Sombra flotante debajo de la imagen */}
             <div className="absolute bottom-12 left-1/2 -translate-x-1/2 w-48 h-10 bg-gray-400/20 rounded-full blur-2xl"></div>
@@ -81,7 +90,7 @@ const SidebarFilters = ({ selectedCategory, filters, onFilterChange, onClearFilt
             
           
           </div>
-        </div>
+        </motion.div>
       )}
       
       <div className="flex items-center justify-between mb-5">
