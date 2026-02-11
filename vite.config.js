@@ -18,6 +18,9 @@ export default defineConfig({
             if (id.includes('react-router')) {
               return 'react-router';
             }
+            if (id.includes('framer-motion')) {
+              return 'framer-motion';
+            }
             if (id.includes('lucide-react')) {
               return 'lucide-icons';
             }
@@ -63,7 +66,7 @@ export default defineConfig({
     open: true
   },
   optimizeDeps: {
-    include: ['react', 'react-dom', 'react-router-dom'],
+    include: ['react', 'react-dom', 'react-router-dom', 'framer-motion'],
   },
   esbuild: {
     logOverride: { 'this-is-undefined-in-esm': 'silent' },
