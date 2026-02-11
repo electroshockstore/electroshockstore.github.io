@@ -12,12 +12,12 @@ const HeroSection = () => {
         <div className="text-center">
           <h1 className="text-4xl sm:text-6xl md:text-8xl lg:text-9xl font-black text-white mb-4 sm:mb-8 leading-[0.9] px-4">
             {/* Primera palabra */}
-            <span className="hero-title-word inline-block mr-2 sm:mr-4 text-white" style={{ animationDelay: '0.3s' }}>
+            <span className="hero-title-word inline-block mr-2 sm:mr-4 text-white">
               ¿
             </span>
             
             {/* Palabras destacadas con marker effect BRUTAL */}
-            <span className="hero-title-word inline-block relative" style={{ animationDelay: '0.5s' }}>
+            <span className="hero-title-word inline-block relative">
               {/* Múltiples capas de marker para efecto 3D brutal */}
               <span className="absolute inset-0 bg-blue-500 -skew-x-6 rotate-[-2deg] opacity-95 translate-x-1 translate-y-1" />
               <span className="absolute inset-0 bg-blue-500 -skew-x-6 rotate-[-1deg] opacity-90" />
@@ -40,10 +40,10 @@ const HeroSection = () => {
             <br />
             
             {/* Segunda línea */}
-            <span className="hero-title-word inline-block mr-2 sm:mr-4 text-white" style={{ animationDelay: '0.7s' }}>
+            <span className="hero-title-word inline-block mr-2 sm:mr-4 text-white">
               Los
             </span>
-            <span className="hero-title-word inline-block text-white" style={{ animationDelay: '0.9s' }}>
+            <span className="hero-title-word inline-block text-white">
               Productos?
             </span>
           </h1>

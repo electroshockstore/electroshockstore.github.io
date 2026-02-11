@@ -77,17 +77,15 @@
   }
 }
 
-/* 4. Título - Split text effect (cada palabra aparece) */
+/* 4. Título - Split text effect (cada palabra aparece) - OPTIMIZADO SIN BLUR */
 @keyframes heroTitleSplitIn {
   from {
     opacity: 0;
-    transform: translateY(30px) rotateX(-20deg);
-    filter: blur(10px);
+    transform: translateY(20px);
   }
   to {
     opacity: 1;
-    transform: translateY(0) rotateX(0);
-    filter: blur(0);
+    transform: translateY(0);
   }
 }
 
@@ -117,48 +115,56 @@
 
 /* Aplicar animaciones - Solo Desktop */
 @media (min-width: 769px) {
-  /* Imagen de fondo */
+  /* FASE 1: Background (0-0.6s) */
   .hero-image-enter {
-    animation: heroImageSlideIn 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    animation: heroImageSlideIn 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    contain: layout style paint;
   }
 
-  /* Línea decorativa */
+  /* FASE 2: Header elements (0.3-1.2s) */
   .hero-line-expand {
-    animation: heroLineExpand 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.3s backwards;
+    animation: heroLineExpand 0.6s cubic-bezier(0.16, 1, 0.3, 1) 0.3s backwards;
+    contain: layout style paint;
   }
 
-  /* Tag */
   .hero-tag-enter {
-    animation: heroTagFadeIn 0.6s ease-out 0.8s backwards;
+    animation: heroTagFadeIn 0.5s ease-out 0.6s backwards;
+    contain: layout style paint;
   }
 
-  /* Título - Cada palabra con delay */
+  /* FASE 3: Título - SIMPLIFICADO - Todas las palabras juntas */
   .hero-title-word {
     display: inline-block;
-    animation: heroTitleSplitIn 0.8s cubic-bezier(0.16, 1, 0.3, 1) backwards;
+    animation: heroTitleSplitIn 0.7s cubic-bezier(0.16, 1, 0.3, 1) 0.9s backwards;
+    contain: layout style paint;
   }
 
-  .hero-title-word:nth-child(1) { animation-delay: 1s; }
-  .hero-title-word:nth-child(2) { animation-delay: 1.15s; }
-  .hero-title-word:nth-child(3) { animation-delay: 1.3s; }
-
-  /* Descripción */
+  /* Descripción - Mismo timing que título para reducir capas */
   .hero-description-enter {
-    animation: heroDescriptionSlideUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) 1.5s backwards;
+    animation: heroDescriptionSlideUp 0.7s cubic-bezier(0.16, 1, 0.3, 1) 1.2s backwards;
+    contain: layout style paint;
   }
 
-  /* Puntos con stagger */
+  /* FASE 4: Puntos - REDUCIDO a 2 grupos en vez de 6 individuales */
   .hero-point-enter {
-    animation: heroPointSlideIn 0.7s cubic-bezier(0.16, 1, 0.3, 1) backwards;
+    animation: heroPointSlideIn 0.6s cubic-bezier(0.16, 1, 0.3, 1) backwards;
+    contain: layout style paint;
   }
 
-  .hero-point-enter:nth-child(1) { animation-delay: 1.8s; }
-  .hero-point-enter:nth-child(2) { animation-delay: 2s; }
-  .hero-point-enter:nth-child(3) { animation-delay: 2.2s; }
-  .hero-point-enter:nth-child(4) { animation-delay: 2.4s; }
-  .hero-point-enter:nth-child(5) { animation-delay: 2.6s; }
-  .hero-point-enter:nth-child(6) { animation-delay: 2.8s; }
+  .hero-point-enter:nth-child(1),
+  .hero-point-enter:nth-child(2),
+  .hero-point-enter:nth-child(3) { 
+    animation-delay: 1.5s; 
+  }
+  
+  .hero-point-enter:nth-child(4),
+  .hero-point-enter:nth-child(5),
+  .hero-point-enter:nth-child(6) { 
+    animation-delay: 1.7s; 
+  }
 }
+
+/* OPTIMIZACIÓN REMOVIDA - La nueva implementación con batching funciona en todas las resoluciones */
 
 /* Mobile: Sin animaciones cinematográficas */
 @media (max-width: 768px) {
