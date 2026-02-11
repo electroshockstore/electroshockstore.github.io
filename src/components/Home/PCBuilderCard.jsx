@@ -1,5 +1,6 @@
 import { useNavigate } from 'react-router-dom';
 import { ChevronRight } from 'lucide-react';
+import useIOSDetection from '../../hooks/useIOSDetection';
 
 const PCBuilderCard = ({ 
     badge, 
@@ -12,6 +13,7 @@ const PCBuilderCard = ({
     buttonIcon: ButtonIcon
 }) => {
     const navigate = useNavigate();
+    const isIOS = useIOSDetection();
 
     const handleClick = () => {
         navigate('/armatupc');
@@ -52,8 +54,8 @@ const PCBuilderCard = ({
             <div className="relative z-10 p-5 sm:p-8 lg:p-10 h-full flex flex-col">
                 {/* Header */}
                 <div className="flex-none mb-auto">
-                    {/* Badge original */}
-                    <div className={`inline-flex items-center gap-1.5 sm:gap-2 px-3 py-1.5 sm:px-4 sm:py-2 rounded-full ${badgeColor} backdrop-blur-sm mb-4 sm:mb-6`}>
+                    {/* Badge original - Optimizado para iOS */}
+                    <div className={`inline-flex items-center gap-1.5 sm:gap-2 px-3 py-1.5 sm:px-4 sm:py-2 rounded-full ${badgeColor} ${isIOS ? '' : 'backdrop-blur-sm'} mb-4 sm:mb-6`}>
                         <BadgeIcon className="w-4 h-4 sm:w-5 sm:h-5" />
                         <span className="text-xs sm:text-sm font-bold uppercase tracking-wider">{badge}</span>
                     </div>
@@ -74,8 +76,8 @@ const PCBuilderCard = ({
                                 }}>
                                 {titleHighlight}
                             </span>
-                            {/* Glow sutil */}
-                            <span className="absolute inset-0 bg-gradient-to-r from-purple-600 to-pink-600 blur-xl opacity-50 animate-pulse" />
+                            {/* Glow sutil - Optimizado para iOS */}
+                            <span className={`absolute inset-0 bg-gradient-to-r from-purple-600 to-pink-600 ${isIOS ? 'blur-lg' : 'blur-xl'} opacity-50 ${isIOS ? '' : 'animate-pulse'}`} />
                         </span>
                     </h3>
 
@@ -84,8 +86,8 @@ const PCBuilderCard = ({
                         <p className="text-sm sm:text-lg lg:text-xl text-white font-bold italic leading-tight relative z-10">
                             {description}
                         </p>
-                        {/* Underline decorativo animado */}
-                        <div className="absolute -bottom-1 left-0 right-0 h-1 sm:h-2 bg-gradient-to-r from-purple-600 to-pink-600 opacity-40 blur-sm animate-pulse" />
+                        {/* Underline decorativo animado - Optimizado para iOS */}
+                        <div className={`absolute -bottom-1 left-0 right-0 h-1 sm:h-2 bg-gradient-to-r from-purple-600 to-pink-600 opacity-40 ${isIOS ? 'blur-sm' : 'blur-sm animate-pulse'}`} />
                         <div className="absolute -bottom-1 left-0 w-full h-[3px] bg-gradient-to-r from-purple-600 to-pink-600" />
                     </div>
                 </div>
@@ -96,7 +98,7 @@ const PCBuilderCard = ({
                         {/* Glow effect del botón */}
                         <div className="absolute -inset-1 bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 rounded-lg opacity-40 blur-md group-hover/btn:opacity-60 transition-opacity duration-200" />
                         
-                        <div className="relative inline-flex items-center gap-2 px-4 py-2.5 rounded-lg border border-white/30 bg-white/10 backdrop-blur-sm hover:bg-white/15 hover:border-white/40 transition-all duration-200 group/btn shadow-lg">
+                        <div className={`relative inline-flex items-center gap-2 px-4 py-2.5 rounded-lg border border-white/30 bg-white/10 ${isIOS ? '' : 'backdrop-blur-sm'} hover:bg-white/15 hover:border-white/40 transition-all duration-200 group/btn shadow-lg`}>
                             <ButtonIcon className="w-4 h-4 text-white" />
                             <span className="font-semibold text-white text-sm sm:text-base">{buttonText}</span>
                             <ChevronRight className="w-4 h-4 text-white/60 group-hover/btn:translate-x-0.5 group-hover/btn:text-white transition-all" />

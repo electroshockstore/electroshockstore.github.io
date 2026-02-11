@@ -2081,3 +2081,58 @@ button:has(.loading-spinner) {
     border-color: rgb(59 130 246);
   }
 }
+
+
+/* ===== iOS PERFORMANCE OPTIMIZATIONS ===== */
+/* Desactivar animaciones problemáticas en iOS Safari */
+@supports (-webkit-touch-callout: none) {
+  /* Detecta iOS Safari */
+  
+  /* Desactivar animate-pulse en iOS */
+  .animate-pulse {
+    animation: none !important;
+  }
+  
+  /* Desactivar animaciones de float/wiggle en iOS */
+  .animate-float-particle-1,
+  .animate-float-particle-2,
+  .animate-shine,
+  .animate-pulse-ring,
+  .animate-accent-line {
+    animation: none !important;
+  }
+  
+  /* Reducir blur en iOS para evitar repaints */
+  .blur-3xl {
+    filter: blur(40px) !important;
+  }
+  
+  .blur-2xl {
+    filter: blur(24px) !important;
+  }
+  
+  .blur-xl {
+    filter: blur(16px) !important;
+  }
+  
+  /* Desactivar backdrop-blur en iOS (causa parpadeos) */
+  .backdrop-blur-xl,
+  .backdrop-blur-lg,
+  .backdrop-blur-md,
+  .backdrop-blur-sm {
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+  }
+  
+  /* Forzar GPU acceleration en iOS */
+  * {
+    -webkit-transform: translateZ(0);
+    -webkit-backface-visibility: hidden;
+    -webkit-perspective: 1000;
+  }
+  
+  /* Desactivar transiciones en elementos con blur en iOS */
+  [class*="blur-"] {
+    transition: none !important;
+  }
+}

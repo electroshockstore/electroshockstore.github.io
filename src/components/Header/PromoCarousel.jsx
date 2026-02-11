@@ -1,8 +1,11 @@
 import { Store, Truck, ShieldCheck, CheckCircle2 } from 'lucide-react';
 import { useState, useEffect } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import useIOSDetection from '../../hooks/useIOSDetection';
 
 const PromoCarousel = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
+  const isIOS = useIOSDetection();
 
   // Mensajes del carousel central (vertical)
   const centerMessages = [
@@ -37,24 +40,34 @@ const PromoCarousel = () => {
           </span>
         </div>
 
-        {/* CENTER - Vertical Carousel */}
+        {/* CENTER - Vertical Carousel con Framer Motion */}
         <div className="flex-1 flex justify-center overflow-hidden h-5 relative">
-          <div 
-            className="flex flex-col transition-transform duration-500 ease-in-out"
-            style={{ transform: `translateY(-${currentIndex * 100}%)` }}
-          >
-            {centerMessages.map((promo, index) => {
-              const Icon = promo.icon;
-              return (
-                <div key={index} className="flex items-center justify-center gap-1.5 h-5 flex-shrink-0">
-                  <Icon className="w-3.5 h-3.5 text-white flex-shrink-0" strokeWidth={2.5} />
-                  <span className={`text-[10px] font-black tracking-tight uppercase bg-gradient-to-r ${promo.gradient} bg-clip-text text-transparent whitespace-nowrap`}>
-                    {promo.text}
-                  </span>
-                </div>
-              );
-            })}
-          </div>
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={currentIndex}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -20 }}
+              transition={{ 
+                duration: 0.4,
+                ease: [0.16, 1, 0.3, 1]
+              }}
+              className="flex items-center justify-center gap-1.5 h-5 absolute inset-0"
+            >
+              {(() => {
+                const promo = centerMessages[currentIndex];
+                const Icon = promo.icon;
+                return (
+                  <>
+                    <Icon className="w-3.5 h-3.5 text-white flex-shrink-0" strokeWidth={2.5} />
+                    <span className={`text-[10px] font-black tracking-tight uppercase bg-gradient-to-r ${promo.gradient} bg-clip-text text-transparent whitespace-nowrap`}>
+                      {promo.text}
+                    </span>
+                  </>
+                );
+              })()}
+            </motion.div>
+          </AnimatePresence>
         </div>
 
         {/* RIGHT END - No tenemos local físico */}

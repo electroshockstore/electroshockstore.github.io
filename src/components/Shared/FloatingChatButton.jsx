@@ -96,10 +96,10 @@ const FloatingChatButton = () => {
         </div>
       )}
 
-      {/* Backdrop con blur cuando está expandido - Blur solo en desktop */}
+      {/* Backdrop con blur cuando está expandido - Blur en mobile también */}
       {isExpanded && (
         <div 
-          className="fixed inset-0 bg-black/30 md:backdrop-blur-md z-40 transition-all duration-300 animate-in fade-in" 
+          className="fixed inset-0 bg-black/50 backdrop-blur-sm z-40 transition-all duration-300 animate-in fade-in" 
           onClick={() => setIsExpanded(false)}
         />
       )}

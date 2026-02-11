@@ -1,6 +1,7 @@
 import { useState, useEffect, useCallback, useMemo, useRef } from 'react';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
+import useIOSDetection from '../../hooks/useIOSDetection';
 
 // Hook para detectar desktop (sin parallax)
 const useDesktopDetection = () => {
@@ -150,6 +151,7 @@ const HeroCarousel = () => {
   const [animationKey, setAnimationKey] = useState(0); // Key para forzar re-trigger de animaciones
   const touchStartX = useRef(0);
   const touchEndX = useRef(0);
+  const isIOS = useIOSDetection();
   
   // Desktop detection hook
   const { isDesktop } = useDesktopDetection();
@@ -360,8 +362,8 @@ const HeroCarousel = () => {
                       {current.titleHighlight}
                     </span>
                     
-                    {/* Glow effect - Solo desktop */}
-                    <span className={`hidden sm:block absolute inset-0 ${current.highlightColor} blur-2xl opacity-60 animate-pulse`} />
+                    {/* Glow effect - Solo desktop - Optimizado para iOS */}
+                    <span className={`hidden sm:block absolute inset-0 ${current.highlightColor} ${isIOS ? 'blur-xl' : 'blur-2xl'} opacity-60 ${isIOS ? '' : 'animate-pulse'}`} />
                   </motion.span>
                 </h1>
 
@@ -374,8 +376,8 @@ const HeroCarousel = () => {
                   <p className="text-[11px] sm:text-2xl md:text-3xl lg:text-4xl text-white font-black italic leading-tight relative z-10">
                     {current.description}
                   </p>
-                  {/* Underline decorativo */}
-                  <div className={`absolute -bottom-0.5 sm:-bottom-2 left-0 right-0 h-1 sm:h-3 bg-gradient-to-r ${current.gradient} opacity-40 sm:opacity-50 blur-[2px] sm:blur-sm animate-pulse`} />
+                  {/* Underline decorativo - Optimizado para iOS */}
+                  <div className={`absolute -bottom-0.5 sm:-bottom-2 left-0 right-0 h-1 sm:h-3 bg-gradient-to-r ${current.gradient} opacity-40 sm:opacity-50 ${isIOS ? 'blur-sm' : 'blur-sm animate-pulse'}`} />
                   <div className={`absolute -bottom-0.5 sm:-bottom-2 left-0 w-full h-[2px] sm:h-[5px] bg-gradient-to-r ${current.gradient}`} />
                 </motion.div>
 

@@ -1,6 +1,8 @@
 import { motion } from 'framer-motion';
+import useIOSDetection from '../../hooks/useIOSDetection';
 
 const HeroSection = () => {
+  const isIOS = useIOSDetection();
   // Variantes de animación
   const titleVariants = {
     hidden: { opacity: 0, y: 30 },
@@ -30,27 +32,27 @@ const HeroSection = () => {
 
   return (
     <section className="relative py-12 sm:py-16 md:py-24 px-4 sm:px-6 overflow-hidden">
-      {/* Animated background blobs */}
+      {/* Animated background blobs - Optimizado para iOS */}
       <div className="absolute inset-0 -z-10">
         <motion.div 
-          className="absolute top-20 left-10 w-72 h-72 bg-blue-500/20 rounded-full blur-3xl"
-          animate={{ 
+          className={`absolute top-20 left-10 w-72 h-72 bg-blue-500/20 rounded-full ${isIOS ? 'blur-2xl' : 'blur-3xl'}`}
+          animate={isIOS ? {} : { 
             scale: [1, 1.1, 1],
             opacity: [0.2, 0.3, 0.2]
           }}
-          transition={{ 
+          transition={isIOS ? {} : { 
             duration: 4,
             repeat: Infinity,
             ease: "easeInOut"
           }}
         />
         <motion.div 
-          className="absolute bottom-20 right-10 w-96 h-96 bg-purple-500/20 rounded-full blur-3xl"
-          animate={{ 
+          className={`absolute bottom-20 right-10 w-96 h-96 bg-purple-500/20 rounded-full ${isIOS ? 'blur-2xl' : 'blur-3xl'}`}
+          animate={isIOS ? {} : { 
             scale: [1, 1.15, 1],
             opacity: [0.2, 0.25, 0.2]
           }}
-          transition={{ 
+          transition={isIOS ? {} : { 
             duration: 6,
             repeat: Infinity,
             ease: "easeInOut"
@@ -98,8 +100,8 @@ const HeroSection = () => {
                 Dónde Retiro
               </span>
               
-              {/* Glow effect brutal - Solo desktop */}
-              <span className="hidden sm:block absolute inset-0 bg-blue-500 blur-2xl opacity-60 animate-pulse" />
+              {/* Glow effect brutal - Solo desktop - Optimizado para iOS */}
+              <span className={`hidden sm:block absolute inset-0 bg-blue-500 ${isIOS ? 'blur-xl' : 'blur-2xl'} opacity-60 ${isIOS ? '' : 'animate-pulse'}`} />
             </motion.span>
             
             <br />
