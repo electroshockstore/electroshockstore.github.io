@@ -105,6 +105,7 @@ const HeroCarousel = () => {
   const [prevSlide, setPrevSlide] = useState(0);
   const [isTransitioning, setIsTransitioning] = useState(false);
   const [loadedImages, setLoadedImages] = useState(new Set([0])); // Precargar solo la primera
+  const [animationKey, setAnimationKey] = useState(0); // Key para forzar re-trigger de animaciones
   const touchStartX = useRef(0);
   const touchEndX = useRef(0);
   
@@ -116,6 +117,7 @@ const HeroCarousel = () => {
     setIsTransitioning(true);
     setPrevSlide(currentSlide);
     setCurrentSlide((prev) => (prev + 1) % slides.length);
+    setAnimationKey(prev => prev + 1); // Forzar re-trigger de animaciones
     setTimeout(() => setIsTransitioning(false), 800); // Duración de la transición
   }, [currentSlide, isTransitioning]);
   
@@ -124,6 +126,7 @@ const HeroCarousel = () => {
     setIsTransitioning(true);
     setPrevSlide(currentSlide);
     setCurrentSlide((prev) => (prev - 1 + slides.length) % slides.length);
+    setAnimationKey(prev => prev + 1); // Forzar re-trigger de animaciones
     setTimeout(() => setIsTransitioning(false), 800);
   }, [currentSlide, isTransitioning]);
 
@@ -132,6 +135,7 @@ const HeroCarousel = () => {
     setIsTransitioning(true);
     setPrevSlide(currentSlide);
     setCurrentSlide(index);
+    setAnimationKey(prev => prev + 1); // Forzar re-trigger de animaciones
     setTimeout(() => setIsTransitioning(false), 800);
   }, [currentSlide, isTransitioning]);
 
@@ -239,11 +243,11 @@ const HeroCarousel = () => {
       <div className="absolute bottom-0 left-0 right-0 h-20 sm:h-32 bg-gradient-to-t from-[#0a0a0f] to-transparent pointer-events-none z-10" />
 
       {/* Contenido - Landing style sin parallax */}
-  <div className="relative z-20 h-full flex items-start pt-10 sm:pt-1">
+  <div className="relative z-20 h-full flex items-start pt-10 sm:pt-1" key={`slide-content-${current.id}-${animationKey}`}>
 
         <div className="container mx-0 sm:mx-2 px-5 sm:px-6 md:px-12 lg:px-16 ">
           <div className="max-w-2xl lg:max-w-3xl xl:max-w-4xl">
-            <div key={current.id + '-text'}>
+            <div>
                 {/* Tag - Badge más pequeño en mobile, posicionado arriba */}
                 <div className="flex items-center gap-1.5 sm:gap-3 mb-1.5 sm:mb-5 md:mb-6">
                   <div className={`h-[2px] sm:h-[3px] w-6 sm:w-12 bg-gradient-to-r ${current.gradient} hero-line-expand`} />

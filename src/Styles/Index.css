@@ -118,17 +118,20 @@
   /* FASE 1: Background (0-0.6s) */
   .hero-image-enter {
     animation: heroImageSlideIn 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    animation-fill-mode: backwards;
     contain: layout style paint;
   }
 
   /* FASE 2: Header elements (0.3-1.2s) */
   .hero-line-expand {
     animation: heroLineExpand 0.6s cubic-bezier(0.16, 1, 0.3, 1) 0.3s backwards;
+    animation-fill-mode: backwards;
     contain: layout style paint;
   }
 
   .hero-tag-enter {
     animation: heroTagFadeIn 0.5s ease-out 0.6s backwards;
+    animation-fill-mode: backwards;
     contain: layout style paint;
   }
 
@@ -136,18 +139,21 @@
   .hero-title-word {
     display: inline-block;
     animation: heroTitleSplitIn 0.7s cubic-bezier(0.16, 1, 0.3, 1) 0.9s backwards;
+    animation-fill-mode: backwards;
     contain: layout style paint;
   }
 
   /* Descripción - Mismo timing que título para reducir capas */
   .hero-description-enter {
     animation: heroDescriptionSlideUp 0.7s cubic-bezier(0.16, 1, 0.3, 1) 1.2s backwards;
+    animation-fill-mode: backwards;
     contain: layout style paint;
   }
 
   /* FASE 4: Puntos - REDUCIDO a 2 grupos en vez de 6 individuales */
   .hero-point-enter {
     animation: heroPointSlideIn 0.6s cubic-bezier(0.16, 1, 0.3, 1) backwards;
+    animation-fill-mode: backwards;
     contain: layout style paint;
   }
 
