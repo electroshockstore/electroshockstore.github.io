@@ -849,6 +849,42 @@
   -webkit-transform: scale(1) translate3d(0, 0, 0) !important;
   visibility: visible !important;
   display: block !important;
+  position: fixed !important;
+  z-index: 9999 !important;
+}
+
+/* iOS: Forzar renderizado del modal de categorías */
+.is-ios .category-dropdown .fixed {
+  position: fixed !important;
+  -webkit-transform: translate3d(0, 0, 0) !important;
+  transform: translate3d(0, 0, 0) !important;
+}
+
+.is-ios .category-grid-scroll {
+  -webkit-overflow-scrolling: touch !important;
+  overflow-y: auto !important;
+  position: relative !important;
+  display: block !important;
+  visibility: visible !important;
+}
+
+.is-ios .category-grid-scroll .grid {
+  display: grid !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+}
+
+/* iOS: Forzar visibilidad de elementos del modal */
+.is-ios .animate-in {
+  animation: none !important;
+  opacity: 1 !important;
+  transform: none !important;
+}
+
+/* iOS: Backdrop blur simplificado */
+.is-ios .backdrop-blur-xl {
+  backdrop-filter: none !important;
+  background: rgba(0, 0, 0, 0.9) !important;
 }
 
 /* Mobile: Optimizaciones adicionales */

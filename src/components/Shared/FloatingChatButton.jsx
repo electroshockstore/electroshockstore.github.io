@@ -111,7 +111,12 @@ const FloatingChatButton = () => {
       )}
 
       <div 
-        className="fixed bottom-4 left-4 sm:bottom-6 sm:left-6 z-50 floating-chat-enter"
+        className="fixed bottom-4 left-4 sm:bottom-6 sm:left-6 floating-chat-enter"
+        style={{
+          zIndex: 9999,
+          position: 'fixed',
+          isolation: 'isolate'
+        }}
       >
         
         {/* --- MENÚ EXPANDIDO --- */}
@@ -170,7 +175,11 @@ const FloatingChatButton = () => {
         {/* --- BOTÓN PRINCIPAL CON EFECTOS OPTIMIZADOS --- */}
         <button
           onClick={toggleExpanded}
-          className="group relative bg-gradient-to-r from-green-500 via-green-600 to-green-700 hover:from-green-600 hover:via-green-700 hover:to-green-800 text-white rounded-lg sm:rounded-xl shadow-lg sm:shadow-2xl hover:shadow-green-500/50 btn-premium overflow-hidden z-50 floating-chat-button"
+          className="group relative bg-gradient-to-r from-green-500 via-green-600 to-green-700 hover:from-green-600 hover:via-green-700 hover:to-green-800 text-white rounded-lg sm:rounded-xl shadow-lg sm:shadow-2xl hover:shadow-green-500/50 btn-premium overflow-hidden floating-chat-button"
+          style={{
+            zIndex: 10000,
+            position: 'relative'
+          }}
         >
           {/* Efecto Shine - Deshabilitado en mobile para performance */}
           <div className="hidden sm:block absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent animate-shine shine-effect" />

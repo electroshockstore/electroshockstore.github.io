@@ -57,29 +57,25 @@ const CategoryFilter = ({ selectedCategory, onCategoryChange }) => {
   useEffect(() => {
     if (isOpen) {
       const scrollY = window.scrollY;
-
-      document.body.style.position = 'fixed';
-      document.body.style.top = `-${scrollY}px`;
-      document.body.style.width = '100%';
-      document.body.style.overflow = 'hidden';
-      document.body.style.touchAction = 'none';
-
-      const preventTouch = (e) => {
-        if (e.target.closest('.category-grid-scroll')) {
-          return;
-        }
-        e.preventDefault();
-      };
-
-      document.addEventListener('touchmove', preventTouch, { passive: false });
+      const body = document.body;
+      
+      // iOS-friendly scroll lock
+      body.style.position = 'fixed';
+      body.style.top = `-${scrollY}px`;
+      body.style.left = '0';
+      body.style.right = '0';
+      body.style.width = '100%';
+      body.style.overflow = 'hidden';
+      body.style.height = '100vh';
 
       return () => {
-        document.body.style.position = '';
-        document.body.style.top = '';
-        document.body.style.width = '';
-        document.body.style.overflow = '';
-        document.body.style.touchAction = '';
-        document.removeEventListener('touchmove', preventTouch);
+        body.style.position = '';
+        body.style.top = '';
+        body.style.left = '';
+        body.style.right = '';
+        body.style.width = '';
+        body.style.overflow = '';
+        body.style.height = '';
         window.scrollTo(0, scrollY);
       };
     }
@@ -161,26 +157,31 @@ const CategoryFilter = ({ selectedCategory, onCategoryChange }) => {
               <>
                 {/* Backdrop - Fijo y sin scroll */}
                 <div
-                  className="fixed inset-0 bg-gradient-to-br from-black/90 via-gray-900/95 to-black/90 backdrop-blur-xl z-[100] animate-in fade-in duration-200"
+                  className="fixed inset-0 bg-gradient-to-br from-black/90 via-gray-900/95 to-black/90 backdrop-blur-xl animate-in fade-in duration-200"
+                  style={{
+                    zIndex: 9998,
+                    position: 'fixed',
+                    WebkitOverflowScrolling: 'auto'
+                  }}
                   onClick={() => setIsOpen(false)}
-                  onTouchMove={(e) => e.preventDefault()}
-                  style={{ touchAction: 'none' }}
                 />
 
                 {/* Modal Content - Completamente fijo */}
                 <div
-                  className="fixed inset-0 z-[101] flex flex-col animate-in slide-in-from-bottom duration-300"
-                  onTouchMove={(e) => {
-                    if (!e.target.closest('.category-grid-scroll')) {
-                      e.preventDefault();
-                    }
+                  className="fixed inset-0 flex flex-col animate-in slide-in-from-bottom duration-300"
+                  style={{
+                    zIndex: 9999,
+                    position: 'fixed',
+                    isolation: 'isolate'
                   }}
-                  style={{ touchAction: 'none' }}
                 >
                   {/* Header del modal - Mejorado con gradiente */}
                   <div
                     className="flex-shrink-0 bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 border-b border-white/10 px-5 py-6 flex items-center justify-between shadow-2xl relative overflow-hidden"
-                    onTouchMove={(e) => e.preventDefault()}
+                    style={{
+                      position: 'relative',
+                      zIndex: 1
+                    }}
                   >
                     {/* Glow decorativo */}
                     <div className="absolute top-0 left-1/4 w-64 h-64 bg-blue-500/20 rounded-full blur-3xl" />
@@ -209,13 +210,16 @@ const CategoryFilter = ({ selectedCategory, onCategoryChange }) => {
                     style={{
                       overscrollBehavior: 'contain',
                       WebkitOverflowScrolling: 'touch',
-                      touchAction: 'pan-y'
+                      touchAction: 'pan-y',
+                      position: 'relative',
+                      zIndex: 1,
+                      minHeight: '200px'
                     }}
                   >
                     {/* Pattern decorativo sutil */}
-                    <div className="absolute inset-0 opacity-5 bg-grain pointer-events-none" />
+                    <div className="absolute inset-0 opacity-5 bg-grain pointer-events-none" style={{ zIndex: 0 }} />
                     
-                    <div className="grid grid-cols-2 gap-4 max-w-md mx-auto relative z-10">
+                    <div className="grid grid-cols-2 gap-4 max-w-md mx-auto relative" style={{ zIndex: 1 }}>
                       {categories.map((category, index) => {
                         const isSelected = selectedCategory === category;
                         const categoryImage = getCategoryImage(category);
@@ -288,7 +292,10 @@ const CategoryFilter = ({ selectedCategory, onCategoryChange }) => {
                   {/* Footer mejorado - Fijo en la parte inferior */}
                   <div
                     className="flex-shrink-0 bg-gradient-to-t from-gray-900 via-gray-800 to-gray-900 backdrop-blur-xl border-t border-white/10 px-5 py-5 shadow-2xl relative overflow-hidden"
-                    onTouchMove={(e) => e.preventDefault()}
+                    style={{
+                      position: 'relative',
+                      zIndex: 1
+                    }}
                   >
                     {/* Glow decorativo inferior */}
                     <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-96 h-32 bg-gradient-to-t from-blue-500/10 to-transparent blur-2xl" />
