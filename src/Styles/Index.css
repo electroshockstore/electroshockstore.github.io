@@ -525,6 +525,41 @@
   animation: floatingChatEnter 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55) 1s backwards;
 }
 
+/* Estilos base del botón flotante para iOS */
+.floating-chat-button {
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0);
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+
+.shine-effect {
+  width: 50%;
+}
+
+.pulse-ring-effect,
+.chat-icon-container,
+.accent-line-effect {
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0);
+}
+
+@media (min-width: 769px) {
+  .floating-chat-button,
+  .shine-effect,
+  .pulse-ring-effect,
+  .chat-icon-container,
+  .accent-line-effect {
+    will-change: transform;
+  }
+  
+  .pulse-ring-effect {
+    will-change: opacity;
+  }
+}
+
 @keyframes floatingChatEnter {
   from {
     opacity: 0;
@@ -792,12 +827,32 @@
     animation: none !important;
   }
   
+  /* Floating chat button: visible inmediatamente en mobile */
+  .floating-chat-enter {
+    animation: none !important;
+    opacity: 1 !important;
+    transform: scale(1) !important;
+  }
+  
   /* Mantener animaciones básicas pero más rápidas */
   .page-transition,
   .product-card-enter {
     animation-duration: 0.15s !important;
   }
-  
+}
+
+/* iOS específico: Asegurar visibilidad del botón flotante */
+.is-ios .floating-chat-enter {
+  animation: none !important;
+  opacity: 1 !important;
+  transform: scale(1) translate3d(0, 0, 0) !important;
+  -webkit-transform: scale(1) translate3d(0, 0, 0) !important;
+  visibility: visible !important;
+  display: block !important;
+}
+
+/* Mobile: Optimizaciones adicionales */
+@media (max-width: 768px) {
   /* Hero transitions más rápidas en mobile */
   .animate-hero-content-enter,
   .animate-hero-line-expand,

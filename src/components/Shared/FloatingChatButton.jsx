@@ -8,6 +8,12 @@ const FloatingChatButton = () => {
   const location = useLocation();
   const navigate = useNavigate();
   
+  // Debug para iOS
+  console.log('FloatingChatButton renderizado', { 
+    pathname: location.pathname,
+    shouldHide: location.pathname.includes('/pc-builder')
+  });
+  
   // Ocultar en PC Builder ya que tiene su propio botón de WhatsApp
   if (location.pathname.includes('/pc-builder')) {
     return null;
@@ -106,12 +112,6 @@ const FloatingChatButton = () => {
 
       <div 
         className="fixed bottom-4 left-4 sm:bottom-6 sm:left-6 z-50 floating-chat-enter"
-        style={{ 
-          WebkitTransform: 'translateZ(0)',
-          transform: 'translateZ(0)',
-          WebkitBackfaceVisibility: 'hidden',
-          backfaceVisibility: 'hidden'
-        }}
       >
         
         {/* --- MENÚ EXPANDIDO --- */}
@@ -170,25 +170,19 @@ const FloatingChatButton = () => {
         {/* --- BOTÓN PRINCIPAL CON EFECTOS OPTIMIZADOS --- */}
         <button
           onClick={toggleExpanded}
-          className="group relative bg-gradient-to-r from-green-500 via-green-600 to-green-700 hover:from-green-600 hover:via-green-700 hover:to-green-800 text-white rounded-lg sm:rounded-xl shadow-lg sm:shadow-2xl hover:shadow-green-500/50 btn-premium overflow-hidden z-50"
-          style={{
-            WebkitTapHighlightColor: 'transparent',
-            touchAction: 'manipulation',
-            willChange: 'transform',
-            transform: 'translateZ(0)'
-          }}
+          className="group relative bg-gradient-to-r from-green-500 via-green-600 to-green-700 hover:from-green-600 hover:via-green-700 hover:to-green-800 text-white rounded-lg sm:rounded-xl shadow-lg sm:shadow-2xl hover:shadow-green-500/50 btn-premium overflow-hidden z-50 floating-chat-button"
         >
           {/* Efecto Shine - Deshabilitado en mobile para performance */}
-          <div className="hidden sm:block absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent animate-shine" style={{ width: '50%', willChange: 'transform' }} />
+          <div className="hidden sm:block absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent animate-shine shine-effect" />
 
           {/* Efecto Pulse Ring - Simplificado en mobile */}
-          <div className="absolute inset-0 rounded-lg sm:rounded-xl border-2 sm:border-4 border-green-400 animate-pulse-ring" style={{ willChange: 'opacity' }} />
+          <div className="absolute inset-0 rounded-lg sm:rounded-xl border-2 sm:border-4 border-green-400 animate-pulse-ring pulse-ring-effect" />
 
           {/* Contenido */}
           <div className={`chat-button-content relative flex items-center gap-2 sm:gap-4 p-3 sm:p-4 ${isExpanded ? 'expanded' : ''}`}>
             
             {/* Icon Container con Wiggle */}
-            <div className="chat-icon relative transition-fast-premium" style={{ willChange: 'transform' }}>
+            <div className="chat-icon relative transition-fast-premium chat-icon-container">
               <div className="w-8 h-8 sm:w-12 sm:h-12 bg-white/20 md:backdrop-blur-sm rounded-md sm:rounded-lg flex items-center justify-center border border-white/30">
                 {isExpanded ? (
                   <X className="w-4 h-4 sm:w-6 sm:h-6" strokeWidth={2.5} />
@@ -217,12 +211,12 @@ const FloatingChatButton = () => {
           </div>
 
           {/* Accent Line - Deshabilitado en mobile */}
-          <div className="hidden sm:block absolute bottom-0 left-0 right-0 h-0.5 sm:h-1 bg-gradient-to-r from-transparent via-white to-transparent animate-accent-line" style={{ willChange: 'transform' }} />
+          <div className="hidden sm:block absolute bottom-0 left-0 right-0 h-0.5 sm:h-1 bg-gradient-to-r from-transparent via-white to-transparent animate-accent-line accent-line-effect" />
         </button>
 
         {/* Partículas flotantes - Solo desktop para mejor performance */}
-        <div className="hidden sm:block absolute -top-4 sm:-top-8 left-4 sm:left-8 w-1 h-1 sm:w-2 sm:h-2 bg-green-400 rounded-full animate-float-particle-1" style={{ willChange: 'transform' }} />
-        <div className="hidden sm:block absolute -top-3 sm:-top-6 left-8 sm:left-16 w-1 h-1 bg-green-500 rounded-full animate-float-particle-2" style={{ willChange: 'transform' }} />
+        <div className="hidden sm:block absolute -top-4 sm:-top-8 left-4 sm:left-8 w-1 h-1 sm:w-2 sm:h-2 bg-green-400 rounded-full animate-float-particle-1" />
+        <div className="hidden sm:block absolute -top-3 sm:-top-6 left-8 sm:left-16 w-1 h-1 bg-green-500 rounded-full animate-float-particle-2" />
       </div>
     </>
   );
