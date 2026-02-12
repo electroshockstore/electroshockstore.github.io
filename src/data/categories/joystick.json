@@ -230,8 +230,65 @@
         "cargaViaUSB": "Sí"
       }
     },
-    {
+
+ {
       "id": 1104,
+      "name": "Sony DualSense PS5 Sterling Silver",
+      "brand": "Sony",
+      "model": "DualSense",
+      "category": "Joystick",
+      "manufacturerUrl": "https://www.playstation.com/es-ar/accessories/dualsense-wireless-controller/",
+      "price": 13000,
+      "stock": 1,
+      "images": [
+        "/images/joystick/ps5_sterlingsilver.webp",
+        "/images/joystick/ps5_sterlingsilver_side.webp",
+        "/images/joystick/ps5_sterlingsilver_side2.webp",
+        "/images/joystick/ps5_sterlingsilver_side3.webp"
+      ],
+      "description": "Joystick Sony DualSense PS5 Sterling Silver con retroalimentación háptica y gatillos adaptativos",
+      "specifications": {
+        "marca": "PlayStation",
+        "modelo": "DualSense",
+        "modeloDetallado": "CFI-ZCT1W",
+        "color": "Sterling Silver",
+        "inalambrico": "Sí",
+        "bluetooth": "Sí (v5.1)",
+        "puertoCarga": "USB-C",
+        "jackAuriculares": "3.5mm estéreo",
+        "tipoBateria": "Lithium-ion recargable interna",
+        "capacidadBateria": "1560 mAh",
+        "voltaje": "3.65 V",
+        "autonomiaAprox": "8-12 horas",
+        "cargaPorUSBC": "Sí",
+        "dimensiones": "160 x 66 x 106 mm",
+        "peso": "280 g",
+        "analogicos": "2 (clickables)",
+        "dPad": "Sí (direccional)",
+        "botonesAccion": "Triangle, Circle, Cross, Square",
+        "bumpers": "L1, R1",
+        "gatillosAnalogicos": "L2, R2",
+        "botonesFuncion": "PS, Create, Options",
+        "joysticksClickables": "Sí (L3, R3)",
+        "touchpad": "Capacitivo, 2 puntos táctiles, clickable",
+        "retroalimentacionHaptica": "Sí (motores hápticos duales)",
+        "gatillosAdaptativos": "Sí (resistencia dinámica en L2/R2)",
+        "giroscopio": "Sí (3 ejes)",
+        "acelerometro": "Sí (3 ejes)",
+        "sistemaMovimiento": "Six-axis motion sensing",
+        "altavozIntegrado": "Sí (mono)",
+        "microfonoIntegrado": "Sí (con botón mute)",
+        "barraLuz": "Sí (LED multicolor)",
+        "botonCreate": "Sí (captura y compartir)",
+        "compatibilidad": "PlayStation 5, PC (Windows/Steam), Android, iOS",
+        "conectividadPC": "USB-C cableado o Bluetooth",
+        "diseño": "Ergonómico con acabado plateado premium",
+        "textura": "Superficie mate con detalles brillantes"
+      }
+    },
+
+    {
+      "id": 1105,
       "name": "Microsoft inalambrico Robot White PC/ANDROID/CONSOLA",
       "brand": "Microsoft",
       "model": "Xbox Wireless",
@@ -271,7 +328,7 @@
       }
     },
     {
-      "id": 1105,
+      "id": 1106,
       "name": "Microsoft inalambrico Shock Blue PC/ANDROID/CONSOLA",
       "brand": "Microsoft",
       "model": "Xbox Wireless",
@@ -312,7 +369,7 @@
       }
     },
     {
-      "id": 1106,
+      "id": 1107,
       "name": "T-Dagger Scorpio Inalámbrico PC/ANDROID/CONSOLA",
       "brand": "T-Dagger",
       "model": "Scorpio T-TGP802",
@@ -353,5 +410,6 @@
         "conexionUSBOpcional": "Sí"
       }
     }
+   
   ]
 }

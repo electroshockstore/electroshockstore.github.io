@@ -95,7 +95,7 @@
       "brand": "NETAC",
       "model": "Shadow 2",
       "category": "Memorias RAM",
-      "price": 290000,
+      "price": 280000,
       "stock": 7,
       "realPowerConsumption": "2.2W - 2.8W",
       "images": [
@@ -116,7 +116,7 @@
       "brand": "Neo Forza",
       "model": "DDR5 5200",
       "category": "Memorias RAM",
-      "price": 220000,
+      "price": 210000,
       "stock": 2,
       "realPowerConsumption": "2.4W - 3.0W",
       "images": [
@@ -136,7 +136,7 @@
       "brand": "Neo Forza",
       "model": "NMUD532F82-5200JA10",
       "category": "Memorias RAM",
-      "price": 380000,
+      "price": 370000,
       "stock": 2,
       "realPowerConsumption": "2.8W - 3.5W",
       "images": [
@@ -540,28 +540,9 @@
       },
       "ddrType": "DDR4"
     },
+   
     {
       "id": 421,
-      "name": "Adata Premier 8GB U-DIMM DDR3 1600MHz",
-      "brand": "ADATA",
-      "model": "Premier",
-      "category": "Memorias RAM",
-      "manufacturerUrl": "https://www.adata.com/ar/consumer/category/memory/",
-      "price": 40000,
-      "stock": 2,
-      "realPowerConsumption": "3.0W - 4.5W",
-      "images": [
-        "/images/ram/adata_dd38gb.webp"
-      ],
-      "description": "Adata Premier 8GB U-DIMM DDR3 1600MHz",
-      "specifications": {
-        "tipoMemoriaRAM": "DDR3",
-        "voltaje": "1.5 V"
-      },
-      "ddrType": "DDR3"
-    },
-    {
-      "id": 422,
       "name": "Kingston ValueRAM 8GB DDR4 3200MHz CL22",
       "brand": "Kingston",
       "model": "ValueRAM",
@@ -598,6 +579,115 @@
         "paisOrigen": "China / Taiwán"
       },
       "ddrType": "DDR4"
+    },
+    {
+      "id": 422,
+      "name": "Netac Basic DDR4 SODIMM 16GB 3200MHz CL22",
+      "brand": "Netac",
+      "model": "Basic DDR4 SODIMM",
+      "category": "Memorias RAM",
+      "manufacturerUrl": "https://www.netac.com/",
+      "price": 200000,
+      "stock": 4,
+      "realPowerConsumption": "2.5W - 3.0W",
+      "images": [
+        "/images/ram/netac_sodimm16.webp",
+        "/images/ram/netac_sodimm16_side.webp",
+        "/images/ram/netac_sodimm16_side2.webp"
+      ],
+      "description": "Memoria RAM Netac Basic DDR4 SODIMM 16GB 3200MHz CL22 para portátiles y mini-PCs",
+      "specifications": {
+        "marca": "Netac",
+        "linea": "Basic DDR4 SODIMM",
+        "modelo": "NTBSD4N32SP-16",
+        "modeloDetallado": "NTBSD4N32SP-16",
+        "capacidadTotal": "16 GB",
+        "modulos": "1",
+        "configuracion": "1x16 GB",
+        "tipoMemoriaRAM": "DDR4 SDRAM",
+        "formato": "SODIMM",
+        "pines": "260",
+        "velocidad": "3200 MHz",
+        "velocidadNominal": "PC4-25600",
+        "latencia": "CL22",
+        "timings": "22-22-22-52",
+        "voltaje": "1.2 V",
+        "anchoBanda": "25.6 GB/s",
+        "rank": "Single-rank (1Rx8)",
+        "compatibilidad": "Portátiles y mini-PCs con soporte DDR4 SODIMM",
+        "tecnologias": "JEDEC estándar DDR4",
+        "temperaturaOperativa": "0°C a +85°C",
+        "temperaturaAlmacenamiento": "-55°C a +100°C",
+        "conectores": "Contactos chapados en oro",
+        "ecc": "No",
+        "disipador": "No",
+        "iluminacionRGB": "No"
+      },
+      "ddrType": "DDR4"
+    },
+    {
+      "id": 423,
+      "name": "ADATA Premier DDR4 16GB 3200MHz SODIMM",
+      "brand": "ADATA",
+      "model": "Premier",
+      "category": "Memorias RAM",
+      "manufacturerUrl": "https://www.adata.com/",
+      "price": 240000,
+      "stock": 4,
+      "realPowerConsumption": "2.5W - 3.0W",
+      "images": [
+        "/images/ram/adata_sodim16.webp",
+        "/images/ram/adata_sodim16_side.webp"
+      ],
+      "description": "Memoria RAM ADATA Premier DDR4 16GB 3200MHz SODIMM CL22 para portátiles y mini-PCs",
+      "specifications": {
+        "marca": "Adata",
+        "linea": "Premier",
+        "modelo": "AD4S320016G22-SGN",
+        "modeloDetallado": "AD4S320016G22-SGN",
+        "capacidadTotal": "16 GB",
+        "modulos": "1",
+        "configuracion": "1x16 GB",
+        "tipoMemoriaRAM": "DDR4 SDRAM",
+        "formato": "SODIMM",
+        "pines": "260",
+        "velocidad": "3200 MHz",
+        "velocidadNominal": "PC4-25600",
+        "latencia": "CL22",
+        "voltaje": "1.2 V",
+        "tasaTransferencia": "25.6 GB/s",
+        "compatibilidad": "Portátiles y mini PC con soporte DDR4 SODIMM",
+        "compatibilidadJEDEC": "Sí",
+        "ecc": "No",
+        "configuracionInterna": "512M x 8",
+        "temperaturaOperativa": "0°C a 85°C",
+        "garantia": "Limitada de por vida",
+        "color": "Verde",
+        "disipador": "No",
+        "iluminacionRGB": "No"
+      },
+      "ddrType": "DDR4"
+    },
+
+     {
+      "id": 424,
+      "name": "Adata Premier 8GB U-DIMM DDR3 1600MHz",
+      "brand": "ADATA",
+      "model": "Premier",
+      "category": "Memorias RAM",
+      "manufacturerUrl": "https://www.adata.com/ar/consumer/category/memory/",
+      "price": 40000,
+      "stock": 2,
+      "realPowerConsumption": "3.0W - 4.5W",
+      "images": [
+        "/images/ram/adata_dd38gb.webp"
+      ],
+      "description": "Adata Premier 8GB U-DIMM DDR3 1600MHz",
+      "specifications": {
+        "tipoMemoriaRAM": "DDR3",
+        "voltaje": "1.5 V"
+      },
+      "ddrType": "DDR3"
     }
   ]
 }

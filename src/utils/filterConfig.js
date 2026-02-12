@@ -5,8 +5,8 @@
 
 // Filtros importantes por categoría (máximo 4-5 por categoría)
 export const CATEGORY_FILTERS = {
-  'Memoria RAM': ['marca', 'rgb', 'tipoMemoriaRAM', 'capacidadTotal'],
-  'Memorias RAM': ['marca', 'rgb', 'tipoMemoriaRAM', 'capacidadTotal'],
+  'Memoria RAM': ['marca', 'rgb', 'tipoMemoriaRAM', 'capacidadTotal', 'formato'],
+  'Memorias RAM': ['marca', 'rgb', 'tipoMemoriaRAM', 'capacidadTotal', 'formato'],
   'Procesadores': ['marca', 'socket', 'nucleos', 'frecuenciaBase'],
   'Motherboards': ['marca', 'socket', 'chipset', 'formato'],
   'Fuentes': ['Marca', 'Potencia', 'Certificacion', 'Cableado'],
