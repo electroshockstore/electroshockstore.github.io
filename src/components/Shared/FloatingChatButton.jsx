@@ -1,5 +1,4 @@
 import { useState } from 'react';
-import { createPortal } from 'react-dom';
 import { Send, X, MapPin, FileText } from 'lucide-react'; 
 import { useLocation, useNavigate } from 'react-router-dom';
 
@@ -39,17 +38,8 @@ const FloatingChatButton = () => {
   // Modal de Condiciones Component
   const ConditionsModal = () => (
     <div
-      className="fixed inset-0 z-[999999] flex items-center justify-center p-4 bg-black/90"
+      className="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-black/90 md:backdrop-blur-md"
       onClick={() => setShowConditionsModal(false)}
-      style={{
-        position: 'fixed',
-        top: 0,
-        left: 0,
-        right: 0,
-        bottom: 0,
-        width: '100vw',
-        height: '100vh'
-      }}
     >
       <div
         className="relative bg-gradient-to-br from-gray-900 via-gray-800 to-black rounded-3xl shadow-2xl max-w-2xl w-full border border-gray-700/50 overflow-hidden"
@@ -107,17 +97,7 @@ const FloatingChatButton = () => {
   // Backdrop Component
   const Backdrop = () => (
     <div 
-      className="fixed inset-0 bg-black/50 backdrop-blur-sm transition-all duration-300"
-      style={{ 
-        zIndex: 99998,
-        position: 'fixed',
-        top: 0,
-        left: 0,
-        right: 0,
-        bottom: 0,
-        width: '100vw',
-        height: '100vh'
-      }}
+      className="fixed inset-0 bg-black/30 md:backdrop-blur-md z-40 transition-all duration-300"
       onClick={() => setIsExpanded(false)}
     />
   );
@@ -125,20 +105,12 @@ const FloatingChatButton = () => {
   return (
     <>
       {/* Modal de Condiciones */}
-      {showConditionsModal && createPortal(<ConditionsModal />, document.body)}
+      {showConditionsModal && <ConditionsModal />}
 
       {/* Backdrop con blur cuando está expandido */}
-      {isExpanded && createPortal(<Backdrop />, document.body)}
+      {isExpanded && <Backdrop />}
 
-      <div 
-        className="fixed bottom-4 left-4 z-[99999]"
-        style={{
-          position: 'fixed',
-          bottom: '1rem',
-          left: '1rem',
-          zIndex: 99999
-        }}
-      >
+      <div className="fixed bottom-4 left-4 sm:bottom-6 sm:left-6 z-50">
         
         {/* --- MENÚ EXPANDIDO --- */}
         {isExpanded && (
