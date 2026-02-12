@@ -1,1 +1,0 @@
-import{r as t}from"./react-core-w371IvI0.js";const a=()=>{const[e,s]=t.useState(!1);return t.useEffect(()=>{const o=/iPad|iPhone|iPod/.test(navigator.userAgent)&&!window.MSStream;s(o)},[]),e};export{a as u};
