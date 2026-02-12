@@ -154,35 +154,17 @@ const CategoryFilter = ({ selectedCategory, onCategoryChange }) => {
 
             {/* Modal Fullscreen - Diseño Moderno Mejorado */}
             {isOpen && (
-              <>
+              <div className="ios-modal-wrapper">
                 {/* Backdrop - Fijo y sin scroll */}
                 <div
-                  className="fixed inset-0 bg-gradient-to-br from-black/90 via-gray-900/95 to-black/90 backdrop-blur-xl animate-in fade-in duration-200"
-                  style={{
-                    zIndex: 9998,
-                    position: 'fixed',
-                    WebkitOverflowScrolling: 'auto'
-                  }}
+                  className="ios-modal-backdrop"
                   onClick={() => setIsOpen(false)}
                 />
 
                 {/* Modal Content - Completamente fijo */}
-                <div
-                  className="fixed inset-0 flex flex-col animate-in slide-in-from-bottom duration-300"
-                  style={{
-                    zIndex: 9999,
-                    position: 'fixed',
-                    isolation: 'isolate'
-                  }}
-                >
+                <div className="ios-modal-content">
                   {/* Header del modal - Mejorado con gradiente */}
-                  <div
-                    className="flex-shrink-0 bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 border-b border-white/10 px-5 py-6 flex items-center justify-between shadow-2xl relative overflow-hidden"
-                    style={{
-                      position: 'relative',
-                      zIndex: 1
-                    }}
-                  >
+                  <div className="ios-modal-header">
                     {/* Glow decorativo */}
                     <div className="absolute top-0 left-1/4 w-64 h-64 bg-blue-500/20 rounded-full blur-3xl" />
                     <div className="absolute top-0 right-1/4 w-64 h-64 bg-purple-500/20 rounded-full blur-3xl" />
@@ -205,17 +187,7 @@ const CategoryFilter = ({ selectedCategory, onCategoryChange }) => {
                   </div>
 
                   {/* Grid de categorías - Con fondo catalog-bg */}
-                  <div
-                    className="category-grid-scroll flex-1 overflow-y-auto catalog-bg px-4 py-6 relative"
-                    style={{
-                      overscrollBehavior: 'contain',
-                      WebkitOverflowScrolling: 'touch',
-                      touchAction: 'pan-y',
-                      position: 'relative',
-                      zIndex: 1,
-                      minHeight: '200px'
-                    }}
-                  >
+                  <div className="ios-modal-scroll">
                     {/* Pattern decorativo sutil */}
                     <div className="absolute inset-0 opacity-5 bg-grain pointer-events-none" style={{ zIndex: 0 }} />
                     
@@ -290,13 +262,7 @@ const CategoryFilter = ({ selectedCategory, onCategoryChange }) => {
                   </div>
 
                   {/* Footer mejorado - Fijo en la parte inferior */}
-                  <div
-                    className="flex-shrink-0 bg-gradient-to-t from-gray-900 via-gray-800 to-gray-900 backdrop-blur-xl border-t border-white/10 px-5 py-5 shadow-2xl relative overflow-hidden"
-                    style={{
-                      position: 'relative',
-                      zIndex: 1
-                    }}
-                  >
+                  <div className="ios-modal-footer">
                     {/* Glow decorativo inferior */}
                     <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-96 h-32 bg-gradient-to-t from-blue-500/10 to-transparent blur-2xl" />
                     
@@ -307,7 +273,7 @@ const CategoryFilter = ({ selectedCategory, onCategoryChange }) => {
                     </div>
                   </div>
                 </div>
-              </>
+              </div>
             )}
           </div>
 

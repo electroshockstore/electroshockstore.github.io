@@ -217,7 +217,7 @@
       "category": "Memorias RAM",
       "manufacturerUrl": "https://www.adata.com/ar/consumer/category/memory/",
       "price": 200000,
-      "stock": 2,
+      "stock": 4,
       "realPowerConsumption": "3.5W - 4.2W",
       "images": [
         "/images/ram/ram_xpg_gamminxd35_ddr4.webp"
@@ -410,7 +410,7 @@
       "model": "Shadow",
       "category": "Memorias RAM",
       "price": 160000,
-      "stock": 4,
+      "stock": 7,
       "realPowerConsumption": "3.4W - 4.0W",
       "images": [
         "/images/ram/ram_netac_shadow_ddr4.webp"
@@ -487,8 +487,8 @@
       "brand": "Netac",
       "model": "Basic",
       "category": "Memorias RAM",
-      "price": 130000,
-      "stock": 4,
+      "price": 120000,
+      "stock": 7,
       "realPowerConsumption": "3.4W - 4.0W",
       "images": [
         "/images/ram/netac_basic_16gb.webp"
@@ -508,7 +508,7 @@
       "category": "Memorias RAM",
       "manufacturerUrl": "https://www.adata.com/ar/consumer/category/memory/",
       "price": 150000,
-      "stock": 5,
+      "stock": 6,
       "realPowerConsumption": "2.8W - 3.4W",
       "images": [
         "/images/ram/adata_ddr416gb_basic.webp"

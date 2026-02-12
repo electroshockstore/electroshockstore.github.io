@@ -1,5 +1,60 @@
 {
   "products": [
+
+
+ {
+      "id": 99,
+      "name": "Thermaltake Toughpower GT 850W Full Modular 80 Plus Gold",
+      "brand": "Thermaltake",
+      "model": "PS-TPT-0850FNFAGG-3",
+      "category": "Fuentes",
+      "manufacturerUrl": "https://www.thermaltake.com/toughpower-gf3-pcie5-1-850w-gold.html",
+      "price": 150000,
+      "stock": 1,
+      "sku": "TT-TPT-850-GT31",
+      "description": "Fuente ATX 3.1 850W Full Modular con certificación 80 Plus Gold, PCIe Gen 5.1 nativo (12+4 pines), ventilador 120mm con rodamientos hidráulicos",
+      "images": [
+        "/images/fuentes/thermaltake_850.webp",
+        "/images/fuentes/80_plusgold.webp"
+      ],
+      "specifications": {
+        "Marca de la fuente": "Thermaltake",
+        "Línea": "Toughpower GT",
+        "Modelo de la fuente": "PS-TPT-0850FNFAGG-3",
+        "Potencia máxima": "850 W",
+        "Certificación de eficiencia": "80 PLUS Gold (≥90% típico)",
+        "Estándar ATX": "ATX 3.1",
+        "Compatibilidad PCIe": "PCIe Gen 5.1 nativo (12+4 pines)",
+        "Modularidad": "Full modular",
+        "Voltaje de entrada AC": "100–240 VAC",
+        "Frecuencia de entrada": "50–60 Hz",
+        "Corriente de entrada máxima": "10 A",
+        "Corrección del factor de potencia": "Active PFC",
+        "Rail +12V total": "≈849.6 W",
+        "Salida +3.3V": "20 A",
+        "Salida +5V": "20 A",
+        "Salida +12V": "70.8 A",
+        "Salida +5Vsb": "3 A",
+        "Salida -12V": "0.3 A",
+        "Sistema de enfriamiento": "Ventilador de 120 mm con rodamientos hidráulicos",
+        "Dimensiones (W × H × D)": "150 × 86 × 140 mm",
+        "MTBF": "≥100,000 h",
+        "Temperatura operativa": "0°C a +40°C",
+        "Humedad operativa": "5% a 85% no condensante",
+        "Protecciones integradas": "OVP / UVP / OCP / OPP / OTP / SCP",
+        "Aprobaciones de seguridad": "CE / UKCA / ICES / TUV / LVD / RCM / CB / FCC / BSMI / CCC / BIS / S-MARK",
+        "Conectores": {
+          "ATX 24 pines": "1",
+          "EPS 8 pines (4+4)": "2",
+          "PCIe 5.1 (12+4 pines)": "1",
+          "PCI-E 6+2 pines": "4",
+          "SATA": "10",
+          "Molex": "4"
+        }
+      },
+      "certType": "80_PLUS_GOLD"
+    },
+
     {
       "id": 100,
       "name": "Adata XPG Core Reactor II VE 850W - 80 Plus Gold Modular",
@@ -543,5 +598,6 @@
       },
       "certType": "80_PLUS_BRONZE"
     }
+   
   ]
 }

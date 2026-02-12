@@ -887,6 +887,116 @@
   background: rgba(0, 0, 0, 0.9) !important;
 }
 
+/* ===== iOS MODAL FIX - CRÍTICO ===== */
+/* Aplicar a TODOS los móviles, no solo iOS */
+
+@media (max-width: 768px) {
+  .ios-modal-wrapper {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 10000;
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+  }
+
+  .ios-modal-backdrop {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(to bottom right, rgba(0, 0, 0, 0.9), rgba(17, 24, 39, 0.95), rgba(0, 0, 0, 0.9));
+    z-index: 1;
+  }
+
+  .ios-modal-content {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+  }
+
+  .ios-modal-header {
+    flex-shrink: 0;
+    background: linear-gradient(to bottom right, rgb(17, 24, 39), rgb(31, 41, 55), rgb(17, 24, 39));
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 1.5rem 1.25rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .ios-modal-scroll {
+    flex: 1;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+    padding: 1.5rem 1rem;
+    position: relative;
+    min-height: 300px;
+  }
+  
+  /* Forzar visibilidad del grid en mobile */
+  .ios-modal-scroll .grid {
+    display: grid !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+  }
+  
+  /* Desactivar animaciones problemáticas en mobile */
+  .ios-modal-scroll .animate-in {
+    animation: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+  }
+
+  .ios-modal-footer {
+    flex-shrink: 0;
+    background: linear-gradient(to top, rgb(17, 24, 39), rgb(31, 41, 55), rgb(17, 24, 39));
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 1.25rem;
+    box-shadow: 0 -25px 50px -12px rgba(0, 0, 0, 0.25);
+    position: relative;
+    overflow: hidden;
+  }
+
+  /* ===== iOS FLOATING BUTTON FIX ===== */
+  .ios-floating-button {
+    position: fixed !important;
+    bottom: 1rem !important;
+    left: 1rem !important;
+    z-index: 9999 !important;
+    -webkit-transform: translate3d(0, 0, 0) !important;
+    transform: translate3d(0, 0, 0) !important;
+    -webkit-backface-visibility: hidden !important;
+    backface-visibility: hidden !important;
+    display: block !important;
+    visibility: visible !important;
+  }
+}
+
+/* Desktop: También aplicar estilos básicos */
+@media (min-width: 769px) {
+  .ios-floating-button {
+    position: fixed;
+    bottom: 1.5rem;
+    left: 1.5rem;
+    z-index: 9999;
+  }
+}
+
 /* Mobile: Optimizaciones adicionales */
 @media (max-width: 768px) {
   /* Hero transitions más rápidas en mobile */

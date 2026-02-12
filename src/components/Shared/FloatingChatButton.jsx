@@ -105,19 +105,13 @@ const FloatingChatButton = () => {
       {/* Backdrop con blur cuando está expandido - Blur en mobile también */}
       {isExpanded && (
         <div 
-          className="fixed inset-0 bg-black/50 backdrop-blur-sm z-40 transition-all duration-300 animate-in fade-in" 
+          className="fixed inset-0 bg-black/50 backdrop-blur-sm transition-all duration-300 animate-in fade-in"
+          style={{ zIndex: 9998 }}
           onClick={() => setIsExpanded(false)}
         />
       )}
 
-      <div 
-        className="fixed bottom-4 left-4 sm:bottom-6 sm:left-6 floating-chat-enter"
-        style={{
-          zIndex: 9999,
-          position: 'fixed',
-          isolation: 'isolate'
-        }}
-      >
+      <div className="ios-floating-button">
         
         {/* --- MENÚ EXPANDIDO --- */}
         {isExpanded && (
@@ -176,10 +170,6 @@ const FloatingChatButton = () => {
         <button
           onClick={toggleExpanded}
           className="group relative bg-gradient-to-r from-green-500 via-green-600 to-green-700 hover:from-green-600 hover:via-green-700 hover:to-green-800 text-white rounded-lg sm:rounded-xl shadow-lg sm:shadow-2xl hover:shadow-green-500/50 btn-premium overflow-hidden floating-chat-button"
-          style={{
-            zIndex: 10000,
-            position: 'relative'
-          }}
         >
           {/* Efecto Shine - Deshabilitado en mobile para performance */}
           <div className="hidden sm:block absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent animate-shine shine-effect" />
