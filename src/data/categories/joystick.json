@@ -238,7 +238,7 @@
       "model": "DualSense",
       "category": "Joystick",
       "manufacturerUrl": "https://www.playstation.com/es-ar/accessories/dualsense-wireless-controller/",
-      "price": 13000,
+      "price": 130000,
       "stock": 1,
       "images": [
         "/images/joystick/ps5_sterlingsilver.webp",
@@ -327,49 +327,9 @@
         "peso": "442 g (con pilas)"
       }
     },
+   
     {
       "id": 1106,
-      "name": "Microsoft inalambrico Shock Blue PC/ANDROID/CONSOLA",
-      "brand": "Microsoft",
-      "model": "Xbox Wireless",
-      "category": "Joystick",
-      "manufacturerUrl": "https://www.xbox.com/es-AR/accessories/controllers/xbox-wireless-controller",
-      "price": 100000,
-      "stock": 1,
-      "images": [
-        "/images/joystick/joyst_shockblue.webp",
-        "/images/joystick/joyst_shockblue_side.webp",
-        "/images/joystick/joyst_shockblue_back.webp"
-      ],
-      "description": "Joystick Microsoft Xbox Wireless Controller Series X|S Color Shock Blue",
-      "specifications": {
-        "marca": "Microsoft",
-        "modelo": "Wireless Controller Series X|S",
-        "color": "Shock Blue",
-        "inalambrica": "Sí",
-        "tecnologia": "Xbox Wireless, Bluetooth",
-        "puertoUSBC": "Sí",
-        "cable": "No incluido",
-        "compatibilidad": "Xbox Series X/S, Xbox One, Windows 10/11, Android, iOS",
-        "tipoBateria": "2 × pilas AA",
-        "alimentacion": "2 × pilas AA (incluidas)",
-        "autonomiaAprox": "40 horas",
-        "joystickAnalogicos": "2",
-        "dPad": "Híbrido",
-        "botonesPrincipales": "A, B, X, Y",
-        "botonesFuncion": "Menu, View, Xbox/Home",
-        "bumpers": "2",
-        "gatillosAnalogicos": "2",
-        "botonCompartir": "Sí",
-        "puertoAuriculares": "3.5mm",
-        "vibracion": "Sí",
-        "diseño": "Ergonómico con agarre texturizado en gatillos, bumpers y parte trasera",
-        "dimensiones": "7.01 x 5.61 x 2.83 in",
-        "peso": "15.84 oz"
-      }
-    },
-    {
-      "id": 1107,
       "name": "T-Dagger Scorpio Inalámbrico PC/ANDROID/CONSOLA",
       "brand": "T-Dagger",
       "model": "Scorpio T-TGP802",

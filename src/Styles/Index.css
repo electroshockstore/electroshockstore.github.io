@@ -897,12 +897,15 @@
     left: 0 !important;
     right: 0 !important;
     bottom: 0 !important;
-    z-index: 99999 !important;
+    z-index: 999999 !important;
     -webkit-transform: translate3d(0, 0, 0) !important;
     transform: translate3d(0, 0, 0) !important;
     display: block !important;
     visibility: visible !important;
     pointer-events: auto !important;
+    width: 100vw !important;
+    height: 100vh !important;
+    overflow: hidden !important;
   }
 
   .ios-modal-backdrop {
@@ -915,6 +918,8 @@
     z-index: 1 !important;
     display: block !important;
     visibility: visible !important;
+    width: 100% !important;
+    height: 100% !important;
   }
 
   .ios-modal-content {
@@ -929,6 +934,8 @@
     -webkit-transform: translate3d(0, 0, 0) !important;
     transform: translate3d(0, 0, 0) !important;
     visibility: visible !important;
+    width: 100% !important;
+    height: 100% !important;
   }
 
   .ios-modal-header {
@@ -987,7 +994,7 @@
     position: fixed !important;
     bottom: 1rem !important;
     left: 1rem !important;
-    z-index: 9999 !important;
+    z-index: 99999 !important;
     -webkit-transform: translate3d(0, 0, 0) !important;
     transform: translate3d(0, 0, 0) !important;
     -webkit-backface-visibility: hidden !important;
@@ -1000,13 +1007,12 @@
   
   /* Forzar visibilidad de todos los hijos del botón flotante */
   .ios-floating-button * {
-    display: block !important;
     visibility: visible !important;
-    opacity: 1 !important;
   }
   
   .ios-floating-button button {
     display: flex !important;
+    visibility: visible !important;
   }
 }
 

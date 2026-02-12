@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { createPortal } from 'react-dom';
 import { Send, X, MapPin, FileText } from 'lucide-react'; 
 import { useLocation, useNavigate } from 'react-router-dom';
 
@@ -44,10 +45,20 @@ const FloatingChatButton = () => {
   return (
     <>
       {/* Modal de Condiciones */}
-      {showConditionsModal && (
+      {showConditionsModal && createPortal(
         <div
           className="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-black/90 md:backdrop-blur-md animate-fadeIn"
           onClick={() => setShowConditionsModal(false)}
+          style={{
+            position: 'fixed',
+            top: 0,
+            left: 0,
+            right: 0,
+            bottom: 0,
+            zIndex: 999999,
+            width: '100vw',
+            height: '100vh'
+          }}
         >
           <div
             className="relative bg-gradient-to-br from-gray-900 via-gray-800 to-black rounded-3xl shadow-2xl max-w-2xl w-full border border-gray-700/50 overflow-hidden modal-scale-enter"
@@ -99,25 +110,29 @@ const FloatingChatButton = () => {
               </button>
             </div>
           </div>
-        </div>
+        </div>,
+        document.body
       )}
 
       {/* Backdrop con blur cuando está expandido - Blur en mobile también */}
-      {isExpanded && (
+      {isExpanded && createPortal(
         <div 
           className="fixed inset-0 bg-black/50 backdrop-blur-sm transition-all duration-300 animate-in fade-in"
           style={{ 
-            zIndex: 9998,
+            zIndex: 99998,
             position: 'fixed',
             top: 0,
             left: 0,
             right: 0,
             bottom: 0,
             display: 'block',
-            visibility: 'visible'
+            visibility: 'visible',
+            width: '100vw',
+            height: '100vh'
           }}
           onClick={() => setIsExpanded(false)}
-        />
+        />,
+        document.body
       )}
 
       <div 

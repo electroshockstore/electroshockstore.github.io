@@ -1,4 +1,5 @@
 import { useState, useRef, useEffect } from 'react';
+import { createPortal } from 'react-dom';
 import { categories } from '../../data';
 import { Grid3X3, ChevronDown, ChevronLeft, ChevronRight, X } from 'lucide-react';
 import {
@@ -152,8 +153,8 @@ const CategoryFilter = ({ selectedCategory, onCategoryChange }) => {
               </div>
             </button>
 
-            {/* Modal Fullscreen - Diseño Moderno Mejorado */}
-            {isOpen && (
+            {/* Modal Fullscreen - Diseño Moderno Mejorado - USANDO PORTAL */}
+            {isOpen && createPortal(
               <div 
                 className="ios-modal-wrapper"
                 style={{
@@ -162,9 +163,11 @@ const CategoryFilter = ({ selectedCategory, onCategoryChange }) => {
                   left: 0,
                   right: 0,
                   bottom: 0,
-                  zIndex: 99999,
+                  zIndex: 999999,
                   display: 'block',
-                  visibility: 'visible'
+                  visibility: 'visible',
+                  width: '100vw',
+                  height: '100vh'
                 }}
               >
                 {/* Backdrop - Fijo y sin scroll */}
@@ -179,7 +182,9 @@ const CategoryFilter = ({ selectedCategory, onCategoryChange }) => {
                     bottom: 0,
                     zIndex: 1,
                     display: 'block',
-                    visibility: 'visible'
+                    visibility: 'visible',
+                    width: '100%',
+                    height: '100%'
                   }}
                 />
 
@@ -195,7 +200,9 @@ const CategoryFilter = ({ selectedCategory, onCategoryChange }) => {
                     zIndex: 2,
                     display: 'flex',
                     flexDirection: 'column',
-                    visibility: 'visible'
+                    visibility: 'visible',
+                    width: '100%',
+                    height: '100%'
                   }}
                 >
                   {/* Header del modal - Mejorado con gradiente */}
@@ -308,7 +315,8 @@ const CategoryFilter = ({ selectedCategory, onCategoryChange }) => {
                     </div>
                   </div>
                 </div>
-              </div>
+              </div>,
+              document.body
             )}
           </div>
 
