@@ -830,6 +830,10 @@
       [
         1770032112311,
         290000
+      ],
+      [
+        1770907782206,
+        280000
       ]
     ]
   },
@@ -851,6 +855,10 @@
       [
         1770032112311,
         220000
+      ],
+      [
+        1770907782206,
+        210000
       ]
     ]
   },
@@ -868,6 +876,10 @@
       [
         1770032112311,
         380000
+      ],
+      [
+        1770907782206,
+        370000
       ]
     ]
   },
@@ -1095,16 +1107,20 @@
     ]
   },
   "421": {
-    "name": "Adata Premier 8GB U-DIMM DDR3 1600MHz",
+    "name": "Kingston ValueRAM 8GB DDR4 3200MHz CL22",
     "h": [
       [
         1769519369796,
         40000
+      ],
+      [
+        1770907782206,
+        90000
       ]
     ]
   },
   "422": {
-    "name": "Kingston ValueRAM 8GB DDR4 3200MHz CL22",
+    "name": "Netac Basic DDR4 SODIMM 16GB 3200MHz CL22",
     "h": [
       [
         1769519369796,
@@ -1113,6 +1129,28 @@
       [
         1770032112311,
         90000
+      ],
+      [
+        1770907782206,
+        200000
+      ]
+    ]
+  },
+  "423": {
+    "name": "ADATA Premier DDR4 16GB 3200MHz SODIMM",
+    "h": [
+      [
+        1770907782206,
+        240000
+      ]
+    ]
+  },
+  "424": {
+    "name": "Adata Premier 8GB U-DIMM DDR3 1600MHz",
+    "h": [
+      [
+        1770907782206,
+        40000
       ]
     ]
   },
@@ -1925,11 +1963,15 @@
     ]
   },
   "1104": {
-    "name": "Microsoft inalambrico Robot White PC/ANDROID/CONSOLA",
+    "name": "Sony DualSense PS5 Sterling Silver",
     "h": [
       [
         1768571377217,
         100000
+      ],
+      [
+        1770907782206,
+        13000
       ]
     ]
   },
@@ -1943,10 +1985,23 @@
     ]
   },
   "1106": {
-    "name": "T-Dagger Scorpio Inalámbrico PC/ANDROID/CONSOLA",
+    "name": "Microsoft inalambrico Shock Blue PC/ANDROID/CONSOLA",
     "h": [
       [
         1768571377217,
+        40000
+      ],
+      [
+        1770907782206,
+        100000
+      ]
+    ]
+  },
+  "1107": {
+    "name": "T-Dagger Scorpio Inalámbrico PC/ANDROID/CONSOLA",
+    "h": [
+      [
+        1770907782206,
         40000
       ]
     ]
