@@ -106,16 +106,46 @@ const FloatingChatButton = () => {
       {isExpanded && (
         <div 
           className="fixed inset-0 bg-black/50 backdrop-blur-sm transition-all duration-300 animate-in fade-in"
-          style={{ zIndex: 9998 }}
+          style={{ 
+            zIndex: 9998,
+            position: 'fixed',
+            top: 0,
+            left: 0,
+            right: 0,
+            bottom: 0,
+            display: 'block',
+            visibility: 'visible'
+          }}
           onClick={() => setIsExpanded(false)}
         />
       )}
 
-      <div className="ios-floating-button">
+      <div 
+        className="ios-floating-button"
+        style={{
+          position: 'fixed',
+          bottom: '1rem',
+          left: '1rem',
+          zIndex: 9999,
+          display: 'block',
+          visibility: 'visible',
+          opacity: 1,
+          pointerEvents: 'auto'
+        }}
+      >
         
         {/* --- MENÚ EXPANDIDO --- */}
         {isExpanded && (
-          <div className="relative flex flex-col items-stretch gap-3.5 mb-3 chat-options-enter animate-in slide-in-from-bottom-4 fade-in duration-300 z-50 w-[350px] sm:w-auto">
+          <div 
+            className="relative flex flex-col items-stretch gap-3.5 mb-3 chat-options-enter animate-in slide-in-from-bottom-4 fade-in duration-300 z-50 w-[350px] sm:w-auto"
+            style={{
+              position: 'relative',
+              zIndex: 50,
+              display: 'flex',
+              visibility: 'visible',
+              opacity: 1
+            }}
+          >
             
             {/* WhatsApp */}
             <button

@@ -154,15 +154,50 @@ const CategoryFilter = ({ selectedCategory, onCategoryChange }) => {
 
             {/* Modal Fullscreen - Diseño Moderno Mejorado */}
             {isOpen && (
-              <div className="ios-modal-wrapper">
+              <div 
+                className="ios-modal-wrapper"
+                style={{
+                  position: 'fixed',
+                  top: 0,
+                  left: 0,
+                  right: 0,
+                  bottom: 0,
+                  zIndex: 99999,
+                  display: 'block',
+                  visibility: 'visible'
+                }}
+              >
                 {/* Backdrop - Fijo y sin scroll */}
                 <div
                   className="ios-modal-backdrop"
                   onClick={() => setIsOpen(false)}
+                  style={{
+                    position: 'fixed',
+                    top: 0,
+                    left: 0,
+                    right: 0,
+                    bottom: 0,
+                    zIndex: 1,
+                    display: 'block',
+                    visibility: 'visible'
+                  }}
                 />
 
                 {/* Modal Content - Completamente fijo */}
-                <div className="ios-modal-content">
+                <div 
+                  className="ios-modal-content"
+                  style={{
+                    position: 'fixed',
+                    top: 0,
+                    left: 0,
+                    right: 0,
+                    bottom: 0,
+                    zIndex: 2,
+                    display: 'flex',
+                    flexDirection: 'column',
+                    visibility: 'visible'
+                  }}
+                >
                   {/* Header del modal - Mejorado con gradiente */}
                   <div className="ios-modal-header">
                     {/* Glow decorativo */}
