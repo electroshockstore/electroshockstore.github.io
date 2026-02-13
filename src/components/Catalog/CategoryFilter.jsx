@@ -1,4 +1,5 @@
 import { useState, useRef, useEffect } from 'react';
+import { createPortal } from 'react-dom';
 import { categories } from '../../data';
 import { Grid3X3, ChevronDown, ChevronLeft, ChevronRight, X } from 'lucide-react';
 import {
@@ -59,14 +60,20 @@ const CategoryFilter = ({ selectedCategory, onCategoryChange }) => {
       // Guardar posición actual del scroll
       const scrollY = window.scrollY;
       
-      // Agregar clase al body para bloquear scroll
-      document.body.classList.add('modal-open');
+      // Bloquear scroll del body
+      document.body.style.position = 'fixed';
       document.body.style.top = `-${scrollY}px`;
+      document.body.style.left = '0';
+      document.body.style.right = '0';
+      document.body.style.width = '100%';
 
       return () => {
-        // Remover clase y restaurar scroll
-        document.body.classList.remove('modal-open');
+        // Restaurar scroll del body
+        document.body.style.position = '';
         document.body.style.top = '';
+        document.body.style.left = '';
+        document.body.style.right = '';
+        document.body.style.width = '';
         window.scrollTo(0, scrollY);
       };
     }
@@ -87,131 +94,139 @@ const CategoryFilter = ({ selectedCategory, onCategoryChange }) => {
     onCategoryChange(category);
   };
 
-  return (
-    <>
-      {/* Modal Fullscreen - FUERA del contenedor principal para evitar contexto de apilamiento */}
-      {isOpen && (
-        <div className="modal-fullscreen-wrapper">
-          {/* Backdrop */}
-          <div
-            className="modal-fullscreen-backdrop"
-            onClick={() => setIsOpen(false)}
-          />
+  // Renderizar modal usando Portal
+  const renderModal = () => {
+    if (!isOpen) return null;
 
-          {/* Modal Content */}
-          <div className="modal-fullscreen-content">
-            {/* Header del modal */}
-            <div className="modal-fullscreen-header">
-              {/* Glow decorativo */}
-              <div className="absolute top-0 left-1/4 w-64 h-64 bg-blue-500/20 rounded-full blur-3xl" />
-              <div className="absolute top-0 right-1/4 w-64 h-64 bg-purple-500/20 rounded-full blur-3xl" />
-              
-              <div className="flex items-center gap-4 relative z-10">
-                <div className="p-3 rounded-2xl bg-gradient-to-br from-blue-500 via-blue-600 to-purple-600 shadow-xl box-glow-blue">
-                  <Grid3X3 className="h-7 w-7 text-white" strokeWidth={2.5} />
-                </div>
-                <div>
-                  <h2 className="text-2xl font-black text-white tracking-tight text-glow-blue">Categorías</h2>
-                  <p className="text-sm text-gray-400 font-semibold mt-0.5">{categories.length} opciones disponibles</p>
-                </div>
+    return createPortal(
+      <div className="modal-fullscreen-wrapper">
+        {/* Backdrop */}
+        <div
+          className="modal-fullscreen-backdrop"
+          onClick={() => setIsOpen(false)}
+        />
+
+        {/* Modal Content */}
+        <div className="modal-fullscreen-content">
+          {/* Header del modal */}
+          <div className="modal-fullscreen-header">
+            {/* Glow decorativo */}
+            <div className="absolute top-0 left-1/4 w-64 h-64 bg-blue-500/20 rounded-full blur-3xl" />
+            <div className="absolute top-0 right-1/4 w-64 h-64 bg-purple-500/20 rounded-full blur-3xl" />
+            
+            <div className="flex items-center gap-4 relative z-10">
+              <div className="p-3 rounded-2xl bg-gradient-to-br from-blue-500 via-blue-600 to-purple-600 shadow-xl box-glow-blue">
+                <Grid3X3 className="h-7 w-7 text-white" strokeWidth={2.5} />
               </div>
-              <button
-                onClick={() => setIsOpen(false)}
-                className="p-2.5 hover:bg-white/10 rounded-xl transition-all duration-200 active:scale-90 backdrop-blur-sm border border-white/10 relative z-10"
-              >
-                <X className="h-6 w-6 text-gray-300 hover:text-white transition-colors" strokeWidth={2.5} />
-              </button>
+              <div>
+                <h2 className="text-2xl font-black text-white tracking-tight text-glow-blue">Categorías</h2>
+                <p className="text-sm text-gray-400 font-semibold mt-0.5">{categories.length} opciones disponibles</p>
+              </div>
             </div>
+            <button
+              onClick={() => setIsOpen(false)}
+              className="p-2.5 hover:bg-white/10 rounded-xl transition-all duration-200 active:scale-90 backdrop-blur-sm border border-white/10 relative z-10"
+            >
+              <X className="h-6 w-6 text-gray-300 hover:text-white transition-colors" strokeWidth={2.5} />
+            </button>
+          </div>
 
-            {/* Grid de categorías */}
-            <div className="modal-fullscreen-scroll category-grid-scroll">
-              {/* Pattern decorativo sutil */}
-              <div className="absolute inset-0 opacity-5 bg-grain pointer-events-none" />
-              
-              <div className="grid grid-cols-2 gap-4 max-w-md mx-auto relative z-10">
-                {categories.map((category, index) => {
-                  const isSelected = selectedCategory === category;
-                  const categoryImage = getCategoryImage(category);
-                  const isTopImage = index < 4;
+          {/* Grid de categorías */}
+          <div className="modal-fullscreen-scroll category-grid-scroll">
+            {/* Pattern decorativo sutil */}
+            <div className="absolute inset-0 opacity-5 bg-grain pointer-events-none" />
+            
+            <div className="grid grid-cols-2 gap-4 max-w-md mx-auto relative z-10">
+              {categories.map((category, index) => {
+                const isSelected = selectedCategory === category;
+                const categoryImage = getCategoryImage(category);
+                const isTopImage = index < 4;
 
-                  return (
-                    <button
-                      key={category}
-                      onClick={() => handleCategorySelect(category)}
-                      style={{ animationDelay: `${index * 30}ms` }}
-                      className={`
-                        relative overflow-hidden rounded-2xl font-bold
-                        transition-all duration-200 animate-in fade-in zoom-in-95
-                        ${isSelected
-                          ? 'shadow-[0_8px_30px_rgba(59,130,246,0.6),0_0_60px_rgba(59,130,246,0.3)] scale-[1.05] ring-2 ring-blue-400/80 box-glow-blue'
-                          : 'shadow-[0_8px_24px_rgba(0,0,0,0.3),0_4px_12px_rgba(0,0,0,0.2)] hover:shadow-[0_12px_32px_rgba(0,0,0,0.4),0_6px_16px_rgba(0,0,0,0.25)] active:scale-[0.97] hover:scale-[1.02]'
-                        }
-                      `}
-                    >
-                      <div className="relative aspect-[4/3] w-full">
-                        <img
-                          src={categoryImage}
-                          alt={category}
-                          className={`
-                            absolute inset-0 w-full h-full object-cover
-                            transition-all duration-200
-                            ${isSelected ? 'scale-110 brightness-110' : 'brightness-90 hover:brightness-100'}
-                          `}
-                          loading={isTopImage ? "eager" : "lazy"}
-                          fetchpriority={isTopImage ? "high" : "low"}
-                          decoding="async"
-                        />
-
-                        <div className={`
-                          absolute inset-0 bg-gradient-to-t from-black/95 via-black/60 to-transparent
+                return (
+                  <button
+                    key={category}
+                    onClick={() => handleCategorySelect(category)}
+                    style={{ animationDelay: `${index * 30}ms` }}
+                    className={`
+                      relative overflow-hidden rounded-2xl font-bold
+                      transition-all duration-200 animate-in fade-in zoom-in-95
+                      ${isSelected
+                        ? 'shadow-[0_8px_30px_rgba(59,130,246,0.6),0_0_60px_rgba(59,130,246,0.3)] scale-[1.05] ring-2 ring-blue-400/80 box-glow-blue'
+                        : 'shadow-[0_8px_24px_rgba(0,0,0,0.3),0_4px_12px_rgba(0,0,0,0.2)] hover:shadow-[0_12px_32px_rgba(0,0,0,0.4),0_6px_16px_rgba(0,0,0,0.25)] active:scale-[0.97] hover:scale-[1.02]'
+                      }
+                    `}
+                  >
+                    <div className="relative aspect-[4/3] w-full">
+                      <img
+                        src={categoryImage}
+                        alt={category}
+                        className={`
+                          absolute inset-0 w-full h-full object-cover
                           transition-all duration-200
-                          ${isSelected ? 'from-blue-900/90 via-black/50' : ''}
-                        `} />
+                          ${isSelected ? 'scale-110 brightness-110' : 'brightness-90 hover:brightness-100'}
+                        `}
+                        loading={isTopImage ? "eager" : "lazy"}
+                        fetchpriority={isTopImage ? "high" : "low"}
+                        decoding="async"
+                      />
 
-                        {isSelected && (
-                          <div className="absolute top-3 right-3 bg-gradient-to-r from-blue-500 to-blue-600 text-white px-3 py-1.5 rounded-full text-xs font-black shadow-xl animate-in zoom-in-50 duration-200 flex items-center gap-1.5 border border-white/20">
-                            <div className="w-1.5 h-1.5 rounded-full bg-white animate-pulse" />
-                            Activa
+                      <div className={`
+                        absolute inset-0 bg-gradient-to-t from-black/95 via-black/60 to-transparent
+                        transition-all duration-200
+                        ${isSelected ? 'from-blue-900/90 via-black/50' : ''}
+                      `} />
+
+                      {isSelected && (
+                        <div className="absolute top-3 right-3 bg-gradient-to-r from-blue-500 to-blue-600 text-white px-3 py-1.5 rounded-full text-xs font-black shadow-xl animate-in zoom-in-50 duration-200 flex items-center gap-1.5 border border-white/20">
+                          <div className="w-1.5 h-1.5 rounded-full bg-white animate-pulse" />
+                          Activa
+                        </div>
+                      )}
+
+                      <div className="absolute inset-x-0 bottom-0 p-4 flex flex-col items-start gap-1.5">
+                        <span className={`
+                          text-white font-black leading-tight drop-shadow-[0_2px_12px_rgba(0,0,0,0.9)]
+                          transition-all duration-200
+                          ${isSelected ? 'text-xl text-glow-blue' : 'text-base'}
+                        `}>
+                          {category}
+                        </span>
+
+                        {!isSelected && (
+                          <div className="flex items-center gap-1.5 opacity-90">
+                            <div className="w-1 h-1 rounded-full bg-blue-400" />
+                            <span className="text-xs text-gray-300 font-semibold">Toca para filtrar</span>
                           </div>
                         )}
-
-                        <div className="absolute inset-x-0 bottom-0 p-4 flex flex-col items-start gap-1.5">
-                          <span className={`
-                            text-white font-black leading-tight drop-shadow-[0_2px_12px_rgba(0,0,0,0.9)]
-                            transition-all duration-200
-                            ${isSelected ? 'text-xl text-glow-blue' : 'text-base'}
-                          `}>
-                            {category}
-                          </span>
-
-                          {!isSelected && (
-                            <div className="flex items-center gap-1.5 opacity-90">
-                              <div className="w-1 h-1 rounded-full bg-blue-400" />
-                              <span className="text-xs text-gray-300 font-semibold">Toca para filtrar</span>
-                            </div>
-                          )}
-                        </div>
                       </div>
-                    </button>
-                  );
-                })}
-              </div>
+                    </div>
+                  </button>
+                );
+              })}
             </div>
+          </div>
 
-            {/* Footer */}
-            <div className="modal-fullscreen-footer">
-              {/* Glow decorativo inferior */}
-              <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-96 h-32 bg-gradient-to-t from-blue-500/10 to-transparent blur-2xl" />
-              
-              <div className="flex items-center justify-center gap-3 text-sm text-gray-300 relative z-10">
-                <div className="w-10 h-1 bg-gradient-to-r from-transparent via-blue-500 to-transparent rounded-full" />
-                <span className="font-bold">Selecciona una categoría</span>
-                <div className="w-10 h-1 bg-gradient-to-r from-transparent via-purple-500 to-transparent rounded-full" />
-              </div>
+          {/* Footer */}
+          <div className="modal-fullscreen-footer">
+            {/* Glow decorativo inferior */}
+            <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-96 h-32 bg-gradient-to-t from-blue-500/10 to-transparent blur-2xl" />
+            
+            <div className="flex items-center justify-center gap-3 text-sm text-gray-300 relative z-10">
+              <div className="w-10 h-1 bg-gradient-to-r from-transparent via-blue-500 to-transparent rounded-full" />
+              <span className="font-bold">Selecciona una categoría</span>
+              <div className="w-10 h-1 bg-gradient-to-r from-transparent via-purple-500 to-transparent rounded-full" />
             </div>
           </div>
         </div>
-      )}
+      </div>,
+      document.body
+    );
+  };
+
+  return (
+    <>
+      {/* Modal renderizado con Portal */}
+      {renderModal()}
 
       <div className="relative group z-20 w-full category-filter">
         {/* CAPAS DE RESPLANDOR ORIGINALES */}
@@ -268,7 +283,7 @@ const CategoryFilter = ({ selectedCategory, onCategoryChange }) => {
               </div>
             </button>
 
-              {/* NOTA: El modal ahora está FUERA de este contenedor, al inicio del return */}
+              {/* Modal renderizado con Portal - Ver función renderModal() arriba */}
             </div>
 
             {/* DESKTOP: SEGMENTED CONTROL HORIZONTAL SIEMPRE EN UNA FILA */}
