@@ -30,7 +30,7 @@ const ScrollButton = () => {
 
   return (
     <Portal>
-      <div className="fixed bottom-4 right-4 sm:bottom-6 sm:right-6 z-[1001]">
+      <div className="floating-button-fixed-right z-[1001]">
       {/* Botón Scroll to Top */}
       <button
         onClick={scrollToTop}

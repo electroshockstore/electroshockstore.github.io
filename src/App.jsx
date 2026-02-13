@@ -1,4 +1,4 @@
-import { lazy, Suspense } from 'react';
+import { lazy, Suspense, useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { FilterProvider } from "./context/FilterContext";
 import { PCBuilderProvider } from "./context/PCBuilderContext";
@@ -9,6 +9,7 @@ import SkipToContent from "./components/SEO/SkipToContent";
 import ModernLoader from "./components/Shared/ModernLoader";
 import ScrollToTop from "./components/Shared/ScrollToTop";
 import FloatingChatButton from "./components/Shared/FloatingChatButton";
+import useIOSDetection from "./hooks/useIOSDetection";
 
 // Lazy load de páginas principales
 const Home = lazy(() => import("./pages/Home"));
@@ -65,6 +66,9 @@ function AppContent() {
 }
 
 function App() {
+  // Detectar iOS y aplicar estilos específicos
+  useIOSDetection();
+  
   return (
     <ErrorBoundary>
       <FilterProvider>

@@ -13,9 +13,22 @@ const CategoryFilter = ({ selectedCategory, onCategoryChange }) => {
   const [showLeftArrow, setShowLeftArrow] = useState(false);
   const [showRightArrow, setShowRightArrow] = useState(false);
   const [savedScrollPosition, setSavedScrollPosition] = useState(0);
+  
+  // Detectar iOS para optimizaciones específicas
+  const [isIOS, setIsIOS] = useState(false);
 
   const dropdownRef = useRef(null);
   const scrollContainerRef = useRef(null);
+
+  // Detectar iOS al montar el componente
+  useEffect(() => {
+    const detectIOS = () => {
+      const ios = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
+      setIsIOS(ios);
+    };
+    
+    detectIOS();
+  }, []);
 
   // Lógica de Scroll (optimizada sin dependencias circulares)
   useEffect(() => {
@@ -134,22 +147,26 @@ const CategoryFilter = ({ selectedCategory, onCategoryChange }) => {
         <div className="modal-fullscreen-content">
           {/* Header del modal */}
           <div className="modal-fullscreen-header">
-            {/* Glow decorativo */}
-            <div className="absolute top-0 left-1/4 w-64 h-64 bg-blue-500/20 rounded-full blur-3xl" />
-            <div className="absolute top-0 right-1/4 w-64 h-64 bg-purple-500/20 rounded-full blur-3xl" />
+            {/* Glow decorativo - Solo en desktop, no en iOS */}
+            {!isIOS && (
+              <>
+                <div className="absolute top-0 left-1/4 w-64 h-64 bg-blue-500/20 rounded-full blur-3xl" />
+                <div className="absolute top-0 right-1/4 w-64 h-64 bg-purple-500/20 rounded-full blur-3xl" />
+              </>
+            )}
             
             <div className="flex items-center gap-4 relative z-10">
-              <div className="p-3 rounded-2xl bg-gradient-to-br from-blue-500 via-blue-600 to-purple-600 shadow-xl box-glow-blue">
+              <div className={`p-3 rounded-2xl bg-gradient-to-br from-blue-500 via-blue-600 to-purple-600 shadow-xl ${!isIOS ? 'box-glow-blue' : ''}`}>
                 <Grid3X3 className="h-7 w-7 text-white" strokeWidth={2.5} />
               </div>
               <div>
-                <h2 className="text-2xl font-black text-white tracking-tight text-glow-blue">Categorías</h2>
+                <h2 className={`text-2xl font-black text-white tracking-tight ${!isIOS ? 'text-glow-blue' : ''}`}>Categorías</h2>
                 <p className="text-sm text-gray-400 font-semibold mt-0.5">{categories.length} opciones disponibles</p>
               </div>
             </div>
             <button
               onClick={() => setIsOpen(false)}
-              className="p-2.5 hover:bg-white/10 rounded-xl transition-all duration-200 active:scale-90 backdrop-blur-sm border border-white/10 relative z-10"
+              className={`p-2.5 hover:bg-white/10 rounded-xl transition-all duration-200 active:scale-90 ${!isIOS ? 'backdrop-blur-sm' : ''} border border-white/10 relative z-10`}
             >
               <X className="h-6 w-6 text-gray-300 hover:text-white transition-colors" strokeWidth={2.5} />
             </button>
@@ -181,9 +198,9 @@ const CategoryFilter = ({ selectedCategory, onCategoryChange }) => {
                     }}
                     className={`
                       relative overflow-hidden rounded-2xl font-bold
-                      transition-all duration-200 animate-in fade-in zoom-in-95
+                      transition-all duration-200 ${!isIOS ? 'animate-in fade-in zoom-in-95' : ''}
                       ${isSelected
-                        ? 'shadow-[0_8px_30px_rgba(59,130,246,0.6),0_0_60px_rgba(59,130,246,0.3)] scale-[1.05] ring-2 ring-blue-400/80 box-glow-blue'
+                        ? `${!isIOS ? 'shadow-[0_8px_30px_rgba(59,130,246,0.6),0_0_60px_rgba(59,130,246,0.3)]' : 'shadow-[0_8px_24px_rgba(59,130,246,0.4)]'} scale-[1.05] ring-2 ring-blue-400/80 ${!isIOS ? 'box-glow-blue' : ''}`
                         : 'shadow-[0_8px_24px_rgba(0,0,0,0.3),0_4px_12px_rgba(0,0,0,0.2)] hover:shadow-[0_12px_32px_rgba(0,0,0,0.4),0_6px_16px_rgba(0,0,0,0.25)] active:scale-[0.97] hover:scale-[1.02]'
                       }
                     `}
@@ -209,8 +226,8 @@ const CategoryFilter = ({ selectedCategory, onCategoryChange }) => {
                       `} />
 
                       {isSelected && (
-                        <div className="absolute top-3 right-3 bg-gradient-to-r from-blue-500 to-blue-600 text-white px-3 py-1.5 rounded-full text-xs font-black shadow-xl animate-in zoom-in-50 duration-200 flex items-center gap-1.5 border border-white/20 pointer-events-none">
-                          <div className="w-1.5 h-1.5 rounded-full bg-white animate-pulse" />
+                        <div className={`absolute top-3 right-3 bg-gradient-to-r from-blue-500 to-blue-600 text-white px-3 py-1.5 rounded-full text-xs font-black shadow-xl ${!isIOS ? 'animate-in zoom-in-50' : ''} duration-200 flex items-center gap-1.5 border border-white/20 pointer-events-none`}>
+                          <div className={`w-1.5 h-1.5 rounded-full bg-white ${!isIOS ? 'animate-pulse' : ''}`} />
                           Activa
                         </div>
                       )}
@@ -219,7 +236,7 @@ const CategoryFilter = ({ selectedCategory, onCategoryChange }) => {
                         <span className={`
                           text-white font-black leading-tight drop-shadow-[0_2px_12px_rgba(0,0,0,0.9)]
                           transition-all duration-200
-                          ${isSelected ? 'text-xl text-glow-blue' : 'text-base'}
+                          ${isSelected ? `text-xl ${!isIOS ? 'text-glow-blue' : ''}` : 'text-base'}
                         `}>
                           {category}
                         </span>
@@ -324,7 +341,7 @@ const CategoryFilter = ({ selectedCategory, onCategoryChange }) => {
             {showLeftArrow && (
               <button
                 onClick={() => handleScroll('left')}
-                className="absolute left-2 z-30 p-1.5 bg-white/90 backdrop-blur-md rounded-full shadow-lg border border-gray-100 text-gray-700 hover:text-blue-600 transition-all hover:scale-110 active:scale-95"
+                className={`absolute left-2 z-30 p-1.5 bg-white/90 ${!isIOS ? 'backdrop-blur-md' : ''} rounded-full shadow-lg border border-gray-100 text-gray-700 hover:text-blue-600 transition-all hover:scale-110 active:scale-95`}
               >
                 <ChevronLeft size={20} strokeWidth={3} />
               </button>
@@ -356,7 +373,7 @@ const CategoryFilter = ({ selectedCategory, onCategoryChange }) => {
                     <div className={`
                       p-1 md:p-1.5 rounded-xl transition-all duration-300
                       ${isSelected
-                        ? 'bg-white/20 backdrop-blur-sm'
+                        ? `bg-white/20 ${!isIOS ? 'backdrop-blur-sm' : ''}`
                         : 'bg-white shadow-sm border border-slate-100'
                       }
                     `}>
@@ -375,7 +392,7 @@ const CategoryFilter = ({ selectedCategory, onCategoryChange }) => {
             {showRightArrow && (
               <button
                 onClick={() => handleScroll('right')}
-                className="absolute right-2 z-30 p-1.5 bg-white/90 backdrop-blur-md rounded-full shadow-lg border border-gray-100 text-gray-700 hover:text-blue-600 transition-all hover:scale-110 active:scale-95"
+                className={`absolute right-2 z-30 p-1.5 bg-white/90 ${!isIOS ? 'backdrop-blur-md' : ''} rounded-full shadow-lg border border-gray-100 text-gray-700 hover:text-blue-600 transition-all hover:scale-110 active:scale-95`}
               >
                 <ChevronRight size={20} strokeWidth={3} />
               </button>

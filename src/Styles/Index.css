@@ -938,16 +938,34 @@
   -webkit-tap-highlight-color: transparent !important;
   touch-action: manipulation !important;
   /* Fallback primero, luego el moderno con safe-area */
-  bottom: 1rem !important;
-  left: 1rem !important;
   bottom: calc(1rem + env(safe-area-inset-bottom, 0px)) !important;
   left: calc(1rem + env(safe-area-inset-left, 0px)) !important;
 }
 
+.floating-button-fixed-right {
+  position: fixed !important;
+  z-index: 99999 !important;
+  transform: translate3d(0, 0, 0) !important;
+  -webkit-transform: translate3d(0, 0, 0) !important;
+  -webkit-backface-visibility: hidden !important;
+  backface-visibility: hidden !important;
+  cursor: pointer !important;
+  -webkit-tap-highlight-color: transparent !important;
+  touch-action: manipulation !important;
+  /* Fallback primero, luego el moderno con safe-area */
+  bottom: calc(1rem + env(safe-area-inset-bottom, 0px)) !important;
+  right: calc(1rem + env(safe-area-inset-right, 0px)) !important;
+}
+
 @media (min-width: 640px) {
   .floating-button-fixed {
-    bottom: 1.5rem !important;
-    left: 1.5rem !important;
+    bottom: calc(1.5rem + env(safe-area-inset-bottom, 0px)) !important;
+    left: calc(1.5rem + env(safe-area-inset-left, 0px)) !important;
+  }
+  
+  .floating-button-fixed-right {
+    bottom: calc(1.5rem + env(safe-area-inset-bottom, 0px)) !important;
+    right: calc(1.5rem + env(safe-area-inset-right, 0px)) !important;
   }
 }
 
@@ -2460,4 +2478,102 @@ button:has(.loading-spinner) {
   ::view-transition-new(category-modal) {
     animation-duration: 0.25s;
   }
+}
+/* ===== ESTILOS ESPECÍFICOS PARA iOS ===== */
+
+/* Detección de iOS usando JavaScript - estas clases se agregan dinámicamente */
+.is-ios .floating-button-fixed,
+.is-ios .floating-button-fixed-right {
+  /* Forzar GPU acceleration y stacking context limpio */
+  -webkit-transform: translate3d(0, 0, 0) !important;
+  transform: translate3d(0, 0, 0) !important;
+  -webkit-backface-visibility: hidden !important;
+  backface-visibility: hidden !important;
+  -webkit-perspective: 1000 !important;
+  perspective: 1000 !important;
+  /* Asegurar visibilidad */
+  visibility: visible !important;
+  display: block !important;
+  opacity: 1 !important;
+  /* Stacking context limpio */
+  isolation: isolate !important;
+  contain: layout style paint !important;
+}
+
+/* iOS Safari: Asegurar que los botones flotantes respeten safe areas */
+@supports (-webkit-touch-callout: none) {
+  .floating-button-fixed {
+    bottom: calc(1rem + env(safe-area-inset-bottom, 0px) + constant(safe-area-inset-bottom, 0px)) !important;
+    left: calc(1rem + env(safe-area-inset-left, 0px) + constant(safe-area-inset-left, 0px)) !important;
+  }
+  
+  .floating-button-fixed-right {
+    bottom: calc(1rem + env(safe-area-inset-bottom, 0px) + constant(safe-area-inset-bottom, 0px)) !important;
+    right: calc(1rem + env(safe-area-inset-right, 0px) + constant(safe-area-inset-right, 0px)) !important;
+  }
+  
+  @media (min-width: 640px) {
+    .floating-button-fixed {
+      bottom: calc(1.5rem + env(safe-area-inset-bottom, 0px) + constant(safe-area-inset-bottom, 0px)) !important;
+      left: calc(1.5rem + env(safe-area-inset-left, 0px) + constant(safe-area-inset-left, 0px)) !important;
+    }
+    
+    .floating-button-fixed-right {
+      bottom: calc(1.5rem + env(safe-area-inset-bottom, 0px) + constant(safe-area-inset-bottom, 0px)) !important;
+      right: calc(1.5rem + env(safe-area-inset-right, 0px) + constant(safe-area-inset-right, 0px)) !important;
+    }
+  }
+}
+
+/* iOS: Desactivar efectos pesados que causan problemas de rendimiento */
+.is-ios .blur-3xl,
+.is-ios .blur-2xl,
+.is-ios .blur-xl,
+.is-ios .backdrop-blur-3xl,
+.is-ios .backdrop-blur-2xl,
+.is-ios .backdrop-blur-xl,
+.is-ios .backdrop-blur-lg,
+.is-ios .backdrop-blur-md {
+  filter: none !important;
+  backdrop-filter: none !important;
+}
+
+/* iOS: Simplificar animaciones complejas */
+.is-ios .animate-pulse-ring,
+.is-ios .animate-wiggle,
+.is-ios .animate-accent-line,
+.is-ios .animate-float-particle-1,
+.is-ios .animate-float-particle-2,
+.is-ios .animate-shimmer,
+.is-ios .animate-shine {
+  animation: none !important;
+}
+
+/* iOS: Asegurar que los modales fullscreen funcionen correctamente */
+.is-ios .modal-fullscreen-wrapper {
+  /* Usar dvh para viewport dinámico en iOS */
+  height: 100dvh !important;
+  width: 100dvw !important;
+  /* Forzar stacking context limpio */
+  isolation: isolate !important;
+  contain: layout style paint !important;
+}
+
+/* iOS: Asegurar que el portal-root tenga un stacking context limpio */
+#portal-root {
+  position: relative;
+  z-index: 999999;
+  isolation: isolate;
+  contain: layout style paint;
+}
+
+/* iOS: Prevenir transformaciones problemáticas en ancestros */
+.is-ios #root,
+.is-ios body,
+.is-ios html {
+  transform: none !important;
+  -webkit-transform: none !important;
+  will-change: auto !important;
+  filter: none !important;
+  backdrop-filter: none !important;
 }

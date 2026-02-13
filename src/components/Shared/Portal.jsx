@@ -2,7 +2,8 @@ import { useEffect, useState } from 'react';
 import { createPortal } from 'react-dom';
 
 /**
- * Portal Component - Renderiza children directamente en document.body
+ * Portal Component - Renderiza children en #portal-root (hermano de #root)
+ * Esto evita problemas de stacking context en iOS Safari/Webkit
  * 
  * Uso:
  * <Portal>
@@ -19,7 +20,13 @@ const Portal = ({ children }) => {
 
   if (!mounted) return null;
 
-  return createPortal(children, document.body);
+  const portalRoot = document.getElementById('portal-root');
+  if (!portalRoot) {
+    console.error('portal-root no encontrado en el DOM');
+    return null;
+  }
+
+  return createPortal(children, portalRoot);
 };
 
 export default Portal;
