@@ -904,7 +904,9 @@
     visibility: visible !important;
     pointer-events: auto !important;
     width: 100vw !important;
+    width: 100dvw !important; /* Dynamic viewport width para iOS */
     height: 100vh !important;
+    height: 100dvh !important; /* Dynamic viewport height para iOS */
     overflow: hidden !important;
   }
 
@@ -983,6 +985,7 @@
     background: linear-gradient(to top, rgb(17, 24, 39), rgb(31, 41, 55), rgb(17, 24, 39)) !important;
     border-top: 1px solid rgba(255, 255, 255, 0.1) !important;
     padding: 1.25rem !important;
+    padding-bottom: calc(1.25rem + env(safe-area-inset-bottom)) !important; /* Safe area para iOS */
     box-shadow: 0 -25px 50px -12px rgba(0, 0, 0, 0.25) !important;
     position: relative !important;
     overflow: hidden !important;
@@ -993,7 +996,9 @@
   .ios-floating-button {
     position: fixed !important;
     bottom: 1rem !important;
+    bottom: calc(1rem + env(safe-area-inset-bottom)) !important; /* Safe area para iOS */
     left: 1rem !important;
+    left: calc(1rem + env(safe-area-inset-left)) !important; /* Safe area para iOS */
     z-index: 99999 !important;
     -webkit-transform: translate3d(0, 0, 0) !important;
     transform: translate3d(0, 0, 0) !important;
@@ -1003,6 +1008,9 @@
     visibility: visible !important;
     pointer-events: auto !important;
     opacity: 1 !important;
+    cursor: pointer !important; /* Asegurar que sea clickeable en iOS */
+    -webkit-tap-highlight-color: transparent !important;
+    touch-action: manipulation !important;
   }
   
   /* Forzar visibilidad de todos los hijos del botón flotante */

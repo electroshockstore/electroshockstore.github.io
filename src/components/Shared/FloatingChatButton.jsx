@@ -104,7 +104,7 @@ const FloatingChatButton = () => {
         />
       )}
 
-      <div className="fixed bottom-4 left-4 sm:bottom-6 sm:left-6 z-50 floating-chat-enter">
+      <div className="ios-floating-button floating-chat-button">
         
         {/* --- MENÚ EXPANDIDO --- */}
         {isExpanded && (

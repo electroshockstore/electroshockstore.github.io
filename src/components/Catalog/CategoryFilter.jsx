@@ -156,12 +156,12 @@ const CategoryFilter = ({ selectedCategory, onCategoryChange }) => {
               </div>
             </button>
 
-            {/* Modal Fullscreen - Diseño Moderno Mejorado */}
+            {/* Modal Fullscreen - Diseño Moderno Mejorado con iOS Fix */}
             {isOpen && (
-              <>
+              <div className="ios-modal-wrapper">
                 {/* Backdrop - Fijo y sin scroll */}
                 <div
-                  className="fixed inset-0 bg-gradient-to-br from-black/90 via-gray-900/95 to-black/90 backdrop-blur-xl z-[100] animate-in fade-in duration-200"
+                  className="ios-modal-backdrop"
                   onClick={() => setIsOpen(false)}
                   onTouchMove={(e) => e.preventDefault()}
                   style={{ touchAction: 'none' }}
@@ -169,7 +169,7 @@ const CategoryFilter = ({ selectedCategory, onCategoryChange }) => {
 
                 {/* Modal Content - Completamente fijo */}
                 <div
-                  className="fixed inset-0 z-[101] flex flex-col animate-in slide-in-from-bottom duration-300"
+                  className="ios-modal-content"
                   onTouchMove={(e) => {
                     if (!e.target.closest('.category-grid-scroll')) {
                       e.preventDefault();
@@ -179,7 +179,7 @@ const CategoryFilter = ({ selectedCategory, onCategoryChange }) => {
                 >
                   {/* Header del modal - Mejorado con gradiente */}
                   <div
-                    className="flex-shrink-0 bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 border-b border-white/10 px-5 py-6 flex items-center justify-between shadow-2xl relative overflow-hidden"
+                    className="ios-modal-header"
                     onTouchMove={(e) => e.preventDefault()}
                   >
                     {/* Glow decorativo */}
@@ -205,7 +205,7 @@ const CategoryFilter = ({ selectedCategory, onCategoryChange }) => {
 
                   {/* Grid de categorías - Con fondo catalog-bg */}
                   <div
-                    className="category-grid-scroll flex-1 overflow-y-auto catalog-bg px-4 py-6 relative"
+                    className="ios-modal-scroll category-grid-scroll"
                     style={{
                       overscrollBehavior: 'contain',
                       WebkitOverflowScrolling: 'touch',
@@ -287,7 +287,7 @@ const CategoryFilter = ({ selectedCategory, onCategoryChange }) => {
 
                   {/* Footer mejorado - Fijo en la parte inferior */}
                   <div
-                    className="flex-shrink-0 bg-gradient-to-t from-gray-900 via-gray-800 to-gray-900 backdrop-blur-xl border-t border-white/10 px-5 py-5 shadow-2xl relative overflow-hidden"
+                    className="ios-modal-footer"
                     onTouchMove={(e) => e.preventDefault()}
                   >
                     {/* Glow decorativo inferior */}
@@ -300,7 +300,7 @@ const CategoryFilter = ({ selectedCategory, onCategoryChange }) => {
                     </div>
                   </div>
                 </div>
-              </>
+              </div>
             )}
           </div>
 
