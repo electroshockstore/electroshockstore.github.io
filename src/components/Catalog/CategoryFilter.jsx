@@ -2,6 +2,7 @@ import { useState, useRef, useEffect } from 'react';
 import { categories } from '../../data';
 import { Grid3X3, ChevronDown, ChevronLeft, ChevronRight, X } from 'lucide-react';
 import Portal from '../Shared/Portal';
+import { useViewTransition } from '../../hooks/useViewTransition';
 import {
   getCategoryIcon,
   getCategoryColor,
@@ -12,9 +13,11 @@ const CategoryFilter = ({ selectedCategory, onCategoryChange }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [showLeftArrow, setShowLeftArrow] = useState(false);
   const [showRightArrow, setShowRightArrow] = useState(false);
+  const [savedScrollPosition, setSavedScrollPosition] = useState(0);
 
   const dropdownRef = useRef(null);
   const scrollContainerRef = useRef(null);
+  const { startTransition } = useViewTransition();
 
   // Lógica de Scroll (optimizada sin dependencias circulares)
   useEffect(() => {
@@ -59,6 +62,7 @@ const CategoryFilter = ({ selectedCategory, onCategoryChange }) => {
     if (isOpen) {
       // Guardar posición actual del scroll
       const scrollY = window.scrollY;
+      setSavedScrollPosition(scrollY);
       
       // Bloquear scroll del body
       document.body.style.position = 'fixed';
@@ -66,18 +70,25 @@ const CategoryFilter = ({ selectedCategory, onCategoryChange }) => {
       document.body.style.left = '0';
       document.body.style.right = '0';
       document.body.style.width = '100%';
+      document.body.style.overflow = 'hidden';
 
       return () => {
-        // Restaurar scroll del body
+        // Restaurar scroll del body sin saltos
+        const scrollPosition = savedScrollPosition;
         document.body.style.position = '';
         document.body.style.top = '';
         document.body.style.left = '';
         document.body.style.right = '';
         document.body.style.width = '';
-        window.scrollTo(0, scrollY);
+        document.body.style.overflow = '';
+        
+        // Restaurar posición de scroll de forma instantánea
+        requestAnimationFrame(() => {
+          window.scrollTo(0, scrollPosition);
+        });
       };
     }
-  }, [isOpen]);
+  }, [isOpen, savedScrollPosition]);
 
   const handleScroll = (direction) => {
     if (scrollContainerRef.current) {
@@ -90,13 +101,32 @@ const CategoryFilter = ({ selectedCategory, onCategoryChange }) => {
   };
 
   const handleCategorySelect = (category) => {
-    // Primero cerrar el modal
-    setIsOpen(false);
-    
-    // Pequeño delay para asegurar que el modal se cierre antes de navegar
-    setTimeout(() => {
+    // Usar View Transitions API para transición fluida
+    startTransition(() => {
+      // Cerrar el modal
+      setIsOpen(false);
+      
+      // Ejecutar el cambio de categoría
       onCategoryChange(category);
-    }, 50);
+      
+      // Scroll suave al inicio de los resultados después de un pequeño delay
+      setTimeout(() => {
+        const catalogSection = document.querySelector('[data-catalog-results]') || 
+                               document.querySelector('.product-grid') ||
+                               document.querySelector('main');
+        
+        if (catalogSection) {
+          const offset = 100; // Offset para dejar espacio visual
+          const elementPosition = catalogSection.getBoundingClientRect().top;
+          const offsetPosition = elementPosition + window.pageYOffset - offset;
+          
+          window.scrollTo({
+            top: offsetPosition,
+            behavior: 'smooth'
+          });
+        }
+      }, 100);
+    });
   };
 
   // Renderizar modal usando Portal genérico

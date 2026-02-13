@@ -6,10 +6,10 @@ import { useCallback } from 'react';
  */
 export const useViewTransition = () => {
   const startTransition = useCallback((callback, options = {}) => {
-    const { scrollToTop = false } = options;
+    const { scrollToTop = false, skipTransition = false } = options;
 
-    // Verificar si el navegador soporta View Transitions API
-    if (!document.startViewTransition) {
+    // Si se solicita saltar la transición o el navegador no la soporta
+    if (skipTransition || !document.startViewTransition) {
       // Fallback: ejecutar callback directamente
       callback();
       if (scrollToTop) {
@@ -29,6 +29,8 @@ export const useViewTransition = () => {
         window.scrollTo({ top: 0, behavior: 'instant' });
       });
     }
+
+    return transition;
   }, []);
 
   return { startTransition };

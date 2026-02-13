@@ -133,7 +133,7 @@ const ProductGrid = memo(({ products, viewMode, openModal }) => {
   }
 
   return (
-    <div className="p-0 sm:p-4 md:p-6">
+    <div className="p-0 sm:p-4 md:p-6" data-catalog-results>
       <AnimatePresence mode="wait">
         <ProductGroup
           key={products.map(p => p.id).join('-')} // Key única basada en productos

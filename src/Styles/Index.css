@@ -2295,3 +2295,86 @@ button:has(.loading-spinner) {
   }
 }
 
+
+
+/* ===== VIEW TRANSITIONS API - CATEGORY FILTER ===== */
+
+/* Transición para el modal de categorías */
+.modal-fullscreen-wrapper {
+  view-transition-name: category-modal;
+}
+
+/* Transición suave para la apertura/cierre del modal */
+::view-transition-old(category-modal),
+::view-transition-new(category-modal) {
+  animation-duration: 0.35s;
+  animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+::view-transition-old(category-modal) {
+  animation-name: modal-fade-out;
+}
+
+::view-transition-new(category-modal) {
+  animation-name: modal-fade-in;
+}
+
+@keyframes modal-fade-out {
+  from {
+    opacity: 1;
+    transform: scale(1);
+  }
+  to {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+}
+
+@keyframes modal-fade-in {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Transición para las tarjetas de categoría individuales */
+.category-card-transition {
+  view-transition-name: var(--category-name);
+}
+
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation-duration: 0.3s;
+  animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Transición para el backdrop del modal */
+.modal-fullscreen-backdrop {
+  animation: backdrop-fade-in 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@keyframes backdrop-fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Prevenir saltos durante las transiciones */
+::view-transition-group(*) {
+  animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Optimización para dispositivos móviles */
+@media (max-width: 640px) {
+  ::view-transition-old(category-modal),
+  ::view-transition-new(category-modal) {
+    animation-duration: 0.25s;
+  }
+}
