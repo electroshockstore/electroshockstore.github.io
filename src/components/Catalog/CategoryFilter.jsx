@@ -53,6 +53,7 @@ const CategoryFilter = ({ selectedCategory, onCategoryChange }) => {
     return () => document.removeEventListener('mousedown', handleClickOutside);
   }, []);
 
+  // Bloquear scroll del body cuando el modal está abierto
   useEffect(() => {
     if (isOpen) {
       const scrollY = window.scrollY;
