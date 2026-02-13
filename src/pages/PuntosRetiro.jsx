@@ -4,7 +4,6 @@ import { motion } from 'framer-motion';
 import { useFilter } from '../context/FilterContext';
 import Header from '../components/Shared/Header';
 import Footer from '../components/Shared/Footer';
-import FloatingChatButton from '../components/Shared/FloatingChatButton';
 import {
   HeroSection,
   ImportantRulesBentoGrid,
@@ -63,7 +62,6 @@ const PuntosRetiro = () => {
       </main>
 
       <Footer />
-      <FloatingChatButton />
     </div>
   );
 };

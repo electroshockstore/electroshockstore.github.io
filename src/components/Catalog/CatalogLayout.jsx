@@ -1,7 +1,6 @@
 import Header from '../Shared/Header';
 import Footer from '../Shared/Footer';
 import ScrollButton from '../Shared/ScrollButton';
-import FloatingChatButton from '../Shared/FloatingChatButton';
 
 const CatalogLayout = ({ children, searchQuery, onSearchChange, onGoHome }) => {
   return (
@@ -21,7 +20,6 @@ const CatalogLayout = ({ children, searchQuery, onSearchChange, onGoHome }) => {
 
         <Footer />
         <ScrollButton />
-        <FloatingChatButton />
       </div>
     </div>
   );

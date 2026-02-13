@@ -1,6 +1,7 @@
 // Sección de imagen del producto con galería y lightbox
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Package, ChevronLeft, ChevronRight, X, ZoomIn, Maximize2 } from 'lucide-react';
+import Portal from '../../Shared/Portal';
 
 const ProductImageSection = ({ images = [], name, stock, stockStatus }) => {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
@@ -24,13 +25,36 @@ const ProductImageSection = ({ images = [], name, stock, stockStatus }) => {
   const openLightbox = (index) => {
     setLightboxImageIndex(index);
     setIsLightboxOpen(true);
-    document.body.style.overflow = 'hidden';
   };
 
   const closeLightbox = () => {
     setIsLightboxOpen(false);
-    document.body.style.overflow = 'unset';
   };
+
+  // Bloquear scroll del body cuando el lightbox está abierto
+  useEffect(() => {
+    if (isLightboxOpen) {
+      // Guardar posición actual del scroll
+      const scrollY = window.scrollY;
+      
+      // Bloquear scroll del body
+      document.body.style.position = 'fixed';
+      document.body.style.top = `-${scrollY}px`;
+      document.body.style.left = '0';
+      document.body.style.right = '0';
+      document.body.style.width = '100%';
+
+      return () => {
+        // Restaurar scroll del body
+        document.body.style.position = '';
+        document.body.style.top = '';
+        document.body.style.left = '';
+        document.body.style.right = '';
+        document.body.style.width = '';
+        window.scrollTo(0, scrollY);
+      };
+    }
+  }, [isLightboxOpen]);
 
   const nextLightboxImage = () => {
     setLightboxImageIndex((prev) => (prev + 1) % images.length);
@@ -150,14 +174,15 @@ const ProductImageSection = ({ images = [], name, stock, stockStatus }) => {
         <div className="flex-1"></div>
       </div>
 
-      {/* Lightbox Modal */}
+      {/* Lightbox Modal usando Portal */}
       {isLightboxOpen && (
-        <div 
-          className="fixed inset-0 z-[9999] bg-black/95 backdrop-blur-sm flex items-center justify-center"
-          onClick={closeLightbox}
-          onKeyDown={handleKeyDown}
-          tabIndex={0}
-        >
+        <Portal>
+          <div 
+            className="fixed inset-0 z-[9999] bg-black/95 backdrop-blur-sm flex items-center justify-center"
+            onClick={closeLightbox}
+            onKeyDown={handleKeyDown}
+            tabIndex={0}
+          >
           {/* Close button */}
           <button
             onClick={closeLightbox}
@@ -232,7 +257,8 @@ const ProductImageSection = ({ images = [], name, stock, stockStatus }) => {
               ))}
             </div>
           )}
-        </div>
+          </div>
+        </Portal>
       )}
     </>
   );

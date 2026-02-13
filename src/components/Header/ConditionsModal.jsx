@@ -1,13 +1,15 @@
 import { X, FileText } from 'lucide-react';
+import Portal from '../Shared/Portal';
 
 const ConditionsModal = ({ isOpen, onClose }) => {
   if (!isOpen) return null;
 
   return (
-    <div
-      className="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-black/90 backdrop-blur-md animate-fadeIn"
-      onClick={onClose}
-    >
+    <Portal>
+      <div
+        className="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-black/90 backdrop-blur-md animate-fadeIn"
+        onClick={onClose}
+      >
       <div
         className="relative bg-gradient-to-br from-gray-900 via-gray-800 to-black rounded-3xl shadow-2xl max-w-2xl w-full border border-gray-700/50 overflow-hidden modal-scale-enter"
         onClick={(e) => e.stopPropagation()}
@@ -58,7 +60,8 @@ const ConditionsModal = ({ isOpen, onClose }) => {
           </button>
         </div>
       </div>
-    </div>
+      </div>
+    </Portal>
   );
 };
 

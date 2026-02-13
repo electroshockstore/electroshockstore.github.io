@@ -9,7 +9,6 @@ import PCBuilderSection from '../components/Home/PCBuilderSection';
 import CategoryProductSection from '../components/Home/CategoryProductSection';
 import PuntosRetiroInfoSection from '../components/Home/PuntosRetiroInfoSection';
 import CategoryFilter from '../components/Catalog/CategoryFilter';
-import FloatingChatButton from '../components/Shared/FloatingChatButton';
 import { useFilter } from '../context/FilterContext';
 import { getSlugFromCategory } from '../utils/slugify';
 import { useSEO } from '../hooks/useSEO';
@@ -135,7 +134,6 @@ const Home = () => {
 
       <Footer />
       <ScrollButton />
-      <FloatingChatButton />
     </div>
   );
 };

@@ -1,4 +1,4 @@
-import { memo, useMemo } from 'react';
+import { memo, useMemo, useEffect } from 'react';
 import { CheckCircle2 } from 'lucide-react';
 import DetailHeader from './DetailHeader';
 import ProductImageSection from './ProductImageSection';
@@ -7,6 +7,7 @@ import ProductInfoCard from './ProductInfoCard';
 import MetodosDePago from './MetodosDePago';
 import PuntosRetiroSection from './PuntosRetiroSection';
 import { PriceChart } from '../../PriceChart';
+import Portal from '../../Shared/Portal';
 
 const ProductDetail = memo(({ product, onClose, isPage = false }) => {
   const stockStatus = useMemo(() => {
@@ -67,9 +68,32 @@ const ProductDetail = memo(({ product, onClose, isPage = false }) => {
     );
   }
 
-  // Renderizado como modal (solo para casos legacy si existen)
+  // Bloquear scroll del body cuando el modal está abierto
+  useEffect(() => {
+    // Guardar posición actual del scroll
+    const scrollY = window.scrollY;
+    
+    // Bloquear scroll del body
+    document.body.style.position = 'fixed';
+    document.body.style.top = `-${scrollY}px`;
+    document.body.style.left = '0';
+    document.body.style.right = '0';
+    document.body.style.width = '100%';
+
+    return () => {
+      // Restaurar scroll del body
+      document.body.style.position = '';
+      document.body.style.top = '';
+      document.body.style.left = '';
+      document.body.style.right = '';
+      document.body.style.width = '';
+      window.scrollTo(0, scrollY);
+    };
+  }, []);
+
+  // Renderizado como modal usando Portal
   return (
-    <>
+    <Portal>
       <div className="fixed inset-0 bg-black/60 z-[100] backdrop-blur-sm" onClick={onClose}></div>
       <div className="fixed inset-0 z-[101] overflow-y-auto flex items-start justify-center py-8">
         <div className="w-full max-w-7xl">
@@ -101,7 +125,7 @@ const ProductDetail = memo(({ product, onClose, isPage = false }) => {
           </div>
         </div>
       </div>
-    </>
+    </Portal>
   );
 });
 

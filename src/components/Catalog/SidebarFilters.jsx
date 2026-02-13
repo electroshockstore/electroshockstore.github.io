@@ -1,9 +1,10 @@
-import { useState, useMemo } from 'react';
+import { useState, useMemo, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { ChevronDown, ChevronUp, X, SlidersHorizontal } from 'lucide-react';
 import { useProducts } from '../../hooks/useProducts';
 import { useCategoryFilters } from '../../hooks/useCategoryFilters';
 import { getFilterLabel } from '../../utils/filterConfig';
+import Portal from '../Shared/Portal';
 
 const SidebarFilters = ({ selectedCategory, filters, onFilterChange, onClearFilters }) => {
   const [expandedSections, setExpandedSections] = useState({});
@@ -40,6 +41,31 @@ const SidebarFilters = ({ selectedCategory, filters, onFilterChange, onClearFilt
 
   const hasActiveFilters = Object.values(filters).some(arr => arr && arr.length > 0);
   const activeFiltersCount = Object.values(filters).reduce((acc, arr) => acc + (arr?.length || 0), 0);
+
+  // Bloquear scroll del body cuando el drawer está abierto
+  useEffect(() => {
+    if (isDrawerOpen) {
+      // Guardar posición actual del scroll
+      const scrollY = window.scrollY;
+      
+      // Bloquear scroll del body
+      document.body.style.position = 'fixed';
+      document.body.style.top = `-${scrollY}px`;
+      document.body.style.left = '0';
+      document.body.style.right = '0';
+      document.body.style.width = '100%';
+
+      return () => {
+        // Restaurar scroll del body
+        document.body.style.position = '';
+        document.body.style.top = '';
+        document.body.style.left = '';
+        document.body.style.right = '';
+        document.body.style.width = '';
+        window.scrollTo(0, scrollY);
+      };
+    }
+  }, [isDrawerOpen]);
 
   if (selectedCategory === 'Todos' || Object.keys(categoryFilters).length === 0) {
     return null;
@@ -212,19 +238,23 @@ const SidebarFilters = ({ selectedCategory, filters, onFilterChange, onClearFilt
         )}
       </button>
 
-      {/* Drawer mobile */}
-      <div className={`drawer-container lg:hidden fixed inset-0 z-50 ${isDrawerOpen ? 'drawer-open' : ''}`}>
-        {/* Overlay */}
-        <div 
-          className="drawer-overlay absolute inset-0 bg-black/60 backdrop-blur-sm"
-          onClick={() => setIsDrawerOpen(false)}
-        />
-        
-        {/* Drawer */}
-        <div className="drawer-panel absolute top-0 left-0 bottom-0 w-[85%] max-w-sm bg-white shadow-2xl pb-24">
-          <FilterContent />
-        </div>
-      </div>
+      {/* Drawer mobile usando Portal */}
+      {isDrawerOpen && (
+        <Portal>
+          <div className="drawer-container lg:hidden fixed inset-0 z-50 drawer-open">
+            {/* Overlay */}
+            <div 
+              className="drawer-overlay absolute inset-0 bg-black/60 backdrop-blur-sm"
+              onClick={() => setIsDrawerOpen(false)}
+            />
+            
+            {/* Drawer */}
+            <div className="drawer-panel absolute top-0 left-0 bottom-0 w-[85%] max-w-sm bg-white shadow-2xl pb-24">
+              <FilterContent />
+            </div>
+          </div>
+        </Portal>
+      )}
 
       {/* Sidebar desktop - NORMAL como antes */}
       <div className="hidden lg:block w-full lg:w-80">

@@ -1,7 +1,7 @@
 import { useState, useRef, useEffect } from 'react';
-import { createPortal } from 'react-dom';
 import { categories } from '../../data';
 import { Grid3X3, ChevronDown, ChevronLeft, ChevronRight, X } from 'lucide-react';
+import Portal from '../Shared/Portal';
 import {
   getCategoryIcon,
   getCategoryColor,
@@ -90,16 +90,22 @@ const CategoryFilter = ({ selectedCategory, onCategoryChange }) => {
   };
 
   const handleCategorySelect = (category) => {
+    // Primero cerrar el modal
     setIsOpen(false);
-    onCategoryChange(category);
+    
+    // Pequeño delay para asegurar que el modal se cierre antes de navegar
+    setTimeout(() => {
+      onCategoryChange(category);
+    }, 50);
   };
 
-  // Renderizar modal usando Portal
+  // Renderizar modal usando Portal genérico
   const renderModal = () => {
     if (!isOpen) return null;
 
-    return createPortal(
-      <div className="modal-fullscreen-wrapper">
+    return (
+      <Portal>
+        <div className="modal-fullscreen-wrapper">
         {/* Backdrop */}
         <div
           className="modal-fullscreen-backdrop"
@@ -218,8 +224,8 @@ const CategoryFilter = ({ selectedCategory, onCategoryChange }) => {
             </div>
           </div>
         </div>
-      </div>,
-      document.body
+      </div>
+      </Portal>
     );
   };
 

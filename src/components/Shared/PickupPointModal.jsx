@@ -1,6 +1,7 @@
 import { memo, useEffect, useState } from 'react';
 import { MapPin, X, Calendar, Clock, Shield, Camera, MapPinned } from 'lucide-react';
 import { PICKUP_POINTS } from '../PuntosRetiro/constants';
+import Portal from './Portal';
 
 const PickupPointModal = memo(({ isOpen, onClose, onSelectPoint, selectedPoint }) => {
   const [isAnimating, setIsAnimating] = useState(false);
@@ -36,7 +37,7 @@ const PickupPointModal = memo(({ isOpen, onClose, onSelectPoint, selectedPoint }
   if (!isOpen) return null;
 
   return (
-    <>
+    <Portal>
       {/* Backdrop - Blur solo en desktop con transición suave */}
       <div 
         className={`fixed inset-0 bg-black/60 md:backdrop-blur-sm z-[9998] transition-opacity duration-300 ${
@@ -190,7 +191,7 @@ const PickupPointModal = memo(({ isOpen, onClose, onSelectPoint, selectedPoint }
           </div>
         </div>
       </div>
-    </>
+    </Portal>
   );
 });
 

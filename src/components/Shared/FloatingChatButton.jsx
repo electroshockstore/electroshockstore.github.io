@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { Send, X, MapPin, FileText } from 'lucide-react'; 
 import { useLocation, useNavigate } from 'react-router-dom';
+import Portal from './Portal';
 
 const FloatingChatButton = () => {
   const [isExpanded, setIsExpanded] = useState(false);
@@ -39,10 +40,11 @@ const FloatingChatButton = () => {
     <>
       {/* Modal de Condiciones */}
       {showConditionsModal && (
-        <div
-          className="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-black/90 md:backdrop-blur-md animate-fadeIn"
-          onClick={() => setShowConditionsModal(false)}
-        >
+        <Portal>
+          <div
+            className="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-black/90 md:backdrop-blur-md animate-fadeIn"
+            onClick={() => setShowConditionsModal(false)}
+          >
           <div
             className="relative bg-gradient-to-br from-gray-900 via-gray-800 to-black rounded-3xl shadow-2xl max-w-2xl w-full border border-gray-700/50 overflow-hidden modal-scale-enter"
             onClick={(e) => e.stopPropagation()}
@@ -93,7 +95,8 @@ const FloatingChatButton = () => {
               </button>
             </div>
           </div>
-        </div>
+          </div>
+        </Portal>
       )}
 
       {/* Backdrop con blur cuando está expandido - Blur solo en desktop */}

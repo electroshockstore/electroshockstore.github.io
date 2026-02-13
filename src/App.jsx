@@ -8,6 +8,7 @@ import { useErrorHandler } from "./hooks/useErrorHandler";
 import SkipToContent from "./components/SEO/SkipToContent";
 import ModernLoader from "./components/Shared/ModernLoader";
 import ScrollToTop from "./components/Shared/ScrollToTop";
+import FloatingChatButton from "./components/Shared/FloatingChatButton";
 
 // Lazy load de páginas principales
 const Home = lazy(() => import("./pages/Home"));
@@ -56,6 +57,9 @@ function AppContent() {
       <main id="main-content" className="relative z-10 w-full page-transition">
         <AnimatedRoutes />
       </main>
+
+      {/* Botón flotante de WhatsApp - Nivel más alto para evitar problemas de z-index */}
+      <FloatingChatButton />
     </div>
   );
 }
