@@ -214,15 +214,15 @@ const CategoryFilter = ({ selectedCategory, onCategoryChange }) => {
       )}
 
       <div className="relative group z-20 w-full category-filter">
-      {/* CAPAS DE RESPLANDOR ORIGINALES */}
-      <div className="absolute -inset-3 bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 rounded-full opacity-30 blur-xl -z-10"></div>
-      <div className="absolute -inset-2 bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-600 rounded-full opacity-25 blur-lg animate-pulse -z-10"></div>
+        {/* CAPAS DE RESPLANDOR ORIGINALES */}
+        <div className="absolute -inset-3 bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 rounded-full opacity-30 blur-xl -z-10"></div>
+        <div className="absolute -inset-2 bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-600 rounded-full opacity-25 blur-lg animate-pulse -z-10"></div>
 
-      {/* RGB FLOWING BORDER - Contenedor con borde animado */}
-      <div className="relative rounded-full overflow-hidden p-[3px] animate-border-rotate">
-        <div className="relative bg-white rounded-full z-10">
-          {/* MOBILE: DROPDOWN COMPACTO CON GLOW */}
-          <div className={`category-dropdown sm:hidden relative z-20 ${isOpen ? 'dropdown-open' : ''}`} ref={dropdownRef}>
+        {/* RGB FLOWING BORDER - Contenedor con borde animado */}
+        <div className="relative rounded-full overflow-hidden p-[3px] animate-border-rotate">
+          <div className="relative bg-white rounded-full z-10">
+            {/* MOBILE: DROPDOWN COMPACTO CON GLOW */}
+            <div className={`category-dropdown sm:hidden relative z-20 ${isOpen ? 'dropdown-open' : ''}`} ref={dropdownRef}>
             {/* Botón principal mejorado con imagen */}
             <button
               onClick={() => setIsOpen(!isOpen)}
@@ -268,11 +268,11 @@ const CategoryFilter = ({ selectedCategory, onCategoryChange }) => {
               </div>
             </button>
 
-            {/* NOTA: El modal ahora está FUERA de este contenedor, al inicio del return */}
-          </div>
+              {/* NOTA: El modal ahora está FUERA de este contenedor, al inicio del return */}
+            </div>
 
-          {/* DESKTOP: SEGMENTED CONTROL HORIZONTAL SIEMPRE EN UNA FILA */}
-          <div className="hidden sm:flex relative items-center group/carousel rounded-full p-2 shadow-[0_2px_8px_rgba(0,0,0,0.06)]">
+            {/* DESKTOP: SEGMENTED CONTROL HORIZONTAL SIEMPRE EN UNA FILA */}
+            <div className="hidden sm:flex relative items-center group/carousel rounded-full p-2 shadow-[0_2px_8px_rgba(0,0,0,0.06)]">
             {/* Indicador Izquierdo */}
             {showLeftArrow && (
               <button
@@ -333,6 +333,7 @@ const CategoryFilter = ({ selectedCategory, onCategoryChange }) => {
                 <ChevronRight size={20} strokeWidth={3} />
               </button>
             )}
+            </div>
           </div>
         </div>
       </div>
