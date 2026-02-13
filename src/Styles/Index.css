@@ -864,95 +864,95 @@ body.modal-open {
 /* ===== MODAL FULLSCREEN - GENÉRICO PARA TODOS LOS DISPOSITIVOS ===== */
 
 .modal-fullscreen-wrapper {
-  position: fixed;
-  inset: 0;
-  z-index: 9999;
-  overflow: hidden;
-  transform: translate3d(0, 0, 0); /* GPU acceleration */
-  -webkit-transform: translate3d(0, 0, 0);
+  position: fixed !important;
+  inset: 0 !important;
+  z-index: 999999 !important;
+  overflow: hidden !important;
+  transform: translate3d(0, 0, 0) !important; /* GPU acceleration */
+  -webkit-transform: translate3d(0, 0, 0) !important;
   /* Fallback primero, luego el moderno */
-  width: 100vw;
-  height: 100vh;
-  width: 100dvw; /* Moderno - se usa si está soportado */
-  height: 100dvh; /* Moderno - se usa si está soportado */
+  width: 100vw !important;
+  height: 100vh !important;
+  width: 100dvw !important; /* Moderno - se usa si está soportado */
+  height: 100dvh !important; /* Moderno - se usa si está soportado */
 }
 
 .modal-fullscreen-backdrop {
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(to bottom right, rgba(0, 0, 0, 0.9), rgba(17, 24, 39, 0.95), rgba(0, 0, 0, 0.9));
-  z-index: 1;
+  position: absolute !important;
+  inset: 0 !important;
+  background: linear-gradient(to bottom right, rgba(0, 0, 0, 0.9), rgba(17, 24, 39, 0.95), rgba(0, 0, 0, 0.9)) !important;
+  z-index: 1 !important;
 }
 
 .modal-fullscreen-content {
-  position: absolute;
-  inset: 0;
-  z-index: 2;
-  display: flex;
-  flex-direction: column;
-  transform: translate3d(0, 0, 0);
-  -webkit-transform: translate3d(0, 0, 0);
+  position: absolute !important;
+  inset: 0 !important;
+  z-index: 2 !important;
+  display: flex !important;
+  flex-direction: column !important;
+  transform: translate3d(0, 0, 0) !important;
+  -webkit-transform: translate3d(0, 0, 0) !important;
 }
 
 .modal-fullscreen-header {
-  flex-shrink: 0;
-  background: linear-gradient(to bottom right, rgb(17, 24, 39), rgb(31, 41, 55), rgb(17, 24, 39));
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-  padding: 1.5rem 1.25rem;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
-  position: relative;
-  overflow: hidden;
+  flex-shrink: 0 !important;
+  background: linear-gradient(to bottom right, rgb(17, 24, 39), rgb(31, 41, 55), rgb(17, 24, 39)) !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
+  padding: 1.5rem 1.25rem !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25) !important;
+  position: relative !important;
+  overflow: hidden !important;
 }
 
 .modal-fullscreen-scroll {
-  flex: 1;
-  overflow-y: auto;
-  overflow-x: hidden;
-  -webkit-overflow-scrolling: touch;
-  overscroll-behavior: contain;
-  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
-  padding: 1.5rem 1rem;
-  position: relative;
+  flex: 1 !important;
+  overflow-y: auto !important;
+  overflow-x: hidden !important;
+  -webkit-overflow-scrolling: touch !important;
+  overscroll-behavior: contain !important;
+  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%) !important;
+  padding: 1.5rem 1rem !important;
+  position: relative !important;
 }
 
 .modal-fullscreen-footer {
-  flex-shrink: 0;
-  background: linear-gradient(to top, rgb(17, 24, 39), rgb(31, 41, 55), rgb(17, 24, 39));
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
-  box-shadow: 0 -25px 50px -12px rgba(0, 0, 0, 0.25);
-  position: relative;
-  overflow: hidden;
+  flex-shrink: 0 !important;
+  background: linear-gradient(to top, rgb(17, 24, 39), rgb(31, 41, 55), rgb(17, 24, 39)) !important;
+  border-top: 1px solid rgba(255, 255, 255, 0.1) !important;
+  box-shadow: 0 -25px 50px -12px rgba(0, 0, 0, 0.25) !important;
+  position: relative !important;
+  overflow: hidden !important;
   /* Fallback primero, luego el moderno con safe-area */
-  padding: 1.25rem;
-  padding-bottom: calc(1.25rem + env(safe-area-inset-bottom, 0px));
+  padding: 1.25rem !important;
+  padding-bottom: calc(1.25rem + env(safe-area-inset-bottom, 0px)) !important;
 }
 
 /* ===== FLOATING BUTTON - GENÉRICO PARA TODOS LOS DISPOSITIVOS ===== */
 
 .floating-button-fixed {
-  position: fixed;
-  z-index: 9999;
-  transform: translate3d(0, 0, 0);
-  -webkit-transform: translate3d(0, 0, 0);
-  -webkit-backface-visibility: hidden;
-  backface-visibility: hidden;
-  cursor: pointer;
-  -webkit-tap-highlight-color: transparent;
-  touch-action: manipulation;
+  position: fixed !important;
+  z-index: 99999 !important;
+  transform: translate3d(0, 0, 0) !important;
+  -webkit-transform: translate3d(0, 0, 0) !important;
+  -webkit-backface-visibility: hidden !important;
+  backface-visibility: hidden !important;
+  cursor: pointer !important;
+  -webkit-tap-highlight-color: transparent !important;
+  touch-action: manipulation !important;
   /* Fallback primero, luego el moderno con safe-area */
-  bottom: 1rem;
-  left: 1rem;
-  bottom: calc(1rem + env(safe-area-inset-bottom, 0px));
-  left: calc(1rem + env(safe-area-inset-left, 0px));
+  bottom: 1rem !important;
+  left: 1rem !important;
+  bottom: calc(1rem + env(safe-area-inset-bottom, 0px)) !important;
+  left: calc(1rem + env(safe-area-inset-left, 0px)) !important;
 }
 
 @media (min-width: 640px) {
   .floating-button-fixed {
-    bottom: 1.5rem;
-    left: 1.5rem;
+    bottom: 1.5rem !important;
+    left: 1.5rem !important;
   }
 }
 
