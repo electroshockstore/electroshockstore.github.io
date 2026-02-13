@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { ArrowUp } from 'lucide-react';
+import Portal from './Portal';
 
 const ScrollButton = () => {
   const [showButton, setShowButton] = useState(false);
@@ -28,7 +29,8 @@ const ScrollButton = () => {
   if (!showButton) return null;
 
   return (
-    <div className="fixed bottom-4 right-4 sm:bottom-6 sm:right-6 z-[1001]">
+    <Portal>
+      <div className="fixed bottom-4 right-4 sm:bottom-6 sm:right-6 z-[1001]">
       {/* Botón Scroll to Top */}
       <button
         onClick={scrollToTop}
@@ -54,6 +56,7 @@ const ScrollButton = () => {
         </span>
       </button>
     </div>
+    </Portal>
   );
 };
 

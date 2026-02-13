@@ -99,15 +99,16 @@ const FloatingChatButton = () => {
         </Portal>
       )}
 
-      {/* Backdrop con blur cuando está expandido - Blur solo en desktop */}
-      {isExpanded && (
-        <div 
-          className="fixed inset-0 bg-black/30 md:backdrop-blur-md z-40 transition-all duration-300 animate-in fade-in" 
-          onClick={() => setIsExpanded(false)}
-        />
-      )}
+      <Portal>
+        {/* Backdrop con blur cuando está expandido - Blur solo en desktop */}
+        {isExpanded && (
+          <div 
+            className="fixed inset-0 bg-black/30 md:backdrop-blur-md z-40 transition-all duration-300 animate-in fade-in" 
+            onClick={() => setIsExpanded(false)}
+          />
+        )}
 
-      <div className="floating-button-fixed floating-chat-button">
+        <div className="fixed bottom-4 left-4 sm:bottom-6 sm:left-6 z-[1000]">
         
         {/* --- MENÚ EXPANDIDO --- */}
         {isExpanded && (
@@ -213,6 +214,7 @@ const FloatingChatButton = () => {
         <div className="absolute -top-4 sm:-top-8 left-4 sm:left-8 w-1 h-1 sm:w-2 sm:h-2 bg-green-400 rounded-full animate-float-particle-1" />
         <div className="absolute -top-3 sm:-top-6 left-8 sm:left-16 w-1 h-1 bg-green-500 rounded-full animate-float-particle-2" />
       </div>
+      </Portal>
     </>
   );
 };
