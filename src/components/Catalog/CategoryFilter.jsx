@@ -56,30 +56,17 @@ const CategoryFilter = ({ selectedCategory, onCategoryChange }) => {
   // Bloquear scroll del body cuando el modal está abierto
   useEffect(() => {
     if (isOpen) {
+      // Guardar posición actual del scroll
       const scrollY = window.scrollY;
-
-      document.body.style.position = 'fixed';
+      
+      // Agregar clase al body para bloquear scroll
+      document.body.classList.add('modal-open');
       document.body.style.top = `-${scrollY}px`;
-      document.body.style.width = '100%';
-      document.body.style.overflow = 'hidden';
-      document.body.style.touchAction = 'none';
-
-      const preventTouch = (e) => {
-        if (e.target.closest('.category-grid-scroll')) {
-          return;
-        }
-        e.preventDefault();
-      };
-
-      document.addEventListener('touchmove', preventTouch, { passive: false });
 
       return () => {
-        document.body.style.position = '';
+        // Remover clase y restaurar scroll
+        document.body.classList.remove('modal-open');
         document.body.style.top = '';
-        document.body.style.width = '';
-        document.body.style.overflow = '';
-        document.body.style.touchAction = '';
-        document.removeEventListener('touchmove', preventTouch);
         window.scrollTo(0, scrollY);
       };
     }
@@ -156,32 +143,19 @@ const CategoryFilter = ({ selectedCategory, onCategoryChange }) => {
               </div>
             </button>
 
-            {/* Modal Fullscreen - Diseño Moderno Mejorado con iOS Fix */}
+            {/* Modal Fullscreen - Genérico para todos los dispositivos */}
             {isOpen && (
-              <div className="ios-modal-wrapper">
-                {/* Backdrop - Fijo y sin scroll */}
+              <div className="modal-fullscreen-wrapper">
+                {/* Backdrop */}
                 <div
-                  className="ios-modal-backdrop"
+                  className="modal-fullscreen-backdrop"
                   onClick={() => setIsOpen(false)}
-                  onTouchMove={(e) => e.preventDefault()}
-                  style={{ touchAction: 'none' }}
                 />
 
-                {/* Modal Content - Completamente fijo */}
-                <div
-                  className="ios-modal-content"
-                  onTouchMove={(e) => {
-                    if (!e.target.closest('.category-grid-scroll')) {
-                      e.preventDefault();
-                    }
-                  }}
-                  style={{ touchAction: 'none' }}
-                >
-                  {/* Header del modal - Mejorado con gradiente */}
-                  <div
-                    className="ios-modal-header"
-                    onTouchMove={(e) => e.preventDefault()}
-                  >
+                {/* Modal Content */}
+                <div className="modal-fullscreen-content">
+                  {/* Header del modal */}
+                  <div className="modal-fullscreen-header">
                     {/* Glow decorativo */}
                     <div className="absolute top-0 left-1/4 w-64 h-64 bg-blue-500/20 rounded-full blur-3xl" />
                     <div className="absolute top-0 right-1/4 w-64 h-64 bg-purple-500/20 rounded-full blur-3xl" />
@@ -203,15 +177,8 @@ const CategoryFilter = ({ selectedCategory, onCategoryChange }) => {
                     </button>
                   </div>
 
-                  {/* Grid de categorías - Con fondo catalog-bg */}
-                  <div
-                    className="ios-modal-scroll category-grid-scroll"
-                    style={{
-                      overscrollBehavior: 'contain',
-                      WebkitOverflowScrolling: 'touch',
-                      touchAction: 'pan-y'
-                    }}
-                  >
+                  {/* Grid de categorías */}
+                  <div className="modal-fullscreen-scroll category-grid-scroll">
                     {/* Pattern decorativo sutil */}
                     <div className="absolute inset-0 opacity-5 bg-grain pointer-events-none" />
                     
@@ -285,11 +252,8 @@ const CategoryFilter = ({ selectedCategory, onCategoryChange }) => {
                     </div>
                   </div>
 
-                  {/* Footer mejorado - Fijo en la parte inferior */}
-                  <div
-                    className="ios-modal-footer"
-                    onTouchMove={(e) => e.preventDefault()}
-                  >
+                  {/* Footer */}
+                  <div className="modal-fullscreen-footer">
                     {/* Glow decorativo inferior */}
                     <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-96 h-32 bg-gradient-to-t from-blue-500/10 to-transparent blur-2xl" />
                     
