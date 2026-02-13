@@ -2,7 +2,6 @@ import { useState, useRef, useEffect } from 'react';
 import { categories } from '../../data';
 import { Grid3X3, ChevronDown, ChevronLeft, ChevronRight, X } from 'lucide-react';
 import Portal from '../Shared/Portal';
-import { useViewTransition } from '../../hooks/useViewTransition';
 import {
   getCategoryIcon,
   getCategoryColor,
@@ -17,7 +16,6 @@ const CategoryFilter = ({ selectedCategory, onCategoryChange }) => {
 
   const dropdownRef = useRef(null);
   const scrollContainerRef = useRef(null);
-  const { startTransition } = useViewTransition();
 
   // Lógica de Scroll (optimizada sin dependencias circulares)
   useEffect(() => {
@@ -71,24 +69,25 @@ const CategoryFilter = ({ selectedCategory, onCategoryChange }) => {
       document.body.style.right = '0';
       document.body.style.width = '100%';
       document.body.style.overflow = 'hidden';
-
-      return () => {
-        // Restaurar scroll del body sin saltos
-        const scrollPosition = savedScrollPosition;
+    }
+    
+    // NO restaurar aquí, se hace manualmente en handleCategorySelect
+  }, [isOpen]);
+  
+  // Cleanup cuando el componente se desmonta
+  useEffect(() => {
+    return () => {
+      // Solo limpiar si el modal estaba abierto
+      if (isOpen) {
         document.body.style.position = '';
         document.body.style.top = '';
         document.body.style.left = '';
         document.body.style.right = '';
         document.body.style.width = '';
         document.body.style.overflow = '';
-        
-        // Restaurar posición de scroll de forma instantánea
-        requestAnimationFrame(() => {
-          window.scrollTo(0, scrollPosition);
-        });
-      };
-    }
-  }, [isOpen, savedScrollPosition]);
+      }
+    };
+  }, []);
 
   const handleScroll = (direction) => {
     if (scrollContainerRef.current) {
@@ -101,32 +100,21 @@ const CategoryFilter = ({ selectedCategory, onCategoryChange }) => {
   };
 
   const handleCategorySelect = (category) => {
-    // Usar View Transitions API para transición fluida
-    startTransition(() => {
-      // Cerrar el modal
-      setIsOpen(false);
-      
-      // Ejecutar el cambio de categoría
-      onCategoryChange(category);
-      
-      // Scroll suave al inicio de los resultados después de un pequeño delay
-      setTimeout(() => {
-        const catalogSection = document.querySelector('[data-catalog-results]') || 
-                               document.querySelector('.product-grid') ||
-                               document.querySelector('main');
-        
-        if (catalogSection) {
-          const offset = 100; // Offset para dejar espacio visual
-          const elementPosition = catalogSection.getBoundingClientRect().top;
-          const offsetPosition = elementPosition + window.pageYOffset - offset;
-          
-          window.scrollTo({
-            top: offsetPosition,
-            behavior: 'smooth'
-          });
-        }
-      }, 100);
-    });
+    // 1. Restaurar el body SINCRONAMENTE
+    const scrollPosition = savedScrollPosition;
+    document.body.style.position = '';
+    document.body.style.top = '';
+    document.body.style.left = '';
+    document.body.style.right = '';
+    document.body.style.width = '';
+    document.body.style.overflow = '';
+    window.scrollTo(0, scrollPosition);
+    
+    // 2. Cerrar el modal
+    setIsOpen(false);
+    
+    // 3. Ejecutar la navegación inmediatamente
+    onCategoryChange(category);
   };
 
   // Renderizar modal usando Portal genérico
@@ -182,7 +170,15 @@ const CategoryFilter = ({ selectedCategory, onCategoryChange }) => {
                   <button
                     key={category}
                     onClick={() => handleCategorySelect(category)}
-                    style={{ animationDelay: `${index * 30}ms` }}
+                    onTouchEnd={(e) => {
+                      e.preventDefault();
+                      handleCategorySelect(category);
+                    }}
+                    style={{ 
+                      animationDelay: `${index * 30}ms`,
+                      WebkitTapHighlightColor: 'transparent',
+                      touchAction: 'manipulation'
+                    }}
                     className={`
                       relative overflow-hidden rounded-2xl font-bold
                       transition-all duration-200 animate-in fade-in zoom-in-95
@@ -192,12 +188,12 @@ const CategoryFilter = ({ selectedCategory, onCategoryChange }) => {
                       }
                     `}
                   >
-                    <div className="relative aspect-[4/3] w-full">
+                    <div className="relative aspect-[4/3] w-full pointer-events-none">
                       <img
                         src={categoryImage}
                         alt={category}
                         className={`
-                          absolute inset-0 w-full h-full object-cover
+                          absolute inset-0 w-full h-full object-cover pointer-events-none
                           transition-all duration-200
                           ${isSelected ? 'scale-110 brightness-110' : 'brightness-90 hover:brightness-100'}
                         `}
@@ -207,19 +203,19 @@ const CategoryFilter = ({ selectedCategory, onCategoryChange }) => {
                       />
 
                       <div className={`
-                        absolute inset-0 bg-gradient-to-t from-black/95 via-black/60 to-transparent
+                        absolute inset-0 bg-gradient-to-t from-black/95 via-black/60 to-transparent pointer-events-none
                         transition-all duration-200
                         ${isSelected ? 'from-blue-900/90 via-black/50' : ''}
                       `} />
 
                       {isSelected && (
-                        <div className="absolute top-3 right-3 bg-gradient-to-r from-blue-500 to-blue-600 text-white px-3 py-1.5 rounded-full text-xs font-black shadow-xl animate-in zoom-in-50 duration-200 flex items-center gap-1.5 border border-white/20">
+                        <div className="absolute top-3 right-3 bg-gradient-to-r from-blue-500 to-blue-600 text-white px-3 py-1.5 rounded-full text-xs font-black shadow-xl animate-in zoom-in-50 duration-200 flex items-center gap-1.5 border border-white/20 pointer-events-none">
                           <div className="w-1.5 h-1.5 rounded-full bg-white animate-pulse" />
                           Activa
                         </div>
                       )}
 
-                      <div className="absolute inset-x-0 bottom-0 p-4 flex flex-col items-start gap-1.5">
+                      <div className="absolute inset-x-0 bottom-0 p-4 flex flex-col items-start gap-1.5 pointer-events-none">
                         <span className={`
                           text-white font-black leading-tight drop-shadow-[0_2px_12px_rgba(0,0,0,0.9)]
                           transition-all duration-200
