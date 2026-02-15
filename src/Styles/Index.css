@@ -977,6 +977,7 @@ html {
   /* Fallback primero, luego el moderno con safe-area */
   bottom: calc(1rem + env(safe-area-inset-bottom, 0px)) !important;
   left: calc(1rem + env(safe-area-inset-left, 0px)) !important;
+  will-change: transform !important;
 }
 
 .floating-button-fixed-right {
@@ -992,6 +993,7 @@ html {
   /* Fallback primero, luego el moderno con safe-area */
   bottom: calc(1rem + env(safe-area-inset-bottom, 0px)) !important;
   right: calc(1rem + env(safe-area-inset-right, 0px)) !important;
+  will-change: transform !important;
 }
 
 @media (min-width: 640px) {
@@ -2535,6 +2537,9 @@ button:has(.loading-spinner) {
   /* Stacking context limpio */
   isolation: isolate !important;
   contain: layout style paint !important;
+  /* Forzar posición fixed */
+  position: fixed !important;
+  will-change: transform !important;
 }
 
 /* iOS Safari: Asegurar que los botones flotantes respeten safe areas */
@@ -2655,4 +2660,18 @@ button:has(.loading-spinner) {
   will-change: auto !important;
   filter: none !important;
   backdrop-filter: none !important;
+}
+
+/* iOS: Asegurar que los dropdowns y menús desplegables funcionen */
+.is-ios [class*="absolute"][class*="z-"] {
+  -webkit-transform: translate3d(0, 0, 0) !important;
+  transform: translate3d(0, 0, 0) !important;
+  -webkit-backface-visibility: hidden !important;
+  backfaceVisibility: hidden !important;
+}
+
+/* iOS: Fix para elementos con position absolute dentro de relative */
+.is-ios .relative > .absolute {
+  -webkit-transform: translate3d(0, 0, 0) !important;
+  transform: translate3d(0, 0, 0) !important;
 }

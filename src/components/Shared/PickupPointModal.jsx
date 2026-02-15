@@ -30,9 +30,23 @@ const PickupPointModal = memo(({ isOpen, onClose, onSelectPoint, selectedPoint }
       isOpen={isOpen}
       onClose={onClose}
       backdropClassName={isAnimating ? 'opacity-100' : 'opacity-0'}
-      style={{ zIndex: 2147483647 }}
+      style={{ 
+        zIndex: 2147483647,
+        WebkitTransform: 'translate3d(0, 0, 0)',
+        transform: 'translate3d(0, 0, 0)',
+        WebkitBackfaceVisibility: 'hidden',
+        backfaceVisibility: 'hidden'
+      }}
     >
-      <div className="modal-scale-enter relative bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 rounded-2xl sm:rounded-3xl shadow-2xl w-full max-w-2xl border border-gray-700/50 overflow-hidden max-h-[95vh] flex flex-col">
+      <div 
+        className="modal-scale-enter relative bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 rounded-2xl sm:rounded-3xl shadow-2xl w-full max-w-2xl border border-gray-700/50 overflow-hidden max-h-[95vh] flex flex-col"
+        style={{
+          WebkitTransform: 'translate3d(0, 0, 0)',
+          transform: 'translate3d(0, 0, 0)',
+          WebkitBackfaceVisibility: 'hidden',
+          backfaceVisibility: 'hidden'
+        }}
+      >
           {/* Decorative glow - Solo desktop */}
           <div className="hidden md:block absolute top-0 left-1/2 -translate-x-1/2 w-64 h-64 bg-green-500/20 rounded-full blur-3xl" />
           

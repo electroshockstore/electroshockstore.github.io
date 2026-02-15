@@ -40,7 +40,7 @@ const ShareButton = ({ productName, product, className = '' }) => {
   };
 
   return (
-    <div className="relative">
+    <div className="relative" style={{ isolation: 'isolate' }}>
       {/* Botón principal */}
       <button
         onClick={() => setShowOptions(!showOptions)}
@@ -79,10 +79,27 @@ const ShareButton = ({ productName, product, className = '' }) => {
           <div 
             className="fixed inset-0 z-40" 
             onClick={() => setShowOptions(false)}
+            style={{
+              zIndex: 2147483645,
+              WebkitTransform: 'translate3d(0, 0, 0)',
+              transform: 'translate3d(0, 0, 0)',
+              WebkitBackfaceVisibility: 'hidden',
+              backfaceVisibility: 'hidden'
+            }}
           />
           
           {/* Opciones */}
-          <div className="absolute top-full left-0 right-0 mt-2 bg-white rounded-xl shadow-2xl border-2 border-gray-200 overflow-hidden z-50 animate-in fade-in slide-in-from-top-2 duration-200">
+          <div 
+            className="absolute top-full left-0 right-0 mt-2 bg-white rounded-xl shadow-2xl border-2 border-gray-200 overflow-hidden z-50 animate-in fade-in slide-in-from-top-2 duration-200"
+            style={{
+              zIndex: 2147483646,
+              WebkitTransform: 'translate3d(0, 0, 0)',
+              transform: 'translate3d(0, 0, 0)',
+              WebkitBackfaceVisibility: 'hidden',
+              backfaceVisibility: 'hidden',
+              position: 'absolute'
+            }}
+          >
             {/* Copiar enlace */}
             <button
               onClick={handleCopyLink}

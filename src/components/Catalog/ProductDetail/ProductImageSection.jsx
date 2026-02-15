@@ -164,8 +164,14 @@ const ProductImageSection = ({ images = [], name, stock, stockStatus }) => {
       {isLightboxOpen && (
         <Portal>
           <div 
-            className="fixed inset-0 bg-black/95 backdrop-blur-sm flex items-center justify-center"
-            style={{ zIndex: 2147483647 }}
+            className="fixed inset-0 bg-black/95 md:backdrop-blur-sm flex items-center justify-center"
+            style={{ 
+              zIndex: 2147483647,
+              WebkitTransform: 'translate3d(0, 0, 0)',
+              transform: 'translate3d(0, 0, 0)',
+              WebkitBackfaceVisibility: 'hidden',
+              backfaceVisibility: 'hidden'
+            }}
             onClick={closeLightbox}
             onKeyDown={handleKeyDown}
             tabIndex={0}
@@ -187,11 +193,19 @@ const ProductImageSection = ({ images = [], name, stock, stockStatus }) => {
           <div 
             className="relative max-w-7xl max-h-[90vh] w-full h-full flex items-center justify-center px-4"
             onClick={(e) => e.stopPropagation()}
+            style={{
+              WebkitTransform: 'translate3d(0, 0, 0)',
+              transform: 'translate3d(0, 0, 0)'
+            }}
           >
             <img
               src={images[lightboxImageIndex]}
               alt={`${name} - Imagen ${lightboxImageIndex + 1}`}
               className="max-w-full max-h-full object-contain"
+              style={{
+                WebkitTransform: 'translate3d(0, 0, 0)',
+                transform: 'translate3d(0, 0, 0)'
+              }}
             />
           </div>
 
