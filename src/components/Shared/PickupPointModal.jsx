@@ -10,33 +10,20 @@ import PlatformModal from './PlatformModal';
 const PickupPointModal = memo(({ isOpen, onClose, onSelectPoint, selectedPoint }) => {
   const [isAnimating, setIsAnimating] = useState(false);
 
-  console.log('[PickupPointModal] Renderizando', { isOpen, isAnimating, selectedPoint });
-
   // Bloquear scroll cuando modal está abierto
   useEffect(() => {
-    console.log('[PickupPointModal] useEffect isOpen cambió:', isOpen);
     if (isOpen) {
       setIsAnimating(true);
-      
-      // SOLO detener Lenis, NO tocar el body
-      console.log('[PickupPointModal] Deteniendo Lenis');
       window.lenis?.stop();
       
       return () => {
-        // Reanudar Lenis
-        console.log('[PickupPointModal] Reanudando Lenis');
         window.lenis?.start();
         setIsAnimating(false);
       };
     }
   }, [isOpen]);
 
-  if (!isOpen) {
-    console.log('[PickupPointModal] Modal cerrado, retornando null');
-    return null;
-  }
-
-  console.log('[PickupPointModal] ✅ Modal abierto, renderizando PlatformModal');
+  if (!isOpen) return null;
 
   return (
     <PlatformModal
@@ -188,7 +175,6 @@ const PickupPointModal = memo(({ isOpen, onClose, onSelectPoint, selectedPoint }
         </div>
       </PlatformModal>
     );
-  });
 });
 
 PickupPointModal.displayName = 'PickupPointModal';
