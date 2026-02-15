@@ -54,11 +54,7 @@ const FloatingChatButton = () => {
         <Portal>
           <div
             className="fixed inset-0 flex items-center justify-center p-4 bg-black/90 md:backdrop-blur-md animate-fadeIn"
-            style={{ 
-              zIndex: 2147483647,
-              WebkitTransform: 'translate3d(0, 0, 0)',
-              transform: 'translate3d(0, 0, 0)'
-            }}
+            style={{ zIndex: 2147483647 }}
             onClick={() => setShowConditionsModal(false)}
           >
           <div
@@ -120,23 +116,12 @@ const FloatingChatButton = () => {
         {isExpanded && (
           <div 
             className="fixed inset-0 bg-black/30 md:backdrop-blur-md transition-all duration-300 animate-in fade-in" 
-            style={{ 
-              zIndex: 99998,
-              WebkitTransform: 'translate3d(0, 0, 0)',
-              transform: 'translate3d(0, 0, 0)'
-            }}
+            style={{ zIndex: 99998 }}
             onClick={() => setIsExpanded(false)}
           />
         )}
 
-        <div 
-          className="floating-button-fixed"
-          style={{ 
-            zIndex: 99999,
-            WebkitTransform: 'translate3d(0, 0, 0)',
-            transform: 'translate3d(0, 0, 0)'
-          }}
-        >
+        <div className="floating-button-fixed">
         
         {/* --- MENÚ EXPANDIDO --- */}
         {isExpanded && (

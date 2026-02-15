@@ -30,6 +30,7 @@ const PickupPointModal = memo(({ isOpen, onClose, onSelectPoint, selectedPoint }
       isOpen={isOpen}
       onClose={onClose}
       backdropClassName={isAnimating ? 'opacity-100' : 'opacity-0'}
+      style={{ zIndex: 2147483647 }}
     >
       <div className="modal-scale-enter relative bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 rounded-2xl sm:rounded-3xl shadow-2xl w-full max-w-2xl border border-gray-700/50 overflow-hidden max-h-[95vh] flex flex-col">
           {/* Decorative glow - Solo desktop */}

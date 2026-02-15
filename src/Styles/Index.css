@@ -2596,46 +2596,28 @@ button:has(.loading-spinner) {
   contain: layout style paint !important;
 }
 
-/* Portal root - NO debe tener position para que fixed funcione correctamente */
+/* Portal root - CRÍTICO: NO debe tener position para que fixed funcione */
 #portal-root {
-  /* NO position aquí - los children usan position: fixed relativo al viewport */
+  /* Sin position - los children usan position: fixed relativo al viewport */
   z-index: 999999;
-  pointer-events: none; /* Permite clicks a través del portal vacío */
+  pointer-events: none;
 }
 
-/* Los children del portal deben restaurar pointer-events */
+/* Los children del portal restauran pointer-events */
 #portal-root > * {
   pointer-events: auto;
 }
 
-/* iOS Safari: Forzar stacking context y hardware acceleration */
+/* iOS Safari: Solo hardware acceleration, SIN position fixed en el portal */
 @supports (-webkit-touch-callout: none) {
   #portal-root {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
+    /* NO position fixed aquí - rompe el posicionamiento de children */
+    z-index: 2147483647;
     pointer-events: none;
-    z-index: 2147483647; /* Max z-index para iOS */
-    -webkit-transform: translateZ(0);
-    transform: translateZ(0);
-    -webkit-backface-visibility: hidden;
-    backface-visibility: hidden;
-    will-change: transform;
   }
   
   #portal-root > * {
     pointer-events: auto;
-    -webkit-transform: translateZ(0);
-    transform: translateZ(0);
-    will-change: transform;
-  }
-  
-  /* Forzar visibilidad de modales en iOS */
-  .fixed {
-    -webkit-transform: translate3d(0, 0, 0) !important;
-    transform: translate3d(0, 0, 0) !important;
   }
 }
 

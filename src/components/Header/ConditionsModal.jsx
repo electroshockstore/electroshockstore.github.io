@@ -20,11 +20,7 @@ const ConditionsModal = ({ isOpen, onClose }) => {
     <Portal>
       <div
         className="fixed inset-0 flex items-center justify-center p-4 bg-black/90 backdrop-blur-md animate-fadeIn"
-        style={{ 
-          zIndex: 2147483647,
-          WebkitTransform: 'translate3d(0, 0, 0)',
-          transform: 'translate3d(0, 0, 0)'
-        }}
+        style={{ zIndex: 2147483647 }}
         onClick={onClose}
       >
       <div
