@@ -3,29 +3,19 @@ import { createPortal } from 'react-dom';
 
 /**
  * Portal Component - Renderiza children en #portal-root (hermano de #root)
- * Esto evita problemas de stacking context en iOS Safari/Webkit
- * 
- * Uso:
- * <Portal>
- *   <div>Contenido del modal</div>
- * </Portal>
+ * SIMPLIFICADO: Sin estado mounted para evitar delay de renderizado
  */
 const Portal = ({ children }) => {
-  const [mounted, setMounted] = useState(false);
-
-  useEffect(() => {
-    setMounted(true);
-    return () => setMounted(false);
-  }, []);
-
-  if (!mounted) return null;
-
+  console.log('[Portal] Renderizando, children:', children);
+  
   const portalRoot = document.getElementById('portal-root');
+  
   if (!portalRoot) {
-    console.error('portal-root no encontrado en el DOM');
+    console.error('[Portal] ❌ portal-root NO ENCONTRADO en el DOM');
     return null;
   }
 
+  console.log('[Portal] ✅ Creando portal en portal-root');
   return createPortal(children, portalRoot);
 };
 

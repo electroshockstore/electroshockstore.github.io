@@ -42,27 +42,13 @@ const SidebarFilters = ({ selectedCategory, filters, onFilterChange, onClearFilt
   const hasActiveFilters = Object.values(filters).some(arr => arr && arr.length > 0);
   const activeFiltersCount = Object.values(filters).reduce((acc, arr) => acc + (arr?.length || 0), 0);
 
-  // Bloquear scroll del body cuando el drawer está abierto
+  // Bloquear scroll cuando drawer está abierto
   useEffect(() => {
     if (isDrawerOpen) {
-      // Guardar posición actual del scroll
-      const scrollY = window.scrollY;
+      window.lenis?.stop();
       
-      // Bloquear scroll del body
-      document.body.style.position = 'fixed';
-      document.body.style.top = `-${scrollY}px`;
-      document.body.style.left = '0';
-      document.body.style.right = '0';
-      document.body.style.width = '100%';
-
       return () => {
-        // Restaurar scroll del body
-        document.body.style.position = '';
-        document.body.style.top = '';
-        document.body.style.left = '';
-        document.body.style.right = '';
-        document.body.style.width = '';
-        window.scrollTo(0, scrollY);
+        window.lenis?.start();
       };
     }
   }, [isDrawerOpen]);

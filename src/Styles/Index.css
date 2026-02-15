@@ -21,17 +21,23 @@
   --duration-slower: 500ms;
 }
 
-/* ===== SMOOTH SCROLL GLOBAL (Solo Desktop) ===== */
-@media (min-width: 769px) {
-  html {
-    scroll-behavior: smooth;
-  }
+/* ===== SMOOTH SCROLL - MANEJADO POR LENIS ===== */
+/* Lenis maneja el smooth scroll en desktop (>768px) */
+/* Mobile mantiene scroll nativo para mejor performance */
+
+html {
+  scroll-behavior: auto; /* Lenis toma control en desktop */
 }
 
-/* Mobile: Scroll nativo para mejor performance */
-@media (max-width: 768px) {
+/* Clase para elementos con scroll interno (modales, sidebars, etc.) */
+.lenis-prevent {
+  overscroll-behavior: contain;
+}
+
+/* Smooth scroll solo para navegadores sin JS como fallback */
+@media (scripting: none) {
   html {
-    scroll-behavior: auto;
+    scroll-behavior: smooth;
   }
 }
 
@@ -2559,12 +2565,16 @@ button:has(.loading-spinner) {
   contain: layout style paint !important;
 }
 
-/* iOS: Asegurar que el portal-root tenga un stacking context limpio */
+/* Portal root - NO debe tener position para que fixed funcione correctamente */
 #portal-root {
-  position: relative;
+  /* NO position aquí - los children usan position: fixed relativo al viewport */
   z-index: 999999;
-  isolation: isolate;
-  contain: layout style paint;
+  pointer-events: none; /* Permite clicks a través del portal vacío */
+}
+
+/* Los children del portal deben restaurar pointer-events */
+#portal-root > * {
+  pointer-events: auto;
 }
 
 /* iOS: Prevenir transformaciones problemáticas en ancestros */

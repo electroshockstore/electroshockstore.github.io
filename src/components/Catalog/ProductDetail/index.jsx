@@ -68,34 +68,22 @@ const ProductDetail = memo(({ product, onClose, isPage = false }) => {
     );
   }
 
-  // Bloquear scroll del body cuando el modal está abierto
+  // Bloquear scroll cuando modal está abierto
   useEffect(() => {
-    // Guardar posición actual del scroll
-    const scrollY = window.scrollY;
+    if (isPage) return;
     
-    // Bloquear scroll del body
-    document.body.style.position = 'fixed';
-    document.body.style.top = `-${scrollY}px`;
-    document.body.style.left = '0';
-    document.body.style.right = '0';
-    document.body.style.width = '100%';
+    window.lenis?.stop();
 
     return () => {
-      // Restaurar scroll del body
-      document.body.style.position = '';
-      document.body.style.top = '';
-      document.body.style.left = '';
-      document.body.style.right = '';
-      document.body.style.width = '';
-      window.scrollTo(0, scrollY);
+      window.lenis?.start();
     };
-  }, []);
+  }, [isPage]);
 
   // Renderizado como modal usando Portal
   return (
     <Portal>
       <div className="fixed inset-0 bg-black/60 z-[100] backdrop-blur-sm" onClick={onClose}></div>
-      <div className="fixed inset-0 z-[101] overflow-y-auto flex items-start justify-center py-8">
+      <div className="fixed inset-0 z-[101] overflow-y-auto flex items-start justify-center py-8" data-lenis-prevent>
         <div className="w-full max-w-7xl">
           <div className="bg-gray-50 rounded-3xl shadow-2xl">
             <DetailHeader onClose={onClose} product={product} />

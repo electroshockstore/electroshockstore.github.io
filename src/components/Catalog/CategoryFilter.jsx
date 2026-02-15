@@ -68,39 +68,17 @@ const CategoryFilter = ({ selectedCategory, onCategoryChange }) => {
     return () => document.removeEventListener('mousedown', handleClickOutside);
   }, []);
 
-  // Bloquear scroll del body cuando el modal está abierto
+  // Bloquear scroll cuando modal está abierto
   useEffect(() => {
     if (isOpen) {
-      // Guardar posición actual del scroll
-      const scrollY = window.scrollY;
-      setSavedScrollPosition(scrollY);
+      setSavedScrollPosition(window.scrollY);
+      window.lenis?.stop();
       
-      // Bloquear scroll del body
-      document.body.style.position = 'fixed';
-      document.body.style.top = `-${scrollY}px`;
-      document.body.style.left = '0';
-      document.body.style.right = '0';
-      document.body.style.width = '100%';
-      document.body.style.overflow = 'hidden';
+      return () => {
+        window.lenis?.start();
+      };
     }
-    
-    // NO restaurar aquí, se hace manualmente en handleCategorySelect
   }, [isOpen]);
-  
-  // Cleanup cuando el componente se desmonta
-  useEffect(() => {
-    return () => {
-      // Solo limpiar si el modal estaba abierto
-      if (isOpen) {
-        document.body.style.position = '';
-        document.body.style.top = '';
-        document.body.style.left = '';
-        document.body.style.right = '';
-        document.body.style.width = '';
-        document.body.style.overflow = '';
-      }
-    };
-  }, []);
 
   const handleScroll = (direction) => {
     if (scrollContainerRef.current) {
@@ -113,26 +91,21 @@ const CategoryFilter = ({ selectedCategory, onCategoryChange }) => {
   };
 
   const handleCategorySelect = (category) => {
-    // 1. Restaurar el body SINCRONAMENTE
-    const scrollPosition = savedScrollPosition;
-    document.body.style.position = '';
-    document.body.style.top = '';
-    document.body.style.left = '';
-    document.body.style.right = '';
-    document.body.style.width = '';
-    document.body.style.overflow = '';
-    window.scrollTo(0, scrollPosition);
-    
-    // 2. Cerrar el modal
+    window.lenis?.start();
     setIsOpen(false);
-    
-    // 3. Ejecutar la navegación inmediatamente
     onCategoryChange(category);
   };
 
   // Renderizar modal usando Portal genérico
   const renderModal = () => {
-    if (!isOpen) return null;
+    console.log('[CategoryFilter] renderModal llamado', { isOpen });
+    
+    if (!isOpen) {
+      console.log('[CategoryFilter] Modal cerrado, no renderizando');
+      return null;
+    }
+
+    console.log('[CategoryFilter] ✅ Modal abierto, renderizando Portal con contenido');
 
     return (
       <Portal>
@@ -140,7 +113,10 @@ const CategoryFilter = ({ selectedCategory, onCategoryChange }) => {
         {/* Backdrop */}
         <div
           className="modal-fullscreen-backdrop"
-          onClick={() => setIsOpen(false)}
+          onClick={() => {
+            console.log('[CategoryFilter] Click en backdrop, cerrando modal');
+            setIsOpen(false);
+          }}
         />
 
         {/* Modal Content */}
@@ -172,8 +148,8 @@ const CategoryFilter = ({ selectedCategory, onCategoryChange }) => {
             </button>
           </div>
 
-          {/* Grid de categorías */}
-          <div className="modal-fullscreen-scroll category-grid-scroll">
+          {/* Grid de categorías con data-lenis-prevent */}
+          <div className="modal-fullscreen-scroll category-grid-scroll" data-lenis-prevent>
             {/* Pattern decorativo sutil */}
             <div className="absolute inset-0 opacity-5 bg-grain pointer-events-none" />
             
@@ -289,7 +265,11 @@ const CategoryFilter = ({ selectedCategory, onCategoryChange }) => {
             <div className={`category-dropdown sm:hidden relative z-20 ${isOpen ? 'dropdown-open' : ''}`} ref={dropdownRef}>
             {/* Botón principal mejorado con imagen */}
             <button
-              onClick={() => setIsOpen(!isOpen)}
+              onClick={() => {
+                console.log('[CategoryFilter] Click en botón, isOpen actual:', isOpen);
+                setIsOpen(!isOpen);
+                console.log('[CategoryFilter] isOpen nuevo:', !isOpen);
+              }}
               className="relative w-full flex items-center justify-between px-4 py-3 bg-gradient-to-r from-white to-gray-50 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-[1.02] active:scale-[0.98] border border-gray-100"
             >
               <div className="flex items-center gap-3">

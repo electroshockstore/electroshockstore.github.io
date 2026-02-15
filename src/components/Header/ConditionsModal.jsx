@@ -1,7 +1,19 @@
 import { X, FileText } from 'lucide-react';
 import Portal from '../Shared/Portal';
+import { useEffect } from 'react';
 
 const ConditionsModal = ({ isOpen, onClose }) => {
+  // Bloquear scroll cuando modal está abierto
+  useEffect(() => {
+    if (isOpen) {
+      window.lenis?.stop();
+      
+      return () => {
+        window.lenis?.start();
+      };
+    }
+  }, [isOpen]);
+
   if (!isOpen) return null;
 
   return (

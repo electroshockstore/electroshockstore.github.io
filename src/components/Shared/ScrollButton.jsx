@@ -5,28 +5,50 @@ import Portal from './Portal';
 const ScrollButton = () => {
   const [showButton, setShowButton] = useState(false);
 
+  console.log('[ScrollButton] Renderizando, showButton:', showButton);
+
   useEffect(() => {
     const handleScroll = () => {
       const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-      
-      // Mostrar botón después de scrollear 300px
       setShowButton(scrollTop > 300);
     };
 
-    window.addEventListener('scroll', handleScroll);
-    handleScroll(); // Check initial state
+    // Si Lenis existe, usar su evento
+    if (window.lenis) {
+      window.lenis.on('scroll', ({ scroll }) => {
+        setShowButton(scroll > 300);
+      });
+    } else {
+      // Fallback a scroll nativo
+      window.addEventListener('scroll', handleScroll);
+      handleScroll();
+    }
     
-    return () => window.removeEventListener('scroll', handleScroll);
+    return () => {
+      if (!window.lenis) {
+        window.removeEventListener('scroll', handleScroll);
+      }
+    };
   }, []);
 
   const scrollToTop = () => {
-    window.scrollTo({
-      top: 0,
-      behavior: 'smooth'
-    });
+    // Usar Lenis si existe, sino scroll nativo
+    if (window.lenis) {
+      window.lenis.scrollTo(0, { duration: 1.5 });
+    } else {
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+    }
   };
 
-  if (!showButton) return null;
+  if (!showButton) {
+    console.log('[ScrollButton] Botón oculto, no renderizando');
+    return null;
+  }
+
+  console.log('[ScrollButton] ✅ Renderizando botón en Portal');
 
   return (
     <Portal>

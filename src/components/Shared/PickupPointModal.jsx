@@ -6,35 +6,33 @@ import Portal from './Portal';
 const PickupPointModal = memo(({ isOpen, onClose, onSelectPoint, selectedPoint }) => {
   const [isAnimating, setIsAnimating] = useState(false);
 
-  // Bloquear scroll del body cuando el modal está abierto (iOS compatible)
+  console.log('[PickupPointModal] Renderizando', { isOpen, isAnimating, selectedPoint });
+
+  // Bloquear scroll cuando modal está abierto
   useEffect(() => {
+    console.log('[PickupPointModal] useEffect isOpen cambió:', isOpen);
     if (isOpen) {
       setIsAnimating(true);
       
-      // Guardar posición actual del scroll
-      const scrollY = window.scrollY;
-      
-      // Aplicar estilos para bloquear scroll (iOS compatible)
-      document.body.style.position = 'fixed';
-      document.body.style.top = `-${scrollY}px`;
-      document.body.style.width = '100%';
-      document.body.style.overflow = 'hidden';
+      // SOLO detener Lenis, NO tocar el body
+      console.log('[PickupPointModal] Deteniendo Lenis');
+      window.lenis?.stop();
       
       return () => {
-        // Restaurar estilos
-        document.body.style.position = '';
-        document.body.style.top = '';
-        document.body.style.width = '';
-        document.body.style.overflow = '';
-        
-        // Restaurar posición del scroll
-        window.scrollTo(0, scrollY);
+        // Reanudar Lenis
+        console.log('[PickupPointModal] Reanudando Lenis');
+        window.lenis?.start();
         setIsAnimating(false);
       };
     }
   }, [isOpen]);
 
-  if (!isOpen) return null;
+  if (!isOpen) {
+    console.log('[PickupPointModal] Modal cerrado, retornando null');
+    return null;
+  }
+
+  console.log('[PickupPointModal] ✅ Modal abierto, renderizando Portal');
 
   return (
     <Portal>
@@ -94,8 +92,8 @@ const PickupPointModal = memo(({ isOpen, onClose, onSelectPoint, selectedPoint }
             </div>
           </div>
 
-          {/* Content - Scrollable */}
-          <div className="relative flex-1 overflow-y-auto scrollbar-custom">
+          {/* Content - Scrollable con data-lenis-prevent */}
+          <div className="relative flex-1 overflow-y-auto scrollbar-custom" data-lenis-prevent>
             <div className="p-4 sm:p-6 space-y-3 sm:space-y-4">
               {PICKUP_POINTS.map((point) => {
                 const isSelected = selectedPoint?.id === point.id;

@@ -2,6 +2,7 @@ import { lazy, Suspense, useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { FilterProvider } from "./context/FilterContext";
 import { PCBuilderProvider } from "./context/PCBuilderContext";
+import { LenisProvider } from "./components/Shared/LenisProvider";
 import ErrorBoundary from "./components/ErrorBoundary";
 import ErrorNotification from "./components/ErrorNotification";
 import { useErrorHandler } from "./hooks/useErrorHandler";
@@ -71,15 +72,17 @@ function App() {
   
   return (
     <ErrorBoundary>
-      <FilterProvider>
-        <PCBuilderProvider>
-          <Router basename="/">
-            <ScrollToTop />
-            <SkipToContent />
-            <AppContent />
-          </Router>
-        </PCBuilderProvider>
-      </FilterProvider>
+      <LenisProvider>
+        <FilterProvider>
+          <PCBuilderProvider>
+            <Router basename="/">
+              <ScrollToTop />
+              <SkipToContent />
+              <AppContent />
+            </Router>
+          </PCBuilderProvider>
+        </FilterProvider>
+      </LenisProvider>
     </ErrorBoundary>
   );
 }

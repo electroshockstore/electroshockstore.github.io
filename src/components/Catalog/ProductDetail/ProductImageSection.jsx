@@ -31,27 +31,13 @@ const ProductImageSection = ({ images = [], name, stock, stockStatus }) => {
     setIsLightboxOpen(false);
   };
 
-  // Bloquear scroll del body cuando el lightbox está abierto
+  // Bloquear scroll cuando lightbox está abierto
   useEffect(() => {
     if (isLightboxOpen) {
-      // Guardar posición actual del scroll
-      const scrollY = window.scrollY;
+      window.lenis?.stop();
       
-      // Bloquear scroll del body
-      document.body.style.position = 'fixed';
-      document.body.style.top = `-${scrollY}px`;
-      document.body.style.left = '0';
-      document.body.style.right = '0';
-      document.body.style.width = '100%';
-
       return () => {
-        // Restaurar scroll del body
-        document.body.style.position = '';
-        document.body.style.top = '';
-        document.body.style.left = '';
-        document.body.style.right = '';
-        document.body.style.width = '';
-        window.scrollTo(0, scrollY);
+        window.lenis?.start();
       };
     }
   }, [isLightboxOpen]);

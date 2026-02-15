@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Send, X, MapPin, FileText } from 'lucide-react'; 
 import { useLocation, useNavigate } from 'react-router-dom';
 import Portal from './Portal';
@@ -9,10 +9,24 @@ const FloatingChatButton = () => {
   const location = useLocation();
   const navigate = useNavigate();
   
+  console.log('[FloatingChatButton] Renderizando', { isExpanded, showConditionsModal, pathname: location.pathname });
+  
   // Ocultar en PC Builder ya que tiene su propio botón de WhatsApp
   if (location.pathname.includes('/pc-builder')) {
+    console.log('[FloatingChatButton] Oculto en PC Builder');
     return null;
   }
+
+  // Bloquear scroll cuando modal está abierto
+  useEffect(() => {
+    if (showConditionsModal) {
+      window.lenis?.stop();
+      
+      return () => {
+        window.lenis?.start();
+      };
+    }
+  }, [showConditionsModal]);
 
   const handleWhatsApp = () => {
     const phoneNumber = '5491125718382';
@@ -33,8 +47,11 @@ const FloatingChatButton = () => {
   };
 
   const toggleExpanded = () => {
+    console.log('[FloatingChatButton] toggleExpanded, isExpanded actual:', isExpanded);
     setIsExpanded(!isExpanded);
   };
+
+  console.log('[FloatingChatButton] Antes de return, showConditionsModal:', showConditionsModal);
 
   return (
     <>
@@ -43,7 +60,10 @@ const FloatingChatButton = () => {
         <Portal>
           <div
             className="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-black/90 md:backdrop-blur-md animate-fadeIn"
-            onClick={() => setShowConditionsModal(false)}
+            onClick={() => {
+              console.log('[FloatingChatButton] Click en backdrop conditions modal');
+              setShowConditionsModal(false);
+            }}
           >
           <div
             className="relative bg-gradient-to-br from-gray-900 via-gray-800 to-black rounded-3xl shadow-2xl max-w-2xl w-full border border-gray-700/50 overflow-hidden modal-scale-enter"
@@ -165,7 +185,10 @@ const FloatingChatButton = () => {
 
         {/* --- BOTÓN PRINCIPAL CON EFECTOS --- */}
         <button
-          onClick={toggleExpanded}
+          onClick={() => {
+            console.log('[FloatingChatButton] Click en botón principal');
+            toggleExpanded();
+          }}
           className="group relative bg-gradient-to-r from-green-500 via-green-600 to-green-700 hover:from-green-600 hover:via-green-700 hover:to-green-800 text-white rounded-lg sm:rounded-xl shadow-lg sm:shadow-2xl hover:shadow-green-500/50 btn-premium overflow-hidden z-50"
         >
           {/* Efecto Shine */}

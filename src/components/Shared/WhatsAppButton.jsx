@@ -6,6 +6,8 @@ const WhatsAppButton = ({ productName, product, className = "" }) => {
   const [showModal, setShowModal] = useState(false);
   const [selectedPoint, setSelectedPoint] = useState(null);
 
+  console.log('[WhatsAppButton] Renderizando', { showModal, selectedPoint, productName });
+
   const sendWhatsAppMessage = useCallback((point) => {
     if (product) {
       trackWhatsAppClick(product, 'consult');
@@ -35,10 +37,13 @@ const WhatsAppButton = ({ productName, product, className = "" }) => {
   }, [product, productName]);
 
   const handleOpenModal = () => {
+    console.log('[WhatsAppButton] handleOpenModal llamado');
     setShowModal(true);
+    console.log('[WhatsAppButton] showModal establecido a true');
   };
 
   const handleCloseModal = () => {
+    console.log('[WhatsAppButton] handleCloseModal llamado');
     setShowModal(false);
     setSelectedPoint(null);
   };
@@ -54,7 +59,10 @@ const WhatsAppButton = ({ productName, product, className = "" }) => {
   return (
     <>
       <button
-        onClick={handleOpenModal}
+        onClick={() => {
+          console.log('[WhatsAppButton] Click en botón');
+          handleOpenModal();
+        }}
         className={`group w-full flex items-center justify-center gap-3 bg-gradient-to-r from-green-500 to-green-600 hover:from-green-600 hover:to-green-700 text-white px-4 py-3 sm:px-6 sm:py-4 rounded-xl shadow-lg hover:shadow-green-500/50 transition-all duration-300 font-bold text-sm sm:text-base active:scale-95 ${className}`}
       >
         {/* WhatsApp Icon */}
@@ -93,6 +101,7 @@ const WhatsAppButton = ({ productName, product, className = "" }) => {
       </button>
 
       {/* Modal de selección de punto de retiro */}
+      {console.log('[WhatsAppButton] Antes de renderizar PickupPointModal, showModal:', showModal)}
       <PickupPointModal
         isOpen={showModal}
         onClose={handleCloseModal}
