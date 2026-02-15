@@ -9,11 +9,8 @@ const FloatingChatButton = () => {
   const location = useLocation();
   const navigate = useNavigate();
   
-  console.log('[FloatingChatButton] Renderizando', { isExpanded, showConditionsModal, pathname: location.pathname });
-  
   // Ocultar en PC Builder ya que tiene su propio botón de WhatsApp
   if (location.pathname.includes('/pc-builder')) {
-    console.log('[FloatingChatButton] Oculto en PC Builder');
     return null;
   }
 
@@ -47,11 +44,8 @@ const FloatingChatButton = () => {
   };
 
   const toggleExpanded = () => {
-    console.log('[FloatingChatButton] toggleExpanded, isExpanded actual:', isExpanded);
     setIsExpanded(!isExpanded);
   };
-
-  console.log('[FloatingChatButton] Antes de return, showConditionsModal:', showConditionsModal);
 
   return (
     <>
@@ -65,10 +59,7 @@ const FloatingChatButton = () => {
               WebkitTransform: 'translate3d(0, 0, 0)',
               transform: 'translate3d(0, 0, 0)'
             }}
-            onClick={() => {
-              console.log('[FloatingChatButton] Click en backdrop conditions modal');
-              setShowConditionsModal(false);
-            }}
+            onClick={() => setShowConditionsModal(false)}
           >
           <div
             className="relative bg-gradient-to-br from-gray-900 via-gray-800 to-black rounded-3xl shadow-2xl max-w-2xl w-full border border-gray-700/50 overflow-hidden modal-scale-enter"
@@ -202,10 +193,7 @@ const FloatingChatButton = () => {
 
         {/* --- BOTÓN PRINCIPAL CON EFECTOS --- */}
         <button
-          onClick={() => {
-            console.log('[FloatingChatButton] Click en botón principal');
-            toggleExpanded();
-          }}
+          onClick={toggleExpanded}
           className="group relative bg-gradient-to-r from-green-500 via-green-600 to-green-700 hover:from-green-600 hover:via-green-700 hover:to-green-800 text-white rounded-lg sm:rounded-xl shadow-lg sm:shadow-2xl hover:shadow-green-500/50 btn-premium overflow-hidden z-50"
         >
           {/* Efecto Shine */}

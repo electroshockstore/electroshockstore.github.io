@@ -6,8 +6,6 @@ import { createPortal } from 'react-dom';
  * SIMPLIFICADO: Sin estado mounted para evitar delay de renderizado
  */
 const Portal = ({ children }) => {
-  console.log('[Portal] Renderizando, children:', children);
-  
   const portalRoot = document.getElementById('portal-root');
   
   if (!portalRoot) {
@@ -15,7 +13,6 @@ const Portal = ({ children }) => {
     return null;
   }
 
-  console.log('[Portal] ✅ Creando portal en portal-root');
   return createPortal(children, portalRoot);
 };
 

@@ -98,14 +98,7 @@ const CategoryFilter = ({ selectedCategory, onCategoryChange }) => {
 
   // Renderizar modal usando Portal genérico
   const renderModal = () => {
-    console.log('[CategoryFilter] renderModal llamado', { isOpen });
-    
-    if (!isOpen) {
-      console.log('[CategoryFilter] Modal cerrado, no renderizando');
-      return null;
-    }
-
-    console.log('[CategoryFilter] ✅ Modal abierto, renderizando Portal con contenido');
+    if (!isOpen) return null;
 
     return (
       <Portal>
@@ -113,10 +106,7 @@ const CategoryFilter = ({ selectedCategory, onCategoryChange }) => {
         {/* Backdrop */}
         <div
           className="modal-fullscreen-backdrop"
-          onClick={() => {
-            console.log('[CategoryFilter] Click en backdrop, cerrando modal');
-            setIsOpen(false);
-          }}
+          onClick={() => setIsOpen(false)}
         />
 
         {/* Modal Content */}
@@ -265,11 +255,7 @@ const CategoryFilter = ({ selectedCategory, onCategoryChange }) => {
             <div className={`category-dropdown sm:hidden relative z-20 ${isOpen ? 'dropdown-open' : ''}`} ref={dropdownRef}>
             {/* Botón principal mejorado con imagen */}
             <button
-              onClick={() => {
-                console.log('[CategoryFilter] Click en botón, isOpen actual:', isOpen);
-                setIsOpen(!isOpen);
-                console.log('[CategoryFilter] isOpen nuevo:', !isOpen);
-              }}
+              onClick={() => setIsOpen(!isOpen)}
               className="relative w-full flex items-center justify-between px-4 py-3 bg-gradient-to-r from-white to-gray-50 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-[1.02] active:scale-[0.98] border border-gray-100"
             >
               <div className="flex items-center gap-3">

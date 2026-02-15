@@ -5,8 +5,6 @@ import Portal from './Portal';
 const ScrollButton = () => {
   const [showButton, setShowButton] = useState(false);
 
-  console.log('[ScrollButton] Renderizando, showButton:', showButton);
-
   useEffect(() => {
     const handleScroll = () => {
       const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
@@ -43,12 +41,7 @@ const ScrollButton = () => {
     }
   };
 
-  if (!showButton) {
-    console.log('[ScrollButton] Botón oculto, no renderizando');
-    return null;
-  }
-
-  console.log('[ScrollButton] ✅ Renderizando botón en Portal');
+  if (!showButton) return null;
 
   return (
     <Portal>
