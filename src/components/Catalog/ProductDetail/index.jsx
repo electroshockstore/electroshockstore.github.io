@@ -82,8 +82,24 @@ const ProductDetail = memo(({ product, onClose, isPage = false }) => {
   // Renderizado como modal usando Portal
   return (
     <Portal>
-      <div className="fixed inset-0 bg-black/60 z-[100] backdrop-blur-sm" onClick={onClose}></div>
-      <div className="fixed inset-0 z-[101] overflow-y-auto flex items-start justify-center py-8" data-lenis-prevent>
+      <div 
+        className="fixed inset-0 bg-black/60 backdrop-blur-sm" 
+        style={{ 
+          zIndex: 2147483646,
+          WebkitTransform: 'translate3d(0, 0, 0)',
+          transform: 'translate3d(0, 0, 0)'
+        }}
+        onClick={onClose}
+      ></div>
+      <div 
+        className="fixed inset-0 overflow-y-auto flex items-start justify-center py-8" 
+        style={{ 
+          zIndex: 2147483647,
+          WebkitTransform: 'translate3d(0, 0, 0)',
+          transform: 'translate3d(0, 0, 0)'
+        }}
+        data-lenis-prevent
+      >
         <div className="w-full max-w-7xl">
           <div className="bg-gray-50 rounded-3xl shadow-2xl">
             <DetailHeader onClose={onClose} product={product} />

@@ -1,18 +1,25 @@
 import { useEffect, useRef } from 'react';
 import Lenis from 'lenis';
+import { detectPlatform, LENIS_CONFIG } from '../../constants/platform';
 
 /**
- * Provider de Lenis - Instancia GLOBAL
- * window.lenis disponible inmediatamente
- * Solo activo en desktop (>768px)
+ * Provider de Lenis - Instancia GLOBAL de smooth scroll
+ * window.lenis disponible inmediatamente para todos los componentes
+ * 
+ * Configuración:
+ * - Desktop (>768px): Smooth scroll activo
+ * - Mobile (≤768px): Desactivado, usa scroll nativo
+ * 
+ * Uso en componentes:
+ * - window.lenis?.stop() - Pausar scroll (modales)
+ * - window.lenis?.start() - Reanudar scroll
+ * - window.lenis?.scrollTo(target) - Scroll programático
  */
 export const LenisProvider = ({ children }) => {
   const rafRef = useRef(null);
 
   useEffect(() => {
-    // Detectar móvil - CRÍTICO: debe ser null en mobile
-    const isMobile = window.innerWidth <= 768 || 
-                     /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+    const { isMobile } = detectPlatform();
     
     if (isMobile) {
       console.log('[Lenis] Móvil detectado - Desactivado completamente');
@@ -23,18 +30,7 @@ export const LenisProvider = ({ children }) => {
     console.log('[Lenis] Desktop detectado - Inicializando smooth scroll');
 
     // Crear instancia GLOBAL solo en desktop
-    const lenis = new Lenis({
-      duration: 1.2,
-      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
-      orientation: 'vertical',
-      gestureOrientation: 'vertical',
-      smoothWheel: true,
-      wheelMultiplier: 1,
-      smoothTouch: false,
-      touchMultiplier: 2,
-      infinite: false,
-      autoResize: true,
-    });
+    const lenis = new Lenis(LENIS_CONFIG.DESKTOP);
 
     // GLOBAL - Disponible inmediatamente para todos los componentes
     window.lenis = lenis;

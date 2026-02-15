@@ -52,7 +52,14 @@ const ScrollButton = () => {
 
   return (
     <Portal>
-      <div className="floating-button-fixed-right z-[1001]">
+      <div 
+        className="floating-button-fixed-right"
+        style={{ 
+          zIndex: 99999,
+          WebkitTransform: 'translate3d(0, 0, 0)',
+          transform: 'translate3d(0, 0, 0)'
+        }}
+      >
       {/* Botón Scroll to Top */}
       <button
         onClick={scrollToTop}

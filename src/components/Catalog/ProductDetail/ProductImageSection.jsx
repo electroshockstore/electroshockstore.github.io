@@ -164,7 +164,12 @@ const ProductImageSection = ({ images = [], name, stock, stockStatus }) => {
       {isLightboxOpen && (
         <Portal>
           <div 
-            className="fixed inset-0 z-[9999] bg-black/95 backdrop-blur-sm flex items-center justify-center"
+            className="fixed inset-0 bg-black/95 backdrop-blur-sm flex items-center justify-center"
+            style={{ 
+              zIndex: 2147483647,
+              WebkitTransform: 'translate3d(0, 0, 0)',
+              transform: 'translate3d(0, 0, 0)'
+            }}
             onClick={closeLightbox}
             onKeyDown={handleKeyDown}
             tabIndex={0}

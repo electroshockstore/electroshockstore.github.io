@@ -19,6 +19,19 @@
   --duration-normal: 300ms;
   --duration-slow: 400ms;
   --duration-slower: 500ms;
+  
+  /* Z-Index hierarchy - Sincronizado con constants/platform.js */
+  --z-modal-max: 2147483647;
+  --z-modal-backdrop: 2147483646;
+  --z-modal-standard: 999999;
+  --z-floating-button: 99999;
+  --z-floating-backdrop: 99998;
+  --z-header: 50;
+  --z-dropdown: 40;
+  --z-tooltip: 30;
+  
+  /* Transforms para hardware acceleration */
+  --transform-gpu: translate3d(0, 0, 0);
 }
 
 /* ===== SMOOTH SCROLL - MANEJADO POR LENIS ===== */
@@ -871,11 +884,29 @@ html {
   overflow: hidden !important;
   transform: translate3d(0, 0, 0) !important;
   -webkit-transform: translate3d(0, 0, 0) !important;
+  -webkit-backface-visibility: hidden !important;
+  backface-visibility: hidden !important;
   /* Fallback primero, luego el moderno */
   width: 100vw !important;
   height: 100vh !important;
   width: 100dvw !important;
   height: 100dvh !important;
+}
+
+/* iOS Safari: Forzar rendering y visibilidad */
+@supports (-webkit-touch-callout: none) {
+  .modal-fullscreen-wrapper {
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100vw !important;
+    height: 100vh !important;
+    height: 100dvh !important;
+    z-index: 2147483647 !important; /* Max z-index para iOS */
+    -webkit-transform: translate3d(0, 0, 0) !important;
+    transform: translate3d(0, 0, 0) !important;
+    will-change: transform !important;
+  }
 }
 
 .modal-fullscreen-backdrop {
@@ -2575,6 +2606,37 @@ button:has(.loading-spinner) {
 /* Los children del portal deben restaurar pointer-events */
 #portal-root > * {
   pointer-events: auto;
+}
+
+/* iOS Safari: Forzar stacking context y hardware acceleration */
+@supports (-webkit-touch-callout: none) {
+  #portal-root {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    pointer-events: none;
+    z-index: 2147483647; /* Max z-index para iOS */
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    will-change: transform;
+  }
+  
+  #portal-root > * {
+    pointer-events: auto;
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+    will-change: transform;
+  }
+  
+  /* Forzar visibilidad de modales en iOS */
+  .fixed {
+    -webkit-transform: translate3d(0, 0, 0) !important;
+    transform: translate3d(0, 0, 0) !important;
+  }
 }
 
 /* iOS: Prevenir transformaciones problemáticas en ancestros */

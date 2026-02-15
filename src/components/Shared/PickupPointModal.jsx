@@ -1,8 +1,12 @@
 import { memo, useEffect, useState } from 'react';
-import { MapPin, X, Calendar, Clock, Shield, Camera, MapPinned } from 'lucide-react';
+import { MapPin, X, Calendar, Clock, Shield, Camera } from 'lucide-react';
 import { PICKUP_POINTS } from '../PuntosRetiro/constants';
-import Portal from './Portal';
+import PlatformModal from './PlatformModal';
 
+/**
+ * Modal de selección de punto de retiro
+ * Optimizado para todas las plataformas usando PlatformModal
+ */
 const PickupPointModal = memo(({ isOpen, onClose, onSelectPoint, selectedPoint }) => {
   const [isAnimating, setIsAnimating] = useState(false);
 
@@ -32,21 +36,15 @@ const PickupPointModal = memo(({ isOpen, onClose, onSelectPoint, selectedPoint }
     return null;
   }
 
-  console.log('[PickupPointModal] ✅ Modal abierto, renderizando Portal');
+  console.log('[PickupPointModal] ✅ Modal abierto, renderizando PlatformModal');
 
   return (
-    <Portal>
-      {/* Backdrop - Blur solo en desktop con transición suave */}
-      <div 
-        className={`fixed inset-0 bg-black/60 md:backdrop-blur-sm z-[9998] transition-opacity duration-300 ${
-          isAnimating ? 'opacity-100' : 'opacity-0'
-        }`}
-        onClick={onClose}
-      />
-
-      {/* Modal con transición premium */}
-      <div className="fixed inset-0 z-[9999] flex items-center justify-center p-3 sm:p-4">
-        <div className={`modal-scale-enter relative bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 rounded-2xl sm:rounded-3xl shadow-2xl w-full max-w-2xl border border-gray-700/50 overflow-hidden max-h-[95vh] flex flex-col`}>
+    <PlatformModal
+      isOpen={isOpen}
+      onClose={onClose}
+      backdropClassName={isAnimating ? 'opacity-100' : 'opacity-0'}
+    >
+      <div className="modal-scale-enter relative bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 rounded-2xl sm:rounded-3xl shadow-2xl w-full max-w-2xl border border-gray-700/50 overflow-hidden max-h-[95vh] flex flex-col">
           {/* Decorative glow - Solo desktop */}
           <div className="hidden md:block absolute top-0 left-1/2 -translate-x-1/2 w-64 h-64 bg-green-500/20 rounded-full blur-3xl" />
           
@@ -188,9 +186,9 @@ const PickupPointModal = memo(({ isOpen, onClose, onSelectPoint, selectedPoint }
             </p>
           </div>
         </div>
-      </div>
-    </Portal>
-  );
+      </PlatformModal>
+    );
+  });
 });
 
 PickupPointModal.displayName = 'PickupPointModal';
