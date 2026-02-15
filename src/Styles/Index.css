@@ -2596,9 +2596,9 @@ button:has(.loading-spinner) {
   contain: layout style paint !important;
 }
 
-/* Portal root - CRÍTICO: NO debe tener position para que fixed funcione */
+/* Portal root - CRÍTICO para iOS Safari */
 #portal-root {
-  /* Sin position - los children usan position: fixed relativo al viewport */
+  /* Sin position - los children manejan su propio posicionamiento */
   z-index: 999999;
   pointer-events: none;
 }
@@ -2608,16 +2608,41 @@ button:has(.loading-spinner) {
   pointer-events: auto;
 }
 
-/* iOS Safari: Solo hardware acceleration, SIN position fixed en el portal */
+/* iOS Safari: Configuración específica */
 @supports (-webkit-touch-callout: none) {
+  /* Portal root debe estar completamente limpio en iOS */
   #portal-root {
-    /* NO position fixed aquí - rompe el posicionamiento de children */
+    position: static !important;
+    transform: none !important;
+    -webkit-transform: none !important;
     z-index: 2147483647;
-    pointer-events: none;
   }
   
-  #portal-root > * {
-    pointer-events: auto;
+  /* Todos los modales y elementos fixed dentro del portal */
+  #portal-root > .fixed,
+  #portal-root > * > .fixed {
+    position: fixed !important;
+    -webkit-transform: translate3d(0, 0, 0) !important;
+    transform: translate3d(0, 0, 0) !important;
+    -webkit-backface-visibility: hidden !important;
+    backface-visibility: hidden !important;
+  }
+  
+  /* Prevenir scroll bounce en iOS cuando modal está abierto */
+  body.modal-open {
+    position: fixed !important;
+    width: 100% !important;
+    overflow: hidden !important;
+    -webkit-overflow-scrolling: auto !important;
+  }
+  
+  /* Asegurar que los botones flotantes se vean */
+  .floating-button-fixed,
+  .floating-button-fixed-right {
+    position: fixed !important;
+    -webkit-transform: translate3d(0, 0, 0) !important;
+    transform: translate3d(0, 0, 0) !important;
+    z-index: 99999 !important;
   }
 }
 

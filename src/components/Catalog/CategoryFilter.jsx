@@ -2,6 +2,7 @@ import { useState, useRef, useEffect } from 'react';
 import { categories } from '../../data';
 import { Grid3X3, ChevronDown, ChevronLeft, ChevronRight, X } from 'lucide-react';
 import Portal from '../Shared/Portal';
+import { useIsIOS } from '../../hooks/useDevice';
 import {
   getCategoryIcon,
   getCategoryColor,
@@ -14,21 +15,9 @@ const CategoryFilter = ({ selectedCategory, onCategoryChange }) => {
   const [showRightArrow, setShowRightArrow] = useState(false);
   const [savedScrollPosition, setSavedScrollPosition] = useState(0);
   
-  // Detectar iOS para optimizaciones específicas
-  const [isIOS, setIsIOS] = useState(false);
-
+  const isIOS = useIsIOS();
   const dropdownRef = useRef(null);
   const scrollContainerRef = useRef(null);
-
-  // Detectar iOS al montar el componente
-  useEffect(() => {
-    const detectIOS = () => {
-      const ios = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
-      setIsIOS(ios);
-    };
-    
-    detectIOS();
-  }, []);
 
   // Lógica de Scroll (optimizada sin dependencias circulares)
   useEffect(() => {
@@ -74,11 +63,25 @@ const CategoryFilter = ({ selectedCategory, onCategoryChange }) => {
       setSavedScrollPosition(window.scrollY);
       window.lenis?.stop();
       
+      // iOS: Agregar clase modal-open
+      if (isIOS) {
+        document.body.classList.add('modal-open');
+        document.body.style.top = `-${window.scrollY}px`;
+      }
+      
       return () => {
         window.lenis?.start();
+        
+        // iOS: Remover clase y restaurar scroll
+        if (isIOS) {
+          document.body.classList.remove('modal-open');
+          document.body.style.position = '';
+          document.body.style.top = '';
+          window.scrollTo(0, savedScrollPosition);
+        }
       };
     }
-  }, [isOpen]);
+  }, [isOpen, isIOS, savedScrollPosition]);
 
   const handleScroll = (direction) => {
     if (scrollContainerRef.current) {

@@ -1,4 +1,4 @@
-import { memo } from 'react';
+import { memo, useEffect } from 'react';
 import { useIsIOS } from '../../hooks/useDevice';
 import { getModalStyles, getBackdropStyles } from '../../constants/platform';
 import Portal from './Portal';
@@ -23,6 +23,22 @@ const PlatformModal = memo(({
   backdropClassName = ''
 }) => {
   const isIOS = useIsIOS();
+
+  // Agregar/remover clase modal-open del body para iOS
+  useEffect(() => {
+    if (isOpen && isIOS) {
+      const scrollY = window.scrollY;
+      document.body.classList.add('modal-open');
+      document.body.style.top = `-${scrollY}px`;
+      
+      return () => {
+        document.body.classList.remove('modal-open');
+        document.body.style.position = '';
+        document.body.style.top = '';
+        window.scrollTo(0, scrollY);
+      };
+    }
+  }, [isOpen, isIOS]);
 
   if (!isOpen) return null;
 
