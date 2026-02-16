@@ -14,10 +14,9 @@ const PickupPointModal = memo(({ isOpen, onClose, onSelectPoint, selectedPoint }
   useEffect(() => {
     if (isOpen) {
       setIsAnimating(true);
-      window.lenis?.stop();
+      // ⚡ Scroll nativo - No necesita pausarse
       
       return () => {
-        window.lenis?.start();
         setIsAnimating(false);
       };
     }

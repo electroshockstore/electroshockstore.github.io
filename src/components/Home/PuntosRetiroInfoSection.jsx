@@ -1,10 +1,8 @@
 import { useNavigate } from 'react-router-dom';
 import { MapPin, Ban, Truck, ArrowRight } from 'lucide-react';
-import useIOSDetection from '../../hooks/useIOSDetection';
 
 const PuntosRetiroInfoSection = () => {
   const navigate = useNavigate();
-  const isIOS = useIOSDetection();
 
   return (
     <section
@@ -28,8 +26,8 @@ const PuntosRetiroInfoSection = () => {
           
           {/* IMAGEN - Primero en mobile, segundo en desktop */}
           <div className="relative flex items-center justify-center order-1 lg:order-2 w-full">
-            {/* Glow de la imagen - Optimizado para iOS */}
-            <div className={`absolute w-[80%] h-[80%] bg-blue-500/20 ${isIOS ? 'blur-[60px]' : 'blur-[120px]'} rounded-full ${isIOS ? '' : 'animate-pulse'}`} />
+            {/* Glow de la imagen OPTIMIZADO - Blur reducido, sin animate-pulse */}
+            <div className="absolute w-[80%] h-[80%] bg-blue-500/25 blur-[30px] rounded-full" />
             
             <div className="relative w-full max-w-[280px] sm:max-w-[350px] md:max-w-[400px] lg:max-w-[450px] xl:max-w-[500px] 2xl:max-w-[550px] transition-all duration-1000 group-hover:scale-105 group-hover:-rotate-1">
               <img
@@ -45,8 +43,8 @@ const PuntosRetiroInfoSection = () => {
           {/* CONTENIDO - Segundo en mobile, primero en desktop */}
           <div className="flex flex-col items-center lg:items-start text-center lg:text-left space-y-5 sm:space-y-6 md:space-y-7 lg:space-y-8 order-2 lg:order-1 w-full">
             
-            {/* Badge Sin Local Físico - Optimizado para iOS */}
-            <div className={`inline-flex items-center gap-2 sm:gap-2.5 px-4 sm:px-5 py-2 sm:py-2.5 bg-gradient-to-r from-purple-500/20 to-blue-500/20 ${isIOS ? '' : 'backdrop-blur-xl'} rounded-full border border-purple-400/30 shadow-lg`}>
+            {/* Badge Sin Local Físico OPTIMIZADO - Sin backdrop-blur */}
+            <div className="inline-flex items-center gap-2 sm:gap-2.5 px-4 sm:px-5 py-2 sm:py-2.5 bg-gradient-to-r from-purple-500/25 to-blue-500/25 rounded-full border border-purple-400/30 shadow-lg">
               <MapPin className="text-purple-300 w-4 h-4 sm:w-5 sm:h-5" strokeWidth={2.5} />
               <span className="font-bold text-purple-200 uppercase tracking-wider text-xs sm:text-sm">
                 Sin Local Físico
@@ -72,14 +70,14 @@ const PuntosRetiroInfoSection = () => {
               </p>
             </div>
 
-            {/* Mini Cards - Optimizado para iOS */}
+            {/* Mini Cards OPTIMIZADAS - Sin backdrop-blur */}
             <div className="grid grid-cols-3 gap-2 sm:gap-3 w-full">
               {[
-                { icon: Ban, text: 'Sin Anticipos', gradient: 'from-blue-500/10 to-purple-500/10', border: 'border-blue-400/30', iconColor: 'text-blue-300', glow: 'shadow-blue-500/20' },
-                { icon: MapPin, text: 'Puntos Seguros', gradient: 'from-purple-500/10 to-cyan-500/10', border: 'border-purple-400/30', iconColor: 'text-purple-300', glow: 'shadow-purple-500/20' },
-                { icon: Truck, text: 'Sin Envíos', gradient: 'from-cyan-500/10 to-blue-500/10', border: 'border-cyan-400/30', iconColor: 'text-cyan-300', glow: 'shadow-cyan-500/20' }
+                { icon: Ban, text: 'Sin Anticipos', gradient: 'from-blue-500/15 to-purple-500/15', border: 'border-blue-400/30', iconColor: 'text-blue-300', glow: 'shadow-blue-500/20' },
+                { icon: MapPin, text: 'Puntos Seguros', gradient: 'from-purple-500/15 to-cyan-500/15', border: 'border-purple-400/30', iconColor: 'text-purple-300', glow: 'shadow-purple-500/20' },
+                { icon: Truck, text: 'Sin Envíos', gradient: 'from-cyan-500/15 to-blue-500/15', border: 'border-cyan-400/30', iconColor: 'text-cyan-300', glow: 'shadow-cyan-500/20' }
               ].map((item, i) => (
-                <div key={i} className={`group flex flex-col items-center justify-center gap-2 sm:gap-2.5 p-3 sm:p-4 lg:p-5 bg-gradient-to-br ${item.gradient} ${isIOS ? '' : 'backdrop-blur-xl'} rounded-lg sm:rounded-xl lg:rounded-2xl border ${item.border} ${item.glow} shadow-lg transition-all hover:scale-105 hover:shadow-2xl hover:border-opacity-60`}>
+                <div key={i} className={`group flex flex-col items-center justify-center gap-2 sm:gap-2.5 p-3 sm:p-4 lg:p-5 bg-gradient-to-br ${item.gradient} rounded-lg sm:rounded-xl lg:rounded-2xl border ${item.border} ${item.glow} shadow-lg transition-all hover:scale-105 hover:shadow-2xl hover:border-opacity-60`}>
                   <item.icon className={`w-5 h-5 sm:w-6 sm:h-6 lg:w-7 lg:h-7 ${item.iconColor} group-hover:scale-110 transition-transform flex-shrink-0`} strokeWidth={2.5} />
                   <span className="font-bold text-white/90 text-[0.65rem] sm:text-xs lg:text-sm uppercase tracking-wide text-center leading-tight">{item.text}</span>
                 </div>

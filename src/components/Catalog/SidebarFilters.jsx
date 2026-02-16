@@ -45,10 +45,10 @@ const SidebarFilters = ({ selectedCategory, filters, onFilterChange, onClearFilt
   // Bloquear scroll cuando drawer está abierto
   useEffect(() => {
     if (isDrawerOpen) {
-      window.lenis?.stop();
+      // ⚡ Scroll nativo - No necesita pausarse
       
       return () => {
-        window.lenis?.start();
+        // Cleanup si es necesario
       };
     }
   }, [isDrawerOpen]);

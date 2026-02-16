@@ -13,22 +13,15 @@ const ProductCardMayorista = memo(({ product, onClick, index = 0 }) => {
     };
   }, [product]);
 
-  // Efecto de profundidad solo en desktop
-  const depthStyles = index === 1 
-    ? 'sm:scale-105 sm:z-20 sm:shadow-2xl sm:shadow-amber-500/30' 
-    : 'sm:scale-100 sm:z-10 sm:shadow-xl sm:shadow-black/50';
-
   return (
     <div 
       onClick={() => onClick(product)}
-      className={`group relative bg-gradient-to-br from-[#1a1a2e] via-[#16213e] to-[#0f1419] 
-                 rounded-lg sm:rounded-3xl border border-gray-700/50 sm:border-gray-700/30
-                 hover:border-amber-500/60 hover:shadow-xl sm:hover:shadow-2xl hover:shadow-amber-500/20 sm:hover:shadow-amber-500/40
-                 transition-all duration-300 sm:duration-500 cursor-pointer overflow-visible flex flex-col
-                 ${depthStyles} hover:scale-[1.02] sm:hover:scale-110 hover:z-30`}
+      className="group relative bg-gradient-to-br from-[#1a1a2e] via-[#16213e] to-[#0f1419] 
+                 rounded-lg sm:rounded-3xl border-2 border-amber-400/50
+                 shadow-xl sm:shadow-2xl shadow-amber-500/20 sm:shadow-amber-500/40
+                 cursor-pointer overflow-visible flex flex-col"
     >
-      {/* Glow effect de fondo - Solo desktop */}
-      <div className="hidden sm:block absolute inset-0 bg-gradient-to-br from-amber-500/5 via-orange-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+      {/* Glow effect de fondo ELIMINADO - Sin hover effects */}
 
       {/* Badges superiores */}
       <div className="absolute -top-2 left-0 right-0 z-20 flex items-center justify-between px-1.5 sm:px-4">
@@ -53,15 +46,15 @@ const ProductCardMayorista = memo(({ product, onClick, index = 0 }) => {
       <div className="overflow-hidden rounded-lg sm:rounded-3xl">
         {/* Imagen del producto */}
         <div className="relative aspect-square bg-gradient-to-br from-gray-900/30 to-gray-800/30 mt-3 sm:mt-4">
-          {/* Glow circular detrás de la imagen - Solo desktop */}
+          {/* Glow circular OPTIMIZADO - Blur reducido, sin animate-pulse */}
           <div className="hidden sm:flex absolute inset-0 items-center justify-center">
-            <div className="w-2/3 h-2/3 bg-gradient-to-br from-amber-500/15 via-orange-500/15 to-transparent rounded-full blur-3xl" />
+            <div className="w-2/3 h-2/3 bg-gradient-to-br from-amber-500/20 via-orange-500/20 to-transparent rounded-full blur-xl" />
           </div>
           
           <img 
             src={product.images[0]} 
             alt={product.name}
-            className="relative z-10 w-full h-full object-contain transition-transform duration-300 sm:duration-700 group-hover:scale-105"
+            className="relative z-10 w-full h-full object-contain"
             loading="lazy"
             style={{
               filter: 'brightness(1.1) contrast(1.05)'
@@ -95,8 +88,7 @@ const ProductCardMayorista = memo(({ product, onClick, index = 0 }) => {
           {/* Ahorro */}
           <div className="mt-1 sm:pt-3 sm:border-t sm:border-gray-700/50">
             <div className="relative overflow-hidden rounded-md sm:rounded-xl bg-gradient-to-r from-green-500/20 to-emerald-500/20 border border-green-500/30 sm:border-2 sm:border-green-500/40 p-1.5 sm:p-3">
-              {/* Animación pulse solo en desktop */}
-              <div className="hidden sm:block absolute inset-0 bg-gradient-to-r from-green-500/10 to-emerald-500/10 animate-pulse" />
+              {/* Animación pulse ELIMINADA - Muy costosa cuando hay 5 cards */}
               <div className="relative text-center">
                 <div className="text-[8px] sm:text-xs text-green-300 font-semibold mb-0.5 sm:mb-1">🎉 Ahorrás</div>
                 <div className="text-base sm:text-3xl font-black text-green-400 leading-tight">
@@ -111,13 +103,7 @@ const ProductCardMayorista = memo(({ product, onClick, index = 0 }) => {
         </div>
       </div>
 
-      {/* Borde brillante en hover - Solo desktop */}
-      <div className="hidden sm:block absolute inset-0 rounded-3xl border-2 border-transparent group-hover:border-amber-400/50 transition-all duration-500 pointer-events-none" />
-      
-      {/* Shine effect en hover - Solo desktop */}
-      <div className="hidden sm:block absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none">
-        <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/5 to-transparent translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-1000" />
-      </div>
+      {/* Todos los efectos de hover ELIMINADOS para máximo rendimiento */}
     </div>
   );
 });

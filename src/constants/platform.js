@@ -45,26 +45,6 @@ export const BREAKPOINTS = {
   WIDE: 1536
 };
 
-// Configuración de Lenis por plataforma
-export const LENIS_CONFIG = {
-  // Desktop: Smooth scroll completo
-  DESKTOP: {
-    duration: 1.2,
-    easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
-    orientation: 'vertical',
-    gestureOrientation: 'vertical',
-    smoothWheel: true,
-    wheelMultiplier: 1,
-    smoothTouch: false,
-    touchMultiplier: 2,
-    infinite: false,
-    autoResize: true,
-  },
-  
-  // Mobile: Desactivado (null)
-  MOBILE: null
-};
-
 // Duraciones de animación
 export const ANIMATION_DURATION = {
   INSTANT: 150,
@@ -81,7 +61,8 @@ export const detectPlatform = () => {
       isIOS: false,
       isAndroid: false,
       isMobile: false,
-      isDesktop: true
+      isDesktop: true,
+      isLowEnd: false
     };
   }
 
@@ -92,8 +73,76 @@ export const detectPlatform = () => {
     isIOS: /iPad|iPhone|iPod/.test(ua) && !window.MSStream,
     isAndroid: /Android/.test(ua),
     isMobile,
-    isDesktop: !isMobile
+    isDesktop: !isMobile,
+    isLowEnd: false // Se detecta dinámicamente con detectPerformance()
   };
+};
+
+// Detección de performance del dispositivo
+export const detectPerformance = () => {
+  if (typeof window === 'undefined') {
+    return {
+      tier: 'high',
+      isLowEnd: false,
+      fps: 60,
+      cores: 4,
+      memory: 8
+    };
+  }
+
+  const result = {
+    tier: 'high',
+    isLowEnd: false,
+    fps: 60,
+    cores: navigator.hardwareConcurrency || 4,
+    memory: navigator.deviceMemory || 8
+  };
+
+  // Factores de detección
+  const factors = {
+    // 1. Memoria RAM
+    lowMemory: result.memory <= 4,
+    
+    // 2. Núcleos de CPU
+    lowCores: result.cores <= 2,
+    
+    // 3. Resolución de pantalla (más píxeles = más trabajo)
+    highResolution: window.innerWidth * window.innerHeight > 2073600, // > 1920x1080
+    
+    // 4. Device pixel ratio alto
+    highDPR: window.devicePixelRatio > 2,
+    
+    // 5. GPU integrada débil (heurística basada en UA)
+    integratedGPU: /Intel|HD Graphics|UHD Graphics/i.test(navigator.userAgent)
+  };
+
+  // Calcular score (0-5, donde 5 es peor)
+  const score = Object.values(factors).filter(Boolean).length;
+
+  // Clasificar tier
+  if (score >= 3) {
+    result.tier = 'low';
+    result.isLowEnd = true;
+  } else if (score >= 2) {
+    result.tier = 'medium';
+    result.isLowEnd = false;
+  } else {
+    result.tier = 'high';
+    result.isLowEnd = false;
+  }
+
+  // Logging para debug
+  console.log('[Performance Detection]', {
+    tier: result.tier,
+    factors,
+    score,
+    resolution: `${window.innerWidth}x${window.innerHeight}`,
+    dpr: window.devicePixelRatio,
+    cores: result.cores,
+    memory: result.memory
+  });
+
+  return result;
 };
 
 // Obtener estilos de modal según plataforma

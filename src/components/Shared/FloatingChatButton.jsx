@@ -17,10 +17,10 @@ const FloatingChatButton = () => {
   // Bloquear scroll cuando modal está abierto
   useEffect(() => {
     if (showConditionsModal) {
-      window.lenis?.stop();
+      // ⚡ Scroll nativo - No necesita pausarse
       
       return () => {
-        window.lenis?.start();
+        // Cleanup si es necesario
       };
     }
   }, [showConditionsModal]);
@@ -184,8 +184,8 @@ const FloatingChatButton = () => {
           {/* Efecto Shine */}
           <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent animate-shine" style={{ width: '50%' }} />
 
-          {/* Efecto Pulse Ring */}
-          <div className="absolute inset-0 rounded-lg sm:rounded-xl border-2 sm:border-4 border-green-400 animate-pulse-ring" />
+          {/* Efecto Pulse Ring ELIMINADO - Muy costoso, reemplazado por border estático */}
+          <div className="absolute inset-0 rounded-lg sm:rounded-xl border-2 sm:border-4 border-green-400/40" />
 
           {/* Contenido */}
           <div className={`chat-button-content relative flex items-center gap-2 sm:gap-4 p-3 sm:p-4 ${isExpanded ? 'expanded' : ''}`}>

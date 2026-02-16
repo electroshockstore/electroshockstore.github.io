@@ -143,40 +143,40 @@ const getAnimationVariants = (isIOS) => {
     };
   }
   
-  // Desktop/Android: Animaciones completas
+  // Desktop/Android: Animaciones SIMPLIFICADAS para mejor performance
   return {
     tagLine: {
-      initial: { opacity: 0, scaleX: 0 },
-      animate: { opacity: 1, scaleX: 1 },
-      transition: { duration: 0.5, ease: [0.16, 1, 0.3, 1] }
+      initial: { opacity: 0 },
+      animate: { opacity: 1 },
+      transition: { duration: 0.3, ease: "easeOut" }
     },
     tag: {
-      initial: { opacity: 0, scale: 0.8 },
-      animate: { opacity: 1, scale: 1 },
-      transition: { duration: 0.4, delay: 0.2, ease: [0.16, 1, 0.3, 1] }
+      initial: { opacity: 0 },
+      animate: { opacity: 1 },
+      transition: { duration: 0.3, delay: 0.1, ease: "easeOut" }
     },
     titleWord: {
-      initial: { opacity: 0, y: 30 },
-      animate: { opacity: 1, y: 0 },
-      transition: { duration: 0.6, ease: [0.16, 1, 0.3, 1] }
-    },
-    description: {
       initial: { opacity: 0, y: 20 },
       animate: { opacity: 1, y: 0 },
-      transition: { duration: 0.5, delay: 0.4, ease: [0.16, 1, 0.3, 1] }
+      transition: { duration: 0.4, ease: "easeOut" }
+    },
+    description: {
+      initial: { opacity: 0 },
+      animate: { opacity: 1 },
+      transition: { duration: 0.3, delay: 0.2, ease: "easeOut" }
     },
     pointsContainer: {
       animate: {
         transition: {
-          staggerChildren: 0.08,
-          delayChildren: 0.5
+          staggerChildren: 0.05,
+          delayChildren: 0.3
         }
       }
     },
     point: {
-      initial: { opacity: 0, x: -20 },
-      animate: { opacity: 1, x: 0 },
-      transition: { duration: 0.4, ease: [0.16, 1, 0.3, 1] }
+      initial: { opacity: 0 },
+      animate: { opacity: 1 },
+      transition: { duration: 0.3, ease: "easeOut" }
     }
   };
 };
@@ -187,12 +187,38 @@ const HeroCarousel = () => {
   const [isTransitioning, setIsTransitioning] = useState(false);
   const [loadedImages, setLoadedImages] = useState(new Set([0])); // Precargar solo la primera
   const [animationKey, setAnimationKey] = useState(0); // Key para forzar re-trigger de animaciones
+  const [isVisible, setIsVisible] = useState(true); // ⚡ NUEVO: Detectar si está visible
   const touchStartX = useRef(0);
   const touchEndX = useRef(0);
+  const carouselRef = useRef(null); // ⚡ NUEVO: Ref para IntersectionObserver
   const isIOS = useIOSDetection();
   
   // Desktop detection hook
   const { isDesktop } = useDesktopDetection();
+
+  // ⚡ OPTIMIZACIÓN CRÍTICA: Pausar carousel cuando no está visible
+  useEffect(() => {
+    if (!carouselRef.current) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        setIsVisible(entry.isIntersecting);
+        console.log('[HeroCarousel] Visible:', entry.isIntersecting);
+      },
+      { 
+        threshold: 0.1, // Considerar visible si 10% está en viewport
+        rootMargin: '100px' // Mantener activo 100px antes/después
+      }
+    );
+
+    observer.observe(carouselRef.current);
+
+    return () => {
+      if (carouselRef.current) {
+        observer.unobserve(carouselRef.current);
+      }
+    };
+  }, []);
 
   const goToNextSlide = useCallback(() => {
     if (isTransitioning) return;
@@ -243,10 +269,16 @@ const HeroCarousel = () => {
     }
   }, [goToNextSlide, goToPrevSlide]);
 
+  // ⚡ OPTIMIZACIÓN: Auto-rotate solo si está visible
   useEffect(() => {
+    if (!isVisible) {
+      console.log('[HeroCarousel] Pausado - No visible');
+      return;
+    }
+
     const timer = setInterval(goToNextSlide, 8000);
     return () => clearInterval(timer);
-  }, [goToNextSlide]);
+  }, [goToNextSlide, isVisible]); // ⚡ Dependencia de isVisible
 
   // Precargar imágenes adyacentes (mobile y desktop)
   useEffect(() => {
@@ -264,10 +296,17 @@ const HeroCarousel = () => {
 
   return (
     <section 
+      ref={carouselRef} // ⚡ NUEVO: Ref para IntersectionObserver
       className="relative w-full h-[280px] sm:h-[600px] md:h-[700px] lg:h-[800px] bg-[#020617] overflow-hidden z-10 touch-pan-y"
       onTouchStart={handleTouchStart}
       onTouchMove={handleTouchMove}
       onTouchEnd={handleTouchEnd}
+      style={{
+        // ⚡ OPTIMIZACIÓN: GPU acceleration forzada
+        willChange: isVisible ? 'transform' : 'auto',
+        transform: 'translateZ(0)',
+        backfaceVisibility: 'hidden'
+      }}
     >
       
       {/* Background Images - Optimizado con GPU acceleration */}
@@ -281,24 +320,26 @@ const HeroCarousel = () => {
             <motion.div
               key={`hero-image-${current.id}`}
               initial={{ 
-                opacity: 0,
-                scale: 1.05
+                opacity: 0
               }}
               animate={{ 
-                opacity: 1,
-                scale: 1
+                opacity: 1
               }}
               exit={{ 
                 opacity: 0,
-                scale: 0.95,
-                transition: { duration: 0.5, ease: [0.16, 1, 0.3, 1] }
+                transition: { duration: 0.4, ease: "easeOut" }
               }}
               transition={{
-                duration: 0.8,
-                ease: [0.16, 1, 0.3, 1]
+                duration: 0.6,
+                ease: "easeOut"
               }}
               className="absolute inset-0"
-              style={{ willChange: 'opacity, transform' }}
+              style={{ 
+                // ⚡ CRÍTICO: GPU acceleration
+                willChange: 'opacity',
+                transform: 'translateZ(0)',
+                backfaceVisibility: 'hidden'
+              }}
             >
               <img 
                 src={current.image} 

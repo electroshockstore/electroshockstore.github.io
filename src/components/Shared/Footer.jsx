@@ -17,10 +17,12 @@ const Footer = () => {
 
   return (
     <footer className="w-full bg-[#0a0c12] text-white pt-16 pb-24 lg:pb-12 relative overflow-hidden border-t border-white/5">
-      {/* Elementos decorativos de fondo OPTIMIZADOS */}
-      <div className="absolute top-0 left-1/4 w-96 h-96 bg-blue-600/15 blur-[80px] rounded-full pointer-events-none animate-pulse" />
-      <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-emerald-600/15 blur-[80px] rounded-full pointer-events-none animate-pulse" />
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-purple-600/8 blur-[60px] rounded-full pointer-events-none" />
+      {/* Elementos decorativos de fondo ULTRA-OPTIMIZADOS */}
+      {/* Blur reducido de 80px → 30px y sin animate-pulse para mejor performance */}
+      <div className="absolute top-0 left-1/4 w-96 h-96 bg-blue-600/20 blur-[30px] rounded-full pointer-events-none" />
+      <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-emerald-600/20 blur-[30px] rounded-full pointer-events-none" />
+      {/* Elemento central con blur más suave */}
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-purple-600/12 blur-[25px] rounded-full pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 relative z-10">
         
@@ -108,7 +110,8 @@ const Footer = () => {
                    className="group flex items-center justify-between p-4 bg-gradient-to-br from-white/10 to-white/5 rounded-2xl border border-white/10 hover:border-blue-500/40 hover:bg-white/15 transition-all cursor-pointer"
                  >
                     <div className="flex items-center gap-3">
-                      <div className="w-3 h-3 rounded-full bg-blue-500 shadow-[0_0_15px_rgba(59,130,246,0.8)] animate-pulse" />
+                      {/* Punto indicador sin animate-pulse para mejor performance */}
+                      <div className="w-3 h-3 rounded-full bg-blue-500 shadow-[0_0_15px_rgba(59,130,246,0.8)]" />
                       <div>
                         <p className="text-sm font-black text-white leading-none">{loc.name}</p>
                         <p className="text-xs text-gray-400 mt-1.5 font-semibold">{loc.address}</p>
@@ -228,7 +231,8 @@ const Footer = () => {
                      className="group flex items-center justify-between p-4 bg-gradient-to-br from-white/10 to-white/5 rounded-2xl border border-white/10 hover:border-blue-500/40 hover:bg-white/15 transition-all cursor-pointer"
                    >
                       <div className="flex items-center gap-3">
-                        <div className="w-3 h-3 rounded-full bg-blue-500 shadow-[0_0_15px_rgba(59,130,246,0.8)] animate-pulse" />
+                        {/* Punto indicador sin animate-pulse para mejor performance */}
+                        <div className="w-3 h-3 rounded-full bg-blue-500 shadow-[0_0_15px_rgba(59,130,246,0.8)]" />
                         <div>
                           <p className="text-sm font-black text-white leading-none">{loc.name}</p>
                           <p className="text-xs text-gray-400 mt-1.5 font-semibold">{loc.address}</p>

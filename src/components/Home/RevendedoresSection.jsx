@@ -33,18 +33,20 @@ const RevendedoresSection = ({ products = [], onProductClick }) => {
             duration={0.7}
             className="w-full flex-1 relative overflow-hidden"
         >
-            {/* Partículas de fondo animadas - Solo desktop */}
+            {/* Partículas de fondo OPTIMIZADAS - Solo desktop, blur reducido, sin animate-pulse */}
             <div className="hidden sm:block absolute inset-0 overflow-hidden pointer-events-none">
-                <div className="absolute top-20 left-10 w-96 h-96 bg-amber-500/15 rounded-full blur-3xl animate-pulse" />
-                <div className="absolute bottom-20 right-10 w-[500px] h-[500px] bg-orange-500/15 rounded-full blur-3xl animate-pulse [animation-delay:1s]" />
-                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-gradient-to-r from-amber-500/5 to-orange-500/5 rounded-full blur-3xl" />
+                {/* Blur reducido de blur-3xl (48px) → blur-xl (24px) */}
+                <div className="absolute top-20 left-10 w-96 h-96 bg-amber-500/20 rounded-full blur-xl" />
+                <div className="absolute bottom-20 right-10 w-[500px] h-[500px] bg-orange-500/20 rounded-full blur-xl" />
+                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-gradient-to-r from-amber-500/8 to-orange-500/8 rounded-full blur-xl" />
             </div>
 
             <div className="w-full py-12 sm:py-16 md:py-20 relative z-10">
                 {/* Encabezado con más jerarquía */}
                 <div className="text-center mb-12 sm:mb-16 px-4">
                     <div className="inline-flex items-center gap-3 px-4 py-2 bg-gradient-to-r from-amber-500/30 to-orange-500/30 backdrop-blur-sm rounded-full mb-6 shadow-2xl shadow-amber-500/40 border border-amber-400/50">
-                        <Package className="w-4 h-4 text-amber-300 animate-pulse" />
+                        {/* Icon sin animate-pulse */}
+                        <Package className="w-4 h-4 text-amber-300" />
                         <span className="text-sm font-bold text-amber-200 uppercase tracking-widest">
                            Productos Destacados
                         </span>
@@ -58,8 +60,9 @@ const RevendedoresSection = ({ products = [], onProductClick }) => {
                             <span className="bg-gradient-to-r from-amber-300 via-orange-400 to-red-400 bg-clip-text text-transparent drop-shadow-[0_0_40px_rgba(251,146,60,0.8)] filter brightness-125">
                                 Ahorro
                             </span>
-                            <span className="absolute inset-0 bg-gradient-to-r from-amber-400 via-orange-500 to-red-500 blur-3xl opacity-60 -z-10 animate-pulse scale-110" />
-                            <span className="absolute inset-0 bg-gradient-to-r from-yellow-300 via-amber-400 to-orange-400 blur-xl opacity-40 -z-10 animate-pulse scale-150" />
+                            {/* Glows OPTIMIZADOS - Blur reducido de blur-3xl → blur-xl, sin animate-pulse */}
+                            <span className="absolute inset-0 bg-gradient-to-r from-amber-400 via-orange-500 to-red-500 blur-xl opacity-50 -z-10" />
+                            <span className="absolute inset-0 bg-gradient-to-r from-yellow-300 via-amber-400 to-orange-400 blur-lg opacity-30 -z-10" />
                         </span>
                     </h2>
                     
@@ -80,19 +83,11 @@ const RevendedoresSection = ({ products = [], onProductClick }) => {
                     ))}
                 </div>
 
-                {/* Grid de productos mayoristas - Desktop: 5 cards usando todo el ancho con efecto cascada */}
-                <div className="hidden sm:flex items-end justify-center gap-1 lg:gap-2 xl:gap-3 mb-12 sm:mb-16 px-1 lg:px-2">
+                {/* Grid de productos mayoristas - Desktop: 5 cards ULTRA-OPTIMIZADO - Sin hover effects */}
+                <div className="hidden sm:flex items-center justify-center gap-1 lg:gap-2 xl:gap-3 mb-12 sm:mb-16 px-1 lg:px-2">
                     {featuredProductsDesktop.map((product, index) => (
                         <div
                             key={product.id || index}
-                            className={`
-                                transition-all duration-700 hover:scale-105 hover:z-20
-                                ${index === 0 ? 'scale-85 translate-y-6' : ''}
-                                ${index === 1 ? 'scale-92 translate-y-3' : ''}
-                                ${index === 2 ? 'scale-105 -translate-y-4 z-10 shadow-2xl shadow-amber-500/30' : ''}
-                                ${index === 3 ? 'scale-92 translate-y-3' : ''}
-                                ${index === 4 ? 'scale-85 translate-y-6' : ''}
-                            `}
                             style={{
                                 flex: '1 1 0%',
                                 maxWidth: '100%'
@@ -113,8 +108,8 @@ const RevendedoresSection = ({ products = [], onProductClick }) => {
                         onClick={handleVerMas}
                         className="group relative inline-flex items-center gap-2 sm:gap-4 px-6 sm:px-10 md:px-12 py-3 sm:py-5 md:py-6 bg-gradient-to-r from-amber-500 via-orange-500 to-red-500 hover:from-amber-400 hover:via-orange-400 hover:to-red-400 rounded-xl sm:rounded-2xl font-bold sm:font-black text-white text-sm sm:text-lg md:text-xl shadow-xl sm:shadow-2xl shadow-amber-500/40 sm:shadow-amber-500/50 hover:shadow-2xl sm:hover:shadow-3xl hover:shadow-amber-500/60 sm:hover:shadow-amber-500/70 transition-all duration-500 hover:scale-105 sm:hover:scale-110 active:scale-95 border border-amber-400/30 sm:border-2 sm:border-amber-400/40 hover:border-amber-300/50 sm:hover:border-amber-300/60"
                     >
-                        {/* Efecto de brillo animado */}
-                        <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 sm:via-white/30 to-transparent opacity-0 group-hover:opacity-100 rounded-xl sm:rounded-2xl transition-opacity duration-500 animate-pulse" />
+                        {/* Efecto de brillo OPTIMIZADO - Sin animate-pulse */}
+                        <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 sm:via-white/30 to-transparent opacity-0 group-hover:opacity-100 rounded-xl sm:rounded-2xl transition-opacity duration-500" />
                         
                         {/* Resplandor de fondo */}
                         <div className="absolute inset-0 bg-gradient-to-r from-amber-400 to-orange-400 rounded-xl sm:rounded-2xl blur-lg sm:blur-xl opacity-0 group-hover:opacity-50 sm:group-hover:opacity-60 transition-opacity duration-500 -z-10 scale-110" />

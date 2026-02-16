@@ -6,10 +6,10 @@ const ConditionsModal = ({ isOpen, onClose }) => {
   // Bloquear scroll cuando modal está abierto
   useEffect(() => {
     if (isOpen) {
-      window.lenis?.stop();
+      // ⚡ Scroll nativo - No necesita pausarse
       
       return () => {
-        window.lenis?.start();
+        // Cleanup si es necesario
       };
     }
   }, [isOpen]);

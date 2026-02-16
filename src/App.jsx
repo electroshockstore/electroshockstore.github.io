@@ -2,7 +2,7 @@ import { lazy, Suspense, useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { FilterProvider } from "./context/FilterContext";
 import { PCBuilderProvider } from "./context/PCBuilderContext";
-import { LenisProvider } from "./components/Shared/LenisProvider";
+import { SmoothScrollProvider } from "./components/Shared/LenisProvider"; // Renombrado pero mismo archivo
 import ErrorBoundary from "./components/ErrorBoundary";
 import ErrorNotification from "./components/ErrorNotification";
 import { useErrorHandler } from "./hooks/useErrorHandler";
@@ -11,6 +11,7 @@ import ModernLoader from "./components/Shared/ModernLoader";
 import ScrollToTop from "./components/Shared/ScrollToTop";
 import FloatingChatButton from "./components/Shared/FloatingChatButton";
 import useIOSDetection from "./hooks/useIOSDetection";
+import { usePerformanceOptimization } from "./hooks/usePerformanceOptimization";
 
 // Lazy load de páginas principales
 const Home = lazy(() => import("./pages/Home"));
@@ -70,9 +71,12 @@ function App() {
   // Detectar iOS y aplicar estilos específicos
   useIOSDetection();
   
+  // Detectar performance del dispositivo y optimizar automáticamente
+  usePerformanceOptimization();
+  
   return (
     <ErrorBoundary>
-      <LenisProvider>
+      <SmoothScrollProvider>
         <FilterProvider>
           <PCBuilderProvider>
             <Router basename="/">
@@ -82,7 +86,7 @@ function App() {
             </Router>
           </PCBuilderProvider>
         </FilterProvider>
-      </LenisProvider>
+      </SmoothScrollProvider>
     </ErrorBoundary>
   );
 }

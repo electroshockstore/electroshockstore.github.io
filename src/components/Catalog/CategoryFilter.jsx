@@ -61,7 +61,7 @@ const CategoryFilter = ({ selectedCategory, onCategoryChange }) => {
   useEffect(() => {
     if (isOpen) {
       setSavedScrollPosition(window.scrollY);
-      window.lenis?.stop();
+      // ⚡ Scroll nativo - No necesita pausarse
       
       // iOS: Agregar clase modal-open
       if (isIOS) {
@@ -70,7 +70,7 @@ const CategoryFilter = ({ selectedCategory, onCategoryChange }) => {
       }
       
       return () => {
-        window.lenis?.start();
+        // ⚡ Scroll nativo - No necesita reanudarse
         
         // iOS: Remover clase y restaurar scroll
         if (isIOS) {
@@ -94,7 +94,7 @@ const CategoryFilter = ({ selectedCategory, onCategoryChange }) => {
   };
 
   const handleCategorySelect = (category) => {
-    window.lenis?.start();
+    // ⚡ Scroll nativo - No necesita reanudarse
     setIsOpen(false);
     onCategoryChange(category);
   };
@@ -196,7 +196,8 @@ const CategoryFilter = ({ selectedCategory, onCategoryChange }) => {
 
                       {isSelected && (
                         <div className={`absolute top-3 right-3 bg-gradient-to-r from-blue-500 to-blue-600 text-white px-3 py-1.5 rounded-full text-xs font-black shadow-xl ${!isIOS ? 'animate-in zoom-in-50' : ''} duration-200 flex items-center gap-1.5 border border-white/20 pointer-events-none`}>
-                          <div className={`w-1.5 h-1.5 rounded-full bg-white ${!isIOS ? 'animate-pulse' : ''}`} />
+                          {/* ⚡ animate-pulse ELIMINADO - Causa 60 repaints/segundo */}
+                          <div className="w-1.5 h-1.5 rounded-full bg-white" />
                           Activa
                         </div>
                       )}
@@ -249,7 +250,8 @@ const CategoryFilter = ({ selectedCategory, onCategoryChange }) => {
       <div className="relative group z-20 w-full category-filter">
         {/* CAPAS DE RESPLANDOR ORIGINALES */}
         <div className="absolute -inset-3 bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 rounded-full opacity-30 blur-xl -z-10"></div>
-        <div className="absolute -inset-2 bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-600 rounded-full opacity-25 blur-lg animate-pulse -z-10"></div>
+        {/* ⚡ animate-pulse ELIMINADO - Causa 60 repaints/segundo */}
+        <div className="absolute -inset-2 bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-600 rounded-full opacity-25 blur-lg -z-10"></div>
 
         {/* RGB FLOWING BORDER - Contenedor con borde animado */}
         <div className="relative rounded-full overflow-hidden p-[3px] animate-border-rotate">

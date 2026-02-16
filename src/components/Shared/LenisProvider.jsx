@@ -1,61 +1,38 @@
-import { useEffect, useRef } from 'react';
-import Lenis from 'lenis';
-import { detectPlatform, LENIS_CONFIG } from '../../constants/platform';
+import { useEffect } from 'react';
 
 /**
- * Provider de Lenis - Instancia GLOBAL de smooth scroll
- * window.lenis disponible inmediatamente para todos los componentes
+ * SmoothScrollProvider - Scroll suave nativo optimizado para ecommerce
  * 
- * Configuración:
- * - Desktop (>768px): Smooth scroll activo
- * - Mobile (≤768px): Desactivado, usa scroll nativo
+ * Ventajas sobre Lenis:
+ * - 0 overhead de JavaScript
+ * - 0 RAF loops
+ * - Performance nativa del navegador
+ * - Compatible con todos los navegadores modernos
  * 
- * Uso en componentes:
- * - window.lenis?.stop() - Pausar scroll (modales)
- * - window.lenis?.start() - Reanudar scroll
- * - window.lenis?.scrollTo(target) - Scroll programático
+ * Configuración CSS optimizada para ecommerce:
+ * - scroll-behavior: smooth (transiciones suaves)
+ * - scroll-padding-top: para headers sticky
+ * - Optimizaciones de scrollbar
  */
-export const LenisProvider = ({ children }) => {
-  const rafRef = useRef(null);
-
+export const SmoothScrollProvider = ({ children }) => {
   useEffect(() => {
-    const { isMobile } = detectPlatform();
+    console.log('[SmoothScroll] Scroll nativo optimizado activado');
     
-    if (isMobile) {
-      console.log('[Lenis] Móvil detectado - Desactivado completamente');
-      window.lenis = null;
-      return;
-    }
-
-    console.log('[Lenis] Desktop detectado - Inicializando smooth scroll');
-
-    // Crear instancia GLOBAL solo en desktop
-    const lenis = new Lenis(LENIS_CONFIG.DESKTOP);
-
-    // GLOBAL - Disponible inmediatamente para todos los componentes
-    window.lenis = lenis;
-
-    // RAF loop
-    function raf(time) {
-      lenis.raf(time);
-      rafRef.current = requestAnimationFrame(raf);
-    }
-
-    rafRef.current = requestAnimationFrame(raf);
-
+    // Configurar scroll suave en el root
+    const root = document.documentElement;
+    root.style.scrollBehavior = 'smooth';
+    
+    // Optimizaciones adicionales para mejor UX
+    root.style.scrollPaddingTop = '80px'; // Espacio para header sticky
+    
     // Cleanup
     return () => {
-      if (rafRef.current) {
-        cancelAnimationFrame(rafRef.current);
-      }
-      if (window.lenis) {
-        window.lenis.destroy();
-        window.lenis = null;
-      }
+      root.style.scrollBehavior = '';
+      root.style.scrollPaddingTop = '';
     };
   }, []);
 
   return children;
 };
 
-export default LenisProvider;
+export default SmoothScrollProvider;

@@ -72,10 +72,10 @@ const ProductDetail = memo(({ product, onClose, isPage = false }) => {
   useEffect(() => {
     if (isPage) return;
     
-    window.lenis?.stop();
+    // ⚡ Scroll nativo - No necesita pausarse
 
     return () => {
-      window.lenis?.start();
+      // Cleanup si es necesario
     };
   }, [isPage]);
 

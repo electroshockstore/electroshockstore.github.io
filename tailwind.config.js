@@ -229,27 +229,40 @@ export default {
         },
         'html': {
           'scroll-behavior': 'smooth',
+          // ⚡ OPTIMIZACIÓN: Scroll más suave y natural
+          'scroll-padding-top': '80px', // Espacio para header sticky
         },
         'body': {
           'font-family': 'Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif',
           'font-feature-settings': '"cv02", "cv03", "cv04", "cv11"',
           'color': '#212121',
           'background-color': '#FAFAFA',
+          // ⚡ OPTIMIZACIÓN: Mejor rendering de scroll
+          '-webkit-font-smoothing': 'antialiased',
+          '-moz-osx-font-smoothing': 'grayscale',
         },
         
-        // Scrollbar coherente
+        // ⚡ OPTIMIZACIÓN: Scrollbar personalizada más suave
         '::-webkit-scrollbar': {
-          width: '6px',
+          width: '8px',
+          height: '8px',
         },
         '::-webkit-scrollbar-track': {
           backgroundColor: 'transparent',
         },
         '::-webkit-scrollbar-thumb': {
-          backgroundColor: '#E0E0E0',
-          borderRadius: '3px',
+          backgroundColor: '#D1D5DB',
+          borderRadius: '4px',
+          transition: 'background-color 0.2s ease',
         },
         '::-webkit-scrollbar-thumb:hover': {
-          backgroundColor: '#BDBDBD',
+          backgroundColor: '#9CA3AF',
+        },
+        
+        // ⚡ OPTIMIZACIÓN: Smooth scroll para Firefox
+        '*': {
+          'scrollbar-width': 'thin',
+          'scrollbar-color': '#D1D5DB transparent',
         },
       });
       
@@ -614,7 +627,7 @@ export default {
           'width': '40%',
           'height': '40%',
           'background-color': 'rgba(191, 219, 254, 0.5)',
-          'filter': 'blur(80px)',
+          'filter': 'blur(20px)', // ⚡ Reducido de 80px → 20px
           'border-radius': '9999px',
           'pointer-events': 'none',
         },
@@ -627,7 +640,7 @@ export default {
           'width': '35%',
           'height': '35%',
           'background-color': 'rgba(233, 213, 255, 0.4)',
-          'filter': 'blur(70px)',
+          'filter': 'blur(20px)', // ⚡ Reducido de 70px → 20px
           'border-radius': '9999px',
           'pointer-events': 'none',
         },

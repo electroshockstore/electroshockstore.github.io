@@ -11,34 +11,21 @@ const ScrollButton = () => {
       setShowButton(scrollTop > 300);
     };
 
-    // Si Lenis existe, usar su evento
-    if (window.lenis) {
-      window.lenis.on('scroll', ({ scroll }) => {
-        setShowButton(scroll > 300);
-      });
-    } else {
-      // Fallback a scroll nativo
-      window.addEventListener('scroll', handleScroll);
-      handleScroll();
-    }
+    // Scroll nativo - usar evento estándar
+    window.addEventListener('scroll', handleScroll);
+    handleScroll();
     
     return () => {
-      if (!window.lenis) {
-        window.removeEventListener('scroll', handleScroll);
-      }
+      window.removeEventListener('scroll', handleScroll);
     };
   }, []);
 
   const scrollToTop = () => {
-    // Usar Lenis si existe, sino scroll nativo
-    if (window.lenis) {
-      window.lenis.scrollTo(0, { duration: 1.5 });
-    } else {
-      window.scrollTo({
-        top: 0,
-        behavior: 'smooth'
-      });
-    }
+    // Scroll nativo suave
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
   };
 
   if (!showButton) return null;

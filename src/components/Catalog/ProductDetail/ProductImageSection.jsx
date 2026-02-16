@@ -34,10 +34,10 @@ const ProductImageSection = ({ images = [], name, stock, stockStatus }) => {
   // Bloquear scroll cuando lightbox está abierto
   useEffect(() => {
     if (isLightboxOpen) {
-      window.lenis?.stop();
+      // ⚡ Scroll nativo - No necesita pausarse
       
       return () => {
-        window.lenis?.start();
+        // Cleanup si es necesario
       };
     }
   }, [isLightboxOpen]);

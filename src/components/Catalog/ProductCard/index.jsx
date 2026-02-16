@@ -108,23 +108,10 @@ const ProductCard = memo(({ product, viewMode, onClick, index = 0, listName = 'P
                  transition-all duration-300 cursor-pointer overflow-hidden flex flex-col h-full
                  active:scale-[0.98] sm:active:scale-100"
     >
-      {/* Elementos geométricos decorativos modernos - Solo desktop */}
-      <div className="hidden md:block absolute inset-0 pointer-events-none overflow-hidden z-10">
-        {/* Círculo superior derecha - Azul */}
-        <div className="absolute -top-10 -right-10 w-30 h-30 bg-gradient-to-br from-blue-400/30 to-cyan-400/20 rounded-full blur-2xl group-hover:scale-125 transition-transform duration-500" />
-        
-        {/* Círculo inferior izquierda - Púrpura */}
-        <div className="absolute -bottom-20 -left-10 w-32 h-30 bg-gradient-to-tr from-purple-400/30 to-pink-400/20 rounded-full blur-xl group-hover:scale-125 transition-transform duration-500" />
-        
-        {/* Forma geométrica angular - Naranja (esquina superior izquierda) */}
-        <div className="absolute top-0 left-0 w-10 h-10 opacity-20 group-hover:opacity-40 transition-opacity duration-300">
-          <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-orange-400 to-transparent" style={{ clipPath: 'polygon(0 0, 100% 0, 0 100%)' }} />
-        </div>
-      </div>
+      {/* ⚠️ BLUR EFFECTS ELIMINADOS - Causaban lag brutal en Catalog (150 blur × 60fps) */}
 
       <div className="relative aspect-square bg-gradient-to-br from-gray-50 to-gray-100 overflow-hidden">
-        {/* Glow debajo de la imagen - Efecto de iluminación - Solo desktop */}
-        <div className="hidden md:block absolute bottom-0 left-1/2 -translate-x-1/2 w-3/4 h-20 bg-gradient-to-t from-blue-800/300 via-cyan-800/200 to-transparent blur-2xl" />
+        {/* ⚠️ Glow ELIMINADO - Blur recalculado 60 veces/segundo con Lenis */}
         
         <ProductImage src={productImage} alt={name} loading={imageLoading} fetchpriority={imageFetchPriority} />
         <StockStatus stockStatus={STOCK_STATUS} />

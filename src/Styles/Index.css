@@ -1226,7 +1226,122 @@ html {
   }
 }
 
-/* Low-end devices: Glows mínimos pero visibles */
+/* ===== OPTIMIZACIONES POR TIER DE PERFORMANCE ===== */
+
+/* TIER LOW - Dispositivos de gama baja (3+ factores negativos) */
+.perf-low .text-glow-blue,
+.perf-low .text-glow-emerald,
+.perf-low .text-glow-orange,
+.perf-low .text-glow-purple,
+.perf-low .text-glow-cyan,
+.perf-low .text-glow-red {
+  text-shadow: 0 0 8px currentColor !important;
+}
+
+.perf-low .box-glow-blue,
+.perf-low .box-glow-emerald,
+.perf-low .box-glow-orange,
+.perf-low .box-glow-purple {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3) !important;
+}
+
+/* Reducir blur agresivamente */
+.perf-low .blur-\[120px\],
+.perf-low .blur-\[100px\],
+.perf-low .blur-\[80px\] {
+  filter: blur(20px) !important;
+}
+
+.perf-low .blur-3xl {
+  filter: blur(16px) !important;
+}
+
+.perf-low .blur-2xl,
+.perf-low .blur-xl {
+  filter: blur(12px) !important;
+}
+
+/* Desactivar backdrop-blur completamente */
+.perf-low .backdrop-blur-3xl,
+.perf-low .backdrop-blur-2xl,
+.perf-low .backdrop-blur-xl,
+.perf-low .backdrop-blur-lg,
+.perf-low .backdrop-blur-md {
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  background-color: rgba(0, 0, 0, 0.4) !important;
+}
+
+/* Desactivar animaciones infinitas */
+.perf-low .animate-pulse,
+.perf-low .animate-orbit-1,
+.perf-low .animate-orbit-2,
+.perf-low .animate-orbit-3,
+.perf-low .animate-shimmer,
+.perf-low .animate-pulse-ring,
+.perf-low .animate-wiggle,
+.perf-low .animate-bot-pulse,
+.perf-low .animate-bot-glow,
+.perf-low .animate-button-float,
+.perf-low .animate-button-glow,
+.perf-low .animate-float-particle-1,
+.perf-low .animate-float-particle-2 {
+  animation: none !important;
+}
+
+/* Simplificar mesh container */
+.perf-low .mesh-container {
+  filter: blur(15px) contrast(1.05) !important;
+  opacity: 0.3 !important;
+}
+
+/* Desactivar will-change */
+.perf-low * {
+  will-change: auto !important;
+}
+
+/* TIER MEDIUM - Dispositivos intermedios (2 factores negativos) */
+.perf-medium .blur-\[120px\],
+.perf-medium .blur-\[100px\] {
+  filter: blur(40px) !important;
+}
+
+.perf-medium .blur-\[80px\] {
+  filter: blur(32px) !important;
+}
+
+.perf-medium .blur-3xl {
+  filter: blur(24px) !important;
+}
+
+/* Reducir backdrop-blur */
+.perf-medium .backdrop-blur-3xl {
+  backdrop-filter: blur(16px) !important;
+}
+
+.perf-medium .backdrop-blur-2xl {
+  backdrop-filter: blur(12px) !important;
+}
+
+/* Desactivar algunas animaciones pesadas */
+.perf-medium .animate-orbit-1,
+.perf-medium .animate-orbit-2,
+.perf-medium .animate-orbit-3,
+.perf-medium .animate-float-particle-1,
+.perf-medium .animate-float-particle-2 {
+  animation: none !important;
+}
+
+/* Simplificar mesh */
+.perf-medium .mesh-container {
+  filter: blur(30px) contrast(1.1) !important;
+  opacity: 0.5 !important;
+}
+
+/* TIER HIGH - Dispositivos de alta gama (0-1 factores negativos) */
+/* Sin restricciones, usar todos los efectos */
+
+/* Legacy support - mantener compatibilidad con .is-low-end */
 .is-low-end .text-glow-blue,
 .is-low-end .text-glow-emerald,
 .is-low-end .text-glow-orange,
