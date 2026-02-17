@@ -1,17 +1,11 @@
-import { memo, useEffect } from 'react';
+import { memo, useEffect, useState } from 'react';
 import { useIsIOS } from '../../hooks/useDevice';
 import { getModalStyles, getBackdropStyles } from '../../constants/platform';
 import Portal from './Portal';
 
 /**
  * Wrapper de modal con estilos optimizados por plataforma
- * Abstrae la complejidad de iOS vs Android vs Desktop
- * 
- * @param {boolean} isOpen - Estado del modal
- * @param {function} onClose - Callback al cerrar
- * @param {ReactNode} children - Contenido del modal
- * @param {string} className - Clases adicionales para el contenedor
- * @param {Object} style - Estilos adicionales
+ * iOS FIX: Usa position absolute + top scrollY en lugar de fixed
  */
 const PlatformModal = memo(({ 
   isOpen, 
@@ -23,22 +17,39 @@ const PlatformModal = memo(({
   backdropClassName = ''
 }) => {
   const isIOS = useIsIOS();
+  const [scrollY, setScrollY] = useState(0);
+  const [viewportHeight, setViewportHeight] = useState(window.innerHeight);
 
-  // Agregar/remover clase modal-open del body para iOS
+  // Capturar scrollY y bloquear scroll al abrir
   useEffect(() => {
-    if (isOpen && isIOS) {
-      const scrollY = window.scrollY;
-      document.body.classList.add('modal-open');
-      document.body.style.top = `-${scrollY}px`;
+    if (isOpen) {
+      // Capturar posición actual
+      const currentScrollY = window.scrollY;
+      setScrollY(currentScrollY);
+      setViewportHeight(window.innerHeight);
+      
+      // Bloquear scroll SIN position fixed
+      document.documentElement.style.overflow = 'hidden';
+      document.body.style.overflow = 'hidden';
+      document.body.style.position = 'relative';
       
       return () => {
-        document.body.classList.remove('modal-open');
+        // Restaurar scroll
+        document.documentElement.style.overflow = '';
+        document.body.style.overflow = '';
         document.body.style.position = '';
-        document.body.style.top = '';
-        window.scrollTo(0, scrollY);
       };
     }
-  }, [isOpen, isIOS]);
+  }, [isOpen]);
+
+  // Actualizar viewport height en resize
+  useEffect(() => {
+    if (!isOpen) return;
+    
+    const handleResize = () => setViewportHeight(window.innerHeight);
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, [isOpen]);
 
   if (!isOpen) return null;
 
@@ -50,29 +61,29 @@ const PlatformModal = memo(({
       {/* Backdrop */}
       {showBackdrop && (
         <div
-          className={`fixed inset-0 bg-black/60 transition-opacity duration-300 ${backdropClassName}`}
+          className={`absolute inset-0 bg-black/60 transition-opacity duration-300 ${backdropClassName}`}
           style={{
             ...backdropStyles,
-            top: 0,
+            top: scrollY,
             left: 0,
             right: 0,
-            bottom: 0
+            height: viewportHeight
           }}
           onClick={onClose}
           aria-hidden="true"
         />
       )}
 
-      {/* Modal Container */}
+      {/* Modal Container - position absolute con top scrollY */}
       <div
-        className={`fixed inset-0 flex items-center justify-center p-3 sm:p-4 pointer-events-none ${className}`}
+        className={`absolute inset-0 flex items-center justify-center p-3 sm:p-4 pointer-events-none ${className}`}
         style={{ 
           ...modalStyles, 
           ...style,
-          top: 0,
+          top: scrollY,
           left: 0,
           right: 0,
-          bottom: 0
+          height: viewportHeight
         }}
         role="dialog"
         aria-modal="true"

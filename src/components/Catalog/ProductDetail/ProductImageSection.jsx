@@ -8,6 +8,8 @@ const ProductImageSection = ({ images = [], name, stock, stockStatus }) => {
   const [imageLoaded, setImageLoaded] = useState(false);
   const [isLightboxOpen, setIsLightboxOpen] = useState(false);
   const [lightboxImageIndex, setLightboxImageIndex] = useState(0);
+  const [scrollY, setScrollY] = useState(0);
+  const [viewportHeight, setViewportHeight] = useState(window.innerHeight);
 
   const hasMultipleImages = images.length > 1;
   const currentImage = images[currentImageIndex] || images[0];
@@ -34,20 +36,32 @@ const ProductImageSection = ({ images = [], name, stock, stockStatus }) => {
   // Bloquear scroll cuando lightbox está abierto - iOS fix
   useEffect(() => {
     if (isLightboxOpen) {
-      const scrollY = window.scrollY;
-      document.body.style.position = 'fixed';
-      document.body.style.top = `-${scrollY}px`;
-      document.body.style.width = '100%';
+      // Capturar posición actual
+      const currentScrollY = window.scrollY;
+      setScrollY(currentScrollY);
+      setViewportHeight(window.innerHeight);
+      
+      // Bloquear scroll SIN position fixed
+      document.documentElement.style.overflow = 'hidden';
       document.body.style.overflow = 'hidden';
+      document.body.style.position = 'relative';
       
       return () => {
-        document.body.style.position = '';
-        document.body.style.top = '';
-        document.body.style.width = '';
+        // Restaurar scroll
+        document.documentElement.style.overflow = '';
         document.body.style.overflow = '';
-        window.scrollTo(0, scrollY);
+        document.body.style.position = '';
       };
     }
+  }, [isLightboxOpen]);
+
+  // Actualizar viewport height en resize
+  useEffect(() => {
+    if (!isLightboxOpen) return;
+    
+    const handleResize = () => setViewportHeight(window.innerHeight);
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
   }, [isLightboxOpen]);
 
   const nextLightboxImage = () => {
@@ -176,13 +190,13 @@ const ProductImageSection = ({ images = [], name, stock, stockStatus }) => {
       {isLightboxOpen && (
         <Portal>
           <div 
-            className="fixed inset-0 bg-black/95 flex items-center justify-center"
+            className="absolute inset-0 bg-black/95 flex items-center justify-center"
             style={{ 
               zIndex: 2147483647,
-              top: 0,
+              top: scrollY,
               left: 0,
               right: 0,
-              bottom: 0
+              height: viewportHeight
             }}
             onClick={closeLightbox}
             onKeyDown={handleKeyDown}

@@ -4,6 +4,18 @@
 
 .font-outfit { font-family: 'Outfit', sans-serif; }
 
+/* ===== PORTAL ROOT - iOS FIX ===== */
+#portal-root {
+  position: relative;
+  z-index: 2147483647;
+  pointer-events: none;
+  /* NO usar -webkit-overflow-scrolling: touch */
+}
+
+#portal-root > * {
+  pointer-events: auto;
+}
+
 /* ===== SISTEMA DE EASING PREMIUM ===== */
 :root {
   /* Curvas de Apple/Framer Motion - Ultra suaves */
