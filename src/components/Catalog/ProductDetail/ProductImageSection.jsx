@@ -31,17 +31,21 @@ const ProductImageSection = ({ images = [], name, stock, stockStatus }) => {
     setIsLightboxOpen(false);
   };
 
-  // Bloquear scroll cuando lightbox está abierto
+  // Bloquear scroll cuando lightbox está abierto - iOS fix
   useEffect(() => {
     if (isLightboxOpen) {
-      document.body.style.overflow = 'hidden';
+      const scrollY = window.scrollY;
       document.body.style.position = 'fixed';
+      document.body.style.top = `-${scrollY}px`;
       document.body.style.width = '100%';
+      document.body.style.overflow = 'hidden';
       
       return () => {
-        document.body.style.overflow = '';
         document.body.style.position = '';
+        document.body.style.top = '';
         document.body.style.width = '';
+        document.body.style.overflow = '';
+        window.scrollTo(0, scrollY);
       };
     }
   }, [isLightboxOpen]);
@@ -174,7 +178,11 @@ const ProductImageSection = ({ images = [], name, stock, stockStatus }) => {
           <div 
             className="fixed inset-0 bg-black/95 flex items-center justify-center"
             style={{ 
-              zIndex: 2147483647
+              zIndex: 2147483647,
+              top: 0,
+              left: 0,
+              right: 0,
+              bottom: 0
             }}
             onClick={closeLightbox}
             onKeyDown={handleKeyDown}
