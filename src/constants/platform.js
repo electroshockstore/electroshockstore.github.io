@@ -147,25 +147,14 @@ export const detectPerformance = () => {
 
 // Obtener estilos de modal según plataforma
 export const getModalStyles = (isIOS = false) => {
-  const baseStyles = {
+  return {
     zIndex: isIOS ? Z_INDEX.MODAL_MAX : Z_INDEX.MODAL_STANDARD
   };
-
-  // iOS necesita hardware acceleration
-  if (isIOS) {
-    return {
-      ...baseStyles,
-      ...TRANSFORMS.GPU_ACCELERATION
-    };
-  }
-
-  return baseStyles;
 };
 
 // Obtener estilos de backdrop según plataforma
 export const getBackdropStyles = (isIOS = false) => {
   return {
-    zIndex: isIOS ? Z_INDEX.MODAL_BACKDROP : Z_INDEX.MODAL_STANDARD - 1,
-    ...(isIOS ? TRANSFORMS.GPU_ACCELERATION : {})
+    zIndex: isIOS ? Z_INDEX.MODAL_BACKDROP : Z_INDEX.MODAL_STANDARD - 1
   };
 };

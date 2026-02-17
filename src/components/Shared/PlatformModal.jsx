@@ -50,7 +50,7 @@ const PlatformModal = memo(({
       {/* Backdrop */}
       {showBackdrop && (
         <div
-          className={`fixed inset-0 bg-black/60 md:backdrop-blur-sm transition-opacity duration-300 ${backdropClassName}`}
+          className={`fixed inset-0 bg-black/60 transition-opacity duration-300 ${backdropClassName}`}
           style={backdropStyles}
           onClick={onClose}
           aria-hidden="true"
@@ -59,12 +59,14 @@ const PlatformModal = memo(({
 
       {/* Modal Container */}
       <div
-        className={`fixed inset-0 flex items-center justify-center p-3 sm:p-4 ${className}`}
+        className={`fixed inset-0 flex items-center justify-center p-3 sm:p-4 pointer-events-none ${className}`}
         style={{ ...modalStyles, ...style }}
         role="dialog"
         aria-modal="true"
       >
-        {children}
+        <div className="pointer-events-auto">
+          {children}
+        </div>
       </div>
     </Portal>
   );
