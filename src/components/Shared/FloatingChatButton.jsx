@@ -14,13 +14,22 @@ const FloatingChatButton = () => {
     return null;
   }
 
+  // Bloquear scroll cuando el menú está expandido
+  useEffect(() => {
+    if (isExpanded) {
+      document.body.style.overflow = 'hidden';
+      return () => {
+        document.body.style.overflow = '';
+      };
+    }
+  }, [isExpanded]);
+
   // Bloquear scroll cuando modal está abierto
   useEffect(() => {
     if (showConditionsModal) {
-      // ⚡ Scroll nativo - No necesita pausarse
-      
+      document.body.style.overflow = 'hidden';
       return () => {
-        // Cleanup si es necesario
+        document.body.style.overflow = '';
       };
     }
   }, [showConditionsModal]);
@@ -112,10 +121,10 @@ const FloatingChatButton = () => {
       )}
 
       <Portal>
-        {/* Backdrop con blur cuando está expandido - Blur solo en desktop */}
+        {/* Backdrop con blur cuando está expandido - Optimizado para mobile y desktop */}
         {isExpanded && (
           <div 
-            className="fixed inset-0 bg-black/30 md:backdrop-blur-md transition-all duration-300 animate-in fade-in" 
+            className="fixed inset-0 bg-black/60 backdrop-blur-sm transition-all duration-300 animate-in fade-in" 
             style={{ zIndex: 99998 }}
             onClick={() => setIsExpanded(false)}
           />

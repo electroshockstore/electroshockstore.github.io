@@ -320,7 +320,7 @@ const CategoryProductSection = ({ onCategoryClick }) => {
 
 
 // --- Componente ULTRA-SIMPLIFICADO sin Framer Motion ---
-// CSS puro para máxima performance con Lenis
+// CSS puro para máxima performance
 const CategoryCard = ({ category, onCategoryClick, className, textSize, isLarge = false }) => {
   return (
     <button

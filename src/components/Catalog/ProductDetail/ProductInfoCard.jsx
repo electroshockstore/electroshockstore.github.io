@@ -56,7 +56,7 @@ const ProductInfoCard = ({
       <div className="p-4 sm:p-6 lg:p-8 pt-0 space-y-4">
         {/* Botones de contacto */}
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-          <ShareButton productName={name} product={product} className="relative overflow-hidden group" />
+          <ShareButton productName={name} product={product} />
           <WhatsAppButton productName={name} product={product} className="relative overflow-hidden group" />
         </div>
         

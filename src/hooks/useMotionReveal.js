@@ -1,7 +1,7 @@
 /**
- * Hook ULTRA-OPTIMIZADO para Scroll Reveal con Framer Motion + Lenis
+ * Hook ULTRA-OPTIMIZADO para Scroll Reveal con Framer Motion
  * 
- * OPTIMIZACIONES CRÍTICAS PARA LENIS:
+ * OPTIMIZACIONES CRÍTICAS:
  * 1. once: true - Animar solo UNA VEZ (no recalcular en cada scroll)
  * 2. amount: 0.05 - Trigger temprano (menos cálculos)
  * 3. margin negativo - Pre-trigger antes de entrar al viewport
@@ -79,7 +79,7 @@ const useMotionReveal = (animation = 'fade-in', delay = 0, duration = 0.6) => {
 
   return {
     variants: variants[animation] || variants['fade-in'],
-    // Props ULTRA-OPTIMIZADOS para Lenis
+    // Props ULTRA-OPTIMIZADOS
     initial: "hidden",
     whileInView: "visible",
     viewport: { 

@@ -1,8 +1,10 @@
 import { Store, Truck, ShieldCheck, CheckCircle2 } from 'lucide-react';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 
 const PromoCarousel = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [isVisible, setIsVisible] = useState(true); // ⚡ NUEVO: Detectar si está visible
+  const carouselRef = useRef(null); // ⚡ NUEVO: Ref para IntersectionObserver
 
   // Mensajes del carousel central (vertical)
   const centerMessages = [
@@ -18,16 +20,49 @@ const PromoCarousel = () => {
     }
   ];
 
-  // Auto-rotate carousel
+  // ⚡ OPTIMIZACIÓN CRÍTICA: Detectar visibilidad
   useEffect(() => {
+    if (!carouselRef.current) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        setIsVisible(entry.isIntersecting);
+      },
+      { 
+        threshold: 0.1,
+        rootMargin: '50px'
+      }
+    );
+
+    observer.observe(carouselRef.current);
+
+    return () => {
+      if (carouselRef.current) {
+        observer.unobserve(carouselRef.current);
+      }
+    };
+  }, []);
+
+  // ⚡ Auto-rotate solo si está visible
+  useEffect(() => {
+    if (!isVisible) return;
+
     const interval = setInterval(() => {
       setCurrentIndex((prev) => (prev + 1) % centerMessages.length);
     }, 3000);
     return () => clearInterval(interval);
-  }, [centerMessages.length]);
+  }, [centerMessages.length, isVisible]); // ⚡ Dependencia de isVisible
 
   return (
-    <div className="sm:hidden w-full bg-slate-950 py-2 overflow-hidden relative border-y border-white/5">
+    <div 
+      ref={carouselRef} 
+      className="sm:hidden w-full bg-slate-950 py-2 overflow-hidden relative border-y border-white/5"
+      style={{
+        willChange: isVisible ? 'transform' : 'auto',
+        transform: 'translateZ(0)',
+        backfaceVisibility: 'hidden'
+      }}
+    >
       <div className="flex items-center justify-between px-3 gap-2">
         {/* LEFT START - No hacemos envío */}
         <div className="flex items-center gap-1.5 flex-shrink-0">

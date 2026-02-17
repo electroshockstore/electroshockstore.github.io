@@ -141,8 +141,8 @@ const CategoryFilter = ({ selectedCategory, onCategoryChange }) => {
             </button>
           </div>
 
-          {/* Grid de categorías con data-lenis-prevent */}
-          <div className="modal-fullscreen-scroll category-grid-scroll" data-lenis-prevent>
+          {/* Grid de categorías */}
+          <div className="modal-fullscreen-scroll category-grid-scroll">
             {/* Pattern decorativo sutil */}
             <div className="absolute inset-0 opacity-5 bg-grain pointer-events-none" />
             

@@ -108,10 +108,23 @@ const ProductCard = memo(({ product, viewMode, onClick, index = 0, listName = 'P
                  transition-all duration-300 cursor-pointer overflow-hidden flex flex-col h-full
                  active:scale-[0.98] sm:active:scale-100"
     >
-      {/* ⚠️ BLUR EFFECTS ELIMINADOS - Causaban lag brutal en Catalog (150 blur × 60fps) */}
+      {/* Elementos geométricos decorativos - Optimizados sin blur */}
+      <div className="absolute inset-0 pointer-events-none overflow-hidden z-10">
+        {/* Círculo superior derecha - Azul */}
+        <div className="absolute -top-10 -right-10 w-32 h-32 bg-gradient-to-br from-blue-400/20 to-cyan-400/10 rounded-full group-hover:scale-125 transition-transform duration-500" />
+        
+        {/* Círculo inferior izquierda - Púrpura */}
+        <div className="absolute -bottom-20 -left-10 w-36 h-36 bg-gradient-to-tr from-purple-400/20 to-pink-400/10 rounded-full group-hover:scale-125 transition-transform duration-500" />
+        
+        {/* Forma geométrica angular - Naranja (esquina superior izquierda) */}
+        <div className="absolute top-0 left-0 w-12 h-12 opacity-20 group-hover:opacity-40 transition-opacity duration-300">
+          <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-orange-400 to-transparent" style={{ clipPath: 'polygon(0 0, 100% 0, 0 100%)' }} />
+        </div>
+      </div>
 
       <div className="relative aspect-square bg-gradient-to-br from-gray-50 to-gray-100 overflow-hidden">
-        {/* ⚠️ Glow ELIMINADO - Blur recalculado 60 veces/segundo con Lenis */}
+        {/* Glow debajo de la imagen - Efecto de iluminación suave */}
+        <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-3/4 h-20 bg-gradient-to-t from-blue-400/10 via-cyan-400/5 to-transparent" />
         
         <ProductImage src={productImage} alt={name} loading={imageLoading} fetchpriority={imageFetchPriority} />
         <StockStatus stockStatus={STOCK_STATUS} />

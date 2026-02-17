@@ -91,8 +91,8 @@ const PickupPointModal = memo(({ isOpen, onClose, onSelectPoint, selectedPoint }
             </div>
           </div>
 
-          {/* Content - Scrollable con data-lenis-prevent */}
-          <div className="relative flex-1 overflow-y-auto scrollbar-custom" data-lenis-prevent>
+          {/* Content - Scrollable */}
+          <div className="relative flex-1 overflow-y-auto scrollbar-custom">
             <div className="p-4 sm:p-6 space-y-3 sm:space-y-4">
               {PICKUP_POINTS.map((point) => {
                 const isSelected = selectedPoint?.id === point.id;

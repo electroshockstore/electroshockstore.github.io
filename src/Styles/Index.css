@@ -34,17 +34,12 @@
   --transform-gpu: translate3d(0, 0, 0);
 }
 
-/* ===== SMOOTH SCROLL - MANEJADO POR LENIS ===== */
-/* Lenis maneja el smooth scroll en desktop (>768px) */
-/* Mobile mantiene scroll nativo para mejor performance */
+/* ===== SMOOTH SCROLL - NATIVO ===== */
+/* Scroll suave nativo del navegador */
 
 html {
-  scroll-behavior: auto; /* Lenis toma control en desktop */
-}
-
-/* Clase para elementos con scroll interno (modales, sidebars, etc.) */
-.lenis-prevent {
-  overscroll-behavior: contain;
+  scroll-behavior: smooth;
+  scroll-padding-top: 80px; /* Espacio para header sticky */
 }
 
 /* Smooth scroll solo para navegadores sin JS como fallback */
@@ -388,6 +383,38 @@ html {
     opacity: 1;
     transform: translateY(0);
   }
+}
+
+/* ===== SMART STAGGER ANIMATIONS - CSS ONLY ===== */
+/* Animaciones simples y performantes para HeroCarousel */
+
+@keyframes simpleFadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Clases de utilidad para animaciones */
+.animate-fade-in {
+  animation: simpleFadeIn 0.4s ease-out forwards;
+}
+
+.animate-fade-in.delay-100 {
+  animation-delay: 0.1s;
+  opacity: 0;
+}
+
+.animate-fade-in.delay-200 {
+  animation-delay: 0.2s;
+  opacity: 0;
+}
+
+.animate-fade-in.delay-300 {
+  animation-delay: 0.3s;
+  opacity: 0;
 }
 
 /* Shimmer animation for power consumption bar */

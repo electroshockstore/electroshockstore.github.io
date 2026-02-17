@@ -1,8 +1,7 @@
-import { lazy, Suspense, useEffect } from 'react';
+import { lazy, Suspense } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { FilterProvider } from "./context/FilterContext";
 import { PCBuilderProvider } from "./context/PCBuilderContext";
-import { SmoothScrollProvider } from "./components/Shared/LenisProvider"; // Renombrado pero mismo archivo
 import ErrorBoundary from "./components/ErrorBoundary";
 import ErrorNotification from "./components/ErrorNotification";
 import { useErrorHandler } from "./hooks/useErrorHandler";
@@ -76,17 +75,15 @@ function App() {
   
   return (
     <ErrorBoundary>
-      <SmoothScrollProvider>
-        <FilterProvider>
-          <PCBuilderProvider>
-            <Router basename="/">
-              <ScrollToTop />
-              <SkipToContent />
-              <AppContent />
-            </Router>
-          </PCBuilderProvider>
-        </FilterProvider>
-      </SmoothScrollProvider>
+      <FilterProvider>
+        <PCBuilderProvider>
+          <Router basename="/">
+            <ScrollToTop />
+            <SkipToContent />
+            <AppContent />
+          </Router>
+        </PCBuilderProvider>
+      </FilterProvider>
     </ErrorBoundary>
   );
 }

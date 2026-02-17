@@ -89,7 +89,6 @@ const ProductDetail = memo(({ product, onClose, isPage = false }) => {
       <div 
         className="fixed inset-0 overflow-y-auto flex items-start justify-center py-8" 
         style={{ zIndex: 2147483647 }}
-        data-lenis-prevent
       >
         <div className="w-full max-w-7xl">
           <div className="bg-gray-50 rounded-3xl shadow-2xl">
