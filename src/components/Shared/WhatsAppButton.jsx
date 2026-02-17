@@ -55,11 +55,11 @@ const WhatsAppButton = ({ productName, product, className = "" }) => {
     <>
       <button
         onClick={handleOpenModal}
-        onTouchEnd={(e) => {
-          e.preventDefault();
+        style={{ 
+          WebkitTapHighlightColor: 'transparent',
+          cursor: 'pointer'
         }}
         className={`group w-full flex items-center justify-center gap-3 bg-gradient-to-r from-green-500 to-green-600 hover:from-green-600 hover:to-green-700 text-white px-4 py-3 sm:px-6 sm:py-4 rounded-xl shadow-lg hover:shadow-green-500/50 transition-all duration-300 font-bold text-sm sm:text-base active:scale-95 ${className}`}
-        style={{ WebkitTapHighlightColor: 'transparent' }}
       >
         {/* WhatsApp Icon */}
         <div className="flex-shrink-0">

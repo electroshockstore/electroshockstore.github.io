@@ -106,6 +106,7 @@ const PickupPointModal = memo(({ isOpen, onClose, onSelectPoint, selectedPoint }
                   <button
                     key={point.id}
                     onClick={() => onSelectPoint(point)}
+                    style={{ cursor: 'pointer', WebkitTapHighlightColor: 'transparent' }}
                     className={`relative w-full flex gap-3 sm:gap-4 p-3 sm:p-4 rounded-xl sm:rounded-2xl border-2 transition-all duration-200 hover:scale-[1.01] active:scale-[0.99] text-left ${
                       isSelected
                         ? 'border-green-500 bg-green-500/10 shadow-lg shadow-green-500/20'

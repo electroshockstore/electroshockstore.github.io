@@ -68,13 +68,12 @@ const ProductImageSection = ({ images = [], name, stock, stockStatus }) => {
         {/* Imagen principal */}
         <div className="aspect-square bg-gray-50 rounded-lg overflow-hidden relative group flex-shrink-0">
           <div 
-            className="w-full h-full cursor-zoom-in relative"
+            className="w-full h-full cursor-pointer relative"
             onClick={() => openLightbox(currentImageIndex)}
-            onTouchEnd={(e) => {
-              e.preventDefault();
-              openLightbox(currentImageIndex);
+            style={{ 
+              WebkitTapHighlightColor: 'transparent',
+              cursor: 'pointer'
             }}
-            style={{ WebkitTapHighlightColor: 'transparent' }}
           >
             <img
               src={currentImage}
@@ -173,14 +172,9 @@ const ProductImageSection = ({ images = [], name, stock, stockStatus }) => {
       {isLightboxOpen && (
         <Portal>
           <div 
-            className="fixed inset-0 bg-black/95 md:backdrop-blur-sm flex items-center justify-center"
+            className="fixed inset-0 bg-black/95 flex items-center justify-center"
             style={{ 
-              zIndex: 2147483647,
-              WebkitTransform: 'translate3d(0, 0, 0)',
-              transform: 'translate3d(0, 0, 0)',
-              WebkitBackfaceVisibility: 'hidden',
-              backfaceVisibility: 'hidden',
-              touchAction: 'none'
+              zIndex: 2147483647
             }}
             onClick={closeLightbox}
             onKeyDown={handleKeyDown}
@@ -189,35 +183,31 @@ const ProductImageSection = ({ images = [], name, stock, stockStatus }) => {
           {/* Close button */}
           <button
             onClick={closeLightbox}
-            className="absolute top-4 right-4 w-12 h-12 bg-white/10 hover:bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center transition-all duration-200 z-50 border border-white/20"
+            style={{ cursor: 'pointer', WebkitTapHighlightColor: 'transparent' }}
+            className="absolute top-4 right-4 w-12 h-12 bg-white/20 hover:bg-white/30 rounded-full flex items-center justify-center transition-all duration-200 z-50"
           >
             <X className="w-6 h-6 text-white" strokeWidth={2} />
           </button>
 
           {/* Image counter */}
-          <div className="absolute top-4 left-1/2 -translate-x-1/2 px-4 py-2 bg-white/10 backdrop-blur-md rounded-full text-white font-semibold text-sm border border-white/20">
+          <div className="absolute top-4 left-1/2 -translate-x-1/2 px-4 py-2 bg-white/20 rounded-full text-white font-semibold text-sm">
             {lightboxImageIndex + 1} / {images.length}
           </div>
 
           {/* Main image */}
           <div 
-            className="relative max-w-7xl max-h-[90vh] w-full h-full flex items-center justify-center px-4"
+            className="relative w-full h-full flex items-center justify-center px-4 py-20"
             onClick={(e) => e.stopPropagation()}
-            onTouchStart={(e) => e.stopPropagation()}
-            style={{
-              WebkitTransform: 'translate3d(0, 0, 0)',
-              transform: 'translate3d(0, 0, 0)',
-              touchAction: 'none'
-            }}
           >
             <img
+              key={`lightbox-${lightboxImageIndex}`}
               src={images[lightboxImageIndex]}
               alt={`${name} - Imagen ${lightboxImageIndex + 1}`}
               className="max-w-full max-h-full object-contain"
               style={{
-                WebkitTransform: 'translate3d(0, 0, 0)',
-                transform: 'translate3d(0, 0, 0)',
-                pointerEvents: 'none'
+                maxHeight: '80vh',
+                width: 'auto',
+                height: 'auto'
               }}
             />
           </div>
@@ -230,7 +220,8 @@ const ProductImageSection = ({ images = [], name, stock, stockStatus }) => {
                   e.stopPropagation();
                   prevLightboxImage();
                 }}
-                className="absolute left-4 top-1/2 -translate-y-1/2 w-14 h-14 bg-white/10 hover:bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center transition-all duration-200 border border-white/20"
+                style={{ cursor: 'pointer', WebkitTapHighlightColor: 'transparent' }}
+                className="absolute left-4 top-1/2 -translate-y-1/2 w-14 h-14 bg-white/20 hover:bg-white/30 rounded-full flex items-center justify-center transition-all duration-200"
               >
                 <ChevronLeft className="w-7 h-7 text-white" strokeWidth={2} />
               </button>
@@ -239,7 +230,8 @@ const ProductImageSection = ({ images = [], name, stock, stockStatus }) => {
                   e.stopPropagation();
                   nextLightboxImage();
                 }}
-                className="absolute right-4 top-1/2 -translate-y-1/2 w-14 h-14 bg-white/10 hover:bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center transition-all duration-200 border border-white/20"
+                style={{ cursor: 'pointer', WebkitTapHighlightColor: 'transparent' }}
+                className="absolute right-4 top-1/2 -translate-y-1/2 w-14 h-14 bg-white/20 hover:bg-white/30 rounded-full flex items-center justify-center transition-all duration-200"
               >
                 <ChevronRight className="w-7 h-7 text-white" strokeWidth={2} />
               </button>
@@ -248,7 +240,7 @@ const ProductImageSection = ({ images = [], name, stock, stockStatus }) => {
 
           {/* Thumbnails */}
           {hasMultipleImages && (
-            <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2 overflow-x-auto max-w-[90vw] px-4 py-2 bg-black/40 backdrop-blur-md rounded-2xl border border-white/10">
+            <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2 overflow-x-auto max-w-[90vw] px-4 py-2 bg-black/40 rounded-2xl">
               {images.map((img, index) => (
                 <button
                   key={index}
@@ -256,6 +248,7 @@ const ProductImageSection = ({ images = [], name, stock, stockStatus }) => {
                     e.stopPropagation();
                     setLightboxImageIndex(index);
                   }}
+                  style={{ cursor: 'pointer', WebkitTapHighlightColor: 'transparent' }}
                   className={`flex-shrink-0 w-16 h-16 rounded-lg overflow-hidden border-2 transition-all duration-200 ${
                     index === lightboxImageIndex
                       ? 'border-white ring-2 ring-white/50'
