@@ -34,11 +34,14 @@ const ShareButton = ({ productName, product, className = '' }) => {
       setShowOptions(false);
     };
 
+    // iOS fix: usar tanto mousedown como touchstart
     document.addEventListener('mousedown', handleClickOutside);
+    document.addEventListener('touchstart', handleClickOutside);
     window.addEventListener('scroll', handleScroll, true);
     
     return () => {
       document.removeEventListener('mousedown', handleClickOutside);
+      document.removeEventListener('touchstart', handleClickOutside);
       window.removeEventListener('scroll', handleScroll, true);
     };
   }, [showOptions]);
@@ -76,8 +79,17 @@ const ShareButton = ({ productName, product, className = '' }) => {
     <div ref={containerRef}>
       <button
         ref={buttonRef}
-        onClick={() => setShowOptions(!showOptions)}
+        onClick={(e) => {
+          e.preventDefault();
+          e.stopPropagation();
+          setShowOptions(!showOptions);
+        }}
+        onTouchEnd={(e) => {
+          e.preventDefault();
+          e.stopPropagation();
+        }}
         className={`w-full flex items-center justify-center gap-3 bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white px-4 py-3 sm:px-6 sm:py-4 rounded-xl shadow-lg hover:shadow-blue-500/50 transition-all duration-300 font-bold text-sm sm:text-base hover:scale-[1.02] hover:-translate-y-0.5 active:scale-[0.98] group relative overflow-hidden ${className}`}
+        style={{ WebkitTapHighlightColor: 'transparent' }}
       >
         <div className="flex-shrink-0">
           <Share2 className="w-5 h-5 sm:w-6 sm:h-6" strokeWidth={2.5} />
@@ -103,11 +115,14 @@ const ShareButton = ({ productName, product, className = '' }) => {
 
       {showOptions && dropdownPosition && (
         <div 
-          className="fixed bg-white rounded-xl shadow-2xl border-2 border-gray-200 overflow-hidden z-[9999]"
+          className="fixed bg-white rounded-xl shadow-2xl border-2 border-gray-200 overflow-hidden"
           style={{
             top: `${dropdownPosition.top}px`,
             left: `${dropdownPosition.left}px`,
-            width: `${dropdownPosition.width}px`
+            width: `${dropdownPosition.width}px`,
+            zIndex: 2147483647,
+            WebkitTransform: 'translate3d(0, 0, 0)',
+            transform: 'translate3d(0, 0, 0)'
           }}
         >
           <button

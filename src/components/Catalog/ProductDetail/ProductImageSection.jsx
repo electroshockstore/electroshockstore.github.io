@@ -34,10 +34,14 @@ const ProductImageSection = ({ images = [], name, stock, stockStatus }) => {
   // Bloquear scroll cuando lightbox está abierto
   useEffect(() => {
     if (isLightboxOpen) {
-      // ⚡ Scroll nativo - No necesita pausarse
+      document.body.style.overflow = 'hidden';
+      document.body.style.position = 'fixed';
+      document.body.style.width = '100%';
       
       return () => {
-        // Cleanup si es necesario
+        document.body.style.overflow = '';
+        document.body.style.position = '';
+        document.body.style.width = '';
       };
     }
   }, [isLightboxOpen]);
@@ -66,6 +70,11 @@ const ProductImageSection = ({ images = [], name, stock, stockStatus }) => {
           <div 
             className="w-full h-full cursor-zoom-in relative"
             onClick={() => openLightbox(currentImageIndex)}
+            onTouchEnd={(e) => {
+              e.preventDefault();
+              openLightbox(currentImageIndex);
+            }}
+            style={{ WebkitTapHighlightColor: 'transparent' }}
           >
             <img
               src={currentImage}
@@ -170,7 +179,8 @@ const ProductImageSection = ({ images = [], name, stock, stockStatus }) => {
               WebkitTransform: 'translate3d(0, 0, 0)',
               transform: 'translate3d(0, 0, 0)',
               WebkitBackfaceVisibility: 'hidden',
-              backfaceVisibility: 'hidden'
+              backfaceVisibility: 'hidden',
+              touchAction: 'none'
             }}
             onClick={closeLightbox}
             onKeyDown={handleKeyDown}
@@ -193,9 +203,11 @@ const ProductImageSection = ({ images = [], name, stock, stockStatus }) => {
           <div 
             className="relative max-w-7xl max-h-[90vh] w-full h-full flex items-center justify-center px-4"
             onClick={(e) => e.stopPropagation()}
+            onTouchStart={(e) => e.stopPropagation()}
             style={{
               WebkitTransform: 'translate3d(0, 0, 0)',
-              transform: 'translate3d(0, 0, 0)'
+              transform: 'translate3d(0, 0, 0)',
+              touchAction: 'none'
             }}
           >
             <img
@@ -204,7 +216,8 @@ const ProductImageSection = ({ images = [], name, stock, stockStatus }) => {
               className="max-w-full max-h-full object-contain"
               style={{
                 WebkitTransform: 'translate3d(0, 0, 0)',
-                transform: 'translate3d(0, 0, 0)'
+                transform: 'translate3d(0, 0, 0)',
+                pointerEvents: 'none'
               }}
             />
           </div>
