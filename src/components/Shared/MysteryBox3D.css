@@ -1,0 +1,393 @@
+/* ===== MYSTERY BOX 3D - ULTRA LIGERO ===== */
+
+.mystery-box-container {
+  position: relative;
+  width: 100%;
+  max-width: 400px;
+  margin: 0 auto;
+  padding: 2rem;
+  background: linear-gradient(135deg, rgba(15, 23, 42, 0.95), rgba(30, 41, 59, 0.95));
+  border-radius: 1.5rem;
+  border: 1px solid rgba(148, 163, 184, 0.1);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+  overflow: hidden;
+}
+
+/* Header */
+.mystery-box-header {
+  text-align: center;
+  margin-bottom: 2rem;
+  position: relative;
+  z-index: 10;
+}
+
+.mystery-box-title {
+  font-size: 1.5rem;
+  font-weight: 900;
+  color: white;
+  margin-bottom: 0.5rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.mystery-box-subtitle {
+  font-size: 0.875rem;
+  color: rgba(148, 163, 184, 0.8);
+  margin-bottom: 1rem;
+}
+
+.mystery-box-price {
+  display: inline-block;
+  font-size: 2rem;
+  font-weight: 900;
+  color: #06b6d4;
+  padding: 0.5rem 1.5rem;
+  background: rgba(6, 182, 212, 0.1);
+  border-radius: 9999px;
+  border: 2px solid rgba(6, 182, 212, 0.3);
+}
+
+/* ===== ESCENA 3D ===== */
+
+.scene-3d {
+  position: relative;
+  width: 100%;
+  height: 300px;
+  perspective: 1000px;
+  perspective-origin: 50% 50%;
+  margin-bottom: 2rem;
+}
+
+/* ===== CUBO 3D ===== */
+
+.cube-3d {
+  position: absolute;
+  width: 120px;
+  height: 120px;
+  top: 50%;
+  left: 50%;
+  transform-style: preserve-3d;
+  transform: translate(-50%, -50%) rotateX(0deg) rotateY(0deg);
+  animation: rotateCube 20s infinite linear;
+}
+
+@keyframes rotateCube {
+  0% {
+    transform: translate(-50%, -50%) rotateX(0deg) rotateY(0deg);
+  }
+  100% {
+    transform: translate(-50%, -50%) rotateX(360deg) rotateY(360deg);
+  }
+}
+
+/* Caras del cubo */
+.cube-face {
+  position: absolute;
+  width: 120px;
+  height: 120px;
+  background: rgba(15, 23, 42, 0.8);
+  border: 2px solid;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 3rem;
+  font-weight: 900;
+  color: white;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+/* Posicionamiento de caras */
+.cube-front {
+  transform: translateZ(60px);
+}
+
+.cube-back {
+  transform: rotateY(180deg) translateZ(60px);
+}
+
+.cube-right {
+  transform: rotateY(90deg) translateZ(60px);
+}
+
+.cube-left {
+  transform: rotateY(-90deg) translateZ(60px);
+}
+
+.cube-top {
+  transform: rotateX(90deg) translateZ(60px);
+}
+
+.cube-bottom {
+  transform: rotateX(-90deg) translateZ(60px);
+}
+
+/* Colores de brillo del cubo */
+.cube-glow-cyan .cube-face {
+  border-color: #06b6d4;
+  box-shadow: 0 0 20px rgba(6, 182, 212, 0.5),
+              inset 0 0 20px rgba(6, 182, 212, 0.1);
+}
+
+.cube-glow-purple .cube-face {
+  border-color: #a855f7;
+  box-shadow: 0 0 20px rgba(168, 85, 247, 0.5),
+              inset 0 0 20px rgba(168, 85, 247, 0.1);
+}
+
+.cube-glow-orange .cube-face {
+  border-color: #f97316;
+  box-shadow: 0 0 20px rgba(249, 115, 22, 0.5),
+              inset 0 0 20px rgba(249, 115, 22, 0.1);
+}
+
+.cube-glow-green .cube-face {
+  border-color: #22c55e;
+  box-shadow: 0 0 20px rgba(34, 197, 94, 0.5),
+              inset 0 0 20px rgba(34, 197, 94, 0.1);
+}
+
+/* ===== PLANO DE SUELO CON REJILLA ===== */
+
+.floor-grid {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%) rotateX(75deg);
+  width: 300px;
+  height: 300px;
+  background-image: 
+    linear-gradient(rgba(6, 182, 212, 0.2) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(6, 182, 212, 0.2) 1px, transparent 1px);
+  background-size: 30px 30px;
+  background-position: center;
+  opacity: 0.6;
+  transform-style: preserve-3d;
+}
+
+/* Resplandor del suelo */
+.floor-glow {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  filter: blur(40px);
+  animation: pulseGlow 3s ease-in-out infinite;
+}
+
+@keyframes pulseGlow {
+  0%, 100% {
+    opacity: 0.4;
+    transform: translate(-50%, -50%) scale(1);
+  }
+  50% {
+    opacity: 0.8;
+    transform: translate(-50%, -50%) scale(1.2);
+  }
+}
+
+/* Colores de resplandor del suelo */
+.floor-glow-cyan {
+  background: radial-gradient(circle, rgba(6, 182, 212, 0.6), transparent);
+}
+
+.floor-glow-purple {
+  background: radial-gradient(circle, rgba(168, 85, 247, 0.6), transparent);
+}
+
+.floor-glow-orange {
+  background: radial-gradient(circle, rgba(249, 115, 22, 0.6), transparent);
+}
+
+.floor-glow-green {
+  background: radial-gradient(circle, rgba(34, 197, 94, 0.6), transparent);
+}
+
+/* ===== BOTÓN DE ACCIÓN ===== */
+
+.mystery-box-button {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  padding: 1rem 2rem;
+  font-size: 1rem;
+  font-weight: 700;
+  color: white;
+  background: linear-gradient(135deg, #06b6d4, #0891b2);
+  border: none;
+  border-radius: 9999px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 20px rgba(6, 182, 212, 0.4);
+  position: relative;
+  overflow: hidden;
+}
+
+.mystery-box-button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+  transition: left 0.5s ease;
+}
+
+.mystery-box-button:hover::before {
+  left: 100%;
+}
+
+.mystery-box-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 30px rgba(6, 182, 212, 0.6);
+}
+
+.mystery-box-button:active {
+  transform: translateY(0);
+}
+
+.button-icon {
+  width: 20px;
+  height: 20px;
+  transition: transform 0.3s ease;
+}
+
+.mystery-box-button:hover .button-icon {
+  transform: translateX(4px);
+}
+
+/* Variantes de color del botón */
+.button-glow-purple {
+  background: linear-gradient(135deg, #a855f7, #9333ea);
+  box-shadow: 0 4px 20px rgba(168, 85, 247, 0.4);
+}
+
+.button-glow-purple:hover {
+  box-shadow: 0 6px 30px rgba(168, 85, 247, 0.6);
+}
+
+.button-glow-orange {
+  background: linear-gradient(135deg, #f97316, #ea580c);
+  box-shadow: 0 4px 20px rgba(249, 115, 22, 0.4);
+}
+
+.button-glow-orange:hover {
+  box-shadow: 0 6px 30px rgba(249, 115, 22, 0.6);
+}
+
+.button-glow-green {
+  background: linear-gradient(135deg, #22c55e, #16a34a);
+  box-shadow: 0 4px 20px rgba(34, 197, 94, 0.4);
+}
+
+.button-glow-green:hover {
+  box-shadow: 0 6px 30px rgba(34, 197, 94, 0.6);
+}
+
+/* ===== RESPONSIVE ===== */
+
+@media (max-width: 640px) {
+  .mystery-box-container {
+    padding: 1.5rem;
+  }
+
+  .scene-3d {
+    height: 250px;
+  }
+
+  .cube-3d {
+    width: 100px;
+    height: 100px;
+  }
+
+  .cube-face {
+    width: 100px;
+    height: 100px;
+    font-size: 2.5rem;
+  }
+
+  .cube-front {
+    transform: translateZ(50px);
+  }
+
+  .cube-back {
+    transform: rotateY(180deg) translateZ(50px);
+  }
+
+  .cube-right {
+    transform: rotateY(90deg) translateZ(50px);
+  }
+
+  .cube-left {
+    transform: rotateY(-90deg) translateZ(50px);
+  }
+
+  .cube-top {
+    transform: rotateX(90deg) translateZ(50px);
+  }
+
+  .cube-bottom {
+    transform: rotateX(-90deg) translateZ(50px);
+  }
+
+  .floor-grid {
+    width: 250px;
+    height: 250px;
+  }
+
+  .mystery-box-title {
+    font-size: 1.25rem;
+  }
+
+  .mystery-box-price {
+    font-size: 1.5rem;
+  }
+}
+
+/* ===== OPTIMIZACIONES DE RENDIMIENTO ===== */
+
+/* Mobile: Reducir animaciones */
+@media (max-width: 768px) {
+  .cube-3d {
+    animation-duration: 30s; /* Más lento en mobile */
+  }
+
+  .floor-glow {
+    filter: blur(30px); /* Menos blur en mobile */
+  }
+}
+
+/* Dispositivos de gama baja: Desactivar efectos pesados */
+.is-low-end .cube-3d {
+  animation: none;
+  transform: translate(-50%, -50%) rotateX(-20deg) rotateY(30deg);
+}
+
+.is-low-end .floor-glow {
+  animation: none;
+  opacity: 0.4;
+}
+
+.is-low-end .cube-face {
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+}
+
+/* Reducir motion para accesibilidad */
+@media (prefers-reduced-motion: reduce) {
+  .cube-3d,
+  .floor-glow,
+  .mystery-box-button::before {
+    animation: none !important;
+  }
+
+  .cube-3d {
+    transform: translate(-50%, -50%) rotateX(-20deg) rotateY(30deg);
+  }
+}

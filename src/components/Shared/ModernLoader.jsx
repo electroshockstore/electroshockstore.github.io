@@ -16,26 +16,17 @@ const ModernLoader = () => {
       {/* Contenedor principal */}
       <div className="relative z-10 flex flex-col items-center gap-8">
         
-        {/* Logo con efectos premium OPTIMIZADOS */}
+        {/* Logo animado */}
         <div className="relative">
-          {/* Glow rings animados - SOLO 1 en lugar de 3 */}
           <div className="absolute inset-0 -m-8">
             <div className="absolute inset-0 rounded-full border-2 border-blue-500/30 animate-ping" />
           </div>
-
-          {/* Glow de fondo del logo OPTIMIZADO - Sin animate-pulse, blur reducido */}
-          <div className="hidden md:block absolute inset-0 bg-gradient-to-r from-blue-500 via-purple-500 to-cyan-500 rounded-full blur-xl opacity-40" />
           
-          {/* Logo con animación float suave */}
-          <div className="relative w-32 h-32 sm:w-40 sm:h-40 md:w-48 md:h-48 animate-float">
-            <img 
-              src="/logotipo_tiny.png" 
-              alt="ElectroShock" 
-              className="w-full h-full object-contain drop-shadow-[0_0_30px_rgba(59,130,246,0.8)]"
-            />
+          <div className="relative flex items-center justify-center w-32 h-32 sm:w-40 sm:h-40 bg-gradient-to-br from-blue-600 via-purple-600 to-cyan-600 rounded-3xl shadow-[0_0_60px_rgba(59,130,246,0.5)] animate-pulse">
+            <svg className="w-20 h-20 sm:w-24 sm:h-24 text-white" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M13 10V3L4 14h7v7l9-11h-7z" />
+            </svg>
           </div>
-
-          {/* Partículas orbitales ELIMINADAS - Muy costosas */}
         </div>
 
         {/* Texto de carga */}
@@ -53,7 +44,7 @@ const ModernLoader = () => {
 
           {/* Texto sin animate-pulse */}
           <p className="text-sm text-gray-400 font-medium">
-            Cargando ...
+            Procesando componentes...
           </p>
         </div>
       </div>

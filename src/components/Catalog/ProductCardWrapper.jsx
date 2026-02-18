@@ -6,7 +6,7 @@ import ProductCardMayoristaBlanco from './ProductCardMayoristaBlanco';
 const isMayoristaProduct = (product) => 
   product.category === 'Mayorista' && product.quantity && product.unitPrice;
 
-const ProductCardWrapper = memo(({ product, viewMode, onClick, index = 0, listName = 'Product List', style }) => {
+const ProductCardWrapper = memo(({ product, viewMode, onClick, index = 0, listName = 'Product List', style, isFeatured = false }) => {
   // Usar el card especial para Mayorista
   if (isMayoristaProduct(product)) {
     return (
@@ -29,6 +29,7 @@ const ProductCardWrapper = memo(({ product, viewMode, onClick, index = 0, listNa
         onClick={onClick}
         index={index}
         listName={listName}
+        isFeatured={isFeatured}
       />
     </div>
   );

@@ -9,6 +9,7 @@ import PCBuilderSection from '../components/Home/PCBuilderSection';
 import CategoryProductSection from '../components/Home/CategoryProductSection';
 import PuntosRetiroInfoSection from '../components/Home/PuntosRetiroInfoSection';
 import CategoryFilter from '../components/Catalog/CategoryFilter';
+import MysteryBox3D from '../components/Shared/MysteryBox3D';
 import { useFilter } from '../context/FilterContext';
 import { getSlugFromCategory } from '../utils/slugify';
 import { useSEO } from '../hooks/useSEO';
@@ -86,6 +87,8 @@ const Home = () => {
           <div className="mb-4 sm:mb-6">
             <HeroCarousel />
           </div>
+
+     
 
           {/* Mobile: Packs Ahorro después del Hero */}
           <div className="sm:hidden px-3 mb-4">

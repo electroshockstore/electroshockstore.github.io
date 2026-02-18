@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { useFilter } from '../../context/FilterContext';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { getSlugFromCategory } from '../../utils/slugify';
+import { useScrollEffect } from '../../hooks/useScrollEffect';
 import CategoryFilter from '../Catalog/CategoryFilter';
 import ConditionsModal from './ConditionsModal';
 import PromoCarousel from './PromoCarousel';
@@ -15,6 +16,14 @@ const Header = ({ searchQuery = '', onSearchChange, onGoHome, hideSearchOnMobile
   const { selectedCategory, setSelectedCategory } = useFilter();
   const navigate = useNavigate();
   const location = useLocation();
+  const isScrolled = useScrollEffect(20);
+
+  // Detectar si estamos en página de catálogo
+  const isCatalogPage = location.pathname.includes('/catalogo') || 
+                        location.pathname.includes('/categoria');
+  
+  // Forzar estado oscuro en catálogo, o usar scroll en otras páginas
+  const shouldBeScrolled = isCatalogPage || isScrolled;
 
   const handleCategoryClick = (category) => {
     const targetPath = `/categoria/${getSlugFromCategory(category)}`;
@@ -43,7 +52,16 @@ const Header = ({ searchQuery = '', onSearchChange, onGoHome, hideSearchOnMobile
         onClose={() => setShowConditionsModal(false)}
       />
 
-      <header className="sticky top-0 z-50 w-full bg-black border-b border-gray-800">
+      <header 
+        className={`
+          sticky top-0 z-50 w-full
+          transition-all duration-300 ease-in-out
+          ${shouldBeScrolled 
+            ? 'bg-black border-b border-gray-800' 
+            : 'bg-transparent border-b border-transparent'
+          }
+        `}
+      >
         {/* PromoCarousel arriba de todo */}
         <PromoCarousel />
         

@@ -1,6 +1,7 @@
-import { memo, useCallback, useMemo, useState, useEffect, useRef } from 'react';
+import { memo, useCallback, useMemo } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import ProductCardWrapper from './ProductCardWrapper';
+
 
 const EmptyState = memo(() => (
   <motion.div 
@@ -84,7 +85,7 @@ const itemVariants = {
   }
 };
 
-// Componente para grupo de productos con animación suave
+// Componente para grupo de productos con animación suave y Bento layout
 const ProductGroup = memo(({ products, viewMode, openModal, gridClasses }) => {
   return (
     <motion.div
@@ -94,28 +95,48 @@ const ProductGroup = memo(({ products, viewMode, openModal, gridClasses }) => {
       className={gridClasses}
       style={{ willChange: 'opacity' }}
     >
-      {products.map((product, index) => (
-        <motion.div
-          key={`${product.id}-${product.category}`}
-          variants={itemVariants}
-          style={{ willChange: 'opacity, transform' }}
-        >
-          <ProductCardWrapper
-            product={product}
-            viewMode={viewMode}
-            onClick={openModal}
-            index={index}
-          />
-        </motion.div>
-      ))}
+      {products.map((product, index) => {
+        const isFeatured = index === 0 && viewMode === 'grid'; // Solo el primero en vista grid
+        
+        return (
+          <motion.div
+            key={`${product.id}-${product.category}`}
+            variants={itemVariants}
+            className={isFeatured ? 'bento-item-featured' : ''}
+            style={{ willChange: 'opacity, transform', position: 'relative' }}
+          >
+            {/* Border Beam solo para el producto destacado */}
+            {isFeatured && (
+              <div className="border-beam-wrapper">
+                <div className="border-beam" aria-hidden="true" />
+              </div>
+            )}
+            
+            {/* Badge "Más Vendido" solo para el producto destacado */}
+            {isFeatured && (
+              <div className="featured-badge">
+                <svg className="featured-icon" fill="currentColor" viewBox="0 0 20 20">
+                  <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                </svg>
+                <span>Más Vendido</span>
+              </div>
+            )}
+            
+            <ProductCardWrapper
+              product={product}
+              viewMode={viewMode}
+              onClick={openModal}
+              index={index}
+              isFeatured={isFeatured}
+            />
+          </motion.div>
+        );
+      })}
     </motion.div>
   );
 });
 
 ProductGroup.displayName = 'ProductGroup';
-
-// Detectar mobile SOLO para iOS
-const isIOS = typeof window !== 'undefined' && /iPad|iPhone|iPod/.test(navigator.userAgent);
 
 const ProductGrid = memo(({ products, viewMode, openModal }) => {
   const handleOpenModal = useCallback((product) => {
@@ -124,7 +145,7 @@ const ProductGrid = memo(({ products, viewMode, openModal }) => {
 
   const gridClasses = useMemo(() => {
     return viewMode === 'grid' 
-      ? 'grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-1.5 sm:gap-4'
+      ? 'grid grid-cols-2 sm:grid-cols-4 gap-1.5 sm:gap-4'
       : 'space-y-2.5 sm:space-y-3';
   }, [viewMode]);
 
@@ -136,7 +157,7 @@ const ProductGrid = memo(({ products, viewMode, openModal }) => {
     <div className="p-0 sm:p-4 md:p-6" data-catalog-results>
       <AnimatePresence mode="wait">
         <ProductGroup
-          key={products.map(p => p.id).join('-')} // Key única basada en productos
+          key={products.map(p => p.id).join('-')}
           products={products}
           viewMode={viewMode}
           openModal={handleOpenModal}

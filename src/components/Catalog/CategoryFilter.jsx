@@ -9,6 +9,7 @@ import {
   getCategoryImage
 } from '../../constants/categoryConfig';
 
+
 const CategoryFilter = ({ selectedCategory, onCategoryChange }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [showLeftArrow, setShowLeftArrow] = useState(false);

@@ -14,7 +14,7 @@ const STOCK_STATUS = Object.freeze({
   badgeColor: 'text-emerald-700 bg-emerald-50 border-emerald-200'
 });
 
-const ProductCard = memo(({ product, viewMode, onClick, index = 0, listName = 'Product List' }) => {
+const ProductCard = memo(({ product, viewMode, onClick, index = 0, listName = 'Product List', isFeatured = false }) => {
   // Destructuring directo - más rápido que acceder a product.x cada vez
   const { images, isUsed = false, ddrType, certType, name, brand, price, stock } = product;
   const productImage = images[0]; // Todos los productos tienen imágenes
@@ -108,27 +108,42 @@ const ProductCard = memo(({ product, viewMode, onClick, index = 0, listName = 'P
                  transition-all duration-300 cursor-pointer overflow-hidden flex flex-col h-full
                  active:scale-[0.98] sm:active:scale-100"
     >
-     
-      {/* Elementos geométricos decorativos - Modernos con blur */}
+      {/* Elementos geométricos decorativos */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden z-10">
-        {/* Círculo superior derecha - Azul con blur */}
+        {/* Círculo superior derecha - Azul */}
         <div className="absolute -top-10 -right-10 w-30 h-30 bg-gradient-to-br from-blue-400/30 to-cyan-400/20 rounded-full blur-2xl group-hover:scale-125 transition-transform duration-500" />
         
-        {/* Círculo inferior izquierda - Púrpura con blur */}
+        {/* Círculo inferior izquierda - Púrpura */}
         <div className="absolute -bottom-20 -left-10 w-32 h-30 bg-gradient-to-tr from-purple-400/30 to-pink-400/20 rounded-full blur-xl group-hover:scale-125 transition-transform duration-500" />
-
+        
         {/* Forma geométrica angular - Naranja (esquina superior izquierda) */}
         <div className="absolute top-0 left-0 w-10 h-10 opacity-20 group-hover:opacity-40 transition-opacity duration-300">
           <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-orange-400 to-transparent" style={{ clipPath: 'polygon(0 0, 100% 0, 0 100%)' }} />
         </div>
+        
+       
+        
+       
       </div>
 
       <div className="relative aspect-square bg-gradient-to-br from-gray-50 to-gray-100 overflow-hidden">
-        {/* Glow debajo de la imagen - Efecto de iluminación suave */}
-        <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-3/4 h-20 bg-gradient-to-t from-blue-400/10 via-cyan-400/5 to-transparent" />
-        
         <ProductImage src={productImage} alt={name} loading={imageLoading} fetchpriority={imageFetchPriority} />
-        <StockStatus stockStatus={STOCK_STATUS} />
+        
+        {/* Glow que rodea la imagen - SOLO para destacado - z-index bajo */}
+        {isFeatured && (
+          <>
+            {/* Glow inferior - Visible en el borde */}
+            <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-blue-500/60 via-purple-500/30 to-transparent pointer-events-none z-10" />
+            {/* Glow lateral izquierdo */}
+            <div className="absolute left-0 top-0 bottom-0 w-24 bg-gradient-to-r from-cyan-500/40 to-transparent pointer-events-none z-10" />
+            {/* Glow lateral derecho */}
+            <div className="absolute right-0 top-0 bottom-0 w-24 bg-gradient-to-l from-orange-500/40 to-transparent pointer-events-none z-10" />
+          </>
+        )}
+        
+        {/* StockStatus - Ocultar en destacada */}
+        {!isFeatured && <StockStatus stockStatus={STOCK_STATUS} />}
+        
         <StockBadge stock={stock} stockStatus={STOCK_STATUS} isUsed={isUsed} />
       </div>
 
@@ -158,7 +173,8 @@ const ProductCard = memo(({ product, viewMode, onClick, index = 0, listName = 'P
     prevProps.product.price === nextProps.product.price &&
     prevProps.product.stock === nextProps.product.stock &&
     prevProps.viewMode === nextProps.viewMode &&
-    prevProps.index === nextProps.index
+    prevProps.index === nextProps.index &&
+    prevProps.isFeatured === nextProps.isFeatured
   );
 });
 
