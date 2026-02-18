@@ -40,11 +40,14 @@ const ShareButton = ({ productName, product, className = '' }) => {
       setShowOptions(false);
     };
 
+    // iOS: agregar touchstart además de mousedown
     document.addEventListener('mousedown', handleClickOutside);
+    document.addEventListener('touchstart', handleClickOutside, { passive: true });
     window.addEventListener('scroll', handleScroll, true);
     
     return () => {
       document.removeEventListener('mousedown', handleClickOutside);
+      document.removeEventListener('touchstart', handleClickOutside);
       window.removeEventListener('scroll', handleScroll, true);
     };
   }, [showOptions]);
@@ -83,6 +86,15 @@ const ShareButton = ({ productName, product, className = '' }) => {
       <button
         ref={buttonRef}
         onClick={() => setShowOptions(!showOptions)}
+        onTouchEnd={(e) => {
+          e.preventDefault();
+          setShowOptions(!showOptions);
+        }}
+        style={{ 
+          WebkitTapHighlightColor: 'transparent',
+          cursor: 'pointer',
+          touchAction: 'manipulation'
+        }}
         className={`w-full flex items-center justify-center gap-3 bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white px-4 py-3 sm:px-6 sm:py-4 rounded-xl shadow-lg hover:shadow-blue-500/50 transition-all duration-300 font-bold text-sm sm:text-base hover:scale-[1.02] hover:-translate-y-0.5 active:scale-[0.98] group relative overflow-hidden ${className}`}
       >
         <div className="flex-shrink-0">
@@ -127,7 +139,16 @@ const ShareButton = ({ productName, product, className = '' }) => {
         >
           <button
             onClick={handleCopyLink}
-            className="w-full flex items-center gap-3 px-4 py-4 hover:bg-gray-50 transition-colors duration-200 border-b border-gray-100"
+            onTouchEnd={(e) => {
+              e.preventDefault();
+              handleCopyLink(e);
+            }}
+            style={{ 
+              WebkitTapHighlightColor: 'transparent',
+              cursor: 'pointer',
+              touchAction: 'manipulation'
+            }}
+            className="w-full flex items-center gap-3 px-4 py-4 hover:bg-gray-50 active:bg-gray-100 transition-colors duration-200 border-b border-gray-100"
           >
             {copied ? (
               <>
@@ -154,7 +175,16 @@ const ShareButton = ({ productName, product, className = '' }) => {
 
           <button
             onClick={handleWhatsAppShare}
-            className="w-full flex items-center gap-3 px-4 py-4 hover:bg-green-50 transition-colors duration-200"
+            onTouchEnd={(e) => {
+              e.preventDefault();
+              handleWhatsAppShare(e);
+            }}
+            style={{ 
+              WebkitTapHighlightColor: 'transparent',
+              cursor: 'pointer',
+              touchAction: 'manipulation'
+            }}
+            className="w-full flex items-center gap-3 px-4 py-4 hover:bg-green-50 active:bg-green-100 transition-colors duration-200"
           >
             <div className="flex-shrink-0 p-2 bg-green-100 rounded-lg">
               <svg className="h-5 w-5 text-green-600" fill="currentColor" viewBox="0 0 24 24">

@@ -116,20 +116,16 @@ const CategoryFilter = ({ selectedCategory, onCategoryChange }) => {
         <div className="modal-fullscreen-content">
           {/* Header del modal */}
           <div className="modal-fullscreen-header">
-            {/* Glow decorativo - Solo en desktop, no en iOS */}
-            {!isIOS && (
-              <>
-                <div className="absolute top-0 left-1/4 w-64 h-64 bg-blue-500/20 rounded-full blur-3xl" />
-                <div className="absolute top-0 right-1/4 w-64 h-64 bg-purple-500/20 rounded-full blur-3xl" />
-              </>
-            )}
+            {/* Glow decorativo - Suavizado para iOS */}
+            <div className={`absolute top-0 left-1/4 w-64 h-64 bg-blue-500/20 rounded-full ${isIOS ? 'blur-2xl opacity-60' : 'blur-3xl'}`} />
+            <div className={`absolute top-0 right-1/4 w-64 h-64 bg-purple-500/20 rounded-full ${isIOS ? 'blur-2xl opacity-60' : 'blur-3xl'}`} />
             
             <div className="flex items-center gap-4 relative z-10">
-              <div className={`p-3 rounded-2xl bg-gradient-to-br from-blue-500 via-blue-600 to-purple-600 shadow-xl ${!isIOS ? 'box-glow-blue' : ''}`}>
+              <div className={`p-3 rounded-2xl bg-gradient-to-br from-blue-500 via-blue-600 to-purple-600 shadow-xl ${isIOS ? 'shadow-blue-500/30' : 'box-glow-blue'}`}>
                 <Grid3X3 className="h-7 w-7 text-white" strokeWidth={2.5} />
               </div>
               <div>
-                <h2 className={`text-2xl font-black text-white tracking-tight ${!isIOS ? 'text-glow-blue' : ''}`}>Categorías</h2>
+                <h2 className={`text-2xl font-black text-white tracking-tight ${isIOS ? 'drop-shadow-[0_2px_8px_rgba(59,130,246,0.4)]' : 'text-glow-blue'}`}>Categorías</h2>
                 <p className="text-sm text-gray-400 font-semibold mt-0.5">{categories.length} opciones disponibles</p>
               </div>
             </div>
@@ -169,7 +165,7 @@ const CategoryFilter = ({ selectedCategory, onCategoryChange }) => {
                       relative overflow-hidden rounded-2xl font-bold
                       transition-all duration-200 ${!isIOS ? 'animate-in fade-in zoom-in-95' : ''}
                       ${isSelected
-                        ? `${!isIOS ? 'shadow-[0_8px_30px_rgba(59,130,246,0.6),0_0_60px_rgba(59,130,246,0.3)]' : 'shadow-[0_8px_24px_rgba(59,130,246,0.4)]'} scale-[1.05] ring-2 ring-blue-400/80 ${!isIOS ? 'box-glow-blue' : ''}`
+                        ? `${isIOS ? 'shadow-[0_8px_24px_rgba(59,130,246,0.5)]' : 'shadow-[0_8px_30px_rgba(59,130,246,0.6),0_0_60px_rgba(59,130,246,0.3)]'} scale-[1.05] ring-2 ring-blue-400/80 ${isIOS ? 'shadow-blue-500/40' : 'box-glow-blue'}`
                         : 'shadow-[0_8px_24px_rgba(0,0,0,0.3),0_4px_12px_rgba(0,0,0,0.2)] hover:shadow-[0_12px_32px_rgba(0,0,0,0.4),0_6px_16px_rgba(0,0,0,0.25)] active:scale-[0.97] hover:scale-[1.02]'
                       }
                     `}
@@ -206,7 +202,7 @@ const CategoryFilter = ({ selectedCategory, onCategoryChange }) => {
                         <span className={`
                           text-white font-black leading-tight drop-shadow-[0_2px_12px_rgba(0,0,0,0.9)]
                           transition-all duration-200
-                          ${isSelected ? `text-xl ${!isIOS ? 'text-glow-blue' : ''}` : 'text-base'}
+                          ${isSelected ? `text-xl ${isIOS ? 'drop-shadow-[0_2px_8px_rgba(59,130,246,0.5)]' : 'text-glow-blue'}` : 'text-base'}
                         `}>
                           {category}
                         </span>
@@ -227,8 +223,8 @@ const CategoryFilter = ({ selectedCategory, onCategoryChange }) => {
 
           {/* Footer */}
           <div className="modal-fullscreen-footer">
-            {/* Glow decorativo inferior */}
-            <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-96 h-32 bg-gradient-to-t from-blue-500/10 to-transparent blur-2xl" />
+            {/* Glow decorativo inferior - Suavizado para iOS */}
+            <div className={`absolute bottom-0 left-1/2 -translate-x-1/2 w-96 h-32 bg-gradient-to-t from-blue-500/10 to-transparent ${isIOS ? 'blur-xl' : 'blur-2xl'}`} />
             
             <div className="flex items-center justify-center gap-3 text-sm text-gray-300 relative z-10">
               <div className="w-10 h-1 bg-gradient-to-r from-transparent via-blue-500 to-transparent rounded-full" />
@@ -248,10 +244,9 @@ const CategoryFilter = ({ selectedCategory, onCategoryChange }) => {
       {renderModal()}
 
       <div className="relative group z-20 w-full category-filter">
-        {/* CAPAS DE RESPLANDOR ORIGINALES */}
-        <div className="absolute -inset-3 bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 rounded-full opacity-30 blur-xl -z-10"></div>
-        {/* ⚡ animate-pulse ELIMINADO - Causa 60 repaints/segundo */}
-        <div className="absolute -inset-2 bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-600 rounded-full opacity-25 blur-lg -z-10"></div>
+        {/* CAPAS DE RESPLANDOR - Suavizados para iOS */}
+        <div className={`absolute -inset-3 bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 rounded-full -z-10 ${isIOS ? 'opacity-15 blur-lg' : 'opacity-30 blur-xl'}`}></div>
+        <div className={`absolute -inset-2 bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-600 rounded-full -z-10 ${isIOS ? 'opacity-12 blur-md' : 'opacity-25 blur-lg'}`}></div>
 
         {/* RGB FLOWING BORDER - Contenedor con borde animado */}
         <div className="relative rounded-full overflow-hidden p-[3px] animate-border-rotate">
