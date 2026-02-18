@@ -1,10 +1,13 @@
 import { useState, useRef, useEffect } from 'react';
 import { Share2, Link2, Check } from 'lucide-react';
+import { useIsIOS } from '../../hooks/useDevice';
 
 const ShareButton = ({ productName, product, className = '' }) => {
+  const isIOS = useIsIOS();
   const [showOptions, setShowOptions] = useState(false);
   const [copied, setCopied] = useState(false);
   const [dropdownPosition, setDropdownPosition] = useState(null);
+  const [scrollY, setScrollY] = useState(0);
   const buttonRef = useRef(null);
   const containerRef = useRef(null);
 
@@ -13,6 +16,9 @@ const ShareButton = ({ productName, product, className = '' }) => {
     if (!showOptions || !buttonRef.current) return;
 
     const rect = buttonRef.current.getBoundingClientRect();
+    const currentScrollY = window.scrollY;
+    
+    setScrollY(currentScrollY);
     setDropdownPosition({
       top: rect.bottom + 8,
       left: rect.left,
@@ -103,11 +109,20 @@ const ShareButton = ({ productName, product, className = '' }) => {
 
       {showOptions && dropdownPosition && (
         <div 
-          className="fixed bg-white rounded-xl shadow-2xl border-2 border-gray-200 overflow-hidden z-[9999]"
+          className="bg-white rounded-xl shadow-2xl border-2 border-gray-200 overflow-hidden z-[9999]"
           style={{
-            top: `${dropdownPosition.top}px`,
-            left: `${dropdownPosition.left}px`,
-            width: `${dropdownPosition.width}px`
+            // Condicional: fixed para Desktop/Android, absolute para iOS
+            ...(isIOS ? {
+              position: 'absolute',
+              top: `${dropdownPosition.top + scrollY}px`,
+              left: `${dropdownPosition.left}px`,
+              width: `${dropdownPosition.width}px`
+            } : {
+              position: 'fixed',
+              top: `${dropdownPosition.top}px`,
+              left: `${dropdownPosition.left}px`,
+              width: `${dropdownPosition.width}px`
+            })
           }}
         >
           <button
