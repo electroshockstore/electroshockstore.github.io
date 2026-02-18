@@ -108,16 +108,17 @@ const ProductCard = memo(({ product, viewMode, onClick, index = 0, listName = 'P
                  transition-all duration-300 cursor-pointer overflow-hidden flex flex-col h-full
                  active:scale-[0.98] sm:active:scale-100"
     >
-      {/* Elementos geométricos decorativos - Optimizados sin blur */}
+     
+      {/* Elementos geométricos decorativos - Modernos con blur */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden z-10">
-        {/* Círculo superior derecha - Azul */}
-        <div className="absolute -top-10 -right-10 w-32 h-32 bg-gradient-to-br from-blue-400/20 to-cyan-400/10 rounded-full group-hover:scale-125 transition-transform duration-500" />
+        {/* Círculo superior derecha - Azul con blur */}
+        <div className="absolute -top-10 -right-10 w-30 h-30 bg-gradient-to-br from-blue-400/30 to-cyan-400/20 rounded-full blur-2xl group-hover:scale-125 transition-transform duration-500" />
         
-        {/* Círculo inferior izquierda - Púrpura */}
-        <div className="absolute -bottom-20 -left-10 w-36 h-36 bg-gradient-to-tr from-purple-400/20 to-pink-400/10 rounded-full group-hover:scale-125 transition-transform duration-500" />
-        
+        {/* Círculo inferior izquierda - Púrpura con blur */}
+        <div className="absolute -bottom-20 -left-10 w-32 h-30 bg-gradient-to-tr from-purple-400/30 to-pink-400/20 rounded-full blur-xl group-hover:scale-125 transition-transform duration-500" />
+
         {/* Forma geométrica angular - Naranja (esquina superior izquierda) */}
-        <div className="absolute top-0 left-0 w-12 h-12 opacity-20 group-hover:opacity-40 transition-opacity duration-300">
+        <div className="absolute top-0 left-0 w-10 h-10 opacity-20 group-hover:opacity-40 transition-opacity duration-300">
           <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-orange-400 to-transparent" style={{ clipPath: 'polygon(0 0, 100% 0, 0 100%)' }} />
         </div>
       </div>

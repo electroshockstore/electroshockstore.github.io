@@ -319,52 +319,33 @@ const CategoryProductSection = ({ onCategoryClick }) => {
 };
 
 
-// --- Componente ULTRA-SIMPLIFICADO sin Framer Motion ---
-// CSS puro para máxima performance
+// --- Componente OPTIMIZADO - Sin efectos pesados ---
 const CategoryCard = ({ category, onCategoryClick, className, textSize, isLarge = false }) => {
   return (
     <button
         onClick={() => onCategoryClick && onCategoryClick(category.slug)}
-        className={`group relative w-full overflow-hidden rounded-2xl sm:rounded-3xl focus:outline-none focus:ring-2 focus:ring-blue-500/50 bg-gray-900 transition-transform duration-200 hover:scale-[1.02] active:scale-[0.98] ${className}`}
+        className={`group relative w-full overflow-hidden rounded-2xl sm:rounded-3xl 
+                    focus:outline-none focus:ring-2 focus:ring-blue-500/50 
+                    bg-gray-900 
+                    transition-all duration-200 
+                    hover:scale-[1.02] active:scale-[0.98]
+                    shadow-lg hover:shadow-xl
+                    ${className}`}
         aria-label={`Explorar categoría ${category.name}`}
         style={{
-          // ⚡ GPU acceleration
           willChange: 'transform',
           transform: 'translateZ(0)',
-          backfaceVisibility: 'hidden',
-          boxShadow: isLarge 
-            ? '0 20px 60px rgba(0,0,0,0.6), 0 8px 32px rgba(59,130,246,0.2), 0 0 0 1px rgba(255,255,255,0.15), inset 0 1px 0 rgba(255,255,255,0.1)'
-            : '0 12px 40px rgba(0,0,0,0.5), 0 4px 20px rgba(59,130,246,0.15), 0 0 0 1px rgba(255,255,255,0.12), inset 0 1px 0 rgba(255,255,255,0.08)'
+          backfaceVisibility: 'hidden'
         }}
     >
-        {/* Glow border animado - CSS puro */}
-        <div 
-          className="absolute inset-0 rounded-3xl pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-          style={{
-            boxShadow: isLarge 
-              ? '0 0 60px rgba(59, 130, 246, 0.9), 0 0 120px rgba(147, 51, 234, 0.7), 0 0 180px rgba(236, 72, 153, 0.5), inset 0 0 40px rgba(59, 130, 246, 0.3)'
-              : '0 0 40px rgba(59, 130, 246, 0.8), 0 0 80px rgba(147, 51, 234, 0.6), 0 0 120px rgba(236, 72, 153, 0.4), inset 0 0 25px rgba(59, 130, 246, 0.2)'
-          }} 
-        />
-
-        {/* Resplandor de fondo permanente */}
-        <div 
-          className="absolute inset-0 rounded-3xl pointer-events-none transition-opacity duration-300"
-          style={{
-            opacity: isLarge ? 0.4 : 0.25,
-            boxShadow: isLarge
-              ? '0 0 40px rgba(59, 130, 246, 0.3), 0 0 80px rgba(147, 51, 234, 0.2)'
-              : '0 0 25px rgba(59, 130, 246, 0.2), 0 0 50px rgba(147, 51, 234, 0.15)'
-          }} 
-        />
-
-        {/* Imagen de fondo - CSS transform simple */}
+        {/* Imagen de fondo */}
         <div className="absolute inset-0 bg-gray-900">
             <img
                 src={category.image}
                 alt={category.name}
-                className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-                loading="eager"
+                className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+                loading="lazy"
+                decoding="async"
                 onError={(e) => {
                     e.target.style.display = 'none';
                 }}
@@ -377,58 +358,26 @@ const CategoryCard = ({ category, onCategoryClick, className, textSize, isLarge 
 
         {/* Overlay oscuro con gradiente */}
         <div className={`absolute inset-0 ${isLarge 
-            ? 'bg-gradient-to-br from-black/85 via-black/65 to-black/35' 
-            : 'bg-gradient-to-t from-black/90 via-black/55 to-black/15'
+            ? 'bg-gradient-to-br from-black/80 via-black/60 to-black/30' 
+            : 'bg-gradient-to-t from-black/85 via-black/50 to-black/10'
         }`} />
 
-        {/* Glow effect en hover - CSS puro */}
+        {/* Glow sutil en hover */}
         <div 
-          className={`absolute inset-0 pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-500 ${isLarge
-            ? 'bg-gradient-to-br from-blue-500/50 via-purple-500/50 to-pink-500/50'
-            : 'bg-gradient-to-tr from-blue-500/35 via-purple-500/35 to-pink-500/35'
+          className={`absolute inset-0 pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-300 ${isLarge
+            ? 'bg-gradient-to-br from-blue-500/30 via-purple-500/30 to-pink-500/30'
+            : 'bg-gradient-to-tr from-blue-500/20 via-purple-500/20 to-pink-500/20'
           }`}
         />
 
-        {/* Brillo intenso en hover */}
-        <div 
-          className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/30 to-white/40 pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-        />
-
-        {/* Efecto de cristal/vidrio */}
-        <div 
-          className="absolute inset-0 bg-gradient-to-b from-white/10 via-transparent to-transparent pointer-events-none opacity-60 group-hover:opacity-80 transition-opacity duration-300"
-        />
-
-        {/* Partículas flotantes para cards grandes - CSS puro */}
-        {isLarge && (
-            <>
-                <div 
-                  className="absolute top-4 right-4 w-3 h-3 bg-blue-400 rounded-full shadow-[0_0_20px_rgba(59,130,246,0.8)] pointer-events-none opacity-0 group-hover:opacity-100 transition-all duration-300"
-                  style={{ transform: 'scale(0)', transitionProperty: 'opacity, transform' }}
-                />
-                <div 
-                  className="absolute bottom-6 right-6 w-2 h-2 bg-purple-400 rounded-full shadow-[0_0_15px_rgba(147,51,234,0.8)] pointer-events-none opacity-0 group-hover:opacity-100 transition-all duration-300 delay-100"
-                  style={{ transform: 'scale(0)', transitionProperty: 'opacity, transform' }}
-                />
-                <div 
-                  className="absolute top-1/3 right-8 w-2.5 h-2.5 bg-pink-400 rounded-full shadow-[0_0_18px_rgba(236,72,153,0.8)] pointer-events-none opacity-0 group-hover:opacity-100 transition-all duration-300 delay-200"
-                  style={{ transform: 'scale(0)', transitionProperty: 'opacity, transform' }}
-                />
-                <div 
-                  className="absolute top-1/2 left-6 w-1.5 h-1.5 bg-cyan-400 rounded-full shadow-[0_0_12px_rgba(34,211,238,0.8)] pointer-events-none opacity-0 group-hover:opacity-100 transition-all duration-300 delay-300"
-                  style={{ transform: 'scale(0)', transitionProperty: 'opacity, transform' }}
-                />
-            </>
-        )}
-
         {/* Content */}
         <div className={`absolute inset-0 flex items-end ${isLarge ? 'p-6 md:p-8' : 'p-3 sm:p-4'} z-10`}>
-            <div className="relative">
-                <h3 className={`font-black text-white leading-none text-left tracking-tight ${textSize} ${isLarge ? 'mb-2' : ''} filter drop-shadow-2xl`}
+            <div className="relative w-full">
+                <h3 className={`font-black text-white leading-none text-left tracking-tight ${textSize} ${isLarge ? 'mb-2' : ''}`}
                     style={{ 
                         textShadow: isLarge 
-                            ? '0 4px 20px rgba(0,0,0,0.9), 0 2px 8px rgba(0,0,0,0.8), 0 0 30px rgba(59,130,246,0.5)' 
-                            : '0 2px 10px rgba(0,0,0,0.9), 0 1px 4px rgba(0,0,0,0.8), 0 0 20px rgba(59,130,246,0.3)' 
+                            ? '0 2px 12px rgba(0,0,0,0.9), 0 0 20px rgba(59,130,246,0.4)' 
+                            : '0 2px 8px rgba(0,0,0,0.9), 0 0 15px rgba(59,130,246,0.3)' 
                     }}>
                     {category.name}
                 </h3>
@@ -436,9 +385,9 @@ const CategoryCard = ({ category, onCategoryClick, className, textSize, isLarge 
                 {/* Descripción adicional para cards grandes */}
                 {isLarge && (
                     <p 
-                      className="text-gray-200 text-sm mb-3 filter drop-shadow-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                      className="text-gray-200 text-sm mb-3 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
                       style={{ 
-                        textShadow: '0 1px 4px rgba(0,0,0,0.8), 0 0 15px rgba(59,130,246,0.4)'
+                        textShadow: '0 1px 4px rgba(0,0,0,0.8)'
                       }}
                     >
                         {category.name === 'PROCESADORES' && 'Intel, AMD y más'}
@@ -448,36 +397,18 @@ const CategoryCard = ({ category, onCategoryClick, className, textSize, isLarge 
                 
                 <div className="relative mt-1.5 sm:mt-2">
                     <div 
-                      className={`${isLarge ? 'h-1.5' : 'h-1 sm:h-1'} bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 rounded-full filter drop-shadow-lg transition-all duration-300`}
+                      className={`${isLarge ? 'h-1.5' : 'h-1'} bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 rounded-full transition-all duration-300 group-hover:shadow-lg group-hover:shadow-blue-500/50`}
                       style={{ 
-                        width: isLarge ? '4rem' : '2rem',
-                        boxShadow: isLarge 
-                          ? '0 0 30px rgba(59, 130, 246, 0.9), 0 0 60px rgba(147, 51, 234, 0.7), 0 4px 20px rgba(0,0,0,0.5)' 
-                          : '0 0 20px rgba(59, 130, 246, 0.8), 0 0 40px rgba(147, 51, 234, 0.6), 0 2px 10px rgba(0,0,0,0.4)'
+                        width: isLarge ? '4rem' : '2rem'
                       }} 
                     />
                 </div>
             </div>
         </div>
 
-        {/* Borde con glow en hover */}
+        {/* Borde sutil - UN SOLO BORDE */}
         <div 
-          className={`absolute inset-0 rounded-3xl border-2 pointer-events-none transition-all duration-300 ${isLarge 
-            ? 'border-blue-400/30 group-hover:border-blue-300/80'
-            : 'border-blue-400/20 group-hover:border-blue-300/60'
-          }`}
-          style={{
-            boxShadow: '0 0 0 rgba(59,130,246,0)',
-            transitionProperty: 'border-color, box-shadow'
-          }}
-        />
-
-        {/* Efecto de ondas en hover */}
-        <div 
-          className="absolute inset-0 rounded-3xl pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-500"
-          style={{
-            background: `radial-gradient(circle at 50% 50%, rgba(59,130,246,0.1) 0%, transparent 70%)`
-          }} 
+          className="absolute inset-0 rounded-2xl sm:rounded-3xl border border-white/10 group-hover:border-blue-400/40 pointer-events-none transition-colors duration-300"
         />
     </button>
   );

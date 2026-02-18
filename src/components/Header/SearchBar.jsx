@@ -50,20 +50,17 @@ const SearchBar = ({ isMobile = false, onClose }) => {
   };
 
   const handleClearSearch = () => {
-    setLocalSearchQuery('');
-    setIsSearchOpen(false);
-    // Si es mobile y hay función onClose, cerrar el buscador
-    if (isMobile && onClose) {
-      onClose();
-    }
+    setLocalSearchQuery('');      // Solo borra el texto
+    setIsSearchOpen(false);        // Cierra resultados
+    // NO cierra el input - usuario puede seguir buscando
   };
 
   if (isMobile) {
     return (
       <div className="search-container relative" ref={searchRef}>
-        <div className="absolute left-3 top-1/2 -translate-y-1/2 z-10 pointer-events-none">
-          <div className="bg-gradient-to-br from-blue-500 to-purple-600 p-2 rounded-lg shadow-lg">
-            <Search className="h-4 w-4 text-white" strokeWidth={2.5} />
+        <div className="absolute left-4 top-1/2 -translate-y-1/2 z-10 pointer-events-none">
+          <div className="bg-gradient-to-br from-blue-500 to-purple-600 p-1.5 rounded-lg shadow-lg">
+            <Search className="h-3.5 w-3.5 text-white" strokeWidth={2.5} />
           </div>
         </div>
         <input
@@ -72,7 +69,7 @@ const SearchBar = ({ isMobile = false, onClose }) => {
           onChange={(e) => setLocalSearchQuery(e.target.value)}
           placeholder="¿Qué componente buscas?"
           autoFocus
-          className="w-full h-12 pl-14 pr-12 text-base
+          className="w-full h-12 pl-12 pr-12 text-sm
                    bg-gray-900/90 backdrop-blur-xl border-2 border-blue-500/50 rounded-2xl 
                    text-white placeholder:text-white/50
                    focus:outline-none focus:ring-2 focus:ring-blue-500/50 focus:border-blue-500
@@ -80,12 +77,22 @@ const SearchBar = ({ isMobile = false, onClose }) => {
                    transition-all duration-300 shadow-xl shadow-blue-500/20
                    cursor-text"
         />
-        <button
-          onClick={handleClearSearch}
-          className="clear-button absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 hover:text-white transition-colors p-1 hover:bg-gray-800 rounded-lg z-10"
-        >
-          <X className="h-5 w-5" strokeWidth={2.5} />
-        </button>
+        {/* Botón X - Solo aparece si hay texto */}
+        {localSearchQuery && (
+          <button
+            onClick={handleClearSearch}
+            className="absolute right-3 top-1/2 -translate-y-1/2 
+                       flex items-center justify-center
+                       w-7 h-7
+                       text-gray-400 hover:text-white 
+                       hover:bg-gray-800 
+                       rounded-lg 
+                       transition-colors 
+                       z-10"
+          >
+            <X className="h-4 w-4" strokeWidth={2.5} />
+          </button>
+        )}
           
         {isSearchOpen && searchResults.length > 0 && (
           <div className="absolute top-full left-0 right-0 mt-2 bg-gray-900 border border-gray-800 rounded-2xl shadow-2xl overflow-hidden z-50 search-results-enter">

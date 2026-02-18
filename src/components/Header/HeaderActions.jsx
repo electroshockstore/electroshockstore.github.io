@@ -5,6 +5,7 @@ const HeaderActions = ({
   isMobile = false, 
   showMobileSearch,
   onSearchToggle,
+  onSearchClose,
   onConditionsClick 
 }) => {
   const navigate = useNavigate();
@@ -12,25 +13,24 @@ const HeaderActions = ({
   if (isMobile) {
     return (
       <div className="flex items-center gap-2 flex-shrink-0">
-        {/* Search Icon - Mobile */}
-        {!showMobileSearch && (
-          <button
-            onClick={onSearchToggle}
-            className="relative p-2.5
-                     bg-gradient-to-r from-blue-600 to-purple-600
-                     hover:from-blue-700 hover:to-purple-700
-                     rounded-full text-white
+        {/* Search Icon - Mobile - SIEMPRE VISIBLE con toggle */}
+        <button
+          onClick={() => showMobileSearch ? onSearchClose() : onSearchToggle()}
+          className={`relative p-2.5 rounded-full text-white
                      transition-all duration-300 
-                     shadow-lg shadow-blue-500/40 hover:shadow-blue-500/60
-                     border-2 border-blue-400/40
+                     shadow-lg hover:shadow-blue-500/60
+                     border-2
                      overflow-hidden group
-                     hover:scale-110 active:scale-95"
-            aria-label="Buscar productos"
-          >
-            <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700" />
-            <Search className="h-4 w-4 relative z-10" strokeWidth={2.5} />
-          </button>
-        )}
+                     hover:scale-110 active:scale-95
+                     ${showMobileSearch 
+                       ? 'bg-gradient-to-r from-purple-600 to-blue-600 border-blue-400 ring-2 ring-blue-400/50' 
+                       : 'bg-gradient-to-r from-blue-600 to-purple-600 border-blue-400/40 shadow-blue-500/40'
+                     }`}
+          aria-label={showMobileSearch ? "Cerrar búsqueda" : "Abrir búsqueda"}
+        >
+          <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700" />
+          <Search className="h-4 w-4 relative z-10" strokeWidth={2.5} />
+        </button>
 
         {/* Inicio */}
         <button

@@ -56,6 +56,7 @@ const Header = ({ searchQuery = '', onSearchChange, onGoHome, hideSearchOnMobile
                 isMobile
                 showMobileSearch={showMobileSearch}
                 onSearchToggle={handleSearchToggle}
+                onSearchClose={handleSearchClose}
                 onConditionsClick={() => setShowConditionsModal(true)}
               />
             </div>

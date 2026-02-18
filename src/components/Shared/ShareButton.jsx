@@ -1,6 +1,7 @@
 import { useState, useRef, useEffect } from 'react';
 import { Share2, Link2, Check } from 'lucide-react';
 import { useIsIOS } from '../../hooks/useDevice';
+import Portal from './Portal';
 
 const ShareButton = ({ productName, product, className = '' }) => {
   const isIOS = useIsIOS();
@@ -9,7 +10,7 @@ const ShareButton = ({ productName, product, className = '' }) => {
   const [dropdownPosition, setDropdownPosition] = useState(null);
   const [scrollY, setScrollY] = useState(0);
   const buttonRef = useRef(null);
-  const containerRef = useRef(null);
+  const dropdownRef = useRef(null);
 
   // Calcular posición del dropdown cuando se abre
   useEffect(() => {
@@ -31,7 +32,10 @@ const ShareButton = ({ productName, product, className = '' }) => {
     if (!showOptions) return;
 
     const handleClickOutside = (event) => {
-      if (containerRef.current && !containerRef.current.contains(event.target)) {
+      if (
+        buttonRef.current && !buttonRef.current.contains(event.target) &&
+        dropdownRef.current && !dropdownRef.current.contains(event.target)
+      ) {
         setShowOptions(false);
       }
     };
@@ -82,7 +86,7 @@ const ShareButton = ({ productName, product, className = '' }) => {
   };
 
   return (
-    <div ref={containerRef}>
+    <>
       <button
         ref={buttonRef}
         onClick={() => setShowOptions(!showOptions)}
@@ -120,23 +124,23 @@ const ShareButton = ({ productName, product, className = '' }) => {
       </button>
 
       {showOptions && dropdownPosition && (
-        <div 
-          className="bg-white rounded-xl shadow-2xl border-2 border-gray-200 overflow-hidden z-[9999]"
-          style={{
-            // Condicional: fixed para Desktop/Android, absolute para iOS
-            ...(isIOS ? {
-              position: 'absolute',
-              top: `${dropdownPosition.top + scrollY}px`,
+        <Portal>
+          <div 
+            ref={dropdownRef}
+            className="bg-white rounded-xl shadow-2xl border-2 border-gray-200 overflow-hidden"
+            style={{
+              position: isIOS ? 'absolute' : 'fixed',
+              top: isIOS ? `${dropdownPosition.top + scrollY}px` : `${dropdownPosition.top}px`,
               left: `${dropdownPosition.left}px`,
-              width: `${dropdownPosition.width}px`
-            } : {
-              position: 'fixed',
-              top: `${dropdownPosition.top}px`,
-              left: `${dropdownPosition.left}px`,
-              width: `${dropdownPosition.width}px`
-            })
-          }}
-        >
+              width: `${dropdownPosition.width}px`,
+              zIndex: 2147483647,
+              WebkitTransform: 'translate3d(0, 0, 0)',
+              transform: 'translate3d(0, 0, 0)',
+              WebkitBackfaceVisibility: 'hidden',
+              backfaceVisibility: 'hidden',
+              pointerEvents: 'auto'
+            }}
+          >
           <button
             onClick={handleCopyLink}
             onTouchEnd={(e) => {
@@ -197,8 +201,9 @@ const ShareButton = ({ productName, product, className = '' }) => {
             </div>
           </button>
         </div>
+        </Portal>
       )}
-    </div>
+    </>
   );
 };
 
