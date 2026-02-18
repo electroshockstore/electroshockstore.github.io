@@ -116,22 +116,37 @@ const CategoryFilter = ({ selectedCategory, onCategoryChange }) => {
         <div className="modal-fullscreen-content">
           {/* Header del modal */}
           <div className="modal-fullscreen-header">
-            {/* Glow decorativo - Suavizado para iOS */}
-            <div className={`absolute top-0 left-1/4 w-64 h-64 bg-blue-500/20 rounded-full ${isIOS ? 'blur-2xl opacity-60' : 'blur-3xl'}`} />
-            <div className={`absolute top-0 right-1/4 w-64 h-64 bg-purple-500/20 rounded-full ${isIOS ? 'blur-2xl opacity-60' : 'blur-3xl'}`} />
+            {/* Glow decorativo - Inline filter para iOS */}
+            <div 
+              className="absolute top-0 left-1/4 w-64 h-64 bg-blue-500/20 rounded-full"
+              style={{ filter: 'blur(48px)' }}
+            />
+            <div 
+              className="absolute top-0 right-1/4 w-64 h-64 bg-purple-500/20 rounded-full"
+              style={{ filter: 'blur(48px)' }}
+            />
             
             <div className="flex items-center gap-4 relative z-10">
-              <div className={`p-3 rounded-2xl bg-gradient-to-br from-blue-500 via-blue-600 to-purple-600 shadow-xl ${isIOS ? 'shadow-blue-500/30' : 'box-glow-blue'}`}>
+              <div 
+                className="p-3 rounded-2xl bg-gradient-to-br from-blue-500 via-blue-600 to-purple-600 shadow-xl"
+                style={{ filter: 'drop-shadow(0 0 20px rgba(59, 130, 246, 0.5))' }}
+              >
                 <Grid3X3 className="h-7 w-7 text-white" strokeWidth={2.5} />
               </div>
               <div>
-                <h2 className={`text-2xl font-black text-white tracking-tight ${isIOS ? 'drop-shadow-[0_2px_8px_rgba(59,130,246,0.4)]' : 'text-glow-blue'}`}>Categorías</h2>
+                <h2 
+                  className="text-2xl font-black text-white tracking-tight"
+                  style={{ filter: 'drop-shadow(0 2px 8px rgba(59, 130, 246, 0.6))' }}
+                >
+                  Categorías
+                </h2>
                 <p className="text-sm text-gray-400 font-semibold mt-0.5">{categories.length} opciones disponibles</p>
               </div>
             </div>
             <button
               onClick={() => setIsOpen(false)}
-              className={`p-2.5 hover:bg-white/10 rounded-xl transition-all duration-200 active:scale-90 ${!isIOS ? 'backdrop-blur-sm' : ''} border border-white/10 relative z-10`}
+              className="p-2.5 hover:bg-white/10 rounded-xl transition-all duration-200 active:scale-90 border border-white/10 relative z-10"
+              style={{ backdropFilter: 'blur(4px)' }}
             >
               <X className="h-6 w-6 text-gray-300 hover:text-white transition-colors" strokeWidth={2.5} />
             </button>
@@ -161,11 +176,12 @@ const CategoryFilter = ({ selectedCategory, onCategoryChange }) => {
                       WebkitTapHighlightColor: 'transparent',
                       touchAction: 'manipulation'
                     }}
+                    style={isSelected ? { filter: 'drop-shadow(0 0 20px rgba(59, 130, 246, 0.6))' } : undefined}
                     className={`
                       relative overflow-hidden rounded-2xl font-bold
                       transition-all duration-200 ${!isIOS ? 'animate-in fade-in zoom-in-95' : ''}
                       ${isSelected
-                        ? `${isIOS ? 'shadow-[0_8px_24px_rgba(59,130,246,0.5)]' : 'shadow-[0_8px_30px_rgba(59,130,246,0.6),0_0_60px_rgba(59,130,246,0.3)]'} scale-[1.05] ring-2 ring-blue-400/80 ${isIOS ? 'shadow-blue-500/40' : 'box-glow-blue'}`
+                        ? 'shadow-[0_8px_24px_rgba(59,130,246,0.5)] scale-[1.05] ring-2 ring-blue-400/80'
                         : 'shadow-[0_8px_24px_rgba(0,0,0,0.3),0_4px_12px_rgba(0,0,0,0.2)] hover:shadow-[0_12px_32px_rgba(0,0,0,0.4),0_6px_16px_rgba(0,0,0,0.25)] active:scale-[0.97] hover:scale-[1.02]'
                       }
                     `}
@@ -199,11 +215,14 @@ const CategoryFilter = ({ selectedCategory, onCategoryChange }) => {
                       )}
 
                       <div className="absolute inset-x-0 bottom-0 p-4 flex flex-col items-start gap-1.5 pointer-events-none">
-                        <span className={`
-                          text-white font-black leading-tight drop-shadow-[0_2px_12px_rgba(0,0,0,0.9)]
-                          transition-all duration-200
-                          ${isSelected ? `text-xl ${isIOS ? 'drop-shadow-[0_2px_8px_rgba(59,130,246,0.5)]' : 'text-glow-blue'}` : 'text-base'}
-                        `}>
+                        <span 
+                          className={`
+                            text-white font-black leading-tight drop-shadow-[0_2px_12px_rgba(0,0,0,0.9)]
+                            transition-all duration-200
+                            ${isSelected ? 'text-xl' : 'text-base'}
+                          `}
+                          style={isSelected ? { filter: 'drop-shadow(0 2px 8px rgba(59, 130, 246, 0.6))' } : undefined}
+                        >
                           {category}
                         </span>
 
@@ -223,8 +242,11 @@ const CategoryFilter = ({ selectedCategory, onCategoryChange }) => {
 
           {/* Footer */}
           <div className="modal-fullscreen-footer">
-            {/* Glow decorativo inferior - Suavizado para iOS */}
-            <div className={`absolute bottom-0 left-1/2 -translate-x-1/2 w-96 h-32 bg-gradient-to-t from-blue-500/10 to-transparent ${isIOS ? 'blur-xl' : 'blur-2xl'}`} />
+            {/* Glow decorativo inferior - Inline filter para iOS */}
+            <div 
+              className="absolute bottom-0 left-1/2 -translate-x-1/2 w-96 h-32 bg-gradient-to-t from-blue-500/10 to-transparent"
+              style={{ filter: 'blur(32px)' }}
+            />
             
             <div className="flex items-center justify-center gap-3 text-sm text-gray-300 relative z-10">
               <div className="w-10 h-1 bg-gradient-to-r from-transparent via-blue-500 to-transparent rounded-full" />
@@ -244,9 +266,15 @@ const CategoryFilter = ({ selectedCategory, onCategoryChange }) => {
       {renderModal()}
 
       <div className="relative group z-20 w-full category-filter">
-        {/* CAPAS DE RESPLANDOR - Suavizados para iOS */}
-        <div className={`absolute -inset-3 bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 rounded-full -z-10 ${isIOS ? 'opacity-15 blur-lg' : 'opacity-30 blur-xl'}`}></div>
-        <div className={`absolute -inset-2 bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-600 rounded-full -z-10 ${isIOS ? 'opacity-12 blur-md' : 'opacity-25 blur-lg'}`}></div>
+        {/* CAPAS DE RESPLANDOR - Inline filter para iOS */}
+        <div 
+          className="absolute -inset-3 bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 rounded-full -z-10 opacity-30"
+          style={{ filter: 'blur(24px)' }}
+        />
+        <div 
+          className="absolute -inset-2 bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-600 rounded-full -z-10 opacity-25"
+          style={{ filter: 'blur(16px)' }}
+        />
 
         {/* RGB FLOWING BORDER - Contenedor con borde animado */}
         <div className="relative rounded-full overflow-hidden p-[3px] animate-border-rotate">
@@ -307,7 +335,8 @@ const CategoryFilter = ({ selectedCategory, onCategoryChange }) => {
             {showLeftArrow && (
               <button
                 onClick={() => handleScroll('left')}
-                className={`absolute left-2 z-30 p-1.5 bg-white/90 ${!isIOS ? 'backdrop-blur-md' : ''} rounded-full shadow-lg border border-gray-100 text-gray-700 hover:text-blue-600 transition-all hover:scale-110 active:scale-95`}
+                className="absolute left-2 z-30 p-1.5 bg-white/90 rounded-full shadow-lg border border-gray-100 text-gray-700 hover:text-blue-600 transition-all hover:scale-110 active:scale-95"
+                style={{ backdropFilter: 'blur(12px)' }}
               >
                 <ChevronLeft size={20} strokeWidth={3} />
               </button>
@@ -336,13 +365,16 @@ const CategoryFilter = ({ selectedCategory, onCategoryChange }) => {
                       }
                     `}
                   >
-                    <div className={`
-                      p-1 md:p-1.5 rounded-xl transition-all duration-300
-                      ${isSelected
-                        ? `bg-white/20 ${!isIOS ? 'backdrop-blur-sm' : ''}`
-                        : 'bg-white shadow-sm border border-slate-100'
-                      }
-                    `}>
+                    <div 
+                      className={`
+                        p-1 md:p-1.5 rounded-xl transition-all duration-300
+                        ${isSelected
+                          ? 'bg-white/20'
+                          : 'bg-white shadow-sm border border-slate-100'
+                        }
+                      `}
+                      style={isSelected ? { backdropFilter: 'blur(4px)' } : undefined}
+                    >
                       <Icon
                         className={`h-3.5 w-3.5 md:h-5 md:w-5 ${isSelected ? 'text-white' : getCategoryColor(category, false)}`}
                         strokeWidth={2.0}
@@ -358,7 +390,8 @@ const CategoryFilter = ({ selectedCategory, onCategoryChange }) => {
             {showRightArrow && (
               <button
                 onClick={() => handleScroll('right')}
-                className={`absolute right-2 z-30 p-1.5 bg-white/90 ${!isIOS ? 'backdrop-blur-md' : ''} rounded-full shadow-lg border border-gray-100 text-gray-700 hover:text-blue-600 transition-all hover:scale-110 active:scale-95`}
+                className="absolute right-2 z-30 p-1.5 bg-white/90 rounded-full shadow-lg border border-gray-100 text-gray-700 hover:text-blue-600 transition-all hover:scale-110 active:scale-95"
+                style={{ backdropFilter: 'blur(12px)' }}
               >
                 <ChevronRight size={20} strokeWidth={3} />
               </button>
