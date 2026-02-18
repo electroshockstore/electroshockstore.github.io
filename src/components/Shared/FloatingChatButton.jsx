@@ -6,39 +6,13 @@ import Portal from './Portal';
 const FloatingChatButton = () => {
   const [isExpanded, setIsExpanded] = useState(false);
   const [showConditionsModal, setShowConditionsModal] = useState(false);
-  const [viewportOffset, setViewportOffset] = useState(0);
   const location = useLocation();
   const navigate = useNavigate();
-  
-  // Detectar iOS
-  const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
   
   // Ocultar en PC Builder ya que tiene su propio botón de WhatsApp
   if (location.pathname.includes('/pc-builder')) {
     return null;
   }
-
-  // iOS: Ajustar posición con visualViewport para mantener botones siempre visibles
-  useEffect(() => {
-    if (!isIOS || !window.visualViewport) return;
-
-    const handleViewportChange = () => {
-      // Calcular offset cuando la barra de direcciones se oculta/muestra
-      const offset = window.innerHeight - window.visualViewport.height;
-      setViewportOffset(offset);
-    };
-
-    window.visualViewport.addEventListener('resize', handleViewportChange);
-    window.visualViewport.addEventListener('scroll', handleViewportChange);
-    
-    // Inicializar
-    handleViewportChange();
-
-    return () => {
-      window.visualViewport.removeEventListener('resize', handleViewportChange);
-      window.visualViewport.removeEventListener('scroll', handleViewportChange);
-    };
-  }, [isIOS]);
 
   // Bloquear scroll cuando el menú está expandido
   useEffect(() => {
@@ -156,12 +130,7 @@ const FloatingChatButton = () => {
           />
         )}
 
-        <div 
-          className="floating-button-fixed"
-          style={isIOS ? {
-            transform: `translate3d(0, ${-viewportOffset}px, 0)`
-          } : undefined}
-        >
+        <div className="floating-button-fixed">
         
         {/* --- MENÚ EXPANDIDO --- */}
         {isExpanded && (

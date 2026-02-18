@@ -14,8 +14,11 @@ const PuntosRetiroInfoSection = () => {
       }}
     >
       
-      {/* Glow inferior - Solo desktop (igual que PCBuilder) */}
-      <div className="hidden sm:block absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-cyan-600/30 via-cyan-500/10 to-transparent pointer-events-none z-20" />
+      {/* Glow inferior - Visible en mobile y desktop con filter inline */}
+      <div 
+        className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-cyan-600/30 via-cyan-500/10 to-transparent pointer-events-none z-20" 
+        style={{ filter: 'blur(24px)' }}
+      />
 
       {/* Máscaras de difuminado superior e inferior - Solo en mobile */}
       <div className="absolute top-0 left-0 right-0 h-10 bg-gradient-to-b from-[#0a0a0f] via-[#0a0a0f]/80 to-transparent z-[25] md:hidden pointer-events-none" />

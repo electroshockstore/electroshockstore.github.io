@@ -174,7 +174,7 @@ const HeroCarousel = () => {
     const observer = new IntersectionObserver(
       ([entry]) => {
         setIsVisible(entry.isIntersecting);
-        console.log('[HeroCarousel] Visible:', entry.isIntersecting);
+    
       },
       { 
         threshold: 0.1, // Considerar visible si 10% está en viewport
@@ -243,7 +243,7 @@ const HeroCarousel = () => {
   // ⚡ OPTIMIZACIÓN: Auto-rotate solo si está visible
   useEffect(() => {
     if (!isVisible) {
-      console.log('[HeroCarousel] Pausado - No visible');
+    
       return;
     }
 
@@ -280,7 +280,7 @@ const HeroCarousel = () => {
       }}
     >
       
-      {/* Background Images - Optimizado con GPU acceleration y aspect-ratio para iOS */}
+      {/* Background Images - Con aspect-ratio responsive y GPU acceleration */}
       <div className={`absolute right-0 top-0 h-full z-0 ${
         current.imagePosition === 'left' 
           ? 'w-[85%] right-[-15%] md:w-[60%] md:right-0 lg:w-[65%] xl:w-[70%]'
@@ -295,13 +295,15 @@ const HeroCarousel = () => {
                 opacity: 0,
                 transition: { duration: 0.4, ease: "easeOut" }
               }}
-              className="absolute inset-0"
+              className="absolute inset-0 aspect-square md:aspect-video"
               style={{ 
-                // ⚡ CRÍTICO: GPU acceleration + aspect-ratio para prevenir layout shift
+                // ⚡ CRÍTICO: GPU acceleration + aspect-ratio responsive
                 willChange: isVisible && !isIOS ? 'opacity' : 'auto',
                 transform: 'translateZ(0)',
                 backfaceVisibility: 'hidden',
-                aspectRatio: '16/9'
+                WebkitBackfaceVisibility: 'hidden',
+                perspective: 1000,
+                WebkitPerspective: 1000
               }}
             >
               <img 
@@ -313,11 +315,6 @@ const HeroCarousel = () => {
                 fetchpriority={currentSlide === 0 ? "high" : "low"}
                 width="1920"
                 height="1080"
-                style={{
-                  // ⚡ CRÍTICO iOS: Reservar espacio para prevenir layout shift
-                  aspectRatio: '16/9',
-                  contentVisibility: 'auto'
-                }}
               />
               <div className="absolute inset-0 bg-gradient-to-r from-[#020617] via-[#020617]/70 md:via-[#020617]/50 to-transparent" />
             </motion.div>

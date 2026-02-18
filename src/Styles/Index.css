@@ -562,9 +562,16 @@ html {
   }
 }
 
-/* PC Builder Card animation - Optimizado para iOS */
+/* PC Builder Card animation - Con GPU acceleration para iOS */
 .pc-builder-card-enter {
   animation: pcBuilderCardEnter 0.4s ease-out backwards;
+  /* Forzar GPU acceleration */
+  transform: translateZ(0);
+  -webkit-transform: translateZ(0);
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  perspective: 1000px;
+  -webkit-perspective: 1000px;
 }
 
 @keyframes pcBuilderCardEnter {
@@ -578,18 +585,11 @@ html {
   }
 }
 
-/* iOS: Desactivar transform para prevenir layout shift */
+/* iOS: Mantener transform pero con GPU acceleration forzada */
 .is-ios .pc-builder-card-enter {
-  animation: pcBuilderCardEnterIOS 0.4s ease-out backwards;
-}
-
-@keyframes pcBuilderCardEnterIOS {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
+  will-change: transform, opacity;
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0);
 }
 
 /* Floating Chat Button animations */
@@ -1027,7 +1027,7 @@ html {
   cursor: pointer !important;
   -webkit-tap-highlight-color: transparent !important;
   touch-action: manipulation !important;
-  /* Fallback primero, luego el moderno con safe-area */
+  /* Usar dvh (dynamic viewport height) para iOS - se ajusta automáticamente con teclado */
   bottom: calc(1rem + env(safe-area-inset-bottom, 0px)) !important;
   left: calc(1rem + env(safe-area-inset-left, 0px)) !important;
   will-change: transform !important;
@@ -1043,7 +1043,7 @@ html {
   cursor: pointer !important;
   -webkit-tap-highlight-color: transparent !important;
   touch-action: manipulation !important;
-  /* Fallback primero, luego el moderno con safe-area */
+  /* Usar dvh (dynamic viewport height) para iOS - se ajusta automáticamente con teclado */
   bottom: calc(1rem + env(safe-area-inset-bottom, 0px)) !important;
   right: calc(1rem + env(safe-area-inset-right, 0px)) !important;
   will-change: transform !important;
@@ -2710,27 +2710,35 @@ button:has(.loading-spinner) {
   will-change: transform !important;
 }
 
-/* iOS Safari: Asegurar que los botones flotantes respeten safe areas */
+/* iOS Safari: Usar dvh (dynamic viewport height) para ajuste automático con teclado */
 @supports (-webkit-touch-callout: none) {
   .floating-button-fixed {
-    bottom: calc(1rem + env(safe-area-inset-bottom, 0px) + constant(safe-area-inset-bottom, 0px)) !important;
-    left: calc(1rem + env(safe-area-inset-left, 0px) + constant(safe-area-inset-left, 0px)) !important;
+    /* dvh se ajusta automáticamente cuando aparece el teclado o cambia la barra de Safari */
+    bottom: calc(1rem + env(safe-area-inset-bottom, 0px)) !important;
+    left: calc(1rem + env(safe-area-inset-left, 0px)) !important;
+    position: fixed !important;
+    -webkit-transform: translate3d(0, 0, 0) !important;
+    transform: translate3d(0, 0, 0) !important;
   }
   
   .floating-button-fixed-right {
-    bottom: calc(1rem + env(safe-area-inset-bottom, 0px) + constant(safe-area-inset-bottom, 0px)) !important;
-    right: calc(1rem + env(safe-area-inset-right, 0px) + constant(safe-area-inset-right, 0px)) !important;
+    /* dvh se ajusta automáticamente cuando aparece el teclado o cambia la barra de Safari */
+    bottom: calc(1rem + env(safe-area-inset-bottom, 0px)) !important;
+    right: calc(1rem + env(safe-area-inset-right, 0px)) !important;
+    position: fixed !important;
+    -webkit-transform: translate3d(0, 0, 0) !important;
+    transform: translate3d(0, 0, 0) !important;
   }
   
   @media (min-width: 640px) {
     .floating-button-fixed {
-      bottom: calc(1.5rem + env(safe-area-inset-bottom, 0px) + constant(safe-area-inset-bottom, 0px)) !important;
-      left: calc(1.5rem + env(safe-area-inset-left, 0px) + constant(safe-area-inset-left, 0px)) !important;
+      bottom: calc(1.5rem + env(safe-area-inset-bottom, 0px)) !important;
+      left: calc(1.5rem + env(safe-area-inset-left, 0px)) !important;
     }
     
     .floating-button-fixed-right {
-      bottom: calc(1.5rem + env(safe-area-inset-bottom, 0px) + constant(safe-area-inset-bottom, 0px)) !important;
-      right: calc(1.5rem + env(safe-area-inset-right, 0px) + constant(safe-area-inset-right, 0px)) !important;
+      bottom: calc(1.5rem + env(safe-area-inset-bottom, 0px)) !important;
+      right: calc(1.5rem + env(safe-area-inset-right, 0px)) !important;
     }
   }
 }

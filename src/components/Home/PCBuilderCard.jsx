@@ -30,8 +30,8 @@ const PCBuilderCard = ({
                 boxShadow: window.innerWidth >= 640 ? '0 0 30px rgba(168, 85, 247, 0.4), 0 0 60px rgba(147, 51, 234, 0.2)' : 'none'
             }}
         >
-            {/* Background Image - Con aspect-ratio para prevenir layout shift en iOS */}
-            <div className="absolute inset-0" style={{ aspectRatio: '16/9' }}>
+            {/* Background Image - Con aspect-ratio responsive y GPU acceleration */}
+            <div className="absolute inset-0 aspect-square md:aspect-video">
                 <img 
                     src="/images/category_filter/builder.webp" 
                     alt=""
@@ -41,16 +41,20 @@ const PCBuilderCard = ({
                     height="1080"
                     className="w-full h-full object-cover brightness-[0.65] sm:group-hover:brightness-[0.8] transition-all duration-300"
                     style={{
-                        // ⚡ CRÍTICO iOS: Reservar espacio para prevenir layout shift
-                        aspectRatio: '16/9',
-                        contentVisibility: 'auto'
+                        // ⚡ CRÍTICO: GPU acceleration para iOS
+                        transform: 'translateZ(0)',
+                        backfaceVisibility: 'hidden',
+                        WebkitBackfaceVisibility: 'hidden'
                     }}
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent" />
             </div>
 
-            {/* Glow inferior - Solo desktop */}
-            <div className="hidden sm:block absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-purple-600/30 via-purple-500/10 to-transparent pointer-events-none z-20" />
+            {/* Glow inferior - Visible en mobile y desktop con filter inline */}
+            <div 
+                className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-purple-600/30 via-purple-500/10 to-transparent pointer-events-none z-20" 
+                style={{ filter: 'blur(24px)' }}
+            />
             
             {/* Fade-out inferior */}
             <div className="absolute bottom-0 left-0 right-0 h-20 bg-gradient-to-t from-[#0a0a0f] to-transparent pointer-events-none z-20" />
