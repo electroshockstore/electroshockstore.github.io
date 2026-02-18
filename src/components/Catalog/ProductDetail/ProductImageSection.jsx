@@ -1,9 +1,11 @@
 // Sección de imagen del producto con galería y lightbox
 import { useState, useEffect } from 'react';
-import { Package, ChevronLeft, ChevronRight, X, ZoomIn, Maximize2 } from 'lucide-react';
+import { Package, ChevronLeft, ChevronRight, X, Maximize2 } from 'lucide-react';
 import Portal from '../../Shared/Portal';
+import { useIsIOS } from '../../../hooks/useDevice';
 
 const ProductImageSection = ({ images = [], name, stock, stockStatus }) => {
+  const isIOS = useIsIOS();
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [imageLoaded, setImageLoaded] = useState(false);
   const [isLightboxOpen, setIsLightboxOpen] = useState(false);
@@ -33,36 +35,36 @@ const ProductImageSection = ({ images = [], name, stock, stockStatus }) => {
     setIsLightboxOpen(false);
   };
 
-  // Bloquear scroll cuando lightbox está abierto - iOS fix
+  // Bloquear scroll cuando lightbox está abierto
   useEffect(() => {
     if (isLightboxOpen) {
-      // Capturar posición actual
-      const currentScrollY = window.scrollY;
-      setScrollY(currentScrollY);
-      setViewportHeight(window.innerHeight);
+      if (isIOS) {
+        // iOS: Capturar scrollY para position absolute
+        const currentScrollY = window.scrollY;
+        setScrollY(currentScrollY);
+        setViewportHeight(window.innerHeight);
+      }
       
-      // Bloquear scroll SIN position fixed
+      // Bloquear scroll para todas las plataformas
       document.documentElement.style.overflow = 'hidden';
       document.body.style.overflow = 'hidden';
-      document.body.style.position = 'relative';
       
       return () => {
         // Restaurar scroll
         document.documentElement.style.overflow = '';
         document.body.style.overflow = '';
-        document.body.style.position = '';
       };
     }
-  }, [isLightboxOpen]);
+  }, [isLightboxOpen, isIOS]);
 
-  // Actualizar viewport height en resize
+  // Actualizar viewport height en resize (solo iOS)
   useEffect(() => {
-    if (!isLightboxOpen) return;
+    if (!isLightboxOpen || !isIOS) return;
     
     const handleResize = () => setViewportHeight(window.innerHeight);
     window.addEventListener('resize', handleResize);
     return () => window.removeEventListener('resize', handleResize);
-  }, [isLightboxOpen]);
+  }, [isLightboxOpen, isIOS]);
 
   const nextLightboxImage = () => {
     setLightboxImageIndex((prev) => (prev + 1) % images.length);
@@ -86,12 +88,8 @@ const ProductImageSection = ({ images = [], name, stock, stockStatus }) => {
         {/* Imagen principal */}
         <div className="aspect-square bg-gray-50 rounded-lg overflow-hidden relative group flex-shrink-0">
           <div 
-            className="w-full h-full cursor-pointer relative"
+            className="w-full h-full cursor-zoom-in relative"
             onClick={() => openLightbox(currentImageIndex)}
-            style={{ 
-              WebkitTapHighlightColor: 'transparent',
-              cursor: 'pointer'
-            }}
           >
             <img
               src={currentImage}
@@ -190,13 +188,27 @@ const ProductImageSection = ({ images = [], name, stock, stockStatus }) => {
       {isLightboxOpen && (
         <Portal>
           <div 
-            className="absolute inset-0 bg-black/95 flex items-center justify-center"
+            className="bg-black/95 md:backdrop-blur-sm flex items-center justify-center"
             style={{ 
               zIndex: 2147483647,
-              top: scrollY,
-              left: 0,
-              right: 0,
-              height: viewportHeight
+              WebkitTransform: 'translate3d(0, 0, 0)',
+              transform: 'translate3d(0, 0, 0)',
+              WebkitBackfaceVisibility: 'hidden',
+              backfaceVisibility: 'hidden',
+              // Condicional: fixed para Desktop/Android, absolute para iOS
+              ...(isIOS ? {
+                position: 'absolute',
+                top: scrollY,
+                left: 0,
+                right: 0,
+                height: viewportHeight
+              } : {
+                position: 'fixed',
+                top: 0,
+                left: 0,
+                right: 0,
+                bottom: 0
+              })
             }}
             onClick={closeLightbox}
             onKeyDown={handleKeyDown}
@@ -205,31 +217,32 @@ const ProductImageSection = ({ images = [], name, stock, stockStatus }) => {
           {/* Close button */}
           <button
             onClick={closeLightbox}
-            style={{ cursor: 'pointer', WebkitTapHighlightColor: 'transparent' }}
-            className="absolute top-4 right-4 w-12 h-12 bg-white/20 hover:bg-white/30 rounded-full flex items-center justify-center transition-all duration-200 z-50"
+            className="absolute top-4 right-4 w-12 h-12 bg-white/10 hover:bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center transition-all duration-200 z-50 border border-white/20"
           >
             <X className="w-6 h-6 text-white" strokeWidth={2} />
           </button>
 
           {/* Image counter */}
-          <div className="absolute top-4 left-1/2 -translate-x-1/2 px-4 py-2 bg-white/20 rounded-full text-white font-semibold text-sm">
+          <div className="absolute top-4 left-1/2 -translate-x-1/2 px-4 py-2 bg-white/10 backdrop-blur-md rounded-full text-white font-semibold text-sm border border-white/20">
             {lightboxImageIndex + 1} / {images.length}
           </div>
 
           {/* Main image */}
           <div 
-            className="relative w-full h-full flex items-center justify-center px-4 py-20"
+            className="relative max-w-7xl max-h-[90vh] w-full h-full flex items-center justify-center px-4"
             onClick={(e) => e.stopPropagation()}
+            style={{
+              WebkitTransform: 'translate3d(0, 0, 0)',
+              transform: 'translate3d(0, 0, 0)'
+            }}
           >
             <img
-              key={`lightbox-${lightboxImageIndex}`}
               src={images[lightboxImageIndex]}
               alt={`${name} - Imagen ${lightboxImageIndex + 1}`}
               className="max-w-full max-h-full object-contain"
               style={{
-                maxHeight: '80vh',
-                width: 'auto',
-                height: 'auto'
+                WebkitTransform: 'translate3d(0, 0, 0)',
+                transform: 'translate3d(0, 0, 0)'
               }}
             />
           </div>
@@ -242,8 +255,7 @@ const ProductImageSection = ({ images = [], name, stock, stockStatus }) => {
                   e.stopPropagation();
                   prevLightboxImage();
                 }}
-                style={{ cursor: 'pointer', WebkitTapHighlightColor: 'transparent' }}
-                className="absolute left-4 top-1/2 -translate-y-1/2 w-14 h-14 bg-white/20 hover:bg-white/30 rounded-full flex items-center justify-center transition-all duration-200"
+                className="absolute left-4 top-1/2 -translate-y-1/2 w-14 h-14 bg-white/10 hover:bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center transition-all duration-200 border border-white/20"
               >
                 <ChevronLeft className="w-7 h-7 text-white" strokeWidth={2} />
               </button>
@@ -252,8 +264,7 @@ const ProductImageSection = ({ images = [], name, stock, stockStatus }) => {
                   e.stopPropagation();
                   nextLightboxImage();
                 }}
-                style={{ cursor: 'pointer', WebkitTapHighlightColor: 'transparent' }}
-                className="absolute right-4 top-1/2 -translate-y-1/2 w-14 h-14 bg-white/20 hover:bg-white/30 rounded-full flex items-center justify-center transition-all duration-200"
+                className="absolute right-4 top-1/2 -translate-y-1/2 w-14 h-14 bg-white/10 hover:bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center transition-all duration-200 border border-white/20"
               >
                 <ChevronRight className="w-7 h-7 text-white" strokeWidth={2} />
               </button>
@@ -262,7 +273,7 @@ const ProductImageSection = ({ images = [], name, stock, stockStatus }) => {
 
           {/* Thumbnails */}
           {hasMultipleImages && (
-            <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2 overflow-x-auto max-w-[90vw] px-4 py-2 bg-black/40 rounded-2xl">
+            <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2 overflow-x-auto max-w-[90vw] px-4 py-2 bg-black/40 backdrop-blur-md rounded-2xl border border-white/10">
               {images.map((img, index) => (
                 <button
                   key={index}
@@ -270,7 +281,6 @@ const ProductImageSection = ({ images = [], name, stock, stockStatus }) => {
                     e.stopPropagation();
                     setLightboxImageIndex(index);
                   }}
-                  style={{ cursor: 'pointer', WebkitTapHighlightColor: 'transparent' }}
                   className={`flex-shrink-0 w-16 h-16 rounded-lg overflow-hidden border-2 transition-all duration-200 ${
                     index === lightboxImageIndex
                       ? 'border-white ring-2 ring-white/50'

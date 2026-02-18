@@ -10,10 +10,12 @@ import PlatformModal from './PlatformModal';
 const PickupPointModal = memo(({ isOpen, onClose, onSelectPoint, selectedPoint }) => {
   const [isAnimating, setIsAnimating] = useState(false);
 
-  // Estado de animación
+  // Bloquear scroll cuando modal está abierto
   useEffect(() => {
     if (isOpen) {
       setIsAnimating(true);
+      // ⚡ Scroll nativo - No necesita pausarse
+      
       return () => {
         setIsAnimating(false);
       };
@@ -27,9 +29,22 @@ const PickupPointModal = memo(({ isOpen, onClose, onSelectPoint, selectedPoint }
       isOpen={isOpen}
       onClose={onClose}
       backdropClassName={isAnimating ? 'opacity-100' : 'opacity-0'}
+      style={{ 
+        zIndex: 2147483647,
+        WebkitTransform: 'translate3d(0, 0, 0)',
+        transform: 'translate3d(0, 0, 0)',
+        WebkitBackfaceVisibility: 'hidden',
+        backfaceVisibility: 'hidden'
+      }}
     >
       <div 
         className="modal-scale-enter relative bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 rounded-2xl sm:rounded-3xl shadow-2xl w-full max-w-2xl border border-gray-700/50 overflow-hidden max-h-[95vh] flex flex-col"
+        style={{
+          WebkitTransform: 'translate3d(0, 0, 0)',
+          transform: 'translate3d(0, 0, 0)',
+          WebkitBackfaceVisibility: 'hidden',
+          backfaceVisibility: 'hidden'
+        }}
       >
           {/* Decorative glow - Solo desktop */}
           <div className="hidden md:block absolute top-0 left-1/2 -translate-x-1/2 w-64 h-64 bg-green-500/20 rounded-full blur-3xl" />
@@ -38,7 +53,6 @@ const PickupPointModal = memo(({ isOpen, onClose, onSelectPoint, selectedPoint }
           <div className="relative px-4 sm:px-6 pt-4 sm:pt-6 pb-3 sm:pb-4 border-b border-gray-700/50 flex-shrink-0">
             <button
               onClick={onClose}
-              style={{ cursor: 'pointer', WebkitTapHighlightColor: 'transparent' }}
               className="absolute top-3 sm:top-4 right-3 sm:right-4 p-2 hover:bg-white/10 rounded-xl transition-colors z-10"
             >
               <X className="w-5 h-5 text-gray-400" />
@@ -87,7 +101,6 @@ const PickupPointModal = memo(({ isOpen, onClose, onSelectPoint, selectedPoint }
                   <button
                     key={point.id}
                     onClick={() => onSelectPoint(point)}
-                    style={{ cursor: 'pointer', WebkitTapHighlightColor: 'transparent' }}
                     className={`relative w-full flex gap-3 sm:gap-4 p-3 sm:p-4 rounded-xl sm:rounded-2xl border-2 transition-all duration-200 hover:scale-[1.01] active:scale-[0.99] text-left ${
                       isSelected
                         ? 'border-green-500 bg-green-500/10 shadow-lg shadow-green-500/20'

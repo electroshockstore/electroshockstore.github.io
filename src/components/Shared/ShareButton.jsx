@@ -1,50 +1,45 @@
 import { useState, useRef, useEffect } from 'react';
 import { Share2, Link2, Check } from 'lucide-react';
-import Portal from './Portal';
 
 const ShareButton = ({ productName, product, className = '' }) => {
   const [showOptions, setShowOptions] = useState(false);
   const [copied, setCopied] = useState(false);
   const [dropdownPosition, setDropdownPosition] = useState(null);
   const buttonRef = useRef(null);
-  const dropdownRef = useRef(null);
+  const containerRef = useRef(null);
 
   // Calcular posición del dropdown cuando se abre
   useEffect(() => {
     if (!showOptions || !buttonRef.current) return;
 
-    const updatePosition = () => {
-      const rect = buttonRef.current.getBoundingClientRect();
-      setDropdownPosition({
-        top: rect.bottom + window.scrollY + 8,
-        left: rect.left + window.scrollX,
-        width: rect.width
-      });
-    };
-
-    updatePosition();
+    const rect = buttonRef.current.getBoundingClientRect();
+    setDropdownPosition({
+      top: rect.bottom + 8,
+      left: rect.left,
+      width: rect.width
+    });
   }, [showOptions]);
 
-  // Cerrar al hacer clic fuera
+  // Cerrar al hacer clic fuera o al hacer scroll
   useEffect(() => {
     if (!showOptions) return;
 
     const handleClickOutside = (event) => {
-      if (
-        buttonRef.current && !buttonRef.current.contains(event.target) &&
-        dropdownRef.current && !dropdownRef.current.contains(event.target)
-      ) {
+      if (containerRef.current && !containerRef.current.contains(event.target)) {
         setShowOptions(false);
       }
     };
 
-    // iOS fix: usar tanto mousedown como touchstart
-    document.addEventListener('mousedown', handleClickOutside, { passive: true });
-    document.addEventListener('touchstart', handleClickOutside, { passive: true });
+    const handleScroll = () => {
+      setShowOptions(false);
+    };
+
+    document.addEventListener('mousedown', handleClickOutside);
+    window.addEventListener('scroll', handleScroll, true);
     
     return () => {
       document.removeEventListener('mousedown', handleClickOutside);
-      document.removeEventListener('touchstart', handleClickOutside);
+      window.removeEventListener('scroll', handleScroll, true);
     };
   }, [showOptions]);
 
@@ -78,18 +73,10 @@ const ShareButton = ({ productName, product, className = '' }) => {
   };
 
   return (
-    <>
+    <div ref={containerRef}>
       <button
         ref={buttonRef}
-        onClick={(e) => {
-          e.preventDefault();
-          e.stopPropagation();
-          setShowOptions(!showOptions);
-        }}
-        style={{ 
-          WebkitTapHighlightColor: 'transparent',
-          cursor: 'pointer'
-        }}
+        onClick={() => setShowOptions(!showOptions)}
         className={`w-full flex items-center justify-center gap-3 bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white px-4 py-3 sm:px-6 sm:py-4 rounded-xl shadow-lg hover:shadow-blue-500/50 transition-all duration-300 font-bold text-sm sm:text-base hover:scale-[1.02] hover:-translate-y-0.5 active:scale-[0.98] group relative overflow-hidden ${className}`}
       >
         <div className="flex-shrink-0">
@@ -115,24 +102,17 @@ const ShareButton = ({ productName, product, className = '' }) => {
       </button>
 
       {showOptions && dropdownPosition && (
-        <Portal>
-          <div 
-            ref={dropdownRef}
-            className="absolute bg-white rounded-xl shadow-2xl border-2 border-gray-200 overflow-hidden"
-            style={{
-              top: `${dropdownPosition.top}px`,
-              left: `${dropdownPosition.left}px`,
-              width: `${dropdownPosition.width}px`,
-              zIndex: 2147483647,
-              WebkitTransform: 'translate3d(0, 0, 0)',
-              transform: 'translate3d(0, 0, 0)',
-              pointerEvents: 'auto'
-            }}
-          >
+        <div 
+          className="fixed bg-white rounded-xl shadow-2xl border-2 border-gray-200 overflow-hidden z-[9999]"
+          style={{
+            top: `${dropdownPosition.top}px`,
+            left: `${dropdownPosition.left}px`,
+            width: `${dropdownPosition.width}px`
+          }}
+        >
           <button
             onClick={handleCopyLink}
-            style={{ cursor: 'pointer', WebkitTapHighlightColor: 'transparent' }}
-            className="w-full flex items-center gap-3 px-4 py-4 hover:bg-gray-50 active:bg-gray-100 transition-colors duration-200 border-b border-gray-100"
+            className="w-full flex items-center gap-3 px-4 py-4 hover:bg-gray-50 transition-colors duration-200 border-b border-gray-100"
           >
             {copied ? (
               <>
@@ -159,8 +139,7 @@ const ShareButton = ({ productName, product, className = '' }) => {
 
           <button
             onClick={handleWhatsAppShare}
-            style={{ cursor: 'pointer', WebkitTapHighlightColor: 'transparent' }}
-            className="w-full flex items-center gap-3 px-4 py-4 hover:bg-green-50 active:bg-green-100 transition-colors duration-200"
+            className="w-full flex items-center gap-3 px-4 py-4 hover:bg-green-50 transition-colors duration-200"
           >
             <div className="flex-shrink-0 p-2 bg-green-100 rounded-lg">
               <svg className="h-5 w-5 text-green-600" fill="currentColor" viewBox="0 0 24 24">
@@ -173,9 +152,8 @@ const ShareButton = ({ productName, product, className = '' }) => {
             </div>
           </button>
         </div>
-        </Portal>
       )}
-    </>
+    </div>
   );
 };
 

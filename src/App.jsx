@@ -48,7 +48,7 @@ function AppContent() {
   const currentError = networkError || resourceError;
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-[#E5E7EB] to-[#C7CCD1] antialiased" style={{ isolation: 'isolate' }}>
+    <div className="min-h-screen bg-gradient-to-b from-[#E5E7EB] to-[#C7CCD1] antialiased">
       {/* Notificación de errores */}
       <ErrorNotification 
         error={currentError}

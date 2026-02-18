@@ -5,7 +5,8 @@ import Portal from './Portal';
 
 /**
  * Wrapper de modal con estilos optimizados por plataforma
- * iOS FIX: Usa position absolute + top scrollY en lugar de fixed
+ * iOS FIX: Usa position absolute + scrollY solo para iOS
+ * Desktop/Android: Usa position fixed (funciona perfecto)
  */
 const PlatformModal = memo(({ 
   isOpen, 
@@ -20,70 +21,93 @@ const PlatformModal = memo(({
   const [scrollY, setScrollY] = useState(0);
   const [viewportHeight, setViewportHeight] = useState(window.innerHeight);
 
-  // Capturar scrollY y bloquear scroll al abrir
+  // Bloquear scroll al abrir modal
   useEffect(() => {
     if (isOpen) {
-      // Capturar posición actual
-      const currentScrollY = window.scrollY;
-      setScrollY(currentScrollY);
-      setViewportHeight(window.innerHeight);
+      if (isIOS) {
+        // iOS: Capturar scrollY para position absolute
+        const currentScrollY = window.scrollY;
+        setScrollY(currentScrollY);
+        setViewportHeight(window.innerHeight);
+      }
       
-      // Bloquear scroll SIN position fixed
+      // Bloquear scroll para todas las plataformas
       document.documentElement.style.overflow = 'hidden';
       document.body.style.overflow = 'hidden';
-      document.body.style.position = 'relative';
       
       return () => {
         // Restaurar scroll
         document.documentElement.style.overflow = '';
         document.body.style.overflow = '';
-        document.body.style.position = '';
       };
     }
-  }, [isOpen]);
+  }, [isOpen, isIOS]);
 
-  // Actualizar viewport height en resize
+  // Actualizar viewport height en resize (solo iOS)
   useEffect(() => {
-    if (!isOpen) return;
+    if (!isOpen || !isIOS) return;
     
     const handleResize = () => setViewportHeight(window.innerHeight);
     window.addEventListener('resize', handleResize);
     return () => window.removeEventListener('resize', handleResize);
-  }, [isOpen]);
+  }, [isOpen, isIOS]);
 
   if (!isOpen) return null;
 
   const modalStyles = getModalStyles(isIOS);
   const backdropStyles = getBackdropStyles(isIOS);
 
+  // Estilos condicionales por plataforma
+  const backdropPositionStyles = isIOS ? {
+    position: 'absolute',
+    top: scrollY,
+    left: 0,
+    right: 0,
+    height: viewportHeight
+  } : {
+    position: 'fixed',
+    top: 0,
+    left: 0,
+    right: 0,
+    bottom: 0
+  };
+
+  const modalPositionStyles = isIOS ? {
+    position: 'absolute',
+    top: scrollY,
+    left: 0,
+    right: 0,
+    height: viewportHeight
+  } : {
+    position: 'fixed',
+    top: 0,
+    left: 0,
+    right: 0,
+    bottom: 0
+  };
+
   return (
     <Portal>
       {/* Backdrop */}
       {showBackdrop && (
         <div
-          className={`absolute inset-0 bg-black/60 transition-opacity duration-300 ${backdropClassName}`}
+          className={`bg-black/60 transition-opacity duration-300 ${backdropClassName}`}
           style={{
             ...backdropStyles,
-            top: scrollY,
-            left: 0,
-            right: 0,
-            height: viewportHeight
+            ...backdropPositionStyles
           }}
           onClick={onClose}
           aria-hidden="true"
         />
       )}
 
-      {/* Modal Container - position absolute con top scrollY */}
+      {/* Modal Container */}
       <div
-        className={`absolute inset-0 flex items-center justify-center p-3 sm:p-4 pointer-events-none ${className}`}
+        className={`flex items-center justify-center p-3 sm:p-4 pointer-events-none ${className}`}
         style={{ 
           ...modalStyles, 
           ...style,
-          top: scrollY,
-          left: 0,
-          right: 0,
-          height: viewportHeight
+          ...modalPositionStyles
         }}
         role="dialog"
         aria-modal="true"
