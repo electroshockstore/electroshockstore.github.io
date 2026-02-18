@@ -26,8 +26,11 @@ const PuntosRetiroInfoSection = () => {
           
           {/* IMAGEN - Primero en mobile, segundo en desktop */}
           <div className="relative flex items-center justify-center order-1 lg:order-2 w-full">
-            {/* Glow de la imagen OPTIMIZADO - Blur reducido, sin animate-pulse */}
-            <div className="absolute w-[80%] h-[80%] bg-blue-500/25 blur-[30px] rounded-full" />
+            {/* Glow de la imagen - Usar filter blur inline para evitar override de iOS */}
+            <div 
+              className="absolute w-[80%] h-[80%] bg-blue-500/25 rounded-full" 
+              style={{ filter: 'blur(30px)' }}
+            />
             
             <div className="relative w-full max-w-[280px] sm:max-w-[350px] md:max-w-[400px] lg:max-w-[450px] xl:max-w-[500px] 2xl:max-w-[550px] transition-all duration-1000 group-hover:scale-105 group-hover:-rotate-1">
               <img
@@ -54,8 +57,11 @@ const PuntosRetiroInfoSection = () => {
             {/* Título */}
             <div className="space-y-3 sm:space-y-4">
               <h2 className="font-black tracking-tighter leading-[0.9] relative text-fluid-hero">
-                {/* Glow del título */}
-                <div className="absolute inset-0 blur-3xl opacity-30 bg-gradient-to-r from-blue-400 via-purple-400 to-cyan-400" />
+                {/* Glow del título - Usar filter blur inline para evitar override de iOS */}
+                <div 
+                  className="absolute inset-0 opacity-30 bg-gradient-to-r from-blue-400 via-purple-400 to-cyan-400" 
+                  style={{ filter: 'blur(48px)' }}
+                />
                 
                 <span className="text-white block opacity-90 relative z-10">Coordiná la</span>
                 <span className="relative inline-block z-10">

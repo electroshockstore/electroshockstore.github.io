@@ -30,8 +30,8 @@ const PCBuilderCard = ({
                 boxShadow: window.innerWidth >= 640 ? '0 0 30px rgba(168, 85, 247, 0.4), 0 0 60px rgba(147, 51, 234, 0.2)' : 'none'
             }}
         >
-            {/* Background Image */}
-            <div className="absolute inset-0">
+            {/* Background Image - Con aspect-ratio para prevenir layout shift en iOS */}
+            <div className="absolute inset-0" style={{ aspectRatio: '16/9' }}>
                 <img 
                     src="/images/category_filter/builder.webp" 
                     alt=""
@@ -40,6 +40,11 @@ const PCBuilderCard = ({
                     width="1920"
                     height="1080"
                     className="w-full h-full object-cover brightness-[0.65] sm:group-hover:brightness-[0.8] transition-all duration-300"
+                    style={{
+                        // ⚡ CRÍTICO iOS: Reservar espacio para prevenir layout shift
+                        aspectRatio: '16/9',
+                        contentVisibility: 'auto'
+                    }}
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent" />
             </div>

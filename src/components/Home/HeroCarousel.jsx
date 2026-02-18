@@ -280,7 +280,7 @@ const HeroCarousel = () => {
       }}
     >
       
-      {/* Background Images - Optimizado con GPU acceleration */}
+      {/* Background Images - Optimizado con GPU acceleration y aspect-ratio para iOS */}
       <div className={`absolute right-0 top-0 h-full z-0 ${
         current.imagePosition === 'left' 
           ? 'w-[85%] right-[-15%] md:w-[60%] md:right-0 lg:w-[65%] xl:w-[70%]'
@@ -297,10 +297,11 @@ const HeroCarousel = () => {
               }}
               className="absolute inset-0"
               style={{ 
-                // ⚡ CRÍTICO: GPU acceleration
+                // ⚡ CRÍTICO: GPU acceleration + aspect-ratio para prevenir layout shift
                 willChange: isVisible && !isIOS ? 'opacity' : 'auto',
                 transform: 'translateZ(0)',
-                backfaceVisibility: 'hidden'
+                backfaceVisibility: 'hidden',
+                aspectRatio: '16/9'
               }}
             >
               <img 
@@ -312,6 +313,11 @@ const HeroCarousel = () => {
                 fetchpriority={currentSlide === 0 ? "high" : "low"}
                 width="1920"
                 height="1080"
+                style={{
+                  // ⚡ CRÍTICO iOS: Reservar espacio para prevenir layout shift
+                  aspectRatio: '16/9',
+                  contentVisibility: 'auto'
+                }}
               />
               <div className="absolute inset-0 bg-gradient-to-r from-[#020617] via-[#020617]/70 md:via-[#020617]/50 to-transparent" />
             </motion.div>

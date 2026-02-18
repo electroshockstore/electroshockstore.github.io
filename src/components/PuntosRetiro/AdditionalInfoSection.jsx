@@ -38,8 +38,11 @@ const AdditionalInfoSection = memo(() => {
       variants={containerVariants}
       style={{ willChange: 'opacity, transform' }}
     >
-      {/* Resplandor ambiental ultra-optimizado */}
-      <div className="absolute -inset-1 bg-gradient-to-r from-yellow-600/10 via-orange-600/10 to-yellow-600/10 blur-lg opacity-50 rounded-[2.5rem]" />
+      {/* Resplandor ambiental con filter inline */}
+      <div 
+        className="absolute -inset-1 bg-gradient-to-r from-yellow-600/10 via-orange-600/10 to-yellow-600/10 opacity-50 rounded-[2.5rem]" 
+        style={{ filter: 'blur(16px)' }}
+      />
 
       {/* Contenedor Principal ultra-optimizado - sin backdrop-blur */}
       <motion.div 

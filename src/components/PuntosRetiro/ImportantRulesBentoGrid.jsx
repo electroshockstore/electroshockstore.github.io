@@ -73,7 +73,10 @@ const ImportantRulesBentoGrid = ({ rules = [] }) => {
 
             {/* CARD 3: IMAGEN */}
             <div className="row-span-2 bg-white rounded-[2rem] border border-pink-100 relative flex items-center justify-center overflow-hidden shadow-sm">
-              <div className="absolute w-32 h-32 bg-pink-100 rounded-full blur-3xl opacity-40" />
+              <div 
+                className="absolute w-32 h-32 bg-pink-100 rounded-full opacity-40" 
+                style={{ filter: 'blur(48px)' }}
+              />
               <img 
                 src="/images/puntos_retiro.webp" 
                 alt="Condiciones" 
@@ -174,7 +177,10 @@ const ImportantRulesBentoGrid = ({ rules = [] }) => {
 
           {/* --- CARD 2: IMAGEN CENTRAL --- PRIMERO */}
           <div className="lg:row-span-3 rounded-[2rem] bg-white border border-pink-100 relative flex items-center justify-center overflow-visible shadow-sm min-h-[300px] sm:min-h-[400px] hero-image-enter">
-            <div className="absolute w-48 h-48 bg-pink-100 rounded-full blur-3xl opacity-50" />
+            <div 
+              className="absolute w-48 h-48 bg-pink-100 rounded-full opacity-50" 
+              style={{ filter: 'blur(48px)' }}
+            />
             <img 
               src="/images/puntos_retiro.webp" 
               alt="Condiciones" 

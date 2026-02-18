@@ -60,9 +60,15 @@ const RevendedoresSection = ({ products = [], onProductClick }) => {
                             <span className="bg-gradient-to-r from-amber-300 via-orange-400 to-red-400 bg-clip-text text-transparent drop-shadow-[0_0_40px_rgba(251,146,60,0.8)] filter brightness-125">
                                 Ahorro
                             </span>
-                            {/* Glows OPTIMIZADOS - Blur reducido de blur-3xl → blur-xl, sin animate-pulse */}
-                            <span className="absolute inset-0 bg-gradient-to-r from-amber-400 via-orange-500 to-red-500 blur-xl opacity-50 -z-10" />
-                            <span className="absolute inset-0 bg-gradient-to-r from-yellow-300 via-amber-400 to-orange-400 blur-lg opacity-30 -z-10" />
+                            {/* Glows CRÍTICOS - Usar filter blur en lugar de clase Tailwind para evitar override de iOS */}
+                            <span 
+                                className="absolute inset-0 bg-gradient-to-r from-amber-400 via-orange-500 to-red-500 opacity-50 -z-10" 
+                                style={{ filter: 'blur(24px)' }}
+                            />
+                            <span 
+                                className="absolute inset-0 bg-gradient-to-r from-yellow-300 via-amber-400 to-orange-400 opacity-30 -z-10" 
+                                style={{ filter: 'blur(16px)' }}
+                            />
                         </span>
                     </h2>
                     

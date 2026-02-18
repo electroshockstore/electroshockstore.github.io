@@ -39,10 +39,11 @@ const HeroSection = () => {
 
   return (
     <section className="relative py-12 sm:py-16 md:py-24 px-4 sm:px-6 overflow-hidden">
-      {/* Animated background blobs - Deshabilitado en iOS */}
+      {/* Animated background blobs - Con filter inline para iOS */}
       <div className="absolute inset-0 -z-10">
         <motion.div 
-          className={`absolute top-20 left-10 w-72 h-72 bg-blue-500/20 rounded-full ${isIOS ? 'blur-2xl' : 'blur-3xl'}`}
+          className="absolute top-20 left-10 w-72 h-72 bg-blue-500/20 rounded-full"
+          style={{ filter: isIOS ? 'blur(40px)' : 'blur(48px)' }}
           animate={isIOS ? {} : { 
             scale: [1, 1.1, 1],
             opacity: [0.2, 0.3, 0.2]
@@ -54,7 +55,8 @@ const HeroSection = () => {
           }}
         />
         <motion.div 
-          className={`absolute bottom-20 right-10 w-96 h-96 bg-purple-500/20 rounded-full ${isIOS ? 'blur-2xl' : 'blur-3xl'}`}
+          className="absolute bottom-20 right-10 w-96 h-96 bg-purple-500/20 rounded-full"
+          style={{ filter: isIOS ? 'blur(40px)' : 'blur(48px)' }}
           animate={isIOS ? {} : { 
             scale: [1, 1.15, 1],
             opacity: [0.2, 0.25, 0.2]
@@ -107,8 +109,14 @@ const HeroSection = () => {
                 Dónde Retiro
               </span>
               
-              {/* Glow effect brutal - Solo desktop - Sin animate-pulse en iOS */}
-              <span className={`hidden sm:block absolute inset-0 bg-blue-500 ${isIOS ? 'blur-xl' : 'blur-2xl'} opacity-60 ${isIOS ? '' : 'animate-pulse'}`} />
+              {/* Glow effect brutal - Solo desktop con filter inline */}
+              <span 
+                className="hidden sm:block absolute inset-0 bg-blue-500 opacity-60" 
+                style={{ 
+                  filter: isIOS ? 'blur(24px)' : 'blur(40px)',
+                  animation: isIOS ? 'none' : 'pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite'
+                }}
+              />
             </motion.span>
             
             <br />

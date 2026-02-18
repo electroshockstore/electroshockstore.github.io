@@ -1,8 +1,11 @@
 const RuleCard = ({ rule, index }) => {
   return (
     <div className="relative group">
-      {/* Glow effect on hover - Solo desktop */}
-      <div className={`hidden sm:block absolute -inset-0.5 bg-gradient-to-r ${rule.gradient} rounded-2xl opacity-0 group-hover:opacity-20 blur-xl transition-opacity duration-500`} />
+      {/* Glow effect on hover - Solo desktop con filter inline */}
+      <div 
+        className={`hidden sm:block absolute -inset-0.5 bg-gradient-to-r ${rule.gradient} rounded-2xl opacity-0 group-hover:opacity-20 transition-opacity duration-500`} 
+        style={{ filter: 'blur(24px)' }}
+      />
       
       <div className={`relative bg-gradient-to-br ${rule.bgGradient} backdrop-blur-sm rounded-xl sm:rounded-2xl p-4 sm:p-7 md:p-8 border ${rule.borderColor} overflow-hidden transition-all duration-300 hover:border-opacity-60`}>
         {/* Subtle shine effect - Solo desktop */}
@@ -11,8 +14,11 @@ const RuleCard = ({ rule, index }) => {
         {/* Icon con gradiente */}
         <div className="relative mb-3 sm:mb-6">
           <div className="relative inline-flex">
-            {/* Glow background - Solo desktop */}
-            <div className={`hidden sm:block absolute inset-0 bg-gradient-to-r ${rule.gradient} rounded-xl blur-md opacity-40`} />
+            {/* Glow background - Solo desktop con filter inline */}
+            <div 
+              className={`hidden sm:block absolute inset-0 bg-gradient-to-r ${rule.gradient} rounded-xl opacity-40`} 
+              style={{ filter: 'blur(12px)' }}
+            />
             
             {/* Icon container */}
             <div className={`relative bg-gradient-to-br ${rule.iconBg} backdrop-blur-sm p-2 sm:p-4 rounded-lg sm:rounded-xl border ${rule.borderColor}`}>
@@ -38,8 +44,11 @@ const RuleCard = ({ rule, index }) => {
           </p>
         </div>
 
-        {/* Decorative corner accent - Solo desktop */}
-        <div className={`hidden sm:block absolute top-0 right-0 w-20 h-20 bg-gradient-to-br ${rule.gradient} opacity-10 blur-2xl rounded-full -translate-y-1/2 translate-x-1/2`} />
+        {/* Decorative corner accent - Solo desktop con filter inline */}
+        <div 
+          className={`hidden sm:block absolute top-0 right-0 w-20 h-20 bg-gradient-to-br ${rule.gradient} opacity-10 rounded-full -translate-y-1/2 translate-x-1/2`} 
+          style={{ filter: 'blur(40px)' }}
+        />
       </div>
     </div>
   );

@@ -17,12 +17,19 @@ const Footer = () => {
 
   return (
     <footer className="w-full bg-[#0a0c12] text-white pt-16 pb-24 lg:pb-12 relative overflow-hidden border-t border-white/5">
-      {/* Elementos decorativos de fondo ULTRA-OPTIMIZADOS */}
-      {/* Blur reducido de 80px → 30px y sin animate-pulse para mejor performance */}
-      <div className="absolute top-0 left-1/4 w-96 h-96 bg-blue-600/20 blur-[30px] rounded-full pointer-events-none" />
-      <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-emerald-600/20 blur-[30px] rounded-full pointer-events-none" />
-      {/* Elemento central con blur más suave */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-purple-600/12 blur-[25px] rounded-full pointer-events-none" />
+      {/* Elementos decorativos de fondo - Usar filter inline para iOS */}
+      <div 
+        className="absolute top-0 left-1/4 w-96 h-96 bg-blue-600/20 rounded-full pointer-events-none" 
+        style={{ filter: 'blur(30px)' }}
+      />
+      <div 
+        className="absolute bottom-0 right-1/4 w-96 h-96 bg-emerald-600/20 rounded-full pointer-events-none" 
+        style={{ filter: 'blur(30px)' }}
+      />
+      <div 
+        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-purple-600/12 rounded-full pointer-events-none" 
+        style={{ filter: 'blur(25px)' }}
+      />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 relative z-10">
         
@@ -31,7 +38,10 @@ const Footer = () => {
           {/* Columna 1: Brand & Description */}
           <div className="space-y-4">
             <div className="relative">
-              <div className="absolute -inset-4 bg-gradient-to-r from-blue-600/20 to-purple-600/20 blur-2xl rounded-full" />
+              <div 
+                className="absolute -inset-4 bg-gradient-to-r from-blue-600/20 to-purple-600/20 rounded-full" 
+                style={{ filter: 'blur(40px)' }}
+              />
               <div className="relative flex items-center gap-3">
                 <div className="p-3 bg-gradient-to-br from-blue-600 via-blue-500 to-purple-600 rounded-2xl border border-white/20 shadow-2xl shadow-blue-900/40">
                   <img src="/logotipo_tiny.png" alt="Logo" className="h-10 w-auto" />
@@ -152,7 +162,10 @@ const Footer = () => {
           {/* Columna 1: Brand & Description */}
           <div className="col-span-4 space-y-8">
             <div className="relative">
-              <div className="absolute -inset-4 bg-gradient-to-r from-blue-600/20 to-purple-600/20 blur-2xl rounded-full" />
+              <div 
+                className="absolute -inset-4 bg-gradient-to-r from-blue-600/20 to-purple-600/20 rounded-full" 
+                style={{ filter: 'blur(40px)' }}
+              />
               <div className="relative flex items-center gap-4">
                 <div className="p-4 bg-gradient-to-br from-blue-600 via-blue-500 to-purple-600 rounded-3xl border border-white/20 shadow-2xl shadow-blue-900/40">
                   <img src="/logotipo_tiny.png" alt="Logo" className="h-14 w-auto" />
