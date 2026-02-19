@@ -2,107 +2,40 @@
 @tailwind components;
 @tailwind utilities;
 
-.font-outfit { font-family: 'Outfit', sans-serif; }
+/* ============================================
+   FUENTES PERSONALIZADAS
+   ============================================ */
+.font-outfit { 
+  font-family: 'Outfit', sans-serif; 
+}
 
-/* ===== PORTAL ROOT - Configuración para iOS Safari ===== */
+/* ============================================
+   PORTAL ROOT - iOS Safari Fix
+   ============================================ */
 #portal-root {
-  /* CRÍTICO: position fixed para que los children fixed funcionen correctamente en iOS */
-  position: fixed !important;
-  top: 0 !important;
-  left: 0 !important;
-  width: 100% !important;
-  height: 100% !important;
-  z-index: 2147483647 !important;
-  pointer-events: none !important;
-  /* iOS: Forzar stacking context limpio */
-  transform: translateZ(0) !important;
-  -webkit-transform: translateZ(0) !important;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 9999;
+  -webkit-overflow-scrolling: touch;
 }
 
 #portal-root > * {
   pointer-events: auto;
 }
 
-/* ===== SISTEMA DE EASING PREMIUM ===== */
-:root {
-  /* Curvas de Apple/Framer Motion - Ultra suaves */
-  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
-  --ease-out-quint: cubic-bezier(0.22, 1, 0.36, 1);
-  --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
-  --ease-smooth: cubic-bezier(0.4, 0, 0.2, 1);
-  --ease-in-out-soft: cubic-bezier(0.45, 0, 0.55, 1);
-  
-  /* Timings coherentes */
-  --duration-instant: 150ms;
-  --duration-fast: 200ms;
-  --duration-normal: 300ms;
-  --duration-slow: 400ms;
-  --duration-slower: 500ms;
-  
-  /* Z-Index hierarchy - Sincronizado con constants/platform.js */
-  --z-modal-max: 2147483647;
-  --z-modal-backdrop: 2147483646;
-  --z-modal-standard: 999999;
-  --z-floating-button: 99999;
-  --z-floating-backdrop: 99998;
-  --z-header: 50;
-  --z-dropdown: 40;
-  --z-tooltip: 30;
-  
-  /* Transforms para hardware acceleration */
-  --transform-gpu: translate3d(0, 0, 0);
-}
+/* ============================================
+   ANIMACIONES @KEYFRAMES
+   ============================================ */
 
-/* ===== SMOOTH SCROLL - NATIVO ===== */
-/* Scroll suave nativo del navegador */
-
-html {
-  scroll-behavior: smooth;
-  scroll-padding-top: 80px; /* Espacio para header sticky */
-}
-
-/* Smooth scroll solo para navegadores sin JS como fallback */
-@media (scripting: none) {
-  html {
-    scroll-behavior: smooth;
-  }
-}
-
-/* ===== HERO CAROUSEL TRANSITIONS (Premium & Optimized) ===== */
-
-/* ANIMACIONES CINEMATOGRÁFICAS DE ENTRADA - Solo Desktop */
-
-/* 1. Imagen de fondo - Entra desde la derecha */
+/* Hero Animations */
 @keyframes heroImageSlideIn {
   from {
     opacity: 0;
-    transform: translateX(100px) scale(1.1);
-  }
-  to {
-    opacity: 1;
-    transform: translateX(0) scale(1);
-  }
-}
-
-/* 2. Línea decorativa - Expand from left con glow */
-@keyframes heroLineExpand {
-  from {
-    transform: scaleX(0);
-    transform-origin: left;
-    opacity: 0;
-  }
-  to {
-    transform: scaleX(1);
-    transform-origin: left;
-    opacity: 1;
-  }
-}
-
-/* 3. Tag - Fade in después de la línea */
-@keyframes heroTagFadeIn {
-  from {
-    opacity: 0;
-    transform: translateX(-10px);
+    transform: translateX(100px);
   }
   to {
     opacity: 1;
@@ -110,7 +43,28 @@ html {
   }
 }
 
-/* 4. Título - Split text effect (cada palabra aparece) - OPTIMIZADO SIN BLUR */
+@keyframes heroLineExpand {
+  from {
+    transform: scaleX(0);
+    opacity: 0;
+  }
+  to {
+    transform: scaleX(1);
+    opacity: 1;
+  }
+}
+
+@keyframes heroTagFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 @keyframes heroTitleSplitIn {
   from {
     opacity: 0;
@@ -122,105 +76,7 @@ html {
   }
 }
 
-/* 5. Descripción - Fade + slide up */
 @keyframes heroDescriptionSlideUp {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-/* 6. Puntos - Slide from left con stagger */
-@keyframes heroPointSlideIn {
-  from {
-    opacity: 0;
-    transform: translateX(-30px);
-  }
-  to {
-    opacity: 1;
-    transform: translateX(0);
-  }
-}
-
-/* Aplicar animaciones - Solo Desktop */
-@media (min-width: 769px) {
-  /* FASE 1: Background (0-0.6s) */
-  .hero-image-enter {
-    animation: heroImageSlideIn 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-    animation-fill-mode: backwards;
-    contain: layout style paint;
-  }
-
-  /* FASE 2: Header elements (0.3-1.2s) */
-  .hero-line-expand {
-    animation: heroLineExpand 0.6s cubic-bezier(0.16, 1, 0.3, 1) 0.3s backwards;
-    animation-fill-mode: backwards;
-    contain: layout style paint;
-  }
-
-  .hero-tag-enter {
-    animation: heroTagFadeIn 0.5s ease-out 0.6s backwards;
-    animation-fill-mode: backwards;
-    contain: layout style paint;
-  }
-
-  /* FASE 3: Título - SIMPLIFICADO - Todas las palabras juntas */
-  .hero-title-word {
-    display: inline-block;
-    animation: heroTitleSplitIn 0.7s cubic-bezier(0.16, 1, 0.3, 1) 0.9s backwards;
-    animation-fill-mode: backwards;
-    contain: layout style paint;
-  }
-
-  /* Descripción - Mismo timing que título para reducir capas */
-  .hero-description-enter {
-    animation: heroDescriptionSlideUp 0.7s cubic-bezier(0.16, 1, 0.3, 1) 1.2s backwards;
-    animation-fill-mode: backwards;
-    contain: layout style paint;
-  }
-
-  /* FASE 4: Puntos - REDUCIDO a 2 grupos en vez de 6 individuales */
-  .hero-point-enter {
-    animation: heroPointSlideIn 0.6s cubic-bezier(0.16, 1, 0.3, 1) backwards;
-    animation-fill-mode: backwards;
-    contain: layout style paint;
-  }
-
-  .hero-point-enter:nth-child(1),
-  .hero-point-enter:nth-child(2),
-  .hero-point-enter:nth-child(3) { 
-    animation-delay: 1.5s; 
-  }
-  
-  .hero-point-enter:nth-child(4),
-  .hero-point-enter:nth-child(5),
-  .hero-point-enter:nth-child(6) { 
-    animation-delay: 1.7s; 
-  }
-}
-
-/* OPTIMIZACIÓN REMOVIDA - La nueva implementación con batching funciona en todas las resoluciones */
-
-/* Mobile: Sin animaciones cinematográficas */
-@media (max-width: 768px) {
-  .hero-image-enter,
-  .hero-line-expand,
-  .hero-tag-enter,
-  .hero-title-word,
-  .hero-description-enter,
-  .hero-point-enter {
-    animation: none !important;
-    opacity: 1 !important;
-    transform: none !important;
-  }
-}
-
-/* Animación de entrada del contenido - Fade + Slide up (LEGACY - mantener para compatibilidad) */
-@keyframes heroContentEnter {
   from {
     opacity: 0;
     transform: translateY(30px);
@@ -231,32 +87,29 @@ html {
   }
 }
 
-.animate-hero-content-enter {
-  animation: heroContentEnter 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-}
-
-/* Animación de la línea decorativa - Expand from left (LEGACY) */
-.animate-hero-line-expand {
-  animation: heroLineExpand 0.6s cubic-bezier(0.16, 1, 0.3, 1) 0.2s backwards;
-}
-
-/* Animación de los puntos - Fade + Slide con stagger (LEGACY) */
-.animate-hero-point-enter {
-  animation: heroPointSlideIn 0.6s cubic-bezier(0.16, 1, 0.3, 1) backwards;
-}
-
-/* Desktop only: Aplicar animaciones solo en desktop */
-@media (max-width: 768px) {
-  .animate-hero-content-enter,
-  .animate-hero-line-expand,
-  .animate-hero-point-enter {
-    animation-duration: 0.3s !important;
+@keyframes heroPointSlideIn {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
   }
 }
 
-/* ===== SCROLL REVEAL - VERSIÓN PREMIUM Y SUTIL ===== */
+@keyframes heroContentEnter {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
 
-/* 1. Fade In suave - Sin movimiento, solo opacity */
+/* Scroll Animations */
 @keyframes scrollFadeIn {
   from {
     opacity: 0;
@@ -266,7 +119,6 @@ html {
   }
 }
 
-/* 2. Slide Up - Sube suavemente desde abajo */
 @keyframes scrollSlideUp {
   from {
     opacity: 0;
@@ -278,7 +130,6 @@ html {
   }
 }
 
-/* 3. Slide Left - Entra desde la derecha */
 @keyframes scrollSlideLeft {
   from {
     opacity: 0;
@@ -290,7 +141,6 @@ html {
   }
 }
 
-/* 4. Slide Right - Entra desde la izquierda */
 @keyframes scrollSlideRight {
   from {
     opacity: 0;
@@ -302,11 +152,10 @@ html {
   }
 }
 
-/* 5. Scale - Zoom in muy sutil */
 @keyframes scrollScale {
   from {
     opacity: 0;
-    transform: scale(0.98);
+    transform: scale(0.9);
   }
   to {
     opacity: 1;
@@ -314,44 +163,7 @@ html {
   }
 }
 
-/* Clase base - elemento oculto hasta que sea visible */
-.scroll-reveal {
-  opacity: 0;
-}
-
-/* Variantes de animación - Más suaves y fluidas */
-.scroll-reveal.is-visible.fade-in {
-  animation: scrollFadeIn 0.8s var(--ease-out-expo) forwards;
-}
-
-.scroll-reveal.is-visible.slide-up {
-  animation: scrollSlideUp 0.9s var(--ease-out-expo) forwards;
-}
-
-.scroll-reveal.is-visible.slide-left {
-  animation: scrollSlideLeft 0.9s var(--ease-out-expo) forwards;
-}
-
-.scroll-reveal.is-visible.slide-right {
-  animation: scrollSlideRight 0.9s var(--ease-out-expo) forwards;
-}
-
-.scroll-reveal.is-visible.scale {
-  animation: scrollScale 0.9s var(--ease-out-expo) forwards;
-}
-
-/* Mobile: Mostrar todo inmediatamente */
-@media (max-width: 768px) {
-  .scroll-reveal {
-    opacity: 1 !important;
-    animation: none !important;
-    transform: none !important;
-  }
-}
-
-/* ===== PRODUCT CARD STAGGER PREMIUM ===== */
-
-/* Animación simple - Solo fade in */
+/* Product & Page Animations */
 @keyframes productCardReveal {
   from {
     opacity: 0;
@@ -361,30 +173,10 @@ html {
   }
 }
 
-/* Aplicar a cards cuando el grupo es visible */
-.scroll-reveal.is-visible .product-card-enter {
-  animation: productCardReveal 0.6s var(--ease-out-expo) backwards;
-}
-
-/* Mobile: Mostrar inmediatamente */
-@media (max-width: 768px) {
-  .scroll-reveal.is-visible .product-card-enter {
-    animation: none !important;
-    opacity: 1 !important;
-  }
-}
-
-/* ===== OPTIMIZACIONES DE PERFORMANCE ===== */
-
-/* Page transitions - Reemplazo de framer-motion */
-.page-transition {
-  animation: pageTransition 0.25s ease-out;
-}
-
 @keyframes pageTransition {
   from {
     opacity: 0;
-    transform: translateY(8px);
+    transform: translateY(20px);
   }
   to {
     opacity: 1;
@@ -392,20 +184,14 @@ html {
   }
 }
 
-/* Fade in animation for category filter items */
 @keyframes fadeIn {
   from {
     opacity: 0;
-    transform: translateY(10px);
   }
   to {
     opacity: 1;
-    transform: translateY(0);
   }
 }
-
-/* ===== SMART STAGGER ANIMATIONS - CSS ONLY ===== */
-/* Animaciones simples y performantes para HeroCarousel */
 
 @keyframes simpleFadeIn {
   from {
@@ -416,27 +202,6 @@ html {
   }
 }
 
-/* Clases de utilidad para animaciones */
-.animate-fade-in {
-  animation: simpleFadeIn 0.4s ease-out forwards;
-}
-
-.animate-fade-in.delay-100 {
-  animation-delay: 0.1s;
-  opacity: 0;
-}
-
-.animate-fade-in.delay-200 {
-  animation-delay: 0.2s;
-  opacity: 0;
-}
-
-.animate-fade-in.delay-300 {
-  animation-delay: 0.3s;
-  opacity: 0;
-}
-
-/* Shimmer animation for power consumption bar */
 @keyframes shimmer {
   0% {
     background-position: -200% 0;
@@ -446,218 +211,22 @@ html {
   }
 }
 
-.animate-shimmer {
-  animation: shimmer 2s infinite;
-}
-
-/* ===== MICRO-INTERACCIONES PREMIUM ===== */
-
-/* Smooth hover transitions - Optimizado */
-.smooth-hover {
-  transition: transform var(--duration-fast) var(--ease-out-expo),
-              box-shadow var(--duration-fast) var(--ease-out-expo),
-              border-color var(--duration-fast) var(--ease-smooth);
-}
-
-/* Solo aplicar hover en dispositivos con mouse real */
-@media (hover: hover) and (pointer: fine) {
-  .smooth-hover:hover {
-    transform: translateY(-4px);
-  }
-}
-
-/* Botón premium - Efecto press + glow */
-.btn-premium {
-  position: relative;
-  transition: transform var(--duration-instant) var(--ease-out-expo),
-              box-shadow var(--duration-fast) var(--ease-smooth);
-}
-
-.btn-premium:active {
-  transform: scale(0.98);
-}
-
-@media (hover: hover) and (pointer: fine) {
-  .btn-premium:hover {
-    transform: translateY(-1px);
-  }
-  
-  .btn-premium:hover::before {
-    opacity: 1;
-  }
-}
-
-.btn-premium::before {
-  content: '';
-  position: absolute;
-  inset: -2px;
-  border-radius: inherit;
-  background: inherit;
-  filter: blur(8px);
-  opacity: 0;
-  z-index: -1;
-  transition: opacity var(--duration-normal) var(--ease-smooth);
-}
-
-/* Card premium - Lift effect suave */
-.card-premium {
-  transition: transform var(--duration-normal) var(--ease-out-expo),
-              box-shadow var(--duration-normal) var(--ease-out-expo);
-}
-
-@media (hover: hover) and (pointer: fine) {
-  .card-premium:hover {
-    transform: translateY(-8px) scale(1.02);
-  }
-}
-
-/* Input premium - Focus elegante */
-.input-premium {
-  transition: border-color var(--duration-fast) var(--ease-smooth),
-              box-shadow var(--duration-fast) var(--ease-smooth),
-              transform var(--duration-fast) var(--ease-out-expo);
-}
-
-.input-premium:focus {
-  transform: translateY(-1px);
-}
-
-/* Ripple effect sutil */
-@keyframes ripple {
-  0% {
-    transform: scale(0);
-    opacity: 0.6;
-  }
-  100% {
-    transform: scale(2.5);
-    opacity: 0;
-  }
-}
-
-.ripple-effect {
-  position: relative;
-  overflow: hidden;
-}
-
-.ripple-effect::after {
-  content: '';
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 100%;
-  height: 100%;
-  background: rgba(255, 255, 255, 0.5);
-  border-radius: 50%;
-  transform: translate(-50%, -50%) scale(0);
-  pointer-events: none;
-}
-
-.ripple-effect:active::after {
-  animation: ripple 0.6s var(--ease-out-expo);
-}
-
-/* GPU acceleration hints */
-.gpu-accelerated {
-  transform: translateZ(0);
-  backface-visibility: hidden;
-}
-
-/* Mobile: Remover will-change para evitar capas excesivas */
-@media (min-width: 769px) {
-  .gpu-accelerated {
-    will-change: transform;
-  }
-}
-
-/* PC Builder Card animation - Con GPU acceleration para iOS */
-.pc-builder-card-enter {
-  animation: pcBuilderCardEnter 0.4s ease-out backwards;
-  /* Forzar GPU acceleration */
-  transform: translateZ(0);
-  -webkit-transform: translateZ(0);
-  backface-visibility: hidden;
-  -webkit-backface-visibility: hidden;
-  perspective: 1000px;
-  -webkit-perspective: 1000px;
-}
-
+/* Component Specific Animations */
 @keyframes pcBuilderCardEnter {
   from {
     opacity: 0;
-    transform: translateY(20px) translateZ(0);
+    transform: translateY(20px);
   }
   to {
     opacity: 1;
-    transform: translateY(0) translateZ(0);
-  }
-}
-
-/* iOS: Mantener transform pero con GPU acceleration forzada */
-.is-ios .pc-builder-card-enter {
-  will-change: transform, opacity;
-  -webkit-transform: translateZ(0);
-  transform: translateZ(0);
-}
-
-/* Floating Chat Button animations */
-.floating-chat-enter {
-  animation: floatingChatEnter 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55) 1s backwards;
-}
-
-/* Estilos base del botón flotante para iOS */
-.floating-chat-button {
-  -webkit-tap-highlight-color: transparent;
-  touch-action: manipulation;
-  -webkit-transform: translateZ(0);
-  transform: translateZ(0);
-  -webkit-backface-visibility: hidden;
-  backface-visibility: hidden;
-}
-
-.shine-effect {
-  width: 50%;
-}
-
-.pulse-ring-effect,
-.chat-icon-container,
-.accent-line-effect {
-  -webkit-transform: translateZ(0);
-  transform: translateZ(0);
-}
-
-@media (min-width: 769px) {
-  .floating-chat-button,
-  .shine-effect,
-  .pulse-ring-effect,
-  .chat-icon-container,
-  .accent-line-effect {
-    will-change: transform;
-  }
-  
-  .pulse-ring-effect {
-    will-change: opacity;
+    transform: translateY(0);
   }
 }
 
 @keyframes floatingChatEnter {
   from {
     opacity: 0;
-    transform: scale(0);
-  }
-  to {
-    opacity: 1;
-    transform: scale(1);
-  }
-}
-
-.chat-options-enter {
-  animation: chatOptionsEnter 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-}
-
-@keyframes chatOptionsEnter {
-  from {
-    opacity: 0;
-    transform: translateY(20px) scale(0.8);
+    transform: translateY(20px) scale(0.9);
   }
   to {
     opacity: 1;
@@ -665,116 +234,87 @@ html {
   }
 }
 
-/* Chat button animations */
+@keyframes chatOptionsEnter {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Chat Button Animations */
 @keyframes shine {
-  from { transform: translateX(-100%); }
-  to { transform: translateX(200%); }
+  from { 
+    transform: translateX(-100%); 
+  }
+  to { 
+    transform: translateX(200%); 
+  }
 }
 
 @keyframes pulse-ring {
   0%, 100% { 
     transform: scale(1);
-    opacity: 0.5;
+    opacity: 1;
   }
   50% { 
-    transform: scale(1.3);
-    opacity: 0;
+    transform: scale(1.1);
+    opacity: 0.5;
   }
 }
 
 @keyframes wiggle {
-  0%, 100% { transform: rotate(0deg); }
-  25% { transform: rotate(10deg); }
-  75% { transform: rotate(-10deg); }
+  0%, 100% { 
+    transform: rotate(0deg); 
+  }
+  25% { 
+    transform: rotate(10deg); 
+  }
+  75% { 
+    transform: rotate(-10deg); 
+  }
 }
 
 @keyframes arrow-bounce {
-  0%, 100% { transform: translateX(0); }
-  50% { transform: translateX(5px); }
+  0%, 100% { 
+    transform: translateX(0); 
+  }
+  50% { 
+    transform: translateX(5px); 
+  }
 }
 
 @keyframes accent-line {
-  0%, 100% { transform: scaleX(0); }
-  50% { transform: scaleX(1); }
-}
-
-@keyframes float-particle-1 {
   0%, 100% { 
-    transform: translateY(0);
-    opacity: 0;
+    transform: scaleX(0); 
   }
   50% { 
-    transform: translateY(-20px);
-    opacity: 1;
+    transform: scaleX(1); 
   }
 }
 
-@keyframes float-particle-2 {
-  0%, 100% { 
-    transform: translateY(0);
-    opacity: 0;
-  }
-  50% { 
-    transform: translateY(-15px);
-    opacity: 1;
-  }
-}
-
-.animate-shine {
-  animation: shine 3s linear infinite;
-}
-
-.animate-pulse-ring {
-  animation: pulse-ring 2s ease-out infinite;
-}
-
-.animate-wiggle {
-  animation: wiggle 2s ease-in-out infinite;
-}
-
-.animate-arrow-bounce {
-  animation: arrow-bounce 1.5s ease-in-out infinite;
-}
-
-.animate-accent-line {
-  animation: accent-line 2s ease-in-out infinite;
-}
-
-.animate-float-particle-1 {
-  animation: float-particle-1 3s ease-in-out infinite;
-}
-
-.animate-float-particle-2 {
-  animation: float-particle-2 2.5s ease-in-out 0.5s infinite;
-}
-
-/* Header animations */
-.header-bot-enter {
-  animation: headerBotEnter 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55) 0.8s backwards;
-}
-
+/* Header Animations */
 @keyframes headerBotEnter {
   from {
     opacity: 0;
-    transform: translateX(-20px);
+    transform: translateY(-10px);
   }
   to {
     opacity: 1;
-    transform: translateX(0);
+    transform: translateY(0);
   }
 }
 
-.animate-bot-pulse {
-  animation: botPulse 2s ease-in-out infinite;
-}
-
 @keyframes botPulse {
-  0%, 100% { transform: scale(1); }
-  50% { transform: scale(1.15); }
-}
-
-.animate-bot-glow {
-  animation: botGlow 2s ease-in-out infinite;
+  0%, 100% { 
+    transform: scale(1); 
+  }
+  50% { 
+    transform: scale(1.15); 
+  }
 }
 
 @keyframes botGlow {
@@ -783,22 +323,18 @@ html {
     opacity: 0.6;
   }
   50% { 
-    transform: scale(1.5);
-    opacity: 0;
+    transform: scale(1.2);
+    opacity: 1;
   }
 }
 
-.animate-arrow-wiggle {
-  animation: arrowWiggle 1.5s ease-in-out infinite;
-}
-
 @keyframes arrowWiggle {
-  0%, 100% { transform: translateX(0); }
-  50% { transform: translateX(3px); }
-}
-
-.animate-button-float {
-  animation: buttonFloat 2s ease-in-out infinite;
+  0%, 100% { 
+    transform: translateX(0); 
+  }
+  50% { 
+    transform: translateX(3px); 
+  }
 }
 
 @keyframes buttonFloat {
@@ -806,29 +342,22 @@ html {
     transform: scale(1) translateY(0);
   }
   50% { 
-    transform: scale(1.08) translateY(-3px);
+    transform: scale(1.05) translateY(-2px);
   }
-}
-
-.animate-button-glow {
-  animation: buttonGlow 2s ease-in-out infinite;
 }
 
 @keyframes buttonGlow {
   0%, 100% { 
     transform: scale(1);
-    opacity: 0.7;
+    opacity: 0.8;
   }
   50% { 
-    transform: scale(1.6);
-    opacity: 0;
+    transform: scale(1.1);
+    opacity: 1;
   }
 }
 
-.search-results-enter {
-  animation: searchResultsEnter 0.2s ease-out;
-}
-
+/* Search & Modal Animations */
 @keyframes searchResultsEnter {
   from {
     opacity: 0;
@@ -840,654 +369,54 @@ html {
   }
 }
 
-.modal-scale-enter {
-  animation: modalScaleEnter 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-}
-
 @keyframes modalScaleEnter {
   from {
     opacity: 0;
-    transform: scale(0.95) translateY(20px);
+    transform: scale(0.95);
   }
   to {
     opacity: 1;
-    transform: scale(1) translateY(0);
+    transform: scale(1);
   }
 }
 
-/* Reduce motion para accesibilidad */
-@media (prefers-reduced-motion: reduce) {
-  .page-transition,
-  .product-card-enter,
-  .smooth-hover,
-  .carousel-image-transition,
-  .carousel-content-transition,
-  .carousel-point-transition,
-  .pc-builder-card-enter,
-  .floating-chat-enter,
-  .chat-options-enter,
-  .animate-shine,
-  .animate-pulse-ring,
-  .animate-wiggle,
-  .animate-arrow-bounce,
-  .animate-accent-line,
-  .animate-float-particle-1,
-  .animate-float-particle-2,
-  .header-bot-enter,
-  .animate-bot-pulse,
-  .animate-bot-glow,
-  .animate-arrow-wiggle,
-  .animate-button-float,
-  .animate-button-glow,
-  .search-results-enter,
-  .modal-scale-enter,
-  .animate-hero-content-enter,
-  .animate-hero-line-expand,
-  .animate-hero-point-enter,
-  .scroll-reveal {
-    animation: none !important;
-    transition: none !important;
-    opacity: 1 !important;
-  }
-}
-
-/* Mobile/iOS: Reducir animaciones pesadas */
-@media (max-width: 768px) {
-  .animate-pulse-ring,
-  .animate-wiggle,
-  .animate-accent-line,
-  .animate-float-particle-1,
-  .animate-float-particle-2,
-  .animate-bot-pulse,
-  .animate-bot-glow,
-  .animate-button-float,
-  .animate-button-glow,
-  .animate-shimmer {
-    animation: none !important;
-  }
-  
-  /* Floating chat button: visible inmediatamente en mobile */
-  .floating-chat-enter {
-    animation: none !important;
-    opacity: 1 !important;
-    transform: scale(1) !important;
-  }
-  
-  /* Mantener animaciones básicas pero más rápidas */
-  .page-transition,
-  .product-card-enter {
-    animation-duration: 0.15s !important;
-  }
-}
-
-/* iOS específico: Asegurar visibilidad del botón flotante */
-.is-ios .floating-chat-enter {
-  animation: none !important;
-  opacity: 1 !important;
-  transform: scale(1) translate3d(0, 0, 0) !important;
-  -webkit-transform: scale(1) translate3d(0, 0, 0) !important;
-  visibility: visible !important;
-  display: block !important;
-  position: fixed !important;
-  z-index: 9999 !important;
-}
-
-/* ===== MODAL FULLSCREEN - GENÉRICO PARA TODOS LOS DISPOSITIVOS ===== */
-
-.modal-fullscreen-wrapper {
-  position: fixed !important;
-  top: 0 !important;
-  left: 0 !important;
-  right: 0 !important;
-  bottom: 0 !important;
-  z-index: 999999 !important;
-  overflow: hidden !important;
-  transform: translate3d(0, 0, 0) !important;
-  -webkit-transform: translate3d(0, 0, 0) !important;
-  -webkit-backface-visibility: hidden !important;
-  backface-visibility: hidden !important;
-  /* Fallback primero, luego el moderno */
-  width: 100vw !important;
-  height: 100vh !important;
-  width: 100dvw !important;
-  height: 100dvh !important;
-}
-
-/* iOS Safari: Forzar rendering y visibilidad */
-@supports (-webkit-touch-callout: none) {
-  .modal-fullscreen-wrapper {
-    position: fixed !important;
-    top: 0 !important;
-    left: 0 !important;
-    width: 100vw !important;
-    height: 100vh !important;
-    height: 100dvh !important;
-    z-index: 2147483647 !important; /* Max z-index para iOS */
-    -webkit-transform: translate3d(0, 0, 0) !important;
-    transform: translate3d(0, 0, 0) !important;
-    will-change: transform !important;
-  }
-}
-
-.modal-fullscreen-backdrop {
-  position: absolute !important;
-  inset: 0 !important;
-  background: linear-gradient(to bottom right, rgba(0, 0, 0, 0.9), rgba(17, 24, 39, 0.95), rgba(0, 0, 0, 0.9)) !important;
-  z-index: 1 !important;
-}
-
-.modal-fullscreen-content {
-  position: absolute !important;
-  inset: 0 !important;
-  z-index: 2 !important;
-  display: flex !important;
-  flex-direction: column !important;
-  transform: translate3d(0, 0, 0) !important;
-  -webkit-transform: translate3d(0, 0, 0) !important;
-}
-
-.modal-fullscreen-header {
-  flex-shrink: 0 !important;
-  background: linear-gradient(to bottom right, rgb(17, 24, 39), rgb(31, 41, 55), rgb(17, 24, 39)) !important;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
-  padding: 1.5rem 1.25rem !important;
-  display: flex !important;
-  align-items: center !important;
-  justify-content: space-between !important;
-  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25) !important;
-  position: relative !important;
-  overflow: hidden !important;
-}
-
-.modal-fullscreen-scroll {
-  flex: 1 !important;
-  overflow-y: auto !important;
-  overflow-x: hidden !important;
-  -webkit-overflow-scrolling: touch !important;
-  overscroll-behavior: contain !important;
-  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%) !important;
-  padding: 1.5rem 1rem !important;
-  position: relative !important;
-}
-
-.modal-fullscreen-footer {
-  flex-shrink: 0 !important;
-  background: linear-gradient(to top, rgb(17, 24, 39), rgb(31, 41, 55), rgb(17, 24, 39)) !important;
-  border-top: 1px solid rgba(255, 255, 255, 0.1) !important;
-  box-shadow: 0 -25px 50px -12px rgba(0, 0, 0, 0.25) !important;
-  position: relative !important;
-  overflow: hidden !important;
-  /* Fallback primero, luego el moderno con safe-area */
-  padding: 1.25rem !important;
-  padding-bottom: calc(1.25rem + env(safe-area-inset-bottom, 0px)) !important;
-}
-
-/* ===== FLOATING BUTTON - GENÉRICO PARA TODOS LOS DISPOSITIVOS ===== */
-
-.floating-button-fixed {
-  position: fixed !important;
-  z-index: 99999 !important;
-  transform: translate3d(0, 0, 0) !important;
-  -webkit-transform: translate3d(0, 0, 0) !important;
-  -webkit-backface-visibility: hidden !important;
-  backface-visibility: hidden !important;
-  cursor: pointer !important;
-  -webkit-tap-highlight-color: transparent !important;
-  touch-action: manipulation !important;
-  /* Usar dvh (dynamic viewport height) para iOS - se ajusta automáticamente con teclado */
-  bottom: calc(1rem + env(safe-area-inset-bottom, 0px)) !important;
-  left: calc(1rem + env(safe-area-inset-left, 0px)) !important;
-  will-change: transform !important;
-}
-
-.floating-button-fixed-right {
-  position: fixed !important;
-  z-index: 99999 !important;
-  transform: translate3d(0, 0, 0) !important;
-  -webkit-transform: translate3d(0, 0, 0) !important;
-  -webkit-backface-visibility: hidden !important;
-  backface-visibility: hidden !important;
-  cursor: pointer !important;
-  -webkit-tap-highlight-color: transparent !important;
-  touch-action: manipulation !important;
-  /* Usar dvh (dynamic viewport height) para iOS - se ajusta automáticamente con teclado */
-  bottom: calc(1rem + env(safe-area-inset-bottom, 0px)) !important;
-  right: calc(1rem + env(safe-area-inset-right, 0px)) !important;
-  will-change: transform !important;
-}
-
-@media (min-width: 640px) {
-  .floating-button-fixed {
-    bottom: calc(1.5rem + env(safe-area-inset-bottom, 0px)) !important;
-    left: calc(1.5rem + env(safe-area-inset-left, 0px)) !important;
-  }
-  
-  .floating-button-fixed-right {
-    bottom: calc(1.5rem + env(safe-area-inset-bottom, 0px)) !important;
-    right: calc(1.5rem + env(safe-area-inset-right, 0px)) !important;
-  }
-}
-
-/* Mobile: Optimizaciones adicionales */
-@media (max-width: 768px) {
-  /* Hero transitions más rápidas en mobile */
-  .animate-hero-content-enter,
-  .animate-hero-line-expand,
-  .animate-hero-point-enter {
-    animation-duration: 0.3s !important;
-  }
-  
-  /* Reducir blur de forma inteligente - mantener diseño pero optimizar */
-  .blur-\[120px\] { 
-    filter: blur(60px) !important; /* Reducido 50% en vez de 66% */
-  }
-  .blur-\[80px\] { 
-    filter: blur(40px) !important; /* Reducido 50% */
-  }
-  .blur-3xl { 
-    filter: blur(32px) !important; /* Reducido ~33% */
-  }
-  .blur-2xl { 
-    filter: blur(20px) !important; /* Reducido ~20% */
-  }
-  .blur-xl { 
-    filter: blur(16px) !important; /* Mantener blur-xl */
-  }
-  
-  /* Backdrop blur más suave pero presente */
-  .backdrop-blur-3xl {
-    backdrop-filter: blur(32px) !important;
-  }
-  .backdrop-blur-2xl {
-    backdrop-filter: blur(20px) !important;
-  }
-  .backdrop-blur-xl {
-    backdrop-filter: blur(16px) !important;
-  }
-  .backdrop-blur-lg {
-    backdrop-filter: blur(12px) !important;
-  }
-  .backdrop-blur-md {
-    backdrop-filter: blur(8px) !important;
-  }
-  
-  /* Desactivar will-change en mobile para ahorrar memoria */
-  * {
-    will-change: auto !important;
-  }
-  
-  /* Simplificar sombras complejas pero mantener profundidad */
-  .shadow-2xl {
-    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2) !important;
-  }
-  .shadow-xl {
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15) !important;
-  }
-}
-
-/* --- CONFIGURACIÓN DE MALLA ABSTRACTA (OPTIMIZADA) --- */
-
-.mesh-container {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  filter: blur(40px) contrast(1.2);
-  opacity: 0.6;
-  will-change: transform;
-}
-
-/* iOS/Mobile: Reducir blur pero mantener presencia visual */
-@media (max-width: 768px) {
-  .mesh-container {
-    filter: blur(30px) contrast(1.15);
-    opacity: 0.5;
-  }
-}
-
-.blob {
-  position: absolute;
-  width: 500px;
-  height: 500px;
-  border-radius: 50%;
-  mix-blend-mode: screen;
-  will-change: transform;
-}
-
-/* Mobile: Blobs más pequeños para mejor performance */
-@media (max-width: 768px) {
-  .blob {
-    width: 350px;
-    height: 350px;
-  }
-}
-
-/* Animaciones Orbitales Simplificadas */
+/* Orbital Animations */
 @keyframes orbit-1 {
-  0%, 100% { transform: translate(0%, 0%) scale(1); }
-  50% { transform: translate(20%, 15%) scale(1.1); }
+  0%, 100% { 
+    transform: translate(0%, 0%) scale(1); 
+  }
+  50% { 
+    transform: translate(20%, 15%) scale(1.1); 
+  }
 }
 
 @keyframes orbit-2 {
-  0%, 100% { transform: translate(20%, -10%) scale(1.1); }
-  50% { transform: translate(-20%, 20%) scale(1.2); }
+  0%, 100% { 
+    transform: translate(20%, -10%) scale(1.1); 
+  }
+  50% { 
+    transform: translate(-20%, 20%) scale(1.2); 
+  }
 }
 
 @keyframes orbit-3 {
-  0%, 100% { transform: translate(-20%, 20%); }
-  50% { transform: translate(30%, -10%) scale(1.1); }
-}
-
-.animate-orbit-1 { animation: orbit-1 20s infinite ease-in-out; }
-.animate-orbit-2 { animation: orbit-2 25s infinite ease-in-out; }
-.animate-orbit-3 { animation: orbit-3 18s infinite ease-in-out; }
-
-/* Mobile/iOS: Desactivar animaciones orbitales pesadas */
-@media (max-width: 768px) {
-  .animate-orbit-1,
-  .animate-orbit-2,
-  .animate-orbit-3 {
-    animation: none !important;
+  0%, 100% { 
+    transform: translate(-20%, 20%); 
+  }
+  50% { 
+    transform: translate(30%, -10%) scale(1.1); 
   }
 }
 
-/* Textura de Grano (Optimizada) */
-.bg-grain {
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
-  opacity: 0.04;
-}
-
-.mask-edge-left {
-  mask-image: linear-gradient(to right, black 70%, transparent 100%);
-}
-
-.hero-overlay-mask {
-  background: linear-gradient(to right, rgba(3, 7, 18, 0) 20%, rgba(3, 7, 18, 0.8) 80%);
-}
-
-.text-shadow-premium {
-  text-shadow: 0 4px 15px rgba(0, 0, 0, 0.8), 0 2px 4px rgba(0, 0, 0, 0.5);
-}
-
-
-
-.font-outfit { font-family: 'Outfit', sans-serif; }
-
-/* ===== AMBIENT GLOWS - OPTIMIZADOS PARA MOBILE ===== */
-
-/* Desktop: Glows completos */
-.text-glow-blue { 
-  text-shadow: 0 0 20px rgba(59, 130, 246, 0.5), 0 0 40px rgba(59, 130, 246, 0.3); 
-}
-.text-glow-emerald { 
-  text-shadow: 0 0 20px rgba(16, 185, 129, 0.5), 0 0 40px rgba(16, 185, 129, 0.3); 
-}
-.text-glow-orange { 
-  text-shadow: 0 0 20px rgba(249, 115, 22, 0.5), 0 0 40px rgba(249, 115, 22, 0.3); 
-}
-.text-glow-purple { 
-  text-shadow: 0 0 20px rgba(168, 85, 247, 0.5), 0 0 40px rgba(168, 85, 247, 0.3); 
-}
-.text-glow-cyan { 
-  text-shadow: 0 0 20px rgba(6, 182, 212, 0.5), 0 0 40px rgba(6, 182, 212, 0.3); 
-}
-.text-glow-red { 
-  text-shadow: 0 0 20px rgba(239, 68, 68, 0.5), 0 0 40px rgba(239, 68, 68, 0.3); 
-}
-
-/* Box glows para componentes */
-.box-glow-blue { 
-  box-shadow: 0 0 30px rgba(59, 130, 246, 0.3), 0 0 60px rgba(59, 130, 246, 0.15); 
-}
-.box-glow-emerald { 
-  box-shadow: 0 0 30px rgba(16, 185, 129, 0.3), 0 0 60px rgba(16, 185, 129, 0.15); 
-}
-.box-glow-orange { 
-  box-shadow: 0 0 30px rgba(249, 115, 22, 0.3), 0 0 60px rgba(249, 115, 22, 0.15); 
-}
-.box-glow-purple { 
-  box-shadow: 0 0 30px rgba(168, 85, 247, 0.3), 0 0 60px rgba(168, 85, 247, 0.15); 
-}
-
-/* Mobile: Glows más sutiles pero presentes */
-@media (max-width: 768px) {
-  .text-glow-blue { 
-    text-shadow: 0 0 12px rgba(59, 130, 246, 0.6), 0 0 24px rgba(59, 130, 246, 0.3); 
-  }
-  .text-glow-emerald { 
-    text-shadow: 0 0 12px rgba(16, 185, 129, 0.6), 0 0 24px rgba(16, 185, 129, 0.3); 
-  }
-  .text-glow-orange { 
-    text-shadow: 0 0 12px rgba(249, 115, 22, 0.6), 0 0 24px rgba(249, 115, 22, 0.3); 
-  }
-  .text-glow-purple { 
-    text-shadow: 0 0 12px rgba(168, 85, 247, 0.6), 0 0 24px rgba(168, 85, 247, 0.3); 
-  }
-  .text-glow-cyan { 
-    text-shadow: 0 0 12px rgba(6, 182, 212, 0.6), 0 0 24px rgba(6, 182, 212, 0.3); 
-  }
-  .text-glow-red { 
-    text-shadow: 0 0 12px rgba(239, 68, 68, 0.6), 0 0 24px rgba(239, 68, 68, 0.3); 
-  }
-  
-  /* Box glows más sutiles en mobile */
-  .box-glow-blue { 
-    box-shadow: 0 0 20px rgba(59, 130, 246, 0.25), 0 0 40px rgba(59, 130, 246, 0.12); 
-  }
-  .box-glow-emerald { 
-    box-shadow: 0 0 20px rgba(16, 185, 129, 0.25), 0 0 40px rgba(16, 185, 129, 0.12); 
-  }
-  .box-glow-orange { 
-    box-shadow: 0 0 20px rgba(249, 115, 22, 0.25), 0 0 40px rgba(249, 115, 22, 0.12); 
-  }
-  .box-glow-purple { 
-    box-shadow: 0 0 20px rgba(168, 85, 247, 0.25), 0 0 40px rgba(168, 85, 247, 0.12); 
-  }
-}
-
-/* ===== OPTIMIZACIONES POR TIER DE PERFORMANCE ===== */
-
-/* TIER LOW - Dispositivos de gama baja (3+ factores negativos) */
-.perf-low .text-glow-blue,
-.perf-low .text-glow-emerald,
-.perf-low .text-glow-orange,
-.perf-low .text-glow-purple,
-.perf-low .text-glow-cyan,
-.perf-low .text-glow-red {
-  text-shadow: 0 0 8px currentColor !important;
-}
-
-.perf-low .box-glow-blue,
-.perf-low .box-glow-emerald,
-.perf-low .box-glow-orange,
-.perf-low .box-glow-purple {
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3) !important;
-}
-
-/* Reducir blur agresivamente */
-.perf-low .blur-\[120px\],
-.perf-low .blur-\[100px\],
-.perf-low .blur-\[80px\] {
-  filter: blur(20px) !important;
-}
-
-.perf-low .blur-3xl {
-  filter: blur(16px) !important;
-}
-
-.perf-low .blur-2xl,
-.perf-low .blur-xl {
-  filter: blur(12px) !important;
-}
-
-/* Desactivar backdrop-blur completamente */
-.perf-low .backdrop-blur-3xl,
-.perf-low .backdrop-blur-2xl,
-.perf-low .backdrop-blur-xl,
-.perf-low .backdrop-blur-lg,
-.perf-low .backdrop-blur-md {
-  backdrop-filter: none !important;
-  -webkit-backdrop-filter: none !important;
-  background-color: rgba(0, 0, 0, 0.4) !important;
-}
-
-/* Desactivar animaciones infinitas */
-.perf-low .animate-pulse,
-.perf-low .animate-orbit-1,
-.perf-low .animate-orbit-2,
-.perf-low .animate-orbit-3,
-.perf-low .animate-shimmer,
-.perf-low .animate-pulse-ring,
-.perf-low .animate-wiggle,
-.perf-low .animate-bot-pulse,
-.perf-low .animate-bot-glow,
-.perf-low .animate-button-float,
-.perf-low .animate-button-glow,
-.perf-low .animate-float-particle-1,
-.perf-low .animate-float-particle-2 {
-  animation: none !important;
-}
-
-/* Simplificar mesh container */
-.perf-low .mesh-container {
-  filter: blur(15px) contrast(1.05) !important;
-  opacity: 0.3 !important;
-}
-
-/* Desactivar will-change */
-.perf-low * {
-  will-change: auto !important;
-}
-
-/* TIER MEDIUM - Dispositivos intermedios (2 factores negativos) */
-.perf-medium .blur-\[120px\],
-.perf-medium .blur-\[100px\] {
-  filter: blur(40px) !important;
-}
-
-.perf-medium .blur-\[80px\] {
-  filter: blur(32px) !important;
-}
-
-.perf-medium .blur-3xl {
-  filter: blur(24px) !important;
-}
-
-/* Reducir backdrop-blur */
-.perf-medium .backdrop-blur-3xl {
-  backdrop-filter: blur(16px) !important;
-}
-
-.perf-medium .backdrop-blur-2xl {
-  backdrop-filter: blur(12px) !important;
-}
-
-/* Desactivar algunas animaciones pesadas */
-.perf-medium .animate-orbit-1,
-.perf-medium .animate-orbit-2,
-.perf-medium .animate-orbit-3,
-.perf-medium .animate-float-particle-1,
-.perf-medium .animate-float-particle-2 {
-  animation: none !important;
-}
-
-/* Simplificar mesh */
-.perf-medium .mesh-container {
-  filter: blur(30px) contrast(1.1) !important;
-  opacity: 0.5 !important;
-}
-
-/* TIER HIGH - Dispositivos de alta gama (0-1 factores negativos) */
-/* Sin restricciones, usar todos los efectos */
-
-/* Legacy support - mantener compatibilidad con .is-low-end */
-.is-low-end .text-glow-blue,
-.is-low-end .text-glow-emerald,
-.is-low-end .text-glow-orange,
-.is-low-end .text-glow-purple,
-.is-low-end .text-glow-cyan,
-.is-low-end .text-glow-red {
-  text-shadow: 0 0 8px currentColor !important;
-}
-
-.is-low-end .box-glow-blue,
-.is-low-end .box-glow-emerald,
-.is-low-end .box-glow-orange,
-.is-low-end .box-glow-purple {
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3) !important;
-}
-
-.hero-mask-layer {
-  background: linear-gradient(to right, rgba(3, 7, 18, 0.2) 0%, rgba(3, 7, 18, 0.6) 40%, rgba(3, 7, 18, 0.95) 80%);
-}
-
-/* Animación de glowing gradient simplificada */
 @keyframes glowPulse {
-  0%, 100% { opacity: 0.3; }
-  50% { opacity: 0.6; }
+  0%, 100% { 
+    opacity: 0.3; 
+  }
+  50% { 
+    opacity: 0.6; 
+  }
 }
 
-/* Ocultar scrollbar pero mantener funcionalidad */
-.scrollbar-hide {
-  -ms-overflow-style: none;
-  scrollbar-width: none;
-}
-
-.scrollbar-hide::-webkit-scrollbar {
-  display: none;
-}
-
-/* ===== SCROLLBAR PERSONALIZADO MINIMALISTA (Solo para elementos específicos) ===== */
-
-/* Firefox - Solo para elementos con clase scrollbar-custom */
-.scrollbar-custom {
-  scrollbar-width: thin;
-  scrollbar-color: rgba(59, 130, 246, 0.5) rgba(15, 23, 42, 0.3);
-}
-
-/* Chrome, Edge, Safari - Solo para elementos con clase scrollbar-custom */
-.scrollbar-custom::-webkit-scrollbar {
-  width: 8px;
-  height: 8px;
-}
-
-.scrollbar-custom::-webkit-scrollbar-track {
-  background: rgba(15, 23, 42, 0.3);
-  border-radius: 10px;
-}
-
-.scrollbar-custom::-webkit-scrollbar-thumb {
-  background: linear-gradient(180deg, rgba(59, 130, 246, 0.6), rgba(37, 99, 235, 0.8));
-  border-radius: 10px;
-  border: 2px solid rgba(15, 23, 42, 0.3);
-  transition: all 0.3s ease;
-}
-
-.scrollbar-custom::-webkit-scrollbar-thumb:hover {
-  background: linear-gradient(180deg, rgba(59, 130, 246, 0.9), rgba(37, 99, 235, 1));
-  border-color: rgba(59, 130, 246, 0.2);
-}
-
-.scrollbar-custom::-webkit-scrollbar-thumb:active {
-  background: linear-gradient(180deg, rgba(37, 99, 235, 1), rgba(29, 78, 216, 1));
-}
-
-/* Scrollbar para elementos con fondo claro */
-.scrollbar-light::-webkit-scrollbar-track {
-  background: rgba(226, 232, 240, 0.5);
-}
-
-.scrollbar-light::-webkit-scrollbar-thumb {
-  background: linear-gradient(180deg, rgba(59, 130, 246, 0.4), rgba(37, 99, 235, 0.6));
-  border: 2px solid rgba(255, 255, 255, 0.5);
-}
-
-.scrollbar-light::-webkit-scrollbar-thumb:hover {
-  background: linear-gradient(180deg, rgba(59, 130, 246, 0.7), rgba(37, 99, 235, 0.9));
-}
-
-/* Floating animation for images */
 @keyframes float {
   0%, 100% {
     transform: translateY(0px);
@@ -1497,13 +426,6 @@ html {
   }
 }
 
-.animate-float {
-  animation: float 3s ease-in-out infinite;
-}
-
-/* ===== LOADER ANIMATIONS ===== */
-
-/* Partículas orbitales alrededor del logo */
 @keyframes orbitParticle1 {
   0% {
     transform: translate(-50%, -50%) rotate(0deg) translateX(80px) rotate(0deg);
@@ -1531,33 +453,15 @@ html {
   }
 }
 
-.animate-orbit-particle-1 {
-  animation: orbitParticle1 4s linear infinite;
-}
-
-.animate-orbit-particle-2 {
-  animation: orbitParticle2 5s linear infinite;
-}
-
-.animate-orbit-particle-3 {
-  animation: orbitParticle3 6s linear infinite;
-}
-
-/* Barra de progreso animada */
 @keyframes loadingBar {
   0% {
     transform: translateX(-100%);
   }
   100% {
-    transform: translateX(400%);
+    transform: translateX(100%);
   }
 }
 
-.animate-loading-bar {
-  animation: loadingBar 2s ease-in-out infinite;
-}
-
-/* Gradiente animado para texto */
 @keyframes gradientX {
   0%, 100% {
     background-position: 0% 50%;
@@ -1567,12 +471,6 @@ html {
   }
 }
 
-.animate-gradient-x {
-  background-size: 200% 200%;
-  animation: gradientX 3s ease infinite;
-}
-
-/* Marquee animation for promotional slider */
 @keyframes marquee {
   0% {
     transform: translateX(0%);
@@ -1582,12 +480,6 @@ html {
   }
 }
 
-.animate-marquee {
-  display: inline-block;
-  animation: marquee 15s linear infinite;
-}
-
-/* RGB Chroma Effect - Flowing gradient border */
 @keyframes rgb-flow {
   0% {
     background-position: 0% 50%;
@@ -1600,12 +492,128 @@ html {
   }
 }
 
-.animate-rgb-flow {
-  background-size: 400% 400%;
-  animation: rgb-flow 4s ease-in-out infinite;
+@keyframes border-rotate {
+  100% {
+    transform: rotate(1turn);
+  }
 }
 
-/* RGB Flowing Gradient Border - Pseudo-elemento con gradiente que rota */
+@keyframes scroll-infinite {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+/* Rainbow border for featured card */
+@keyframes rainbow-border {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@keyframes border-spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* ============================================
+   CLASES DE ANIMACIÓN
+   ============================================ */
+
+.animate-hero-content-enter {
+  animation: heroContentEnter 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.animate-fade-in {
+  animation: simpleFadeIn 0.4s ease-out forwards;
+}
+
+.animate-shimmer {
+  animation: shimmer 2s infinite;
+}
+
+.animate-shine {
+  animation: shine 3s linear infinite;
+}
+
+.animate-pulse-ring {
+  animation: pulse-ring 2s ease-out infinite;
+}
+
+.animate-wiggle {
+  animation: wiggle 2s ease-in-out infinite;
+}
+
+.animate-arrow-bounce {
+  animation: arrow-bounce 1.5s ease-in-out infinite;
+}
+
+.animate-accent-line {
+  animation: accent-line 2s ease-in-out infinite;
+}
+
+.animate-bot-pulse {
+  animation: botPulse 2s ease-in-out infinite;
+}
+
+.animate-bot-glow {
+  animation: botGlow 2s ease-in-out infinite;
+}
+
+.animate-arrow-wiggle {
+  animation: arrowWiggle 1.5s ease-in-out infinite;
+}
+
+.animate-button-float {
+  animation: buttonFloat 2s ease-in-out infinite;
+}
+
+.animate-button-glow {
+  animation: buttonGlow 2s ease-in-out infinite;
+}
+
+.animate-scroll-infinite {
+  animation: scroll-infinite 30s linear infinite;
+  will-change: transform;
+}
+
+.animate-scroll-infinite:hover {
+  animation-play-state: paused;
+}
+
+.animate-rainbow-border {
+  background: linear-gradient(
+    90deg,
+    #3b82f6,
+    #8b5cf6,
+    #ec4899,
+    #f59e0b,
+    #10b981,
+    #3b82f6
+  );
+  background-size: 300% 300%;
+  animation: rainbow-border 3s ease infinite;
+}
+
+.animate-border-spin {
+  animation: border-spin 4s linear infinite;
+  will-change: transform;
+}
+
+/* RGB Flowing Border - CategoryFilter */
 .animate-border-rotate {
   position: relative;
 }
@@ -1639,298 +647,218 @@ html {
   will-change: transform;
 }
 
-@keyframes border-rotate {
-  100% {
-    transform: rotate(1turn);
+/* ============================================
+   COMPONENTES ESPECÍFICOS
+   ============================================ */
+
+.pc-builder-card-enter {
+  animation: pcBuilderCardEnter 0.4s ease-out backwards;
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  perspective: 1000px;
+}
+
+.floating-chat-enter {
+  animation: floatingChatEnter 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55) 1s backwards;
+}
+
+.chat-options-enter {
+  animation: chatOptionsEnter 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.header-bot-enter {
+  animation: headerBotEnter 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55) 0.8s backwards;
+}
+
+.search-results-enter {
+  animation: searchResultsEnter 0.2s ease-out;
+}
+
+.modal-scale-enter {
+  animation: modalScaleEnter 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.page-transition {
+  animation: pageTransition 0.25s ease-out;
+}
+
+.product-card-enter {
+  animation: productCardReveal 0.4s ease-out backwards;
+}
+
+/* ============================================
+   MODAL FULLSCREEN - Con !important
+   ============================================ */
+
+.modal-fullscreen-wrapper {
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  bottom: 0 !important;
+  width: 100vw !important;
+  height: 100vh !important;
+  height: 100dvh !important;
+  z-index: 99999 !important;
+  overflow: hidden !important;
+  -webkit-overflow-scrolling: touch !important;
+}
+
+.modal-fullscreen-backdrop {
+  position: absolute !important;
+  inset: 0 !important;
+  background: rgba(0, 0, 0, 0.8) !important;
+}
+
+.modal-fullscreen-content {
+  position: absolute !important;
+  inset: 0 !important;
+  display: flex !important;
+  flex-direction: column !important;
+  overflow: hidden !important;
+}
+
+.modal-fullscreen-header {
+  flex-shrink: 0 !important;
+  background: linear-gradient(to bottom right, rgb(17, 24, 39), rgb(31, 41, 55), rgb(17, 24, 39)) !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
+  padding: 1rem !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+}
+
+.modal-fullscreen-scroll {
+  flex: 1 !important;
+  overflow-y: auto !important;
+  overflow-x: hidden !important;
+  -webkit-overflow-scrolling: touch !important;
+  overscroll-behavior: contain !important;
+}
+
+.modal-fullscreen-footer {
+  flex-shrink: 0 !important;
+  background: linear-gradient(to top, rgb(17, 24, 39), rgb(31, 41, 55), rgb(17, 24, 39)) !important;
+  border-top: 1px solid rgba(255, 255, 255, 0.1) !important;
+  padding: 1rem !important;
+}
+
+/* ============================================
+   FLOATING BUTTONS - Con !important
+   ============================================ */
+
+.floating-button-fixed {
+  position: fixed !important;
+  z-index: 99999 !important;
+  bottom: 1.5rem !important;
+  left: 1.5rem !important;
+  -webkit-tap-highlight-color: transparent !important;
+  touch-action: manipulation !important;
+}
+
+.floating-button-fixed-right {
+  position: fixed !important;
+  z-index: 99999 !important;
+  bottom: 1.5rem !important;
+  right: 1.5rem !important;
+  -webkit-tap-highlight-color: transparent !important;
+  touch-action: manipulation !important;
+}
+
+/* ============================================
+   UTILIDADES PERSONALIZADAS
+   ============================================ */
+
+/* Grid auto rows */
+.auto-rows-fr {
+  grid-auto-rows: 1fr;
+}
+
+/* Grid Bento - Forzar misma altura en todas las filas */
+[data-catalog-results] .grid {
+  grid-auto-rows: minmax(0, 1fr);
+}
+
+/* Textura de grano */
+.bg-grain {
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+  opacity: 0.04;
+}
+
+/* Máscaras de gradiente */
+.mask-edge-left {
+  mask-image: linear-gradient(to right, black 70%, transparent 100%);
+}
+
+.hero-overlay-mask {
+  background: linear-gradient(to right, rgba(3, 7, 18, 0) 20%, rgba(3, 7, 18, 0.8) 80%);
+}
+
+/* Sombra de texto premium */
+.text-shadow-premium {
+  text-shadow: 0 4px 15px rgba(0, 0, 0, 0.8), 0 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+/* Glows de texto */
+.text-glow-blue { 
+  text-shadow: 0 0 20px rgba(59, 130, 246, 0.5), 0 0 40px rgba(59, 130, 246, 0.3); 
+}
+
+.text-glow-emerald { 
+  text-shadow: 0 0 20px rgba(16, 185, 129, 0.5), 0 0 40px rgba(16, 185, 129, 0.3); 
+}
+
+.text-glow-purple { 
+  text-shadow: 0 0 20px rgba(168, 85, 247, 0.5), 0 0 40px rgba(168, 85, 247, 0.3); 
+}
+
+/* ============================================
+   OPTIMIZACIONES MOBILE
+   ============================================ */
+
+@media (max-width: 768px) {
+  /* Simplificar glows en mobile */
+  .text-glow-blue,
+  .text-glow-emerald,
+  .text-glow-purple {
+    text-shadow: none;
+  }
+  
+  /* Reducir animaciones en mobile */
+  .animate-wiggle,
+  .animate-arrow-bounce,
+  .animate-button-float {
+    animation: none;
   }
 }
 
-/* Auto-scrolling infinite slider */
-@keyframes scroll-infinite {
-  0% {
-    transform: translateX(0);
-  }
-  100% {
-    transform: translateX(-50%);
-  }
-}
-
-.animate-scroll-infinite {
-  animation: scroll-infinite 30s linear infinite;
-  will-change: transform;
-}
-
-.animate-scroll-infinite:hover {
-  animation-play-state: paused;
-}
-
-/* ===== OPTIMIZACIONES ESPECÍFICAS PARA iOS ===== */
-
-/* iOS: Reducir blur pero mantener diseño */
-.is-ios .mesh-container {
-  filter: blur(25px) contrast(1.1);
-  opacity: 0.45;
-}
-
-/* iOS: Desactivar solo animaciones infinitas pesadas */
-.is-ios .animate-pulse,
-.is-ios .animate-orbit-1,
-.is-ios .animate-orbit-2,
-.is-ios .animate-orbit-3,
-.is-ios .animate-shimmer,
-.is-ios .animate-pulse-ring,
-.is-ios .animate-wiggle,
-.is-ios .animate-bot-pulse,
-.is-ios .animate-bot-glow,
-.is-ios .animate-button-float,
-.is-ios .animate-button-glow {
-  animation: none !important;
-}
-
-/* iOS: Optimizar scroll */
-.is-ios * {
-  -webkit-overflow-scrolling: touch;
-}
-
-/* iOS: Reducir transforms en hover pero mantener efecto */
-.is-ios .group:hover img {
-  transform: scale(1.05) !important;
-}
-
-/* Mobile: Simplificar animaciones */
-.is-mobile .product-card-enter {
-  animation-duration: 0.2s !important;
-}
-
-.is-mobile .page-transition {
-  animation-duration: 0.15s !important;
-}
-
-/* iOS: Mejorar rendering de texto */
-.is-ios * {
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-/* iOS: Prevenir zoom en inputs */
-.is-ios input,
-.is-ios select,
-.is-ios textarea {
-  font-size: 16px !important;
-}
-
-/* iOS: Optimizar capas de composición */
-.is-ios .gpu-accelerated {
-  will-change: auto !important;
-}
-
-/* Low-end devices: Desactivar efectos pesados pero mantener glows */
-.is-low-end .blur-\[120px\],
-.is-low-end .blur-\[80px\],
-.is-low-end .blur-3xl {
-  filter: blur(16px) !important; /* Mantener algo de blur */
-}
-
-.is-low-end .backdrop-blur-3xl,
-.is-low-end .backdrop-blur-2xl,
-.is-low-end .backdrop-blur-xl {
-  backdrop-filter: blur(8px) !important;
-}
-
-.is-low-end .animate-pulse,
-.is-low-end .animate-orbit-1,
-.is-low-end .animate-orbit-2,
-.is-low-end .animate-orbit-3 {
-  animation: none !important;
-}
-
-.is-low-end .mesh-container {
-  filter: blur(20px) contrast(1.05);
-  opacity: 0.35;
-}
-
-/* Reduce animations: Respetar preferencias del usuario */
-.reduce-animations * {
-  animation-duration: 0.01ms !important;
-  animation-iteration-count: 1 !important;
-  transition-duration: 0.01ms !important;
-}
-
-/* ===== VIEW TRANSITIONS API ===== */
-
-/* Mantener la posición durante la transición para evitar saltos */
-::view-transition-group(root) {
-  animation-duration: 0.25s;
-  animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-/* Transición por defecto para todas las páginas */
-::view-transition-old(root),
-::view-transition-new(root) {
-  animation-duration: 0.25s;
-  animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-  mix-blend-mode: normal;
-}
-
-/* Fade suave para la página saliente - sin movimiento */
-::view-transition-old(root) {
-  animation-name: fade-out-smooth;
-}
-
-/* Fade suave para la página entrante - sin movimiento */
-::view-transition-new(root) {
-  animation-name: fade-in-smooth;
-}
-
-@keyframes fade-out-smooth {
-  from {
-    opacity: 1;
-  }
-  to {
-    opacity: 0;
-  }
-}
-
-@keyframes fade-in-smooth {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-}
-
-/* Transiciones específicas para elementos con view-transition-name */
-
-/* Transición para imágenes de productos */
-::view-transition-old(product-image),
-::view-transition-new(product-image) {
-  animation-duration: 0.4s;
-  animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-::view-transition-old(product-image) {
-  animation-name: scale-fade-out;
-}
-
-::view-transition-new(product-image) {
-  animation-name: scale-fade-in;
-}
-
-@keyframes scale-fade-out {
-  from {
-    opacity: 1;
-    transform: scale(1);
-  }
-  to {
-    opacity: 0;
-    transform: scale(0.95);
-  }
-}
-
-@keyframes scale-fade-in {
-  from {
-    opacity: 0;
-    transform: scale(1.05);
-  }
-  to {
-    opacity: 1;
-    transform: scale(1);
-  }
-}
-
-/* Transición para modales */
-::view-transition-old(modal),
-::view-transition-new(modal) {
-  animation-duration: 0.25s;
-  animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-::view-transition-old(modal) {
-  animation-name: modal-fade-out;
-}
-
-::view-transition-new(modal) {
-  animation-name: modal-fade-in;
-}
-
-@keyframes modal-fade-out {
-  from {
-    opacity: 1;
-    transform: scale(1);
-  }
-  to {
-    opacity: 0;
-    transform: scale(0.98);
-  }
-}
-
-@keyframes modal-fade-in {
-  from {
-    opacity: 0;
-    transform: scale(0.98);
-  }
-  to {
-    opacity: 1;
-    transform: scale(1);
-  }
-}
-
-/* Transición para filtros y sidebar */
-::view-transition-old(sidebar),
-::view-transition-new(sidebar) {
-  animation-duration: 0.2s;
-  animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-::view-transition-old(sidebar) {
-  animation-name: slide-out-left;
-}
-
-::view-transition-new(sidebar) {
-  animation-name: slide-in-left;
-}
-
-@keyframes slide-out-left {
-  from {
-    opacity: 1;
-    transform: translateX(0);
-  }
-  to {
-    opacity: 0;
-    transform: translateX(-20px);
-  }
-}
-
-@keyframes slide-in-left {
-  from {
-    opacity: 0;
-    transform: translateX(-20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateX(0);
-  }
-}
-
-/* Reducir motion para usuarios con preferencias de accesibilidad */
+/* Reducir motion para accesibilidad */
 @media (prefers-reduced-motion: reduce) {
-  ::view-transition-old(root),
-  ::view-transition-new(root),
-  ::view-transition-old(product-image),
-  ::view-transition-new(product-image),
-  ::view-transition-old(modal),
-  ::view-transition-new(modal),
-  ::view-transition-old(sidebar),
-  ::view-transition-new(sidebar) {
+  *,
+  *::before,
+  *::after {
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
   }
 }
 
-/* ===== VIEW TRANSITIONS PARA LISTADOS Y FILTROS ===== */
+/* ============================================
+   VIEW TRANSITIONS
+   ============================================ */
 
-/* Transiciones para grid de productos */
+/* Category Filter Transitions */
+.category-filter {
+  view-transition-name: category-filter;
+}
+
+::view-transition-old(category-filter),
+::view-transition-new(category-filter) {
+  animation-duration: 0.3s;
+  animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Product Grid Transitions */
 .product-grid {
   view-transition-name: product-grid;
 }
@@ -1942,875 +870,12 @@ html {
 }
 
 ::view-transition-old(product-grid) {
-  animation-name: grid-fade-out;
+  animation-name: fadeIn;
 }
 
 ::view-transition-new(product-grid) {
-  animation-name: grid-fade-in;
+  animation-name: fadeIn;
 }
-
-@keyframes grid-fade-out {
-  from {
-    opacity: 1;
-    transform: scale(1);
-  }
-  to {
-    opacity: 0;
-    transform: scale(0.98);
-  }
-}
-
-@keyframes grid-fade-in {
-  from {
-    opacity: 0;
-    transform: scale(0.98);
-  }
-  to {
-    opacity: 1;
-    transform: scale(1);
-  }
-}
-
-/* Transiciones para cards individuales de productos */
-.product-card {
-  view-transition-name: var(--product-id);
-}
-
-/* Transiciones para filtros activos */
-.active-filters {
-  view-transition-name: active-filters;
-}
-
-::view-transition-old(active-filters),
-::view-transition-new(active-filters) {
-  animation-duration: 0.25s;
-  animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-::view-transition-old(active-filters) {
-  animation-name: filters-slide-out;
-}
-
-::view-transition-new(active-filters) {
-  animation-name: filters-slide-in;
-}
-
-@keyframes filters-slide-out {
-  from {
-    opacity: 1;
-    transform: translateY(0);
-  }
-  to {
-    opacity: 0;
-    transform: translateY(-10px);
-  }
-}
-
-@keyframes filters-slide-in {
-  from {
-    opacity: 0;
-    transform: translateY(10px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-/* Transiciones para cambio de vista (grid/list) */
-.view-mode-container {
-  view-transition-name: view-mode;
-}
-
-::view-transition-old(view-mode),
-::view-transition-new(view-mode) {
-  animation-duration: 0.35s;
-  animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-::view-transition-old(view-mode) {
-  animation-name: view-mode-out;
-}
-
-::view-transition-new(view-mode) {
-  animation-name: view-mode-in;
-}
-
-@keyframes view-mode-out {
-  from {
-    opacity: 1;
-    transform: scale(1) rotate(0deg);
-  }
-  to {
-    opacity: 0;
-    transform: scale(0.95) rotate(-2deg);
-  }
-}
-
-@keyframes view-mode-in {
-  from {
-    opacity: 0;
-    transform: scale(0.95) rotate(2deg);
-  }
-  to {
-    opacity: 1;
-    transform: scale(1) rotate(0deg);
-  }
-}
-
-/* Transiciones para contador de productos */
-.product-count {
-  view-transition-name: product-count;
-}
-
-::view-transition-old(product-count),
-::view-transition-new(product-count) {
-  animation-duration: 0.2s;
-  animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-::view-transition-old(product-count) {
-  animation-name: count-fade-out;
-}
-
-::view-transition-new(product-count) {
-  animation-name: count-fade-in;
-}
-
-@keyframes count-fade-out {
-  from {
-    opacity: 1;
-    transform: scale(1);
-  }
-  to {
-    opacity: 0;
-    transform: scale(0.8);
-  }
-}
-
-@keyframes count-fade-in {
-  from {
-    opacity: 0;
-    transform: scale(1.2);
-  }
-  to {
-    opacity: 1;
-    transform: scale(1);
-  }
-}
-
-/* Transiciones para ordenamiento */
-.sort-dropdown {
-  view-transition-name: sort-dropdown;
-}
-
-::view-transition-old(sort-dropdown),
-::view-transition-new(sort-dropdown) {
-  animation-duration: 0.2s;
-  animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-/* Transiciones para categorías */
-.category-filter {
-  view-transition-name: category-filter;
-}
-
-::view-transition-old(category-filter),
-::view-transition-new(category-filter) {
-  animation-duration: 0.3s;
-  animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-::view-transition-old(category-filter) {
-  animation-name: category-slide-out;
-}
-
-::view-transition-new(category-filter) {
-  animation-name: category-slide-in;
-}
-
-@keyframes category-slide-out {
-  from {
-    opacity: 1;
-    transform: translateX(0);
-  }
-  to {
-    opacity: 0;
-    transform: translateX(-20px);
-  }
-}
-
-@keyframes category-slide-in {
-  from {
-    opacity: 0;
-    transform: translateX(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateX(0);
-  }
-}
-
-/* Transiciones para sidebar de filtros */
-.filters-sidebar {
-  view-transition-name: filters-sidebar;
-}
-
-::view-transition-old(filters-sidebar),
-::view-transition-new(filters-sidebar) {
-  animation-duration: 0.25s;
-  animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-::view-transition-old(filters-sidebar) {
-  animation-name: sidebar-collapse;
-}
-
-::view-transition-new(filters-sidebar) {
-  animation-name: sidebar-expand;
-}
-
-@keyframes sidebar-collapse {
-  from {
-    opacity: 1;
-    transform: translateX(0) scale(1);
-  }
-  to {
-    opacity: 0;
-    transform: translateX(-30px) scale(0.95);
-  }
-}
-
-@keyframes sidebar-expand {
-  from {
-    opacity: 0;
-    transform: translateX(-30px) scale(0.95);
-  }
-  to {
-    opacity: 1;
-    transform: translateX(0) scale(1);
-  }
-}
-
-/* Animación para items individuales de filtro */
-.filter-item {
-  view-transition-name: var(--filter-id);
-}
-
-/* Transiciones para badges de filtros activos */
-.filter-badge {
-  view-transition-name: var(--badge-id);
-}
-
-::view-transition-old(filter-badge),
-::view-transition-new(filter-badge) {
-  animation-duration: 0.2s;
-  animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-/* Transiciones para empty states */
-.empty-state {
-  view-transition-name: empty-state;
-}
-
-::view-transition-old(empty-state),
-::view-transition-new(empty-state) {
-  animation-duration: 0.3s;
-  animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-::view-transition-new(empty-state) {
-  animation-name: empty-state-appear;
-}
-
-@keyframes empty-state-appear {
-  from {
-    opacity: 0;
-    transform: translateY(20px) scale(0.95);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0) scale(1);
-  }
-}
-
-/* Optimización: Deshabilitar transiciones complejas en mobile para mejor performance */
-@media (max-width: 768px) {
-  ::view-transition-old(product-grid),
-  ::view-transition-new(product-grid),
-  ::view-transition-old(view-mode),
-  ::view-transition-new(view-mode) {
-    animation-duration: 0.2s;
-  }
-  
-  @keyframes grid-fade-out {
-    from { opacity: 1; }
-    to { opacity: 0; }
-  }
-  
-  @keyframes grid-fade-in {
-    from { opacity: 0; }
-    to { opacity: 1; }
-  }
-}
-
-/* ===== SELECTORES :has() PARA ESTADOS VISUALES ===== */
-
-/* Drawer mobile - Simplifica clases condicionales */
-.drawer-container {
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity 0.3s;
-}
-
-.drawer-container:has(.drawer-open),
-.drawer-container.drawer-open {
-  opacity: 1;
-  pointer-events: auto;
-}
-
-.drawer-panel {
-  transform: translateX(-100%);
-  transition: transform 0.3s;
-}
-
-.drawer-container:has(.drawer-open) .drawer-panel,
-.drawer-container.drawer-open .drawer-panel {
-  transform: translateX(0);
-}
-
-/* Chat button - Rotaciones y animaciones basadas en estado */
-.chat-button-content:not(.expanded) .chat-icon {
-  animation: wiggle 2s ease-in-out infinite;
-}
-
-.chat-button-content.expanded .chat-icon {
-  transform: rotate(180deg);
-}
-
-.chat-button-content:not(.expanded) .chat-arrow {
-  animation: arrow-bounce 2s ease-in-out infinite;
-}
-
-.chat-button-content.expanded .chat-arrow {
-  transform: rotate(90deg);
-}
-
-/* Category dropdown - Rotación del icono */
-.category-dropdown.dropdown-open .dropdown-icon {
-  transform: rotate(180deg);
-}
-
-/* Input con valor - Mostrar botón clear */
-.search-container:has(input:not(:placeholder-shown)) .clear-button {
-  opacity: 1;
-  pointer-events: auto;
-  transform: scale(1);
-}
-
-.search-container .clear-button {
-  opacity: 0;
-  pointer-events: none;
-  transform: scale(0.8);
-  transition: all 0.2s;
-}
-
-/* Caso 2: Input con valor - mostrar botón de limpiar */
-.search-container:has(input:not(:placeholder-shown)) .clear-button {
-  opacity: 1;
-  pointer-events: auto;
-}
-
-/* Caso 3: Checkbox checked - cambiar estilo del label */
-.filter-item:has(input[type="checkbox"]:checked) {
-  background-color: rgb(239 246 255);
-  border-color: rgb(59 130 246);
-}
-
-.filter-item:has(input[type="checkbox"]:checked) .filter-label {
-  color: rgb(29 78 216);
-  font-weight: 600;
-}
-
-/* Caso 4: Card con imagen cargada - fade in suave */
-.product-card:has(img[data-loaded="true"]) {
-  opacity: 1;
-  transform: scale(1);
-}
-
-/* Caso 5: Contenedor con items seleccionados - mostrar badge */
-.category-button:has(.selected-indicator) {
-  background: linear-gradient(135deg, rgb(59 130 246), rgb(147 51 234));
-  color: white;
-}
-
-/* Caso 6: Form con errores - resaltar container */
-.form-group:has(input:invalid:not(:placeholder-shown)) {
-  border-color: rgb(239 68 68);
-}
-
-.form-group:has(input:invalid:not(:placeholder-shown)) label {
-  color: rgb(220 38 38);
-}
-
-/* Caso 7: Accordion expandido - rotar icono */
-.accordion-item:has(.accordion-content[data-expanded="true"]) .accordion-icon {
-  transform: rotate(180deg);
-}
-
-/* Caso 8: Hover en parent - highlight children */
-.product-grid:has(.product-card:hover) .product-card:not(:hover) {
-  opacity: 0.6;
-  transform: scale(0.98);
-}
-
-/* Caso 9: Modal abierto - bloquear scroll del body */
-body:has(.modal-open) {
-  overflow: hidden;
-}
-
-/* Caso 10: Sidebar con filtros activos - mostrar badge */
-.filters-sidebar:has(.active-filter) .clear-all-button {
-  display: flex;
-}
-
-/* Caso 11: Empty state - centrar contenido */
-.catalog-content:has(.empty-state) {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  min-height: 60vh;
-}
-
-/* Caso 12: Dropdown abierto - cambiar icono */
-.dropdown:has(.dropdown-menu[data-open="true"]) .dropdown-icon {
-  transform: rotate(180deg);
-}
-
-/* Caso 13: Card con badge - ajustar padding */
-.product-card:has(.discount-badge) {
-  padding-top: 2.5rem;
-}
-
-/* Caso 14: Grid con items impares - centrar último */
-.product-grid:has(.product-card:nth-child(odd):last-child) .product-card:last-child {
-  grid-column: span 2;
-  max-width: 50%;
-  margin: 0 auto;
-}
-
-/* Caso 15: Tabs con contenido activo - highlight tab */
-.tabs-container:has([data-tab="main"][data-active="true"]) .tab-main {
-  background-color: rgb(31 41 55);
-  color: white;
-}
-
-.tabs-container:has([data-tab="additional"][data-active="true"]) .tab-additional {
-  background-color: rgb(75 85 99);
-  color: white;
-}
-
-/* Caso 16: Botón con loading - deshabilitar hover */
-button:has(.loading-spinner) {
-  pointer-events: none;
-  opacity: 0.7;
-}
-
-/* Caso 17: Card expandida - cambiar layout del grid */
-.category-grid:has(.category-card.expanded) {
-  grid-template-columns: 1fr;
-}
-
-.category-grid:has(.category-card.expanded) .category-card:not(.expanded) {
-  display: none;
-}
-
-/* Caso 18: Input focus - highlight container */
-.input-group:has(input:focus) {
-  border-color: rgb(59 130 246);
-  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
-}
-
-/* Caso 19: Lista con items seleccionados - mostrar toolbar */
-.product-list:has(.product-item.selected) .bulk-actions-toolbar {
-  transform: translateY(0);
-  opacity: 1;
-}
-
-/* Caso 20: Sidebar colapsado - ajustar main content */
-.layout:has(.sidebar.collapsed) .main-content {
-  margin-left: 4rem;
-}
-
-/* Optimización: Deshabilitar :has() complejos en mobile */
-@media (max-width: 768px) {
-  /* Simplificar selectores pesados */
-  .product-grid:has(.product-card:hover) .product-card:not(:hover) {
-    opacity: 1;
-    transform: scale(1);
-  }
-}
-
-/* Fallback para navegadores sin soporte de :has() */
-@supports not (selector(:has(*))) {
-  /* Usar clases tradicionales como fallback */
-  .drawer-open .drawer-overlay {
-    opacity: 1;
-    pointer-events: auto;
-  }
-  
-  .drawer-open .drawer-panel {
-    transform: translateX(0);
-  }
-  
-  .filter-item.checked {
-    background-color: rgb(239 246 255);
-    border-color: rgb(59 130 246);
-  }
-}
-
-
-/* ===== iOS MOBILE PERFORMANCE FIX ===== */
-/* SOLO afecta iOS mobile (< 768px) - Desktop y Android sin cambios */
-@supports (-webkit-touch-callout: none) {
-  @media (max-width: 768px) {
-    /* Detecta iOS Safari MOBILE únicamente */
-    
-    /* Desactivar animaciones CSS problemáticas */
-    .animate-pulse,
-    .animate-float-particle-1,
-    .animate-float-particle-2,
-    .animate-shine,
-    .animate-pulse-ring,
-    .animate-accent-line {
-      animation: none !important;
-    }
-    
-    /* Reducir blur masivo que causa repaints */
-    .blur-\[100px\],
-    .blur-\[120px\] {
-      filter: blur(40px) !important;
-    }
-    
-    .blur-3xl {
-      filter: blur(32px) !important;
-    }
-    
-    .blur-2xl {
-      filter: blur(20px) !important;
-    }
-    
-    .blur-xl {
-      filter: blur(16px) !important;
-    }
-    
-    /* Desactivar backdrop-blur y usar background sólido */
-    .backdrop-blur-xl,
-    .backdrop-blur-lg,
-    .backdrop-blur-md,
-    .backdrop-blur-sm {
-      backdrop-filter: none !important;
-      -webkit-backdrop-filter: none !important;
-      background-color: rgba(0, 0, 0, 0.3) !important;
-    }
-    
-    /* Desactivar transiciones en elementos con blur */
-    [class*="blur-"] {
-      transition: none !important;
-    }
-    
-    /* Forzar GPU acceleration */
-    * {
-      -webkit-transform: translateZ(0);
-      -webkit-backface-visibility: hidden;
-    }
-  }
-}
-
-
-
-/* ===== VIEW TRANSITIONS API - CATEGORY FILTER ===== */
-
-/* Transición para el modal de categorías */
-.modal-fullscreen-wrapper {
-  view-transition-name: category-modal;
-}
-
-/* Transición suave para la apertura/cierre del modal */
-::view-transition-old(category-modal),
-::view-transition-new(category-modal) {
-  animation-duration: 0.35s;
-  animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-::view-transition-old(category-modal) {
-  animation-name: modal-fade-out;
-}
-
-::view-transition-new(category-modal) {
-  animation-name: modal-fade-in;
-}
-
-@keyframes modal-fade-out {
-  from {
-    opacity: 1;
-    transform: scale(1);
-  }
-  to {
-    opacity: 0;
-    transform: scale(0.95);
-  }
-}
-
-@keyframes modal-fade-in {
-  from {
-    opacity: 0;
-    transform: scale(0.95);
-  }
-  to {
-    opacity: 1;
-    transform: scale(1);
-  }
-}
-
-/* Transición para las tarjetas de categoría individuales */
-.category-card-transition {
-  view-transition-name: var(--category-name);
-}
-
-::view-transition-old(root),
-::view-transition-new(root) {
-  animation-duration: 0.3s;
-  animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-/* Transición para el backdrop del modal */
-.modal-fullscreen-backdrop {
-  animation: backdrop-fade-in 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-@keyframes backdrop-fade-in {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-}
-
-/* Prevenir saltos durante las transiciones */
-::view-transition-group(*) {
-  animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-/* Optimización para dispositivos móviles */
-@media (max-width: 640px) {
-  ::view-transition-old(category-modal),
-  ::view-transition-new(category-modal) {
-    animation-duration: 0.25s;
-  }
-}
-
-
-/* ===== VIEW TRANSITIONS API - CATEGORY FILTER ===== */
-
-/* Transición para el modal de categorías */
-.modal-fullscreen-wrapper {
-  view-transition-name: category-modal;
-}
-
-/* Transición suave para la apertura/cierre del modal */
-::view-transition-old(category-modal),
-::view-transition-new(category-modal) {
-  animation-duration: 0.35s;
-  animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-::view-transition-old(category-modal) {
-  animation-name: modal-fade-out;
-}
-
-::view-transition-new(category-modal) {
-  animation-name: modal-fade-in;
-}
-
-@keyframes modal-fade-out {
-  from {
-    opacity: 1;
-    transform: scale(1);
-  }
-  to {
-    opacity: 0;
-    transform: scale(0.95);
-  }
-}
-
-@keyframes modal-fade-in {
-  from {
-    opacity: 0;
-    transform: scale(0.95);
-  }
-  to {
-    opacity: 1;
-    transform: scale(1);
-  }
-}
-
-/* Transición para las tarjetas de categoría individuales */
-.category-card-transition {
-  view-transition-name: var(--category-name);
-}
-
-::view-transition-old(root),
-::view-transition-new(root) {
-  animation-duration: 0.3s;
-  animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-/* Transición para el backdrop del modal */
-.modal-fullscreen-backdrop {
-  animation: backdrop-fade-in 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-@keyframes backdrop-fade-in {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-}
-
-/* Prevenir saltos durante las transiciones */
-::view-transition-group(*) {
-  animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-/* Optimización para dispositivos móviles */
-@media (max-width: 640px) {
-  ::view-transition-old(category-modal),
-  ::view-transition-new(category-modal) {
-    animation-duration: 0.25s;
-  }
-}
-/* ===== ESTILOS ESPECÍFICOS PARA iOS ===== */
-
-/* Detección de iOS usando JavaScript - estas clases se agregan dinámicamente */
-.is-ios .floating-button-fixed,
-.is-ios .floating-button-fixed-right {
-  /* Forzar GPU acceleration y stacking context limpio */
-  -webkit-transform: translate3d(0, 0, 0) !important;
-  transform: translate3d(0, 0, 0) !important;
-  -webkit-backface-visibility: hidden !important;
-  backface-visibility: hidden !important;
-  -webkit-perspective: 1000 !important;
-  perspective: 1000 !important;
-  /* Asegurar visibilidad */
-  visibility: visible !important;
-  display: block !important;
-  opacity: 1 !important;
-  /* Stacking context limpio */
-  isolation: isolate !important;
-  contain: layout style paint !important;
-  /* Forzar posición fixed */
-  position: fixed !important;
-  will-change: transform !important;
-}
-
-/* iOS Safari: Usar dvh (dynamic viewport height) para ajuste automático con teclado */
-@supports (-webkit-touch-callout: none) {
-  .floating-button-fixed {
-    /* dvh se ajusta automáticamente cuando aparece el teclado o cambia la barra de Safari */
-    bottom: calc(1rem + env(safe-area-inset-bottom, 0px)) !important;
-    left: calc(1rem + env(safe-area-inset-left, 0px)) !important;
-    position: fixed !important;
-    -webkit-transform: translate3d(0, 0, 0) !important;
-    transform: translate3d(0, 0, 0) !important;
-  }
-  
-  .floating-button-fixed-right {
-    /* dvh se ajusta automáticamente cuando aparece el teclado o cambia la barra de Safari */
-    bottom: calc(1rem + env(safe-area-inset-bottom, 0px)) !important;
-    right: calc(1rem + env(safe-area-inset-right, 0px)) !important;
-    position: fixed !important;
-    -webkit-transform: translate3d(0, 0, 0) !important;
-    transform: translate3d(0, 0, 0) !important;
-  }
-  
-  @media (min-width: 640px) {
-    .floating-button-fixed {
-      bottom: calc(1.5rem + env(safe-area-inset-bottom, 0px)) !important;
-      left: calc(1.5rem + env(safe-area-inset-left, 0px)) !important;
-    }
-    
-    .floating-button-fixed-right {
-      bottom: calc(1.5rem + env(safe-area-inset-bottom, 0px)) !important;
-      right: calc(1.5rem + env(safe-area-inset-right, 0px)) !important;
-    }
-  }
-}
-
-/* iOS: Desactivar efectos pesados que causan problemas de rendimiento */
-.is-ios .blur-3xl,
-.is-ios .blur-2xl,
-.is-ios .blur-xl,
-.is-ios .backdrop-blur-3xl,
-.is-ios .backdrop-blur-2xl,
-.is-ios .backdrop-blur-xl,
-.is-ios .backdrop-blur-lg,
-.is-ios .backdrop-blur-md {
-  filter: none !important;
-  backdrop-filter: none !important;
-}
-
-/* iOS: Simplificar animaciones complejas */
-.is-ios .animate-pulse-ring,
-.is-ios .animate-wiggle,
-.is-ios .animate-accent-line,
-.is-ios .animate-float-particle-1,
-.is-ios .animate-float-particle-2,
-.is-ios .animate-shimmer,
-.is-ios .animate-shine {
-  animation: none !important;
-}
-
-/* iOS: Asegurar que los modales fullscreen funcionen correctamente */
-.is-ios .modal-fullscreen-wrapper {
-  /* Usar dvh para viewport dinámico en iOS */
-  height: 100dvh !important;
-  width: 100dvw !important;
-  /* Forzar stacking context limpio */
-  isolation: isolate !important;
-  contain: layout style paint !important;
-}
-
-/* Portal root - Configuración duplicada REMOVIDA (ya está al inicio del archivo) */
-
-/* iOS: Prevenir transformaciones problemáticas en ancestros */
-.is-ios #root,
-.is-ios body,
-.is-ios html {
-  transform: none !important;
-  -webkit-transform: none !important;
-  will-change: auto !important;
-  filter: none !important;
-  backdrop-filter: none !important;
-}
-
-/* iOS: Asegurar que los dropdowns y menús desplegables funcionen */
-.is-ios [class*="absolute"][class*="z-"] {
-  -webkit-transform: translate3d(0, 0, 0) !important;
-  transform: translate3d(0, 0, 0) !important;
-  -webkit-backface-visibility: hidden !important;
-  backfaceVisibility: hidden !important;
-}
-
-/* iOS: Fix para elementos con position absolute dentro de relative */
-.is-ios .relative > .absolute {
-  -webkit-transform: translate3d(0, 0, 0) !important;
-  transform: translate3d(0, 0, 0) !important;
-}
-
 
 /* ============================================
    BENTO LAYOUT - ProductGrid
@@ -2819,6 +884,80 @@ button:has(.loading-spinner) {
 /* Primer producto (Más Vendido) - Ocupa 2 columnas pero MISMA altura */
 .bento-item-featured {
   grid-column: span 2;
+  position: relative;
+}
+
+/* Border Shine Animado - Moderno y sutil */
+.bento-item-featured::before {
+  content: '';
+  position: absolute;
+  inset: -2px;
+  border-radius: 1rem;
+  background: linear-gradient(
+    90deg,
+    rgba(59, 130, 246, 1),
+    rgba(147, 51, 234, 1),
+    rgba(236, 72, 153, 1),
+    rgba(59, 130, 246, 1)
+  );
+  background-size: 200% 100%;
+  -webkit-mask: 
+    linear-gradient(#fff 0 0) content-box, 
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+  animation: border-shine 3s linear infinite;
+  z-index: 1;
+  padding: 2px;
+}
+
+/* Efecto Pill - Expansión suave en hover (solo desktop) */
+@media (min-width: 1024px) {
+  .bento-item-featured .group {
+    transition: transform 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+  }
+  
+  .bento-item-featured:hover .group {
+    transform: scale(1.02);
+  }
+  
+  /* Glass morphism effect en hover */
+  .bento-item-featured .group::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      135deg,
+      rgba(255, 255, 255, 0.1) 0%,
+      rgba(255, 255, 255, 0.05) 50%,
+      transparent 100%
+    );
+    border-radius: inherit;
+    opacity: 0;
+    transition: opacity 0.6s ease;
+    pointer-events: none;
+    z-index: 1;
+  }
+  
+  .bento-item-featured:hover .group::after {
+    opacity: 1;
+  }
+}
+
+@keyframes border-shine {
+  0% {
+    background-position: 0% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+@media (min-width: 640px) {
+  .bento-item-featured::before {
+    border-radius: 1.5rem;
+  }
 }
 
 /* Ocultar los glows internos en la card destacada - Selector más específico */
@@ -2836,19 +975,14 @@ button:has(.loading-spinner) {
   .bento-item-featured {
     grid-column: span 2;
   }
-  
+
   .bento-item-featured .group > div[class*="aspect-square"] {
     aspect-ratio: 2 / 1 !important;
   }
 }
-  
-  .bento-item-featured .group > div[class*="aspect-square"] {
-    aspect-ratio: 2 / 1 !important;
-  }
-
 
 /* ============================================
-   BORDER GLOW - ELIMINADO (no se veía bien)
+   BORDER BEAM - ELIMINADO (no se veía bien)
    ============================================ */
 
 .border-beam-wrapper {
@@ -2872,25 +1006,35 @@ button:has(.loading-spinner) {
   align-items: center;
   gap: 6px;
   padding: 8px 16px;
-  background: linear-gradient(135deg, #f59e0b 0%, #d97706 50%, #b45309 100%);
+  background: linear-gradient(135deg, #ef4444 0%, #dc2626 50%, #b91c1c 100%);
   border-radius: 12px;
-  font-size: 11px;
-  font-weight: 800;
-  color: white;
-  text-transform: uppercase;
-  letter-spacing: 0.8px;
   box-shadow: 
-    0 4px 14px rgba(245, 158, 11, 0.4),
+    0 4px 14px rgba(239, 68, 68, 0.4),
     0 2px 8px rgba(0, 0, 0, 0.2),
     inset 0 1px 0 rgba(255, 255, 255, 0.3);
-  pointer-events: none;
   
   /* GPU acceleration */
   transform: translateZ(0);
-  will-change: transform, box-shadow;
   
   /* Borde sutil */
   border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.featured-badge span {
+  color: white;
+  font-size: 10px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+.featured-icon {
+  width: 14px;
+  height: 14px;
+  color: white;
+  filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.3));
+  stroke-width: 2;
 }
 
 @media (min-width: 640px) {
@@ -2898,46 +1042,18 @@ button:has(.loading-spinner) {
     top: 16px;
     left: 16px;
     padding: 10px 18px;
-    font-size: 12px;
     gap: 7px;
     border-radius: 14px;
   }
-}
-
-.featured-icon {
-  width: 14px;
-  height: 14px;
-  flex-shrink: 0;
-  filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.4));
-}
-
-@media (min-width: 640px) {
+  
+  .featured-badge span {
+    font-size: 12px;
+  }
+  
   .featured-icon {
     width: 16px;
     height: 16px;
   }
-}
-
-/* Animación premium - Pulso suave con brillo */
-@keyframes badge-premium-pulse {
-  0%, 100% {
-    box-shadow: 
-      0 4px 14px rgba(245, 158, 11, 0.4),
-      0 2px 8px rgba(0, 0, 0, 0.2),
-      inset 0 1px 0 rgba(255, 255, 255, 0.3);
-    transform: translateZ(0) scale(1);
-  }
-  50% {
-    box-shadow: 
-      0 6px 20px rgba(245, 158, 11, 0.6),
-      0 3px 12px rgba(0, 0, 0, 0.3),
-      inset 0 1px 0 rgba(255, 255, 255, 0.4);
-    transform: translateZ(0) scale(1.02);
-  }
-}
-
-.featured-badge {
-  animation: badge-premium-pulse 3s ease-in-out infinite;
 }
 
 /* ============================================
@@ -2950,9 +1066,201 @@ button:has(.loading-spinner) {
     animation: none;
     background: linear-gradient(135deg, #8b5cf6, #ec4899, #3b82f6);
   }
+}
+
+/* ============================================
+   LIQUID PILL BUTTON - Premium Hover Effect
+   ============================================ */
+
+.liquid-pill-button {
+  /* Diseño original restaurado */
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.625rem 1rem;
+  border-radius: 9999px;
+  font-weight: 700;
+  font-size: 0.75rem;
+  white-space: nowrap;
+  flex-shrink: 0;
+  overflow: hidden;
+  cursor: pointer;
+  transition: all 0.3s ease;
   
-  .featured-badge {
-    animation: none;
-    box-shadow: none;
+  /* GPU acceleration */
+  transform: translateZ(0);
+}
+
+@media (min-width: 768px) {
+  .liquid-pill-button {
+    padding: 0.75rem 1rem;
+    font-size: 1rem;
+  }
+}
+
+/* Estados del botón - Diseño original */
+.liquid-pill-button:not(.liquid-pill-active) {
+  color: #64748b;
+  background: rgba(241, 245, 249, 0.8);
+  border: 1px solid rgba(241, 245, 249, 0.5);
+  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.02);
+}
+
+.liquid-pill-button:not(.liquid-pill-active):hover {
+  background: rgb(241, 245, 249);
+  color: #2563eb;
+  border-color: #bfdbfe;
+}
+
+/* Círculo líquido oculto debajo */
+.liquid-circle {
+  position: absolute;
+  bottom: -60%;
+  left: 50%;
+  width: 180%;
+  height: 180%;
+  border-radius: 50%;
+  background: linear-gradient(to right, #2563eb, #1d4ed8);
+  transform: translate(-50%, 0) scale(0);
+  transform-origin: center bottom;
+  transition: transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+  z-index: 0;
+}
+
+/* Contenido del botón */
+.liquid-content {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  z-index: 1;
+}
+
+/* Icono con fondo - Diseño original */
+.liquid-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.25rem;
+  border-radius: 0.75rem;
+  transition: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+@media (min-width: 768px) {
+  .liquid-icon {
+    padding: 0.375rem;
+  }
+}
+
+/* Fondo del icono - Estado normal */
+.liquid-pill-button:not(.liquid-pill-active) .liquid-icon {
+  background: white;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+  border: 1px solid rgb(241, 245, 249);
+}
+
+/* Fondo del icono - Estado activo */
+.liquid-pill-active .liquid-icon {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.liquid-icon svg {
+  transition: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+/* Wrapper de texto con posición relativa */
+.liquid-text-wrapper {
+  position: relative;
+  display: block;
+  height: 1.25em;
+  line-height: 1.25;
+  overflow: hidden;
+}
+
+/* Contenedor de texto */
+.liquid-text {
+  display: block;
+  letter-spacing: -0.025em;
+  font-weight: 700;
+  line-height: 1.25;
+  transition: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+/* Texto original */
+.liquid-text-original {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+/* Texto hover (oculto inicialmente) */
+.liquid-text-hover {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  transform: translateY(120%);
+  opacity: 0;
+  color: white;
+  font-weight: 800;
+}
+
+/* ===== HOVER STATE (solo para botones NO activos) ===== */
+.liquid-pill-button:not(.liquid-pill-active):hover .liquid-circle {
+  transform: translate(-50%, -30%) scale(1.2);
+}
+
+.liquid-pill-button:not(.liquid-pill-active):hover .liquid-icon {
+  background: rgba(255, 255, 255, 0.3);
+  border-color: rgba(255, 255, 255, 0.4);
+}
+
+.liquid-pill-button:not(.liquid-pill-active):hover .liquid-icon svg {
+  color: white !important;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2));
+}
+
+.liquid-pill-button:not(.liquid-pill-active):hover .liquid-text-original {
+  transform: translateY(-120%);
+  opacity: 0;
+}
+
+.liquid-pill-button:not(.liquid-pill-active):hover .liquid-text-hover {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+/* ===== ACTIVE STATE (botón seleccionado) - Diseño original ===== */
+.liquid-pill-active {
+  background: linear-gradient(to right, #2563eb, #1d4ed8);
+  color: white;
+  box-shadow: 0 8px 20px -4px rgba(37, 99, 235, 0.4);
+  transform: scale(1.05);
+  z-index: 10;
+}
+
+.liquid-pill-active .liquid-circle {
+  transform: translate(-50%, -30%) scale(1.2);
+}
+
+.liquid-pill-active .liquid-icon svg {
+  color: white !important;
+}
+
+.liquid-pill-active .liquid-text-original {
+  color: white;
+}
+
+.liquid-pill-active .liquid-text-hover {
+  display: none;
+}
+
+/* Reducir motion para accesibilidad */
+@media (prefers-reduced-motion: reduce) {
+  .liquid-pill-button,
+  .liquid-circle,
+  .liquid-icon,
+  .liquid-text {
+    transition-duration: 0.01ms !important;
   }
 }

@@ -2,6 +2,8 @@
  * Loader moderno y premium para ElectroShock
  * ULTRA-OPTIMIZADO: Blur reducido, menos animaciones, mejor performance
  */
+import { Zap } from 'lucide-react';
+
 const ModernLoader = () => {
   return (
     <div className="fixed inset-0 z-[9999] flex items-center justify-center bg-[#0a0a0f] overflow-hidden">
@@ -23,9 +25,7 @@ const ModernLoader = () => {
           </div>
           
           <div className="relative flex items-center justify-center w-32 h-32 sm:w-40 sm:h-40 bg-gradient-to-br from-blue-600 via-purple-600 to-cyan-600 rounded-3xl shadow-[0_0_60px_rgba(59,130,246,0.5)] animate-pulse">
-            <svg className="w-20 h-20 sm:w-24 sm:h-24 text-white" fill="currentColor" viewBox="0 0 24 24">
-              <path d="M13 10V3L4 14h7v7l9-11h-7z" />
-            </svg>
+            <Zap className="w-20 h-20 sm:w-24 sm:h-24 text-white" fill="currentColor" />
           </div>
         </div>
 

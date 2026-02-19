@@ -1,3 +1,6 @@
+import { errorLogger, handleError } from '../utils/errors/errorHandler';
+import { DataError } from '../utils/errors/AppError';
+
 // Lazy loading de categorías de productos
 export const loadCategory = async (categoryName) => {
   const categoryMap = {
@@ -19,13 +22,28 @@ export const loadCategory = async (categoryName) => {
   };
 
   const loader = categoryMap[categoryName];
-  if (!loader) return [];
+  
+  if (!loader) {
+    errorLogger.warn(`Categoría no encontrada: ${categoryName}`);
+    return [];
+  }
 
   try {
     const module = await loader();
-    return module.default?.products || module.default || [];
+    const products = module.default?.products || module.default || [];
+    
+    // Validar que sea un array
+    if (!Array.isArray(products)) {
+      throw new DataError(`La categoría ${categoryName} no contiene un array de productos`);
+    }
+    
+    return products;
+    
   } catch (error) {
-    console.error(`Error loading category ${categoryName}:`, error);
+    handleError(error, {
+      operation: 'loadCategory',
+      categoryName
+    });
     return [];
   }
 };

@@ -79,15 +79,15 @@ const PuntosRetiroInfoSection = () => {
               </p>
             </div>
 
-            {/* Mini Cards OPTIMIZADAS - Sin backdrop-blur */}
+            {/* Mini Cards OPTIMIZADAS - Sin hovers innecesarios */}
             <div className="grid grid-cols-3 gap-2 sm:gap-3 w-full">
               {[
                 { icon: Ban, text: 'Sin Anticipos', gradient: 'from-blue-500/15 to-purple-500/15', border: 'border-blue-400/30', iconColor: 'text-blue-300', glow: 'shadow-blue-500/20' },
                 { icon: MapPin, text: 'Puntos Seguros', gradient: 'from-purple-500/15 to-cyan-500/15', border: 'border-purple-400/30', iconColor: 'text-purple-300', glow: 'shadow-purple-500/20' },
                 { icon: Truck, text: 'Sin Envíos', gradient: 'from-cyan-500/15 to-blue-500/15', border: 'border-cyan-400/30', iconColor: 'text-cyan-300', glow: 'shadow-cyan-500/20' }
               ].map((item, i) => (
-                <div key={i} className={`group flex flex-col items-center justify-center gap-2 sm:gap-2.5 p-3 sm:p-4 lg:p-5 bg-gradient-to-br ${item.gradient} rounded-lg sm:rounded-xl lg:rounded-2xl border ${item.border} ${item.glow} shadow-lg transition-all hover:scale-105 hover:shadow-2xl hover:border-opacity-60`}>
-                  <item.icon className={`w-5 h-5 sm:w-6 sm:h-6 lg:w-7 lg:h-7 ${item.iconColor} group-hover:scale-110 transition-transform flex-shrink-0`} strokeWidth={2.5} />
+                <div key={i} className={`flex flex-col items-center justify-center gap-2 sm:gap-2.5 p-3 sm:p-4 lg:p-5 bg-gradient-to-br ${item.gradient} rounded-lg sm:rounded-xl lg:rounded-2xl border ${item.border} ${item.glow} shadow-lg`}>
+                  <item.icon className={`w-5 h-5 sm:w-6 sm:h-6 lg:w-7 lg:h-7 ${item.iconColor} flex-shrink-0`} strokeWidth={2.5} />
                   <span className="font-bold text-white/90 text-[0.65rem] sm:text-xs lg:text-sm uppercase tracking-wide text-center leading-tight">{item.text}</span>
                 </div>
               ))}

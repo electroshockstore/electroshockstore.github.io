@@ -1,4 +1,7 @@
 import { useState, useEffect } from 'react';
+import { fetchJSON } from '../utils/api/fetchWithRetry';
+import { handleError } from '../utils/errors/errorHandler';
+import { DataError } from '../utils/errors/AppError';
 
 /**
  * Hook para obtener el histórico de precios de un producto
@@ -23,39 +26,58 @@ export function usePriceHistory(productId) {
         setLoading(true);
         setError(null);
 
-        const response = await fetch('/data/price-history.json');
-        
-        if (!response.ok) {
-          throw new Error('No se pudo cargar el histórico de precios');
+        // Fetch con retry y timeout
+        const data = await fetchJSON('/data/price-history.json', {}, {
+          retries: 2,
+          timeout: 8000
+        });
+
+        if (!data || typeof data !== 'object') {
+          throw new DataError('Formato de datos inválido');
         }
 
-        const data = await response.json();
         const productHistory = data[String(productId)];
 
         if (isMounted) {
-          if (productHistory) {
+          if (productHistory && productHistory.h && Array.isArray(productHistory.h)) {
+            // Validar estructura de datos
+            if (!productHistory.name) {
+              throw new DataError('Falta el nombre del producto en el histórico');
+            }
+
             // Transformar datos para el gráfico
-            const formattedHistory = productHistory.h.map(([timestamp, price]) => ({
-              date: new Date(timestamp),
-              price: price,
-              formattedDate: new Date(timestamp).toLocaleDateString('es-AR', {
-                year: 'numeric',
-                month: 'short',
-                day: 'numeric'
-              })
-            }));
+            const formattedHistory = productHistory.h.map(([timestamp, price]) => {
+              if (!timestamp || typeof price !== 'number') {
+                throw new DataError('Datos de histórico inválidos');
+              }
+
+              return {
+                date: new Date(timestamp),
+                price: price,
+                formattedDate: new Date(timestamp).toLocaleDateString('es-AR', {
+                  year: 'numeric',
+                  month: 'short',
+                  day: 'numeric'
+                })
+              };
+            });
+
+            const currentPrice = formattedHistory[formattedHistory.length - 1]?.price;
+            const oldestPrice = formattedHistory[0]?.price;
+            const priceChange = formattedHistory.length > 1 
+              ? currentPrice - oldestPrice
+              : 0;
+            const priceChangePercent = formattedHistory.length > 1 && oldestPrice > 0
+              ? ((currentPrice - oldestPrice) / oldestPrice * 100).toFixed(1)
+              : 0;
 
             setHistory({
               name: productHistory.name,
               data: formattedHistory,
-              currentPrice: formattedHistory[formattedHistory.length - 1]?.price,
-              oldestPrice: formattedHistory[0]?.price,
-              priceChange: formattedHistory.length > 1 
-                ? formattedHistory[formattedHistory.length - 1].price - formattedHistory[0].price
-                : 0,
-              priceChangePercent: formattedHistory.length > 1
-                ? ((formattedHistory[formattedHistory.length - 1].price - formattedHistory[0].price) / formattedHistory[0].price * 100).toFixed(1)
-                : 0
+              currentPrice,
+              oldestPrice,
+              priceChange,
+              priceChangePercent
             });
           } else {
             setHistory(null);
@@ -64,7 +86,11 @@ export function usePriceHistory(productId) {
         }
       } catch (err) {
         if (isMounted) {
-          setError(err.message);
+          const errorInfo = handleError(err, {
+            operation: 'fetchPriceHistory',
+            productId
+          });
+          setError(errorInfo.message);
           setLoading(false);
         }
       }
@@ -97,13 +123,15 @@ export function useAllPriceHistory() {
         setLoading(true);
         setError(null);
 
-        const response = await fetch('/data/price-history.json');
-        
-        if (!response.ok) {
-          throw new Error('No se pudo cargar el histórico de precios');
-        }
+        // Fetch con retry y timeout
+        const data = await fetchJSON('/data/price-history.json', {}, {
+          retries: 2,
+          timeout: 8000
+        });
 
-        const data = await response.json();
+        if (!data || typeof data !== 'object') {
+          throw new DataError('Formato de datos inválido');
+        }
 
         if (isMounted) {
           setAllHistory(data);
@@ -111,7 +139,10 @@ export function useAllPriceHistory() {
         }
       } catch (err) {
         if (isMounted) {
-          setError(err.message);
+          const errorInfo = handleError(err, {
+            operation: 'fetchAllPriceHistory'
+          });
+          setError(errorInfo.message);
           setLoading(false);
         }
       }
@@ -126,3 +157,4 @@ export function useAllPriceHistory() {
 
   return { allHistory, loading, error };
 }
+

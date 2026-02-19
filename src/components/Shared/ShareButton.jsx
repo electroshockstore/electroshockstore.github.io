@@ -1,5 +1,5 @@
 import { useState, useRef, useEffect } from 'react';
-import { Share2, Link2, Check } from 'lucide-react';
+import { Share2, Link2, Check, ChevronDown } from 'lucide-react';
 import { useIsIOS } from '../../hooks/useDevice';
 import Portal from './Portal';
 
@@ -115,9 +115,7 @@ const ShareButton = ({ productName, product, className = '' }) => {
         </div>
 
         <div className="flex-shrink-0 group-hover:translate-y-0.5 transition-transform duration-300">
-          <svg className="w-4 h-4 sm:w-5 sm:h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M19 9l-7 7-7-7" />
-          </svg>
+          <ChevronDown className="w-4 h-4 sm:w-5 sm:h-5" strokeWidth={2.5} />
         </div>
 
         <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000 rounded-xl" />

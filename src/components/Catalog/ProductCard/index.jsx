@@ -1,4 +1,5 @@
 import { memo, useCallback } from 'react';
+import { Flame } from 'lucide-react';
 import { trackSelectItem } from '../../../utils/analytics';
 import StockBadge from './StockBadge';
 import StockStatus from './StockStatus';

@@ -175,9 +175,9 @@ const CategoryFilter = ({ selectedCategory, onCategoryChange }) => {
                     style={{ 
                       animationDelay: `${index * 30}ms`,
                       WebkitTapHighlightColor: 'transparent',
-                      touchAction: 'manipulation'
+                      touchAction: 'manipulation',
+                      ...(isSelected ? { filter: 'drop-shadow(0 0 20px rgba(59, 130, 246, 0.6))' } : {})
                     }}
-                    style={isSelected ? { filter: 'drop-shadow(0 0 20px rgba(59, 130, 246, 0.6))' } : undefined}
                     className={`
                       relative overflow-hidden rounded-2xl font-bold
                       transition-all duration-200 ${!isIOS ? 'animate-in fade-in zoom-in-95' : ''}
@@ -351,6 +351,7 @@ const CategoryFilter = ({ selectedCategory, onCategoryChange }) => {
             >
               {categories.map((category) => {
                 const Icon = getCategoryIcon(category);
+                const iconColor = getCategoryColor(category, false);
                 const isSelected = selectedCategory === category;
 
                 return (
@@ -358,30 +359,35 @@ const CategoryFilter = ({ selectedCategory, onCategoryChange }) => {
                     key={category}
                     onClick={() => onCategoryChange(category)}
                     className={`
-                      flex items-center gap-2 px-4 py-2.5 md:px-4 md:py-3 rounded-full font-bold
-                      transition-all duration-300 whitespace-nowrap flex-shrink-0
-                      ${isSelected
-                        ? 'bg-gradient-to-r from-blue-600 to-blue-700 text-white shadow-[0_8px_20px_-4px_rgba(37,99,235,0.4)] scale-105 z-10'
-                        : 'text-gray-500 bg-slate-100/80 hover:bg-slate-100 hover:text-blue-600 border border-slate-100/50 hover:border-blue-200 shadow-[inset_0_1px_2px_rgba(0,0,0,0.02)]'
-                      }
+                      liquid-pill-button flex-shrink-0
+                      ${isSelected ? 'liquid-pill-active' : ''}
                     `}
+                    data-icon-color={iconColor}
                   >
-                    <div 
-                      className={`
-                        p-1 md:p-1.5 rounded-xl transition-all duration-300
-                        ${isSelected
-                          ? 'bg-white/20'
-                          : 'bg-white shadow-sm border border-slate-100'
-                        }
-                      `}
-                      style={isSelected ? { backdropFilter: 'blur(4px)' } : undefined}
-                    >
-                      <Icon
-                        className={`h-3.5 w-3.5 md:h-5 md:w-5 ${isSelected ? 'text-white' : getCategoryColor(category, false)}`}
-                        strokeWidth={2.0}
-                      />
-                    </div>
-                    <span className="text-xs md:text-base tracking-tight">{category}</span>
+                    {/* Círculo líquido que crece desde abajo */}
+                    <span className="liquid-circle" aria-hidden="true"></span>
+                    
+                    {/* Contenido del botón */}
+                    <span className="liquid-content">
+                      <span className="liquid-icon">
+                        <Icon 
+                          className={`h-4 w-4 md:h-5 md:w-5 ${isSelected ? 'text-white' : iconColor}`}
+                          strokeWidth={2.5}
+                        />
+                      </span>
+                      
+                      {/* Texto original que se desliza hacia arriba */}
+                      <span className="liquid-text-wrapper">
+                        <span className="liquid-text liquid-text-original">
+                          {category}
+                        </span>
+                        
+                        {/* Texto duplicado que aparece desde abajo */}
+                        <span className="liquid-text liquid-text-hover" aria-hidden="true">
+                          {category}
+                        </span>
+                      </span>
+                    </span>
                   </button>
                 );
               })}

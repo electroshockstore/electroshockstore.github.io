@@ -58,9 +58,14 @@ const SearchBar = ({ isMobile = false, onClose }) => {
   if (isMobile) {
     return (
       <div className="search-container relative" ref={searchRef}>
+        {/* Icono de búsqueda - Estilo Apple */}
         <div className="absolute left-4 top-1/2 -translate-y-1/2 z-10 pointer-events-none">
-          <div className="bg-gradient-to-br from-blue-500 to-purple-600 p-1.5 rounded-lg shadow-lg">
-            <Search className="h-3.5 w-3.5 text-white" strokeWidth={2.5} />
+          <div className="relative">
+            <div className="bg-gradient-to-br from-blue-500 via-blue-600 to-indigo-600 p-2.5 rounded-xl shadow-lg shadow-blue-500/50">
+              <Search className="h-5 w-5 text-white" strokeWidth={3} />
+            </div>
+            {/* Glow del icono */}
+            <div className="absolute inset-0 bg-blue-500 blur-md opacity-40 rounded-xl" />
           </div>
         </div>
         <input
@@ -69,28 +74,29 @@ const SearchBar = ({ isMobile = false, onClose }) => {
           onChange={(e) => setLocalSearchQuery(e.target.value)}
           placeholder="¿Qué componente buscas?"
           autoFocus
-          className="w-full h-12 pl-12 pr-12 text-sm
-                   bg-gray-900/90 backdrop-blur-xl border-2 border-blue-500/50 rounded-2xl 
-                   text-white placeholder:text-white/50
-                   focus:outline-none focus:ring-2 focus:ring-blue-500/50 focus:border-blue-500
-                   hover:border-blue-500/70 hover:bg-gray-900
-                   transition-all duration-300 shadow-xl shadow-blue-500/20
+          className="w-full h-14 pl-16 pr-12 text-sm font-medium
+                   bg-white/10 backdrop-blur-2xl border-2 border-white/20 rounded-full 
+                   text-white placeholder:text-white/60
+                   focus:outline-none focus:ring-2 focus:ring-blue-400/60 focus:border-blue-400/60 focus:bg-white/15
+                   hover:border-white/30 hover:bg-white/12
+                   transition-all duration-300 shadow-2xl shadow-black/20
                    cursor-text"
         />
         {/* Botón X - Solo aparece si hay texto */}
         {localSearchQuery && (
           <button
             onClick={handleClearSearch}
-            className="absolute right-3 top-1/2 -translate-y-1/2 
+            className="absolute right-4 top-1/2 -translate-y-1/2 
                        flex items-center justify-center
-                       w-7 h-7
-                       text-gray-400 hover:text-white 
-                       hover:bg-gray-800 
-                       rounded-lg 
-                       transition-colors 
+                       w-8 h-8
+                       text-white/60 hover:text-white 
+                       hover:bg-white/10 
+                       rounded-xl 
+                       transition-all duration-200
+                       active:scale-95
                        z-10"
           >
-            <X className="h-4 w-4" strokeWidth={2.5} />
+            <X className="h-4.5 w-4.5" strokeWidth={2.8} />
           </button>
         )}
           
@@ -137,15 +143,18 @@ const SearchBar = ({ isMobile = false, onClose }) => {
   // Desktop version
   return (
     <div className="search-container flex-1 max-w-2xl relative" ref={searchRef}>
-      <div className="absolute -inset-4 bg-gradient-to-r from-blue-600/20 via-indigo-600/15 to-purple-600/20 blur-xl rounded-full animate-pulse pointer-events-none" style={{ animationDuration: '6s' }} />
+      {/* Glow ambiental sutil */}
+      <div className="absolute -inset-6 bg-gradient-to-r from-blue-500/10 via-indigo-500/8 to-purple-500/10 blur-2xl rounded-full pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
       
-      <div className="relative">
-        <div className="absolute left-3 top-1/2 -translate-y-1/2 z-10 pointer-events-none">
+      <div className="relative group">
+        {/* Icono de búsqueda - Estilo Apple mejorado */}
+        <div className="absolute left-2 top-1/2 -translate-y-1/2 z-10 pointer-events-none">
           <div className="relative">
-            <div className="bg-gradient-to-br from-blue-500 to-indigo-600 p-2 rounded-xl shadow-lg">
-              <Search className="h-4 w-4 text-white" strokeWidth={2.5} />
+            <div className="bg-gradient-to-br from-blue-500 via-blue-600 to-indigo-600 p-3 rounded-2xl shadow-lg shadow-blue-500/50 group-focus-within:scale-110 transition-transform duration-300">
+              <Search className="h-6 w-6 text-white" strokeWidth={3} />
             </div>
-            <div className="absolute inset-0 bg-blue-500 blur-xl opacity-60 rounded-xl pointer-events-none" />
+            {/* Glow del icono */}
+            <div className="absolute inset-0 bg-blue-500 blur-lg opacity-50 rounded-2xl group-focus-within:opacity-70 transition-opacity duration-300" />
           </div>
         </div>
         
@@ -154,21 +163,31 @@ const SearchBar = ({ isMobile = false, onClose }) => {
           value={localSearchQuery}
           onChange={(e) => setLocalSearchQuery(e.target.value)}
           placeholder="Buscar productos, marcas o categorías..."
-          className="w-full h-14 pl-14 pr-12 text-base
-                   bg-gray-900/80 backdrop-blur-xl border border-gray-700/50 rounded-2xl 
-                   text-white placeholder:text-white/70
-                   focus:outline-none focus:ring-2 focus:ring-blue-500/50 focus:border-blue-500/50
-                   hover:border-gray-600/50 hover:bg-gray-900
-                   transition-all duration-300 shadow-xl
-                   focus:shadow-blue-500/20 focus:shadow-2xl
+          className="w-full h-16 pl-20 pr-14 text-base font-medium
+                   bg-white/10 backdrop-blur-2xl border-2 border-white/20 rounded-full 
+                   text-white placeholder:text-white/60
+                   focus:outline-none focus:ring-2 focus:ring-blue-400/60 focus:border-blue-400/60 focus:bg-white/15
+                   hover:border-white/30 hover:bg-white/12
+                   transition-all duration-300 shadow-2xl shadow-black/20
+                   focus:shadow-blue-500/30 focus:shadow-2xl
                    cursor-text"
         />
-        <button
-          onClick={handleClearSearch}
-          className="clear-button absolute right-4 top-1/2 -translate-y-1/2 text-gray-400 hover:text-white transition-colors z-10"
-        >
-          <X className="h-5 w-5" />
-        </button>
+        {localSearchQuery && (
+          <button
+            onClick={handleClearSearch}
+            className="absolute right-5 top-1/2 -translate-y-1/2 
+                       flex items-center justify-center
+                       w-9 h-9
+                       text-white/60 hover:text-white 
+                       hover:bg-white/10 
+                       rounded-xl 
+                       transition-all duration-200
+                       active:scale-95
+                       z-10"
+          >
+            <X className="h-5 w-5" strokeWidth={2.8} />
+          </button>
+        )}
         
         {isSearchOpen && searchResults.length > 0 && (
           <div className="absolute top-full left-0 right-0 mt-2 bg-gray-900 border border-gray-800 rounded-2xl shadow-2xl overflow-hidden z-50 search-results-enter">

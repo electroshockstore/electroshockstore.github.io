@@ -1,4 +1,5 @@
 import { memo, useCallback, useState } from 'react';
+import { ArrowRight } from 'lucide-react';
 import { trackWhatsAppClick } from '../../utils/analytics';
 import PickupPointModal from './PickupPointModal';
 
@@ -80,16 +81,12 @@ const WhatsAppButton = ({ productName, product, className = "" }) => {
 
         {/* Arrow - Solo animación en desktop */}
         <div className="flex-shrink-0 hidden sm:block group-hover:translate-x-1 transition-transform duration-300">
-          <svg className="w-4 h-4 sm:w-5 sm:h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M13 7l5 5m0 0l-5 5m5-5H6" />
-          </svg>
+          <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5" strokeWidth={2.5} />
         </div>
 
         {/* Arrow mobile - Sin animación */}
         <div className="flex-shrink-0 sm:hidden">
-          <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M13 7l5 5m0 0l-5 5m5-5H6" />
-          </svg>
+          <ArrowRight className="w-4 h-4" strokeWidth={2.5} />
         </div>
 
         {/* Shine effect - Solo desktop */}

@@ -69,7 +69,7 @@ const MetodosDePago = () => {
           <h2 className="text-2xl sm:text-4xl lg:text-5xl font-black text-gray-900 mb-4 sm:mb-6 px-4">
             Opciones de Pago
             <span className="block text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-emerald-600 mt-1 sm:mt-2 pb-1 sm:pb-2">
-              Seguras y Confiables
+              Seguros y Confiables
             </span>
           </h2>
         </div>

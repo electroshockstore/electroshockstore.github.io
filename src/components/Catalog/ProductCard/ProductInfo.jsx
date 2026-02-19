@@ -14,8 +14,8 @@ const ProductInfo = ({ name, brand, model, isUsed, isDDR5, isDDR4, certType }) =
   
   return (
     <div className="space-y-1 text-left">
-      {/* 1. Marca y Badges (DDR o Certificación) */}
-      <div className="flex items-center justify-between mb-1 sm:mb-2">
+      {/* 1. Marca y Badges (DDR o Certificación) - Altura fija */}
+      <div className="flex items-center justify-between mb-1 sm:mb-2 min-h-[44px]">
         <div className="flex items-center gap-1.5">
           <span className="text-[10px] sm:text-xs font-bold text-blue-600 tracking-wider uppercase truncate">
             {brand}
@@ -59,10 +59,10 @@ const ProductInfo = ({ name, brand, model, isUsed, isDDR5, isDDR4, certType }) =
         </div>
       </div>
 
-      {/* 2. Título - Más compacto en mobile */}
-      <div>
+      {/* 2. Título - Altura fija con line-clamp */}
+      <div className="min-h-[52px] sm:min-h-[56px]">
         <h3 className="inline-block text-left px-2 sm:px-4 py-1.5 sm:py-2 rounded-lg sm:rounded-xl
-                      font-black text-xs sm:text-xs text-white line-clamp-2 sm:line-clamp-3 max-w-full
+                      font-black text-xs sm:text-xs text-white line-clamp-2 sm:line-clamp-2 max-w-full
                       bg-gradient-to-r from-blue-600 to-purple-600 
                       shadow-lg sm:shadow-xl border sm:border-2 border-blue-500
                       transition-all duration-300 leading-tight">

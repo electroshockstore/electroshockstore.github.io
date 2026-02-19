@@ -1,16 +1,16 @@
 // PriceDisplay.jsx
-import { Tag } from 'lucide-react'; // Opcional: Icono para decorar si quieres
+import { Tag } from 'lucide-react'; 
 
 const formatPrice = (price) => {
   return new Intl.NumberFormat('es-AR', {
-    style: 'decimal', // Usamos decimal para separar el símbolo nosotros mismos
+    style: 'decimal', 
     minimumFractionDigits: 0
   }).format(price);
 };
 
 const PriceDisplay = ({ price, category }) => {
   return (
-    <div className="flex flex-col gap-0.5 sm:gap-1">
+    <div className="flex flex-col gap-0.5 sm:gap-1 min-h-[68px] sm:min-h-[88px]">
       {/* Contenedor principal con fondo sutil y borde */}
       <div className="relative flex items-center justify-between px-2 sm:px-4 py-1.5 sm:py-3 
                       bg-gray-50 rounded-lg sm:rounded-xl border border-gray-100 
@@ -29,21 +29,21 @@ const PriceDisplay = ({ price, category }) => {
 
         {/* Sección Derecha: El Precio - Responsive */}
         <div className="flex items-baseline gap-0.5">
-          <span className="text-xs sm:text-lg text-gray-400 font-medium select-none">$</span>
+          <span className="text-xs sm:text-lg text-green-500 font-medium select-none">$</span>
           <span className="text-lg sm:text-3xl md:text-4xl lg:text-5xl font-black text-gray-900 tracking-tighter leading-none">
             {formatPrice(price)}
           </span>
         </div>
       </div>
       
-      {/* Categoría - Oculta en mobile */}
-      {category && (
-        <div className="hidden sm:flex justify-end px-1">
+      {/* Categoría - Oculta en mobile - Altura reservada */}
+      <div className="hidden sm:flex justify-end px-1 min-h-[16px]">
+        {category && (
            <span className="text-[10px] text-gray-400 font-medium truncate">
              en {category}
            </span>
-        </div>
-      )}
+        )}
+      </div>
     </div>
   );
 };

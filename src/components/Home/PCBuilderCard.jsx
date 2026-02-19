@@ -101,16 +101,16 @@ const PCBuilderCard = ({
                     </div>
                 </div>
 
-                {/* CTA original - Next.js/Astro inspired con glow */}
+                {/* CTA - Sin hover redundante ya que la card completa es clickeable */}
                 <div className="flex-none mt-auto pt-6 sm:pt-8">
                     <div className="relative inline-block">
                         {/* Glow effect del botón */}
-                        <div className="absolute -inset-1 bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 rounded-lg opacity-40 blur-md group-hover/btn:opacity-60 transition-opacity duration-200" />
+                        <div className="absolute -inset-1 bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 rounded-lg opacity-40 blur-md transition-opacity duration-200" />
                         
-                        <div className={`relative inline-flex items-center gap-2 px-4 py-2.5 rounded-lg border border-white/30 bg-white/10 ${isIOS ? '' : 'backdrop-blur-sm'} hover:bg-white/15 hover:border-white/40 transition-all duration-200 group/btn shadow-lg`}>
+                        <div className={`relative inline-flex items-center gap-2 px-4 py-2.5 rounded-lg border border-white/30 bg-white/10 ${isIOS ? '' : 'backdrop-blur-sm'} shadow-lg`}>
                             <ButtonIcon className="w-4 h-4 text-white" />
                             <span className="font-semibold text-white text-sm sm:text-base">{buttonText}</span>
-                            <ChevronRight className="w-4 h-4 text-white/60 group-hover/btn:translate-x-0.5 group-hover/btn:text-white transition-all" />
+                            <ChevronRight className="w-4 h-4 text-white/60" />
                         </div>
                     </div>
                 </div>

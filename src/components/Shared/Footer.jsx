@@ -64,9 +64,9 @@ const Footer = () => {
               <div className="w-1 h-4 bg-blue-500 rounded-full" />
               Contacto
             </h4>
-            <div className="space-y-3">
-              <div className="flex items-center gap-3 group cursor-pointer">
-                <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-blue-600/20 to-blue-700/10 border border-blue-500/30 flex items-center justify-center group-hover:scale-110 transition-all duration-300">
+            <div className="space-y-4">
+              <div className="flex items-center gap-3">
+                <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-blue-600/20 to-blue-700/10 border border-blue-500/30 flex items-center justify-center">
                   <Clock className="h-5 w-5 text-blue-400" strokeWidth={2.5} />
                 </div>
                 <div>
@@ -75,8 +75,8 @@ const Footer = () => {
                 </div>
               </div>
 
-              <div className="flex items-center gap-3 group cursor-pointer">
-                <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-emerald-600/20 to-emerald-700/10 border border-emerald-500/30 flex items-center justify-center group-hover:scale-110 transition-all duration-300">
+              <div className="flex items-center gap-3">
+                <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-emerald-600/20 to-emerald-700/10 border border-emerald-500/30 flex items-center justify-center">
                   <Phone className="h-5 w-5 text-emerald-400" strokeWidth={2.5} />
                 </div>
                 <div>
@@ -85,8 +85,8 @@ const Footer = () => {
                 </div>
               </div>
 
-              <div className="flex items-center gap-3 group cursor-pointer">
-                <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-purple-600/20 to-purple-700/10 border border-purple-500/30 flex items-center justify-center group-hover:scale-110 transition-all duration-300">
+              <div className="flex items-center gap-3">
+                <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-purple-600/20 to-purple-700/10 border border-purple-500/30 flex items-center justify-center">
                   <Mail className="h-5 w-5 text-purple-400" strokeWidth={2.5} />
                 </div>
                 <div>
@@ -189,8 +189,8 @@ const Footer = () => {
               Contacto
             </h4>
             <div className="space-y-4">
-              <div className="flex items-center gap-4 group cursor-pointer">
-                <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-blue-600/20 to-blue-700/10 border border-blue-500/30 flex items-center justify-center group-hover:scale-110 group-hover:border-blue-400/50 transition-all duration-300">
+              <div className="flex items-center gap-4">
+                <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-blue-600/20 to-blue-700/10 border border-blue-500/30 flex items-center justify-center">
                   <Clock className="h-6 w-6 text-blue-400" strokeWidth={2.5} />
                 </div>
                 <div>
@@ -199,8 +199,8 @@ const Footer = () => {
                 </div>
               </div>
 
-              <div className="flex items-center gap-4 group cursor-pointer">
-                <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-emerald-600/20 to-emerald-700/10 border border-emerald-500/30 flex items-center justify-center group-hover:scale-110 group-hover:border-emerald-400/50 transition-all duration-300">
+              <div className="flex items-center gap-4">
+                <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-emerald-600/20 to-emerald-700/10 border border-emerald-500/30 flex items-center justify-center">
                   <Phone className="h-6 w-6 text-emerald-400" strokeWidth={2.5} />
                 </div>
                 <div>
@@ -209,8 +209,8 @@ const Footer = () => {
                 </div>
               </div>
 
-              <div className="flex items-center gap-4 group cursor-pointer">
-                <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-purple-600/20 to-purple-700/10 border border-purple-500/30 flex items-center justify-center group-hover:scale-110 group-hover:border-purple-400/50 transition-all duration-300">
+              <div className="flex items-center gap-4">
+                <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-purple-600/20 to-purple-700/10 border border-purple-500/30 flex items-center justify-center">
                   <Mail className="h-6 w-6 text-purple-400" strokeWidth={2.5} />
                 </div>
                 <div>
