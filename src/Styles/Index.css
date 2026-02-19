@@ -734,6 +734,8 @@
   overflow-x: hidden !important;
   -webkit-overflow-scrolling: touch !important;
   overscroll-behavior: contain !important;
+  background: linear-gradient(to bottom, rgb(17, 24, 39), rgb(31, 41, 55)) !important;
+  padding: 1.5rem 1rem !important;
 }
 
 .modal-fullscreen-footer {
@@ -885,45 +887,59 @@
 .bento-item-featured {
   grid-column: span 2;
   position: relative;
+  /* Crear contexto de apilamiento para el badge */
+  z-index: 1;
 }
 
-/* Border Shine Animado - Moderno y sutil */
-.bento-item-featured::before {
-  content: '';
+/* Badge debe estar ANTES del border para que sea visible */
+.bento-item-featured .featured-badge {
   position: absolute;
-  inset: -2px;
-  border-radius: 1rem;
-  background: linear-gradient(
-    90deg,
-    rgba(59, 130, 246, 1),
-    rgba(147, 51, 234, 1),
-    rgba(236, 72, 153, 1),
-    rgba(59, 130, 246, 1)
-  );
-  background-size: 200% 100%;
-  -webkit-mask: 
-    linear-gradient(#fff 0 0) content-box, 
-    linear-gradient(#fff 0 0);
-  -webkit-mask-composite: xor;
-  mask-composite: exclude;
+  top: 12px;
+  left: 12px;
+  z-index: 200;
   pointer-events: none;
-  animation: border-shine 3s linear infinite;
+}
+
+/* Border Shine Animado - Usando border-image nativo */
+.bento-item-featured .featured-card-wrapper {
+  border: 2px solid transparent;
+  border-radius: 1rem;
+  background: 
+    linear-gradient(white, white) padding-box,
+    linear-gradient(
+      90deg,
+      rgba(59, 130, 246, 1),
+      rgba(147, 51, 234, 1),
+      rgba(236, 72, 153, 1),
+      rgba(59, 130, 246, 1)
+    ) border-box;
+  background-size: 100% 100%, 200% 100%;
+  animation: border-shine-native 3s linear infinite;
+  position: relative;
   z-index: 1;
-  padding: 2px;
+}
+
+@keyframes border-shine-native {
+  0% {
+    background-position: 0% 0, 0% 0;
+  }
+  100% {
+    background-position: 0% 0, 200% 0;
+  }
 }
 
 /* Efecto Pill - Expansión suave en hover (solo desktop) */
 @media (min-width: 1024px) {
-  .bento-item-featured .group {
+  .bento-item-featured .featured-card-wrapper {
     transition: transform 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
   }
   
-  .bento-item-featured:hover .group {
+  .bento-item-featured:hover .featured-card-wrapper {
     transform: scale(1.02);
   }
   
   /* Glass morphism effect en hover */
-  .bento-item-featured .group::after {
+  .bento-item-featured .featured-card-wrapper::after {
     content: '';
     position: absolute;
     inset: 0;
@@ -940,35 +956,9 @@
     z-index: 1;
   }
   
-  .bento-item-featured:hover .group::after {
+  .bento-item-featured:hover .featured-card-wrapper::after {
     opacity: 1;
   }
-}
-
-@keyframes border-shine {
-  0% {
-    background-position: 0% 0;
-  }
-  100% {
-    background-position: 200% 0;
-  }
-}
-
-@media (min-width: 640px) {
-  .bento-item-featured::before {
-    border-radius: 1.5rem;
-  }
-}
-
-/* Ocultar los glows internos en la card destacada - Selector más específico */
-.bento-item-featured div.group > div.relative.aspect-square > div.absolute.inset-0.pointer-events-none {
-  opacity: 0 !important;
-  visibility: hidden !important;
-}
-
-/* Fix: Evitar que la imagen aspect-square estire la card destacada */
-.bento-item-featured .group > div[class*="aspect-square"] {
-  aspect-ratio: 16 / 9 !important;
 }
 
 @media (min-width: 640px) {
@@ -976,9 +966,19 @@
     grid-column: span 2;
   }
 
+  .bento-item-featured .featured-card-wrapper {
+    border-radius: 1.5rem;
+  }
+
   .bento-item-featured .group > div[class*="aspect-square"] {
     aspect-ratio: 2 / 1 !important;
   }
+}
+
+/* Ocultar los glows internos en la card destacada - Selector más específico */
+.bento-item-featured div.group > div.relative.aspect-square > div.absolute.inset-0.pointer-events-none {
+  opacity: 0 !important;
+  visibility: hidden !important;
 }
 
 /* ============================================
@@ -991,69 +991,6 @@
 
 .border-beam {
   display: none !important;
-}
-
-/* ============================================
-   BADGE "MÁS VENDIDO" - Diseño moderno y premium
-   ============================================ */
-
-.featured-badge {
-  position: absolute;
-  top: 12px;
-  left: 12px;
-  z-index: 60;
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  padding: 8px 16px;
-  background: linear-gradient(135deg, #ef4444 0%, #dc2626 50%, #b91c1c 100%);
-  border-radius: 12px;
-  box-shadow: 
-    0 4px 14px rgba(239, 68, 68, 0.4),
-    0 2px 8px rgba(0, 0, 0, 0.2),
-    inset 0 1px 0 rgba(255, 255, 255, 0.3);
-  
-  /* GPU acceleration */
-  transform: translateZ(0);
-  
-  /* Borde sutil */
-  border: 1px solid rgba(255, 255, 255, 0.2);
-}
-
-.featured-badge span {
-  color: white;
-  font-size: 10px;
-  font-weight: 800;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
-}
-
-.featured-icon {
-  width: 14px;
-  height: 14px;
-  color: white;
-  filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.3));
-  stroke-width: 2;
-}
-
-@media (min-width: 640px) {
-  .featured-badge {
-    top: 16px;
-    left: 16px;
-    padding: 10px 18px;
-    gap: 7px;
-    border-radius: 14px;
-  }
-  
-  .featured-badge span {
-    font-size: 12px;
-  }
-  
-  .featured-icon {
-    width: 16px;
-    height: 16px;
-  }
 }
 
 /* ============================================
@@ -1262,5 +1199,313 @@
   .liquid-icon,
   .liquid-text {
     transition-duration: 0.01ms !important;
+  }
+}
+
+/* ============================================
+   PREMIUM MICRO-EFFECTS - ProductCard
+   ============================================ */
+
+/* SCROLL REVEAL - Animación de entrada al hacer scroll */
+.product-card-reveal {
+  opacity: 0;
+  transform: translateY(30px) scale(0.95);
+  /* Sombra más pronunciada para mejor contraste */
+  box-shadow: 
+    0 4px 12px -2px rgba(0, 0, 0, 0.08),
+    0 2px 6px -1px rgba(0, 0, 0, 0.06);
+}
+
+.product-card-reveal.scroll-revealed {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+  transition: opacity 0.6s cubic-bezier(0.34, 1.56, 0.64, 1),
+              transform 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+/* 1. SMOOTH SCALE + LIFT - Mejorado con sombras más pronunciadas */
+.scroll-revealed.group.relative.bg-white.rounded-xl {
+  transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1),
+              box-shadow 0.4s cubic-bezier(0.34, 1.56, 0.64, 1),
+              border-color 0.3s ease,
+              opacity 0.3s ease;
+  will-change: transform;
+  /* Sombra base más visible */
+  box-shadow: 
+    0 4px 12px -2px rgba(0, 0, 0, 0.08),
+    0 2px 6px -1px rgba(0, 0, 0, 0.06);
+}
+
+/* Solo en desktop - Mobile no necesita hover effects */
+@media (min-width: 1024px) {
+  .scroll-revealed.group.relative.bg-white.rounded-xl:hover {
+    transform: translateY(-8px) scale(1.02);
+    /* Sombra dramática en hover con tinte azul */
+    box-shadow: 
+      0 20px 40px -8px rgba(0, 0, 0, 0.12),
+      0 8px 16px -4px rgba(59, 130, 246, 0.15),
+      0 0 0 1px rgba(59, 130, 246, 0.1);
+  }
+  
+  /* 2. MAGNETIC HOVER - Efecto sutil de "atracción" */
+  .scroll-revealed.group.relative.bg-white.rounded-xl::before {
+    content: '';
+    position: absolute;
+    inset: -2px;
+    border-radius: inherit;
+    background: linear-gradient(
+      135deg,
+      rgba(59, 130, 246, 0.15),
+      rgba(147, 51, 234, 0.1),
+      rgba(236, 72, 153, 0.15)
+    );
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    pointer-events: none;
+    z-index: -1;
+  }
+  
+  .scroll-revealed.group.relative.bg-white.rounded-xl:hover::before {
+    opacity: 1;
+  }
+  
+  /* Parallax sutil en la imagen */
+  .scroll-revealed.group:hover .relative.aspect-square img {
+    transform: scale(1.05);
+    transition: transform 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+  }
+}
+
+/* 3. RIPPLE EFFECT - Click feedback (funciona en mobile y desktop) */
+@keyframes ripple {
+  0% {
+    transform: scale(0);
+    opacity: 0.6;
+  }
+  100% {
+    transform: scale(2.5);
+    opacity: 0;
+  }
+}
+
+.scroll-revealed.group.relative.bg-white.rounded-xl::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(59, 130, 246, 0.4), transparent);
+  transform: translate(-50%, -50%) scale(0);
+  pointer-events: none;
+  z-index: 1;
+}
+
+.scroll-revealed.group.relative.bg-white.rounded-xl:active::after {
+  animation: ripple 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+/* 4. MICRO-BOUNCE en badges y elementos pequeños */
+@keyframes micro-bounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-2px);
+  }
+}
+
+/* Badge de stock hace bounce sutil en hover de la card */
+@media (min-width: 1024px) {
+  .scroll-revealed.group:hover .absolute.top-2 span,
+  .scroll-revealed.group:hover .absolute.top-3 span {
+    animation: micro-bounce 0.5s ease-in-out;
+  }
+}
+
+/* 5. GLOW DINÁMICO en precio - Pulsa sutilmente */
+@keyframes price-glow {
+  0%, 100% {
+    text-shadow: 0 0 10px rgba(59, 130, 246, 0.3);
+  }
+  50% {
+    text-shadow: 0 0 20px rgba(59, 130, 246, 0.5);
+  }
+}
+
+@media (min-width: 1024px) {
+  .scroll-revealed.group:hover .text-2xl.font-black,
+  .scroll-revealed.group:hover .text-3xl.font-black {
+    animation: price-glow 2s ease-in-out infinite;
+  }
+}
+
+/* 6. SMOOTH REVEAL para elementos decorativos */
+.scroll-revealed.group .absolute.inset-0.pointer-events-none > div {
+  transition: transform 0.6s cubic-bezier(0.34, 1.56, 0.64, 1),
+              opacity 0.4s ease;
+}
+
+/* Los círculos decorativos se expanden en hover */
+@media (min-width: 1024px) {
+  .scroll-revealed.group:hover .absolute.inset-0.pointer-events-none > div {
+    transform: scale(1.15);
+  }
+}
+
+/* 7. SHIMMER en imágenes mientras cargan */
+@keyframes shimmer-loading {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+.relative.aspect-square.bg-gradient-to-br {
+  background: linear-gradient(
+    90deg,
+    #f3f4f6 0%,
+    #e5e7eb 20%,
+    #f3f4f6 40%,
+    #f3f4f6 100%
+  );
+  background-size: 200% 100%;
+  animation: shimmer-loading 1.5s ease-in-out infinite;
+}
+
+/* Cuando la imagen carga, detener shimmer */
+.relative.aspect-square.bg-gradient-to-br:has(img[loading="eager"]),
+.relative.aspect-square.bg-gradient-to-br:has(img[loading="lazy"]) {
+  animation: none;
+  background: linear-gradient(to bottom right, #f9fafb, #f3f4f6);
+}
+
+/* ============================================
+   OPTIMIZACIONES MOBILE
+   ============================================ */
+
+/* En mobile, simplificar efectos para mejor rendimiento */
+@media (max-width: 1023px) {
+  /* Desactivar animaciones complejas en mobile */
+  .scroll-revealed.group.relative.bg-white.rounded-xl::before,
+  .scroll-revealed.group:hover .text-2xl.font-black,
+  .scroll-revealed.group:hover .text-3xl.font-black {
+    animation: none !important;
+  }
+  
+  /* Solo mantener el ripple en mobile (es el más satisfactorio) */
+  .scroll-revealed.group.relative.bg-white.rounded-xl:active {
+    transform: scale(0.98);
+    transition: transform 0.1s ease;
+  }
+}
+
+/* Reducir motion para accesibilidad */
+@media (prefers-reduced-motion: reduce) {
+  .product-card-reveal,
+  .scroll-revealed.group.relative.bg-white.rounded-xl,
+  .scroll-revealed.group.relative.bg-white.rounded-xl::before,
+  .scroll-revealed.group.relative.bg-white.rounded-xl::after,
+  .relative.aspect-square img {
+    animation: none !important;
+    transition-duration: 0.01ms !important;
+  }
+  
+  /* Mostrar cards inmediatamente sin animación */
+  .product-card-reveal {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* ============================================
+   SIDEBAR FILTERS - Optimizaciones Mobile
+   ============================================ */
+
+/* Animación suave para la imagen de categoría */
+.category-image-reveal {
+  animation: category-fade-in 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  will-change: opacity, transform;
+}
+
+@keyframes category-fade-in {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Drawer optimizado - Con fade-in automático */
+.drawer-container {
+  position: fixed;
+  inset: 0;
+  z-index: 50;
+  animation: drawer-fade-in 0.25s ease-out forwards;
+}
+
+@keyframes drawer-fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.drawer-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(4px);
+  animation: overlay-fade-in 0.3s ease-out forwards;
+  will-change: opacity;
+}
+
+@keyframes overlay-fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.drawer-panel {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: 85%;
+  max-width: 24rem;
+  background: white;
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  padding-bottom: 6rem;
+  animation: drawer-slide-in 0.3s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+  will-change: transform;
+}
+
+@keyframes drawer-slide-in {
+  from {
+    transform: translateX(-100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+/* Reducir motion */
+@media (prefers-reduced-motion: reduce) {
+  .drawer-container,
+  .drawer-overlay,
+  .drawer-panel,
+  .category-image-reveal {
+    animation-duration: 0.01ms !important;
   }
 }

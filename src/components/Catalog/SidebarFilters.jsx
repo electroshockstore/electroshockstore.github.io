@@ -75,34 +75,25 @@ const SidebarFilters = ({ selectedCategory, filters, onFilterChange, onClearFilt
 
   const FilterContent = () => (
     <div className="bg-gradient-to-br from-white to-gray-50 rounded-2xl shadow-2xl mt-6 shadow-gray-300/50 border border-gray-200/50 p-5 backdrop-blur-sm h-full overflow-y-auto">
-      {/* Imagen de categoría */}
+      {/* Imagen de categoría - SIN framer-motion, solo CSS */}
       {getCategoryImage(selectedCategory) && (
-        <motion.div
-          initial={{ opacity: 0, scale: 0.9 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ 
-            duration: 0.5,
-            ease: [0.16, 1, 0.3, 1]
-          }}
-          key={selectedCategory}
-        >
-          <div className="relative flex flex-col items-center  ">
+        <div className="category-image-reveal" key={selectedCategory}>
+          <div className="relative flex flex-col items-center">
             {/* Sombra flotante debajo de la imagen */}
             <div className="absolute bottom-12 left-1/2 -translate-x-1/2 w-48 h-10 bg-gray-400/20 rounded-full blur-2xl"></div>
             
             {/* Contenedor de la imagen - tamaño máximo */}
-            <div className="relative w-full max-w-[280px] h-84 flex items-center justify-center -mt-5 ">
+            <div className="relative w-full max-w-[280px] h-84 flex items-center justify-center -mt-5">
               <img 
                 src={getCategoryImage(selectedCategory)} 
                 alt={selectedCategory}
                 className="w-full h-full object-contain filter drop-shadow-2xl"
                 loading="lazy"
+                decoding="async"
               />
             </div>
-            
-          
           </div>
-        </motion.div>
+        </div>
       )}
       
       <div className="flex items-center justify-between mb-5">
@@ -155,7 +146,7 @@ const SidebarFilters = ({ selectedCategory, filters, onFilterChange, onClearFilt
                   {getFilterLabel(filterType)}
                 </span>
                 {activeCount > 0 && (
-                  <span className="flex items-center justify-center min-w-[24px] h-6 px-2 bg-gradient-to-r from-blue-500 to-purple-500 text-white text-xs font-bold rounded-full shadow-md animate-pulse">
+                  <span className="flex items-center justify-center min-w-[24px] h-6 px-2 bg-gradient-to-r from-blue-500 to-purple-500 text-white text-xs font-bold rounded-full shadow-md">
                     {activeCount}
                   </span>
                 )}
@@ -227,15 +218,15 @@ const SidebarFilters = ({ selectedCategory, filters, onFilterChange, onClearFilt
       {/* Drawer mobile usando Portal */}
       {isDrawerOpen && (
         <Portal>
-          <div className="drawer-container lg:hidden fixed inset-0 z-50 drawer-open">
-            {/* Overlay */}
+          <div className="drawer-container lg:hidden fixed inset-0 z-50">
+            {/* Overlay con fade */}
             <div 
-              className="drawer-overlay absolute inset-0 bg-black/60 backdrop-blur-sm"
+              className="drawer-overlay"
               onClick={() => setIsDrawerOpen(false)}
             />
             
-            {/* Drawer */}
-            <div className="drawer-panel absolute top-0 left-0 bottom-0 w-[85%] max-w-sm bg-white shadow-2xl pb-24">
+            {/* Drawer con slide */}
+            <div className="drawer-panel">
               <FilterContent />
             </div>
           </div>

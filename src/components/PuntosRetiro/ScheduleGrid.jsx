@@ -9,7 +9,7 @@ const ScheduleGrid = memo(({ days, schedule, weekendSchedule }) => {
         {/* Días */}
         <div className="relative bg-gray-800/50 rounded-xl sm:rounded-2xl border border-white/10 p-3 sm:p-5 overflow-hidden hover:bg-gray-800/70 transition-colors duration-200">
           <div className="flex flex-col gap-2 sm:gap-3">
-            <div className="w-8 h-8 sm:w-10 sm:h-10 bg-blue-500/20 rounded-lg sm:rounded-xl flex items-center justify-center border border-blue-400/30">
+           <div className="w-8 h-8 sm:w-10 sm:h-10 bg-blue-500/20 rounded-lg sm:rounded-xl flex items-center justify-center border border-blue-400/30">
               <Calendar className="w-4 h-4 sm:w-5 sm:h-5 text-blue-400" strokeWidth={2} />
             </div>
             <div>

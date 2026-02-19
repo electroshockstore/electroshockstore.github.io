@@ -82,28 +82,26 @@ const ProductGroup = memo(({ products, viewMode, openModal, gridClasses }) => {
             className={isFeatured ? 'bento-item-featured' : ''}
             style={{ willChange: 'opacity, transform', position: 'relative' }}
           >
-            {/* Border Beam solo para el producto destacado */}
+            {/* Badge "Más Vendido" - Posicionado absolutamente FUERA del wrapper con border */}
             {isFeatured && (
-              <div className="border-beam-wrapper">
-                <div className="border-beam" aria-hidden="true" />
+              <div className="absolute top-3 left-3 sm:top-4 sm:left-4 z-[200] inline-flex items-center gap-1.5 sm:gap-2 px-3 py-2 sm:px-4 sm:py-2.5 bg-gradient-to-br from-red-500 via-red-600 to-red-700 rounded-xl sm:rounded-2xl shadow-lg shadow-red-500/40 border border-red-400/30 pointer-events-none">
+                <Flame className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-white drop-shadow-md" fill="currentColor" strokeWidth={2} />
+                <span className="text-[10px] sm:text-xs font-black text-white uppercase tracking-wide drop-shadow-md">
+                  Más Vendido
+                </span>
               </div>
             )}
 
-            {/* Badge "Más Vendido" solo para el producto destacado */}
-            {isFeatured && (
-              <div className="featured-badge">
-                <Flame className="featured-icon" fill="currentColor" />
-                <span>Más Vendido</span>
-              </div>
-            )}
-
-            <ProductCardWrapper
-              product={product}
-              viewMode={viewMode}
-              onClick={openModal}
-              index={index}
-              isFeatured={isFeatured}
-            />
+            {/* Wrapper para aplicar el border shine - Este es el > div que CSS selecciona */}
+            <div className={isFeatured ? 'featured-card-wrapper' : ''}>
+              <ProductCardWrapper
+                product={product}
+                viewMode={viewMode}
+                onClick={openModal}
+                index={index}
+                isFeatured={isFeatured}
+              />
+            </div>
           </motion.div>
         );
       })}

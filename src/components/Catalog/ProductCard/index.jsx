@@ -6,6 +6,7 @@ import StockStatus from './StockStatus';
 import ProductImage from './ProductImage';
 import ProductInfo from './ProductInfo';
 import PriceDisplay from './PriceDisplay';
+import useScrollReveal from '../../../hooks/useScrollReveal';
 
 // Constante estática - Se crea UNA SOLA VEZ
 const STOCK_STATUS = Object.freeze({ 
@@ -22,6 +23,13 @@ const ProductCard = memo(({ product, viewMode, onClick, index = 0, listName = 'P
   const isDDR5 = ddrType === 'DDR5';
   const isDDR4 = ddrType === 'DDR4';
   
+  // Scroll reveal con delay escalonado basado en el index
+  const revealRef = useScrollReveal({ 
+    threshold: 0.1, 
+    rootMargin: '50px',
+    delay: Math.min(index * 50, 300) // Max 300ms delay para no hacer esperar mucho
+  });
+  
   const handleClick = useCallback(() => {
     trackSelectItem(product, index, listName);
     onClick(product);
@@ -34,8 +42,9 @@ const ProductCard = memo(({ product, viewMode, onClick, index = 0, listName = 'P
   if (viewMode === 'list') {
     return (
       <div 
+        ref={revealRef}
         onClick={handleClick}
-        className="group relative bg-white rounded-lg border border-gray-200 p-3 sm:p-4
+        className="product-card-reveal group relative bg-white rounded-lg border border-gray-200 p-3 sm:p-4
                    hover:border-blue-400 hover:shadow-lg
                    transition-all duration-200 cursor-pointer flex gap-3 sm:gap-4 items-center"
       >
@@ -102,12 +111,15 @@ const ProductCard = memo(({ product, viewMode, onClick, index = 0, listName = 'P
 
   return (
     <div 
+      ref={revealRef}
       onClick={handleClick}
-      className="group relative bg-white rounded-xl sm:rounded-2xl border border-gray-100 
-                 hover:border-blue-500/30 hover:shadow-2xl hover:shadow-blue-500/10
-                 shadow-lg shadow-gray-200/50
+      className={`product-card-reveal group relative bg-white rounded-xl sm:rounded-2xl 
+                 ${isFeatured ? 'border-0' : 'border border-gray-100 hover:border-blue-500/30'}
+                 hover:shadow-2xl hover:shadow-blue-500/10
+                 shadow-[0_4px_12px_-2px_rgba(0,0,0,0.08),0_2px_6px_-1px_rgba(0,0,0,0.06)]
+                 hover:shadow-[0_20px_40px_-8px_rgba(0,0,0,0.12),0_8px_16px_-4px_rgba(59,130,246,0.15)]
                  transition-all duration-300 cursor-pointer overflow-hidden flex flex-col h-full
-                 active:scale-[0.98] sm:active:scale-100"
+                 active:scale-[0.98] sm:active:scale-100`}
     >
       {/* Elementos geométricos decorativos */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden z-10">
