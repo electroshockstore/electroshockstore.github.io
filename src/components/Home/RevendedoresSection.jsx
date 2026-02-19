@@ -6,20 +6,11 @@ import MotionReveal from '../Shared/MotionReveal';
 const RevendedoresSection = ({ products = [], onProductClick }) => {
     const navigate = useNavigate();
 
-    // Productos fijos para mostrar en Home - Mobile (3 originales)
-    const featuredProductsMobile = products.filter(p => 
-        p.id === 1511 || // Sony PS4
+    // Productos fijos para mostrar en Home - Mobile y Desktop (3 productos)
+    const featuredProducts = products.filter(p =>
         p.id === 1508 || // Pandora 2
-        p.id === 1509    // ASUS A520M-K
-    );
-
-    // Productos fijos para mostrar en Home - Desktop (5 productos)
-    const featuredProductsDesktop = products.filter(p => 
-        p.id === 1511 || // Sony PS4
-        p.id === 1508 || // Pandora 2
-        p.id === 1509 || // ASUS A520M-K
-        p.id === 1513 || // Redragon Kumara (nuevo)
-        p.id === 1514    // Logitech G203 (nuevo)
+        p.id === 1513 || // Redragon Kumara
+        p.id === 1514    // Logitech G203
     );
 
     const handleVerMas = () => {
@@ -77,9 +68,9 @@ const RevendedoresSection = ({ products = [], onProductClick }) => {
                     </p>
                 </div>
 
-                {/* Grid de productos mayoristas - Mobile: 3 cards originales */}
+                {/* Grid de productos mayoristas - Mobile: 3 cards */}
                 <div className="sm:hidden grid grid-cols-3 gap-2 mb-8 px-2">
-                    {featuredProductsMobile.map((product, index) => (
+                    {featuredProducts.map((product, index) => (
                         <ProductCardMayorista
                             key={product.id || index}
                             product={product}
@@ -89,15 +80,12 @@ const RevendedoresSection = ({ products = [], onProductClick }) => {
                     ))}
                 </div>
 
-                {/* Grid de productos mayoristas - Desktop: 5 cards ULTRA-OPTIMIZADO - Sin hover effects */}
-                <div className="hidden sm:flex items-center justify-center gap-1 lg:gap-2 xl:gap-3 mb-12 sm:mb-16 px-1 lg:px-2">
-                    {featuredProductsDesktop.map((product, index) => (
+                {/* Grid de productos mayoristas - Desktop: 3 cards */}
+                <div className="hidden sm:flex items-center justify-center gap-3 lg:gap-4 xl:gap-6 mb-12 sm:mb-16 px-4 lg:px-8 max-w-6xl mx-auto">
+                    {featuredProducts.map((product, index) => (
                         <div
                             key={product.id || index}
-                            style={{
-                                flex: '1 1 0%',
-                                maxWidth: '100%'
-                            }}
+                            className="flex-1 max-w-md"
                         >
                             <ProductCardMayorista
                                 product={product}

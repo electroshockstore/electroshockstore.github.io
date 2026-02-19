@@ -4,16 +4,21 @@ import Header from '../components/Shared/Header';
 import Footer from '../components/Shared/Footer';
 import ScrollButton from '../components/Shared/ScrollButton';
 import HeroCarousel from '../components/Home/HeroCarousel';
-import RevendedoresSection from '../components/Home/RevendedoresSection';
 import PCBuilderSection from '../components/Home/PCBuilderSection';
 import CategoryProductSection from '../components/Home/CategoryProductSection';
 import PuntosRetiroInfoSection from '../components/Home/PuntosRetiroInfoSection';
 import CategoryFilter from '../components/Catalog/CategoryFilter';
-import MysteryBox3D from '../components/Shared/MysteryBox3D';
+
 import { useFilter } from '../context/FilterContext';
 import { getSlugFromCategory } from '../utils/slugify';
 import { useSEO } from '../hooks/useSEO';
 import mayoristaData from '../data/categories/mayorista.json';
+import RevendedoresSection from '../components/Home/RevendedoresSection';
+
+// Importa el layout que quieras probar (A, B o C):
+import RevendedoresSectionA from '../components/Home/RevendedoresSectionA';
+import RevendedoresSectionB from '../components/Home/RevendedoresSectionB';
+import RevendedoresSectionC from '../components/Home/RevendedoresSectionC';
 
 const mayoristaProducts = mayoristaData.products;
 
@@ -92,7 +97,7 @@ const Home = () => {
 
           {/* Mobile: Packs Ahorro después del Hero */}
           <div className="sm:hidden px-3 mb-4">
-            <RevendedoresSection 
+            <RevendedoresSection
               products={mayoristaProducts}
               onProductClick={handleRevendedorProductClick}
             />
@@ -120,7 +125,7 @@ const Home = () => {
 
           {/* Desktop: Packs Ahorro después del PC Builder */}
           <div className="hidden sm:block px-3 sm:px-4 mb-4 sm:mb-6">
-            <RevendedoresSection 
+            <RevendedoresSection
               products={mayoristaProducts}
               onProductClick={handleRevendedorProductClick}
             />
