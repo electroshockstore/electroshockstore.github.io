@@ -885,10 +885,16 @@
 
 /* Primer producto (Más Vendido) - Ocupa 2 columnas pero MISMA altura */
 .bento-item-featured {
-  grid-column: span 2;
   position: relative;
   /* Crear contexto de apilamiento para el badge */
   z-index: 1;
+}
+
+/* Solo span 2 columnas en pantallas sm y mayores */
+@media (min-width: 640px) {
+  .bento-item-featured {
+    grid-column: span 2;
+  }
 }
 
 /* Badge debe estar ANTES del border para que sea visible */
@@ -962,10 +968,6 @@
 }
 
 @media (min-width: 640px) {
-  .bento-item-featured {
-    grid-column: span 2;
-  }
-
   .bento-item-featured .featured-card-wrapper {
     border-radius: 1.5rem;
   }

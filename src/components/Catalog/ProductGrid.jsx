@@ -82,11 +82,11 @@ const ProductGroup = memo(({ products, viewMode, openModal, gridClasses }) => {
             className={isFeatured ? 'bento-item-featured' : ''}
             style={{ willChange: 'opacity, transform', position: 'relative' }}
           >
-            {/* Badge "Más Vendido" - Posicionado absolutamente FUERA del wrapper con border */}
+            {/* Badge "Más Vendido" - Responsive */}
             {isFeatured && (
-              <div className="absolute top-3 left-3 sm:top-4 sm:left-4 z-[200] inline-flex items-center gap-1.5 sm:gap-2 px-3 py-2 sm:px-4 sm:py-2.5 bg-gradient-to-br from-red-500 via-red-600 to-red-700 rounded-xl sm:rounded-2xl shadow-lg shadow-red-500/40 border border-red-400/30 pointer-events-none">
-                <Flame className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-white drop-shadow-md" fill="currentColor" strokeWidth={2} />
-                <span className="text-[10px] sm:text-xs font-black text-white uppercase tracking-wide drop-shadow-md">
+              <div className="absolute top-2 left-2 sm:top-4 sm:left-4 z-[200] inline-flex items-center gap-1 sm:gap-1.5 md:gap-2 px-2 py-1 sm:px-3 sm:py-1.5 md:px-4 md:py-2.5 bg-gradient-to-br from-red-500 via-red-600 to-red-700 rounded-lg sm:rounded-xl md:rounded-2xl shadow-md sm:shadow-lg shadow-red-500/40 border border-red-400/30 pointer-events-none">
+                <Flame className="w-3 h-3 sm:w-3.5 sm:h-3.5 md:w-4 md:h-4 text-white drop-shadow-md" fill="currentColor" strokeWidth={2} />
+                <span className="text-[9px] sm:text-[10px] md:text-xs font-black text-white uppercase tracking-tight sm:tracking-wide drop-shadow-md">
                   Más Vendido
                 </span>
               </div>

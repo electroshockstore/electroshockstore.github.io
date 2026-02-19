@@ -13,6 +13,16 @@ const ProductCardMayorista = memo(({ product, onClick, index = 0 }) => {
     };
   }, [product]);
 
+  // Seleccionar imagen - evitar category_filter con fondo blanco
+  const displayImage = useMemo(() => {
+    if (!product.images || product.images.length === 0) return '';
+    // Si la primera imagen es de category_filter y hay más imágenes, usar la segunda
+    if (product.images[0]?.includes('category_filter') && product.images[1]) {
+      return product.images[1];
+    }
+    return product.images[0];
+  }, [product.images]);
+
   return (
     <div 
       onClick={() => onClick(product)}
