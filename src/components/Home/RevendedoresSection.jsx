@@ -1,4 +1,4 @@
-import { Package, ArrowRight } from 'lucide-react';
+import { Package, ArrowRight, TrendingUp, Zap } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import ProductCardMayorista from './ProductCardMayorista';
 import MotionReveal from '../Shared/MotionReveal';
@@ -6,11 +6,10 @@ import MotionReveal from '../Shared/MotionReveal';
 const RevendedoresSection = ({ products = [], onProductClick }) => {
     const navigate = useNavigate();
 
-    // Productos fijos para mostrar en Home - Mobile y Desktop (3 productos)
     const featuredProducts = products.filter(p =>
-        p.id === 1508 || // Pandora 2
-        p.id === 1513 || // Redragon Kumara
-        p.id === 1514    // Logitech G203
+        p.id === 1508 ||
+        p.id === 1513 ||
+        p.id === 1514
     );
 
     const handleVerMas = () => {
@@ -24,52 +23,191 @@ const RevendedoresSection = ({ products = [], onProductClick }) => {
             duration={0.7}
             className="w-full flex-1 relative overflow-hidden"
         >
-            {/* Partículas de fondo OPTIMIZADAS - Solo desktop, blur reducido, sin animate-pulse */}
-            <div className="hidden sm:block absolute inset-0 overflow-hidden pointer-events-none">
-                {/* Blur reducido de blur-3xl (48px) → blur-xl (24px) */}
-                <div className="absolute top-20 left-10 w-96 h-96 bg-amber-500/20 rounded-full blur-xl" />
-                <div className="absolute bottom-20 right-10 w-[500px] h-[500px] bg-orange-500/20 rounded-full blur-xl" />
-                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-gradient-to-r from-amber-500/8 to-orange-500/8 rounded-full blur-xl" />
+            <style>{`
+                @keyframes drift {
+                    0%, 100% { transform: translate(0, 0) scale(1); }
+                    33% { transform: translate(30px, -20px) scale(1.05); }
+                    66% { transform: translate(-20px, 15px) scale(0.97); }
+                }
+                @keyframes spin-slow {
+                    from { transform: rotate(0deg); }
+                    to { transform: rotate(360deg); }
+                }
+                @keyframes float-tag {
+                    0%, 100% { transform: translateY(0px) rotate(-3deg); }
+                    50% { transform: translateY(-12px) rotate(3deg); }
+                }
+                @keyframes shimmer-slide {
+                    0% { transform: translateX(-100%) skewX(-15deg); }
+                    100% { transform: translateX(300%) skewX(-15deg); }
+                }
+                @keyframes pulse-ring {
+                    0% { transform: scale(1); opacity: 0.6; }
+                    100% { transform: scale(1.8); opacity: 0; }
+                }
+                @keyframes text-glow-pulse {
+                    0%, 100% { filter: brightness(1) drop-shadow(0 0 20px rgba(251,146,60,0.4)); }
+                    50% { filter: brightness(1.15) drop-shadow(0 0 40px rgba(251,146,60,0.8)); }
+                }
+                @keyframes marquee-badge {
+                    0%, 100% { transform: scale(1) rotate(-2deg); }
+                    50% { transform: scale(1.08) rotate(2deg); }
+                }
+                @keyframes ticker {
+                    0% { transform: translateX(0); }
+                    100% { transform: translateX(-50%); }
+                }
+
+                .tag-float { animation: float-tag 5s ease-in-out infinite; }
+                .text-glow { animation: text-glow-pulse 3s ease-in-out infinite; }
+                .badge-bounce { animation: marquee-badge 3s ease-in-out infinite; }
+                .cta-shimmer::after {
+                    content: '';
+                    position: absolute;
+                    top: 0; left: 0;
+                    width: 40%;
+                    height: 100%;
+                    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.25), transparent);
+                    animation: shimmer-slide 3s ease-in-out infinite;
+                }
+                .pulse-ring-el::before {
+                    content: '';
+                    position: absolute;
+                    inset: -4px;
+                    border-radius: 9999px;
+                    border: 2px solid rgba(251,146,60,0.5);
+                    animation: pulse-ring 2s ease-out infinite;
+                }
+                .pulse-ring-el::after {
+                    content: '';
+                    position: absolute;
+                    inset: -4px;
+                    border-radius: 9999px;
+                    border: 2px solid rgba(251,146,60,0.3);
+                    animation: pulse-ring 2s ease-out infinite 0.6s;
+                }
+
+                @media (prefers-reduced-motion: reduce) {
+                    .tag-float, .text-glow, .badge-bounce, .cta-shimmer::after { animation: none; }
+                }
+            `}</style>
+
+            {/* ─── Background ─── */}
+            <div className="absolute inset-0 pointer-events-none overflow-hidden">
+                {/* Animated mesh blobs */}
+                <div className="absolute -top-32 -left-32 w-[600px] h-[600px] rounded-full opacity-30"
+                    style={{
+                        background: 'radial-gradient(circle, rgba(251,146,60,0.35) 0%, transparent 70%)',
+                        animation: 'drift 18s ease-in-out infinite'
+                    }} />
+                <div className="absolute -bottom-32 -right-32 w-[700px] h-[700px] rounded-full opacity-25"
+                    style={{
+                        background: 'radial-gradient(circle, rgba(239,68,68,0.3) 0%, transparent 70%)',
+                        animation: 'drift 22s ease-in-out infinite reverse'
+                    }} />
+                {/* Grid pattern overlay */}
+                <div className="absolute inset-0 opacity-5"
+                    style={{
+                        backgroundImage: 'linear-gradient(rgba(251,146,60,0.4) 1px, transparent 1px), linear-gradient(90deg, rgba(251,146,60,0.4) 1px, transparent 1px)',
+                        backgroundSize: '60px 60px'
+                    }} />
+                {/* Diagonal accent lines */}
+                <div className="hidden lg:block absolute top-0 right-0 w-px h-full opacity-10"
+                    style={{ background: 'linear-gradient(to bottom, transparent, rgba(251,191,60,1), transparent)' }} />
+                <div className="hidden lg:block absolute top-0 left-1/3 w-px h-full opacity-5"
+                    style={{ background: 'linear-gradient(to bottom, transparent, rgba(251,191,60,1), transparent)' }} />
             </div>
 
-            <div className="w-full py-12 sm:py-16 md:py-20 relative z-10">
-                {/* Encabezado con más jerarquía */}
-                <div className="text-center mb-12 sm:mb-16 px-4">
-                    <div className="inline-flex items-center gap-3 px-4 py-2 bg-gradient-to-r from-amber-500/30 to-orange-500/30 backdrop-blur-sm rounded-full mb-6 shadow-2xl shadow-amber-500/40 border border-amber-400/50">
-                        {/* Icon sin animate-pulse */}
-                        <Package className="w-4 h-4 text-amber-300" />
-                        <span className="text-sm font-bold text-amber-200 uppercase tracking-widest">
-                           Productos Destacados
-                        </span>
-                    </div>
-                    
-                    <h2 className="text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-black mb-4 tracking-tight">
-                        <span className="text-white drop-shadow-[0_0_30px_rgba(255,255,255,0.4)] filter brightness-110">
-                            Packs{' '}
-                        </span>
-                        <span className="relative inline-block">
-                            <span className="bg-gradient-to-r from-amber-300 via-orange-400 to-red-400 bg-clip-text text-transparent drop-shadow-[0_0_40px_rgba(251,146,60,0.8)] filter brightness-125">
-                                Ahorro
+            <div className="w-full py-16 sm:py-20 md:py-28 relative z-10">
+
+                {/* ─── HEADER ─── */}
+                <div className="text-center mb-16 sm:mb-20 md:mb-24 px-4">
+
+                    {/* Eyebrow pill */}
+                    <div className="inline-flex items-center gap-2 mb-8">
+                        <div className="relative inline-flex items-center gap-2.5 px-5 py-2 rounded-full border border-amber-400/40 bg-amber-500/10 backdrop-blur-md badge-bounce">
+                            <div className="relative flex-shrink-0 pulse-ring-el">
+                                <div className="w-2 h-2 rounded-full bg-amber-400" />
+                            </div>
+                            <span className="text-xs font-bold text-amber-300 uppercase tracking-[0.2em]">
+                                 Mayoristas
                             </span>
-                            {/* Glows CRÍTICOS - Usar filter blur en lugar de clase Tailwind para evitar override de iOS */}
-                            <span 
-                                className="absolute inset-0 bg-gradient-to-r from-amber-400 via-orange-500 to-red-500 opacity-50 -z-10" 
-                                style={{ filter: 'blur(24px)' }}
-                            />
-                            <span 
-                                className="absolute inset-0 bg-gradient-to-r from-yellow-300 via-amber-400 to-orange-400 opacity-30 -z-10" 
-                                style={{ filter: 'blur(16px)' }}
-                            />
-                        </span>
-                    </h2>
-                    
-                    <p className="text-lg sm:text-xl md:text-2xl text-gray-200 max-w-4xl mx-auto font-semibold drop-shadow-[0_0_15px_rgba(255,255,255,0.3)] leading-relaxed">
-                        Comprá al por mayor y <span className="text-amber-300 font-bold">maximizá tu ganancia</span>. 
-                    </p>
+                            <Zap className="w-3.5 h-3.5 text-amber-400" />
+                        </div>
+                    </div>
+
+                    {/* Main title block */}
+                    <div className="relative max-w-5xl mx-auto">
+
+                        {/* Floating tag icon */}
+                        <div className="flex justify-center mb-6">
+                            <div className="relative inline-block tag-float">
+                                <div className="absolute inset-0 rounded-full"
+                                    style={{ background: 'radial-gradient(circle, rgba(251,146,60,0.6) 0%, transparent 60%)', filter: 'blur(20px)', transform: 'scale(1.5)' }} />
+                                <div className="relative w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 flex items-center justify-center rounded-2xl border border-amber-400/30"
+                                    style={{ background: 'linear-gradient(135deg, rgba(251,191,60,0.2), rgba(239,68,68,0.2))', backdropFilter: 'blur(12px)' }}>
+                                    <svg viewBox="0 0 24 24" fill="none" className="w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12">
+                                        <defs>
+                                            <linearGradient id="tg2" x1="0%" y1="0%" x2="100%" y2="100%">
+                                                <stop offset="0%" stopColor="rgb(251,191,60)" />
+                                                <stop offset="50%" stopColor="rgb(251,146,60)" />
+                                                <stop offset="100%" stopColor="rgb(239,68,68)" />
+                                            </linearGradient>
+                                        </defs>
+                                        <path d="M12.586 2.586A2 2 0 0 0 11.172 2H4a2 2 0 0 0-2 2v7.172a2 2 0 0 0 .586 1.414l8 8a2 2 0 0 0 2.828 0l7.172-7.172a2 2 0 0 0 0-2.828l-8-8z"
+                                            fill="url(#tg2)" />
+                                        <circle cx="7" cy="7" r="1.5" fill="rgba(15,23,42,0.8)" />
+                                        <line x1="9" y1="14" x2="15" y2="9" stroke="rgba(255,255,255,0.6)" strokeWidth="1.5" strokeLinecap="round" />
+                                    </svg>
+                                </div>
+                            </div>
+                        </div>
+
+                        {/* Headline */}
+                        <h2 className="font-black leading-[0.9] tracking-tighter mb-6">
+                            <span className="block text-4xl sm:text-6xl md:text-7xl lg:text-8xl text-white"
+                                style={{ letterSpacing: '-0.03em' }}>
+                                Packs 
+                            </span>
+                            <span className="block text-5xl sm:text-7xl md:text-9xl lg:text-[10rem] relative text-glow"
+                                style={{
+                                    background: 'linear-gradient(135deg, #fbbf24 0%, #f97316 40%, #ef4444 100%)',
+                                    WebkitBackgroundClip: 'text',
+                                    WebkitTextFillColor: 'transparent',
+                                    backgroundClip: 'text',
+                                    letterSpacing: '-0.04em'
+                                }}>
+                                Ahorro
+                                {/* Decorative slash */}
+                                <span className="absolute -right-4 sm:-right-6 top-0 text-amber-500/20 text-[0.5em] font-thin select-none hidden md:block">/</span>
+                            </span>
+                        </h2>
+
+                        {/* Subheadline row */}
+                        <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-6">
+                            <p className="text-base sm:text-xl md:text-2xl text-gray-300 font-medium max-w-xl leading-relaxed">
+                                Comprá al por mayor y{' '}
+                                <span className="text-amber-300 font-bold">maximizá tu ganancia</span>.
+                            </p>
+
+                            {/* Stats pill */}
+                            <div className="hidden sm:flex items-center gap-2 px-4 py-2 rounded-lg border border-emerald-500/30 bg-emerald-500/10">
+                                <TrendingUp className="w-4 h-4 text-emerald-400" />
+                                <span className="text-sm font-bold text-emerald-300">Hasta 40% OFF</span>
+                            </div>
+                        </div>
+
+                        {/* Decorative horizontal rule */}
+                        <div className="flex items-center gap-4 mt-10 max-w-xs sm:max-w-sm mx-auto">
+                            <div className="flex-1 h-px" style={{ background: 'linear-gradient(to right, transparent, rgba(251,146,60,0.5))' }} />
+                            <div className="w-1.5 h-1.5 rounded-full bg-amber-400" />
+                            <div className="flex-1 h-px" style={{ background: 'linear-gradient(to left, transparent, rgba(251,146,60,0.5))' }} />
+                        </div>
+                    </div>
                 </div>
 
-                {/* Grid de productos mayoristas - Mobile: 3 cards */}
-                <div className="sm:hidden grid grid-cols-3 gap-2 mb-8 px-2">
+                {/* ─── PRODUCT GRID — Mobile ─── */}
+                <div className="sm:hidden grid grid-cols-3 gap-3 mb-12 px-4">
                     {featuredProducts.map((product, index) => (
                         <ProductCardMayorista
                             key={product.id || index}
@@ -80,13 +218,10 @@ const RevendedoresSection = ({ products = [], onProductClick }) => {
                     ))}
                 </div>
 
-                {/* Grid de productos mayoristas - Desktop: 3 cards */}
-                <div className="hidden sm:flex items-center justify-center gap-3 lg:gap-4 xl:gap-6 mb-12 sm:mb-16 px-4 lg:px-8 max-w-6xl mx-auto">
+                {/* ─── PRODUCT GRID — Desktop ─── */}
+                <div className="hidden sm:flex items-center justify-center gap-4 lg:gap-6 xl:gap-8 mb-16 sm:mb-20 px-6 lg:px-12 max-w-7xl mx-auto">
                     {featuredProducts.map((product, index) => (
-                        <div
-                            key={product.id || index}
-                            className="flex-1 max-w-md"
-                        >
+                        <div key={product.id || index} className="flex-1 max-w-md">
                             <ProductCardMayorista
                                 product={product}
                                 onClick={onProductClick}
@@ -96,28 +231,49 @@ const RevendedoresSection = ({ products = [], onProductClick }) => {
                     ))}
                 </div>
 
-                {/* Botón Ver Más - Más destacado */}
-                <div className="flex justify-center pt-8">
+                {/* ─── CTA BUTTON ─── */}
+                <div className="flex justify-center pt-10 sm:pt-14 px-4">
                     <button
                         onClick={handleVerMas}
-                        className="group relative inline-flex items-center gap-2 sm:gap-4 px-6 sm:px-10 md:px-12 py-3 sm:py-5 md:py-6 bg-gradient-to-r from-amber-500 via-orange-500 to-red-500 hover:from-amber-400 hover:via-orange-400 hover:to-red-400 rounded-xl sm:rounded-2xl font-bold sm:font-black text-white text-sm sm:text-lg md:text-xl shadow-xl sm:shadow-2xl shadow-amber-500/40 sm:shadow-amber-500/50 hover:shadow-2xl sm:hover:shadow-3xl hover:shadow-amber-500/60 sm:hover:shadow-amber-500/70 transition-all duration-500 hover:scale-105 sm:hover:scale-110 active:scale-95 border border-amber-400/30 sm:border-2 sm:border-amber-400/40 hover:border-amber-300/50 sm:hover:border-amber-300/60"
+                        className="group relative overflow-hidden inline-flex items-center gap-3 sm:gap-4 px-8 sm:px-12 py-4 sm:py-5 rounded-2xl font-bold text-white text-sm sm:text-base transition-all duration-300 hover:scale-105 active:scale-95 cta-shimmer"
+                        style={{
+                            background: 'linear-gradient(135deg, #f59e0b 0%, #f97316 50%, #ef4444 100%)',
+                            boxShadow: '0 0 0 1px rgba(251,146,60,0.3), 0 20px 60px -10px rgba(239,68,68,0.5), 0 8px 20px -5px rgba(251,146,60,0.4)'
+                        }}
+                        onMouseEnter={e => {
+                            e.currentTarget.style.boxShadow = '0 0 0 1px rgba(251,191,60,0.5), 0 30px 80px -10px rgba(239,68,68,0.7), 0 12px 30px -5px rgba(251,146,60,0.6)';
+                        }}
+                        onMouseLeave={e => {
+                            e.currentTarget.style.boxShadow = '0 0 0 1px rgba(251,146,60,0.3), 0 20px 60px -10px rgba(239,68,68,0.5), 0 8px 20px -5px rgba(251,146,60,0.4)';
+                        }}
                     >
-                        {/* Efecto de brillo OPTIMIZADO - Sin animate-pulse */}
-                        <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 sm:via-white/30 to-transparent opacity-0 group-hover:opacity-100 rounded-xl sm:rounded-2xl transition-opacity duration-500" />
-                        
-                        {/* Resplandor de fondo */}
-                        <div className="absolute inset-0 bg-gradient-to-r from-amber-400 to-orange-400 rounded-xl sm:rounded-2xl blur-lg sm:blur-xl opacity-0 group-hover:opacity-50 sm:group-hover:opacity-60 transition-opacity duration-500 -z-10 scale-110" />
-                        
-                        <Package className="w-4 h-4 sm:w-6 md:w-7 group-hover:rotate-12 group-hover:scale-110 transition-transform duration-500" />
-                        <span className="relative z-10 tracking-wide text-xs sm:text-base md:text-lg">Ver todos los packs mayoristas</span>
-                        <ArrowRight className="w-4 h-4 sm:w-6 md:w-7 group-hover:translate-x-2 sm:group-hover:translate-x-3 group-hover:scale-110 transition-transform duration-500" />
-                        
-                        {/* Partículas animadas mejoradas - Solo en desktop */}
-                        <div className="hidden sm:block absolute -top-2 -right-2 w-3 md:w-4 h-3 md:h-4 bg-amber-300 rounded-full opacity-0 group-hover:opacity-100 animate-ping" />
-                        <div className="hidden sm:block absolute -bottom-2 -left-2 w-2 md:w-3 h-2 md:h-3 bg-orange-300 rounded-full opacity-0 group-hover:opacity-100 animate-ping [animation-delay:0.3s]" />
-                        <div className="hidden sm:block absolute top-1/2 -right-3 md:-right-4 w-1.5 md:w-2 h-1.5 md:h-2 bg-yellow-300 rounded-full opacity-0 group-hover:opacity-100 animate-ping [animation-delay:0.6s]" />
+                        {/* Inner dark overlay on hover */}
+                        <div className="absolute inset-0 bg-white/0 group-hover:bg-white/10 transition-colors duration-300 rounded-2xl" />
+
+                        <Package className="relative z-10 w-5 h-5 sm:w-5 sm:h-5 group-hover:rotate-12 transition-transform duration-300 flex-shrink-0" />
+                        <span className="relative z-10 tracking-wide font-black uppercase text-xs sm:text-sm">
+                            Ver todos los packs mayoristas
+                        </span>
+                        <ArrowRight className="relative z-10 w-5 h-5 group-hover:translate-x-1.5 transition-transform duration-300 flex-shrink-0" />
                     </button>
                 </div>
+
+                {/* ─── Ticker / Social proof strip ─── */}
+                <div className="mt-16 sm:mt-20 overflow-hidden border-y border-amber-500/10 py-3 bg-amber-500/5">
+                    <div className="flex whitespace-nowrap" style={{ animation: 'ticker 20s linear infinite' }}>
+                        {[...Array(8)].map((_, i) => (
+                            <span key={i} className="inline-flex items-center gap-3 px-6 text-xs font-bold text-amber-400/60 uppercase tracking-widest">
+                                <span className="w-1 h-1 rounded-full bg-amber-500/50 flex-shrink-0" />
+                                Comprá al por mayor
+                                <span className="w-1 h-1 rounded-full bg-orange-500/50 flex-shrink-0" />
+                                Mejores precios
+                                <span className="w-1 h-1 rounded-full bg-red-500/50 flex-shrink-0" />
+                                Packs exclusivos
+                            </span>
+                        ))}
+                    </div>
+                </div>
+
             </div>
         </MotionReveal>
     );

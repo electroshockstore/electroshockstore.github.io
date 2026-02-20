@@ -1,0 +1,17 @@
+{
+  "mcpServers": {
+    "context7": {
+      "command": "uvx",
+      "args": ["context7"],
+      "env": {
+        "FASTMCP_LOG_LEVEL": "ERROR"
+      },
+      "disabled": false,
+      "autoApprove": [
+        "get_context",
+        "search_context",
+        "list_contexts"
+      ]
+    }
+  }
+}

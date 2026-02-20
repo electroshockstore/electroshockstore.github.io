@@ -54,13 +54,17 @@ const Header = ({ searchQuery = '', onSearchChange, onGoHome, hideSearchOnMobile
 
       <header 
         className={`
-          sticky top-0 z-50 w-full
-          transition-all duration-300 ease-in-out
+          block w-full z-50
+          transition-all duration-500 ease-out
           ${shouldBeScrolled 
-            ? 'bg-black border-b border-gray-800' 
+            ? 'bg-black/95 border-b border-gray-800 shadow-lg shadow-black/20' 
             : 'bg-transparent border-b border-transparent'
           }
         `}
+        style={{
+          position: 'relative',
+          willChange: 'background-color, border-color'
+        }}
       >
         {/* PromoCarousel arriba de todo */}
         <PromoCarousel />

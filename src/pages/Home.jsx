@@ -12,6 +12,7 @@ import CategoryFilter from '../components/Catalog/CategoryFilter';
 import { useFilter } from '../context/FilterContext';
 import { getSlugFromCategory } from '../utils/slugify';
 import { useSEO } from '../hooks/useSEO';
+import { useParallax } from '../hooks/useParallax';
 import mayoristaData from '../data/categories/mayorista.json';
 import RevendedoresSection from '../components/Home/RevendedoresSection';
 
@@ -25,6 +26,11 @@ const mayoristaProducts = mayoristaData.products;
 const Home = () => {
   const navigate = useNavigate();
   const { searchQuery, setSearchQuery, setSelectedCategory, clearSubFilters } = useFilter();
+  
+  // Parallax sutil para backgrounds (solo desktop)
+  const parallax1 = useParallax(0.15);
+  const parallax2 = useParallax(0.25);
+  const parallax3 = useParallax(0.2);
 
   // Scroll al inicio al montar la página
   useEffect(() => {
@@ -64,11 +70,27 @@ const Home = () => {
 
   return (
     <div className="min-h-screen w-full flex flex-col relative">
-      {/* Background Gradients - Solo desktop */}
-      <div className="fixed inset-0 -z-10 bg-[#0a0a0f]">
+      {/* Background Gradients con Parallax - Solo desktop */}
+      <div className="fixed inset-0 -z-10 bg-[#0a0a0f] overflow-hidden">
         <div className="hidden md:block absolute inset-0">
-          <div className="absolute w-1/2 h-1/2 bg-blue-900/10 rounded-full blur-3xl top-0 left-0" />
-          <div className="absolute w-1/2 h-1/2 bg-purple-900/10 rounded-full blur-3xl bottom-0 right-0" />
+          {/* Gradient 1 - Parallax lento */}
+          <div 
+            ref={parallax1.ref}
+            style={parallax1.style}
+            className="absolute w-1/2 h-1/2 bg-blue-900/10 rounded-full blur-3xl top-0 left-0" 
+          />
+          {/* Gradient 2 - Parallax medio */}
+          <div 
+            ref={parallax2.ref}
+            style={parallax2.style}
+            className="absolute w-1/2 h-1/2 bg-purple-900/10 rounded-full blur-3xl bottom-0 right-0" 
+          />
+          {/* Gradient 3 - Parallax rápido (nuevo) */}
+          <div 
+            ref={parallax3.ref}
+            style={parallax3.style}
+            className="absolute w-1/3 h-1/3 bg-cyan-900/8 rounded-full blur-3xl top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2" 
+          />
         </div>
       </div>
       

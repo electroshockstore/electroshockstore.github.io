@@ -1,11 +1,13 @@
 import { useNavigate } from 'react-router-dom';
 import { MapPin, Ban, Truck, ArrowRight } from 'lucide-react';
+import MotionReveal from '../Shared/MotionReveal';
 
 const PuntosRetiroInfoSection = () => {
   const navigate = useNavigate();
 
   return (
-    <section
+    <MotionReveal animation="slide-left" duration={0.7}>
+      <section
       className="group relative w-full h-full overflow-hidden sm:rounded-3xl transition-all duration-300 
         sm:border-y sm:border border-gray-800 sm:border-cyan-500/40 sm:ring-2 sm:ring-cyan-500/30
         sm:shadow-xl sm:shadow-cyan-900/50 hover:shadow-2xl hover:shadow-cyan-900/60"
@@ -144,6 +146,7 @@ const PuntosRetiroInfoSection = () => {
         </div>
       </div>
     </section>
+    </MotionReveal>
   );
 };
 

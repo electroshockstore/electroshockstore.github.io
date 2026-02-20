@@ -121,6 +121,26 @@ const ProductCard = memo(({ product, viewMode, onClick, index = 0, listName = 'P
                  transition-all duration-300 cursor-pointer overflow-hidden flex flex-col h-full
                  active:scale-[0.98] sm:active:scale-100`}
     >
+      {/* ── Top gradient accent line ── */}
+      <div
+        className="absolute top-0 left-0 right-0 h-[2px] z-30 opacity-0 group-hover:opacity-100 transition-opacity duration-400"
+        style={{ background: 'linear-gradient(90deg, #3b82f6, #6366f1, #8b5cf6)' }}
+      />
+
+      {/* ── Featured glow corners ── */}
+      {isFeatured && (
+        <>
+          <div 
+            className="absolute top-0 left-0 w-16 h-16 pointer-events-none z-10"
+            style={{ background: 'linear-gradient(135deg, rgba(59,130,246,0.12), transparent)' }} 
+          />
+          <div 
+            className="absolute bottom-0 right-0 w-20 h-20 pointer-events-none z-10"
+            style={{ background: 'linear-gradient(315deg, rgba(139,92,246,0.1), transparent)' }} 
+          />
+        </>
+      )}
+
       {/* Elementos geométricos decorativos */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden z-10">
         {/* Círculo superior derecha - Azul */}
@@ -139,18 +159,25 @@ const ProductCard = memo(({ product, viewMode, onClick, index = 0, listName = 'P
        
       </div>
 
+      {/* ── Image area ── */}
       <div className="relative aspect-square bg-gradient-to-br from-gray-50 to-gray-100 overflow-hidden">
         <ProductImage src={productImage} alt={name} loading={imageLoading} fetchpriority={imageFetchPriority} />
         
-        {/* Glow que rodea la imagen - SOLO para destacado - z-index bajo */}
+        {/* Featured image overlays */}
         {isFeatured && (
           <>
-            {/* Glow inferior - Visible en el borde */}
-            <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-blue-500/60 via-purple-500/30 to-transparent pointer-events-none z-10" />
-            {/* Glow lateral izquierdo */}
-            <div className="absolute left-0 top-0 bottom-0 w-24 bg-gradient-to-r from-cyan-500/40 to-transparent pointer-events-none z-10" />
-            {/* Glow lateral derecho */}
-            <div className="absolute right-0 top-0 bottom-0 w-24 bg-gradient-to-l from-orange-500/40 to-transparent pointer-events-none z-10" />
+            <div 
+              className="absolute bottom-0 left-0 right-0 h-24 pointer-events-none z-20"
+              style={{ background: 'linear-gradient(to top, rgba(59,130,246,0.5), rgba(139,92,246,0.2), transparent)' }} 
+            />
+            <div 
+              className="absolute left-0 top-0 bottom-0 w-16 pointer-events-none z-20"
+              style={{ background: 'linear-gradient(to right, rgba(6,182,212,0.3), transparent)' }} 
+            />
+            <div 
+              className="absolute right-0 top-0 bottom-0 w-16 pointer-events-none z-20"
+              style={{ background: 'linear-gradient(to left, rgba(249,115,22,0.25), transparent)' }} 
+            />
           </>
         )}
         
@@ -160,7 +187,13 @@ const ProductCard = memo(({ product, viewMode, onClick, index = 0, listName = 'P
         <StockBadge stock={stock} stockStatus={STOCK_STATUS} isUsed={isUsed} />
       </div>
 
-      <div className="relative p-2 sm:p-5 flex flex-col flex-1 justify-between gap-2 sm:gap-4">
+      {/* ── Info area ── */}
+      <div className="relative p-2.5 sm:p-4 flex flex-col flex-1 justify-between gap-2 sm:gap-3.5">
+        {/* Separator line */}
+        <div
+          className="absolute top-0 left-4 right-4 h-px"
+          style={{ background: 'linear-gradient(to right, transparent, #e2e8f0, transparent)' }}
+        />
         <div>
            <ProductInfo 
              name={name} 
@@ -173,7 +206,7 @@ const ProductCard = memo(({ product, viewMode, onClick, index = 0, listName = 'P
            />
         </div>
         
-        <div className="space-y-2 sm:space-y-3 pt-2 border-t border-gray-50">
+        <div className="space-y-2 sm:space-y-3">
            <PriceDisplay price={price} category={product.category} />
         </div>
       </div>

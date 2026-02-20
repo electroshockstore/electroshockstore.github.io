@@ -6,6 +6,7 @@ import Portal from './Portal';
 const FloatingChatButton = () => {
   const [isExpanded, setIsExpanded] = useState(false);
   const [showConditionsModal, setShowConditionsModal] = useState(false);
+  const [showButton, setShowButton] = useState(false);
   const location = useLocation();
   const navigate = useNavigate();
   
@@ -13,6 +14,14 @@ const FloatingChatButton = () => {
   if (location.pathname.includes('/pc-builder')) {
     return null;
   }
+
+  // Mostrar botón después de un pequeño delay para fade-in suave
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setShowButton(true);
+    }, 500);
+    return () => clearTimeout(timer);
+  }, []);
 
   // Bloquear scroll cuando el menú está expandido
   useEffect(() => {
@@ -185,10 +194,18 @@ const FloatingChatButton = () => {
           </div>
         )}
 
-        {/* --- BOTÓN PRINCIPAL CON EFECTOS --- */}
+        {/* --- BOTÓN PRINCIPAL CON EFECTOS Y FADE-IN SUAVE --- */}
         <button
           onClick={toggleExpanded}
-          className="group relative bg-gradient-to-r from-green-500 via-green-600 to-green-700 hover:from-green-600 hover:via-green-700 hover:to-green-800 text-white rounded-lg sm:rounded-xl shadow-lg sm:shadow-2xl hover:shadow-green-500/50 btn-premium overflow-hidden z-50"
+          className={`group relative bg-gradient-to-r from-green-500 via-green-600 to-green-700 hover:from-green-600 hover:via-green-700 hover:to-green-800 text-white rounded-lg sm:rounded-xl shadow-lg sm:shadow-2xl hover:shadow-green-500/50 btn-premium overflow-hidden z-50
+                     transition-all duration-500 ease-out
+                     ${showButton 
+                       ? 'opacity-100 translate-y-0 scale-100 pointer-events-auto' 
+                       : 'opacity-0 translate-y-8 scale-90 pointer-events-none'
+                     }`}
+          style={{
+            willChange: 'transform, opacity'
+          }}
         >
           {/* Efecto Shine */}
           <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent animate-shine" style={{ width: '50%' }} />

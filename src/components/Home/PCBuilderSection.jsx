@@ -11,7 +11,7 @@ const PCBuilderSection = () => {
         badgeColor="bg-purple-500/20 border border-purple-400/30 text-purple-300"
         title="Armá tu"
         titleHighlight="Combo ideal"
-        description="Seleccioná cada pieza por tu cuenta. Nosotros te avisamos si algún componente no es compatible."
+        description="Seleccioná cada pieza por tu cuenta. Te avisamos si algún componente no es compatible."
         buttonText="Empezar a elegir"
         buttonIcon={Wrench}
       />

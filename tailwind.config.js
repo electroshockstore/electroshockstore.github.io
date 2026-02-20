@@ -230,7 +230,7 @@ export default {
         'html': {
           'scroll-behavior': 'smooth',
           // ⚡ OPTIMIZACIÓN: Scroll más suave y natural
-          'scroll-padding-top': '80px', // Espacio para header sticky
+          'scroll-padding-top': '0px',
         },
         'body': {
           'font-family': 'Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif',

@@ -1511,3 +1511,270 @@
     animation-duration: 0.01ms !important;
   }
 }
+
+
+/* ============================================
+   AMBIENT LIGHT EFFECTS - Reutilizables
+   ============================================ */
+
+/* Ambient Light Base - Solo estructura */
+.ambient-light-card {
+  position: relative;
+  overflow: hidden;
+  border-radius: 1rem;
+  transition: all 0.3s ease;
+}
+
+@media (min-width: 640px) {
+  .ambient-light-card {
+    border-radius: 1.5rem;
+  }
+}
+
+/* Variantes de color - Purple (PC Builder) */
+.ambient-light-purple {
+  box-shadow: 
+    0 0 40px rgba(168, 85, 247, 0.3), 
+    0 0 80px rgba(147, 51, 234, 0.15), 
+    inset 0 0 60px rgba(168, 85, 247, 0.1);
+}
+
+.ambient-glow-purple {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 6rem;
+  background: linear-gradient(to top, rgba(147, 51, 234, 0.2), rgba(168, 85, 247, 0.05), transparent);
+  pointer-events: none;
+  z-index: 20;
+  filter: blur(20px);
+}
+
+/* Variantes de color - Cyan (Puntos de Retiro) */
+.ambient-light-cyan {
+  box-shadow: 
+    0 0 40px rgba(6, 182, 212, 0.3), 
+    0 0 80px rgba(8, 145, 178, 0.15), 
+    inset 0 0 60px rgba(6, 182, 212, 0.1);
+}
+
+.ambient-glow-cyan {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 8rem;
+  background: linear-gradient(to top, rgba(6, 182, 212, 0.3), rgba(20, 184, 166, 0.1), transparent);
+  pointer-events: none;
+  z-index: 20;
+  filter: blur(24px);
+}
+
+/* Variantes de color - Amber (Revendedores/Packs) */
+.ambient-light-amber {
+  box-shadow: 
+    0 0 40px rgba(251, 146, 60, 0.25), 
+    0 0 80px rgba(251, 191, 60, 0.12), 
+    inset 0 0 60px rgba(251, 146, 60, 0.08);
+}
+
+/* Glow para texto - Solo afecta la palabra */
+.text-glow-amber {
+  position: relative;
+  display: inline-block;
+}
+
+.text-glow-amber::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to right, rgb(251, 191, 60), rgb(251, 146, 60), rgb(239, 68, 68));
+  opacity: 0.5;
+  filter: blur(1rem);
+  z-index: -1;
+  pointer-events: none;
+}
+
+/* Partículas de fondo - Reutilizable */
+.ambient-particles {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.ambient-particles-amber {
+  display: none;
+}
+
+@media (min-width: 640px) {
+  .ambient-particles-amber {
+    display: block;
+  }
+  
+  .ambient-particles-amber::before {
+    content: '';
+    position: absolute;
+    top: 5rem;
+    left: 2.5rem;
+    width: 24rem;
+    height: 24rem;
+    background: rgba(251, 146, 60, 0.2);
+    border-radius: 50%;
+    filter: blur(1.5rem);
+  }
+  
+  .ambient-particles-amber::after {
+    content: '';
+    position: absolute;
+    bottom: 5rem;
+    right: 2.5rem;
+    width: 31.25rem;
+    height: 31.25rem;
+    background: rgba(249, 115, 22, 0.2);
+    border-radius: 50%;
+    filter: blur(1.5rem);
+  }
+}
+
+/* Optimización de performance */
+.ambient-light-card,
+.ambient-glow-purple,
+.ambient-glow-cyan,
+.text-glow-amber::after {
+  will-change: auto;
+  transform: translateZ(0);
+  backface-visibility: hidden;
+}
+
+
+/* ============================================
+   DRIFT ANIMATION - Para fondos animados
+   ============================================ */
+
+@keyframes drift {
+  0%, 100% {
+    transform: translate(0, 0) scale(1);
+  }
+  33% {
+    transform: translate(30px, -30px) scale(1.05);
+  }
+  66% {
+    transform: translate(-20px, 20px) scale(0.95);
+  }
+}
+
+/* Optimización para dispositivos con movimiento reducido */
+@media (prefers-reduced-motion: reduce) {
+  @keyframes drift {
+    0%, 100% {
+      transform: translate(0, 0) scale(1);
+    }
+  }
+}
+
+
+/* ============================================
+   BACKGROUND PATTERNS - Reutilizables
+   ============================================ */
+
+/* Grid pattern - Cuadrícula sutil */
+.bg-grid-pattern {
+  background-image: 
+    linear-gradient(rgba(251,146,60,0.6) 1px, transparent 1px), 
+    linear-gradient(90deg, rgba(251,146,60,0.6) 1px, transparent 1px);
+  background-size: 60px 60px;
+}
+
+/* Grid pattern - Variante azul */
+.bg-grid-pattern-blue {
+  background-image: 
+    linear-gradient(rgba(59,130,246,0.4) 1px, transparent 1px), 
+    linear-gradient(90deg, rgba(59,130,246,0.4) 1px, transparent 1px);
+  background-size: 60px 60px;
+}
+
+/* Grid pattern - Variante púrpura */
+.bg-grid-pattern-purple {
+  background-image: 
+    linear-gradient(rgba(168,85,247,0.4) 1px, transparent 1px), 
+    linear-gradient(90deg, rgba(168,85,247,0.4) 1px, transparent 1px);
+  background-size: 60px 60px;
+}
+
+/* Mesh blob - Base para blobs animados */
+.mesh-blob {
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+  animation: drift 18s ease-in-out infinite;
+  filter: blur(60px);
+}
+
+/* Mesh blob - Variante naranja */
+.mesh-blob-orange {
+  background: radial-gradient(circle, rgba(251,146,60,0.5) 0%, transparent 70%);
+}
+
+/* Mesh blob - Variante roja */
+.mesh-blob-red {
+  background: radial-gradient(circle, rgba(239,68,68,0.45) 0%, transparent 70%);
+  animation: drift 22s ease-in-out infinite reverse;
+}
+
+/* Mesh blob - Variante azul */
+.mesh-blob-blue {
+  background: radial-gradient(circle, rgba(59,130,246,0.4) 0%, transparent 70%);
+}
+
+/* Mesh blob - Variante púrpura */
+.mesh-blob-purple {
+  background: radial-gradient(circle, rgba(168,85,247,0.4) 0%, transparent 70%);
+}
+
+/* Diagonal accent line - Línea vertical decorativa */
+.accent-line-vertical {
+  position: absolute;
+  top: 0;
+  width: 1px;
+  height: 100%;
+  pointer-events: none;
+}
+
+/* Accent line - Variante ámbar */
+.accent-line-amber {
+  background: linear-gradient(to bottom, transparent, rgba(251,191,60,1), transparent);
+}
+
+/* Accent line - Variante azul */
+.accent-line-blue {
+  background: linear-gradient(to bottom, transparent, rgba(59,130,246,1), transparent);
+}
+
+/* Accent line - Variante púrpura */
+.accent-line-purple {
+  background: linear-gradient(to bottom, transparent, rgba(168,85,247,1), transparent);
+}
+
+/* ============================================
+   ANIMATED BACKGROUND CONTAINER
+   ============================================ */
+
+/* Contenedor para fondos animados - Uso común */
+.animated-bg-container {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 0;
+}
+
+/* Ejemplo de uso completo:
+<div className="animated-bg-container">
+  <div className="mesh-blob mesh-blob-orange -top-32 -left-32 w-[600px] h-[600px] opacity-40" />
+  <div className="mesh-blob mesh-blob-red -bottom-32 -right-32 w-[700px] h-[700px] opacity-35" />
+  <div className="bg-grid-pattern absolute inset-0 opacity-10" />
+  <div className="accent-line-vertical accent-line-amber right-0 opacity-20 hidden lg:block" />
+</div>
+*/
