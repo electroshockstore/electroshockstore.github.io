@@ -115,10 +115,10 @@ const PuntosRetiroInfoSection = () => {
                   style={{ filter: 'blur(48px)' }}
                 />
                 
-                <span className="text-white block opacity-90 relative z-10 whitespace-nowrap">Coordiná el</span>
+                <span className="text-white block opacity-90 relative z-10 whitespace-nowrap">Coordiná la</span>
                 <span className="relative inline-block z-10">
                   <span className="bg-gradient-to-r from-blue-400 via-purple-400 to-cyan-400 bg-clip-text text-transparent drop-shadow-[0_0_30px_rgba(59,130,246,0.6)]">
-                    RETIRO
+                    Entrega
                   </span>
                 </span>
               </h2>
