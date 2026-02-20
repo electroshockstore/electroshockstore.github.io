@@ -48,7 +48,7 @@ function AppContent() {
   const currentError = networkError || resourceError;
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-[#E5E7EB] to-[#C7CCD1] antialiased relative overflow-hidden">
+    <div className="min-h-screen bg-gradient-to-b from-[#E5E7EB] to-[#C7CCD1] antialiased relative">
       {/* ─── Global Animated Background ─── */}
       <div className="animated-bg-container">
         {/* Animated mesh blobs */}

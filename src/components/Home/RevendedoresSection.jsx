@@ -139,14 +139,32 @@ const RevendedoresSection = ({ products = [], onProductClick }) => {
                     {/* Main title block */}
                     <div className="relative max-w-5xl mx-auto">
 
-                        {/* Floating tag icon */}
-                        <div className="flex justify-center mb-6">
+                        {/* Headline con SVG integrado */}
+                        <h2 className="font-black leading-[0.9] tracking-tighter mb-6 flex flex-wrap items-center justify-center gap-3 sm:gap-4">
+                            <span className="inline text-6xl sm:text-6xl md:text-7xl lg:text-8xl text-white"
+                                style={{ letterSpacing: '-0.03em' }}>
+                                Kit{' '}
+                            </span>
+                            <span className="inline text-7xl sm:text-7xl md:text-9xl lg:text-[10rem] relative text-glow"
+                                style={{
+                                    background: 'linear-gradient(135deg, #fbbf24 0%, #f97316 40%, #ef4444 100%)',
+                                    WebkitBackgroundClip: 'text',
+                                    WebkitTextFillColor: 'transparent',
+                                    backgroundClip: 'text',
+                                    letterSpacing: '-0.04em'
+                                }}>
+                                Ahorro
+                                {/* Decorative slash */}
+                                <span className="absolute -right-4 sm:-right-6 top-0 text-amber-500/20 text-[0.5em] font-thin select-none hidden md:block">/</span>
+                            </span>
+                            
+                            {/* SVG tag al lado de Ahorro */}
                             <div className="relative inline-block tag-float">
                                 <div className="absolute inset-0 rounded-full"
                                     style={{ background: 'radial-gradient(circle, rgba(251,146,60,0.6) 0%, transparent 60%)', filter: 'blur(20px)', transform: 'scale(1.5)' }} />
-                                <div className="relative w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 flex items-center justify-center rounded-2xl border border-amber-400/30"
+                                <div className="relative w-12 h-12 sm:w-16 sm:h-16 md:w-20 md:h-20 flex items-center justify-center rounded-2xl border border-amber-400/30"
                                     style={{ background: 'linear-gradient(135deg, rgba(251,191,60,0.2), rgba(239,68,68,0.2))', backdropFilter: 'blur(12px)' }}>
-                                    <svg viewBox="0 0 24 24" fill="none" className="w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12">
+                                    <svg viewBox="0 0 24 24" fill="none" className="w-6 h-6 sm:w-8 sm:h-8 md:w-10 md:h-10">
                                         <defs>
                                             <linearGradient id="tg2" x1="0%" y1="0%" x2="100%" y2="100%">
                                                 <stop offset="0%" stopColor="rgb(251,191,60)" />
@@ -161,26 +179,6 @@ const RevendedoresSection = ({ products = [], onProductClick }) => {
                                     </svg>
                                 </div>
                             </div>
-                        </div>
-
-                        {/* Headline */}
-                        <h2 className="font-black leading-[0.9] tracking-tighter mb-6">
-                            <span className="block text-4xl sm:text-6xl md:text-7xl lg:text-8xl text-white"
-                                style={{ letterSpacing: '-0.03em' }}>
-                                Packs 
-                            </span>
-                            <span className="block text-5xl sm:text-7xl md:text-9xl lg:text-[10rem] relative text-glow"
-                                style={{
-                                    background: 'linear-gradient(135deg, #fbbf24 0%, #f97316 40%, #ef4444 100%)',
-                                    WebkitBackgroundClip: 'text',
-                                    WebkitTextFillColor: 'transparent',
-                                    backgroundClip: 'text',
-                                    letterSpacing: '-0.04em'
-                                }}>
-                                Ahorro
-                                {/* Decorative slash */}
-                                <span className="absolute -right-4 sm:-right-6 top-0 text-amber-500/20 text-[0.5em] font-thin select-none hidden md:block">/</span>
-                            </span>
                         </h2>
 
                         {/* Subheadline row */}
@@ -252,7 +250,7 @@ const RevendedoresSection = ({ products = [], onProductClick }) => {
 
                         <Package className="relative z-10 w-5 h-5 sm:w-5 sm:h-5 group-hover:rotate-12 transition-transform duration-300 flex-shrink-0" />
                         <span className="relative z-10 tracking-wide font-black uppercase text-xs sm:text-sm">
-                            Ver todos los packs mayoristas
+                            Ver todos los kits mayoristas
                         </span>
                         <ArrowRight className="relative z-10 w-5 h-5 group-hover:translate-x-1.5 transition-transform duration-300 flex-shrink-0" />
                     </button>

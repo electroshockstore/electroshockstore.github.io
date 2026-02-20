@@ -64,25 +64,55 @@ const PCBuilderCard = ({
                     </div>
                 </div>
 
-                {/* Título BRUTALIST - MAXIMIZADO, "Combo ideal" en UNA línea */}
+                {/* Título BRUTALIST - MAXIMIZADO */}
                 <div className="flex-1 flex items-center justify-start">
-                    <h3 className="text-[4.5rem] leading-[0.8] sm:text-8xl lg:text-9xl xl:text-[10rem] 2xl:text-[12rem] font-black text-white tracking-tighter"
+                    {/* Mobile: 3 bloques separados */}
+                    <h3 className="block sm:hidden leading-[0.9] font-black text-white tracking-tighter"
+                        style={{
+                            textShadow: '5px 5px 0px rgba(0,0,0,0.9), 10px 10px 0px rgba(0,0,0,0.6)',
+                            letterSpacing: '-0.05em'
+                        }}>
+                        <span className="text-[5.2rem]">{title}</span>
+                        <br />
+                        <span className="relative inline-block mt-1 text-[5.5rem]">
+                            <span className="absolute inset-0 bg-gradient-to-r from-purple-600 to-pink-600 -skew-x-6 rotate-[-1deg] opacity-95 blur-[0.5px]" />
+                            <span className="relative text-black px-2 font-black"
+                                style={{
+                                    textShadow: '3px 3px 0px rgba(0,0,0,0.4)'
+                                }}>
+                                Combo
+                            </span>
+                            <span className={`absolute inset-0 bg-gradient-to-r from-purple-600 to-pink-600 ${isIOS ? 'blur-lg' : 'blur-xl'} opacity-60 ${isIOS ? '' : 'animate-pulse'}`} />
+                        </span>
+                        <br />
+                        <span className="relative inline-block mt-1 text-[6.5rem]">
+                            <span className="absolute inset-0 bg-gradient-to-r from-purple-600 to-pink-600 -skew-x-6 rotate-[-1deg] opacity-95 blur-[0.5px]" />
+                            <span className="relative text-black px-2 font-black"
+                                style={{
+                                    textShadow: '3px 3px 0px rgba(0,0,0,0.4)'
+                                }}>
+                                ideal
+                            </span>
+                            <span className={`absolute inset-0 bg-gradient-to-r from-purple-600 to-pink-600 ${isIOS ? 'blur-lg' : 'blur-xl'} opacity-60 ${isIOS ? '' : 'animate-pulse'}`} />
+                        </span>
+                    </h3>
+
+                    {/* Desktop: Todo en 2 líneas como original */}
+                    <h3 className="hidden sm:block text-7xl lg:text-8xl xl:text-[9rem] 2xl:text-[9rem] leading-[0.8] font-black text-white tracking-tighter"
                         style={{
                             textShadow: '5px 5px 0px rgba(0,0,0,0.9), 10px 10px 0px rgba(0,0,0,0.6)',
                             letterSpacing: '-0.05em'
                         }}>
                         {title}
                         <br />
-                        {/* Highlight con efecto marker moderno - EN UNA LÍNEA */}
-                        <span className="relative inline-block mt-0 sm:mt-1 whitespace-nowrap">
+                        <span className="relative inline-block mt-1 whitespace-nowrap">
                             <span className="absolute inset-0 bg-gradient-to-r from-purple-600 to-pink-600 -skew-x-6 rotate-[-1deg] opacity-95 blur-[0.5px]" />
-                            <span className="relative text-black px-2 sm:px-4 font-black"
+                            <span className="relative text-black px-4 font-black"
                                 style={{
                                     textShadow: '3px 3px 0px rgba(0,0,0,0.4)'
                                 }}>
                                 {titleHighlight}
                             </span>
-                            {/* Glow sutil - Optimizado para iOS */}
                             <span className={`absolute inset-0 bg-gradient-to-r from-purple-600 to-pink-600 ${isIOS ? 'blur-lg' : 'blur-xl'} opacity-60 ${isIOS ? '' : 'animate-pulse'}`} />
                         </span>
                     </h3>
