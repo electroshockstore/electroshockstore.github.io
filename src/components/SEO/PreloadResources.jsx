@@ -2,16 +2,21 @@ import { useEffect } from 'react';
 
 const PreloadResources = () => {
   useEffect(() => {
- 
-    const criticalImages = [
-      '/images/hero/megaphone_tiny.webp'
-    ];
+    // Preload condicional basado en pathname
+    const currentPath = window.location.pathname;
+    const criticalImages = [];
+    
+    // Solo preload en Home
+    if (currentPath === '/' || currentPath === '/home') {
+      criticalImages.push('/images/hero/megaphone_tiny.webp');
+    }
 
     criticalImages.forEach(src => {
       const link = document.createElement('link');
       link.rel = 'preload';
       link.as = 'image';
       link.href = src;
+      link.type = 'image/webp';
       document.head.appendChild(link);
     });
 

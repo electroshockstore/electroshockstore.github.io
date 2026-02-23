@@ -1,19 +1,21 @@
 const HeroBadge = ({ text, icon, showDot = false, className = '' }) => {
   return (
-    <div className={`inline-flex items-center gap-2 mb-7 lg:mb-4 ${className}`}>
+    <div className={`inline-flex items-center gap-2 mb-4 lg:mb-4 ${className}`}>
       <span 
-        className="text-xs sm:text-sm font-black uppercase tracking-[0.2em] px-3 py-1.5 text-blue-300 border"
+        className="text-[11px] sm:text-sm font-black uppercase tracking-wider px-4 py-2 sm:px-3 sm:py-1.5 text-red-300 border-2 backdrop-blur-sm"
         style={{
-          borderColor: 'rgba(59,130,246,0.4)',
-          background: 'rgba(59,130,246,0.08)',
-          clipPath: 'polygon(8px 0%, 100% 0%, calc(100% - 8px) 100%, 0% 100%)'
+          borderColor: 'rgba(239,68,68,0.6)',
+          background: 'rgba(220,38,38,0.15)',
+          clipPath: 'polygon(8px 0%, 100% 0%, calc(100% - 8px) 100%, 0% 100%)',
+          boxShadow: '0 0 20px rgba(239,68,68,0.3)'
         }}
       >
-        {icon && `${icon} `}{text}
+        {icon && <span className="inline-block mr-1">{icon}</span>}
+        {text}
       </span>
       {showDot && (
         <span 
-          className="hero-badge-dot w-2 h-2 rounded-full bg-blue-300"
+          className="hero-badge-dot w-2 h-2 rounded-full bg-blue-400"
         />
       )}
     </div>

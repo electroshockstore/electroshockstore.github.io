@@ -1776,6 +1776,26 @@
   }
 }
 
+/* Question SVG bounce animation */
+.hero-question-bounce {
+  animation: hero-question-bounce 1.5s ease-in-out infinite;
+}
+
+@keyframes hero-question-bounce {
+  0%, 100% {
+    transform: translateY(0) rotate(0deg);
+  }
+  25% {
+    transform: translateY(-8px) rotate(-3deg);
+  }
+  50% {
+    transform: translateY(0) rotate(0deg);
+  }
+  75% {
+    transform: translateY(-4px) rotate(3deg);
+  }
+}
+
 /* Feature pill hover */
 .hero-feature-pill:hover {
   color: rgb(147, 197, 253);
@@ -1888,3 +1908,202 @@
     box-shadow: 0 8px 32px rgba(0,0,0,0.4);
   }
 }
+
+
+/* ============================================
+   BENTO GRID - Efecto moderno y smooth con viewport reveal
+   ============================================ */
+
+/* Estado inicial: oculto */
+.bento-grid-hidden .bento-card-root,
+.bento-grid-hidden .bento-card-branch {
+  opacity: 0;
+  will-change: transform, opacity;
+}
+
+/* Card raíz (imagen) - Aparece con efecto elástico suave */
+.bento-grid-visible .bento-card-root {
+  animation: bentoRootReveal 1.4s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+  transform-origin: center;
+}
+
+@keyframes bentoRootReveal {
+  0% {
+    opacity: 0;
+    transform: scale(0.7) rotate(-8deg);
+  }
+  50% {
+    opacity: 0.6;
+  }
+  70% {
+    transform: scale(1.05) rotate(2deg);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) rotate(0deg);
+  }
+}
+
+/* Cards rama - Entrada fluida con bounce suave */
+.bento-grid-visible .bento-card-branch {
+  animation-duration: 1.3s;
+  animation-timing-function: cubic-bezier(0.34, 1.56, 0.64, 1);
+  animation-fill-mode: forwards;
+}
+
+/* Card 1: Slide desde izquierda con rotación */
+.bento-grid-visible .bento-card-branch:nth-child(1) {
+  animation-name: bentoSlideLeft;
+  animation-delay: 0.25s;
+}
+
+@keyframes bentoSlideLeft {
+  0% {
+    opacity: 0;
+    transform: translateX(-60px) translateY(20px) rotate(-12deg) scale(0.85);
+  }
+  60% {
+    transform: translateX(5px) translateY(-3px) rotate(2deg) scale(1.02);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0) translateY(0) rotate(0deg) scale(1);
+  }
+}
+
+/* Card 2: Slide desde derecha con bounce */
+.bento-grid-visible .bento-card-branch:nth-child(2) {
+  animation-name: bentoSlideRight;
+  animation-delay: 0.4s;
+}
+
+@keyframes bentoSlideRight {
+  0% {
+    opacity: 0;
+    transform: translateX(60px) translateY(20px) rotate(12deg) scale(0.85);
+  }
+  60% {
+    transform: translateX(-5px) translateY(-3px) rotate(-2deg) scale(1.02);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0) translateY(0) rotate(0deg) scale(1);
+  }
+}
+
+/* Card 4: Desde abajo con lift */
+.bento-grid-visible .bento-card-branch:nth-child(4) {
+  animation-name: bentoLiftUp;
+  animation-delay: 0.55s;
+}
+
+@keyframes bentoLiftUp {
+  0% {
+    opacity: 0;
+    transform: translateY(70px) scale(0.8);
+  }
+  60% {
+    transform: translateY(-8px) scale(1.03);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* Card 5: Diagonal desde izquierda-abajo */
+.bento-grid-visible .bento-card-branch:nth-child(5) {
+  animation-name: bentoDiagonalLeft;
+  animation-delay: 0.7s;
+}
+
+@keyframes bentoDiagonalLeft {
+  0% {
+    opacity: 0;
+    transform: translateX(-50px) translateY(50px) rotate(-8deg) scale(0.82);
+  }
+  60% {
+    transform: translateX(4px) translateY(-4px) rotate(1deg) scale(1.02);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0) translateY(0) rotate(0deg) scale(1);
+  }
+}
+
+/* Card 6: Desde arriba con float */
+.bento-grid-visible .bento-card-branch:nth-child(6) {
+  animation-name: bentoFloatDown;
+  animation-delay: 0.85s;
+}
+
+@keyframes bentoFloatDown {
+  0% {
+    opacity: 0;
+    transform: translateY(-60px) scale(0.88);
+  }
+  50% {
+    opacity: 0.7;
+  }
+  65% {
+    transform: translateY(6px) scale(1.02);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* Mobile: animaciones optimizadas y más rápidas */
+@media (max-width: 1023px) {
+  .bento-grid-visible .bento-card-root {
+    animation-duration: 1s;
+    animation-timing-function: cubic-bezier(0.34, 1.4, 0.64, 1);
+  }
+  
+  .bento-grid-visible .bento-card-branch {
+    animation-duration: 0.95s;
+    animation-timing-function: cubic-bezier(0.34, 1.4, 0.64, 1);
+  }
+  
+  /* Delays más cortos */
+  .bento-grid-visible .bento-card-branch:nth-child(1) { animation-delay: 0.15s; }
+  .bento-grid-visible .bento-card-branch:nth-child(2) { animation-delay: 0.25s; }
+  .bento-grid-visible .bento-card-branch:nth-child(4) { animation-delay: 0.35s; }
+  .bento-grid-visible .bento-card-branch:nth-child(5) { animation-delay: 0.45s; }
+  .bento-grid-visible .bento-card-branch:nth-child(6) { animation-delay: 0.55s; }
+  
+  /* Distancias reducidas para mobile */
+  @keyframes bentoSlideLeft {
+    0% { opacity: 0; transform: translateX(-35px) translateY(15px) rotate(-8deg) scale(0.88); }
+    60% { transform: translateX(3px) translateY(-2px) rotate(1deg) scale(1.01); }
+    100% { opacity: 1; transform: translateX(0) translateY(0) rotate(0deg) scale(1); }
+  }
+  
+  @keyframes bentoSlideRight {
+    0% { opacity: 0; transform: translateX(35px) translateY(15px) rotate(8deg) scale(0.88); }
+    60% { transform: translateX(-3px) translateY(-2px) rotate(-1deg) scale(1.01); }
+    100% { opacity: 1; transform: translateX(0) translateY(0) rotate(0deg) scale(1); }
+  }
+  
+  @keyframes bentoLiftUp {
+    0% { opacity: 0; transform: translateY(45px) scale(0.85); }
+    60% { transform: translateY(-5px) scale(1.02); }
+    100% { opacity: 1; transform: translateY(0) scale(1); }
+  }
+  
+  @keyframes bentoDiagonalLeft {
+    0% { opacity: 0; transform: translateX(-30px) translateY(30px) rotate(-6deg) scale(0.86); }
+    60% { transform: translateX(2px) translateY(-2px) rotate(0.5deg) scale(1.01); }
+    100% { opacity: 1; transform: translateX(0) translateY(0) rotate(0deg) scale(1); }
+  }
+  
+  @keyframes bentoFloatDown {
+    0% { opacity: 0; transform: translateY(-40px) scale(0.9); }
+    50% { opacity: 0.7; }
+    65% { transform: translateY(4px) scale(1.01); }
+    100% { opacity: 1; transform: translateY(0) scale(1); }
+  }
+}
+
+
