@@ -31,7 +31,7 @@ const RevendedoresSectionB = ({ products = [], onProductClick }) => {
             <div className="sm:hidden px-4 py-12">
                 <div className="text-center mb-8">
                     <h2 className="text-4xl font-black mb-2">
-                        <span className="text-white">Packs </span>
+                        <span className="text-white">Kits </span>
                         <span className="bg-gradient-to-r from-amber-300 to-orange-400 bg-clip-text text-transparent">
                             Ahorro
                         </span>
@@ -63,7 +63,7 @@ const RevendedoresSectionB = ({ products = [], onProductClick }) => {
                     onClick={handleVerMas}
                     className="w-full mt-6 py-3 bg-gradient-to-r from-amber-500 to-orange-500 rounded-xl font-bold text-white"
                 >
-                    Ver todos los packs
+                    Ver todos los Kits
                 </button>
             </div>
 
@@ -130,7 +130,7 @@ const RevendedoresSectionB = ({ products = [], onProductClick }) => {
                                     {/* Texto superpuesto - Arriba */}
                                     <div className="absolute top-0 left-1/2 -translate-x-1/2 text-center w-full">
                                         <h2 className="text-7xl font-black leading-none mb-2">
-                                            <span className="text-white drop-shadow-lg">PACKS</span>
+                                            <span className="text-white drop-shadow-lg">KITS</span>
                                         </h2>
                                     </div>
 
@@ -204,7 +204,7 @@ const RevendedoresSectionB = ({ products = [], onProductClick }) => {
                             className="group inline-flex items-center gap-3 px-10 py-5 bg-gradient-to-r from-amber-500 to-orange-500 hover:from-amber-400 hover:to-orange-400 rounded-2xl font-black text-white text-lg shadow-2xl shadow-amber-500/40 hover:shadow-3xl hover:shadow-amber-500/60 transition-all duration-300 hover:scale-110"
                         >
                             <Package className="w-6 h-6 group-hover:rotate-12 transition-transform" />
-                            <span>Ver todos los packs mayoristas</span>
+                            <span>Ver todos los Kits mayoristas</span>
                             <ArrowRight className="w-6 h-6 group-hover:translate-x-3 transition-transform" />
                         </button>
                     </div>

@@ -266,7 +266,7 @@ const RevendedoresSection = ({ products = [], onProductClick }) => {
                                 <span className="w-1 h-1 rounded-full bg-orange-500/50 flex-shrink-0" />
                                 Mejores precios
                                 <span className="w-1 h-1 rounded-full bg-red-500/50 flex-shrink-0" />
-                                Packs exclusivos
+                                promociones exclusivas
                             </span>
                         ))}
                     </div>

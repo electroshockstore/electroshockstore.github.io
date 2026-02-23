@@ -35,7 +35,7 @@ const RevendedoresSectionA = ({ products = [], onProductClick }) => {
                 <div className="sm:hidden px-4">
                     <div className="text-center mb-8">
                         <h2 className="text-4xl font-black mb-2">
-                            <span className="text-white">Packs </span>
+                            <span className="text-white">Kits </span>
                             <span className="bg-gradient-to-r from-amber-300 to-orange-400 bg-clip-text text-transparent">
                                 Ahorro
                             </span>
@@ -67,7 +67,7 @@ const RevendedoresSectionA = ({ products = [], onProductClick }) => {
                         onClick={handleVerMas}
                         className="w-full mt-6 py-3 bg-gradient-to-r from-amber-500 to-orange-500 rounded-xl font-bold text-white"
                     >
-                        Ver todos los packs
+                        Ver todos los Kits
                     </button>
                 </div>
 
@@ -119,7 +119,7 @@ const RevendedoresSectionA = ({ products = [], onProductClick }) => {
 
                             {/* Título grande */}
                             <h2 className="text-6xl lg:text-7xl font-black leading-tight">
-                                <span className="text-white block mb-2">PACKS</span>
+                                <span className="text-white block mb-2">KITS</span>
                                 <span className="bg-gradient-to-r from-amber-300 via-orange-400 to-red-400 bg-clip-text text-transparent block relative">
                                     AHORRO
                                     <div className="absolute inset-0 bg-gradient-to-r from-amber-400 to-orange-500 opacity-30 blur-2xl -z-10" />
@@ -156,7 +156,7 @@ const RevendedoresSectionA = ({ products = [], onProductClick }) => {
                                 onClick={handleVerMas}
                                 className="group inline-flex items-center gap-3 px-8 py-4 bg-gradient-to-r from-amber-500 to-orange-500 hover:from-amber-400 hover:to-orange-400 rounded-xl font-bold text-white shadow-xl shadow-amber-500/40 hover:shadow-2xl hover:shadow-amber-500/60 transition-all duration-300 hover:scale-105"
                             >
-                                <span>Ver todos los packs</span>
+                                <span>Ver todos los Kits</span>
                                 <ArrowRight className="w-5 h-5 group-hover:translate-x-2 transition-transform" />
                             </button>
                         </div>

@@ -65,7 +65,7 @@ const Home = () => {
 
   const handleRevendedorProductClick = (product) => {
     console.log('Pack seleccionado:', product);
-    // navigate(`/pack/${product.id}`); // Si tienes una página especial para packs
+    // navigate(`/pack/${product.id}`); // Si tienes una página especial para Kits
   };
 
   return (
@@ -117,7 +117,7 @@ const Home = () => {
 
      
 
-          {/* Mobile: Packs Ahorro después del Hero */}
+          {/* Mobile: Kits Ahorro después del Hero */}
           <div className="sm:hidden px-3 mb-4">
             <RevendedoresSection
               products={mayoristaProducts}
@@ -125,7 +125,7 @@ const Home = () => {
             />
           </div>
 
-          {/* Mobile: PC Builder después de Packs */}
+          {/* Mobile: PC Builder después de Kits */}
           <div className="sm:hidden mb-4">
             <PCBuilderSection />
           </div>
@@ -145,7 +145,7 @@ const Home = () => {
 
           
 
-          {/* Desktop: Packs Ahorro después del PC Builder */}
+          {/* Desktop: Kits Ahorro después del PC Builder */}
           <div className="hidden sm:block px-3 sm:px-4 mb-4 sm:mb-6">
             <RevendedoresSection
               products={mayoristaProducts}
