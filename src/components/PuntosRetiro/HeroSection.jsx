@@ -8,7 +8,7 @@ import HeroFeatures from './HeroSection/HeroFeatures';
 
 const HeroSection = () => {
   return (
-    <section className="relative px-4 sm:px-6 lg:px-6 py-12 sm:py-16 lg:py-8 overflow-hidden min-h-[100vh] lg:min-h-[calc(100vh-140px)] lg:max-h-[calc(100vh-140px)] flex items-center">
+    <section className="relative px-4 sm:px-6 lg:px-6 pt-2 pb-6 sm:py-16 lg:py-8 overflow-hidden min-h-[100vh] lg:min-h-[calc(100vh-140px)] lg:max-h-[calc(100vh-140px)] flex items-start sm:items-center">
       <HeroBackground />
 
       {/* Container */}
@@ -37,7 +37,7 @@ const HeroSection = () => {
             <HeroTitleMobile />
 
             {/* Description - Layout moderno con highlight */}
-            <div className="mb-6 lg:mb-6 max-w-md lg:max-w-xl">
+            <div className="mb-4 lg:mb-6 max-w-md lg:max-w-xl">
               <p className="text-base lg:text-lg text-gray-300 leading-relaxed font-medium">
                 Elegí el punto más cercano y coordiná el retiro{' '}
                 <span className="font-black text-black relative inline-block px-2 py-0.5 ml-1" style={{ background: 'rgb(59, 130, 246)' }}>

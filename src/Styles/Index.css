@@ -2107,3 +2107,145 @@
 }
 
 
+
+
+/* ============================================
+   REVEAL ANIMATIONS - CSS Nativo (reemplazo de MotionReveal)
+   ============================================ */
+
+.reveal-element {
+  will-change: opacity;
+}
+
+/* Estado oculto - Solo opacity, sin transform inicial */
+.reveal-hidden {
+  opacity: 0;
+}
+
+/* Estado visible - activa animación */
+.reveal-visible {
+  animation-duration: 0.6s;
+  animation-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+  animation-fill-mode: forwards;
+}
+
+/* Fade In - Solo opacity, sin movimiento */
+.reveal-fade-in.reveal-visible {
+  animation-name: revealFadeIn;
+}
+
+@keyframes revealFadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Slide Up - Transform solo durante animación */
+.reveal-slide-up.reveal-visible {
+  animation-name: revealSlideUp;
+}
+
+@keyframes revealSlideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Slide Left - Transform solo durante animación */
+.reveal-slide-left.reveal-visible {
+  animation-name: revealSlideLeft;
+}
+
+@keyframes revealSlideLeft {
+  from {
+    opacity: 0;
+    transform: translateX(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Slide Right - Transform solo durante animación */
+.reveal-slide-right.reveal-visible {
+  animation-name: revealSlideRight;
+}
+
+@keyframes revealSlideRight {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+
+
+
+/* ============================================
+   ADDITIONAL INFO SECTION - Animaciones CSS nativas con stagger
+   ============================================ */
+
+.additional-info-hidden {
+  opacity: 0;
+}
+
+.additional-info-hidden .additional-info-card,
+.additional-info-hidden .additional-info-icon,
+.additional-info-hidden .additional-info-badge,
+.additional-info-hidden .additional-info-title,
+.additional-info-hidden .additional-info-text {
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+/* Container fade in */
+.additional-info-visible {
+  animation: additionalInfoFadeIn 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes additionalInfoFadeIn {
+  to {
+    opacity: 1;
+  }
+}
+
+/* Stagger effect con delays */
+.additional-info-visible .additional-info-card {
+  animation: additionalInfoSlideUp 0.5s cubic-bezier(0.16, 1, 0.3, 1) 0.1s forwards;
+}
+
+.additional-info-visible .additional-info-icon {
+  animation: additionalInfoSlideUp 0.5s cubic-bezier(0.16, 1, 0.3, 1) 0.2s forwards;
+}
+
+.additional-info-visible .additional-info-badge {
+  animation: additionalInfoSlideUp 0.5s cubic-bezier(0.16, 1, 0.3, 1) 0.3s forwards;
+}
+
+.additional-info-visible .additional-info-title {
+  animation: additionalInfoSlideUp 0.5s cubic-bezier(0.16, 1, 0.3, 1) 0.4s forwards;
+}
+
+.additional-info-visible .additional-info-text {
+  animation: additionalInfoSlideUp 0.5s cubic-bezier(0.16, 1, 0.3, 1) 0.5s forwards;
+}
+
+@keyframes additionalInfoSlideUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
