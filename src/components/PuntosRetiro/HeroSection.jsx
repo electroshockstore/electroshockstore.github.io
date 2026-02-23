@@ -8,7 +8,7 @@ import HeroFeatures from './HeroSection/HeroFeatures';
 
 const HeroSection = () => {
   return (
-    <section className="relative px-4 sm:px-6 lg:px-6 pt-2 pb-6 sm:py-16 lg:py-8 overflow-hidden min-h-[100vh] lg:min-h-[calc(100vh-140px)] lg:max-h-[calc(100vh-140px)] flex items-start sm:items-center">
+    <section className="relative px-4 sm:px-6 lg:px-6 pt-2 pb-8 sm:py-16 lg:py-8 overflow-hidden min-h-[80vh] lg:min-h-[calc(100vh-140px)] lg:max-h-[calc(100vh-140px)] flex items-start sm:items-center">
       <HeroBackground />
 
       {/* Container */}
