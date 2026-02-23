@@ -16,15 +16,41 @@ const ShareButton = ({ productName, product, className = '' }) => {
   useEffect(() => {
     if (!showOptions || !buttonRef.current) return;
 
-    const rect = buttonRef.current.getBoundingClientRect();
-    const currentScrollY = window.scrollY;
+    const updatePosition = () => {
+      const rect = buttonRef.current.getBoundingClientRect();
+      const currentScrollY = window.scrollY || window.pageYOffset;
+      const viewportHeight = window.innerHeight;
+      
+      // Calcular si hay espacio abajo o arriba
+      const spaceBelow = viewportHeight - rect.bottom;
+      const dropdownHeight = 200; // Altura estimada del dropdown
+      
+      let top, bottom;
+      
+      if (spaceBelow >= dropdownHeight + 16) {
+        // Hay espacio abajo - posicionar debajo del botón
+        top = rect.bottom + 8;
+        bottom = null;
+      } else {
+        // No hay espacio abajo - posicionar arriba del botón
+        top = null;
+        bottom = viewportHeight - rect.top + 8;
+      }
+      
+      setScrollY(currentScrollY);
+      setDropdownPosition({
+        top,
+        bottom,
+        left: rect.left,
+        width: rect.width
+      });
+    };
+
+    updatePosition();
     
-    setScrollY(currentScrollY);
-    setDropdownPosition({
-      top: rect.bottom + 8,
-      left: rect.left,
-      width: rect.width
-    });
+    // Recalcular en resize (importante para iOS cuando cambia orientación)
+    window.addEventListener('resize', updatePosition);
+    return () => window.removeEventListener('resize', updatePosition);
   }, [showOptions]);
 
   // Cerrar al hacer clic fuera o al hacer scroll
@@ -128,15 +154,21 @@ const ShareButton = ({ productName, product, className = '' }) => {
             className="bg-white rounded-xl shadow-2xl border-2 border-gray-200 overflow-hidden"
             style={{
               position: isIOS ? 'absolute' : 'fixed',
-              top: isIOS ? `${dropdownPosition.top + scrollY}px` : `${dropdownPosition.top}px`,
+              ...(dropdownPosition.top !== null 
+                ? { top: isIOS ? `${dropdownPosition.top + scrollY}px` : `${dropdownPosition.top}px` }
+                : { bottom: `${dropdownPosition.bottom}px` }
+              ),
               left: `${dropdownPosition.left}px`,
               width: `${dropdownPosition.width}px`,
+              maxHeight: '80vh',
+              overflowY: 'auto',
               zIndex: 2147483647,
               WebkitTransform: 'translate3d(0, 0, 0)',
               transform: 'translate3d(0, 0, 0)',
               WebkitBackfaceVisibility: 'hidden',
               backfaceVisibility: 'hidden',
-              pointerEvents: 'auto'
+              pointerEvents: 'auto',
+              WebkitOverflowScrolling: 'touch'
             }}
           >
           <button

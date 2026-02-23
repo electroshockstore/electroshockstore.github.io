@@ -117,6 +117,17 @@ const PCBuilderCard = ({
                         </span>
                     </h3>
                 </div>
+
+                {/* CTA Button - Claro y visible */}
+                <div className="flex-none mt-4 sm:mt-6">
+                    <div className="inline-flex items-center gap-3 px-6 py-3.5 sm:px-8 sm:py-4 bg-gradient-to-r from-purple-600 to-pink-600 rounded-full shadow-lg group-hover:shadow-purple-500/50 transition-all duration-300 group-hover:scale-105">
+                        <ButtonIcon className="w-5 h-5 sm:w-6 sm:h-6 text-white" strokeWidth={2.5} />
+                        <span className="text-sm sm:text-base lg:text-lg font-black text-white uppercase tracking-wider">
+                            {buttonText}
+                        </span>
+                        <ChevronRight className="w-5 h-5 sm:w-6 sm:h-6 text-white group-hover:translate-x-1 transition-transform duration-300" strokeWidth={2.5} />
+                    </div>
+                </div>
             </div>
         </div>
     );

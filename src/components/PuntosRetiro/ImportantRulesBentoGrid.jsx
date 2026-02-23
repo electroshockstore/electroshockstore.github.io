@@ -6,18 +6,40 @@ import {
   Ban,
   DollarSign,
   AlertTriangle,
-  CheckCircle,
   Percent,
   ShieldCheck,
-  Zap
 } from 'lucide-react';
-import useInViewport from '../../hooks/useInViewport';
+import { motion } from 'framer-motion';
 import { IMPORTANT_RULES } from './constants';
 
 const ImportantRulesBentoGrid = ({ rules = [] }) => {
   const rulesData = rules.length > 0 ? rules : IMPORTANT_RULES;
-  const [mobileRef, mobileInView] = useInViewport({ threshold: 0.1 });
-  const [desktopRef, desktopInView] = useInViewport({ threshold: 0.1 });
+
+  // Variants para animación sin parpadeo
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        duration: 0.5,
+        ease: [0.16, 1, 0.3, 1],
+        staggerChildren: 0.08,
+        delayChildren: 0.1
+      }
+    }
+  };
+
+  const cardVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.5,
+        ease: [0.16, 1, 0.3, 1]
+      }
+    }
+  };
 
   return (
     <div className="w-full bg-transparent p-2 sm:p-4 lg:p-6 font-sans">
@@ -26,11 +48,22 @@ const ImportantRulesBentoGrid = ({ rules = [] }) => {
         {/* ============================================
             LAYOUT MOBILE
             ============================================ */}
-          <div ref={mobileRef} className={`lg:hidden max-w-md mx-auto ${mobileInView ? 'bento-grid-visible' : 'bento-grid-hidden'}`}>
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-100px" }}
+            variants={containerVariants}
+            className="lg:hidden max-w-md mx-auto"
+            style={{ willChange: 'opacity, transform' }}
+          >
             <div className="grid grid-cols-2 gap-3">
             
             {/* MOBILE CARD 1: SIN DEPÓSITOS */}
-            <div className="bento-card-branch bg-pink-50 rounded-2xl p-3 border-2 border-pink-200 flex flex-col justify-between relative overflow-hidden group" style={{ animationDelay: '0.3s' }}>
+            <motion.div
+              variants={cardVariants}
+              style={{ willChange: 'opacity, transform' }}
+              className="bg-pink-50 rounded-2xl p-3 border-2 border-pink-200 flex flex-col justify-between relative overflow-hidden group"
+            >
               <div className="absolute inset-0 bg-gradient-to-br from-pink-100/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
               <ShieldCheck className="absolute -right-2 -bottom-2 w-14 h-14 text-pink-300 opacity-20 group-hover:opacity-30 transition-opacity" />
               <div className="relative z-10">
@@ -47,10 +80,14 @@ const ImportantRulesBentoGrid = ({ rules = [] }) => {
                   Revisas y Pagas. No se deje engañar
                 </p>
               </div>
-            </div>
+            </motion.div>
 
             {/* MOBILE CARD 2: PAGO INMEDIATO */}
-            <div className="bento-card-branch bg-white rounded-2xl p-3 border-2 border-gray-200 shadow-lg flex flex-col justify-between relative overflow-hidden group" style={{ animationDelay: '0.4s' }}>
+            <motion.div
+              variants={cardVariants}
+              style={{ willChange: 'opacity, transform' }}
+              className="bg-white rounded-2xl p-3 border-2 border-gray-200 shadow-lg flex flex-col justify-between relative overflow-hidden group"
+            >
               <div className="absolute inset-0 bg-gradient-to-br from-orange-50/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
               <AlertTriangle className="absolute -right-2 -bottom-2 w-14 h-14 text-orange-300 opacity-15 group-hover:opacity-25 transition-opacity" />
               <div className="relative z-10">
@@ -75,10 +112,14 @@ const ImportantRulesBentoGrid = ({ rules = [] }) => {
                 </p>
               </div>
               <div className="absolute bottom-0 left-0 right-0 h-0.5 bg-gradient-to-r from-emerald-500 via-blue-500 to-transparent" />
-            </div>
+            </motion.div>
 
             {/* MOBILE CARD 3: IMAGEN - FIJA Y PRIMERA */}
-            <div className="bento-card-root row-span-2 bg-white rounded-2xl border-2 border-pink-200 relative flex items-center justify-center overflow-hidden shadow-sm group">
+            <motion.div
+              variants={cardVariants}
+              style={{ willChange: 'opacity, transform' }}
+              className="row-span-2 bg-white rounded-2xl border-2 border-pink-200 relative flex items-center justify-center overflow-hidden shadow-sm group"
+            >
               <div 
                 className="absolute w-28 h-28 bg-pink-100 rounded-full opacity-40 group-hover:opacity-60 transition-opacity duration-500" 
                 style={{ filter: 'blur(40px)' }}
@@ -88,10 +129,14 @@ const ImportantRulesBentoGrid = ({ rules = [] }) => {
                 alt="Condiciones" 
                 className="w-full h-full object-contain p-2 relative z-10 scale-110 group-hover:scale-115 transition-transform duration-500"
               />
-            </div>
+            </motion.div>
 
             {/* MOBILE CARD 4: RECARGO 10% */}
-            <div className="bento-card-branch bg-gradient-to-br from-red-50 to-rose-100 rounded-2xl p-2.5 border-2 border-red-300 flex flex-col justify-center relative overflow-hidden group" style={{ animationDelay: '0.5s' }}>
+            <motion.div
+              variants={cardVariants}
+              style={{ willChange: 'opacity, transform' }}
+              className="bg-gradient-to-br from-red-50 to-rose-100 rounded-2xl p-2.5 border-2 border-red-300 flex flex-col justify-center relative overflow-hidden group"
+            >
               <div className="absolute inset-0 bg-gradient-to-br from-red-100/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
               <Percent className="absolute -right-1 -bottom-2 w-14 h-14 text-red-300 opacity-20 group-hover:opacity-30 transition-opacity" />
               <div className="relative z-10">
@@ -107,10 +152,14 @@ const ImportantRulesBentoGrid = ({ rules = [] }) => {
                 </p>
               </div>
               <div className="absolute top-0 right-0 w-full h-full bg-gradient-to-br from-red-600/5 to-transparent transform rotate-12" />
-            </div>
+            </motion.div>
 
             {/* MOBILE CARD 5: NO ENVÍOS */}
-            <div className="bento-card-branch bg-gradient-to-br from-slate-50 to-gray-100 rounded-2xl p-3 border-2 border-slate-300 flex flex-col justify-center relative overflow-hidden group" style={{ animationDelay: '0.6s' }}>
+            <motion.div
+              variants={cardVariants}
+              style={{ willChange: 'opacity, transform' }}
+              className="bg-gradient-to-br from-slate-50 to-gray-100 rounded-2xl p-3 border-2 border-slate-300 flex flex-col justify-center relative overflow-hidden group"
+            >
               <div className="absolute inset-0 bg-gradient-to-br from-slate-100/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
               <Truck className="absolute -right-2 -bottom-2 w-14 h-14 text-slate-400 opacity-20 rotate-12 group-hover:opacity-30 transition-opacity" />
               <div className="relative z-10">
@@ -133,10 +182,14 @@ const ImportantRulesBentoGrid = ({ rules = [] }) => {
                 </div>
               </div>
               <X className="absolute top-2 right-2 w-5 h-5 text-red-600 opacity-10" />
-            </div>
+            </motion.div>
 
             {/* MOBILE CARD 6: VENTA PARTICULAR */}
-            <div className="bento-card-branch col-span-2 bg-gray-900/95 rounded-2xl p-3 border border-white/10 relative overflow-hidden group" style={{ animationDelay: '0.7s' }}>
+            <motion.div
+              variants={cardVariants}
+              style={{ willChange: 'opacity, transform' }}
+              className="col-span-2 bg-gray-900/95 rounded-2xl p-3 border border-white/10 relative overflow-hidden group"
+            >
               <div className="absolute inset-0 bg-gradient-to-br from-yellow-600/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
               <div className="absolute -top-12 -right-12 w-24 h-24 bg-yellow-500/5 rounded-full pointer-events-none" />
               
@@ -169,18 +222,30 @@ const ImportantRulesBentoGrid = ({ rules = [] }) => {
               </div>
               
               <div className="absolute bottom-0 left-0 right-0 h-0.5 bg-gradient-to-r from-yellow-500/40 via-orange-500/40 to-transparent" />
-            </div>
+            </motion.div>
 
             </div>
-          </div>
+          </motion.div>
 
         {/* ============================================
             LAYOUT DESKTOP
             ============================================ */}
-          <div ref={desktopRef} className={`hidden lg:grid lg:grid-cols-3 gap-4 auto-rows-min ${desktopInView ? 'bento-grid-visible' : 'bento-grid-hidden'}`}>
+          <motion.div
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true, amount: 0.2 }}
+            transition={{ duration: 0.6, ease: [0.25, 0.1, 0.25, 1] }}
+            className="hidden lg:grid lg:grid-cols-3 gap-4 auto-rows-min"
+          >
 
           {/* --- CARD 1: SEGURIDAD --- */}
-          <div className="bento-card-branch lg:row-span-2 rounded-[2rem] bg-pink-100 p-6 flex flex-col justify-between border-2 border-pink-300 relative overflow-hidden group shadow-lg hover:shadow-xl transition-shadow duration-300" style={{ animationDelay: '0.3s' }}>
+          <motion.div
+            initial={{ opacity: 0, x: -30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 0.7, ease: [0.34, 1.56, 0.64, 1], delay: 0.1 }}
+            className="lg:row-span-2 rounded-[2rem] bg-pink-100 p-6 flex flex-col justify-between border-2 border-pink-300 relative overflow-hidden group shadow-lg hover:shadow-xl transition-shadow duration-300"
+          >
             <div className="absolute inset-0 bg-gradient-to-br from-pink-200/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
             <DollarSign className="absolute -right-4 -bottom-4 w-32 h-32 text-pink-600 opacity-5 -rotate-12 group-hover:opacity-10 group-hover:scale-110 transition-all duration-500" />
             
@@ -200,10 +265,14 @@ const ImportantRulesBentoGrid = ({ rules = [] }) => {
             </div>
             
             <div className="absolute bottom-0 left-0 right-0 h-1.5 bg-gradient-to-r from-pink-600 via-pink-400 to-transparent" />
-          </div>
+          </motion.div>
 
           {/* --- CARD 2: IMAGEN CENTRAL - FIJA Y PRIMERA --- */}
-          <div className="bento-card-root lg:row-span-3 rounded-[2rem] bg-white border-2 border-pink-300 relative flex items-center justify-center overflow-visible shadow-lg min-h-[400px] group">
+          <motion.div
+            variants={cardVariants}
+            style={{ willChange: 'opacity, transform' }}
+            className="lg:row-span-3 rounded-[2rem] bg-white border-2 border-pink-300 relative flex items-center justify-center overflow-visible shadow-lg min-h-[400px] group"
+          >
             <div 
               className="absolute w-48 h-48 bg-pink-100 rounded-full opacity-50 group-hover:opacity-70 transition-opacity duration-500" 
               style={{ filter: 'blur(48px)' }}
@@ -214,10 +283,14 @@ const ImportantRulesBentoGrid = ({ rules = [] }) => {
               alt="Condiciones" 
               className="w-full h-full object-contain p-4 relative z-20 -translate-y-2.5 scale-120 drop-shadow-[0_15px_30px_rgba(219,39,119,0.25)] group-hover:scale-125 transition-transform duration-500"
             />
-          </div>
+          </motion.div>
 
           {/* --- CARD 3: PAGO --- */}
-          <div className="bento-card-branch lg:row-span-2 rounded-[2rem] bg-white p-6 border-2 border-gray-300 shadow-lg relative overflow-hidden group hover:shadow-xl transition-shadow duration-300" style={{ animationDelay: '0.4s' }}>
+          <motion.div
+            variants={cardVariants}
+            style={{ willChange: 'opacity, transform' }}
+            className="lg:row-span-2 rounded-[2rem] bg-white p-6 border-2 border-gray-300 shadow-lg relative overflow-hidden group hover:shadow-xl transition-shadow duration-300"
+          >
             <div className="absolute inset-0 bg-gradient-to-br from-orange-50/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
             <AlertTriangle className="absolute -right-4 -bottom-4 w-32 h-32 text-orange-400 opacity-5 group-hover:opacity-10 transition-all duration-500" />
             <div className="absolute top-0 right-0 w-full h-full bg-gradient-to-br from-gray-900/5 to-transparent transform rotate-12" />
@@ -243,10 +316,14 @@ const ImportantRulesBentoGrid = ({ rules = [] }) => {
             </div>
             
             <div className="absolute bottom-0 left-0 right-0 h-1.5 bg-gradient-to-r from-emerald-500 via-blue-500 to-transparent" />
-          </div>
+          </motion.div>
 
           {/* --- CARD 4: RECARGO --- */}
-          <div className="bento-card-branch rounded-[2rem] bg-gradient-to-br from-red-50 to-rose-100 p-6 border-2 border-red-300 relative overflow-hidden flex flex-col group shadow-lg hover:shadow-xl transition-shadow duration-300" style={{ animationDelay: '0.5s' }}>
+          <motion.div
+            variants={cardVariants}
+            style={{ willChange: 'opacity, transform' }}
+            className="rounded-[2rem] bg-gradient-to-br from-red-50 to-rose-100 p-6 border-2 border-red-300 relative overflow-hidden flex flex-col group shadow-lg hover:shadow-xl transition-shadow duration-300"
+          >
             <div className="absolute inset-0 bg-gradient-to-br from-red-100/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
             <Percent className="absolute -right-2 -bottom-2 w-24 h-24 text-red-600 opacity-5 group-hover:opacity-10 transition-opacity duration-500" />
             <div className="absolute top-0 right-0 w-full h-full bg-gradient-to-br from-red-600/5 to-transparent transform rotate-12" />
@@ -265,10 +342,16 @@ const ImportantRulesBentoGrid = ({ rules = [] }) => {
                 {rulesData[3]?.subtitle}
               </p>
             </div>
-          </div>
+          </motion.div>
 
           {/* --- CARD 5: NO ENVÍOS --- */}
-          <div className="bento-card-branch rounded-[2rem] bg-gradient-to-br from-slate-50 to-gray-100 p-6 border-2 border-slate-300 relative overflow-hidden flex flex-col group shadow-lg hover:shadow-xl transition-shadow duration-300" style={{ animationDelay: '0.6s' }}>
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-50px" }}
+            transition={{ duration: 0.6, ease: "easeOut", delay: 0.6 }}
+            className="rounded-[2rem] bg-gradient-to-br from-slate-50 to-gray-100 p-6 border-2 border-slate-300 relative overflow-hidden flex flex-col group shadow-lg hover:shadow-xl transition-shadow duration-300"
+          >
             <div className="absolute inset-0 bg-gradient-to-br from-slate-100/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
             <Truck className="absolute -right-6 -bottom-6 w-24 h-24 text-slate-500 opacity-5 rotate-12 group-hover:opacity-10 transition-opacity duration-500" />
             <X className="absolute right-4 bottom-4 w-10 h-10 text-red-600 opacity-20 group-hover:opacity-30 transition-opacity duration-500" />
@@ -296,10 +379,14 @@ const ImportantRulesBentoGrid = ({ rules = [] }) => {
             </div>
             
             <div className="absolute bottom-0 left-0 right-0 h-1.5 bg-gradient-to-r from-red-600 via-slate-400 to-transparent" />
-          </div>
+          </motion.div>
 
         {/* --- CARD 6: VENTA PARTICULAR --- */}
-<div className="bento-card-branch lg:col-span-3 rounded-[2.5rem] bg-gray-900/95 p-8 border border-white/10 relative overflow-hidden group shadow-2xl hover:shadow-3xl transition-shadow duration-300" style={{ animationDelay: '0.7s' }}>
+<motion.div
+  variants={cardVariants}
+  style={{ willChange: 'opacity, transform' }}
+  className="lg:col-span-3 rounded-[2.5rem] bg-gray-900/95 p-8 border border-white/10 relative overflow-hidden group shadow-2xl hover:shadow-3xl transition-shadow duration-300"
+>
   
   <div className="absolute inset-0 bg-gradient-to-br from-yellow-600/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
   <div className="absolute -top-24 -right-24 w-48 h-48 bg-yellow-500/5 rounded-full pointer-events-none" />
@@ -338,8 +425,8 @@ const ImportantRulesBentoGrid = ({ rules = [] }) => {
   </div>
   
   <div className="absolute bottom-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-yellow-500/40 to-transparent" />
-</div>
-          </div>
+</motion.div>
+          </motion.div>
 
       </div>
     </div>

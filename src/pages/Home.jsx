@@ -8,6 +8,7 @@ import PCBuilderSection from '../components/Home/PCBuilderSection';
 import CategoryProductSection from '../components/Home/CategoryProductSection';
 import PuntosRetiroInfoSection from '../components/Home/PuntosRetiroInfoSection';
 import CategoryFilter from '../components/Catalog/CategoryFilter';
+import DiagonalDivider from '../components/Home/DiagonalDivider';
 
 import { useFilter } from '../context/FilterContext';
 import { getSlugFromCategory } from '../utils/slugify';
@@ -15,11 +16,6 @@ import { useSEO } from '../hooks/useSEO';
 import { useParallax } from '../hooks/useParallax';
 import mayoristaData from '../data/categories/mayorista.json';
 import RevendedoresSection from '../components/Home/RevendedoresSection';
-
-// Importa el layout que quieras probar (A, B o C):
-import RevendedoresSectionA from '../components/Home/RevendedoresSectionA';
-import RevendedoresSectionB from '../components/Home/RevendedoresSectionB';
-import RevendedoresSectionC from '../components/Home/RevendedoresSectionC';
 
 const mayoristaProducts = mayoristaData.products;
 
@@ -126,11 +122,16 @@ const Home = () => {
           </div>
 
           {/* Mobile: PC Builder después de Kits */}
-          <div className="sm:hidden mb-4">
+          <div className="sm:hidden">
             <PCBuilderSection />
           </div>
 
-          {/* Mobile: Puntos de Retiro después del PC Builder - Sin padding */}
+          {/* Mobile: Separador diagonal entre cards */}
+          <div className="sm:hidden">
+            <DiagonalDivider />
+          </div>
+
+          {/* Mobile: Puntos de Retiro después del separador */}
           <div className="sm:hidden mb-4">
             <PuntosRetiroInfoSection />
           </div>

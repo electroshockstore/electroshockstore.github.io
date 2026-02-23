@@ -63,7 +63,8 @@ const PlatformModal = memo(({
     top: scrollY,
     left: 0,
     right: 0,
-    height: viewportHeight
+    minHeight: viewportHeight,
+    height: 'auto'
   } : {
     position: 'fixed',
     top: 0,
@@ -77,7 +78,8 @@ const PlatformModal = memo(({
     top: scrollY,
     left: 0,
     right: 0,
-    height: viewportHeight
+    minHeight: viewportHeight,
+    height: 'auto'
   } : {
     position: 'fixed',
     top: 0,

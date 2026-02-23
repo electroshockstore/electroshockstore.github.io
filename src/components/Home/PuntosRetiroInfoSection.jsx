@@ -22,10 +22,6 @@ const PuntosRetiroInfoSection = () => {
         style={{ filter: 'blur(24px)' }}
       />
 
-      {/* Máscaras de difuminado - Solo en mobile */}
-      <div className="absolute top-0 left-0 right-0 h-10 bg-gradient-to-b from-[#0a0a0f] via-[#0a0a0f]/80 to-transparent z-[25] md:hidden pointer-events-none" />
-      <div className="absolute bottom-0 left-0 right-0 h-6 bg-gradient-to-t from-[#0a0a0f] via-[#0a0a0f]/80 to-transparent z-[25] md:hidden pointer-events-none" />
-
       <div className="relative z-10 w-full h-full flex items-center justify-center px-4 py-6 sm:px-8 sm:py-12 md:px-12 md:py-16 lg:px-16 lg:py-20 xl:px-20 xl:py-24">
         <div className="flex flex-col lg:grid lg:grid-cols-2 gap-2 sm:gap-8 md:gap-10 lg:gap-12 xl:gap-16 w-full max-w-7xl items-center">
           
