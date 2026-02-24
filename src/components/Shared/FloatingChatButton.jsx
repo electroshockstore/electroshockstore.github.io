@@ -9,9 +9,11 @@ const FloatingChatButton = () => {
   const [showButton, setShowButton] = useState(false);
   const location = useLocation();
   const navigate = useNavigate();
-  
-  // Ocultar en PC Builder ya que tiene su propio botón de WhatsApp
-  if (location.pathname.includes('/pc-builder')) {
+  const isPCBuilderPage = location.pathname.includes('/armatupc') || 
+                          location.pathname.includes('/pc-builder');
+
+  // Don't render on PC Builder page
+  if (isPCBuilderPage) {
     return null;
   }
 
@@ -139,7 +141,7 @@ const FloatingChatButton = () => {
           />
         )}
 
-        <div className="floating-button-fixed">
+        <div className={isPCBuilderPage ? "floating-button-fixed-right" : "floating-button-fixed"}>
         
         {/* --- MENÚ EXPANDIDO --- */}
         {isExpanded && (

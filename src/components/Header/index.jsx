@@ -18,12 +18,17 @@ const Header = ({ searchQuery = '', onSearchChange, onGoHome, hideSearchOnMobile
   const location = useLocation();
   const isScrolled = useScrollEffect(20);
 
-  // Detectar si estamos en página de catálogo
+  // Detectar si estamos en página de catálogo o PC Builder
   const isCatalogPage = location.pathname.includes('/catalogo') || 
                         location.pathname.includes('/categoria');
+  const isPCBuilderPage = location.pathname.includes('/armatupc') || 
+                          location.pathname.includes('/pc-builder');
   
-  // Forzar estado oscuro en catálogo, o usar scroll en otras páginas
-  const shouldBeScrolled = isCatalogPage || isScrolled;
+  // Forzar estado oscuro en catálogo y PC Builder, o usar scroll en otras páginas
+  const shouldBeScrolled = isCatalogPage || isPCBuilderPage || isScrolled;
+  
+  // En PC Builder el header es fijo (no sticky)
+  const headerPosition = isPCBuilderPage ? 'relative' : 'sticky';
 
   const handleCategoryClick = (category) => {
     const targetPath = `/categoria/${getSlugFromCategory(category)}`;
@@ -54,7 +59,7 @@ const Header = ({ searchQuery = '', onSearchChange, onGoHome, hideSearchOnMobile
 
       <header 
         className={`
-          sticky top-0 z-50 w-full
+          ${headerPosition} top-0 z-50 w-full
           transition-all duration-300 ease-in-out
           ${shouldBeScrolled 
             ? 'bg-black border-b border-gray-800' 

@@ -20,9 +20,9 @@
         "Marca": "Western Digital",
         "Línea": "WD Green",
         "Modelo detallado": "WDS200T2G0A",
-        "Capacidad": "2 TB",
-        "Formato": "2.5\" SATA",
-        "Tipo de memoria": "NAND flash",
+        "capacidadTotal": "2 TB",
+        "formato": "2.5\" SATA",
+        "tipoMemoriaRAM": "NAND flash",
         "Interfaz": "SATA III",
         "Velocidad": "Lectura/Escritura típica SATA"
       }
@@ -44,13 +44,13 @@
       "specifications": {
         "Marca": "ADATA",
         "Línea": "XPG Spectrix",
-        "Capacidad": "500 GB",
+        "capacidadTotal": "500 GB",
         "Interfaz": "PCIe Gen3 x4",
-        "Iluminación": "RGB Direccionable",
+        "rgb": "RGB Direccionable",
         "Lectura": "2500 MB/s",
         "Chip": "3D TLC MICRON",
         "Escritura": "1800 MB/s",
-        "Formato": "M.2"
+        "formato": "M.2"
       }
     },
     {
@@ -71,13 +71,13 @@
       ],
       "specifications": {
         "Marca": "Lexar",
-        "Capacidad": "1 TB",
+        "capacidadTotal": "1 TB",
         "Interfaz": "PCIe Gen3 x4 NVMe 1.4",
         "Chip": "3D TLC MICRON",
         "Lectura": "3500 MB/s",
         "Escritura": "3000 MB/s",
         "TBW": "500 TBW",
-        "Formato": "M.2"
+        "formato": "M.2"
       }
     },
     {
@@ -98,12 +98,12 @@
       "specifications": {
         "Marca": "Kingston",
         "Línea": "NV3",
-        "Capacidad": "1 TB",
+        "capacidadTotal": "1 TB",
         "Chip": "Micron B58R TLC",
         "Interfaz": "PCIe Gen4 x4 NVMe",
         "Lectura": "3500 MB/s",
         "Escritura": "2800 MB/s",
-        "Formato": "M.2"
+        "formato": "M.2"
       }
     },
     {
@@ -123,13 +123,13 @@
         "/images/almacenamiento/adata_legend710_512_side2.webp"
       ],
       "specifications": {
-        "Capacidad": "512 GB",
+        "capacidadTotal": "512 GB",
         "Interfaz": "PCIe Gen3 x4 NVMe 1.4",
         "Lectura": "2400 MB/s",
         "Chip": "3D TLC MICRON",
         "Escritura": "1800 MB/s",
         "Disipador": "Incluido",
-        "Formato": "M.2"
+        "formato": "M.2"
       }
     },
     {
@@ -149,10 +149,11 @@
         "/images/almacenamiento/a400_960_back.webp"
       ],
       "specifications": {
-        "Formato": "2.5\"",
+        "formato": "2.5\"",
         "Interfaz": "SATA III 6Gb/s",
         "Lectura": "500 MB/s",
-        "Escritura": "450 MB/s"
+        "Escritura": "450 MB/s",
+        "capacidadTotal": "960 GB"
       }
     },
     {
@@ -171,9 +172,9 @@
         "/images/almacenamiento/sandisk_ssdplus1tb_side.webp"
       ],
       "specifications": {
-        "Capacidad": "1 TB",
+        "capacidadTotal": "1 TB",
         "Interfaz": "PCIe Gen3 x4 NVMe",
-        "Formato": "M.2 2280",
+        "formato": "M.2 2280",
         "Chip": "Sandisk",
         "Memoria": "3D NAND"
       }
@@ -198,12 +199,12 @@
         "Marca": "Kingston",
         "Modelo": "NV2",
         "Modelo detallado": "SNV2S/250G",
-        "Capacidad": "250 GB",
-        "Formato": "M.2 2280",
+        "capacidadTotal": "250 GB",
+        "formato": "M.2 2280",
         "Interfaz": "NVMe PCIe 4.0",
         "Velocidad lectura": "Hasta 3000 MB/s",
         "Velocidad escritura": "Hasta 1300 MB/s",
-        "Tipo memoria": "NAND",
+        "tipoMemoriaRAM": "NAND",
         "Uso recomendado": "PC / Notebook",
         "Disipador": "No"
       }
@@ -224,11 +225,11 @@
         "/images/almacenamiento/lexar_nm620_512_side.webp"
       ],
       "specifications": {
-        "Capacidad": "512 GB",
+        "capacidadTotal": "512 GB",
         "Lectura": "3500 MB/s",
         "Chip": "3D TLC MICRON",
         "Escritura": "2400 MB/s",
-        "Formato": "M.2"
+        "formato": "M.2"
       }
     },
     {
@@ -248,7 +249,7 @@
         "/images/almacenamiento/patriot_elite_480_side2.webp"
       ],
       "specifications": {
-        "Capacidad": "480 GB",
+        "capacidadTotal": "480 GB",
         "Lectura": "450 MB/s",
         "Escritura": "320 MB/s"
       }
@@ -273,14 +274,14 @@
         "Marca": "Hiksemi",
         "Línea": "Wave",
         "Modelo": "HS-SSD-WAVE(S) 960G",
-        "Capacidad": "960 GB",
+        "capacidadTotal": "960 GB",
         "Interfaz": "SATA III 6 Gb/s",
-        "Formato": "2.5\"",
-        "Tipo de memoria": "3D NAND",
+        "formato": "2.5\"",
+        "tipoMemoriaRAM": "3D NAND",
         "Velocidad de lectura": "hasta 550 MB/s",
         "Velocidad de escritura": "hasta 500 MB/s",
         "Uso recomendado": "PC / Notebook",
-        "Consumo_TDP": "≈ 3 W"
+        "TDP": "≈ 3 W"
       }
     },
     {
@@ -300,7 +301,7 @@
         "/images/almacenamiento/netac_n545s_480_specs.webp"
       ],
       "specifications": {
-        "Capacidad": "480 GB",
+        "capacidadTotal": "480 GB",
         "Lectura": "560 MB/s",
         "Escritura": "520 MB/s"
       }
@@ -322,7 +323,7 @@
         "/images/almacenamiento/wd_green480_side2.webp"
       ],
       "specifications": {
-        "Capacidad": "480 GB",
+        "capacidadTotal": "480 GB",
         "Interfaz": "SATA III 6 Gb/s",
         "Lectura": "545 MB/s"
       }
@@ -344,7 +345,7 @@
         "/images/almacenamiento/patriot_burst_960_side2.webp"
       ],
       "specifications": {
-        "Capacidad": "960 GB",
+        "capacidadTotal": "960 GB",
         "Lectura": "560 MB/s",
         "Escritura": "540 MB/s"
       }
@@ -366,7 +367,7 @@
         "/images/almacenamiento/patriot_burst_240_back.webp"
       ],
       "specifications": {
-        "Capacidad": "240 GB",
+        "capacidadTotal": "240 GB",
         "Lectura": "560 MB/s",
         "Escritura": "540 MB/s"
       }
@@ -388,7 +389,7 @@
         "/images/almacenamiento/a400_480gb_specs.webp"
       ],
       "specifications": {
-        "Capacidad": "480 GB",
+        "capacidadTotal": "480 GB",
         "Lectura": "500 MB/s",
         "Escritura": "450 MB/s"
       }
@@ -410,11 +411,11 @@
         "/images/almacenamiento/adata_swordfish500_side2.webp"
       ],
       "specifications": {
-        "Capacidad": "500 GB",
+        "capacidadTotal": "500 GB",
         "Interfaz": "PCIe Gen3 x4 NVMe",
         "Lectura": "1800 MB/s",
         "Disipador": "Aluminio cepillado",
-        "Formato": "M.2"
+        "formato": "M.2"
       }
     },
     {
@@ -433,10 +434,10 @@
         "/images/almacenamiento/nvme_wdgreen_240_side.webp"
       ],
       "specifications": {
-        "Capacidad": "240 GB",
+        "capacidadTotal": "240 GB",
         "Interfaz": "PCIe Gen3 x4",
         "Lectura": "2400 MB/s",
-        "Formato": "M.2"
+        "formato": "M.2"
       }
     },
     {
@@ -455,10 +456,10 @@
         "/images/almacenamiento/nvme_wdgreen_480_side.webp"
       ],
       "specifications": {
-        "Capacidad": "480 GB",
+        "capacidadTotal": "480 GB",
         "Lectura": "2400 MB/s",
         "Escritura": "1500 MB/s",
-        "Formato": "M.2"
+        "formato": "M.2"
       }
     },
     {
@@ -477,10 +478,10 @@
         "/images/almacenamiento/nvme_wdgreen_500_side.webp"
       ],
       "specifications": {
-        "Capacidad": "500 GB",
+        "capacidadTotal": "500 GB",
         "Lectura": "2400 MB/s",
         "Escritura": "1500 MB/s",
-        "Formato": "M.2"
+        "formato": "M.2"
       }
     },
     {
@@ -501,7 +502,7 @@
         "/images/almacenamiento/adatassd_250_blue2.webp"
       ],
       "specifications": {
-        "Capacidad": "256 GB",
+        "capacidadTotal": "256 GB",
         "Lectura": "520 MB/s",
         "Escritura": "450 MB/s"
       }
@@ -523,10 +524,9 @@
         "/images/almacenamiento/wd_elements_2tb_specs.webp"
       ],
       "specifications": {
-        "Capacidad": "2 TB",
-        "Tipo": "HDD Externo",
-        "Interfaz": "USB 3.0",
-        "Formato": "2.5 pulgadas"
+        "capacidadTotal": "2 TB",
+        "formato": "2.5 pulgadas",
+        "Interfaz": "USB 3.0"
       }
     },
     {
@@ -546,8 +546,8 @@
         "/images/almacenamiento/wd_elements_1tb_back.webp"
       ],
       "specifications": {
-        "Capacidad": "1 TB",
-        "Tipo": "HDD Externo",
+        "capacidadTotal": "1 TB",
+        "formato": "HDD Externo",
         "Interfaz": "USB 3.0"
       }
     },
@@ -569,8 +569,8 @@
         "/images/almacenamiento/seagate_skyhawk_4tb_side3.webp"
       ],
       "specifications": {
-        "Capacidad": "4 TB",
-        "Formato": "3.5\"",
+        "capacidadTotal": "4 TB",
+        "formato": "3.5\"",
         "Velocidad": "5900 RPM",
         "Caché": "256 MB",
         "Uso": "CCTV / Seguridad 24/7"
@@ -598,10 +598,10 @@
         "Línea": "A400",
         "Modelo": "SA400S37/240G",
         "ModeloDetallado": "SA400S37/240G",
-        "Capacidad": "240 GB",
-        "Formato": "2.5\"",
+        "capacidadTotal": "240 GB",
+        "formato": "2.5\"",
         "Interfaz": "SATA III 6 Gb/s",
-        "TipoMemoria": "NAND Flash",
+        "tipoMemoriaRAM": "NAND Flash",
         "VelocidadLecturaSecuencial": "Hasta 500 MB/s",
         "VelocidadEscrituraSecuencial": "Hasta 350 MB/s",
         "SoporteTRIM": "Sí",

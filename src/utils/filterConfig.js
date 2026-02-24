@@ -5,99 +5,133 @@
 
 // Filtros importantes por categoría (máximo 4-5 por categoría)
 export const CATEGORY_FILTERS = {
-  'Memoria RAM': ['marca', 'rgb', 'tipoMemoriaRAM', 'capacidadTotal', 'formato'],
-  'Memorias RAM': ['marca', 'rgb', 'tipoMemoriaRAM', 'capacidadTotal', 'formato'],
-  'Procesadores': ['marca', 'socket', 'nucleos', 'frecuenciaBase'],
-  'Motherboards': ['marca', 'socket', 'chipset', 'formato'],
-  'Fuentes': ['Marca', 'Potencia', 'Certificacion', 'Cableado'],
+  'Memoria RAM': ['Marca', 'Iluminación', 'Tipo de memoria', 'Capacidad', 'Formato'],
+  'Memorias RAM': ['Marca', 'Iluminación', 'Tipo de memoria', 'Capacidad', 'Formato'],
+  'Procesadores': ['Marca', 'Socket', 'Núcleos', 'Frecuencia base'],
+  'Motherboards': ['Marca', 'Socket', 'Chipset', 'Formato'],
+  'Fuentes': ['Marca', 'Potencia', 'Certificación', 'Cableado'],
   'Teclados': ['Marca', 'Arquitectura', 'Iluminación', 'Conectividad'],
-  'Mouse': ['marca', 'rgb', 'tipoSensor', 'dpi', 'tipoConectividad'],
+  'Mouse': ['Marca', 'Iluminación', 'Sensor', 'DPI', 'Conectividad'],
   'Auriculares': ['Marca', 'Tipo de conexión', 'Compatibilidad'],
-  'Joystick': ['marca', 'inalambrico', 'compatibilidad', 'tipoBateria'],
-  'Almacenamiento': ['marca', 'capacidadTotal', 'formato'],
+  'Joystick': ['Marca', 'Conectividad', 'Compatibilidad', 'Batería'],
+  'Almacenamiento': ['Marca', 'Capacidad', 'Formato'],
   'Refrigeración': ['Marca', 'Tipo', 'TDP', 'Tamaño del ventilador']
 };
 
-// Mapeo de claves alternativas a clave principal
+// Mapeo de claves alternativas a clave principal (para compatibilidad con datos antiguos)
 export const FILTER_KEY_ALIASES = {
-  // RGB
-  'iluminacionRGB': 'rgb',
-  'Iluminación': 'rgb',
-  'RGB': 'rgb',
+  // RGB/Iluminación
+  'iluminacionRGB': 'Iluminación',
+  'RGB': 'Iluminación',
+  'rgb': 'Iluminación',
+  'IluminaciÃ³n': 'Iluminación',
   
   // Tipo de memoria
-  'tipoMemoria': 'tipoMemoriaRAM',
-  'Tipo de memoria': 'tipoMemoriaRAM',
-  'tipo': 'tipoMemoriaRAM',
+  'tipoMemoria': 'Tipo de memoria',
+  'tipoMemoriaRAM': 'Tipo de memoria',
+  'tipo': 'Tipo de memoria',
+  'TipoMemoria': 'Tipo de memoria',
+  'Tipo memoria': 'Tipo de memoria',
   
   // Marca
+  'marca': 'Marca',
   'MARCA': 'Marca',
   'brand': 'Marca',
   'Marca de la fuente': 'Marca',
   
   // Capacidad
-  'Capacidad total': 'capacidadTotal',
-  'Capacidad Total': 'capacidadTotal',
-  'capacidad': 'capacidadTotal',
-  'Capacidad': 'capacidadTotal',
+  'capacidad': 'Capacidad',
+  'capacidadTotal': 'Capacidad',
+  'Capacidad total': 'Capacidad',
+  'Capacidad Total': 'Capacidad',
   
   // Formato (almacenamiento)
-  'Factor de forma': 'formato',
-  'Formato': 'formato',
-  'Tipo': 'formato',
-  'factorDeForma': 'formato',
+  'formato': 'Formato',
+  'Factor de forma': 'Formato',
+  'factorDeForma': 'Formato',
+  'Tipo': 'Formato',
   
   // Potencia (fuentes)
   'Potencia Continua': 'Potencia',
   
   // Certificación (fuentes)
-  'Certificación': 'Certificacion',
+  'Certificacion': 'Certificación',
+  'CertificaciÃ³n': 'Certificación',
   
-  // Conexión (auriculares) - Conectividad es alias de Tipo de conexión
-  'Conectividad': 'Tipo de conexión'
+  // Conectividad
+  'conectividad': 'Conectividad',
+  'tipoConectividad': 'Conectividad',
+  
+  // Sensor
+  'tipoSensor': 'Sensor',
+  
+  // DPI
+  'dpi': 'DPI',
+  
+  // Socket
+  'socket': 'Socket',
+  
+  // Núcleos
+  'nucleos': 'Núcleos',
+  
+  // Chipset
+  'chipset': 'Chipset',
+  
+  // TDP
+  'tdp': 'TDP',
+  'Consumo_TDP': 'TDP',
+  'consumoTDP': 'TDP',
+  
+  // Arquitectura
+  'arquitectura': 'Arquitectura',
+  
+  // Batería
+  'bateria': 'Batería',
+  'tipoBateria': 'Batería',
+  
+  // Compatibilidad
+  'compatibilidad': 'Compatibilidad',
+  
+  // Frecuencia
+  'frecuenciaBase': 'Frecuencia base',
+  'Frecuencia': 'Frecuencia base',
+  
+  // Línea
+  'linea': 'Línea',
+  'LÃ­nea': 'Línea'
 };
 
 // Labels amigables para mostrar en UI
 export const FILTER_LABELS = {
   // Memoria RAM
-  'marca': 'Marca',
-  'rgb': 'Iluminación RGB',
-  'tipoMemoriaRAM': 'Tipo de Memoria',
-  'capacidadTotal': 'Capacidad',
-  // Procesadores
-  'socket': 'Socket',
-  'nucleos': 'Núcleos',
-  'frecuenciaBase': 'Frecuencia',
-  // Motherboards
-  'chipset': 'Chipset',
-  'formato': 'Formato',
-  // Fuentes
   'Marca': 'Marca',
+  'Iluminación': 'Iluminación RGB',
+  'Tipo de memoria': 'Tipo de Memoria',
+  'Capacidad': 'Capacidad',
+  // Procesadores
+  'Socket': 'Socket',
+  'Núcleos': 'Núcleos',
+  'Frecuencia base': 'Frecuencia',
+  // Motherboards
+  'Chipset': 'Chipset',
+  'Formato': 'Formato',
+  // Fuentes
   'Potencia': 'Potencia',
-  'Certificacion': 'Certificación',
+  'Certificación': 'Certificación',
   'Cableado': 'Cableado',
   // Teclados
   'Arquitectura': 'Tipo',
-  'Iluminación': 'Iluminación RGB',
   'Conectividad': 'Conexión',
   // Mouse
-  'tipoSensor': 'Sensor',
-  'dpi': 'DPI',
-  'tipoConectividad': 'Conexión',
+  'Sensor': 'Sensor',
+  'DPI': 'DPI',
   // Auriculares
   'Compatibilidad': 'Compatibilidad',
   'Tipo de conexión': 'Tipo de Conexión',
   // Joystick
-  'inalambrico': 'Conexión',
-  'compatibilidad': 'Compatibilidad',
-  'tipoBateria': 'Batería',
+  'Batería': 'Batería',
   // Almacenamiento
-  'Capacidad': 'Capacidad',
   'Interfaz': 'Interfaz',
-  'Factor de forma': 'Formato',
-  'formato': 'Formato',
-  'Formato': 'Formato',
-  'Tipo': 'Formato',
   // Refrigeración
   'Tipo': 'Tipo',
   'TDP': 'TDP',

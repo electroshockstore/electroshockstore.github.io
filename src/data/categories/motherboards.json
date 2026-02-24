@@ -18,11 +18,11 @@
       ],
       "description": "Motherboard Asus TUF Gaming A620M-PLUS WiFi AM5 con conectividad inalámbrica y soporte DDR5",
       "specifications": {
-        "marca": "Asus",
-        "linea": "TUF Gaming",
-        "modelo": "A620M-PLUS WiFi",
-        "socket": "AM5",
-        "chipset": "AMD A620",
+        "Marca": "ASUS",
+        "Línea": "TUF Gaming",
+        "Modelo": "A620M-PLUS WiFi",
+        "Socket": "AM5",
+        "Chipset": "AMD A620",
         "formato": "Micro-ATX",
         "tipoMemoriaRAM": "DDR5",
         "slotsMemoria": "4",
@@ -52,11 +52,11 @@
       ],
       "description": "Motherboard Gigabyte A620M Gaming X DDR5 AM5 para gaming con soporte Ryzen 7000/8000/9000",
       "specifications": {
-        "marca": "Gigabyte",
-        "linea": "Gaming",
-        "modelo": "A620M Gaming X",
-        "socket": "AM5",
-        "chipset": "AMD A620",
+        "Marca": "Gigabyte",
+        "Línea": "Gaming",
+        "Modelo": "A620M Gaming X",
+        "Socket": "AM5",
+        "Chipset": "AMD A620",
         "formato": "Micro-ATX",
         "tipoMemoriaRAM": "DDR5",
         "slotsMemoria": "4",
@@ -86,9 +86,9 @@
       ],
       "description": "Mother Asus Prime A520M-K AM4 DDR4 64GB HDMI M.2",
       "specifications": {
-        "marca": "Asus",
-        "chipset": "AMD A520",
-        "socket": "AM4",
+        "Marca": "ASUS",
+        "Chipset": "AMD A520",
+        "Socket": "AM4",
         "formato": "Micro-ATX",
         "tipoMemoriaRAM": "DDR4",
         "vrm": "4+2 Fases de poder"
@@ -114,11 +114,11 @@
       ],
       "description": "Motherboard ASUS Prime B550M-K AM4 Micro-ATX con soporte DDR4 y PCIe 4.0",
       "specifications": {
-        "marca": "ASUS",
-        "linea": "Prime",
-        "modelo": "B550M-K",
-        "chipset": "AMD B550",
-        "socket": "AM4",
+        "Marca": "ASUS",
+        "Línea": "Prime",
+        "Modelo": "B550M-K",
+        "Chipset": "AMD B550",
+        "Socket": "AM4",
         "formato": "Micro-ATX",
         "tipoMemoriaRAM": "DDR4",
         "capacidadMaximaRAM": "128 GB",
@@ -126,7 +126,7 @@
         "soportePCIe": "PCIe 4.0",
         "almacenamiento": "M.2 / SATA",
         "red": "Gigabit LAN",
-        "consumoTDP": "≈ 40 W"
+        "TDP": "≈ 40 W"
       },
       "ddrType": "DDR4"
     },
@@ -147,9 +147,9 @@
       ],
       "description": "Mother Gigabyte B650M Gaming WiFi DDR5 B650 AMD con WiFi integrado",
       "specifications": {
-        "marca": "Gigabyte",
-        "socket": "AM5",
-        "chipset": "AMD B650",
+        "Marca": "Gigabyte",
+        "Socket": "AM5",
+        "Chipset": "AMD B650",
         "formato": "Micro-ATX",
         "tipoMemoriaRAM": "DDR5",
         "vrm": "5+2+2 Digital VRM Solution",
@@ -175,14 +175,14 @@
       ],
       "description": "Mother Gigabyte A620M H DDR5 AMD AM5 para Ryzen Serie 7000/8000/9000",
       "specifications": {
-        "marca": "Gigabyte",
-        "chipset": "AMD A620",
-        "socket": "AM5",
+        "Marca": "Gigabyte",
+        "Chipset": "AMD A620",
+        "Socket": "AM5",
         "formato": "Micro-ATX",
         "tipoMemoriaRAM": "DDR5",
         "vrm": "5+2+2 Digital VRM"
-          },
-       "ddrType": "DDR5"
+      },
+      "ddrType": "DDR5"
     },
     {
       "id": 606,
@@ -201,16 +201,16 @@
       ],
       "description": "Mother Asus Prime B450M-A II CSM AM4 DDR4 128GB",
       "specifications": {
-        "marca": "Asus",
-        "linea": "Prime",
-        "modelo": "B450M-A II CSM",
-        "socket": "AM4",
-        "chipset": "B450",
+        "Marca": "ASUS",
+        "Línea": "Prime",
+        "Modelo": "B450M-A II CSM",
+        "Socket": "AM4",
+        "Chipset": "B450",
         "formato": "Micro-ATX",
         "tipoMemoriaRAM": "DDR4",
         "capacidadMaximaSoportada": "128 GB"
-        },
-       "ddrType": "DDR4"
+      },
+      "ddrType": "DDR4"
     },
     {
       "id": 607,
@@ -229,15 +229,15 @@
       ],
       "description": "Mother Gigabyte UD A520M K V2 DDR4 AMD Ryzen Gamer M.2 PC",
       "specifications": {
-        "marca": "Gigabyte",
-        "linea": "Ultra Durable",
-        "chipset": "AMD A520",
-        "socket": "AM4",
+        "Marca": "Gigabyte",
+        "Línea": "Ultra Durable",
+        "Chipset": "AMD A520",
+        "Socket": "AM4",
         "formato": "Micro-ATX",
         "tipoMemoriaRAM": "DDR4",
         "vrm": "4+2 Fases"
-        },
-       "ddrType": "DDR4"
+      },
+      "ddrType": "DDR4"
     },
     {
       "id": 608,
@@ -256,15 +256,15 @@
       ],
       "description": "Mother Gigabyte B650M-H UD AMD AM5 DDR5 con soporte para Ryzen 7000/8000/9000",
       "specifications": {
-        "marca": "Gigabyte",
-        "socket": "AM5",
-        "chipset": "AMD B650",
+        "Marca": "Gigabyte",
+        "Socket": "AM5",
+        "Chipset": "AMD B650",
         "formato": "Micro-ATX",
         "tipoMemoriaRAM": "DDR5",
         "vrm": "5+2+2 fases",
         "soportePerfiles": "AMD EXPO / Intel XMP"
       },
-       "ddrType": "DDR5"
+      "ddrType": "DDR5"
     },
     {
       "id": 609,
@@ -282,10 +282,10 @@
       ],
       "description": "Mother Asus Prime B460M-A R2.0 Intel Socket 1200 DDR4 128GB",
       "specifications": {
-        "marca": "Asus",
-        "socket": "LGA1200",
+        "Marca": "ASUS",
+        "Socket": "LGA1200",
         "plataforma": "Intel",
-        "chipset": "B460 (H470 en R2.0)",
+        "Chipset": "B460 (H470 en R2.0)",
         "tipoMemoriaRAM": "DDR4"
       },
       "ddrType": "DDR4"

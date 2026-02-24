@@ -1,8 +1,6 @@
 {
   "products": [
-
-
- {
+    {
       "id": 99,
       "name": "Thermaltake Toughpower GT 850W Full Modular 80 Plus Gold",
       "brand": "Thermaltake",
@@ -18,9 +16,9 @@
         "/images/fuentes/80_plusgold.webp"
       ],
       "specifications": {
-        "Marca de la fuente": "Thermaltake",
+        "Marca": "Thermaltake",
         "Línea": "Toughpower GT",
-        "Modelo de la fuente": "PS-TPT-0850FNFAGG-3",
+        "Modelo": "PS-TPT-0850FNFAGG-3",
         "Potencia máxima": "850 W",
         "Certificación de eficiencia": "80 PLUS Gold (≥90% típico)",
         "Estándar ATX": "ATX 3.1",
@@ -54,7 +52,6 @@
       },
       "certType": "80_PLUS_GOLD"
     },
-
     {
       "id": 100,
       "name": "Adata XPG Core Reactor II VE 850W - 80 Plus Gold Modular",
@@ -72,13 +69,13 @@
         "/images/fuentes/xpg_850wcore_back.webp"
       ],
       "specifications": {
-        "Marca de la fuente": "XPG",
+        "Marca": "ADATA",
         "Línea": "Core Reactor II VE",
-        "Modelo de la fuente": "COREREACTORIIVE850G-BKCAR",
+        "Modelo": "COREREACTORIIVE850G-BKCAR",
         "Potencia": "850W",
         "Certificacion": "80 Plus Gold",
         "Frecuencia": "50-60 Hz",
-        "Formato": "ATX",
+        "formato": "ATX",
         "Cableado": "Modular",
         "Conectores": {
           "ATX 24 pines": "1",
@@ -114,7 +111,7 @@
         "Potencia": "750W",
         "Certificacion": "80 Plus Gold",
         "Frecuencia": "60 Hz",
-        "Formato": "ATX",
+        "formato": "ATX",
         "Cableado": "Modular",
         "Conectores": {
           "ATX 24 pines": "1",
@@ -145,12 +142,12 @@
         "/images/fuentes/pylon_750_specs_side.webp"
       ],
       "specifications": {
-        "Marca": "XPG",
+        "Marca": "ADATA",
         "Modelo": "PYLON",
         "Número de Parte": "PYLON750B-BKCUS",
         "Factor de Forma y Tipo": "ATX - NO MODULAR",
-        "Potencia Continua": "750W",
-        "Certificación": "80 PLUS BRONZE",
+        "Potencia": "750W",
+        "Certificacion": "80 Plus Bronze",
         "Voltaje": "100V-240V, 5A MAX",
         "MTBF": "100 000 Horas",
         "ATX (24 pin)": "1",
@@ -188,7 +185,7 @@
         "Certificacion": "80 Plus Silver",
         "Frecuencia": "50 Hz x 60 Hz",
         "Eficiencia": "Hasta 90%",
-        "Formato": "ATX",
+        "formato": "ATX",
         "Conectores": {
           "ATX 24 pines": "1",
           "EPS 8 pines": "2",
@@ -218,11 +215,11 @@
         "/images/fuentes/gigabyte_p750bs_specs.webp"
       ],
       "specifications": {
-        "Marca de la fuente": "Gigabyte",
-        "Modelo de la fuente": "P750BS",
+        "Marca": "Gigabyte",
+        "Modelo": "P750BS",
         "Potencia": "750W",
         "Certificacion": "80 Plus Bronze",
-        "Formato": "ATX",
+        "formato": "ATX",
         "Cableado": "No modular",
         "Conectores": {
           "ATX 24 pines": "1",
@@ -253,12 +250,12 @@
         "/images/fuentes/xpg_probe700_back.webp"
       ],
       "specifications": {
-        "Marca": "XPG",
+        "Marca": "ADATA",
         "Línea": "PROBE",
         "Modelo": "Probe 700 Bronze",
         "Potencia": "700W",
         "Certificacion": "80 Plus Bronze",
-        "Formato": "ATX",
+        "formato": "ATX",
         "Cableado": "No modular",
         "Conectores": {
           "ATX 24 pines": "1",
@@ -289,13 +286,13 @@
         "/images/fuentes/pylon_650w_specs.webp"
       ],
       "specifications": {
-        "Marca": "XPG",
+        "Marca": "ADATA",
         "Línea": "Pylon",
         "Modelo": "pylon 650",
         "Potencia": "650W",
         "Certificacion": "80 Plus Bronze",
         "Frecuencia": "63 Hz",
-        "Formato": "ATX",
+        "formato": "ATX",
         "Cableado": "No modular",
         "Ventilador": "120 mm",
         "Conectores": {
@@ -332,7 +329,7 @@
         "Modelo": "Probe 600W",
         "Potencia": "600W",
         "Certificacion": "80 Plus Bronze",
-        "Formato": "ATX",
+        "formato": "ATX",
         "Conectores": {
           "ATX 24 pines": "1",
           "EPS 8 pines (CPU)": "1",
@@ -362,13 +359,13 @@
         "/images/fuentes/thermaltake_700_back.webp"
       ],
       "specifications": {
-        "Marca de la fuente": "Thermaltake",
+        "Marca": "Thermaltake",
         "Línea": "Smart",
-        "Modelo de la fuente": "Smart White 700w",
+        "Modelo": "Smart White 700w",
         "Potencia": "700W",
         "Certificacion": "80 Plus White",
         "Frecuencia": "60 Hz",
-        "Formato": "ATX",
+        "formato": "ATX",
         "Cableado": "No modular",
         "Ventilador": "120 mm",
         "Conectores": {
@@ -406,7 +403,7 @@
         "Certificacion": "80 Plus White",
         "Frecuencia": "63 Hz",
         "Eficiencia": "Hasta 80%",
-        "Formato": "ATX",
+        "formato": "ATX",
         "Conectores": {
           "ATX 24 pines": "1",
           "EPS 8 pines": "1",
@@ -436,13 +433,13 @@
         "/images/fuentes/thermaltake_tr260_back.webp"
       ],
       "specifications": {
-        "Marca de la fuente": "Thermaltake",
+        "Marca": "Thermaltake",
         "Línea": "TR2 Series",
-        "Modelo de la fuente": "TR2-600NL2NC",
+        "Modelo": "TR2-600NL2NC",
         "Potencia": "600W",
-        "Certificacion": "Sin 80 Plus",
+        "Certificacion": "Sin certificación",
         "Frecuencia": "63 Hz",
-        "Formato": "ATX",
+        "formato": "ATX",
         "Cableado": "No modular",
         "Ventilador": "120 mm",
         "Conectores": {
@@ -472,13 +469,13 @@
         "/images/fuentes/aureox_550w_specs.webp"
       ],
       "specifications": {
-        "Marca de la fuente": "Aureox",
+        "Marca": "Aureox",
         "Línea": "Unlimited Series",
-        "Modelo de la fuente": "ARXGU-80PBZ-550W",
+        "Modelo": "ARXGU-80PBZ-550W",
         "Potencia": "550W",
-        "Certificacion": "80 Plus White/Bronze (variable por lote)",
+        "Certificacion": "80 Plus Bronze",
         "Frecuencia": "60 Hz",
-        "Formato": "ATX",
+        "formato": "ATX",
         "Cableado": "No modular",
         "Ventilador": "120 mm",
         "Conectores": {
@@ -509,12 +506,12 @@
         "/images/fuentes/gigabyte_p550b_back.webp"
       ],
       "specifications": {
-        "Marca de la fuente": "Giga-Byte Technology",
-        "Modelo de la fuente": "P550B",
+        "Marca": "Gigabyte",
+        "Modelo": "P550B",
         "Potencia": "550W",
         "Certificacion": "80 Plus Bronze",
         "Frecuencia": "60 Hz",
-        "Formato": "ATX",
+        "formato": "ATX",
         "Cableado": "No modular",
         "Ventilador": "120 mm",
         "Conectores": {
@@ -548,9 +545,9 @@
         "Línea": "Powerful Series",
         "Modelo": "ARXGP-600W",
         "Potencia": "600W",
-        "Certificacion": "Sin certificación 80 Plus",
+        "Certificacion": "Sin certificación",
         "Frecuencia": "60 Hz",
-        "Formato": "ATX",
+        "formato": "ATX",
         "Conectores": {
           "ATX 24 pines": "1",
           "EPS 8 pines": "1",
@@ -585,7 +582,7 @@
         "Certificacion": "80 Plus Bronze",
         "Frecuencia": "60 Hz",
         "Eficiencia": "Hasta 85%",
-        "Formato": "ATX",
+        "formato": "ATX",
         "Conectores": {
           "ATX 24 pines": "1",
           "EPS 8 pines": "1",
@@ -598,6 +595,5 @@
       },
       "certType": "80_PLUS_BRONZE"
     }
-   
   ]
 }

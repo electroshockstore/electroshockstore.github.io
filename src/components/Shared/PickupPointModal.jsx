@@ -1,23 +1,22 @@
-import { memo, useEffect, useState } from 'react';
+import { memo, useEffect } from 'react';
 import { MapPin, X, Calendar, Clock, Shield, Camera } from 'lucide-react';
 import { PICKUP_POINTS } from '../PuntosRetiro/constants';
-import PlatformModal from './PlatformModal';
+import Portal from './Portal';
 
 /**
  * Modal de selección de punto de retiro
- * Optimizado para todas las plataformas usando PlatformModal
+ * Usa el mismo approach que CategoryModal (que funciona bien en iOS)
  */
 const PickupPointModal = memo(({ isOpen, onClose, onSelectPoint, selectedPoint }) => {
-  const [isAnimating, setIsAnimating] = useState(false);
-
   // Bloquear scroll cuando modal está abierto
   useEffect(() => {
     if (isOpen) {
-      setIsAnimating(true);
-      // ⚡ Scroll nativo - No necesita pausarse
+      document.documentElement.style.overflow = 'hidden';
+      document.body.style.overflow = 'hidden';
       
       return () => {
-        setIsAnimating(false);
+        document.documentElement.style.overflow = '';
+        document.body.style.overflow = '';
       };
     }
   }, [isOpen]);
@@ -25,27 +24,20 @@ const PickupPointModal = memo(({ isOpen, onClose, onSelectPoint, selectedPoint }
   if (!isOpen) return null;
 
   return (
-    <PlatformModal
-      isOpen={isOpen}
-      onClose={onClose}
-      backdropClassName={isAnimating ? 'opacity-100' : 'opacity-0'}
-      style={{ 
-        zIndex: 2147483647,
-        WebkitTransform: 'translate3d(0, 0, 0)',
-        transform: 'translate3d(0, 0, 0)',
-        WebkitBackfaceVisibility: 'hidden',
-        backfaceVisibility: 'hidden'
-      }}
-    >
-      <div 
-        className="modal-scale-enter relative bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 rounded-2xl sm:rounded-3xl shadow-2xl w-full max-w-2xl border border-gray-700/50 overflow-hidden max-h-[95vh] flex flex-col"
-        style={{
-          WebkitTransform: 'translate3d(0, 0, 0)',
-          transform: 'translate3d(0, 0, 0)',
-          WebkitBackfaceVisibility: 'hidden',
-          backfaceVisibility: 'hidden'
-        }}
-      >
+    <Portal>
+      <div className="fixed inset-0 z-[99999] overflow-hidden">
+        {/* Backdrop */}
+        <div
+          className="absolute inset-0 bg-black/80 backdrop-blur-sm"
+          onClick={onClose}
+        />
+
+        {/* Modal Content */}
+        <div className="absolute inset-0 flex items-center justify-center p-4">
+          <div 
+            className="relative bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 rounded-2xl sm:rounded-3xl shadow-2xl w-full max-w-2xl border border-gray-700/50 overflow-hidden max-h-[90vh] flex flex-col"
+            onClick={(e) => e.stopPropagation()}
+          >
           {/* Decorative glow - Solo desktop */}
           <div className="hidden md:block absolute top-0 left-1/2 -translate-x-1/2 w-64 h-64 bg-green-500/20 rounded-full blur-3xl" />
           
@@ -186,9 +178,11 @@ const PickupPointModal = memo(({ isOpen, onClose, onSelectPoint, selectedPoint }
               Al seleccionar un punto, se enviará el mensaje automáticamente por WhatsApp
             </p>
           </div>
+          </div>
         </div>
-      </PlatformModal>
-    );
+      </div>
+    </Portal>
+  );
 });
 
 PickupPointModal.displayName = 'PickupPointModal';

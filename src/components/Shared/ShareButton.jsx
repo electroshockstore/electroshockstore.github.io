@@ -1,14 +1,11 @@
 import { useState, useRef, useEffect } from 'react';
 import { Share2, Link2, Check, ChevronDown } from 'lucide-react';
-import { useIsIOS } from '../../hooks/useDevice';
 import Portal from './Portal';
 
 const ShareButton = ({ productName, product, className = '' }) => {
-  const isIOS = useIsIOS();
   const [showOptions, setShowOptions] = useState(false);
   const [copied, setCopied] = useState(false);
   const [dropdownPosition, setDropdownPosition] = useState(null);
-  const [scrollY, setScrollY] = useState(0);
   const buttonRef = useRef(null);
   const dropdownRef = useRef(null);
 
@@ -18,7 +15,6 @@ const ShareButton = ({ productName, product, className = '' }) => {
 
     const updatePosition = () => {
       const rect = buttonRef.current.getBoundingClientRect();
-      const currentScrollY = window.scrollY || window.pageYOffset;
       const viewportHeight = window.innerHeight;
       
       // Calcular si hay espacio abajo o arriba
@@ -37,7 +33,6 @@ const ShareButton = ({ productName, product, className = '' }) => {
         bottom = viewportHeight - rect.top + 8;
       }
       
-      setScrollY(currentScrollY);
       setDropdownPosition({
         top,
         bottom,
@@ -153,9 +148,9 @@ const ShareButton = ({ productName, product, className = '' }) => {
             ref={dropdownRef}
             className="bg-white rounded-xl shadow-2xl border-2 border-gray-200 overflow-hidden"
             style={{
-              position: isIOS ? 'absolute' : 'fixed',
+              position: 'fixed',
               ...(dropdownPosition.top !== null 
-                ? { top: isIOS ? `${dropdownPosition.top + scrollY}px` : `${dropdownPosition.top}px` }
+                ? { top: `${dropdownPosition.top}px` }
                 : { bottom: `${dropdownPosition.bottom}px` }
               ),
               left: `${dropdownPosition.left}px`,

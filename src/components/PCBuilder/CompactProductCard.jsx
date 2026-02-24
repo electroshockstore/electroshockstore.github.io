@@ -48,7 +48,13 @@ const CompactProductCard = memo(({ product, compatibilityResult, isSelected, onC
         transition-all duration-200 flex flex-col h-full cursor-pointer
         ${isSelected 
           ? 'border-blue-600 shadow-xl ring-2 lg:ring-4 ring-blue-200 scale-[1.02]' 
-          : config.border + ' shadow-md hover:shadow-xl hover:scale-[1.02]'
+          : status === 'green'
+            ? 'border-green-400 shadow-md hover:shadow-xl hover:scale-[1.02]'
+            : status === 'yellow'
+              ? 'border-yellow-400 shadow-md hover:shadow-xl hover:scale-[1.02]'
+              : status === 'red'
+                ? 'border-red-400 shadow-md hover:shadow-xl hover:scale-[1.02]'
+                : 'border-gray-200 shadow-md hover:shadow-xl hover:scale-[1.02]'
         }
       `}
     >
@@ -128,20 +134,20 @@ const CompactProductCard = memo(({ product, compatibilityResult, isSelected, onC
           )}
         </div>
         
-        {/* Compatibility Reasons - Visible en mobile si es incompatible (red) o advertencia (yellow) */}
+        {/* Compatibility Reasons - Visible para incompatibles (red) y advertencias (yellow) */}
         {reasons.length > 0 && (status === 'red' || status === 'yellow') && (
           <div className={`${config.bg} rounded-lg p-1.5 lg:p-2 space-y-0.5 lg:space-y-1 mb-2 lg:mb-3 border ${config.border}`}>
-            {reasons.slice(0, 1).map((reason, idx) => (
+            {reasons.slice(0, 2).map((reason, idx) => (
               <div key={idx} className="text-[9px] lg:text-xs text-gray-700 flex items-start gap-1">
                 <span className={`flex-shrink-0 ${status === 'red' ? 'text-red-500' : 'text-yellow-600'}`}>
-                  ⚠
+                  {status === 'red' ? '✗' : '⚠'}
                 </span>
                 <span className="line-clamp-2 leading-tight">{reason}</span>
               </div>
             ))}
-            {reasons.length > 1 && (
+            {reasons.length > 2 && (
               <div className="text-[8px] lg:text-xs text-gray-500 italic">
-                +{reasons.length - 1} más...
+                +{reasons.length - 2} más...
               </div>
             )}
           </div>

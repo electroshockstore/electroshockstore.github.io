@@ -1,6 +1,5 @@
 {
   "products": [
-
     {
       "id": 799,
       "name": "Redragon Zeus Pro H510-pro - USB/Bluetooth 7.1 Inalámbricos",
@@ -28,7 +27,6 @@
         "Compatibilidad": "PC / PS4 / PS5 / Switch / Móviles"
       }
     },
-
     {
       "id": 800,
       "name": "Redragon Ire Pro H848 Negro- Bluetooth Inalámbrico dongle",
@@ -57,7 +55,7 @@
         "Autonomía": "Hasta 20 horas",
         "Cargado por": "USB-C",
         "Micrófono": "Omnidireccional desmontable",
-        "Iluminación": "No",
+        "rgb": "No",
         "Compatibilidad": "PC / Android / iOS / Consolas vía BT"
       }
     },
@@ -84,7 +82,7 @@
         "Modelo alfanumérico": "G435",
         "Modelo detallado": "Headset Logitech G435 blanco",
         "Tipo de auricular": "Over-ear",
-        "Conectividad": "Inalámbrico Lightspeed (dongle USB) / Bluetooth",
+        "tipoConectividad": "Inalámbrico",
         "Compatibilidad": "PC / PlayStation 4 / PlayStation 5 / Dispositivos móviles / Tablets",
         "Respuesta en frecuencia": "20 Hz - 20 kHz",
         "Impedancia": "45 ohms",
@@ -157,7 +155,7 @@
         "Respuesta en frecuencia": "20 Hz - 20000 Hz",
         "Tipo de conexión": "USB",
         "Sonido": "7.1 Virtual",
-        "Iluminación": "RGB LED",
+        "rgb": "RGB LED",
         "Micrófono": "Flexible con cancelación de ruido",
         "Almohadillas": "Memory Foam",
         "Compatibilidad": "PC"
@@ -192,7 +190,7 @@
         "Autonomía": "Hasta 12–15 horas",
         "Micrófono": "Desmontable con cancelación de ruido",
         "Almohadillas": "Memory Foam",
-        "Iluminación": "RGB",
+        "rgb": "RGB",
         "Compatibilidad": "PC / PS4 / PS5"
       }
     },
@@ -219,7 +217,7 @@
         "Respuesta en frecuencia": "12 Hz - 28 kHz",
         "Tamaño del driver": "40 mm",
         "Sonido": "Stereo (sin 7.1)",
-        "Conectividad": "3.5 mm",
+        "tipoConectividad": "Alámbrico",
         "Micrófono": "Cardioide",
         "Compatibilidad": "PS5, PS4, Xbox, Switch, PC"
       }
@@ -249,12 +247,11 @@
         "Tamaño del driver": "50 mm",
         "Peso": "275 g",
         "Sonido": "DTS Headphone:X Spatial Audio (solo PC por software)",
-        "Conectividad": "3.5 mm",
+        "tipoConectividad": "Alámbrico",
         "Micrófono": "Abatible con cancelación de ruido pasiva",
         "Compatibilidad": "PC, PS4/PS5, Xbox, Switch, Celulares"
       }
     },
-
     {
       "id": 807,
       "name": "Razer Blackshark V2 X - Alámbrico 3.5mm 7.1 Verde",
@@ -280,7 +277,7 @@
         "Tamaño del driver": "50 mm TriForce",
         "Peso": "240 g",
         "Sonido": "7.1 Virtual Surround (PC por software)",
-        "Conectividad": "3.5 mm",
+        "tipoConectividad": "Alámbrico",
         "Micrófono": "HyperClear Cardioid",
         "Compatibilidad": "PC, PS4/PS5, Xbox, Switch, Celulares"
       }
@@ -311,7 +308,7 @@
         "Tamaño del driver": "40 mm",
         "Peso": "240 g",
         "Sonido": "Stereo",
-        "Conectividad": "3.5 mm",
+        "tipoConectividad": "Alámbrico",
         "Micrófono": "Abatible con cancelación pasiva",
         "Compatibilidad": "PS5, PS4, Xbox, Switch, PC"
       }
@@ -341,12 +338,11 @@
         "Tamaño del driver": "50 mm",
         "Sonido": "7.1 Virtual USB",
         "Peso": "No especificado",
-        "Conectividad": "USB",
+        "tipoConectividad": "Alámbrico",
         "Micrófono": "Flexible con cancelación pasiva",
         "Compatibilidad": "PC"
       }
     },
-    
     {
       "id": 810,
       "name": "Motorola XT220 - Inalámbrico Bluetooth & Jack 3.5mm Negro",
@@ -369,11 +365,10 @@
         "Modelo": "XT220",
         "Modelo alfanumérico": "94MXT-220W",
         "Modelo detallado": "94MXT-220BLA_NS",
-        "Tipo": "Auriculares inalámbricos",
-        "Conectividad": "Bluetooth",
+        "formato": "On-ear",
+        "tipoConectividad": "Inalámbrico",
         "Versión de Bluetooth": "5.0",
         "Conector": "Jack 3.5 mm",
-        "Formato": "On-ear",
         "Plegable": "Sí",
         "Micrófono": "Integrado",
         "Color": "Negro",
@@ -401,14 +396,14 @@
         "Marca": "Redragon",
         "Línea": "Ire Pro",
         "Modelo": "H848B",
-        "Tipo": "Auricular inalámbrico",
-        "Conectividad": "Wireless 2.4 GHz / Bluetooth",
+        "formato": "Auricular inalámbrico",
+        "tipoConectividad": "Inalámbrico",
         "Respuesta en frecuencia": "100 Hz – 10 kHz",
         "Impedancia": "32 Ω",
         "Micrófono": "Integrado",
         "Autonomía": "hasta 20 h",
-        "Iluminación": "RGB",
-        "Consumo_TDP": "≈ 5 W (en carga)"
+        "rgb": "RGB",
+        "TDP": "≈ 5 W (en carga)"
       }
     },
     {
@@ -434,7 +429,7 @@
         "Respuesta en frecuencia": "20 Hz - 20 kHz",
         "Tamaño del driver": "50 mm",
         "Sonido": "Stereo",
-        "Conectividad": "3.5 mm",
+        "tipoConectividad": "Alámbrico",
         "Micrófono": "Bi-direccional removible",
         "Compatibilidad": "PS5, PS4, Xbox, Switch, PC, Celulares"
       }
@@ -462,7 +457,7 @@
         "Respuesta en frecuencia": "20 Hz - 20 kHz",
         "Tamaño del driver": "40 mm",
         "Sonido": "Stereo",
-        "Conectividad": "3.5 mm",
+        "tipoConectividad": "Alámbrico",
         "Micrófono": "Flexible",
         "Compatibilidad": "PC, PS4/PS5, Xbox, Switch, Celulares"
       }
@@ -495,7 +490,6 @@
         "Peso": "210 g"
       }
     },
-    
     {
       "id": 815,
       "name": "Xiaomi Redmi Buds 6 Play - In-ear Bluetooth 5.4 Inalámbricos",
@@ -517,7 +511,7 @@
         "Línea": "Redmi Buds",
         "Modelo": "6 Play (M2420E1)",
         "Tipo de auricular": "In-ear inalámbrico",
-        "Conectividad": "Bluetooth 5.4 (BLE/HFP/A2DP/AVRCP)",
+        "tipoConectividad": "Inalámbrico",
         "Respuesta en frecuencia": "20 Hz – 20 kHz",
         "Impedancia": "16 Ω",
         "Drivers": "10 mm dinámicos",
@@ -553,7 +547,7 @@
         "Línea": "Redmi",
         "Modelo": "Buds Essential (M2222E1)",
         "Tipo de auricular": "In-ear Bluetooth",
-        "Conectividad": "Bluetooth 5.2",
+        "tipoConectividad": "Inalámbrico",
         "Respuesta en frecuencia": "10 Hz – 20 kHz",
         "Funciones": "Micrófono integrado",
         "Características adicionales": "Diseño cómodo, conectividad estable",

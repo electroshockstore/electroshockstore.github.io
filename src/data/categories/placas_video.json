@@ -20,11 +20,11 @@
       "description": "ASUS Dual GeForce RTX 3050 OC Edition 6GB GDDR6. Arquitectura NVIDIA Ampere con 2304 núcleos CUDA, Ray Tracing, DLSS 2, y refrigeración dual Axial-tech. Ideal para gaming 1080p, eSports y edición de video ligera. No requiere conector de energía adicional (70W TDP).",
       "specifications": {
         "producto": "Placa Video Nvidia GeForce Asus Dual RTX 3050 6GB OC",
-        "marca": "ASUS",
-        "linea": "GeForce RTX 3050",
-        "modelo": "DUAL-RTX3050-O6G",
-        "modeloDetallado": "ASUS Dual GeForce RTX 3050 OC Edition 6GB",
-        "arquitectura": "NVIDIA Ampere",
+        "Marca": "ASUS",
+        "Línea": "GeForce RTX 3050",
+        "Modelo": "DUAL-RTX3050-O6G",
+        "Modelo detallado": "ASUS Dual GeForce RTX 3050 OC Edition 6GB",
+        "Arquitectura": "NVIDIA Ampere",
         "procesoFabricacion": "8 nm",
         "gpu": "NVIDIA GA107",
         "memoria": {
@@ -34,7 +34,7 @@
           "velocidad": "14 Gbps",
           "anchoBanda": "168 GB/s"
         },
-        "nucleos": {
+        "Núcleos": {
           "cuda": "2304",
           "tensorCores": "Sí (3ª generación)",
           "rtCores": "Sí (2ª generación)"
@@ -128,7 +128,8 @@
           "No requiere cables de alimentación adicionales",
           "Perfecto para upgrades sin cambiar fuente",
           "Compatible con gabinetes compactos"
-        ]
+        ],
+        "capacidadTotal": "6 GB"
       }
     }
   ]

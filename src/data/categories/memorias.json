@@ -17,20 +17,20 @@
       ],
       "description": "Memoria RAM Kingston Fury Beast gamer color negro 16GB DDR5 5600MHz CL40 con disipador",
       "specifications": {
-        "marca": "Kingston",
-        "linea": "Fury Beast",
-        "modelo": "KF556C40BB-16",
-        "modeloDetallado": "KF556C40BB-16",
-        "capacidad": "16 GB",
+        "Marca": "Kingston",
+        "Línea": "Fury Beast",
+        "Modelo": "KF556C40BB-16",
+        "Modelo detallado": "KF556C40BB-16",
+        "capacidadTotal": "16 GB",
         "modulos": "1",
         "tipoMemoriaRAM": "DDR5 SDRAM",
         "formato": "UDIMM",
-        "velocidad": "5600 MHz",
-        "latencia": "CL40",
-        "voltaje": "1.25 V",
+        "Velocidad": "5600 MHz",
+        "Latencia": "CL40",
+        "Voltaje": "1.25 V",
         "ecc": "No",
-        "disipador": "Sí",
-        "color": "Negro"
+        "Disipador": "Sí",
+        "Color": "Negro"
       },
       "ddrType": "DDR5"
     },
@@ -50,19 +50,19 @@
       ],
       "description": "Memoria RAM Patriot Viper Venom DDR5 16GB 6000 MT/s CL30 con disipador negro",
       "specifications": {
-        "marca": "Patriot",
-        "linea": "Viper Venom",
-        "modelo": "PVV516G600C30",
-        "capacidad": "16 GB",
+        "Marca": "Patriot",
+        "Línea": "Viper Venom",
+        "Modelo": "PVV516G600C30",
+        "capacidadTotal": "16 GB",
         "modulos": "1",
         "tipoMemoriaRAM": "DDR5",
         "formato": "UDIMM",
-        "velocidad": "6000 MT/s",
-        "latencia": "CL30",
-        "voltaje": "1.35 V",
+        "Velocidad": "6000 MT/s",
+        "Latencia": "CL30",
+        "Voltaje": "1.35 V",
         "ecc": "No",
-        "disipador": "Sí",
-        "color": "Negro"
+        "Disipador": "Sí",
+        "Color": "Negro"
       },
       "ddrType": "DDR5"
     },
@@ -82,9 +82,9 @@
       "description": "Memoria Ram Adata Xpg Lancer Blade 16gb 5600mhz DDR5, SIN RGB",
       "specifications": {
         "tipoMemoriaRAM": "DDR5",
-        "capacidad": "16 GB",
-        "velocidad": "5600 MHz",
-        "voltaje": "1.35V",
+        "capacidadTotal": "16 GB",
+        "Velocidad": "5600 MHz",
+        "Voltaje": "1.35V",
         "pmic": "Integrado (Power Management IC)"
       },
       "ddrType": "DDR5"
@@ -104,9 +104,9 @@
       "description": "Memoria RAM Netac 16gb Shadow 2 Ddr5 4800mhz Sin RGB",
       "specifications": {
         "tipoMemoriaRAM": "DDR5",
-        "capacidad": "16 GB",
-        "velocidad": "4800 MHz",
-        "voltaje": "1.1V"
+        "capacidadTotal": "16 GB",
+        "Velocidad": "4800 MHz",
+        "Voltaje": "1.1V"
       },
       "ddrType": "DDR5"
     },
@@ -125,8 +125,9 @@
       "description": "Memoria RAM Neo Forza DDR5 16GB 5200MHz CL42",
       "specifications": {
         "tipoMemoriaRAM": "DDR5",
-        "velocidad": "5200 MHz",
-        "voltaje": "1.25V"
+        "Velocidad": "5200 MHz",
+        "Voltaje": "1.25V",
+        "capacidadTotal": "16 GB"
       },
       "ddrType": "DDR5"
     },
@@ -146,7 +147,7 @@
       "specifications": {
         "capacidadTotal": "32 GB",
         "tipoMemoriaRAM": "DDR5",
-        "voltaje": "1.1V"
+        "Voltaje": "1.1V"
       },
       "ddrType": "DDR5"
     },
@@ -167,16 +168,16 @@
       ],
       "description": "Memoria RAM ADATA Premier DDR5 8GB 5600MHz CL46 UDIMM",
       "specifications": {
-        "marca": "ADATA",
-        "linea": "Premier",
-        "modelo": "AD5U56008G-S",
+        "Marca": "ADATA",
+        "Línea": "Premier",
+        "Modelo": "AD5U56008G-S",
         "tipoMemoriaRAM": "DDR5",
-        "capacidad": "8 GB",
-        "velocidad": "5600 MHz",
+        "capacidadTotal": "8 GB",
+        "Velocidad": "5600 MHz",
         "formato": "UDIMM",
-        "latencia": "CL46",
-        "voltaje": "1.1 V",
-        "compatibilidad": "Plataformas Intel y AMD DDR5"
+        "Latencia": "CL46",
+        "Voltaje": "1.1 V",
+        "Compatibilidad": "Plataformas Intel y AMD DDR5"
       },
       "ddrType": "DDR5"
     },
@@ -196,16 +197,16 @@
       ],
       "description": "Memoria RAM Netac Basic DDR5 8GB 4800MHz CL40 UDIMM",
       "specifications": {
-        "marca": "Netac",
-        "linea": "Basic",
-        "modelo": "NTBSD5P48SP-08",
+        "Marca": "Netac",
+        "Línea": "Basic",
+        "Modelo": "NTBSD5P48SP-08",
         "tipoMemoriaRAM": "DDR5",
-        "capacidad": "8 GB",
-        "velocidad": "4800 MHz",
-        "latencia": "CL40",
+        "capacidadTotal": "8 GB",
+        "Velocidad": "4800 MHz",
+        "Latencia": "CL40",
         "formato": "UDIMM",
-        "voltaje": "1.1 V",
-        "compatibilidad": "Plataformas DDR5 Intel / AMD"
+        "Voltaje": "1.1 V",
+        "Compatibilidad": "Plataformas DDR5 Intel / AMD"
       },
       "ddrType": "DDR5"
     },
@@ -224,9 +225,10 @@
       ],
       "description": "Memoria RAM PC Adata XPG Gammix D35 DDR4 16GB 3200MHz, Disipada Sin RGB",
       "specifications": {
-        "tipoMemoria": "DDR4",
-        "voltaje": "1.35V",
-        "disipador": "Sí"
+        "tipoMemoriaRAM": "DDR4",
+        "Voltaje": "1.35V",
+        "Disipador": "Sí",
+        "capacidadTotal": "16 GB"
       },
       "ddrType": "DDR4"
     },
@@ -247,8 +249,9 @@
       "specifications": {
         "tipoMemoriaRAM": "DDR4",
         "rgb": "Sí",
-        "voltaje": "1.35 V",
-        "cl": "16"
+        "Voltaje": "1.35 V",
+        "Latencia": "16",
+        "capacidadTotal": "16 GB"
       },
       "ddrType": "DDR4"
     },
@@ -269,8 +272,9 @@
       "specifications": {
         "tipoMemoriaRAM": "DDR4",
         "rgb": "Sí",
-        "voltaje": "1.35V",
-        "cl": "16"
+        "Voltaje": "1.35V",
+        "Latencia": "16",
+        "capacidadTotal": "16 GB"
       },
       "ddrType": "DDR4"
     },
@@ -292,23 +296,23 @@
       ],
       "description": "Memoria RAM Adata XPG Gammix D35 DDR4 8GB 3200MHz CL16 con disipador de aluminio low-profile",
       "specifications": {
-        "marca": "ADATA",
-        "linea": "XPG Gammix",
-        "modelo": "D35",
-        "modeloDetallado": "AX4U32008G16A-SBKD35",
+        "Marca": "ADATA",
+        "Línea": "XPG Gammix",
+        "Modelo": "D35",
+        "Modelo detallado": "AX4U32008G16A-SBKD35",
         "capacidadTotal": "8 GB",
         "modulos": "1",
         "configuracion": "1x8 GB",
         "tipoMemoriaRAM": "DDR4",
         "formato": "DIMM",
-        "velocidad": "3200 MHz",
-        "latencia": "CL16",
-        "voltaje": "1.35 V",
-        "compatibilidad": "Intel XMP 2.0",
+        "Velocidad": "3200 MHz",
+        "Latencia": "CL16",
+        "Voltaje": "1.35 V",
+        "Compatibilidad": "Intel XMP 2.0",
         "ecc": "No",
         "buffered": "No",
-        "disipador": "Sí, aluminio low-profile",
-        "color": "Negro",
+        "Disipador": "Sí, aluminio low-profile",
+        "Color": "Negro",
         "usoRecomendado": "PC de escritorio / Gaming",
         "velocidadTransferencia": "25.6 GB/s",
         "pines": "288",
@@ -334,24 +338,24 @@
       ],
       "description": "Memoria RAM Kingston Fury Beast DDR4 8GB 3200MHz CL16 con disipador, sin RGB",
       "specifications": {
-        "marca": "Kingston",
-        "linea": "Fury Beast",
-        "modelo": "KF432C16BB/8",
-        "modeloDetallado": "KF432C16BB/8",
+        "Marca": "Kingston",
+        "Línea": "Fury Beast",
+        "Modelo": "KF432C16BB/8",
+        "Modelo detallado": "KF432C16BB/8",
         "capacidadTotal": "8 GB",
         "modulos": "1",
         "configuracion": "1x8 GB",
         "tipoMemoriaRAM": "DDR4 SDRAM",
         "formato": "DIMM",
-        "velocidad": "3200 MHz",
-        "latencia": "CL16",
-        "voltaje": "1.35 V",
-        "compatibilidad": "Intel XMP 2.0",
+        "Velocidad": "3200 MHz",
+        "Latencia": "CL16",
+        "Voltaje": "1.35 V",
+        "Compatibilidad": "Intel XMP 2.0",
         "ecc": "No",
         "buffered": "No",
-        "disipador": "Sí",
-        "iluminacionRGB": "No",
-        "color": "Negro",
+        "Disipador": "Sí",
+        "rgb": "No",
+        "Color": "Negro",
         "usoRecomendado": "PC de escritorio / Gaming",
         "velocidadTransferencia": "25.6 GB/s",
         "pines": "288",
@@ -377,25 +381,25 @@
       ],
       "description": "Memoria RAM Kingston Fury Beast RGB DDR4 8GB 3200MHz CL16 con iluminación RGB direccionable",
       "specifications": {
-        "marca": "Kingston",
-        "linea": "Fury Beast RGB",
-        "modelo": "KF432C16BBA/8",
-        "modeloDetallado": "KF432C16BBA/8",
+        "Marca": "Kingston",
+        "Línea": "Fury Beast RGB",
+        "Modelo": "KF432C16BBA/8",
+        "Modelo detallado": "KF432C16BBA/8",
         "capacidadTotal": "8 GB",
         "modulos": "1",
         "configuracion": "1x8 GB",
         "tipoMemoriaRAM": "DDR4 SDRAM",
         "formato": "DIMM",
-        "velocidad": "3200 MHz",
-        "latencia": "CL16",
-        "voltaje": "1.35 V",
-        "compatibilidad": "Intel XMP 2.0",
+        "Velocidad": "3200 MHz",
+        "Latencia": "CL16",
+        "Voltaje": "1.35 V",
+        "Compatibilidad": "Intel XMP 2.0",
         "ecc": "No",
         "buffered": "No",
-        "disipador": "Sí",
-        "iluminacionRGB": "Sí (RGB direccionable)",
+        "Disipador": "Sí",
+        "rgb": "Sí (RGB direccionable)",
         "sincronizacionRGB": "ASUS Aura / MSI Mystic Light / Gigabyte RGB Fusion",
-        "color": "Negro",
+        "Color": "Negro",
         "usoRecomendado": "PC de escritorio / Gaming",
         "velocidadTransferencia": "25.6 GB/s",
         "pines": "288",
@@ -418,7 +422,8 @@
       "description": "Memoria RAM Shadow 16GB DDR4 Disipada, sin RGB",
       "specifications": {
         "tipoMemoriaRAM": "DDR4",
-        "voltaje": "1.35V"
+        "Voltaje": "1.35V",
+        "capacidadTotal": "16 GB"
       },
       "ddrType": "DDR4"
     },
@@ -437,9 +442,10 @@
       ],
       "description": "Memoria RAM HyperX Fury 16GB DDR4 2666MHz CL16",
       "specifications": {
-        "tipo": "DDR4 SDRAM",
-        "voltaje": "1.2V",
-        "velocidad": "2666 MHz"
+        "tipoMemoriaRAM": "DDR4 SDRAM",
+        "Voltaje": "1.2V",
+        "Velocidad": "2666 MHz",
+        "capacidadTotal": "16 GB"
       },
       "ddrType": "DDR4"
     },
@@ -457,8 +463,9 @@
       ],
       "description": "Lexar 16GB DDR4 3200MHz UDIMM",
       "specifications": {
-        "voltaje": "1.2 V",
-        "tipoMemoriaRAM": "DDR4"
+        "Voltaje": "1.2 V",
+        "tipoMemoriaRAM": "DDR4",
+        "capacidadTotal": "16 GB"
       },
       "ddrType": "DDR4"
     },
@@ -476,8 +483,9 @@
       ],
       "description": "Patriot Signature DDR4 16GB 3200MHz CL22",
       "specifications": {
-        "voltaje": "1.2 V",
-        "tipoMemoriaRAM": "DDR4"
+        "Voltaje": "1.2 V",
+        "tipoMemoriaRAM": "DDR4",
+        "capacidadTotal": "16 GB"
       },
       "ddrType": "DDR4"
     },
@@ -495,8 +503,9 @@
       ],
       "description": "NETAC BASIC DDR4 16GB 3200 MHZ C16",
       "specifications": {
-        "voltaje": "1.35 V",
-        "tipoMemoriaRAM": "DDR4"
+        "Voltaje": "1.35 V",
+        "tipoMemoriaRAM": "DDR4",
+        "capacidadTotal": "16 GB"
       },
       "ddrType": "DDR4"
     },
@@ -515,8 +524,9 @@
       ],
       "description": "ADATA DDR4 Premier 16GB 3200MHz",
       "specifications": {
-        "voltaje": "1.2 V",
-        "tipoMemoriaRAM": "DDR4"
+        "Voltaje": "1.2 V",
+        "tipoMemoriaRAM": "DDR4",
+        "capacidadTotal": "16 GB"
       },
       "ddrType": "DDR4"
     },
@@ -536,11 +546,11 @@
       "description": "Adata 4GB DDR4 2666 MHz SODIMM",
       "specifications": {
         "formatoMemoriaRAM": "SODIMM",
-        "voltaje": "1.2 V"
+        "Voltaje": "1.2 V",
+        "capacidadTotal": "4 GB"
       },
       "ddrType": "DDR4"
     },
-   
     {
       "id": 421,
       "name": "Kingston ValueRAM 8GB DDR4 3200MHz CL22",
@@ -556,23 +566,23 @@
       ],
       "description": "Memoria RAM Kingston ValueRAM 8GB DDR4 3200MHz CL22 sin disipador, ideal para oficina",
       "specifications": {
-        "marca": "Kingston",
-        "linea": "ValueRAM",
-        "modelo": "KVR32N22S8L/8",
-        "modeloDetallado": "KVR32N22S8L/8",
+        "Marca": "Kingston",
+        "Línea": "ValueRAM",
+        "Modelo": "KVR32N22S8L/8",
+        "Modelo detallado": "KVR32N22S8L/8",
         "capacidadTotal": "8 GB",
         "modulos": "1",
         "configuracion": "1x8 GB",
         "tipoMemoriaRAM": "DDR4",
         "formato": "UDIMM",
-        "velocidad": "3200 MHz",
-        "latencia": "CL22",
-        "voltaje": "1.2 V",
-        "compatibilidad": "JEDEC estándar",
+        "Velocidad": "3200 MHz",
+        "Latencia": "CL22",
+        "Voltaje": "1.2 V",
+        "Compatibilidad": "JEDEC estándar",
         "ecc": "No",
         "buffered": "No",
-        "disipador": "No",
-        "iluminacionRGB": "No",
+        "Disipador": "No",
+        "rgb": "No",
         "usoRecomendado": "PC de escritorio / Oficina",
         "velocidadTransferencia": "25.6 GB/s",
         "pines": "288",
@@ -597,31 +607,31 @@
       ],
       "description": "Memoria RAM Netac Basic DDR4 SODIMM 16GB 3200MHz CL22 para portátiles y mini-PCs",
       "specifications": {
-        "marca": "Netac",
-        "linea": "Basic DDR4 SODIMM",
-        "modelo": "NTBSD4N32SP-16",
-        "modeloDetallado": "NTBSD4N32SP-16",
+        "Marca": "Netac",
+        "Línea": "Basic DDR4 SODIMM",
+        "Modelo": "NTBSD4N32SP-16",
+        "Modelo detallado": "NTBSD4N32SP-16",
         "capacidadTotal": "16 GB",
         "modulos": "1",
         "configuracion": "1x16 GB",
         "tipoMemoriaRAM": "DDR4 SDRAM",
         "formato": "SODIMM",
         "pines": "260",
-        "velocidad": "3200 MHz",
+        "Velocidad": "3200 MHz",
         "velocidadNominal": "PC4-25600",
-        "latencia": "CL22",
+        "Latencia": "CL22",
         "timings": "22-22-22-52",
-        "voltaje": "1.2 V",
+        "Voltaje": "1.2 V",
         "anchoBanda": "25.6 GB/s",
         "rank": "Single-rank (1Rx8)",
-        "compatibilidad": "Portátiles y mini-PCs con soporte DDR4 SODIMM",
+        "Compatibilidad": "Portátiles y mini-PCs con soporte DDR4 SODIMM",
         "tecnologias": "JEDEC estándar DDR4",
         "temperaturaOperativa": "0°C a +85°C",
         "temperaturaAlmacenamiento": "-55°C a +100°C",
         "conectores": "Contactos chapados en oro",
         "ecc": "No",
-        "disipador": "No",
-        "iluminacionRGB": "No"
+        "Disipador": "No",
+        "rgb": "No"
       },
       "ddrType": "DDR4"
     },
@@ -641,35 +651,34 @@
       ],
       "description": "Memoria RAM ADATA Premier DDR4 16GB 3200MHz SODIMM CL22 para portátiles y mini-PCs",
       "specifications": {
-        "marca": "Adata",
-        "linea": "Premier",
-        "modelo": "AD4S320016G22-SGN",
-        "modeloDetallado": "AD4S320016G22-SGN",
+        "Marca": "ADATA",
+        "Línea": "Premier",
+        "Modelo": "AD4S320016G22-SGN",
+        "Modelo detallado": "AD4S320016G22-SGN",
         "capacidadTotal": "16 GB",
         "modulos": "1",
         "configuracion": "1x16 GB",
         "tipoMemoriaRAM": "DDR4 SDRAM",
         "formato": "SODIMM",
         "pines": "260",
-        "velocidad": "3200 MHz",
+        "Velocidad": "3200 MHz",
         "velocidadNominal": "PC4-25600",
-        "latencia": "CL22",
-        "voltaje": "1.2 V",
+        "Latencia": "CL22",
+        "Voltaje": "1.2 V",
         "tasaTransferencia": "25.6 GB/s",
-        "compatibilidad": "Portátiles y mini PC con soporte DDR4 SODIMM",
+        "Compatibilidad": "Portátiles y mini PC con soporte DDR4 SODIMM",
         "compatibilidadJEDEC": "Sí",
         "ecc": "No",
         "configuracionInterna": "512M x 8",
         "temperaturaOperativa": "0°C a 85°C",
         "garantia": "Limitada de por vida",
-        "color": "Verde",
-        "disipador": "No",
-        "iluminacionRGB": "No"
+        "Color": "Verde",
+        "Disipador": "No",
+        "rgb": "No"
       },
       "ddrType": "DDR4"
     },
-
-     {
+    {
       "id": 424,
       "name": "Adata Premier 8GB U-DIMM DDR3 1600MHz",
       "brand": "ADATA",
@@ -685,7 +694,8 @@
       "description": "Adata Premier 8GB U-DIMM DDR3 1600MHz",
       "specifications": {
         "tipoMemoriaRAM": "DDR3",
-        "voltaje": "1.5 V"
+        "Voltaje": "1.5 V",
+        "capacidadTotal": "8 GB"
       },
       "ddrType": "DDR3"
     }

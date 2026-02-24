@@ -24,7 +24,7 @@
       "description": "procesador AMD Ryzen 7 3700U, 16GB RAM DDR4, SSD 500GB NVMe, pantalla Full HD IPS 15.6\", Windows 11 Pro, Tiene detalles de uso raspones del apoyo y demas. nada roto.NO TIENE BATERIA SE LE SACO PORQUE EN LOS JUEGOS RENDIA MAS CONECTADA y se inflo",
       "specifications": {
         "producto": "Notebook HP Pavilion 15",
-        "modelo": "15-cw1xxx",
+        "Modelo": "15-cw1xxx",
         "estado": "Impecable",
         "sistemaOperativo": "Windows 11 Pro",
         "procesador": {
@@ -54,7 +54,7 @@
           "tipo": "Integrados",
           "modelo": "AMD Radeon RX Vega 10"
         },
-        "conectividad": {
+        "Conectividad": {
           "wifi": "802.11 b/g/n/ac",
           "bluetooth": "Bluetooth 4.2"
         },
@@ -98,7 +98,8 @@
           "altoMm": "17.9",
           "pesoKg": "1.91"
         },
-        "colorApariencia": "Negro/Gris"
+        "colorApariencia": "Negro/Gris",
+        "Capacidad": "16 GB"
       }
     },
     {
@@ -127,7 +128,7 @@
       "description": "Notebook Lenovo IdeaPad 15TL05 con Intel Core i3-1115G4 11ª Gen, 8GB RAM DDR4, SSD Samsung 256GB, pantalla táctil 15.6\", Windows 11 Pro Impecable, puede presentar mínimas marcas de uso en el chasis (ver fotos)windows 11 pro, bateria dura 3 hs , 256gb ssd m2 samsung, pantalla tactil, 8gb ddr4, cargador original, bluetooth , wifi , camaraweb, hdmi etc. todos los programas.",
       "specifications": {
         "producto": "Notebook Lenovo IdeaPad",
-        "modelo": "15TL05",
+        "Modelo": "15TL05",
         "estado": "Usada",
         "condicionEstetica": "Impecable, puede presentar mínimas marcas de uso en el chasis (ver fotos)windows 11 pro, bateria dura 3 hs , 256gb ssd m2 samsung, pantalla tactil, 8gb ddr4, cargador original, bluetooth , wifi , camaraweb, hdmi etc. todos los programas. ",
         "sistemaOperativo": "Windows 11 Pro",
@@ -162,7 +163,7 @@
           "resolucion": "No especificado",
           "tecnologia": "LED"
         },
-        "conectividad": {
+        "Conectividad": {
           "wifi": true,
           "bluetooth": true
         },
@@ -228,9 +229,9 @@
       "description": "PC escritorio 16GB RAM DDR4, gráficos Intel UHD 630. HDD 1TB SATA y SSD NVMe 256GB. Combo completo con Monitor Dell P2222H 22\", brazo VESA giratorio, mouse y teclado Logitech sellados. No incluye base monitor ni tornillos vesa",
       "specifications": {
         "producto": "Dell OptiPlex 3090 SFF - Combo Completo",
-        "modelo": "OptiPlex 3090 Small Form Factor",
+        "Modelo": "OptiPlex 3090 Small Form Factor",
         "estado": "Usado - Excelente condición",
-        "formato": "SFF (Small Form Factor)",
+        "Formato": "SFF (Small Form Factor)",
         "sistemaOperativo": "Windows 10/11 Pro",
         "procesador": {
           "marca": "Intel",
@@ -264,7 +265,7 @@
           "capacidadTotal": "1.25 TB",
           "baysDisponibles": "M.2 NVMe y SATA 2.5\"/3.5\""
         },
-        "conectividad": {
+        "Conectividad": {
           "ethernet": "Intel Gigabit Ethernet RJ-45",
           "wifi": "Opcional (no incluido)",
           "bluetooth": "Opcional (no incluido)"

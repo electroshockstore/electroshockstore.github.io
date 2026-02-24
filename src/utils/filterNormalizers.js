@@ -181,15 +181,29 @@ export const normalizeCertification = (value) => {
   return value;
 };
 
-// Normalizar capacidad
+// Normalizar capacidad - EXACTO, sin conversiones
 export const normalizeCapacity = (value) => {
-  const match = value.toString().match(/(\d+)\s*(gb|tb)/i);
+  if (!value) return null;
+  
+  const valueStr = value.toString().trim();
+  
+  // Extraer número y unidad (con o sin espacio)
+  const match = valueStr.match(/^(\d+)\s*(GB|TB|gb|tb)$/i);
+  
   if (match) {
     const num = match[1];
     const unit = match[2].toUpperCase();
-    return `${num}${unit}`;
+    // Formato consistente: número + espacio + unidad
+    return `${num} ${unit}`;
   }
-  return value;
+  
+  // Si ya está en formato sin espacio, agregar espacio
+  const compactMatch = valueStr.match(/^(\d+)(GB|TB)$/i);
+  if (compactMatch) {
+    return `${compactMatch[1]} ${compactMatch[2].toUpperCase()}`;
+  }
+  
+  return valueStr;
 };
 
 // Normalizar arquitectura
@@ -250,35 +264,51 @@ export const normalizeStorageFormat = (value) => {
 
 // Mapa de normalizadores por tipo de filtro
 const NORMALIZER_MAP = {
-  'marca': normalizeBrand,
   'Marca': normalizeBrand,
+  'marca': normalizeBrand,
   'Marca de la fuente': normalizeBrand,
+  
+  'Iluminación': normalizeRGB,
   'rgb': normalizeRGB,
   'iluminacionRGB': normalizeRGB,
-  'Iluminación': normalizeRGB,
+  'RGB': normalizeRGB,
+  
+  'Tipo de memoria': normalizeMemoryType,
   'tipoMemoriaRAM': normalizeMemoryType,
   'tipoMemoria': normalizeMemoryType,
+  
+  'Conectividad': normalizeConnectivity,
   'tipoConectividad': normalizeConnectivity,
-  'Conectividad': normalizeKeyboardConnectivity,
   'Tipo de conexión': normalizeHeadphoneConnection,
-  'inalambrico': normalizeConnectivity,
+  
+  'Batería': normalizeBattery,
   'tipoBateria': normalizeBattery,
   'bateria': normalizeBattery,
-  'compatibilidad': normalizeCompatibility,
-  'Compatibilidad': normalizeHeadphoneCompatibility,
+  
+  'Compatibilidad': normalizeCompatibility,
+  
   'Potencia': normalizePower,
   'Potencia Continua': normalizePower,
-  'Certificacion': normalizeCertification,
+  
   'Certificación': normalizeCertification,
-  'capacidadTotal': normalizeCapacity,
+  'Certificacion': normalizeCertification,
+  
   'Capacidad': normalizeCapacity,
+  'capacidad': normalizeCapacity,
+  'capacidadTotal': normalizeCapacity,
   'Capacidad total': normalizeCapacity,
+  
   'Arquitectura': normalizeArchitecture,
+  
+  'Sensor': normalizeSensor,
   'tipoSensor': normalizeSensor,
+  
+  'DPI': normalizeDPI,
   'dpi': normalizeDPI,
+  
+  'Formato': normalizeStorageFormat,
   'formato': normalizeStorageFormat,
   'Factor de forma': normalizeStorageFormat,
-  'Formato': normalizeStorageFormat,
   'Tipo': normalizeStorageFormat
 };
 

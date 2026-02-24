@@ -65,18 +65,27 @@ export function FilterProvider({ children }) {
           if (!product.specifications) return false;
           
           return activeFilters.every(([filterType, selectedValues]) => {
-            // Buscar el valor en el producto usando la clave exacta primero
+            // Buscar el valor en el producto - primero con la clave exacta
             let specValue = product.specifications[filterType];
             
-            // Si no se encuentra con la clave exacta, buscar en aliases
+            // Si no se encuentra, buscar con aliases (tanto dirección como inversa)
             if (!specValue) {
-              const possibleKeys = Object.entries(FILTER_KEY_ALIASES)
+              // Buscar aliases que apuntan a filterType
+              const aliasKeys = Object.entries(FILTER_KEY_ALIASES)
                 .filter(([, target]) => target === filterType)
                 .map(([key]) => key);
               
-              possibleKeys.push(filterType);
+              // Buscar si filterType es un alias de otra clave
+              const targetKey = FILTER_KEY_ALIASES[filterType];
+              if (targetKey) {
+                aliasKeys.push(targetKey);
+              }
               
-              for (const key of possibleKeys) {
+              // Agregar la clave original
+              aliasKeys.push(filterType);
+              
+              // Buscar en todas las posibles claves
+              for (const key of aliasKeys) {
                 if (product.specifications[key]) {
                   specValue = product.specifications[key];
                   break;
@@ -86,11 +95,26 @@ export function FilterProvider({ children }) {
             
             if (!specValue) return false;
             
+            // Normalizar el valor del producto
             const normalizedProductValue = normalizeFilterValue(filterType, specValue);
             
-            return selectedValues.some(selectedValue => 
-              normalizedProductValue.toString().toLowerCase() === selectedValue.toLowerCase()
-            );
+            // Si la normalización falla, excluir el producto
+            if (!normalizedProductValue || normalizedProductValue === '' || normalizedProductValue === 'null') {
+              return false;
+            }
+            
+            // Comparar con los valores seleccionados (exact match, case insensitive)
+            return selectedValues.some(selectedValue => {
+              const normalizedSelected = normalizeFilterValue(filterType, selectedValue);
+              
+              if (!normalizedSelected || normalizedSelected === '' || normalizedSelected === 'null') {
+                return false;
+              }
+              
+              // Comparación exacta con trim para evitar espacios
+              return normalizedProductValue.toString().toLowerCase().trim() === 
+                     normalizedSelected.toString().toLowerCase().trim();
+            });
           });
         });
       }

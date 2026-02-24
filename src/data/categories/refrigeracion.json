@@ -18,7 +18,7 @@
       "specifications": {
         "Cantidad Fans": "3 unidades",
         "Consumo": "1.8W por unidad",
-        "Iluminación": "ARGB direccionable",
+        "rgb": "ARGB direccionable",
         "Hub Incluido": "H66F (SATA Powered)"
       }
     },
@@ -39,7 +39,7 @@
       ],
       "description": "Refrigeración líquida AIO 240mm con iluminación ARGB, TDP 310W",
       "specifications": {
-        "Tipo": "Watercooler (AIO)",
+        "formato": "Watercooler (AIO)",
         "Radiador": "240 mm",
         "TDP": "310W",
         "Compatibilidad": "Intel LGA 1700 / AMD AM5"
@@ -62,7 +62,7 @@
       "description": "Kit de 3 ventiladores 120mm ARGB con rodamiento hidráulico.",
       "specifications": {
         "Velocidad": "1200 RPM ± 10%",
-        "Iluminación": "Inner & Outer ARGB Ring",
+        "rgb": "Inner & Outer ARGB Ring",
         "Extras": "Control remoto incluido"
       }
     },
@@ -150,16 +150,16 @@
       ],
       "description": "Ventilador de gabinete Cooler Master MasterFan MF120 Lite ARGB de 120mm con iluminación RGB direccionable",
       "specifications": {
-        "marca": "Cooler Master",
-        "linea": "MasterFan",
-        "modelo": "MF120 Lite ARGB",
+        "Marca": "Cooler Master",
+        "Línea": "MasterFan",
+        "Modelo": "MF120 Lite ARGB",
         "tamaño": "120 mm",
         "iluminacion": "ARGB",
-        "velocidad": "Hasta 1800 RPM",
+        "Velocidad": "Hasta 1800 RPM",
         "flujoAire": "Hasta 47.2 CFM",
         "nivelRuido": "Hasta 30 dBA",
         "conector": "4 pines PWM",
-        "color": "Negro",
+        "Color": "Negro",
         "usoRecomendado": "Gabinete"
       }
     },
@@ -180,9 +180,9 @@
       ],
       "description": "CPU Cooler Formula V Ice Burg Plus ARGB con 4 heatpipes, ventilador 120mm PWM, TDP 200W, compatible AM5/AM4/1200/1700",
       "specifications": {
-        "marca": "Formula V",
-        "modelo": "Ice Burg Plus",
-        "tipo": "Cooler por aire",
+        "Marca": "Formula V",
+        "Modelo": "Ice Burg Plus",
+        "tipoMemoriaRAM": "Cooler por aire",
         "tdpSoportado": "200 W",
         "compatibilidadSocket": "AM5 / AM4 / LGA 1200 / LGA 1700",
         "ventiladorIncluido": "Sí",
