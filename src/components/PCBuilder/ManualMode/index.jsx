@@ -72,7 +72,7 @@ const ManualMode = ({ onGoHome }) => {
   const selectedProductId = selectedCategory ? getSelectedProductId(selectedCategory) : null;
 
   return (
-    <div className="h-screen w-full flex flex-col bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50 overflow-hidden">
+    <div className="h-screen w-full flex flex-col catalog-bg overflow-hidden">
       <Header 
         searchQuery={searchQuery}
         onSearchChange={setSearchQuery}
@@ -80,14 +80,14 @@ const ManualMode = ({ onGoHome }) => {
         hideSearchOnMobile={true}
       />
       
-      {/* Desktop Layout: Sidebar + Product Grid + Preview Panel */}
+    
       <main className="hidden lg:flex flex-1 w-full overflow-hidden">
         <CategorySidebar 
           selectedCategory={selectedCategory}
           onCategoryChange={handleCategoryChange}
         />
         
-        <div className="flex-1 overflow-y-auto p-4 xl:p-8 bg-gradient-to-br from-white/80 via-blue-50/50 to-indigo-50/50 backdrop-blur-sm">
+        <div className="flex-1 overflow-y-auto p-4 xl:p-8">
           <ProductGrid
             selectedCategory={selectedCategory}
             products={filteredProducts}
@@ -129,9 +129,9 @@ const ManualMode = ({ onGoHome }) => {
           />
         ) : (
           /* Show Product Grid full screen when category selected */
-          <div className="flex-1 flex flex-col overflow-hidden bg-white">
+          <div className="flex-1 flex flex-col overflow-hidden">
             {/* Header con botón volver */}
-            <div className="flex-shrink-0 bg-gradient-to-br from-white via-blue-50/30 to-purple-50/30 backdrop-blur-sm border-b border-gray-200 shadow-sm p-4">
+            <div className="flex-shrink-0 bg-white/80 backdrop-blur-sm border-b border-gray-200 shadow-sm p-4">
               <div className="flex items-center gap-3 mb-3">
                 <button
                   onClick={() => {
@@ -170,7 +170,7 @@ const ManualMode = ({ onGoHome }) => {
 
             {/* Product Grid or Preview */}
             {!selectedProduct ? (
-              <div className="flex-1 overflow-y-auto bg-gray-50 p-4" ref={mobileScrollContainerRef}>
+              <div className="flex-1 overflow-y-auto p-4" ref={mobileScrollContainerRef}>
                 <ProductGrid
                   selectedCategory={selectedCategory}
                   products={filteredProducts}

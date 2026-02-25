@@ -613,12 +613,22 @@ export default {
           },
         },
         
-        // ===== FONDO CATÁLOGO REUTILIZABLE =====
+        // ===== FONDO CATÁLOGO REUTILIZABLE - TODO EN UNO =====
+        // Incluye: Gradiente de fondo + Grid pattern + Mesh blobs decorativos
+        // USADO EN: CatalogLayout.jsx (Catálogo), ManualMode/index.jsx (PC Builder)
         '.catalog-bg': {
           'position': 'relative',
           'background': 'linear-gradient(to bottom right, #eff6ff, #faf5ff, #fdf2f8)',
+          'background-image': `
+            linear-gradient(rgba(251,146,60,0.06) 1px, transparent 1px),
+            linear-gradient(90deg, rgba(251,146,60,0.06) 1px, transparent 1px),
+            linear-gradient(to bottom right, #eff6ff, #faf5ff, #fdf2f8)
+          `,
+          'background-size': '60px 60px, 60px 60px, 100% 100%',
+          'overflow': 'hidden',
         },
         
+        // Mesh blob superior izquierdo (azul)
         '.catalog-bg::before': {
           'content': '""',
           'position': 'absolute',
@@ -626,12 +636,14 @@ export default {
           'left': '-5%',
           'width': '40%',
           'height': '40%',
-          'background-color': 'rgba(191, 219, 254, 0.5)',
-          'filter': 'blur(20px)', // ⚡ Reducido de 80px → 20px
-          'border-radius': '9999px',
+          'background': 'radial-gradient(circle, rgba(191, 219, 254, 0.5) 0%, transparent 70%)',
+          'filter': 'blur(60px)',
+          'border-radius': '50%',
           'pointer-events': 'none',
+          'z-index': '0',
         },
         
+        // Mesh blob inferior derecho (púrpura)
         '.catalog-bg::after': {
           'content': '""',
           'position': 'absolute',
@@ -639,10 +651,11 @@ export default {
           'right': '-5%',
           'width': '35%',
           'height': '35%',
-          'background-color': 'rgba(233, 213, 255, 0.4)',
-          'filter': 'blur(20px)', // ⚡ Reducido de 70px → 20px
-          'border-radius': '9999px',
+          'background': 'radial-gradient(circle, rgba(233, 213, 255, 0.4) 0%, transparent 70%)',
+          'filter': 'blur(60px)',
+          'border-radius': '50%',
           'pointer-events': 'none',
+          'z-index': '0',
         },
       });
     }

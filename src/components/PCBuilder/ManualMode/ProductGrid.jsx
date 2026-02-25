@@ -117,16 +117,6 @@ const ProductGrid = ({
 
   return (
     <div className="h-full relative">
-      {/* Background decorativo con patterns reutilizables */}
-      <div className="absolute inset-0 pointer-events-none overflow-hidden opacity-30">
-        {/* Grid pattern */}
-        <div className="absolute inset-0 bg-grid-pattern-blue opacity-20" />
-        
-        {/* Mesh blobs sutiles - solo desktop */}
-        <div className="hidden md:block mesh-blob mesh-blob-blue w-96 h-96 -top-32 -left-32 opacity-40" />
-        <div className="hidden md:block mesh-blob mesh-blob-purple w-80 h-80 -bottom-32 -right-32 opacity-30" />
-      </div>
-
       {/* Contenido */}
       <div className="relative z-10">
         {/* Header Section con instrucciones */}

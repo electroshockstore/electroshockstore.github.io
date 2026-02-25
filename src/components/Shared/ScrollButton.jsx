@@ -8,7 +8,8 @@ const ScrollButton = () => {
   useEffect(() => {
     const handleScroll = () => {
       const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-      setShowButton(scrollTop > 300);
+      // Aparece después de 2 bloques de scroll (aproximadamente 200px)
+      setShowButton(scrollTop > 200);
     };
 
     window.addEventListener('scroll', handleScroll);

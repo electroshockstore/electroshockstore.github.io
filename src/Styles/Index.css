@@ -708,35 +708,19 @@
 .floating-button-fixed {
   position: fixed !important;
   z-index: 99999 !important;
-  bottom: 1rem !important;
-  left: 1rem !important;
+  bottom: 1.5rem !important;
+  left: 1.5rem !important;
   -webkit-tap-highlight-color: transparent !important;
   touch-action: manipulation !important;
-}
-
-/* Responsive para mobile pequeño */
-@media (max-width: 380px) {
-  .floating-button-fixed {
-    bottom: 0.75rem !important;
-    left: 0.75rem !important;
-  }
 }
 
 .floating-button-fixed-right {
   position: fixed !important;
   z-index: 99999 !important;
-  bottom: 1rem !important;
-  right: 1rem !important;
+  bottom: 1.5rem !important;
+  right: 1.5rem !important;
   -webkit-tap-highlight-color: transparent !important;
   touch-action: manipulation !important;
-}
-
-/* Responsive para mobile pequeño */
-@media (max-width: 380px) {
-  .floating-button-fixed-right {
-    bottom: 0.75rem !important;
-    right: 0.75rem !important;
-  }
 }
 
 
@@ -1652,7 +1636,9 @@
    BACKGROUND PATTERNS - Reutilizables
    ============================================ */
 
-/* Grid pattern - Cuadrícula sutil */
+/* Grid pattern - Cuadrícula sutil (naranja)
+   USADO EN: Componentes legacy que aún no migraron a catalog-bg
+   DEPRECADO: Usar catalog-bg para nuevos componentes */
 .bg-grid-pattern {
   background-image: 
     linear-gradient(rgba(251,146,60,0.6) 1px, transparent 1px), 
@@ -1660,7 +1646,9 @@
   background-size: 60px 60px;
 }
 
-/* Grid pattern - Variante azul */
+/* Grid pattern - Variante azul
+   DEPRECADO: Reemplazado por catalog-bg en tailwind.config.js
+   ANTES USADO EN: ProductGrid.jsx (PC Builder) - Ya migrado a catalog-bg */
 .bg-grid-pattern-blue {
   background-image: 
     linear-gradient(rgba(59,130,246,0.4) 1px, transparent 1px), 
@@ -1668,7 +1656,8 @@
   background-size: 60px 60px;
 }
 
-/* Grid pattern - Variante púrpura */
+/* Grid pattern - Variante púrpura
+   USADO EN: Componentes con tema púrpura (mantener para compatibilidad) */
 .bg-grid-pattern-purple {
   background-image: 
     linear-gradient(rgba(168,85,247,0.4) 1px, transparent 1px), 
@@ -1676,7 +1665,8 @@
   background-size: 60px 60px;
 }
 
-/* Grid pattern - Variante blanca sutil para sidebar */
+/* Grid pattern - Variante blanca sutil para sidebar
+   USADO EN: Sidebar del PC Builder (fondo oscuro) */
 .bg-grid-pattern-white-subtle {
   background-image: 
     linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px), 
@@ -1684,7 +1674,9 @@
   background-size: 24px 24px;
 }
 
-/* Mesh blob - Base para blobs animados */
+/* Mesh blob - Base para blobs animados
+   USADO EN: Clase base para todos los mesh blobs decorativos
+   NOTA: Combinar con variantes de color (mesh-blob-blue, mesh-blob-purple, etc.) */
 .mesh-blob {
   position: absolute;
   border-radius: 50%;
@@ -1693,33 +1685,41 @@
   filter: blur(60px);
 }
 
-/* Mesh blob - Variante naranja */
+/* Mesh blob - Variante naranja
+   USADO EN: Decoración de fondos con tema naranja */
 .mesh-blob-orange {
   background: radial-gradient(circle, rgba(251,146,60,0.5) 0%, transparent 70%);
 }
 
-/* Mesh blob - Variante roja */
+/* Mesh blob - Variante roja
+   USADO EN: Decoración de fondos con tema rojo */
 .mesh-blob-red {
   background: radial-gradient(circle, rgba(239,68,68,0.45) 0%, transparent 70%);
   animation: drift 22s ease-in-out infinite reverse;
 }
 
-/* Mesh blob - Variante azul */
+/* Mesh blob - Variante azul
+   DEPRECADO: Ahora incluido en catalog-bg (tailwind.config.js)
+   ANTES USADO EN: ProductGrid.jsx - Ya migrado a catalog-bg */
 .mesh-blob-blue {
   background: radial-gradient(circle, rgba(59,130,246,0.4) 0%, transparent 70%);
 }
 
-/* Mesh blob - Variante púrpura */
+/* Mesh blob - Variante púrpura
+   DEPRECADO: Ahora incluido en catalog-bg (tailwind.config.js)
+   ANTES USADO EN: ProductGrid.jsx - Ya migrado a catalog-bg */
 .mesh-blob-purple {
   background: radial-gradient(circle, rgba(168,85,247,0.4) 0%, transparent 70%);
 }
 
-/* Mesh blob - Variante azul sutil para sidebar */
+/* Mesh blob - Variante azul sutil para sidebar
+   USADO EN: Sidebar del PC Builder (decoración sutil en fondo oscuro) */
 .mesh-blob-blue-subtle {
   background: radial-gradient(circle, rgba(14,165,233,0.15) 0%, transparent 70%);
 }
 
-/* Diagonal accent line - Línea vertical decorativa */
+/* Diagonal accent line - Línea vertical decorativa
+   USADO EN: Elementos decorativos verticales en layouts */
 .accent-line-vertical {
   position: absolute;
   top: 0;
@@ -1864,14 +1864,6 @@
   z-index: 0;
 }
 
-/* Ejemplo de uso completo:
-<div className="animated-bg-container">
-  <div className="mesh-blob mesh-blob-orange -top-32 -left-32 w-[600px] h-[600px] opacity-40" />
-  <div className="mesh-blob mesh-blob-red -bottom-32 -right-32 w-[700px] h-[700px] opacity-35" />
-  <div className="bg-grid-pattern absolute inset-0 opacity-10" />
-  <div className="accent-line-vertical accent-line-amber right-0 opacity-20 hidden lg:block" />
-</div>
-*/
 
 
 /* ============================================

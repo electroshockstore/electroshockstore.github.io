@@ -6,9 +6,6 @@ const CatalogLayout = ({ children, searchQuery, onSearchChange, onGoHome }) => {
   return (
     //BG component
     <div className="min-h-screen w-full catalog-bg overflow-hidden relative">
-      {/* ─── Grid pattern overlay ─── */}
-      <div className="bg-grid-pattern absolute inset-0 opacity-10 pointer-events-none" />
-
       <div className="relative z-10 flex flex-col min-h-screen">
         
         <Header 
