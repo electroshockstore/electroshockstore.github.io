@@ -1,11 +1,11 @@
 import { useParams } from 'react-router-dom';
-import { useEffect } from 'react';
 import { useFilter } from '../context/FilterContext';
 import { useCatalogState } from '../hooks/useCatalogState';
 import { useCatalogNavigation } from '../hooks/useCatalogNavigation';
 import { useCatalogSync } from '../hooks/useCatalogSync';
 import { useCategorySEO } from '../hooks/useSEO';
 import { useProductListView, useCategoryTracking } from '../hooks/useAnalytics';
+import { useScrollToTop } from '../hooks/useScrollToTop';
 import CatalogLayout from '../components/Catalog/CatalogLayout';
 import CategoryFilter from '../components/Catalog/CategoryFilter';
 import CatalogContent from '../components/Catalog/CatalogContent';
@@ -26,9 +26,7 @@ const Catalog = () => {
   } = useFilter();
 
   // Scroll al inicio al montar la página
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, []);
+  useScrollToTop();
 
   // Custom Hooks
   const { viewMode, sortOrder, sortedProducts, setSortOrder, toggleViewMode } = useCatalogState(filteredProducts);

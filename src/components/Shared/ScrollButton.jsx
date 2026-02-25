@@ -33,7 +33,7 @@ const ScrollButton = () => {
       {/* Botón Scroll to Top - Diseño moderno con glassmorphism */}
       <button
         onClick={scrollToTop}
-        className={`group relative w-14 h-14 sm:w-16 sm:h-16 rounded-2xl
+        className={`group relative w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 rounded-xl sm:rounded-2xl
                    bg-gradient-to-br from-blue-500 via-blue-600 to-purple-600
                    text-white 
                    backdrop-blur-xl bg-opacity-90
@@ -54,19 +54,19 @@ const ScrollButton = () => {
         aria-label="Ir al inicio"
       >
         {/* Glow effect animado */}
-        <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-blue-400 to-purple-500 opacity-0 group-hover:opacity-50 blur-xl transition-opacity duration-300" />
+        <div className="absolute inset-0 rounded-xl sm:rounded-2xl bg-gradient-to-br from-blue-400 to-purple-500 opacity-0 group-hover:opacity-50 blur-xl transition-opacity duration-300" />
         
         {/* Icono con animación de rebote al hover */}
         <ArrowUp 
-          className="h-6 w-6 sm:h-7 sm:w-7 relative z-10 group-hover:-translate-y-0.5 transition-transform duration-200" 
+          className="h-5 w-5 sm:h-6 sm:w-6 md:h-7 md:w-7 relative z-10 group-hover:-translate-y-0.5 transition-transform duration-200" 
           strokeWidth={2.5} 
         />
         
         {/* Ripple effect en el borde */}
-        <div className="absolute inset-0 rounded-2xl border-2 border-blue-400/50 opacity-0 group-hover:opacity-100 group-hover:scale-110 transition-all duration-300" />
+        <div className="absolute inset-0 rounded-xl sm:rounded-2xl border-2 border-blue-400/50 opacity-0 group-hover:opacity-100 group-hover:scale-110 transition-all duration-300" />
         
-        {/* Tooltip mejorado */}
-        <span className="absolute right-full mr-4 px-4 py-2.5
+        {/* Tooltip mejorado - Solo desktop */}
+        <span className="hidden md:block absolute right-full mr-4 px-4 py-2.5
                          bg-gray-900/95 backdrop-blur-sm text-white text-sm font-bold
                          rounded-xl whitespace-nowrap
                          opacity-0 group-hover:opacity-100

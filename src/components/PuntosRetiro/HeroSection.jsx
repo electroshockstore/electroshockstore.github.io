@@ -40,7 +40,7 @@ const HeroSection = () => {
             <div className="mb-4 lg:mb-6 max-w-md lg:max-w-xl">
               <p className="text-base lg:text-lg text-gray-300 leading-relaxed font-medium">
                 Elegí el punto más cercano y coordiná el retiro{' '}
-                <span className="font-black text-black relative inline-block px-2 py-0.5 ml-1" style={{ background: 'rgb(59, 130, 246)' }}>
+                <span className="font-black text-black relative inline-block px-2 py-0.5 ml-1 bg-blue-500">
                   seguro
                 </span>
               </p>

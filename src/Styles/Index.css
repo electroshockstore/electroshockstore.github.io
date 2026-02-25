@@ -708,20 +708,37 @@
 .floating-button-fixed {
   position: fixed !important;
   z-index: 99999 !important;
-  bottom: 1.5rem !important;
-  left: 1.5rem !important;
+  bottom: 1rem !important;
+  left: 1rem !important;
   -webkit-tap-highlight-color: transparent !important;
   touch-action: manipulation !important;
+}
+
+/* Responsive para mobile pequeño */
+@media (max-width: 380px) {
+  .floating-button-fixed {
+    bottom: 0.75rem !important;
+    left: 0.75rem !important;
+  }
 }
 
 .floating-button-fixed-right {
   position: fixed !important;
   z-index: 99999 !important;
-  bottom: 1.5rem !important;
-  right: 1.5rem !important;
+  bottom: 1rem !important;
+  right: 1rem !important;
   -webkit-tap-highlight-color: transparent !important;
   touch-action: manipulation !important;
 }
+
+/* Responsive para mobile pequeño */
+@media (max-width: 380px) {
+  .floating-button-fixed-right {
+    bottom: 0.75rem !important;
+    right: 0.75rem !important;
+  }
+}
+
 
 /* ============================================
    UTILIDADES PERSONALIZADAS
@@ -1659,6 +1676,14 @@
   background-size: 60px 60px;
 }
 
+/* Grid pattern - Variante blanca sutil para sidebar */
+.bg-grid-pattern-white-subtle {
+  background-image: 
+    linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px), 
+    linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+  background-size: 24px 24px;
+}
+
 /* Mesh blob - Base para blobs animados */
 .mesh-blob {
   position: absolute;
@@ -1689,6 +1714,11 @@
   background: radial-gradient(circle, rgba(168,85,247,0.4) 0%, transparent 70%);
 }
 
+/* Mesh blob - Variante azul sutil para sidebar */
+.mesh-blob-blue-subtle {
+  background: radial-gradient(circle, rgba(14,165,233,0.15) 0%, transparent 70%);
+}
+
 /* Diagonal accent line - Línea vertical decorativa */
 .accent-line-vertical {
   position: absolute;
@@ -1696,6 +1726,114 @@
   width: 1px;
   height: 100%;
   pointer-events: none;
+}
+
+/* ============================================
+   PC BUILDER SIDEBAR - Componentes específicos
+   ============================================ */
+
+/* Animación de pulso para el dot indicador */
+@keyframes pulse-dot {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.7; transform: scale(1.1); }
+}
+
+.pulse-dot-active {
+  animation: pulse-dot 2s infinite;
+}
+
+/* Progress bar segment activo */
+.progress-segment-active {
+  background: linear-gradient(90deg, #0EA5E9, #38BDF8);
+  box-shadow: 0 0 6px rgba(14,165,233,0.5);
+}
+
+/* Progress segment selected */
+.progress-segment-selected {
+  background: #334155;
+}
+
+/* Progress segment inactive */
+.progress-segment-inactive {
+  background: #1E293B;
+}
+
+/* WhatsApp button gradient */
+.whatsapp-button-active {
+  background: linear-gradient(135deg, #25D366, #128C7E);
+  box-shadow: 0 4px 16px rgba(37,211,102,0.3);
+}
+
+.whatsapp-button-active:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 20px rgba(37,211,102,0.4);
+}
+
+/* WhatsApp button progress fill */
+.whatsapp-button-progress {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  background: linear-gradient(90deg, rgba(255,255,255,0.15), transparent);
+  transition: width 0.5s ease;
+}
+
+/* Accent line - Variante ámbar */
+.accent-line-amber {
+  background: linear-gradient(to bottom, transparent, rgba(251,191,60,1), transparent);
+}
+
+/* ============================================
+   PC BUILDER SIDEBAR - Efectos CSS Nativos
+   Solo gradientes, sombras y animaciones que Tailwind no cubre
+   ============================================ */
+
+/* Progress Bar Gradients */
+.progress-segment-active {
+  background: linear-gradient(90deg, #0EA5E9, #38BDF8);
+  box-shadow: 0 0 6px rgba(14,165,233,0.5);
+}
+
+/* Slot Card Gradients & Shadows */
+.slot-card-selected-bg {
+  background: linear-gradient(135deg, #0F172A 0%, #1E293B 100%);
+}
+
+.slot-card-selected-shadow {
+  box-shadow: 0 4px 16px rgba(14,165,233,0.25);
+}
+
+.slot-card-selected-shadow-hover {
+  box-shadow: 0 8px 24px rgba(14,165,233,0.35);
+}
+
+.slot-card-filled-shadow {
+  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+}
+
+.slot-card-filled-shadow-hover {
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+}
+
+/* Slot Selected Indicator */
+.slot-indicator-gradient {
+  background: linear-gradient(90deg, #0EA5E9, #38BDF8, #7DD3FC);
+  box-shadow: 0 -2px 8px rgba(14,165,233,0.3);
+}
+
+/* WhatsApp Button Gradients */
+.whatsapp-btn-gradient {
+  background: linear-gradient(135deg, #25D366, #128C7E);
+  box-shadow: 0 4px 16px rgba(37,211,102,0.3);
+}
+
+.whatsapp-btn-gradient:hover {
+  box-shadow: 0 6px 20px rgba(37,211,102,0.4);
+}
+
+.whatsapp-progress-gradient {
+  background: linear-gradient(90deg, rgba(255,255,255,0.15), transparent);
 }
 
 /* Accent line - Variante ámbar */
@@ -1929,3 +2067,395 @@
    SCHEDULE GRID ANIMATIONS
    ============================================ */
 
+
+/* ============================================
+   PUNTOS RETIRO - Optimizaciones CSS
+============================================ */
+
+/* Card Image Overlay - Gradiente complejo */
+.card-image-overlay {
+  background: linear-gradient(to top, #111827 0%, rgba(17,24,39,0.65) 45%, rgba(0,0,0,0.15) 100%);
+}
+
+/* Map Button - Gradiente + Shadow */
+.map-button-gradient {
+  background: linear-gradient(160deg, #34d399 0%, #10b981 50%, #059669 100%);
+  box-shadow: 0 4px 24px rgba(16,185,129,0.3);
+}
+
+/* ============================================
+   HERO SECTION - Optimizaciones CSS
+============================================ */
+
+/* Hero Background - Grid Pattern */
+.hero-grid-pattern {
+  background-image: linear-gradient(rgba(59,130,246,1) 1px, transparent 1px), 
+                    linear-gradient(90deg, rgba(59,130,246,1) 1px, transparent 1px);
+  background-size: 60px 60px;
+}
+
+/* Hero Background - Top Accent Line */
+.hero-top-accent {
+  background: linear-gradient(90deg, transparent, #3b82f6, #8b5cf6, transparent);
+}
+
+/* Hero Badge - Estilo completo */
+.hero-badge {
+  border-color: rgba(239,68,68,0.6);
+  background: rgba(220,38,38,0.15);
+  box-shadow: 0 0 20px rgba(239,68,68,0.3);
+}
+
+/* Hero Title - Text Shadow */
+.hero-title-text {
+  text-shadow: 2px 2px 0 rgba(0,0,0,0.2);
+}
+
+/* Hero Icon 3D - Background Layers */
+.hero-icon-bg-1 {
+  background: linear-gradient(135deg, rgba(59,130,246,0.08) 0%, rgba(139,92,246,0.06) 100%);
+  border-color: rgba(59,130,246,0.15);
+}
+
+.hero-icon-bg-2 {
+  background: linear-gradient(135deg, rgba(59,130,246,0.05) 0%, rgba(139,92,246,0.04) 100%);
+  border-color: rgba(59,130,246,0.08);
+}
+
+/* Hero CTA Button - Gradiente + Shadow */
+.hero-cta-button {
+  background: linear-gradient(135deg, #60a5fa, #3b82f6);
+  box-shadow: 4px 4px 0 #1e3a8a;
+}
+
+/* ============================================
+   PICKUP POINT CARD - Optimizaciones CSS
+============================================ */
+
+/* Card Background - Gradiente principal */
+.pickup-card-bg {
+  background: linear-gradient(160deg, #0f1923 0%, #111827 50%, #0d1520 100%);
+}
+
+/* Card Background - Grid texture */
+.card-bg-grid {
+  background-image: radial-gradient(circle at 1px 1px, rgba(255,255,255,0.015) 1px, transparent 0);
+  background-size: 28px 28px;
+}
+
+/* Card Background - Green glow */
+.card-bg-glow {
+  background: radial-gradient(circle, rgba(52,211,153,0.08) 0%, transparent 70%);
+}
+
+/* Point Badge */
+.point-badge {
+  background: rgba(15,25,35,0.88);
+  border: 1px solid rgba(52,211,153,0.25);
+}
+
+/* Location Accent Line */
+.location-accent-line {
+  background: linear-gradient(90deg, #34d399, #10b981);
+}
+
+/* ============================================
+   PRODUCT CARD - Optimizaciones CSS
+============================================ */
+
+/* Product Card - Top Accent Line */
+.product-card-accent {
+  background: linear-gradient(90deg, #3b82f6, #6366f1, #8b5cf6);
+}
+
+/* Product Card - Featured Glow Corners */
+.featured-glow-tl {
+  background: linear-gradient(135deg, rgba(59,130,246,0.12), transparent);
+}
+
+.featured-glow-br {
+  background: linear-gradient(315deg, rgba(139,92,246,0.1), transparent);
+}
+
+/* Product Card - Separator Line */
+.product-separator {
+  background: linear-gradient(to right, transparent, #e2e8f0, transparent);
+}
+
+/* Product Card - Featured Image Overlays */
+.featured-img-bottom {
+  background: linear-gradient(to top, rgba(59,130,246,0.5), rgba(139,92,246,0.2), transparent);
+}
+
+.featured-img-left {
+  background: linear-gradient(to right, rgba(6,182,212,0.3), transparent);
+}
+
+.featured-img-right {
+  background: linear-gradient(to left, rgba(249,115,22,0.25), transparent);
+}
+
+/* ============================================
+   FLOATING CHAT BUTTON - Animaciones Interactivas
+============================================ */
+
+/* Animación de entrada para items del menú - Staggered */
+@keyframes floatingMenuSlideIn {
+  0% {
+    opacity: 0;
+    transform: translateY(20px) scale(0.95);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.floating-menu-item {
+  animation: floatingMenuSlideIn 0.3s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+  will-change: transform, opacity;
+}
+
+/* Partícula flotante 3 - Nueva */
+@keyframes float-particle-3 {
+  0%, 100% {
+    transform: translate(0, 0) scale(1);
+    opacity: 0.6;
+  }
+  25% {
+    transform: translate(3px, -8px) scale(1.2);
+    opacity: 0.8;
+  }
+  50% {
+    transform: translate(-2px, -15px) scale(0.9);
+    opacity: 0.4;
+  }
+  75% {
+    transform: translate(4px, -10px) scale(1.1);
+    opacity: 0.7;
+  }
+}
+
+.animate-float-particle-3 {
+  animation: float-particle-3 3.5s ease-in-out infinite;
+}
+
+/* Efecto de pulso sutil en el botón principal cuando no está expandido */
+@keyframes subtle-pulse {
+  0%, 100% {
+    box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.4);
+  }
+  50% {
+    box-shadow: 0 0 0 8px rgba(34, 197, 94, 0);
+  }
+}
+
+/* Wiggle animation para el icono */
+@keyframes wiggle {
+  0%, 100% {
+    transform: rotate(0deg);
+  }
+  25% {
+    transform: rotate(-5deg);
+  }
+  75% {
+    transform: rotate(5deg);
+  }
+}
+
+/* Aplicar wiggle al icono cuando el botón principal tiene hover */
+.group:hover .chat-icon {
+  animation: wiggle 0.5s ease-in-out;
+}
+
+/* Bounce para la flecha */
+@keyframes bounce-arrow {
+  0%, 100% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(4px);
+  }
+}
+
+.group:hover .chat-arrow {
+  animation: bounce-arrow 0.6s ease-in-out infinite;
+}
+
+/* Efecto de brillo en los botones del menú */
+@keyframes menu-shine {
+  0% {
+    background-position: -200% center;
+  }
+  100% {
+    background-position: 200% center;
+  }
+}
+
+.floating-menu-item::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.2),
+    transparent
+  );
+  transition: left 0.5s;
+}
+
+.floating-menu-item:hover::before {
+  left: 100%;
+}
+
+/* Animación de llamada de atención inicial */
+@keyframes attention-bounce {
+  0%, 20%, 50%, 80%, 100% {
+    transform: translateY(0) scale(1);
+  }
+  40% {
+    transform: translateY(-10px) scale(1.05);
+  }
+  60% {
+    transform: translateY(-5px) scale(1.02);
+  }
+}
+
+.chat-main-button {
+  animation: attention-bounce 2s ease-in-out 1s 1;
+}
+
+/* Pulso sutil continuo después de la animación inicial */
+@keyframes gentle-pulse {
+  0%, 100% {
+    box-shadow: 0 8px 32px rgba(34, 197, 94, 0.3), 0 0 0 0 rgba(34, 197, 94, 0.4);
+  }
+  50% {
+    box-shadow: 0 8px 32px rgba(34, 197, 94, 0.4), 0 0 0 6px rgba(34, 197, 94, 0);
+  }
+}
+
+.chat-main-button:not(:hover) {
+  animation: attention-bounce 2s ease-in-out 1s 1, gentle-pulse 3s ease-in-out 3s infinite;
+}
+
+/* Badge de notificación - Pulso y escala */
+@keyframes notification-pulse {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.2);
+    opacity: 0.8;
+  }
+}
+
+.notification-badge {
+  animation: notification-pulse 2s ease-in-out infinite;
+}
+
+/* Efecto de onda en el badge */
+.notification-badge::after {
+  content: '';
+  position: absolute;
+  inset: -4px;
+  border-radius: 50%;
+  border: 2px solid rgba(239, 68, 68, 0.6);
+  animation: notification-ripple 2s ease-out infinite;
+}
+
+@keyframes notification-ripple {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(2);
+    opacity: 0;
+  }
+}
+
+/* Tooltip Hint - Animación de entrada y salida */
+@keyframes hint-bounce-in {
+  0% {
+    opacity: 0;
+    transform: translate(-50%, 10px) scale(0.8);
+  }
+  50% {
+    transform: translate(-50%, -5px) scale(1.05);
+  }
+  100% {
+    opacity: 1;
+    transform: translate(-50%, 0) scale(1);
+  }
+}
+
+.hint-tooltip {
+  animation: hint-bounce-in 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+
+/* ============================================
+   FLOATING MENU CARDS - Diseño Modal-like
+============================================ */
+
+/* Efecto de brillo en el header de las cards */
+.floating-menu-item > div:first-child::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.15),
+    transparent
+  );
+  transition: left 0.6s;
+}
+
+.floating-menu-item:hover > div:first-child::before {
+  left: 100%;
+}
+
+/* Efecto de elevación en hover */
+.floating-menu-item:hover {
+  transform: translateY(-2px) scale(1.02);
+}
+
+/* Animación del punto de estado online */
+@keyframes status-pulse {
+  0%, 100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.6;
+    transform: scale(1.2);
+  }
+}
+
+/* Efecto de partículas en el fondo de las cards */
+.floating-menu-item::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    circle at 20% 50%,
+    rgba(255, 255, 255, 0.05) 0%,
+    transparent 50%
+  );
+  opacity: 0;
+  transition: opacity 0.3s;
+  pointer-events: none;
+}
+
+.floating-menu-item:hover::after {
+  opacity: 1;
+}

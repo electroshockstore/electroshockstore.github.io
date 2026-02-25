@@ -10,12 +10,7 @@ const CardImage = memo(({ image, name }) => (
       decoding="async"
     />
     {/* Gradient overlay */}
-    <div 
-      className="absolute inset-0" 
-      style={{
-        background: 'linear-gradient(to top, #111827 0%, rgba(17,24,39,0.65) 45%, rgba(0,0,0,0.15) 100%)'
-      }} 
-    />
+    <div className="absolute inset-0 card-image-overlay" />
   </div>
 ));
 

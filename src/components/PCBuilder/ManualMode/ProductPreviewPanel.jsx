@@ -1,3 +1,4 @@
+import { useEffect } from 'react';
 import armaTuPcImage from '/images/arma_tu_pc.webp';
 
 // Extract key features from product specifications dynamically
@@ -243,20 +244,31 @@ const ProductPreviewPanel = ({ selectedProduct, selectedCategory, onBack }) => {
 
   return (
     <aside className="w-full lg:w-72 xl:w-80 bg-gradient-to-b from-white to-gray-50 lg:border-l border-gray-200 overflow-y-auto">
+      {/* Desktop Close Button */}
+      <div className="hidden lg:block sticky top-0 bg-white/95 backdrop-blur-sm border-b border-gray-200 p-4 z-10">
+        <button
+          onClick={onBack}
+          className="flex items-center gap-2 text-gray-700 hover:text-gray-900 font-semibold transition-colors"
+        >
+          <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+          </svg>
+          Cerrar
+        </button>
+      </div>
+
       {/* Mobile Back Button */}
-      {onBack && (
-        <div className="lg:hidden sticky top-0 bg-white border-b border-gray-200 p-4 z-10">
-          <button
-            onClick={onBack}
-            className="flex items-center gap-2 text-gray-700 font-semibold"
-          >
-            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
-            </svg>
-            Volver a productos
-          </button>
-        </div>
-      )}
+      <div className="lg:hidden sticky top-0 bg-white border-b border-gray-200 p-4 z-10">
+        <button
+          onClick={onBack}
+          className="flex items-center gap-2 text-gray-700 font-semibold"
+        >
+          <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+          </svg>
+          Volver a productos
+        </button>
+      </div>
       
       <div className="p-4 md:p-6 lg:p-6 xl:p-8 space-y-4 md:space-y-6">
         {/* Product Image */}

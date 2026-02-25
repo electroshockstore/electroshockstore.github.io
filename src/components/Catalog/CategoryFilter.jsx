@@ -107,14 +107,8 @@ const CategoryFilter = ({ selectedCategory, onCategoryChange }) => {
 
       <div className="relative group z-20 w-full category-filter">
         {/* CAPAS DE RESPLANDOR */}
-        <div 
-          className="absolute -inset-3 bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 rounded-full -z-10 opacity-30"
-          style={{ filter: 'blur(24px)' }}
-        />
-        <div 
-          className="absolute -inset-2 bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-600 rounded-full -z-10 opacity-25"
-          style={{ filter: 'blur(16px)' }}
-        />
+        <div className="category-glow-outer absolute -inset-3 bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 rounded-full -z-10 opacity-30 blur-[24px]" />
+        <div className="category-glow-inner absolute -inset-2 bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-600 rounded-full -z-10 opacity-25 blur-2xl" />
 
         {/* RGB FLOWING BORDER */}
         <div className="relative rounded-full overflow-hidden p-[3px] animate-border-rotate">

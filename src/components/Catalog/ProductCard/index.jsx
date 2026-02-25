@@ -122,22 +122,13 @@ const ProductCard = memo(({ product, viewMode, onClick, index = 0, listName = 'P
                  active:scale-[0.98] sm:active:scale-100`}
     >
       {/* ── Top gradient accent line ── */}
-      <div
-        className="absolute top-0 left-0 right-0 h-[2px] z-30 opacity-0 group-hover:opacity-100 transition-opacity duration-400"
-        style={{ background: 'linear-gradient(90deg, #3b82f6, #6366f1, #8b5cf6)' }}
-      />
+      <div className="product-card-accent absolute top-0 left-0 right-0 h-[2px] z-30 opacity-0 group-hover:opacity-100 transition-opacity duration-400" />
 
       {/* ── Featured glow corners ── */}
       {isFeatured && (
         <>
-          <div 
-            className="absolute top-0 left-0 w-16 h-16 pointer-events-none z-10"
-            style={{ background: 'linear-gradient(135deg, rgba(59,130,246,0.12), transparent)' }} 
-          />
-          <div 
-            className="absolute bottom-0 right-0 w-20 h-20 pointer-events-none z-10"
-            style={{ background: 'linear-gradient(315deg, rgba(139,92,246,0.1), transparent)' }} 
-          />
+          <div className="featured-glow-tl absolute top-0 left-0 w-16 h-16 pointer-events-none z-10" />
+          <div className="featured-glow-br absolute bottom-0 right-0 w-20 h-20 pointer-events-none z-10" />
         </>
       )}
 
@@ -151,7 +142,10 @@ const ProductCard = memo(({ product, viewMode, onClick, index = 0, listName = 'P
         
         {/* Forma geométrica angular - Naranja (esquina superior izquierda) */}
         <div className="absolute top-0 left-0 w-10 h-10 opacity-20 group-hover:opacity-40 transition-opacity duration-300">
-          <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-orange-400 to-transparent" style={{ clipPath: 'polygon(0 0, 100% 0, 0 100%)' }} />
+          <div 
+            className="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-orange-400 to-transparent" 
+            style={{ clipPath: 'polygon(0 0, 100% 0, 0 100%)' }} 
+          />
         </div>
         
        
@@ -166,18 +160,9 @@ const ProductCard = memo(({ product, viewMode, onClick, index = 0, listName = 'P
         {/* Featured image overlays */}
         {isFeatured && (
           <>
-            <div 
-              className="absolute bottom-0 left-0 right-0 h-24 pointer-events-none z-20"
-              style={{ background: 'linear-gradient(to top, rgba(59,130,246,0.5), rgba(139,92,246,0.2), transparent)' }} 
-            />
-            <div 
-              className="absolute left-0 top-0 bottom-0 w-16 pointer-events-none z-20"
-              style={{ background: 'linear-gradient(to right, rgba(6,182,212,0.3), transparent)' }} 
-            />
-            <div 
-              className="absolute right-0 top-0 bottom-0 w-16 pointer-events-none z-20"
-              style={{ background: 'linear-gradient(to left, rgba(249,115,22,0.25), transparent)' }} 
-            />
+            <div className="featured-img-bottom absolute bottom-0 left-0 right-0 h-24 pointer-events-none z-20" />
+            <div className="featured-img-left absolute left-0 top-0 bottom-0 w-16 pointer-events-none z-20" />
+            <div className="featured-img-right absolute right-0 top-0 bottom-0 w-16 pointer-events-none z-20" />
           </>
         )}
         
@@ -190,10 +175,7 @@ const ProductCard = memo(({ product, viewMode, onClick, index = 0, listName = 'P
       {/* ── Info area ── */}
       <div className="relative p-2.5 sm:p-4 flex flex-col flex-1 justify-between gap-2 sm:gap-3.5">
         {/* Separator line */}
-        <div
-          className="absolute top-0 left-4 right-4 h-px"
-          style={{ background: 'linear-gradient(to right, transparent, #e2e8f0, transparent)' }}
-        />
+        <div className="product-separator absolute top-0 left-4 right-4 h-px" />
         <div>
            <ProductInfo 
              name={name} 

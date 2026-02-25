@@ -1,4 +1,4 @@
-import { useState, useMemo } from 'react';
+import { useState, useMemo, useEffect, useRef } from 'react';
 import Header from '../../Shared/Header';
 import ScrollButton from '../../Shared/ScrollButton';
 import { X } from 'lucide-react';
@@ -15,6 +15,16 @@ const ManualMode = ({ onGoHome }) => {
   const [selectedCategory, setSelectedCategory] = useState(null);
   const [selectedProduct, setSelectedProduct] = useState(null);
   const [searchQuery, setSearchQuery] = useState('');
+  
+  // Ref para el contenedor con scroll en mobile
+  const mobileScrollContainerRef = useRef(null);
+
+  // Scroll al inicio cuando se selecciona un producto en mobile
+  useEffect(() => {
+    if (selectedProduct && mobileScrollContainerRef.current) {
+      mobileScrollContainerRef.current.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+  }, [selectedProduct]);
 
   const compatibleProducts = selectedCategory 
     ? getCompatibleProducts(pcBuild, products, selectedCategory)
@@ -160,7 +170,7 @@ const ManualMode = ({ onGoHome }) => {
 
             {/* Product Grid or Preview */}
             {!selectedProduct ? (
-              <div className="flex-1 overflow-y-auto bg-gray-50 p-4">
+              <div className="flex-1 overflow-y-auto bg-gray-50 p-4" ref={mobileScrollContainerRef}>
                 <ProductGrid
                   selectedCategory={selectedCategory}
                   products={filteredProducts}
@@ -181,7 +191,7 @@ const ManualMode = ({ onGoHome }) => {
                 />
               </div>
             ) : (
-              <div className="flex-1 overflow-y-auto">
+              <div className="flex-1 overflow-y-auto" ref={mobileScrollContainerRef}>
                 <ProductPreviewPanel
                   selectedProduct={selectedProduct}
                   selectedCategory={selectedCategory}

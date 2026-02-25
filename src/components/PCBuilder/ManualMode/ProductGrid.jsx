@@ -116,9 +116,21 @@ const ProductGrid = ({
   const reminder = getReminder(selectedCategory, pcBuild);
 
   return (
-    <div className="h-full">
-      {/* Header Section con instrucciones */}
-      <div className="mb-3 lg:mb-6">
+    <div className="h-full relative">
+      {/* Background decorativo con patterns reutilizables */}
+      <div className="absolute inset-0 pointer-events-none overflow-hidden opacity-30">
+        {/* Grid pattern */}
+        <div className="absolute inset-0 bg-grid-pattern-blue opacity-20" />
+        
+        {/* Mesh blobs sutiles - solo desktop */}
+        <div className="hidden md:block mesh-blob mesh-blob-blue w-96 h-96 -top-32 -left-32 opacity-40" />
+        <div className="hidden md:block mesh-blob mesh-blob-purple w-80 h-80 -bottom-32 -right-32 opacity-30" />
+      </div>
+
+      {/* Contenido */}
+      <div className="relative z-10">
+        {/* Header Section con instrucciones */}
+        <div className="mb-3 lg:mb-6">
         <div className="flex items-start justify-between gap-4 mb-3">
           <div>
             <h2 className="text-base sm:text-lg lg:text-2xl xl:text-3xl font-bold text-gray-900 mb-1">
@@ -179,6 +191,7 @@ const ProductGrid = ({
           );
         })}
       </div>
+      </div> {/* Cierre del contenido relativo */}
     </div>
   );
 };

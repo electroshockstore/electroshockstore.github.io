@@ -1,5 +1,6 @@
 import { useNavigate } from 'react-router-dom';
 import { useEffect } from 'react';
+import { useScrollToTop } from '../hooks/useScrollToTop';
 import { useFilter } from '../context/FilterContext';
 import Header from '../components/Shared/Header';
 import Footer from '../components/Shared/Footer';
@@ -16,10 +17,8 @@ const PuntosRetiro = () => {
   const navigate = useNavigate();
   const { setSelectedCategory } = useFilter();
 
-  // Scroll al inicio al montar la página - smooth y sin parpadeo
-  useEffect(() => {
-    window.scrollTo({ top: 0, behavior: 'instant' });
-  }, []);
+  // Scroll al inicio al montar la página
+  useScrollToTop();
 
   // Limpiar categoría seleccionada al entrar a Puntos de Retiro
   useEffect(() => {

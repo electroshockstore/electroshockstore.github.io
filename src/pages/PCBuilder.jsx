@@ -1,5 +1,5 @@
 import { useNavigate } from 'react-router-dom';
-import { useEffect } from 'react';
+import { useScrollToTop } from '../hooks/useScrollToTop';
 import ManualMode from '../components/PCBuilder/ManualMode';
 
 /**
@@ -9,9 +9,7 @@ const PCBuilder = () => {
   const navigate = useNavigate();
   
   // Scroll al inicio al montar la página
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, []);
+  useScrollToTop();
   
   const handleGoHome = () => {
     navigate('/');

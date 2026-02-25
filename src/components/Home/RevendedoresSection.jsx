@@ -94,13 +94,13 @@ const RevendedoresSection = ({ products = [], onProductClick }) => {
 
             {/* ─── Background ─── */}
             <div className="absolute inset-0 pointer-events-none overflow-hidden">
-                {/* Animated mesh blobs */}
-                <div className="absolute -top-32 -left-32 w-[600px] h-[600px] rounded-full opacity-30"
+                {/* Animated mesh blobs - solo desktop */}
+                <div className="hidden md:block absolute -top-32 -left-32 w-[600px] h-[600px] rounded-full opacity-30"
                     style={{
                         background: 'radial-gradient(circle, rgba(251,146,60,0.35) 0%, transparent 70%)',
                         animation: 'drift 18s ease-in-out infinite'
                     }} />
-                <div className="absolute -bottom-32 -right-32 w-[700px] h-[700px] rounded-full opacity-25"
+                <div className="hidden md:block absolute -bottom-32 -right-32 w-[700px] h-[700px] rounded-full opacity-25"
                     style={{
                         background: 'radial-gradient(circle, rgba(239,68,68,0.3) 0%, transparent 70%)',
                         animation: 'drift 22s ease-in-out infinite reverse'
@@ -160,8 +160,9 @@ const RevendedoresSection = ({ products = [], onProductClick }) => {
                             
                             {/* SVG tag al lado de Ahorro */}
                             <div className="relative inline-block tag-float">
-                                <div className="absolute inset-0 rounded-full"
-                                    style={{ background: 'radial-gradient(circle, rgba(251,146,60,0.6) 0%, transparent 60%)', filter: 'blur(20px)', transform: 'scale(1.5)' }} />
+                                {/* Glow ambient - solo visible en desktop */}
+                                <div className="hidden md:block absolute inset-0 rounded-full"
+                                    style={{ background: 'radial-gradient(circle, rgba(251,146,60,0.2) 0%, transparent 60%)', filter: 'blur(12px)', transform: 'scale(1.3)' }} />
                                 <div className="relative w-12 h-12 sm:w-16 sm:h-16 md:w-20 md:h-20 flex items-center justify-center rounded-2xl border border-amber-400/30"
                                     style={{ background: 'linear-gradient(135deg, rgba(251,191,60,0.2), rgba(239,68,68,0.2))', backdropFilter: 'blur(12px)' }}>
                                     <svg viewBox="0 0 24 24" fill="none" className="w-6 h-6 sm:w-8 sm:h-8 md:w-10 md:h-10">

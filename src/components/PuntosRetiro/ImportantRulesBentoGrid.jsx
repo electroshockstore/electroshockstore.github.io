@@ -54,14 +54,12 @@ const ImportantRulesBentoGrid = ({ rules = [] }) => {
             viewport={{ once: true, margin: "-100px" }}
             variants={containerVariants}
             className="lg:hidden max-w-md mx-auto"
-            style={{ willChange: 'opacity, transform' }}
           >
             <div className="grid grid-cols-2 gap-3">
             
             {/* MOBILE CARD 1: SIN DEPÓSITOS */}
             <motion.div
               variants={cardVariants}
-              style={{ willChange: 'opacity, transform' }}
               className="bg-pink-50 rounded-2xl p-3 border-2 border-pink-200 flex flex-col justify-between relative overflow-hidden group"
             >
               <div className="absolute inset-0 bg-gradient-to-br from-pink-100/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
@@ -85,7 +83,6 @@ const ImportantRulesBentoGrid = ({ rules = [] }) => {
             {/* MOBILE CARD 2: PAGO INMEDIATO */}
             <motion.div
               variants={cardVariants}
-              style={{ willChange: 'opacity, transform' }}
               className="bg-white rounded-2xl p-3 border-2 border-gray-200 shadow-lg flex flex-col justify-between relative overflow-hidden group"
             >
               <div className="absolute inset-0 bg-gradient-to-br from-orange-50/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
@@ -117,7 +114,6 @@ const ImportantRulesBentoGrid = ({ rules = [] }) => {
             {/* MOBILE CARD 3: IMAGEN - FIJA Y PRIMERA */}
             <motion.div
               variants={cardVariants}
-              style={{ willChange: 'opacity, transform' }}
               className="row-span-2 bg-white rounded-2xl border-2 border-pink-200 relative flex items-center justify-center overflow-hidden shadow-sm group"
             >
               <div 
@@ -134,7 +130,6 @@ const ImportantRulesBentoGrid = ({ rules = [] }) => {
             {/* MOBILE CARD 4: RECARGO 10% */}
             <motion.div
               variants={cardVariants}
-              style={{ willChange: 'opacity, transform' }}
               className="bg-gradient-to-br from-red-50 to-rose-100 rounded-2xl p-2.5 border-2 border-red-300 flex flex-col justify-center relative overflow-hidden group"
             >
               <div className="absolute inset-0 bg-gradient-to-br from-red-100/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
@@ -157,7 +152,6 @@ const ImportantRulesBentoGrid = ({ rules = [] }) => {
             {/* MOBILE CARD 5: NO ENVÍOS */}
             <motion.div
               variants={cardVariants}
-              style={{ willChange: 'opacity, transform' }}
               className="bg-gradient-to-br from-slate-50 to-gray-100 rounded-2xl p-3 border-2 border-slate-300 flex flex-col justify-center relative overflow-hidden group"
             >
               <div className="absolute inset-0 bg-gradient-to-br from-slate-100/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
@@ -187,7 +181,6 @@ const ImportantRulesBentoGrid = ({ rules = [] }) => {
             {/* MOBILE CARD 6: VENTA PARTICULAR */}
             <motion.div
               variants={cardVariants}
-              style={{ willChange: 'opacity, transform' }}
               className="col-span-2 bg-gray-900/95 rounded-2xl p-3 border border-white/10 relative overflow-hidden group"
             >
               <div className="absolute inset-0 bg-gradient-to-br from-yellow-600/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
@@ -270,7 +263,6 @@ const ImportantRulesBentoGrid = ({ rules = [] }) => {
           {/* --- CARD 2: IMAGEN CENTRAL - FIJA Y PRIMERA --- */}
           <motion.div
             variants={cardVariants}
-            style={{ willChange: 'opacity, transform' }}
             className="lg:row-span-3 rounded-[2rem] bg-white border-2 border-pink-300 relative flex items-center justify-center overflow-visible shadow-lg min-h-[400px] group"
           >
             <div 
@@ -288,7 +280,6 @@ const ImportantRulesBentoGrid = ({ rules = [] }) => {
           {/* --- CARD 3: PAGO --- */}
           <motion.div
             variants={cardVariants}
-            style={{ willChange: 'opacity, transform' }}
             className="lg:row-span-2 rounded-[2rem] bg-white p-6 border-2 border-gray-300 shadow-lg relative overflow-hidden group hover:shadow-xl transition-shadow duration-300"
           >
             <div className="absolute inset-0 bg-gradient-to-br from-orange-50/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
@@ -321,7 +312,6 @@ const ImportantRulesBentoGrid = ({ rules = [] }) => {
           {/* --- CARD 4: RECARGO --- */}
           <motion.div
             variants={cardVariants}
-            style={{ willChange: 'opacity, transform' }}
             className="rounded-[2rem] bg-gradient-to-br from-red-50 to-rose-100 p-6 border-2 border-red-300 relative overflow-hidden flex flex-col group shadow-lg hover:shadow-xl transition-shadow duration-300"
           >
             <div className="absolute inset-0 bg-gradient-to-br from-red-100/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
@@ -384,7 +374,6 @@ const ImportantRulesBentoGrid = ({ rules = [] }) => {
         {/* --- CARD 6: VENTA PARTICULAR --- */}
 <motion.div
   variants={cardVariants}
-  style={{ willChange: 'opacity, transform' }}
   className="lg:col-span-3 rounded-[2.5rem] bg-gray-900/95 p-8 border border-white/10 relative overflow-hidden group shadow-2xl hover:shadow-3xl transition-shadow duration-300"
 >
   

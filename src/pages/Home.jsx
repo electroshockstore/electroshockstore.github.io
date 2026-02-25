@@ -1,5 +1,6 @@
 import { useNavigate } from 'react-router-dom';
-import { useEffect, useState } from 'react';
+import { useState, useEffect } from 'react';
+import { useScrollToTop } from '../hooks/useScrollToTop';
 import Header from '../components/Shared/Header';
 import Footer from '../components/Shared/Footer';
 import ScrollButton from '../components/Shared/ScrollButton';
@@ -24,18 +25,19 @@ const Home = () => {
   const { searchQuery, setSearchQuery, setSelectedCategory, clearSubFilters } = useFilter();
   const [isLoaded, setIsLoaded] = useState(false);
   
+  // Scroll al inicio
+  useScrollToTop();
+  
+  // Activar animaciones después de un pequeño delay
+  useEffect(() => {
+    const timer = setTimeout(() => setIsLoaded(true), 50);
+    return () => clearTimeout(timer);
+  }, []);
+  
   // Parallax sutil para backgrounds (solo desktop)
   const parallax1 = useParallax(0.15);
   const parallax2 = useParallax(0.25);
   const parallax3 = useParallax(0.2);
-
-  // Scroll al inicio y activar animaciones
-  useEffect(() => {
-    window.scrollTo(0, 0);
-    // Pequeño delay para que el fade-in sea visible
-    const timer = setTimeout(() => setIsLoaded(true), 50);
-    return () => clearTimeout(timer);
-  }, []);
 
   // SEO para Home
   useSEO({

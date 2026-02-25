@@ -17,18 +17,18 @@ const Footer = () => {
 
   return (
     <footer className="w-full bg-[#0a0c12] text-white pt-16 pb-24 lg:pb-12 relative overflow-hidden border-t border-white/5">
-      {/* Elementos decorativos de fondo - Usar filter inline para iOS */}
+      {/* Elementos decorativos de fondo - Más sutiles en mobile */}
       <div 
-        className="absolute top-0 left-1/4 w-96 h-96 bg-blue-600/20 rounded-full pointer-events-none" 
-        style={{ filter: 'blur(30px)' }}
+        className="absolute top-0 left-1/4 w-48 h-48 lg:w-96 lg:h-96 bg-blue-600/10 lg:bg-blue-600/20 rounded-full pointer-events-none" 
+        style={{ filter: 'blur(20px)' }}
       />
       <div 
-        className="absolute bottom-0 right-1/4 w-96 h-96 bg-emerald-600/20 rounded-full pointer-events-none" 
-        style={{ filter: 'blur(30px)' }}
+        className="absolute bottom-0 right-1/4 w-48 h-48 lg:w-96 lg:h-96 bg-emerald-600/10 lg:bg-emerald-600/20 rounded-full pointer-events-none" 
+        style={{ filter: 'blur(20px)' }}
       />
       <div 
-        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-purple-600/12 rounded-full pointer-events-none" 
-        style={{ filter: 'blur(25px)' }}
+        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-32 h-32 lg:w-64 lg:h-64 bg-purple-600/8 lg:bg-purple-600/12 rounded-full pointer-events-none" 
+        style={{ filter: 'blur(15px)' }}
       />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 relative z-10">
@@ -280,21 +280,22 @@ const Footer = () => {
           </div>
         </div>
 
-        {/* Footer Bottom Mejorado */}
-        <div className="mt-4 pt-8 border-t border-white/10 flex flex-col lg:flex-row justify-between items-center gap-6">
-          <div className="flex items-center gap-3 ">
-
-            <div className="w-10 h-[2px] bg-gradient-to-r from-transparent via-blue-500 to-transparent " />
-            <p className="text-[11px] font-bold text-gray-500 uppercase tracking-[0.2em]">
+        {/* Footer Bottom Responsive */}
+        <div className="mt-4 pt-8 border-t border-white/10 flex flex-col lg:flex-row justify-between items-center gap-4 lg:gap-6">
+          {/* Copyright - Responsive */}
+          <div className="flex items-center gap-2 lg:gap-3 flex-wrap justify-center lg:justify-start">
+            <div className="hidden sm:block w-6 lg:w-10 h-[2px] bg-gradient-to-r from-transparent via-blue-500 to-transparent" />
+            <p className="text-[10px] sm:text-[11px] font-bold text-gray-500 uppercase tracking-[0.15em] sm:tracking-[0.2em] text-center lg:text-left">
               © 2025 ElectroShock · Buenos Aires, Argentina
             </p>
-            <div className="w-10 h-[2px] bg-gradient-to-r from-transparent via-blue-500 to-transparent" />
+            <div className="hidden sm:block w-6 lg:w-10 h-[2px] bg-gradient-to-r from-transparent via-blue-500 to-transparent" />
           </div>
           
-          <div className="flex items-center gap-4 ">
-            <span className="text-[15px] font-bold text-gray-600 uppercase tracking-wider">Desarrollado por</span>
-            <div className="px-5 py-2.5 bg-gradient-to-r from-blue-600/20 to-purple-600/20 rounded-xl border border-white/20 shadow-lg">
-               <span className="text-lg font-black bg-gradient-to-r from-blue-400 via-purple-400 to-blue-400 bg-clip-text text-transparent">JLdev Studio</span>
+          {/* Desarrollado por - Responsive */}
+          <div className="flex flex-col sm:flex-row items-center gap-2 sm:gap-3 lg:gap-4">
+            <span className="text-xs sm:text-sm lg:text-[15px] font-bold text-gray-600 uppercase tracking-wider">Desarrollado por</span>
+            <div className="px-4 py-2 sm:px-5 sm:py-2.5 bg-gradient-to-r from-blue-600/20 to-purple-600/20 rounded-xl border border-white/20 shadow-lg">
+               <span className="text-base sm:text-lg font-black bg-gradient-to-r from-blue-400 via-purple-400 to-blue-400 bg-clip-text text-transparent">JLdev Studio</span>
             </div>
           </div>
         </div>

@@ -17,15 +17,15 @@
 // CONSTANTES
 // ─────────────────────────────────────────────────────────────────────────────
 
-/** Jerarquía de form factors (cuánto cabe dentro de cuánto) */
+/** Jerarquía de form factors (mayor número = más grande) */
 const FORM_FACTOR_HIERARCHY = {
-  'E-ATX': 4,
-  'ATX': 3,
-  'MATX': 2,
-  'M-ATX': 2,
-  'MICRO-ATX': 2,
+  'MINIITX': 1,
   'ITX': 1,
-  'MINI-ITX': 1,
+  'MICROATX': 2,
+  'MATX': 2,
+  'ATX': 3,
+  'EATX': 4,
+  'EXTENDEDATX': 4,
 };
 
 /** Factor de seguridad de picos por rango de GPU */
@@ -121,8 +121,17 @@ function getRAMFormat(p) {
     'specifications.formato', 'specifications.formatoMemoriaRAM',
     'specs.formato',
   ));
-  if (!raw) return 'DIMM';
-  if (raw.includes('SODIMM') || raw.includes('SO-DIMM') || raw.includes('SODIMM')) return 'SODIMM';
+  
+  // Fallback: buscar SODIMM en el nombre del producto
+  const nameHasSODIMM = p.name && norm(p.name).includes('SODIMM');
+  
+  if (!raw && !nameHasSODIMM) return 'DIMM';
+  
+  // Normalizado ya está en mayúsculas sin espacios
+  if ((raw && (raw.includes('SODIMM') || raw.includes('SO-DIMM'))) || nameHasSODIMM) {
+    return 'SODIMM';
+  }
+  
   return 'DIMM';
 }
 
@@ -476,7 +485,7 @@ function validateRAM(pcBuild, ram) {
   // — Formato SODIMM (para laptop) —
   if (ramFormat === 'SODIMM') {
     compatible = false;
-    messages.push(MSG.err('Módulo SO-DIMM: diseñado para laptops, no compatible con PC de escritorio'));
+    messages.push(MSG.err('Solo para notebooks'));
     return { compatible, messages };
   }
 
@@ -786,6 +795,9 @@ export function checkCompatibility(pcBuild, candidateProduct, category) {
     if (hasErrors)        status = 'red';
     else if (hasWarnings) status = 'yellow';
     else if (hasOk)       status = 'green';
+  } else {
+    // Even without components, show errors (like SODIMM) as red
+    if (hasErrors) status = 'red';
   }
 
   return {

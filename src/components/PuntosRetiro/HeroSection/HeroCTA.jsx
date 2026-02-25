@@ -4,9 +4,7 @@ const HeroCTA = () => {
       <button 
         className="hero-cta-button relative w-full sm:w-auto px-8 py-4 lg:py-3.5 lg:px-7 font-black text-sm sm:text-base lg:text-sm uppercase tracking-wider text-black overflow-hidden border-none cursor-pointer transition-all duration-200"
         style={{
-          background: 'linear-gradient(135deg, #60a5fa, #3b82f6)',
-          clipPath: 'polygon(12px 0%, 100% 0%, calc(100% - 12px) 100%, 0% 100%)',
-          boxShadow: '4px 4px 0 #1e3a8a'
+          clipPath: 'polygon(12px 0%, 100% 0%, calc(100% - 12px) 100%, 0% 100%)'
         }}
       >
         <span className="relative z-10">VER PUNTOS DE RETIRO →</span>

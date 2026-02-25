@@ -10,20 +10,8 @@ const HeroIcon3D = () => {
       height: 'clamp(300px, 28vw, 450px)' 
     }}>
       {/* Background layers */}
-      <div 
-        className="absolute inset-[10%] border transform rotate-[3deg]"
-        style={{
-          background: 'linear-gradient(135deg, rgba(59,130,246,0.08) 0%, rgba(139,92,246,0.06) 100%)',
-          borderColor: 'rgba(59,130,246,0.15)'
-        }}
-      />
-      <div 
-        className="absolute inset-[10%] border transform -rotate-[2deg]"
-        style={{
-          background: 'linear-gradient(135deg, rgba(59,130,246,0.05) 0%, rgba(139,92,246,0.04) 100%)',
-          borderColor: 'rgba(59,130,246,0.08)'
-        }}
-      />
+      <div className="hero-icon-bg-1 absolute inset-[10%] border transform rotate-[3deg]" />
+      <div className="hero-icon-bg-2 absolute inset-[10%] border transform -rotate-[2deg]" />
       
       {/* Icon container */}
       <div className="absolute inset-0 z-10 flex items-center justify-center p-6 sm:p-8">
@@ -55,10 +43,8 @@ const HeroIcon3D = () => {
 
       {/* Label */}
       <div 
-        className="hero-icon-label absolute -bottom-4 left-1/2 -translate-x-1/2 whitespace-nowrap text-xs font-black uppercase tracking-widest text-blue-300 px-3 py-1 z-20 border"
+        className="hero-icon-label absolute -bottom-4 left-1/2 -translate-x-1/2 whitespace-nowrap text-xs font-black uppercase tracking-widest text-blue-300 px-3 py-1 z-20 border border-blue-500/30 bg-black/90"
         style={{
-          background: 'rgba(0,0,0,0.9)',
-          borderColor: 'rgba(59,130,246,0.3)',
           clipPath: 'polygon(6px 0%, 100% 0%, calc(100% - 6px) 100%, 0% 100%)'
         }}
       >

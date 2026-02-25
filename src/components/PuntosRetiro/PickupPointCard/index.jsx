@@ -11,13 +11,7 @@ import MapButton from './MapButton';
 const PickupPointCard = memo(({ point }) => {
   return (
     <div className="h-full font-sans">
-      <div 
-        className="ppc-card relative h-full flex flex-col rounded-2xl sm:rounded-3xl border overflow-hidden shadow-2xl"
-        style={{
-          background: 'linear-gradient(160deg, #0f1923 0%, #111827 50%, #0d1520 100%)',
-          borderColor: 'rgba(255,255,255,0.08)',
-        }}
-      >
+      <div className="ppc-card pickup-card-bg relative h-full flex flex-col rounded-2xl sm:rounded-3xl border border-white/[0.08] overflow-hidden shadow-2xl">
         {/* Background elements */}
         <CardBackground pointId={point.id} />
 
