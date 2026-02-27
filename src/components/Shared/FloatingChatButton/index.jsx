@@ -1,10 +1,11 @@
-import { useState, useEffect, useRef } from 'react';
+﻿import { useState, useEffect, useRef } from 'react';
 import { useLocation } from 'react-router-dom';
 import Portal from '../Portal';
 import MainButton from './MainButton';
 import ExpandedMenu from './ExpandedMenu';
 import ConditionsModal from './ConditionsModal';
 import FloatingParticles from './FloatingParticles';
+
 import { useVisualViewport } from '../../../hooks/useVisualViewport';
 
 /**

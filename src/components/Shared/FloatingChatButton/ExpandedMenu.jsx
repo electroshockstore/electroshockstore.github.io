@@ -22,8 +22,9 @@ const ExpandedMenu = ({ onWhatsAppClick, onConditionsClick }) => {
   };
 
   return (
-    <div className="fcb-menu-wrapper">
-      <div className="fcb-panel">
+    <div className="fcb-expanded-container">
+      <div className="fcb-menu-wrapper">
+        <div className="fcb-panel">
         {/* Header decorativo animado */}
         <MenuHeader />
 
@@ -69,6 +70,7 @@ const ExpandedMenu = ({ onWhatsAppClick, onConditionsClick }) => {
           <Send className="fcb-arrow" size={16} strokeWidth={2.5} />
         </button>
       </div>
+    </div>
     </div>
   );
 };
