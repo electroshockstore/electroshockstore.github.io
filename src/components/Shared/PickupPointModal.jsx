@@ -11,12 +11,22 @@ const PickupPointModal = memo(({ isOpen, onClose, onSelectPoint, selectedPoint }
   // Bloquear scroll cuando modal está abierto
   useEffect(() => {
     if (isOpen) {
-      document.documentElement.style.overflow = 'hidden';
+      // Guardar el scroll actual
+      const scrollY = window.scrollY;
+      
+      // Bloquear scroll
+      document.body.style.position = 'fixed';
+      document.body.style.top = `-${scrollY}px`;
+      document.body.style.width = '100%';
       document.body.style.overflow = 'hidden';
       
       return () => {
-        document.documentElement.style.overflow = '';
+        // Restaurar scroll
+        document.body.style.position = '';
+        document.body.style.top = '';
+        document.body.style.width = '';
         document.body.style.overflow = '';
+        window.scrollTo(0, scrollY);
       };
     }
   }, [isOpen]);

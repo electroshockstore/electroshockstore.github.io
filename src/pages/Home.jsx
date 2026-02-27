@@ -3,7 +3,6 @@ import { useState, useEffect } from 'react';
 import { useScrollToTop } from '../hooks/useScrollToTop';
 import Header from '../components/Shared/Header';
 import Footer from '../components/Shared/Footer';
-import ScrollButton from '../components/Shared/ScrollButton';
 import HeroCarousel from '../components/Home/HeroCarousel';
 import PCBuilderSection from '../components/Home/PCBuilderSection';
 import CategoryProductSection from '../components/Home/CategoryProductSection';
@@ -68,9 +67,9 @@ const Home = () => {
     <div className="min-h-screen w-full flex flex-col relative">
       {/* Background Gradients - Solo desktop */}
       <div className="fixed inset-0 -z-10 bg-[#0a0a0f]">
-        {/* Wrapper interno para contener los gradientes sin afectar fixed children */}
-        <div className="absolute inset-0 overflow-hidden">
-          <div className="hidden md:block absolute inset-0">
+        {/* Wrapper interno para contener los gradientes */}
+        <div className="absolute inset-0">
+          <div className="hidden md:block absolute inset-0 overflow-hidden">
             {/* Gradient 1 */}
             <div 
               className="absolute w-1/2 h-1/2 bg-blue-900/10 rounded-full blur-3xl top-0 left-0" 
@@ -155,7 +154,6 @@ const Home = () => {
       </main>
 
       <Footer />
-      <ScrollButton />
     </div>
   );
 };

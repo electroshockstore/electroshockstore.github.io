@@ -1,6 +1,5 @@
 import { useState, useMemo, useEffect, useRef } from 'react';
 import Header from '../../Shared/Header';
-import ScrollButton from '../../Shared/ScrollButton';
 import { X } from 'lucide-react';
 
 import CategorySidebar from './CategorySidebar';
@@ -206,8 +205,6 @@ const ManualMode = ({ onGoHome }) => {
           </div>
         )}
       </main>
-      
-      <ScrollButton />
     </div>
   );
 };

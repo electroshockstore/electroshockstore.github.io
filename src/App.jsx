@@ -9,6 +9,7 @@ import SkipToContent from "./components/SEO/SkipToContent";
 import ModernLoader from "./components/Shared/ModernLoader";
 import ScrollToTop from "./components/Shared/ScrollToTop";
 import FloatingChatButton from "./components/Shared/FloatingChatButton";
+import ScrollButton from "./components/Shared/ScrollButton";
 import useIOSDetection from "./hooks/useIOSDetection";
 import { usePerformanceOptimization } from "./hooks/usePerformanceOptimization";
 
@@ -74,8 +75,9 @@ function AppContent() {
         <AnimatedRoutes />
       </main>
 
-      {/* Botón flotante de WhatsApp - Nivel más alto para evitar problemas de z-index */}
+      {/* Botones flotantes globales - Nivel más alto para evitar problemas de z-index */}
       <FloatingChatButton />
+      <ScrollButton />
     </div>
   );
 }

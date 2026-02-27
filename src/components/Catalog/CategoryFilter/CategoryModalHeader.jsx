@@ -3,7 +3,7 @@ import { Grid3X3, X } from 'lucide-react';
 const CategoryModalHeader = ({ onClose, categoriesCount }) => {
   return (
     <div 
-      className="flex-shrink-0 px-4 py-4 flex items-center justify-between border-b"
+      className="flex-shrink-0 px-4 py-4 flex items-center justify-between border-b relative overflow-hidden"
       style={{
         background: 'linear-gradient(to bottom right, rgb(17, 24, 39), rgb(31, 41, 55), rgb(17, 24, 39))',
         borderColor: 'rgba(255, 255, 255, 0.1)'

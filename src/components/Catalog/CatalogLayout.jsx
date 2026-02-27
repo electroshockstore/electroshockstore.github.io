@@ -1,6 +1,5 @@
 import Header from '../Shared/Header';
 import Footer from '../Shared/Footer';
-import ScrollButton from '../Shared/ScrollButton';
 
 const CatalogLayout = ({ children, searchQuery, onSearchChange, onGoHome }) => {
   return (
@@ -19,7 +18,6 @@ const CatalogLayout = ({ children, searchQuery, onSearchChange, onGoHome }) => {
         </main>
 
         <Footer />
-        <ScrollButton />
       </div>
     </div>
   );

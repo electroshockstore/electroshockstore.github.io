@@ -4,7 +4,6 @@ import { useProducts } from '../hooks/useProducts';
 import Header from '../components/Shared/Header';
 import ProductDetail from '../components/Catalog/ProductDetail/index';
 import Footer from '../components/Shared/Footer';
-import ScrollButton from '../components/Shared/ScrollButton';
 import CategoryFilter from '../components/Catalog/CategoryFilter';
 import { useFilter } from '../context/FilterContext';
 import { generateSKU, getSlugFromCategory } from '../utils/slugify';
@@ -93,7 +92,6 @@ const ProductDetailPage = () => {
           </div>
         </div>
         <Footer />
-        <ScrollButton />
       </div>
     );
   }
@@ -111,7 +109,6 @@ const ProductDetailPage = () => {
         <ProductDetail product={product} onClose={handleClose} isPage={true} />
       </main>
       <Footer />
-      <ScrollButton />
     </div>
   );
 };

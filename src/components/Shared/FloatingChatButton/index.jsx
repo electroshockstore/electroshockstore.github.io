@@ -74,33 +74,35 @@ const FloatingChatButton = () => {
       />
 
       <Portal>
-        {/* Backdrop sin blur cuando está expandido - backdrop-blur crea containing block */}
+        {/* Backdrop más oscuro cuando está expandido */}
         {isExpanded && (
           <div
-            className="fixed inset-0 bg-black/70 z-[99998] animate-in fade-in duration-300"
+            className="fixed inset-0 bg-black/85 z-[99998] animate-in fade-in duration-300"
             onClick={closeMenu}
           />
         )}
 
         <div ref={containerRef} className={isPCBuilderPage ? 'floating-button-fixed-right' : 'floating-button-fixed'}>
-          {/* Menú Expandido */}
-          {isExpanded && (
-            <ExpandedMenu 
-              onWhatsAppClick={closeMenu}
-              onConditionsClick={openConditionsModal}
+          <div style={{ position: 'relative' }}>
+            {/* Menú Expandido */}
+            {isExpanded && (
+              <ExpandedMenu 
+                onWhatsAppClick={closeMenu}
+                onConditionsClick={openConditionsModal}
+              />
+            )}
+
+            {/* Botón Principal */}
+            <MainButton
+              isExpanded={isExpanded}
+              showButton={showButton}
+              showHint={showHint}
+              onClick={toggleExpanded}
             />
-          )}
 
-          {/* Botón Principal */}
-          <MainButton
-            isExpanded={isExpanded}
-            showButton={showButton}
-            showHint={showHint}
-            onClick={toggleExpanded}
-          />
-
-          {/* Partículas flotantes */}
-          {!isExpanded && showButton && <FloatingParticles />}
+            {/* Partículas flotantes */}
+            {!isExpanded && showButton && <FloatingParticles />}
+          </div>
         </div>
       </Portal>
     </>

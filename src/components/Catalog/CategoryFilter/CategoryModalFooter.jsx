@@ -1,7 +1,7 @@
 const CategoryModalFooter = () => {
   return (
     <div 
-      className="flex-shrink-0 px-4 py-4 border-t"
+      className="flex-shrink-0 px-4 py-4 border-t relative overflow-hidden"
       style={{
         background: 'linear-gradient(to top, rgb(17, 24, 39), rgb(31, 41, 55), rgb(17, 24, 39))',
         borderColor: 'rgba(255, 255, 255, 0.1)'

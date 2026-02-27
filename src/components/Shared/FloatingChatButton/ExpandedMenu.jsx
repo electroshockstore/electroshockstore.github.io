@@ -30,7 +30,7 @@ const ExpandedMenu = ({ onWhatsAppClick, onConditionsClick }) => {
         {/* WhatsApp */}
         <button className="fcb-card fcb-card--green" onClick={handleWhatsApp}>
           <div className="fcb-icon-wrap fcb-icon-wrap--green">
-            <WhatsAppIcon className="w-5 h-5 sm:w-[18px] sm:h-[18px]" />
+            <WhatsAppIcon className="w-5 h-5 sm:w-[18px] sm:h-[18px]" color="#00e676" strokeWidth={2.5} />
           </div>
           <div className="flex-1 min-w-0">
             <div className="fcb-card-label">Atención Directa</div>
@@ -51,7 +51,7 @@ const ExpandedMenu = ({ onWhatsAppClick, onConditionsClick }) => {
             <div className="fcb-card-title">Puntos de Retiro</div>
             <div className="fcb-card-sub">Ver ubicaciones y horarios</div>
           </div>
-          <span className="fcb-badge">NUEVO</span>
+          <span className="fcb-badge">IMPORTANTE</span>
           <Send className="fcb-arrow" size={16} strokeWidth={2.5} />
         </button>
 
