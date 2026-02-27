@@ -64,7 +64,7 @@ const Home = () => {
   };
 
   return (
-    <div className="min-h-screen w-full flex flex-col relative">
+    <div className="min-h-screen w-full flex flex-col relative overflow-x-hidden">
       {/* Background Gradients - Solo desktop */}
       <div className="fixed inset-0 -z-10 bg-[#0a0a0f]">
         {/* Wrapper interno para contener los gradientes */}
@@ -92,7 +92,7 @@ const Home = () => {
         onGoHome={handleGoHome}
       />
 
-      <main className="flex-1 w-full flex flex-col relative">
+      <main className="flex-1 w-full flex flex-col relative overflow-x-hidden">
         <div className="w-full flex-1 flex flex-col">
           {/* CategoryFilter - Solo Desktop con fade-in */}
           <div className={`hidden sm:block px-3 sm:px-4 py-3 sm:py-4 bg-[#0a0a0f] transition-opacity duration-500 ${isLoaded ? 'opacity-100' : 'opacity-0'}`}>
