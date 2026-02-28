@@ -757,6 +757,24 @@
       ]
     ]
   },
+  "316": {
+    "name": "Intel Core i3-10100F sin gráfica integrada",
+    "h": [
+      [
+        1772245430788,
+        95000
+      ]
+    ]
+  },
+  "317": {
+    "name": "Intel Core i7-12700KF sin gráfica integrada",
+    "h": [
+      [
+        1772245430788,
+        410000
+      ]
+    ]
+  },
   "400": {
     "name": "Kingston Fury Beast DDR5 16GB 5600MHz CL40 EXPO/XMP",
     "h": [
@@ -1265,6 +1283,42 @@
       ]
     ]
   },
+  "511": {
+    "name": "Redragon King Pro Blanco/Negro M916-Pro inalámbrico",
+    "h": [
+      [
+        1772245430788,
+        45000
+      ]
+    ]
+  },
+  "512": {
+    "name": "Redragon Centrophorus2 M601-RGB Black",
+    "h": [
+      [
+        1772245430788,
+        23000
+      ]
+    ]
+  },
+  "513": {
+    "name": "Redragon Mirage M690 inalámbrico RGB",
+    "h": [
+      [
+        1772245430788,
+        50000
+      ]
+    ]
+  },
+  "514": {
+    "name": "Redragon M917GB St4r Pro inalámbrico RGB",
+    "h": [
+      [
+        1772245430788,
+        40000
+      ]
+    ]
+  },
   "600": {
     "name": "ASUS TUF Gaming A620M-PLUS WiFi AM5",
     "h": [
@@ -1364,6 +1418,15 @@
       [
         1768571377217,
         180000
+      ]
+    ]
+  },
+  "697": {
+    "name": "Combo 4 En 1 Redragon S147 RGB",
+    "h": [
+      [
+        1772245430788,
+        45000
       ]
     ]
   },
@@ -1800,6 +1863,33 @@
       ]
     ]
   },
+  "817": {
+    "name": "PlayStation Pulse 3D CFI-ZWH1 inalámbricos",
+    "h": [
+      [
+        1772245430788,
+        200000
+      ]
+    ]
+  },
+  "818": {
+    "name": "Thermaltake Pulse G100 RGB",
+    "h": [
+      [
+        1772245430788,
+        40000
+      ]
+    ]
+  },
+  "819": {
+    "name": "Razer Kraken X Lite 7.1",
+    "h": [
+      [
+        1772245430788,
+        80000
+      ]
+    ]
+  },
   "900": {
     "name": "Cámara Web HD Logitech C505",
     "h": [
@@ -1900,6 +1990,15 @@
       [
         1770391978456,
         30000
+      ]
+    ]
+  },
+  "911": {
+    "name": "Adaptador Wifi TP-Link AC1300 T4U USB 3.0",
+    "h": [
+      [
+        1772245430788,
+        25000
       ]
     ]
   },
