@@ -1,6 +1,38 @@
 {
   "products": [
     {
+      "id": 697,
+      "name": "Combo 4 En 1 Redragon S147 RGB",
+      "brand": "Redragon",
+      "model": "S147",
+      "category": "Teclados",
+      "price": 45000,
+      "stock": 8,
+      "featured": true,
+      "sku": "RDG-S147",
+      "description": "Combo 4 en 1 Redragon S147 RGB: Teclado + Mouse + Auriculares + Mousepad",
+      "images": [
+        "/images/teclados/rg_combos147.webp",
+        "/images/teclados/rg_combos147_side.webp",
+        "/images/teclados/rg_combos147_side2.webp"
+      ],
+      "specifications": {
+        "Marca": "Redragon",
+        "Modelo": "S147",
+        "formato": "Combo 4 en 1",
+        "Contenido": "Teclado + Mouse + Auriculares + Mousepad",
+        "Modelo del teclado": "Shiva K515",
+        "Tecnología": "Membrana",
+        "Arquitectura": "Membrana",
+        "Retroiluminación teclado": "RGB",
+        "Modelo del mouse": "K1ng M724",
+        "DPI mouse": "Hasta 7200 DPI",
+        "Auriculares": "Con micrófono integrado",
+        "tipoConectividad": "Alámbrico",
+        "Compatibilidad": "PC"
+      }
+    },
+    {
       "id": 698,
       "name": "Redragon Kumara K552W RGB Blanco",
       "brand": "Redragon",

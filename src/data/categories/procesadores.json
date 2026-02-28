@@ -405,8 +405,8 @@
       "brand": "Intel",
       "model": "i3-10100F",
       "category": "Procesadores",
-      "price": 85000,
-      "stock": 5,
+      "price": 95000,
+      "stock": 1,
       "realPowerConsumption": "65W (TDP)",
       "manufacturerUrl": "https://www.intel.com/",
       "images": [
@@ -441,8 +441,8 @@
       "brand": "Intel",
       "model": "i7-12700KF",
       "category": "Procesadores",
-      "price": 380000,
-      "stock": 2,
+      "price": 410000,
+      "stock": 1,
       "realPowerConsumption": "125W (TDP)",
       "manufacturerUrl": "https://www.intel.com/",
       "images": [
