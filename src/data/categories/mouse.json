@@ -252,7 +252,7 @@
       "category": "Mouse",
       "manufacturerUrl": "https://www.redragonzone.com/collections/",
       "price": 20000,
-      "stock": 2,
+      "stock": 4,
       "images": [
         "/images/mouse/RDG_gainer.webp",
         "/images/mouse/RDG_gainer_side.webp",
@@ -289,7 +289,7 @@
       "category": "Mouse",
       "manufacturerUrl": "https://www.redragonzone.com/collections/",
       "price": 20000,
-      "stock": 1,
+      "stock": 5,
       "images": [
         "/images/mouse/rg_king1k.webp",
         "/images/mouse/rg_king1k_front.webp",
@@ -383,7 +383,7 @@
       "category": "Mouse",
       "manufacturerUrl": "https://www.redragonzone.com/collections/",
       "price": 15000,
-      "stock": 2,
+      "stock": 4,
       "images": [
         "/images/mouse/rg_griffin.webp",
         "/images/mouse/rg_griffin_side.webp",
@@ -461,13 +461,13 @@
     },
     {
       "id": 511,
-      "name": "Redragon King Pro Blanco M916-Pro inalámbrico",
+      "name": "Redragon King Pro Blanco/Negro M916-Pro inalámbrico",
       "brand": "Redragon",
       "model": "M916-Pro",
       "category": "Mouse",
       "manufacturerUrl": "https://www.redragonzone.com/collections/",
-      "price": 55000,
-      "stock": 3,
+      "price": 45000,
+      "stock": 4,
       "images": [
         "/images/mouse/rd_kingpro.webp",
         "/images/mouse/rd_kingpro_side.webp",
@@ -501,8 +501,8 @@
       "model": "M601-RGB",
       "category": "Mouse",
       "manufacturerUrl": "https://www.redragonzone.com/collections/",
-      "price": 22000,
-      "stock": 5,
+      "price": 23000,
+      "stock": 2,
       "images": [
         "/images/mouse/rg_centrophorus2.webp",
         "/images/mouse/rg_centrophorus2_side.webp",
@@ -532,8 +532,8 @@
       "model": "M690",
       "category": "Mouse",
       "manufacturerUrl": "https://www.redragonzone.com/collections/",
-      "price": 38000,
-      "stock": 4,
+      "price": 50000,
+      "stock": 2,
       "images": [
         "/images/mouse/rg_mirage.webp",
         "/images/mouse/rg_mirage_side.webp",
@@ -562,7 +562,7 @@
       "model": "M917GB-PRO",
       "category": "Mouse",
       "manufacturerUrl": "https://www.redragonzone.com/collections/",
-      "price": 58000,
+      "price": 40000,
       "stock": 2,
       "images": [
         "/images/mouse/rg_starpro.webp",

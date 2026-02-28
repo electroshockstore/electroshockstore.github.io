@@ -338,14 +338,14 @@
       "brand": "TP-Link",
       "model": "Archer T4U",
       "category": "Conectividad",
-      "price": 0,
-      "stock": 0,
+      "price": 25000,
+      "stock": 4,
       "sku": "TPL-T4U",
       "description": "Adaptador WiFi USB 3.0 TP-Link Archer T4U AC1300 con doble banda y MU-MIMO",
       "images": [
-        "/images/conectividad/tplink_ac1300.webp",
-        "/images/conectividad/tplink_ac1300_side.webp",
-        "/images/conectividad/tplink_ac1300_side2.webp"
+        "/images/conectividad/tplink_archert4u.webp",
+        "/images/conectividad/tplink_archert4u_side.webp",
+        "/images/conectividad/tplink_archert4u_side2.webp"
       ],
       "specifications": {
         "Marca": "TP-Link",
