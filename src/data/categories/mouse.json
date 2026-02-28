@@ -458,6 +458,162 @@
         "compatibilidadSO": "Windows 7/8/10/11, macOS 10.8+, ChromeOS, Linux 2.6+",
         "receptorNanoUSB": "Sí"
       }
+    },
+    {
+      "id": 511,
+      "name": "Redragon King Pro Blanco M916-Pro inalámbrico",
+      "brand": "Redragon",
+      "model": "M916-Pro",
+      "category": "Mouse",
+      "manufacturerUrl": "https://www.redragonzone.com/collections/",
+      "price": 0,
+      "stock": 0,
+      "images": [
+        "/images/mouse/redragon_king_pro_blanco.webp",
+        "/images/mouse/redragon_king_pro_blanco_side.webp",
+        "/images/mouse/redragon_king_pro_blanco_side2.webp"
+      ],
+      "description": "Mouse gamer inalámbrico Redragon King Pro Blanco M916-Pro con sensor PixArt hasta 26000 DPI",
+      "specifications": {
+        "Marca": "Redragon",
+        "Línea": "M916 Pro",
+        "Modelo": "K1ng M916 Pro",
+        "tipoMemoriaRAM": "Mouse gamer inalámbrico",
+        "tipoConectividad": "Inalámbrico",
+        "Sensor": "Óptico PixArt",
+        "DPI": "Hasta 26000 DPI (ajustable)",
+        "cantidadBotones": "7",
+        "botonesProgramables": "7",
+        "rgb": "Sí",
+        "tipoRGB": "RGB configurable",
+        "pollingRate": "1000 Hz",
+        "switches": "Mecánicos de alta durabilidad",
+        "autonomia": "Hasta 70 horas aprox.",
+        "bateria": "Recargable integrada",
+        "peso": "Aprox. 49-55 g",
+        "Color": "Blanco"
+      }
+    },
+    {
+      "id": 512,
+      "name": "Redragon Centrophorus2 M601-RGB Black",
+      "brand": "Redragon",
+      "model": "M601-RGB",
+      "category": "Mouse",
+      "manufacturerUrl": "https://www.redragonzone.com/collections/",
+      "price": 0,
+      "stock": 0,
+      "images": [
+        "/images/mouse/redragon_centrophorus2.webp",
+        "/images/mouse/redragon_centrophorus2_side.webp",
+        "/images/mouse/redragon_centrophorus2_side2.webp"
+      ],
+      "description": "Mouse gamer cableado Redragon Centrophorus2 M601-RGB con sensor óptico hasta 7200 DPI y peso ajustable",
+      "specifications": {
+        "Marca": "Redragon",
+        "Línea": "Centrophorus",
+        "Modelo": "M601-RGB",
+        "tipoMemoriaRAM": "Mouse gamer con cable",
+        "tipoConectividad": "Alámbrico",
+        "Sensor": "Óptico",
+        "DPI": "Hasta 7200 DPI",
+        "cantidadBotones": "7",
+        "botonesProgramables": "7",
+        "rgb": "Sí",
+        "pollingRate": "1000 Hz",
+        "pesoAjustable": "Sí (sistema de pesas)",
+        "Color": "Negro"
+      }
+    },
+    {
+      "id": 513,
+      "name": "Redragon Mirage M690 inalámbrico RGB",
+      "brand": "Redragon",
+      "model": "M690",
+      "category": "Mouse",
+      "manufacturerUrl": "https://www.redragonzone.com/collections/",
+      "price": 0,
+      "stock": 0,
+      "images": [
+        "/images/mouse/redragon_mirage_m690.webp",
+        "/images/mouse/redragon_mirage_m690_side.webp",
+        "/images/mouse/redragon_mirage_m690_side2.webp"
+      ],
+      "description": "Mouse gamer inalámbrico Redragon Mirage M690 con RGB hasta 8000 DPI y batería recargable",
+      "specifications": {
+        "Marca": "Redragon",
+        "Modelo": "M690",
+        "tipoMemoriaRAM": "Mouse gamer inalámbrico",
+        "tipoConectividad": "Inalámbrico",
+        "DPI": "Hasta 8000 DPI",
+        "cantidadBotones": "7",
+        "botonesProgramables": "7",
+        "rgb": "Sí",
+        "bateria": "Recargable",
+        "autonomia": "Hasta 30 horas",
+        "Compatibilidad": "PC",
+        "Color": "Negro"
+      }
+    },
+    {
+      "id": 514,
+      "name": "Redragon M917GB St4r Pro inalámbrico RGB",
+      "brand": "Redragon",
+      "model": "M917GB-PRO",
+      "category": "Mouse",
+      "manufacturerUrl": "https://www.redragonzone.com/collections/",
+      "price": 0,
+      "stock": 0,
+      "images": [
+        "/images/mouse/redragon_st4r_pro.webp",
+        "/images/mouse/redragon_st4r_pro_side.webp",
+        "/images/mouse/redragon_st4r_pro_side2.webp"
+      ],
+      "description": "Mouse gamer inalámbrico Redragon St4r Pro M917GB-PRO con sensor óptico hasta 26000 DPI",
+      "specifications": {
+        "Marca": "Redragon",
+        "Modelo": "M917GB-PRO",
+        "tipoMemoriaRAM": "Mouse gamer inalámbrico",
+        "tipoConectividad": "Inalámbrico",
+        "Sensor": "Óptico de alta precisión",
+        "DPI": "Hasta 26000 DPI",
+        "cantidadBotones": "7",
+        "botonesProgramables": "7",
+        "rgb": "Sí",
+        "pollingRate": "1000 Hz",
+        "bateria": "Recargable",
+        "Compatibilidad": "PC",
+        "Color": "Negro"
+      }
+    },
+    {
+      "id": 515,
+      "name": "Combo 4 En 1 Redragon S147 RGB",
+      "brand": "Redragon",
+      "model": "S147",
+      "category": "Mouse",
+      "manufacturerUrl": "https://www.redragonzone.com/collections/",
+      "price": 0,
+      "stock": 0,
+      "images": [
+        "/images/mouse/redragon_combo_s147.webp",
+        "/images/mouse/redragon_combo_s147_side.webp",
+        "/images/mouse/redragon_combo_s147_side2.webp"
+      ],
+      "description": "Combo 4 en 1 Redragon S147 RGB: Teclado + Mouse + Auriculares + Mousepad",
+      "specifications": {
+        "Marca": "Redragon",
+        "Modelo": "S147",
+        "Contenido": "Teclado + Mouse + Auriculares + Mousepad",
+        "Modelo del teclado": "Shiva K515",
+        "Tipo de teclado": "Membrana",
+        "Retroiluminación teclado": "RGB",
+        "Modelo del mouse": "K1ng M724",
+        "DPI mouse": "Hasta 7200 DPI",
+        "Auriculares": "Con micrófono integrado",
+        "tipoConectividad": "Alámbrico",
+        "Compatibilidad": "PC"
+      }
     }
   ]
 }

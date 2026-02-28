@@ -398,6 +398,79 @@
         "graficosIntegrados": "Radeon Vega 3"
       },
       "ddrType": "DDR4"
+    },
+    {
+      "id": 316,
+      "name": "Intel Core i3-10100F sin gráfica integrada",
+      "brand": "Intel",
+      "model": "i3-10100F",
+      "category": "Procesadores",
+      "price": 0,
+      "stock": 0,
+      "realPowerConsumption": "65W (TDP)",
+      "manufacturerUrl": "https://www.intel.com/",
+      "images": [
+        "/images/procesadores/i3_10100f.webp",
+        "/images/procesadores/i3_10100f_side.webp",
+        "/images/procesadores/i3_10100f_side3.webp"
+      ],
+      "description": "Procesador Intel Core i3-10100F 4 núcleos, 8 hilos, hasta 4.3GHz sin gráfica integrada",
+      "specifications": {
+        "Marca": "Intel",
+        "Línea": "Core i3",
+        "Modelo": "i3-10100F",
+        "Modelo alfanumérico": "BX8070110100F",
+        "Arquitectura": "Comet Lake (14nm)",
+        "Socket": "FCLGA1200",
+        "Núcleos": "4",
+        "hilos": "8",
+        "Frecuencia base": "3.6 GHz",
+        "Frecuencia turbo": "4.3 GHz",
+        "Caché": "6 MB Intel Smart Cache",
+        "TDP": "65 W",
+        "Memoria soportada": "DDR4-2666",
+        "Canales de memoria": "2",
+        "graficosIntegrados": "No",
+        "Año de lanzamiento": "2020"
+      },
+      "ddrType": "DDR4"
+    },
+    {
+      "id": 317,
+      "name": "Intel Core i7-12700KF sin gráfica integrada",
+      "brand": "Intel",
+      "model": "i7-12700KF",
+      "category": "Procesadores",
+      "price": 0,
+      "stock": 0,
+      "realPowerConsumption": "125W (TDP)",
+      "manufacturerUrl": "https://www.intel.com/",
+      "images": [
+        "/images/procesadores/i7_12700kf.webp",
+        "/images/procesadores/i7_12700kf_side.webp",
+        "/images/procesadores/i7_12700kf_side3.webp"
+      ],
+      "description": "Procesador Intel Core i7-12700KF 12 núcleos (8P+4E), 20 hilos, hasta 5.0GHz desbloqueado",
+      "specifications": {
+        "Marca": "Intel",
+        "Línea": "Core i7",
+        "Modelo": "i7-12700KF",
+        "Modelo alfanumérico": "BX8071512700KF",
+        "Arquitectura": "Alder Lake (Intel 7)",
+        "Socket": "FCLGA1700",
+        "Núcleos": "12 (8 Performance + 4 Efficient)",
+        "hilos": "20",
+        "Frecuencia base": "3.6 GHz (P-core)",
+        "Frecuencia turbo": "Hasta 5.0 GHz",
+        "Caché": "25 MB Intel Smart Cache",
+        "TDP": "125 W",
+        "Memoria soportada": "DDR4-3200 / DDR5-4800",
+        "Canales de memoria": "2",
+        "Desbloqueado para overclock": "Sí",
+        "graficosIntegrados": "No",
+        "Año de lanzamiento": "2021"
+      },
+      "ddrType": "DDR4/DDR5"
     }
   ]
 }
