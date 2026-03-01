@@ -60,7 +60,7 @@ export const FILTER_KEY_ALIASES = {
   
   // Conectividad
   'conectividad': 'Conectividad',
-  'tipoConectividad': 'Conectividad',
+  'tipoConectividad': 'Tipo de conexión',
   
   // Sensor
   'tipoSensor': 'Sensor',
