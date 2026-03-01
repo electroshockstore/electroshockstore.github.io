@@ -1,11 +1,11 @@
 import { useRef } from 'react';
 import { getCategoryImage } from '../../../constants/categoryConfig';
+import { Check, Zap } from 'lucide-react';
 
 const CategoryModalCard = ({ category, index, isSelected, isIOS, onSelect }) => {
   const categoryImage = getCategoryImage(category);
   const isTopImage = index < 4;
-  
-  // Referencias para detectar scroll vs click
+
   const touchStartPos = useRef({ x: 0, y: 0 });
   const touchStartTime = useRef(0);
   const isTouchMoving = useRef(false);
@@ -21,8 +21,6 @@ const CategoryModalCard = ({ category, index, isSelected, isIOS, onSelect }) => 
     const touch = e.touches[0];
     const deltaX = Math.abs(touch.clientX - touchStartPos.current.x);
     const deltaY = Math.abs(touch.clientY - touchStartPos.current.y);
-    
-    // Si se movió más de 10px, es un scroll
     if (deltaX > 10 || deltaY > 10) {
       isTouchMoving.current = true;
     }
@@ -30,16 +28,10 @@ const CategoryModalCard = ({ category, index, isSelected, isIOS, onSelect }) => 
 
   const handleTouchEnd = (e) => {
     const touchDuration = Date.now() - touchStartTime.current;
-    
-    // Solo activar si:
-    // 1. No hubo movimiento significativo (no es scroll)
-    // 2. La duración fue corta (menos de 300ms)
     if (!isTouchMoving.current && touchDuration < 300) {
       e.preventDefault();
       onSelect(category);
     }
-    
-    // Reset
     isTouchMoving.current = false;
   };
 
@@ -53,73 +45,149 @@ const CategoryModalCard = ({ category, index, isSelected, isIOS, onSelect }) => 
       onTouchStart={handleTouchStart}
       onTouchMove={handleTouchMove}
       onTouchEnd={handleTouchEnd}
-      style={{ 
-        animationDelay: `${index * 30}ms`,
+      style={{
+        animationDelay: `${index * 55}ms`,
         WebkitTapHighlightColor: 'transparent',
-        touchAction: 'pan-y', // Permitir scroll vertical
-        ...(isSelected ? { filter: 'drop-shadow(0 0 20px rgba(59, 130, 246, 0.6))' } : {})
+        touchAction: 'pan-y',
+        fontFamily: "'Barlow Condensed', sans-serif",
       }}
       className={`
-        relative overflow-hidden rounded-2xl font-bold
-        transition-all duration-200 ${!isIOS ? 'animate-in fade-in zoom-in-95' : ''}
+        relative overflow-hidden group
+        transition-all duration-200
+        ${!isIOS ? 'animate-in fade-in zoom-in-95' : ''}
         ${isSelected
-          ? 'shadow-[0_8px_24px_rgba(59,130,246,0.5)] scale-[1.05] ring-2 ring-blue-400/80'
-          : 'shadow-[0_8px_24px_rgba(0,0,0,0.3),0_4px_12px_rgba(0,0,0,0.2)] hover:shadow-[0_12px_32px_rgba(0,0,0,0.4),0_6px_16px_rgba(0,0,0,0.25)] active:scale-[0.97] hover:scale-[1.02]'
+          ? 'scale-[1.03]'
+          : 'active:scale-[0.95]'
         }
       `}
     >
-      <div className="relative aspect-[4/3] w-full pointer-events-none">
-        <img
-          src={categoryImage}
-          alt={category}
-          className={`
-            absolute inset-0 w-full h-full object-cover pointer-events-none
-            transition-all duration-200
-            ${isSelected ? 'scale-110 brightness-110' : 'brightness-90 hover:brightness-100'}
-          `}
-          loading={isTopImage ? "eager" : "lazy"}
-          fetchpriority={isTopImage ? "high" : "low"}
-          decoding="async"
-        />
-
-        <div className={`
-          absolute inset-0 bg-gradient-to-t from-black/95 via-black/60 to-transparent pointer-events-none
-          transition-all duration-200
-          ${isSelected ? 'from-blue-900/90 via-black/50' : ''}
-        `} />
-
-        {isSelected && (
-          <div className={`
-            absolute top-3 right-3 bg-gradient-to-r from-blue-500 to-blue-600 text-white 
-            px-3 py-1.5 rounded-full text-xs font-black shadow-xl 
-            ${!isIOS ? 'animate-in zoom-in-50' : ''} 
-            duration-200 flex items-center gap-1.5 border border-white/20 pointer-events-none
-          `}>
-            <div className="w-1.5 h-1.5 rounded-full bg-white" />
-            Activa
-          </div>
-        )}
-
-        <div className="absolute inset-x-0 bottom-0 p-4 flex flex-col items-start gap-1.5 pointer-events-none">
-          <span 
+      {/* Clip-path container for angled corners */}
+      <div
+        style={{
+          clipPath: 'polygon(0 0, calc(100% - 12px) 0, 100% 12px, 100% 100%, 12px 100%, 0 calc(100% - 12px))',
+          position: 'relative',
+        }}
+      >
+        {/* Aspect ratio box */}
+        <div className="relative" style={{ aspectRatio: '4/3' }}>
+          {/* Image */}
+          <img
+            src={categoryImage}
+            alt={category}
             className={`
-              text-white font-black leading-tight drop-shadow-[0_2px_12px_rgba(0,0,0,0.9)]
-              transition-all duration-200
-              ${isSelected ? 'text-xl' : 'text-base'}
+              absolute inset-0 w-full h-full object-cover pointer-events-none
+              transition-all duration-500
+              ${isSelected ? 'scale-110 saturate-150' : 'saturate-50 group-hover:saturate-100 group-hover:scale-105'}
             `}
-            style={isSelected ? { filter: 'drop-shadow(0 2px 8px rgba(59, 130, 246, 0.6))' } : undefined}
-          >
-            {category}
-          </span>
+            loading={isTopImage ? 'eager' : 'lazy'}
+            fetchpriority={isTopImage ? 'high' : 'low'}
+            decoding="async"
+          />
 
-          {!isSelected && (
-            <div className="flex items-center gap-1.5 opacity-90">
-              <div className="w-1 h-1 rounded-full bg-blue-400" />
-              <span className="text-xs text-gray-300 font-semibold">Toca para filtrar</span>
+          {/* Dark overlay */}
+          <div
+            className="absolute inset-0 pointer-events-none transition-all duration-300"
+            style={{
+              background: isSelected
+                ? 'linear-gradient(160deg, rgba(0,0,0,0.1) 0%, rgba(234,88,12,0.5) 60%, rgba(0,0,0,0.85) 100%)'
+                : 'linear-gradient(160deg, rgba(0,0,0,0.2) 0%, rgba(0,0,0,0.4) 50%, rgba(0,0,0,0.9) 100%)',
+            }}
+          />
+
+          {/* Scanlines texture */}
+          <div
+            className="absolute inset-0 pointer-events-none opacity-20"
+            style={{
+              backgroundImage: 'repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(0,0,0,0.3) 2px, rgba(0,0,0,0.3) 4px)',
+            }}
+          />
+
+          {/* Corner accent top-right */}
+          <div
+            className="absolute top-0 right-0 pointer-events-none"
+            style={{
+              width: 0,
+              height: 0,
+              borderStyle: 'solid',
+              borderWidth: '0 22px 22px 0',
+              borderColor: `transparent ${isSelected ? '#ea580c' : '#374151'} transparent transparent`,
+              transition: 'border-color 0.3s',
+            }}
+          />
+
+          {/* Selected badge */}
+          {isSelected && (
+            <div
+              className={`
+                absolute top-2 left-2 flex items-center gap-1
+                px-2 py-1 text-white text-xs font-black tracking-widest uppercase
+                ${!isIOS ? 'animate-in zoom-in-50' : ''}
+              `}
+              style={{
+                background: 'linear-gradient(90deg, #ea580c, #f97316)',
+                clipPath: 'polygon(0 0, calc(100% - 6px) 0, 100% 50%, calc(100% - 6px) 100%, 0 100%)',
+                fontFamily: "'Barlow Condensed', sans-serif",
+                letterSpacing: '0.1em',
+              }}
+            >
+              <Check className="w-3 h-3" strokeWidth={3} />
+              ACTIVA
             </div>
+          )}
+
+          {/* Bottom content */}
+          <div className="absolute inset-x-0 bottom-0 p-3 pointer-events-none">
+            {/* Category name */}
+            <span
+              className={`
+                block text-white font-black leading-none tracking-tight transition-all duration-300
+                ${isSelected ? 'text-lg' : 'text-base'}
+              `}
+              style={{
+                fontFamily: "'Barlow Condensed', sans-serif",
+                textTransform: 'uppercase',
+                letterSpacing: '0.03em',
+                textShadow: '0 2px 8px rgba(0,0,0,1)',
+              }}
+            >
+              {category}
+            </span>
+
+            {/* Tap hint */}
+            {!isSelected && (
+              <div className="flex items-center gap-1 mt-1 opacity-70 group-hover:opacity-100 transition-opacity">
+                <Zap className="w-2.5 h-2.5 text-orange-400" fill="#f97316" />
+                <span
+                  className="text-orange-300 text-xs font-bold tracking-widest uppercase"
+                  style={{ fontFamily: "'Barlow Condensed', sans-serif", fontSize: '9px', letterSpacing: '0.15em' }}
+                >
+                  Ver productos
+                </span>
+              </div>
+            )}
+          </div>
+
+          {/* Selected glow border */}
+          {isSelected && (
+            <div
+              className="absolute inset-0 pointer-events-none"
+              style={{
+                boxShadow: 'inset 0 0 0 2px #ea580c, inset 0 0 20px rgba(234,88,12,0.2)',
+              }}
+            />
           )}
         </div>
       </div>
+
+      {/* Bottom label bar for selected */}
+      {isSelected && (
+        <div
+          className="h-0.5 w-full"
+          style={{
+            background: 'linear-gradient(90deg, transparent, #ea580c, #f97316, transparent)',
+          }}
+        />
+      )}
     </button>
   );
 };

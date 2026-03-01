@@ -31,7 +31,7 @@ const ExpandedMenu = ({ onWhatsAppClick, onConditionsClick }) => {
         {/* WhatsApp */}
         <button className="fcb-card fcb-card--green" onClick={handleWhatsApp}>
           <div className="fcb-icon-wrap fcb-icon-wrap--green">
-            <WhatsAppIcon className="w-5 h-5 sm:w-[18px] sm:h-[18px]" color="#00e676" strokeWidth={2.5} />
+            <WhatsAppIcon className="w-5 h-5 sm:w-[18px] sm:h-[18px]" color="#25D366" strokeWidth={2.5} />
           </div>
           <div className="flex-1 min-w-0">
             <div className="fcb-card-label">Atención Directa</div>
@@ -45,7 +45,7 @@ const ExpandedMenu = ({ onWhatsAppClick, onConditionsClick }) => {
         {/* Puntos de Retiro */}
         <button className="fcb-card fcb-card--cyan" onClick={handlePuntosRetiro}>
           <div className="fcb-icon-wrap fcb-icon-wrap--cyan">
-            <MapPin className="w-5 h-5 sm:w-[18px] sm:h-[18px]" color="#00e5ff" strokeWidth={2.5} />
+            <MapPin className="w-5 h-5 sm:w-[18px] sm:h-[18px]" color="#00bcd4" strokeWidth={2.5} />
           </div>
           <div className="flex-1 min-w-0">
             <div className="fcb-card-label">Ubicaciones</div>

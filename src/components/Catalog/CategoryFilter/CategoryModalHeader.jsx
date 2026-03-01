@@ -1,51 +1,103 @@
-import { Grid3X3, X } from 'lucide-react';
+import { Cpu, X } from 'lucide-react';
 
 const CategoryModalHeader = ({ onClose, categoriesCount }) => {
   return (
-    <div 
-      className="flex-shrink-0 px-4 py-4 flex items-center justify-between border-b relative overflow-hidden"
+    <div
+      className="flex-shrink-0 relative overflow-hidden"
       style={{
-        background: 'linear-gradient(to bottom right, rgb(17, 24, 39), rgb(31, 41, 55), rgb(17, 24, 39))',
-        borderColor: 'rgba(255, 255, 255, 0.1)'
+        background: '#0a0a0a',
+        borderBottom: '2px solid #ea580c',
+        fontFamily: "'Barlow Condensed', sans-serif",
       }}
     >
-      {/* Glow decorativo */}
-      <div 
-        className="absolute top-0 left-1/4 w-64 h-64 bg-blue-500/20 rounded-full pointer-events-none"
-        style={{ filter: 'blur(48px)' }}
+      {/* Top accent line */}
+      <div
+        className="absolute top-0 left-0 right-0 h-px"
+        style={{ background: 'linear-gradient(90deg, transparent, #f97316 30%, #f97316 70%, transparent)' }}
       />
-      <div 
-        className="absolute top-0 right-1/4 w-64 h-64 bg-purple-500/20 rounded-full pointer-events-none"
-        style={{ filter: 'blur(48px)' }}
+
+      {/* Hex grid background */}
+      <div
+        className="absolute inset-0 opacity-5 pointer-events-none"
+        style={{
+          backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='28' height='49' viewBox='0 0 28 49'%3E%3Cg fill='%23ea580c' fill-opacity='1'%3E%3Cpolygon points='13.99 .01 27.98 7.5 27.98 22.5 13.99 30 0 22.5 0 7.5'/%3E%3Cpolygon points='13.99 30 27.98 37.5 27.98 52.5 13.99 60 0 52.5 0 37.5'/%3E%3C/g%3E%3C/svg%3E")`,
+          backgroundSize: '28px',
+        }}
       />
-      
-      <div className="flex items-center gap-4 relative z-10">
-        <div 
-          className="p-3 rounded-2xl bg-gradient-to-br from-blue-500 via-blue-600 to-purple-600 shadow-xl"
-          style={{ filter: 'drop-shadow(0 0 20px rgba(59, 130, 246, 0.5))' }}
-        >
-          <Grid3X3 className="h-7 w-7 text-white" strokeWidth={2.5} />
-        </div>
-        <div>
-          <h2 
-            className="text-2xl font-black text-white tracking-tight"
-            style={{ filter: 'drop-shadow(0 2px 8px rgba(59, 130, 246, 0.6))' }}
+
+      <div className="flex items-center justify-between px-5 py-4 relative z-10">
+        {/* Left: icon + title */}
+        <div className="flex items-center gap-3">
+          <div
+            className="relative flex items-center justify-center"
+            style={{
+              width: 42,
+              height: 42,
+              background: 'linear-gradient(135deg, #1a1a1a, #2d2d2d)',
+              border: '2px solid #ea580c',
+              clipPath: 'polygon(0 0, calc(100% - 8px) 0, 100% 8px, 100% 100%, 8px 100%, 0 calc(100% - 8px))',
+            }}
           >
-            Categorías
-          </h2>
-          <p className="text-sm text-gray-400 font-semibold mt-0.5">
-            {categoriesCount} opciones disponibles
-          </p>
+            {/* Pulsing ring */}
+            <div
+              className="absolute inset-0 animate-ping opacity-30"
+              style={{
+                border: '2px solid #ea580c',
+                clipPath: 'polygon(0 0, calc(100% - 8px) 0, 100% 8px, 100% 100%, 8px 100%, 0 calc(100% - 8px))',
+              }}
+            />
+            <Cpu className="w-5 h-5 text-orange-500 relative z-10" strokeWidth={2} />
+          </div>
+
+          <div>
+            <h2
+              className="text-white font-black tracking-wider uppercase leading-none"
+              style={{
+                fontFamily: "'Barlow Condensed', sans-serif",
+                fontSize: '20px',
+                letterSpacing: '0.08em',
+              }}
+            >
+              CATEGORÍAS
+            </h2>
+            <div className="flex items-center gap-2 mt-0.5">
+              <div
+                className="h-px flex-1"
+                style={{ background: 'linear-gradient(90deg, #ea580c, transparent)', width: 24 }}
+              />
+              <span
+                className="text-orange-400 font-bold uppercase tracking-widest"
+                style={{ fontSize: '9px', letterSpacing: '0.2em' }}
+              >
+                {categoriesCount} DISPONIBLES
+              </span>
+            </div>
+          </div>
         </div>
+
+        {/* Right: close button */}
+        <button
+          onClick={onClose}
+          className="relative flex items-center justify-center transition-all duration-150 active:scale-90"
+          style={{
+            width: 36,
+            height: 36,
+            background: '#1a1a1a',
+            border: '1px solid #374151',
+            clipPath: 'polygon(0 0, calc(100% - 6px) 0, 100% 6px, 100% 100%, 6px 100%, 0 calc(100% - 6px))',
+          }}
+        >
+          <X className="w-4 h-4 text-gray-400" strokeWidth={2.5} />
+          {/* Hover fill */}
+          <div
+            className="absolute inset-0 opacity-0 hover:opacity-100 transition-opacity duration-150"
+            style={{
+              background: 'rgba(234,88,12,0.15)',
+              clipPath: 'polygon(0 0, calc(100% - 6px) 0, 100% 6px, 100% 100%, 6px 100%, 0 calc(100% - 6px))',
+            }}
+          />
+        </button>
       </div>
-      
-      <button
-        onClick={onClose}
-        className="p-2.5 hover:bg-white/10 rounded-xl transition-all duration-200 active:scale-90 border border-white/10 relative z-10"
-        style={{ backdropFilter: 'blur(4px)' }}
-      >
-        <X className="h-6 w-6 text-gray-300 hover:text-white transition-colors" strokeWidth={2.5} />
-      </button>
     </div>
   );
 };
