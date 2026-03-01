@@ -12,7 +12,7 @@ export const CATEGORY_FILTERS = {
   'Fuentes': ['Marca', 'Potencia', 'Certificación', 'Cableado'],
   'Teclados': ['Marca', 'Arquitectura', 'Iluminación', 'Conectividad'],
   'Mouse': ['Marca', 'Iluminación', 'Sensor', 'DPI', 'Conectividad'],
-  'Auriculares': ['Marca', 'Tipo de conexión', 'Compatibilidad'],
+  'Auriculares': ['Marca', 'Conectividad', 'Compatibilidad'],
   'Joystick': ['Marca', 'Conectividad', 'Compatibilidad', 'Batería'],
   'Almacenamiento': ['Marca', 'Capacidad', 'Formato'],
   'Refrigeración': ['Marca', 'Tipo', 'TDP', 'Tamaño del ventilador']
@@ -60,7 +60,7 @@ export const FILTER_KEY_ALIASES = {
   
   // Conectividad
   'conectividad': 'Conectividad',
-  'tipoConectividad': 'Tipo de conexión',
+  'tipoConectividad': 'Conectividad',
   
   // Sensor
   'tipoSensor': 'Sensor',

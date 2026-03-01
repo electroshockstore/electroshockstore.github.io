@@ -50,6 +50,8 @@ const FIELD_NORMALIZATIONS = {
   // Conectividad
   'Conectividad': 'tipoConectividad',
   'tipoConectividad': 'tipoConectividad',
+  'Tipo de conexión': 'tipoConectividad',
+  'Tipo de conexiÃ³n': 'tipoConectividad',
   
   // Compatibilidad
   'compatibilidad': 'Compatibilidad'

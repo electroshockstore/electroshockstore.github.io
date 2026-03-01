@@ -1,26 +1,62 @@
+import { useRef } from 'react';
 import { getCategoryImage } from '../../../constants/categoryConfig';
 
 const CategoryModalCard = ({ category, index, isSelected, isIOS, onSelect }) => {
   const categoryImage = getCategoryImage(category);
   const isTopImage = index < 4;
+  
+  // Referencias para detectar scroll vs click
+  const touchStartPos = useRef({ x: 0, y: 0 });
+  const touchStartTime = useRef(0);
+  const isTouchMoving = useRef(false);
 
-  const handleClick = () => {
-    onSelect(category);
+  const handleTouchStart = (e) => {
+    const touch = e.touches[0];
+    touchStartPos.current = { x: touch.clientX, y: touch.clientY };
+    touchStartTime.current = Date.now();
+    isTouchMoving.current = false;
+  };
+
+  const handleTouchMove = (e) => {
+    const touch = e.touches[0];
+    const deltaX = Math.abs(touch.clientX - touchStartPos.current.x);
+    const deltaY = Math.abs(touch.clientY - touchStartPos.current.y);
+    
+    // Si se movió más de 10px, es un scroll
+    if (deltaX > 10 || deltaY > 10) {
+      isTouchMoving.current = true;
+    }
   };
 
   const handleTouchEnd = (e) => {
-    e.preventDefault();
+    const touchDuration = Date.now() - touchStartTime.current;
+    
+    // Solo activar si:
+    // 1. No hubo movimiento significativo (no es scroll)
+    // 2. La duración fue corta (menos de 300ms)
+    if (!isTouchMoving.current && touchDuration < 300) {
+      e.preventDefault();
+      onSelect(category);
+    }
+    
+    // Reset
+    isTouchMoving.current = false;
+  };
+
+  const handleClick = () => {
     onSelect(category);
   };
 
   return (
     <button
       onClick={handleClick}
+      onTouchStart={handleTouchStart}
+      onTouchMove={handleTouchMove}
       onTouchEnd={handleTouchEnd}
       style={{ 
         animationDelay: `${index * 30}ms`,
         WebkitTapHighlightColor: 'transparent',
-        touchAction: 'manipulation',
+        touchAction: 'pan-y', // Permitir scroll vertical
         ...(isSelected ? { filter: 'drop-shadow(0 0 20px rgba(59, 130, 246, 0.6))' } : {})
       }}
       className={`
