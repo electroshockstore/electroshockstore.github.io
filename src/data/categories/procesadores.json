@@ -129,52 +129,9 @@
       },
       "ddrType": "DDR4"
     },
+   
     {
       "id": 307,
-      "name": "AMD Ryzen 5 3400G AM4",
-      "brand": "AMD",
-      "model": "Ryzen 5 3400G",
-      "category": "Procesadores",
-      "price": 90000,
-      "stock": 1,
-      "realPowerConsumption": "65W (TDP) / 88W (PPT con iGPU en carga)",
-      "manufacturerUrl": "https://www.amd.com/es/products/apu/amd-ryzen-5-3400g",
-      "images": [
-        "/images/procesadores/r5_5550.webp",
-        "/images/procesadores/r5_5500_cooler.webp"
-      ],
-      "description": "AMD Ryzen 5 3400G 4.2GHz - 4 núcleos + Gráficos Integrados Radeon RX Vega 11 con Cooler Wraith Stealth",
-      "specifications": {
-        "Marca": "AMD",
-        "Línea": "Ryzen 5",
-        "Modelo": "3400G",
-        "Modelo alfanumérico": "YD3400C5FHBOX",
-        "Arquitectura": "Zen+ (Picasso)",
-        "litografia": "12 nm",
-        "Socket": "AM4",
-        "Núcleos": "4",
-        "hilos": "8",
-        "frecuenciaMinima": "3.7 GHz",
-        "frecuenciaMaxima": "4.2 GHz",
-        "TDP": "65 W",
-        "cacheL1": "96 KB por núcleo",
-        "cacheL2": "512 KB por núcleo",
-        "cacheL3": "4 MB compartida",
-        "memoriaRAM": "DDR4",
-        "frecuenciaMaximaMemoria": "DDR4-2933 MT/s",
-        "canalesMemoria": "2 (dual-channel)",
-        "pciExpress": "Gen 3 x8",
-        "graficosIntegrados": "AMD Radeon RX Vega 11",
-        "frecuenciaGPU": "Hasta 1400 MHz",
-        "eccMemorySupport": "No",
-        "virtualizacion": "Sí (AMD-V)",
-        "avxSupport": "Sí (AVX/AVX2)",
-        "fechaLanzamiento": "Julio 2019"
-      },
-      "ddrType": "DDR4"
-    },
-    {
-      "id": 308,
       "name": "AMD Ryzen 5 5600GT AM4",
       "brand": "AMD",
       "model": "Ryzen 5 5600GT",
@@ -201,7 +158,7 @@
       "ddrType": "DDR4"
     },
     {
-      "id": 309,
+      "id": 308,
       "name": "AMD Ryzen 5 8500G AM5 DDR5",
       "brand": "AMD",
       "model": "Ryzen 5 8500G",
@@ -236,7 +193,7 @@
       "ddrType": "DDR5"
     },
     {
-      "id": 310,
+      "id": 309,
       "name": "AMD Ryzen 5 8600G AM5 DDR5",
       "brand": "AMD",
       "model": "Ryzen 5 8600G",
@@ -262,7 +219,7 @@
       "ddrType": "DDR5"
     },
     {
-      "id": 311,
+      "id": 310,
       "name": "Intel Core i5-11400 LGA1200",
       "brand": "Intel",
       "model": "Core i5-11400",
@@ -290,7 +247,7 @@
       "ddrType": "DDR4"
     },
     {
-      "id": 312,
+      "id": 311,
       "name": "AMD Ryzen 5 8400F AM5",
       "brand": "AMD",
       "model": "Ryzen 5 8400F",
@@ -319,7 +276,7 @@
       "ddrType": "DDR5"
     },
     {
-      "id": 313,
+      "id": 312,
       "name": "AMD Ryzen 3 3200G AM4",
       "brand": "AMD",
       "model": "Ryzen 3 3200G",
@@ -347,12 +304,12 @@
       "ddrType": "DDR4"
     },
     {
-      "id": 314,
+      "id": 313,
       "name": "AMD Ryzen 5 4500 AM4",
       "brand": "AMD",
       "model": "Ryzen 5 4500",
       "category": "Procesadores",
-      "price": 900000,
+      "price": 90000,
       "stock": 8,
       "realPowerConsumption": "65W (TDP) / 72W (PPT Max Load)",
       "manufacturerUrl": "https://www.amd.com/es/products/processors/desktops/ryzen/4000-series/amd-ryzen-5-4500.html",
@@ -374,7 +331,7 @@
       "ddrType": "DDR4"
     },
     {
-      "id": 315,
+      "id": 314,
       "name": "AMD Athlon 3000G AM4",
       "brand": "AMD",
       "model": "Athlon 3000G",
@@ -400,7 +357,7 @@
       "ddrType": "DDR4"
     },
     {
-      "id": 316,
+      "id": 315,
       "name": "Intel Core i3-10100F sin gráfica integrada",
       "brand": "Intel",
       "model": "i3-10100F",
@@ -436,7 +393,7 @@
       "ddrType": "DDR4"
     },
     {
-      "id": 317,
+      "id": 316,
       "name": "Intel Core i7-12700KF sin gráfica integrada",
       "brand": "Intel",
       "model": "i7-12700KF",
