@@ -7,7 +7,7 @@ const PuntosRetiroSection = () => {
   const navigate = useNavigate();
 
   return (
-    <div className="bg-gradient-to-br from-gray-50 via-white to-purple-50 p-4 sm:p-6 rounded-xl relative overflow-hidden">
+    <div >
       {/* Decorative background elements */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <div className="absolute top-5 right-5 w-32 h-32 bg-purple-200/20 rounded-full blur-2xl" />

@@ -2,8 +2,8 @@ import { memo, useMemo, useEffect } from 'react';
 import { CheckCircle2 } from 'lucide-react';
 import DetailHeader from './DetailHeader';
 import ProductImageSection from './ProductImageSection';
-import SpecsSection from './SpecsSection';
 import ProductInfoCard from './ProductInfoCard';
+import SpecsSection from './SpecsSection';
 import MetodosDePago from './MetodosDePago';
 import PuntosRetiroSection from './PuntosRetiroSection';
 import { PriceChart } from '../../PriceChart';
@@ -41,11 +41,10 @@ const ProductDetail = memo(({ product, onClose, isPage = false }) => {
         <div className="bg-gray-50 rounded-none sm:rounded-xl lg:rounded-3xl shadow-lg border-0 sm:border border-gray-200">
           <DetailHeader onClose={onClose} isPage={true} product={product} />
           <div className="px-3 sm:px-4 lg:px-8 py-3 sm:py-6 pb-6 sm:pb-8 space-y-4 sm:space-y-6">
-            <div className="grid grid-cols-1 lg:grid-cols-12 gap-4 sm:gap-6 items-stretch">
-              <div className="lg:col-span-5">
+            {/* Contenedor unificado sin bordes separados */}
+            <div className="bg-white rounded-xl border-2 border-gray-200 shadow-lg overflow-hidden">
+              <div className="grid grid-cols-1 lg:grid-cols-2">
                 <ProductImageSection images={productImages} name={product.name} stock={product.stock} stockStatus={stockStatus} />
-              </div>
-              <div className="lg:col-span-7">
                 <ProductInfoCard 
                   name={product.name}
                   brand={product.brand}
@@ -94,11 +93,10 @@ const ProductDetail = memo(({ product, onClose, isPage = false }) => {
           <div className="bg-gray-50 rounded-3xl shadow-2xl">
             <DetailHeader onClose={onClose} product={product} />
             <div className="px-4 sm:px-6 lg:px-8 py-4 sm:py-6 pb-6 sm:pb-8 space-y-4 sm:space-y-6">
-              <div className="grid grid-cols-1 lg:grid-cols-12 gap-4 sm:gap-6 items-stretch">
-                <div className="lg:col-span-5">
+              {/* Contenedor unificado sin bordes separados */}
+              <div className="bg-white rounded-xl border-2 border-gray-200 shadow-lg overflow-hidden">
+                <div className="grid grid-cols-1 lg:grid-cols-2">
                   <ProductImageSection images={productImages} name={product.name} stock={product.stock} stockStatus={stockStatus} />
-                </div>
-                <div className="lg:col-span-7">
                   <ProductInfoCard 
                     name={product.name}
                     brand={product.brand}
