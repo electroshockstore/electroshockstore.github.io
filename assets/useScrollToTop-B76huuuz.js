@@ -1,0 +1,1 @@
+import{r as s}from"./react-core-D7YZ9A8n.js";const i=(o=null,r={})=>{const{behavior:t="instant",enabled:l=!0}=r;s.useEffect(()=>{l&&(o!==null&&!o||(t==="instant"||t==="auto"?window.scrollTo(0,0):window.scrollTo({top:0,behavior:t})))},o!==null?[o]:[])};export{i as u};
