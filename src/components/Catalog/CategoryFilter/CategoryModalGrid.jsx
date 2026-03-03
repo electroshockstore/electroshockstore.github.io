@@ -56,7 +56,7 @@ const CategoryModalGrid = ({ categories, selectedCategory, onCategorySelect }) =
               letterSpacing: '0.25em',
             }}
           >
-            HARDWARE · TECH
+           ElectroShock
           </span>
           <div
             className="h-px flex-1"

@@ -3,24 +3,20 @@ import { ShoppingCart, ChevronRight } from 'lucide-react';
 const CategoryModalFooter = () => {
   return (
     <div
-      className="flex-shrink-0 relative overflow-hidden"
-      style={{
-        background: '#0a0a0a',
-        borderTop: '2px solid #ea580c',
-        fontFamily: "'Barlow Condensed', sans-serif",
-      }}
+      className="flex-shrink-0 relative overflow-hidden rainbow-border-top-only font-barlow-condensed"
+      style={{ '--bg-color': '#0a0a0a' }}
     >
       {/* Top glow line */}
       <div
         className="absolute top-0 left-0 right-0 h-px pointer-events-none"
-        style={{ background: 'linear-gradient(90deg, transparent, rgba(234,88,12,0.6) 30%, rgba(234,88,12,0.6) 70%, transparent)' }}
+        style={{ background: 'linear-gradient(90deg, transparent, rgba(59, 130, 246, 0.6) 30%, rgba(59, 130, 246, 0.6) 70%, transparent)' }}
       />
 
       {/* Diagonal accent */}
       <div
         className="absolute inset-0 opacity-[0.03] pointer-events-none"
         style={{
-          backgroundImage: 'repeating-linear-gradient(-45deg, #ea580c 0, #ea580c 1px, transparent 0, transparent 40%)',
+          backgroundImage: 'repeating-linear-gradient(-45deg, #3b82f6 0, #3b82f6 1px, transparent 0, transparent 40%)',
           backgroundSize: '8px 8px',
         }}
       />
@@ -42,11 +38,10 @@ const CategoryModalFooter = () => {
           </span>
         </div>
 
-        {/* Right: CTA button */}
+        {/* Right: Decorative badge */}
         <div
-          className="flex items-center gap-2 px-4 py-2.5 text-white font-black uppercase tracking-wider"
+          className="flex items-center gap-2 px-4 py-2.5 text-white font-black uppercase tracking-wider rainbow-gradient-bg cursor-default select-none"
           style={{
-            background: 'linear-gradient(90deg, #c2410c, #ea580c)',
             clipPath: 'polygon(8px 0, 100% 0, calc(100% - 8px) 100%, 0 100%)',
             fontSize: '12px',
             letterSpacing: '0.1em',
@@ -59,10 +54,7 @@ const CategoryModalFooter = () => {
       </div>
 
       {/* Bottom micro-detail */}
-      <div
-        className="h-0.5 w-full"
-        style={{ background: 'linear-gradient(90deg, #ea580c 0%, #f97316 50%, transparent 100%)' }}
-      />
+      <div className="h-0.5 w-full rainbow-gradient-line" />
     </div>
   );
 };

@@ -33,26 +33,28 @@ const CategoryModal = ({ isOpen, onClose, categories, selectedCategory, onCatego
   return (
     <Portal>
       <div className="fixed inset-0 z-[99999] overflow-hidden">
-        {/* Backdrop */}
+        {/* Backdrop - solo intercepta clicks fuera del contenido */}
         <div
           className="absolute inset-0 bg-black/80"
           onClick={onClose}
         />
 
-        {/* Modal Content */}
-        <div className="absolute inset-0 flex flex-col overflow-hidden">
-          {/* Header */}
-          <CategoryModalHeader onClose={onClose} categoriesCount={categories.length} />
+        {/* Modal Content - con z-index mayor para estar encima del backdrop */}
+        <div className="absolute inset-0 flex flex-col overflow-hidden pointer-events-none">
+          <div className="pointer-events-auto flex flex-col h-full">
+            {/* Header */}
+            <CategoryModalHeader onClose={onClose} categoriesCount={categories.length} />
 
-          {/* Grid de categorías */}
-          <CategoryModalGrid 
-            categories={categories}
-            selectedCategory={selectedCategory}
-            onCategorySelect={onCategorySelect}
-          />
+            {/* Grid de categorías */}
+            <CategoryModalGrid 
+              categories={categories}
+              selectedCategory={selectedCategory}
+              onCategorySelect={onCategorySelect}
+            />
 
-          {/* Footer */}
-          <CategoryModalFooter />
+            {/* Footer */}
+            <CategoryModalFooter />
+          </div>
         </div>
       </div>
     </Portal>

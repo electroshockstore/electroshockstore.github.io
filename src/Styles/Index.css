@@ -3475,3 +3475,269 @@
 .category-modal-slide-up {
   animation: category-modal-slide-up 0.35s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
+/* ============================================
+   CATEGORY MODAL HEADER - Blue/Purple Theme
+   ============================================ */
+
+/* Custom clip-path classes for polygon shapes */
+.clip-path-beveled {
+  clip-path: polygon(0 0, calc(100% - 8px) 0, 100% 8px, 100% 100%, 8px 100%, 0 calc(100% - 8px));
+}
+
+.clip-path-beveled-sm {
+  clip-path: polygon(0 0, calc(100% - 6px) 0, 100% 6px, 100% 100%, 6px 100%, 0 calc(100% - 6px));
+}
+
+/* Blue/Purple gradient accents */
+.bg-gradient-blue-purple {
+  background: linear-gradient(135deg, #1a1a1a, #2d2d2d);
+}
+
+.border-gradient-blue {
+  border-image: linear-gradient(90deg, #3b82f6, #8b5cf6) 1;
+}
+
+.text-gradient-blue-purple {
+  background: linear-gradient(90deg, #3b82f6, #8b5cf6);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Blue accent line */
+.accent-line-blue-gradient {
+  background: linear-gradient(90deg, transparent, #3b82f6 30%, #8b5cf6 70%, transparent);
+}
+
+/* Blue accent line for small elements */
+.accent-line-blue-small {
+  background: linear-gradient(90deg, #3b82f6, transparent);
+}
+
+/* Hover effects for blue/purple theme */
+.hover-bg-blue-purple {
+  background: rgba(59, 130, 246, 0.15);
+}
+
+/* Font family for Barlow Condensed */
+.font-barlow-condensed {
+  font-family: 'Barlow Condensed', sans-serif;
+}
+
+/* ============================================
+   ANIMACIONES PARA INDICADORES DE SCROLL
+   ============================================ */
+
+@keyframes scroll-indicator-bounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(8px);
+  }
+}
+
+@keyframes scroll-indicator-pulse {
+  0%, 100% {
+    opacity: 0.5;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.1);
+  }
+}
+
+@keyframes scroll-edge-glow {
+  0%, 100% {
+    opacity: 0.3;
+    box-shadow: 0 0 10px rgba(59, 130, 246, 0.3);
+  }
+  50% {
+    opacity: 0.8;
+    box-shadow: 0 0 20px rgba(59, 130, 246, 0.6);
+  }
+}
+
+@keyframes content-preview-float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-5px);
+  }
+}
+
+@keyframes fade-gradient {
+  0% {
+    opacity: 0.3;
+  }
+  50% {
+    opacity: 0.7;
+  }
+  100% {
+    opacity: 0.3;
+  }
+}
+
+/* Clases para los nuevos componentes */
+.animate-scroll-bounce {
+  animation: scroll-indicator-bounce 1.5s ease-in-out infinite;
+}
+
+.animate-scroll-pulse {
+  animation: scroll-indicator-pulse 2s ease-in-out infinite;
+}
+
+.animate-edge-glow {
+  animation: scroll-edge-glow 2s ease-in-out infinite;
+}
+
+.animate-preview-float {
+  animation: content-preview-float 2s ease-in-out infinite;
+}
+
+.animate-fade-gradient {
+  animation: fade-gradient 3s ease-in-out infinite;
+}
+
+/* Estilos para mejorar la experiencia de scroll */
+.smooth-scroll {
+  scroll-behavior: smooth;
+}
+
+/* Mejora visual para indicar que hay más contenido */
+.scroll-hint-gradient {
+  position: relative;
+}
+
+.scroll-hint-gradient::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 60px;
+  background: linear-gradient(to top, rgba(10, 10, 15, 0.9), transparent);
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Efecto de desvanecimiento para contenido que continúa */
+.fade-to-bottom {
+  mask-image: linear-gradient(to bottom, black 80%, transparent 100%);
+  -webkit-mask-image: linear-gradient(to bottom, black 80%, transparent 100%);
+}
+
+/* Indicador visual sutil */
+.scroll-continue-hint {
+  position: relative;
+  padding-bottom: 40px;
+}
+
+.scroll-continue-hint::before {
+  content: '▼';
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: rgba(59, 130, 246, 0.6);
+  font-size: 12px;
+  animation: scroll-indicator-bounce 2s ease-in-out infinite;
+}
+
+/* ============================================
+   RAINBOW BORDER - Sin animación
+   ============================================ */
+
+.rainbow-border {
+  border: 2px solid transparent;
+  background: linear-gradient(white, white) padding-box,
+              linear-gradient(90deg, #3b82f6, #8b5cf6, #ec4899, #f59e0b, #10b981, #3b82f6) border-box;
+}
+
+/* Variantes de grosor */
+.rainbow-border-thin {
+  border: 1px solid transparent;
+  background: linear-gradient(white, white) padding-box,
+              linear-gradient(90deg, #3b82f6, #8b5cf6, #ec4899, #f59e0b, #10b981, #3b82f6) border-box;
+}
+
+.rainbow-border-thick {
+  border: 3px solid transparent;
+  background: linear-gradient(white, white) padding-box,
+              linear-gradient(90deg, #3b82f6, #8b5cf6, #ec4899, #f59e0b, #10b981, #3b82f6) border-box;
+}
+
+/* Para fondos oscuros */
+.rainbow-border-dark {
+  border: 2px solid transparent;
+  background: linear-gradient(#0a0a0f, #0a0a0f) padding-box,
+              linear-gradient(90deg, #3b82f6, #8b5cf6, #ec4899, #f59e0b, #10b981, #3b82f6) border-box;
+}
+
+/* Dirección vertical */
+.rainbow-border-vertical {
+  border: 2px solid transparent;
+  background: linear-gradient(white, white) padding-box,
+              linear-gradient(180deg, #3b82f6, #8b5cf6, #ec4899, #f59e0b, #10b981, #3b82f6) border-box;
+}
+
+/* Dirección diagonal */
+.rainbow-border-diagonal {
+  border: 2px solid transparent;
+  background: linear-gradient(white, white) padding-box,
+              linear-gradient(135deg, #3b82f6, #8b5cf6, #ec4899, #f59e0b, #10b981, #3b82f6) border-box;
+}
+
+/* Para elementos con fondo transparente (como overlays) */
+.rainbow-border-transparent {
+  border: 3px solid transparent;
+  background: linear-gradient(rgba(0,0,0,0), rgba(0,0,0,0)) padding-box,
+              linear-gradient(90deg, #3b82f6, #8b5cf6, #ec4899, #f59e0b, #10b981, #3b82f6) border-box;
+}
+
+/* ============================================
+   RAINBOW BORDERS - Casos específicos
+   ============================================ */
+
+/* Para header/footer con solo un borde (top o bottom) */
+.rainbow-border-top-only {
+  border-top: 2px solid transparent;
+  border-bottom: none;
+  border-left: none;
+  border-right: none;
+  background-image: linear-gradient(var(--bg-color, #0a0a0a), var(--bg-color, #0a0a0a)), 
+                    linear-gradient(90deg, #3b82f6, #8b5cf6, #ec4899, #f59e0b, #10b981, #3b82f6);
+  background-origin: border-box;
+  background-clip: padding-box, border-box;
+}
+
+.rainbow-border-bottom-only {
+  border-bottom: 2px solid transparent;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  background-image: linear-gradient(var(--bg-color, black), var(--bg-color, black)), 
+                    linear-gradient(90deg, #3b82f6, #8b5cf6, #ec4899, #f59e0b, #10b981, #3b82f6);
+  background-origin: border-box;
+  background-clip: padding-box, border-box;
+}
+
+/* Para elementos con clip-path que necesitan borde rainbow */
+.rainbow-border-clipped {
+  border: 2px solid transparent;
+  background-image: linear-gradient(var(--bg-color, transparent), var(--bg-color, transparent)), 
+                    linear-gradient(90deg, #3b82f6, #8b5cf6, #ec4899, #f59e0b, #10b981, #3b82f6);
+  background-origin: border-box;
+  background-clip: padding-box, border-box;
+}
+
+/* Gradiente rainbow para backgrounds */
+.rainbow-gradient-bg {
+  background: linear-gradient(90deg, #3b82f6, #8b5cf6);
+}
+
+.rainbow-gradient-line {
+  background: linear-gradient(90deg, #3b82f6 0%, #8b5cf6 50%, transparent 100%);
+}

@@ -84,23 +84,17 @@ const CategoryModalCard = ({ category, index, isSelected, isIOS, onSelect }) => 
             decoding="async"
           />
 
-          {/* Dark overlay */}
-          <div
-            className="absolute inset-0 pointer-events-none transition-all duration-300"
-            style={{
-              background: isSelected
-                ? 'linear-gradient(160deg, rgba(0,0,0,0.1) 0%, rgba(234,88,12,0.5) 60%, rgba(0,0,0,0.85) 100%)'
-                : 'linear-gradient(160deg, rgba(0,0,0,0.2) 0%, rgba(0,0,0,0.4) 50%, rgba(0,0,0,0.9) 100%)',
-            }}
-          />
+     {/* Overlay: Solo se muestra cuando está seleccionado */}
+{isSelected && (
+  <div
+    className="absolute inset-0 pointer-events-none transition-opacity duration-300 animate-in fade-in"
+    style={{
+      background: 'linear-gradient(160deg, rgba(0,0,0,0.1) 0%, rgba(234,88,12,0.4) 60%, rgba(0,0,0,0.7) 100%)',
+    }}
+  />
+)}
 
-          {/* Scanlines texture */}
-          <div
-            className="absolute inset-0 pointer-events-none opacity-20"
-            style={{
-              backgroundImage: 'repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(0,0,0,0.3) 2px, rgba(0,0,0,0.3) 4px)',
-            }}
-          />
+       
 
           {/* Corner accent top-right */}
           <div
@@ -167,7 +161,7 @@ const CategoryModalCard = ({ category, index, isSelected, isIOS, onSelect }) => 
             )}
           </div>
 
-          {/* Selected glow border */}
+          {/* Selected glow border - solo un borde sutil */}
           {isSelected && (
             <div
               className="absolute inset-0 pointer-events-none"
@@ -182,9 +176,9 @@ const CategoryModalCard = ({ category, index, isSelected, isIOS, onSelect }) => 
       {/* Bottom label bar for selected */}
       {isSelected && (
         <div
-          className="h-0.5 w-full"
+          className="h-1"
           style={{
-            background: 'linear-gradient(90deg, transparent, #ea580c, #f97316, transparent)',
+            background: 'linear-gradient(90deg, #3b82f6, #8b5cf6, #ec4899, #f59e0b, #10b981, #3b82f6)',
           }}
         />
       )}

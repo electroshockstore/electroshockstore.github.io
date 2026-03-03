@@ -224,20 +224,65 @@ const ImportantRulesBentoGrid = ({ rules = [] }) => {
             LAYOUT DESKTOP
             ============================================ */}
           <motion.div
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
+            initial="hidden"
+            whileInView="visible"
             viewport={{ once: true, amount: 0.2 }}
-            transition={{ duration: 0.6, ease: [0.25, 0.1, 0.25, 1] }}
+            variants={{
+              hidden: { opacity: 0 },
+              visible: {
+                opacity: 1,
+                transition: {
+                  duration: 0.3,
+                  staggerChildren: 0.15,
+                  delayChildren: 0.2
+                }
+              }
+            }}
             className="hidden lg:grid lg:grid-cols-3 gap-4 auto-rows-min"
           >
 
-          {/* --- CARD 1: SEGURIDAD --- */}
+          {/* --- CARD 2: IMAGEN CENTRAL - APARECE PRIMERO (ANCLA) --- */}
           <motion.div
-            initial={{ opacity: 0, x: -30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true, amount: 0.3 }}
-            transition={{ duration: 0.7, ease: [0.34, 1.56, 0.64, 1], delay: 0.1 }}
-            className="lg:row-span-2 rounded-[2rem] bg-pink-100 p-6 flex flex-col justify-between border-2 border-pink-300 relative overflow-hidden group shadow-lg hover:shadow-xl transition-shadow duration-300"
+            variants={{
+              hidden: { opacity: 0, scale: 0.8 },
+              visible: { 
+                opacity: 1, 
+                scale: 1,
+                transition: { 
+                  duration: 0.6, 
+                  ease: [0.34, 1.56, 0.64, 1]
+                }
+              }
+            }}
+            className="lg:row-span-3 rounded-[2rem] bg-white border-2 border-pink-300 relative flex items-center justify-center overflow-visible shadow-lg min-h-[400px] group lg:order-2"
+          >
+            <div 
+              className="absolute w-48 h-48 bg-pink-100 rounded-full opacity-50 group-hover:opacity-70 transition-opacity duration-500" 
+              style={{ filter: 'blur(48px)' }}
+            />
+            
+            <img 
+              src="/images/puntos_retiro.webp" 
+              alt="Condiciones" 
+              className="w-full h-full object-contain p-4 relative z-20 -translate-y-2.5 scale-120 drop-shadow-[0_15px_30px_rgba(219,39,119,0.25)] group-hover:scale-125 transition-transform duration-500"
+            />
+          </motion.div>
+
+          {/* --- CARD 1: SEGURIDAD (Izquierda arriba) --- */}
+          <motion.div
+            variants={{
+              hidden: { opacity: 0, x: -40, y: 20 },
+              visible: { 
+                opacity: 1, 
+                x: 0, 
+                y: 0,
+                transition: { 
+                  duration: 0.5, 
+                  ease: [0.34, 1.56, 0.64, 1]
+                }
+              }
+            }}
+            className="lg:row-span-2 rounded-[2rem] bg-pink-100 p-6 flex flex-col justify-between border-2 border-pink-300 relative overflow-hidden group shadow-lg hover:shadow-xl transition-shadow duration-300 lg:order-1"
           >
             <div className="absolute inset-0 bg-gradient-to-br from-pink-200/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
             <DollarSign className="absolute -right-4 -bottom-4 w-32 h-32 text-pink-600 opacity-5 -rotate-12 group-hover:opacity-10 group-hover:scale-110 transition-all duration-500" />
@@ -260,27 +305,21 @@ const ImportantRulesBentoGrid = ({ rules = [] }) => {
             <div className="absolute bottom-0 left-0 right-0 h-1.5 bg-gradient-to-r from-pink-600 via-pink-400 to-transparent" />
           </motion.div>
 
-          {/* --- CARD 2: IMAGEN CENTRAL - FIJA Y PRIMERA --- */}
+          {/* --- CARD 3: PAGO (Derecha arriba) --- */}
           <motion.div
-            variants={cardVariants}
-            className="lg:row-span-3 rounded-[2rem] bg-white border-2 border-pink-300 relative flex items-center justify-center overflow-visible shadow-lg min-h-[400px] group"
-          >
-            <div 
-              className="absolute w-48 h-48 bg-pink-100 rounded-full opacity-50 group-hover:opacity-70 transition-opacity duration-500" 
-              style={{ filter: 'blur(48px)' }}
-            />
-            
-            <img 
-              src="/images/puntos_retiro.webp" 
-              alt="Condiciones" 
-              className="w-full h-full object-contain p-4 relative z-20 -translate-y-2.5 scale-120 drop-shadow-[0_15px_30px_rgba(219,39,119,0.25)] group-hover:scale-125 transition-transform duration-500"
-            />
-          </motion.div>
-
-          {/* --- CARD 3: PAGO --- */}
-          <motion.div
-            variants={cardVariants}
-            className="lg:row-span-2 rounded-[2rem] bg-white p-6 border-2 border-gray-300 shadow-lg relative overflow-hidden group hover:shadow-xl transition-shadow duration-300"
+            variants={{
+              hidden: { opacity: 0, x: 40, y: 20 },
+              visible: { 
+                opacity: 1, 
+                x: 0, 
+                y: 0,
+                transition: { 
+                  duration: 0.5, 
+                  ease: [0.34, 1.56, 0.64, 1]
+                }
+              }
+            }}
+            className="lg:row-span-2 rounded-[2rem] bg-white p-6 border-2 border-gray-300 shadow-lg relative overflow-hidden group hover:shadow-xl transition-shadow duration-300 lg:order-3"
           >
             <div className="absolute inset-0 bg-gradient-to-br from-orange-50/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
             <AlertTriangle className="absolute -right-4 -bottom-4 w-32 h-32 text-orange-400 opacity-5 group-hover:opacity-10 transition-all duration-500" />
@@ -309,10 +348,21 @@ const ImportantRulesBentoGrid = ({ rules = [] }) => {
             <div className="absolute bottom-0 left-0 right-0 h-1.5 bg-gradient-to-r from-emerald-500 via-blue-500 to-transparent" />
           </motion.div>
 
-          {/* --- CARD 4: RECARGO --- */}
+          {/* --- CARD 4: RECARGO (Izquierda abajo) --- */}
           <motion.div
-            variants={cardVariants}
-            className="rounded-[2rem] bg-gradient-to-br from-red-50 to-rose-100 p-6 border-2 border-red-300 relative overflow-hidden flex flex-col group shadow-lg hover:shadow-xl transition-shadow duration-300"
+            variants={{
+              hidden: { opacity: 0, x: -40, y: -20 },
+              visible: { 
+                opacity: 1, 
+                x: 0, 
+                y: 0,
+                transition: { 
+                  duration: 0.5, 
+                  ease: [0.34, 1.56, 0.64, 1]
+                }
+              }
+            }}
+            className="rounded-[2rem] bg-gradient-to-br from-red-50 to-rose-100 p-6 border-2 border-red-300 relative overflow-hidden flex flex-col group shadow-lg hover:shadow-xl transition-shadow duration-300 lg:order-4"
           >
             <div className="absolute inset-0 bg-gradient-to-br from-red-100/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
             <Percent className="absolute -right-2 -bottom-2 w-24 h-24 text-red-600 opacity-5 group-hover:opacity-10 transition-opacity duration-500" />
@@ -334,13 +384,21 @@ const ImportantRulesBentoGrid = ({ rules = [] }) => {
             </div>
           </motion.div>
 
-          {/* --- CARD 5: NO ENVÍOS --- */}
+          {/* --- CARD 5: NO ENVÍOS (Derecha abajo) --- */}
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-50px" }}
-            transition={{ duration: 0.6, ease: "easeOut", delay: 0.6 }}
-            className="rounded-[2rem] bg-gradient-to-br from-slate-50 to-gray-100 p-6 border-2 border-slate-300 relative overflow-hidden flex flex-col group shadow-lg hover:shadow-xl transition-shadow duration-300"
+            variants={{
+              hidden: { opacity: 0, x: 40, y: -20 },
+              visible: { 
+                opacity: 1, 
+                x: 0, 
+                y: 0,
+                transition: { 
+                  duration: 0.5, 
+                  ease: [0.34, 1.56, 0.64, 1]
+                }
+              }
+            }}
+            className="rounded-[2rem] bg-gradient-to-br from-slate-50 to-gray-100 p-6 border-2 border-slate-300 relative overflow-hidden flex flex-col group shadow-lg hover:shadow-xl transition-shadow duration-300 lg:order-5"
           >
             <div className="absolute inset-0 bg-gradient-to-br from-slate-100/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
             <Truck className="absolute -right-6 -bottom-6 w-24 h-24 text-slate-500 opacity-5 rotate-12 group-hover:opacity-10 transition-opacity duration-500" />
@@ -371,10 +429,20 @@ const ImportantRulesBentoGrid = ({ rules = [] }) => {
             <div className="absolute bottom-0 left-0 right-0 h-1.5 bg-gradient-to-r from-red-600 via-slate-400 to-transparent" />
           </motion.div>
 
-        {/* --- CARD 6: VENTA PARTICULAR --- */}
+        {/* --- CARD 6: VENTA PARTICULAR (Abajo completo) --- */}
 <motion.div
-  variants={cardVariants}
-  className="lg:col-span-3 rounded-[2.5rem] bg-gray-900/95 p-8 border border-white/10 relative overflow-hidden group shadow-2xl hover:shadow-3xl transition-shadow duration-300"
+  variants={{
+    hidden: { opacity: 0, y: 40 },
+    visible: { 
+      opacity: 1, 
+      y: 0,
+      transition: { 
+        duration: 0.6, 
+        ease: [0.34, 1.56, 0.64, 1]
+      }
+    }
+  }}
+  className="lg:col-span-3 rounded-[2.5rem] bg-gray-900/95 p-8 border border-white/10 relative overflow-hidden group shadow-2xl hover:shadow-3xl transition-shadow duration-300 lg:order-6"
 >
   
   <div className="absolute inset-0 bg-gradient-to-br from-yellow-600/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />

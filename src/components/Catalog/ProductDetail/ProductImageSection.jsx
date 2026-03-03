@@ -86,7 +86,7 @@ const ProductImageSection = ({ images = [], name, stock, stockStatus }) => {
     <>
       <div className="bg-white rounded-xl border-2 border-gray-200 shadow-lg p-6 overflow-hidden h-full flex flex-col">
         {/* Imagen principal */}
-        <div className="aspect-square bg-gray-50 rounded-lg overflow-hidden relative group flex-shrink-0">
+        <div className="aspect-square bg-white rounded-lg overflow-hidden relative group flex-shrink-0">
           <div 
             className="w-full h-full cursor-zoom-in relative"
             onClick={() => openLightbox(currentImageIndex)}
