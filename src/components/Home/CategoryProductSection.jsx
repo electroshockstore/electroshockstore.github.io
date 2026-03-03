@@ -1,419 +1,337 @@
-import { Sparkles, ArrowRight, Cpu } from 'lucide-react';
+import { useState } from 'react';
+import { ArrowRight, ArrowUpRight } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 
-// Todas las categorías reales del proyecto
 const allCategories = [
-  { id: 1, name: 'PROCESADORES', image: '/images/category_grid/procesador_grid_tiny.webp', slug: 'procesadores' },
-  { id: 2, name: 'MOTHERBOARDS', image: '/images/category_grid/motherboard_grid_tiny.webp', slug: 'motherboards' },
-  { id: 3, name: 'MEMORIAS RAM', image: '/images/category_grid/ram_grid_tiny.webp', slug: 'memorias-ram' },
-  { id: 4, name: 'ALMACENAMIENTO', image: '/images/category_grid/almacenamiento_grid_tiny.webp', slug: 'almacenamiento' },
-  { id: 5, name: 'FUENTES', image: '/images/category_grid/fuente_grid_tiny.webp', slug: 'fuentes' },
-  { id: 6, name: 'REFRIGERACIÓN', image: '/images/category_grid/refrigeracion_grid_tiny.webp', slug: 'refrigeracion' },
-  { id: 7, name: 'TECLADOS', image: '/images/category_grid/teclados_grid_tiny.webp', slug: 'teclados' },
-  { id: 8, name: 'MOUSE', image: '/images/category_grid/mouse_grid_tiny.webp', slug: 'mouse' },
-  { id: 9, name: 'AURICULARES', image: '/images/category_grid/auriculares_grid_tiny.webp', slug: 'auriculares' },
+  { id: 1, name: 'PROCESADORES',   image: '/images/category_grid/procesador_grid_tiny.webp',      slug: 'procesadores',   accent: '#f97316' },
+  { id: 2, name: 'MOTHERBOARDS',   image: '/images/category_grid/motherboard_grid_tiny.webp',     slug: 'motherboards',   accent: '#2563eb' },
+  { id: 3, name: 'MEMORIAS RAM',   image: '/images/category_grid/ram_grid_tiny.webp',             slug: 'memorias-ram',   accent: '#10b981' },
+  { id: 4, name: 'ALMACENAMIENTO', image: '/images/category_grid/almacenamiento_grid_tiny.webp',  slug: 'almacenamiento', accent: '#8b5cf6' },
+  { id: 5, name: 'FUENTES',        image: '/images/category_grid/fuente_grid_tiny.webp',          slug: 'fuentes',        accent: '#eab308' },
+  { id: 6, name: 'REFRIGERACIÓN',  image: '/images/category_grid/refrigeracion_grid_tiny.webp',   slug: 'refrigeracion',  accent: '#06b6d4' },
+  { id: 7, name: 'TECLADOS',       image: '/images/category_grid/teclados_grid_tiny.webp',        slug: 'teclados',       accent: '#ec4899' },
+  { id: 8, name: 'MOUSE',          image: '/images/category_grid/mouse_grid_tiny.webp',           slug: 'mouse',          accent: '#f97316' },
+  { id: 9, name: 'AURICULARES',    image: '/images/category_grid/auriculares_grid_tiny.webp',     slug: 'auriculares',    accent: '#2563eb' },
 ];
 
-const CategoryProductSection = ({ onCategoryClick }) => {
-    const navigate = useNavigate();
-    
-    const handleCategoryClick = (slug) => {
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-        if (onCategoryClick) {
-            onCategoryClick(slug);
-        }
-    };
+/* ── CARD ── */
+const CategoryCard = ({ category, index, onCategoryClick, large = false, tall = false, wide = false }) => {
+  const [hover, setHover] = useState(false);
+  const num = String(index + 1).padStart(2, '0');
 
-    const handleVerMas = () => {
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-        if (onCategoryClick) {
-            onCategoryClick('procesadores');
-        }
-    };
-
-    return (
-        <section className="w-full flex-1 relative">
-            {/* Partículas de fondo OPTIMIZADAS - Blur reducido, sin animate-pulse */}
-            <div className="hidden md:block absolute inset-0 overflow-hidden pointer-events-none">
-                <div className="absolute top-20 left-10 w-72 h-72 bg-blue-500/15 rounded-full blur-xl" />
-                <div className="absolute bottom-20 right-10 w-96 h-96 bg-purple-500/15 rounded-full blur-xl" />
-                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-80 h-80 bg-pink-500/15 rounded-full blur-xl" />
-            </div>
-
-            <div className="max-w-7xl mx-auto py-8 sm:py-12 md:py-16 px-0 sm:px-6 lg:px-8 relative z-10">
-                {/* Encabezado */}
-                <div className="text-center mb-6 sm:mb-10 px-4">
-                    <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-gradient-to-r from-blue-500/20 to-purple-500/20 md:backdrop-blur-sm rounded-full mb-3 shadow-lg shadow-blue-500/30 border border-blue-500/30">
-                        {/* Icon sin animate-pulse */}
-                        <Sparkles className="w-3.5 h-3.5 text-blue-400" />
-                        <span className="text-xs font-semibold text-blue-300 uppercase tracking-wider">
-                            Descubrí lo mejor
-                        </span>
-                    </div>
-                    <h2 className="text-2xl sm:text-4xl md:text-5xl font-black mb-2 tracking-tight">
-                        <span className="text-white drop-shadow-[0_0_20px_rgba(255,255,255,0.3)]">
-                            Explorá nuestras{' '}
-                        </span>
-                        <span className="relative inline-block">
-                            <span className="bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent drop-shadow-[0_0_30px_rgba(147,51,234,0.5)]">
-                                categorías
-                            </span>
-                            {/* Glow OPTIMIZADO - Blur reducido, sin animate-pulse */}
-                            <span className="hidden md:block absolute inset-0 bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 blur-xl opacity-30 -z-10" />
-                        </span>
-                    </h2>
-                    <p className="text-sm sm:text-base text-gray-300 max-w-2xl mx-auto font-medium drop-shadow-[0_0_10px_rgba(255,255,255,0.2)]">
-                        Encontrá todo lo que necesitás para armar tu setup
-                    </p>
-                </div>
-
-                {/* Bento Grid Moderno - Desktop */}
-                <div className="hidden lg:block">
-                    <div className="grid grid-cols-6 grid-rows-4 gap-4 h-[600px]">
-                        {/* PROCESADORES - Grande (2x2) */}
-                        <CategoryCard
-                            category={allCategories[0]}
-                            onCategoryClick={handleCategoryClick}
-                            className="col-span-2 row-span-2"
-                            textSize="text-xl font-black"
-                            isLarge={true}
-                        />
-                        
-                        {/* MOTHERBOARDS - Mediano (2x1) */}
-                        <CategoryCard
-                            category={allCategories[1]}
-                            onCategoryClick={handleCategoryClick}
-                            className="col-span-2 row-span-1"
-                            textSize="text-lg font-bold"
-                        />
-                        
-                        {/* MEMORIAS RAM - Mediano (2x1) */}
-                        <CategoryCard
-                            category={allCategories[2]}
-                            onCategoryClick={handleCategoryClick}
-                            className="col-span-2 row-span-1"
-                            textSize="text-lg font-bold"
-                        />
-                        
-                        {/* ALMACENAMIENTO - Alto (2x2) */}
-                        <CategoryCard
-                            category={allCategories[3]}
-                            onCategoryClick={handleCategoryClick}
-                            className="col-span-2 row-span-2"
-                            textSize="text-xl font-black"
-                            isLarge={true}
-                        />
-                        
-                        {/* FUENTES - Pequeño (1x1) */}
-                        <CategoryCard
-                            category={allCategories[4]}
-                            onCategoryClick={handleCategoryClick}
-                            className="col-span-1 row-span-1"
-                            textSize="text-base font-semibold"
-                        />
-                        
-                        {/* REFRIGERACIÓN - Pequeño (1x1) */}
-                        <CategoryCard
-                            category={allCategories[5]}
-                            onCategoryClick={handleCategoryClick}
-                            className="col-span-1 row-span-1"
-                            textSize="text-base font-semibold"
-                        />
-                        
-                        {/* TECLADOS - Ancho (2x1) */}
-                        <CategoryCard
-                            category={allCategories[6]}
-                            onCategoryClick={handleCategoryClick}
-                            className="col-span-2 row-span-1"
-                            textSize="text-lg font-bold"
-                        />
-                        
-                        {/* MOUSE - Pequeño (1x1) */}
-                        <CategoryCard
-                            category={allCategories[7]}
-                            onCategoryClick={handleCategoryClick}
-                            className="col-span-1 row-span-1"
-                            textSize="text-base font-semibold"
-                        />
-                        
-                        {/* AURICULARES - Pequeño (1x1) */}
-                        <CategoryCard
-                            category={allCategories[8]}
-                            onCategoryClick={handleCategoryClick}
-                            className="col-span-1 row-span-1"
-                            textSize="text-base font-semibold"
-                        />
-                    </div>
-                </div>
-
-                {/* Bento Grid Tablet */}
-                <div className="hidden sm:block lg:hidden">
-                    <div className="grid grid-cols-4 grid-rows-3 gap-3 h-[480px]">
-                        {/* PROCESADORES - Grande (2x2) */}
-                        <CategoryCard
-                            category={allCategories[0]}
-                            onCategoryClick={handleCategoryClick}
-                            className="col-span-2 row-span-2"
-                            textSize="text-lg font-black"
-                            isLarge={true}
-                        />
-                        
-                        {/* MOTHERBOARDS - Vertical (1x2) */}
-                        <CategoryCard
-                            category={allCategories[1]}
-                            onCategoryClick={handleCategoryClick}
-                            className="col-span-1 row-span-2"
-                            textSize="text-base font-bold"
-                        />
-                        
-                        {/* MEMORIAS RAM - Vertical (1x2) */}
-                        <CategoryCard
-                            category={allCategories[2]}
-                            onCategoryClick={handleCategoryClick}
-                            className="col-span-1 row-span-2"
-                            textSize="text-base font-bold"
-                        />
-                        
-                        {/* ALMACENAMIENTO - Ancho (2x1) */}
-                        <CategoryCard
-                            category={allCategories[3]}
-                            onCategoryClick={handleCategoryClick}
-                            className="col-span-2 row-span-1"
-                            textSize="text-base font-bold"
-                        />
-                        
-                        {/* FUENTES - Pequeño (1x1) */}
-                        <CategoryCard
-                            category={allCategories[4]}
-                            onCategoryClick={handleCategoryClick}
-                            className="col-span-1 row-span-1"
-                            textSize="text-sm font-semibold"
-                        />
-                        
-                        {/* REFRIGERACIÓN - Pequeño (1x1) */}
-                        <CategoryCard
-                            category={allCategories[5]}
-                            onCategoryClick={handleCategoryClick}
-                            className="col-span-1 row-span-1"
-                            textSize="text-sm font-semibold"
-                        />
-                    </div>
-                    
-                    {/* Categorías restantes en grid simple */}
-                    <div className="grid grid-cols-3 gap-3 mt-4">
-                        {allCategories.slice(6).map((category) => (
-                            <CategoryCard
-                                key={category.id}
-                                category={category}
-                                onCategoryClick={handleCategoryClick}
-                                className="h-[120px]"
-                                textSize="text-sm font-semibold"
-                            />
-                        ))}
-                    </div>
-                </div>
-
-                {/* Bento Grid Mobile - Optimizado y compacto */}
-                <div className="block sm:hidden px-3">
-                    <div className="grid grid-cols-4 gap-2 auto-rows-[100px]">
-                        {/* PROCESADORES - Grande destacado (2x2) */}
-                        <CategoryCard
-                            category={allCategories[0]}
-                            onCategoryClick={handleCategoryClick}
-                            className="col-span-2 row-span-2"
-                            textSize="text-base font-black"
-                            isLarge={true}
-                        />
-                        
-                        {/* FUENTES - Vertical (1x2) */}
-                        <CategoryCard
-                            category={allCategories[4]}
-                            onCategoryClick={handleCategoryClick}
-                            className="col-span-1 row-span-2"
-                            textSize="text-xs font-bold"
-                        />
-                        
-                        {/* MEMORIAS RAM - Vertical (1x2) */}
-                        <CategoryCard
-                            category={allCategories[2]}
-                            onCategoryClick={handleCategoryClick}
-                            className="col-span-1 row-span-2"
-                            textSize="text-xs font-bold"
-                        />
-                        
-                        {/* REFRIGERACION - Ancho (2x1) */}
-                        <CategoryCard
-                            category={allCategories[5]}
-                            onCategoryClick={handleCategoryClick}
-                            className="col-span-2 row-span-1"
-                            textSize="text-xs font-bold"
-                        />
-                        
-                        {/* MOTHERBOARD - Pequeño (1x1) */}
-                        <CategoryCard
-                            category={allCategories[1]}
-                            onCategoryClick={handleCategoryClick}
-                            className="col-span-1 row-span-1"
-                            textSize="text-[10px] font-semibold"
-                        />
-                        
-                        {/* TECLADOS - Pequeño (1x1) */}
-                        <CategoryCard
-                            category={allCategories[6]}
-                            onCategoryClick={handleCategoryClick}
-                            className="col-span-1 row-span-1"
-                            textSize="text-[10px] font-semibold"
-                        />
-                        
-                        {/* ALMACENAMIENTO - Ancho (2x1) */}
-                        <CategoryCard
-                            category={allCategories[3]}
-                            onCategoryClick={handleCategoryClick}
-                            className="col-span-2 row-span-1"
-                            textSize="text-xs font-bold"
-                        />
-                        
-                        {/* MOUSE - Pequeño (1x1) */}
-                        <CategoryCard
-                            category={allCategories[7]}
-                            onCategoryClick={handleCategoryClick}
-                            className="col-span-1 row-span-1"
-                            textSize="text-[10px] font-semibold"
-                        />
-                        
-                        {/* AURICULARES - Pequeño (1x1) */}
-                        <CategoryCard
-                            category={allCategories[8]}
-                            onCategoryClick={handleCategoryClick}
-                            className="col-span-1 row-span-1"
-                            textSize="text-[10px] font-semibold"
-                        />
-                    </div>
-                </div>
-
-                {/* CTA Button - Ver Más */}
-                <div className="flex justify-center pt-4">
-                    <button
-                        onClick={handleVerMas}
-                        className="group relative inline-flex items-center gap-2 sm:gap-4 px-6 sm:px-10 md:px-12 py-3 sm:py-5 md:py-6 bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 hover:from-blue-400 hover:via-purple-400 hover:to-pink-400 rounded-xl sm:rounded-2xl font-bold sm:font-black text-white text-sm sm:text-lg md:text-xl shadow-xl sm:shadow-2xl shadow-blue-500/40 sm:shadow-blue-500/50 hover:shadow-2xl sm:hover:shadow-3xl hover:shadow-blue-500/60 sm:hover:shadow-blue-500/70 transition-all duration-500 hover:scale-105 sm:hover:scale-110 active:scale-95 border border-blue-400/30 sm:border-2 sm:border-blue-400/40 hover:border-blue-300/50 sm:hover:border-blue-300/60"
-                    >
-                        {/* Efecto de brillo OPTIMIZADO - Sin animate-pulse */}
-                        <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 sm:via-white/30 to-transparent opacity-0 group-hover:opacity-100 rounded-xl sm:rounded-2xl transition-opacity duration-500" />
-                        
-                        {/* Resplandor de fondo - Solo desktop */}
-                        <div className="hidden md:block absolute inset-0 bg-gradient-to-r from-blue-400 to-purple-400 rounded-xl sm:rounded-2xl blur-lg sm:blur-xl opacity-0 group-hover:opacity-50 sm:group-hover:opacity-60 transition-opacity duration-500 -z-10 scale-110" />
-                        
-                        <Cpu className="w-4 h-4 sm:w-6 md:w-7 group-hover:rotate-12 group-hover:scale-110 transition-transform duration-500" />
-                        <span className="relative z-10 tracking-wide text-xs sm:text-base md:text-lg">Ver más</span>
-                        <ArrowRight className="w-4 h-4 sm:w-6 md:w-7 group-hover:translate-x-2 sm:group-hover:translate-x-3 group-hover:scale-110 transition-transform duration-500" />
-                        
-                        {/* Partículas animadas - Solo en desktop */}
-                        <div className="hidden sm:block absolute -top-2 -right-2 w-3 md:w-4 h-3 md:h-4 bg-blue-300 rounded-full opacity-0 group-hover:opacity-100 animate-ping" />
-                        <div className="hidden sm:block absolute -bottom-2 -left-2 w-2 md:w-3 h-2 md:h-3 bg-purple-300 rounded-full opacity-0 group-hover:opacity-100 animate-ping [animation-delay:0.3s]" />
-                        <div className="hidden sm:block absolute top-1/2 -right-3 md:-right-4 w-1.5 md:w-2 h-1.5 md:h-2 bg-pink-300 rounded-full opacity-0 group-hover:opacity-100 animate-ping [animation-delay:0.6s]" />
-                    </button>
-                </div>
-            </div>
-        </section>
-    );
-};
-
-
-// --- Componente OPTIMIZADO - Sin efectos pesados ---
-const CategoryCard = ({ category, onCategoryClick, className, textSize, isLarge = false }) => {
   return (
     <button
-        onClick={() => onCategoryClick && onCategoryClick(category.slug)}
-        className={`group relative w-full overflow-hidden rounded-2xl sm:rounded-3xl 
-                    focus:outline-none focus:ring-2 focus:ring-blue-500/50 
-                    bg-gray-900 
-                    transition-all duration-200 
-                    hover:scale-[1.02] active:scale-[0.98]
-                    shadow-lg hover:shadow-xl
-                    ${className}`}
-        aria-label={`Explorar categoría ${category.name}`}
-        style={{
-          willChange: 'transform',
-          transform: 'translateZ(0)',
-          backfaceVisibility: 'hidden'
-        }}
+      onClick={() => onCategoryClick(category.slug)}
+      onMouseEnter={() => setHover(true)}
+      onMouseLeave={() => setHover(false)}
+      aria-label={`Explorar ${category.name}`}
+      style={{
+        position: 'relative',
+        overflow: 'hidden',
+        borderRadius: 16,
+        border: `1px solid ${hover ? category.accent + '55' : 'rgba(255,255,255,0.07)'}`,
+        background: '#0a0a0a',
+        cursor: 'pointer',
+        width: '100%',
+        height: '100%',
+        display: 'flex',
+        flexDirection: 'column',
+        justifyContent: 'flex-end',
+        transition: 'border-color .25s, transform .2s',
+        transform: hover ? 'translateY(-2px)' : 'none',
+        boxShadow: hover ? `0 12px 40px ${category.accent}22` : '0 2px 12px rgba(0,0,0,.4)',
+        outline: 'none',
+      }}
     >
-        {/* Imagen de fondo */}
-        <div className="absolute inset-0 bg-gray-900">
-            <img
-                src={category.image}
-                alt={category.name}
-                className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
-                loading="lazy"
-                decoding="async"
-                onError={(e) => {
-                    e.target.style.display = 'none';
-                }}
-                style={{ 
-                  willChange: 'transform',
-                  transform: 'translateZ(0)'
-                }}
-            />
-        </div>
+      {/* Imagen de fondo */}
+      <img
+        src={category.image}
+        alt={category.name}
+        loading="lazy"
+        style={{
+          position: 'absolute', inset: 0,
+          width: '100%', height: '100%',
+          objectFit: 'cover',
+          transition: 'transform .4s cubic-bezier(.4,0,.2,1), opacity .3s',
+          transform: hover ? 'scale(1.06)' : 'scale(1)',
+          opacity: hover ? 0.55 : 0.4,
+        }}
+        onError={e => e.target.style.display = 'none'}
+      />
 
-        {/* Overlay oscuro con gradiente */}
-        <div className={`absolute inset-0 ${isLarge 
-            ? 'bg-gradient-to-br from-black/80 via-black/60 to-black/30' 
-            : 'bg-gradient-to-t from-black/85 via-black/50 to-black/10'
-        }`} />
+      {/* Overlay base */}
+      <div style={{
+        position: 'absolute', inset: 0,
+        background: 'linear-gradient(to top, rgba(0,0,0,.92) 0%, rgba(0,0,0,.4) 50%, rgba(0,0,0,.1) 100%)',
+      }} />
 
-        {/* Glow sutil en hover */}
-        <div 
-          className={`absolute inset-0 pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-300 ${isLarge
-            ? 'bg-gradient-to-br from-blue-500/30 via-purple-500/30 to-pink-500/30'
-            : 'bg-gradient-to-tr from-blue-500/20 via-purple-500/20 to-pink-500/20'
-          }`}
-        />
+      {/* Accent glow top-right en hover */}
+      <div style={{
+        position: 'absolute', top: -40, right: -40,
+        width: 120, height: 120,
+        borderRadius: '50%',
+        background: `radial-gradient(circle, ${category.accent}44 0%, transparent 70%)`,
+        opacity: hover ? 1 : 0,
+        transition: 'opacity .3s',
+        pointerEvents: 'none',
+      }} />
 
-        {/* Content */}
-        <div className={`absolute inset-0 flex items-end ${isLarge ? 'p-6 md:p-8' : 'p-3 sm:p-4'} z-10`}>
-            <div className="relative w-full">
-                <h3 className={`font-black text-white leading-none text-left tracking-tight ${textSize} ${isLarge ? 'mb-2' : ''}`}
-                    style={{ 
-                        textShadow: isLarge 
-                            ? '0 2px 12px rgba(0,0,0,0.9), 0 0 20px rgba(59,130,246,0.4)' 
-                            : '0 2px 8px rgba(0,0,0,0.9), 0 0 15px rgba(59,130,246,0.3)' 
-                    }}>
-                    {category.name}
-                </h3>
-                
-                {/* Descripción adicional para cards grandes */}
-                {isLarge && (
-                    <p 
-                      className="text-gray-200 text-sm mb-3 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-                      style={{ 
-                        textShadow: '0 1px 4px rgba(0,0,0,0.8)'
-                      }}
-                    >
-                        {category.name === 'PROCESADORES' && 'Intel, AMD y más'}
-                        {category.name === 'ALMACENAMIENTO' && 'SSD, HDD, NVMe'}
-                    </p>
-                )}
-                
-                <div className="relative mt-1.5 sm:mt-2">
-                    <div 
-                      className={`${isLarge ? 'h-1.5' : 'h-1'} bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 rounded-full transition-all duration-300 group-hover:shadow-lg group-hover:shadow-blue-500/50`}
-                      style={{ 
-                        width: isLarge ? '4rem' : '2rem'
-                      }} 
-                    />
-                </div>
-            </div>
-        </div>
+      {/* Número índice — top left */}
+      <span style={{
+        position: 'absolute', top: 14, left: 16,
+        fontFamily: "'Bebas Neue', sans-serif",
+        fontSize: large ? '1.1rem' : '.85rem',
+        letterSpacing: '.1em',
+        color: hover ? category.accent : 'rgba(255,255,255,0.2)',
+        transition: 'color .2s',
+        lineHeight: 1,
+      }}>
+        {num}
+      </span>
 
-        {/* Borde sutil - UN SOLO BORDE */}
-        <div 
-          className="absolute inset-0 rounded-2xl sm:rounded-3xl border border-white/10 group-hover:border-blue-400/40 pointer-events-none transition-colors duration-300"
-        />
+      {/* Arrow top-right en hover */}
+      <div style={{
+        position: 'absolute', top: 12, right: 12,
+        width: 28, height: 28,
+        borderRadius: 8,
+        background: category.accent,
+        display: 'flex', alignItems: 'center', justifyContent: 'center',
+        opacity: hover ? 1 : 0,
+        transform: hover ? 'scale(1)' : 'scale(0.6)',
+        transition: 'opacity .2s, transform .25s cubic-bezier(.4,0,.2,1)',
+      }}>
+        <ArrowUpRight size={14} color="#fff" strokeWidth={2.5} />
+      </div>
+
+      {/* Contenido inferior */}
+      <div style={{ position: 'relative', zIndex: 1, padding: large ? '20px 20px 18px' : '14px 14px 13px' }}>
+        {/* Línea de acento */}
+        <div style={{
+          height: 2,
+          width: hover ? (large ? 40 : 28) : (large ? 20 : 14),
+          background: category.accent,
+          borderRadius: 1,
+          marginBottom: large ? 10 : 7,
+          transition: 'width .3s cubic-bezier(.4,0,.2,1)',
+        }} />
+
+        <span style={{
+          display: 'block',
+          fontFamily: "'Bebas Neue', sans-serif",
+          fontSize: large ? 'clamp(1.3rem,2.5vw,1.7rem)' : wide ? '1.1rem' : 'clamp(.85rem,1.6vw,1.05rem)',
+          letterSpacing: '.06em',
+          color: '#fff',
+          lineHeight: 1,
+          textAlign: 'left',
+          textShadow: '0 2px 8px rgba(0,0,0,.8)',
+        }}>
+          {category.name}
+        </span>
+      </div>
     </button>
   );
 };
 
+/* ── SECCIÓN PRINCIPAL ── */
+const CategoryProductSection = ({ onCategoryClick }) => {
+  const navigate = useNavigate();
 
-// Exportamos el componente principal
+  const handle = (slug) => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+    onCategoryClick?.(slug);
+  };
+
+  return (
+    <section style={{ width: '100%', position: 'relative' }}>
+      <style>{`
+        @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500;600;700&display=swap');
+
+        .cps-wrap {
+          max-width: 1100px;
+          margin: 0 auto;
+          padding: 64px 24px 72px;
+          font-family: 'DM Sans', sans-serif;
+        }
+
+        /* ── HEADER ── */
+        .cps-head {
+          display: flex;
+          align-items: flex-end;
+          justify-content: space-between;
+          gap: 16px;
+          margin-bottom: 36px;
+        }
+        .cps-head-left {}
+        .cps-eyebrow {
+          font-size: 10px; font-weight: 700;
+          letter-spacing: .22em; text-transform: uppercase;
+          color: #2563eb; margin-bottom: 8px;
+        }
+        .cps-title {
+          font-family: 'Bebas Neue', sans-serif;
+          font-size: clamp(2.8rem, 6vw, 4.5rem);
+          letter-spacing: .03em;
+          color: #fff;
+          line-height: .9;
+        }
+        .cps-title em {
+          font-style: normal;
+          color: transparent;
+          -webkit-text-stroke: 1px rgba(255,255,255,0.35);
+        }
+        .cps-sub {
+          font-size: 13px; font-weight: 400;
+          color: rgba(255,255,255,.35);
+          margin-top: 10px; letter-spacing: .02em;
+        }
+        .cps-head-count {
+          flex-shrink: 0; text-align: right;
+        }
+        .cps-head-count-num {
+          font-family: 'Bebas Neue', sans-serif;
+          font-size: clamp(3rem,5vw,4.5rem);
+          color: rgba(255,255,255,.12);
+          line-height: 1;
+        }
+        .cps-head-count-lbl {
+          font-size: 9px; font-weight: 700;
+          letter-spacing: .2em; text-transform: uppercase;
+          color: rgba(255,255,255,.2);
+        }
+
+        /* ── BENTO DESKTOP ── */
+        .cps-bento {
+          display: grid;
+          grid-template-columns: repeat(6, 1fr);
+          grid-template-rows: 200px 160px 160px;
+          gap: 10px;
+        }
+        .c1  { grid-column: span 2; grid-row: span 2; }
+        .c2  { grid-column: span 2; grid-row: span 1; }
+        .c3  { grid-column: span 2; grid-row: span 1; }
+        .c4  { grid-column: span 2; grid-row: span 2; }
+        .c5  { grid-column: span 1; grid-row: span 1; }
+        .c6  { grid-column: span 1; grid-row: span 1; }
+        .c7  { grid-column: span 2; grid-row: span 1; }
+        .c8  { grid-column: span 1; grid-row: span 1; }
+        .c9  { grid-column: span 1; grid-row: span 1; }
+
+        /* ── BENTO TABLET ── */
+        @media (max-width: 1023px) and (min-width: 640px) {
+          .cps-bento {
+            grid-template-columns: repeat(4, 1fr);
+            grid-template-rows: 180px 140px 140px;
+          }
+          .c1 { grid-column: span 2; grid-row: span 2; }
+          .c2 { grid-column: span 2; grid-row: span 1; }
+          .c3 { grid-column: span 2; grid-row: span 1; }
+          .c4 { grid-column: span 2; grid-row: span 2; }
+          .c5 { grid-column: span 1; }
+          .c6 { grid-column: span 1; }
+          .c7 { grid-column: span 2; }
+          .c8 { grid-column: span 1; }
+          .c9 { grid-column: span 1; }
+        }
+
+        /* ── BENTO MOBILE ── */
+        @media (max-width: 639px) {
+          .cps-bento {
+            grid-template-columns: repeat(2, 1fr);
+            grid-template-rows: repeat(5, 120px);
+            gap: 8px;
+          }
+          .c1 { grid-column: span 2; grid-row: span 1; }
+          .c2, .c3, .c4, .c5, .c6, .c7, .c8, .c9 {
+            grid-column: span 1; grid-row: span 1;
+          }
+          .c7 { grid-column: span 2; }
+        }
+
+        /* ── CTA ── */
+        .cps-cta-wrap {
+          display: flex; justify-content: center;
+          margin-top: 28px;
+        }
+        .cps-cta {
+          display: inline-flex; align-items: center; gap: 10px;
+          padding: 14px 28px;
+          background: #fff;
+          color: #0a0a0a;
+          border: none;
+          border-radius: 12px;
+          font-family: 'DM Sans', sans-serif;
+          font-size: 13px; font-weight: 700;
+          letter-spacing: .06em; text-transform: uppercase;
+          cursor: pointer;
+          transition: background .15s, transform .15s, box-shadow .15s;
+          box-shadow: 0 4px 20px rgba(255,255,255,.1);
+        }
+        .cps-cta:hover {
+          background: #f1f5f9;
+          transform: translateY(-2px);
+          box-shadow: 0 8px 32px rgba(255,255,255,.15);
+        }
+        .cps-cta:active { transform: scale(.97); }
+        .cps-cta svg { transition: transform .2s; }
+        .cps-cta:hover svg { transform: translateX(4px); }
+      `}</style>
+
+      <div className="cps-wrap">
+
+        {/* HEADER */}
+        <div className="cps-head">
+          <div className="cps-head-left">
+            <div className="cps-eyebrow">Shock Store · Catálogo</div>
+            <div className="cps-title">
+              Explorá<br /><em>categorías</em>
+            </div>
+            <div className="cps-sub">Todo para tu setup en un solo lugar</div>
+          </div>
+          <div className="cps-head-count">
+            <div className="cps-head-count-num">{String(allCategories.length).padStart(2,'0')}</div>
+            <div className="cps-head-count-lbl">secciones</div>
+          </div>
+        </div>
+
+        {/* BENTO GRID */}
+        <div className="cps-bento">
+          {[
+            { cls: 'c1', i: 0, large: true },
+            { cls: 'c2', i: 1, wide: true },
+            { cls: 'c3', i: 2, wide: true },
+            { cls: 'c4', i: 3, large: true },
+            { cls: 'c5', i: 4 },
+            { cls: 'c6', i: 5 },
+            { cls: 'c7', i: 6, wide: true },
+            { cls: 'c8', i: 7 },
+            { cls: 'c9', i: 8 },
+          ].map(({ cls, i, large, wide }) => (
+            <div key={allCategories[i].id} className={cls}>
+              <CategoryCard
+                category={allCategories[i]}
+                index={i}
+                onCategoryClick={handle}
+                large={large}
+                wide={wide}
+              />
+            </div>
+          ))}
+        </div>
+
+        {/* CTA */}
+        <div className="cps-cta-wrap">
+          <button
+            className="cps-cta"
+            onClick={() => handle('procesadores')}
+          >
+            Ver todo el catálogo
+            <ArrowRight size={15} strokeWidth={2.5} />
+          </button>
+        </div>
+
+      </div>
+    </section>
+  );
+};
+
 export default CategoryProductSection;
