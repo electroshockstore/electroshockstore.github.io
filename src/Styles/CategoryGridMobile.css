@@ -1,0 +1,81 @@
+/* Mejoras visuales para mobile - CategoryProductSection */
+@media (max-width: 639px) {
+  .cps-wrap {
+    padding: 48px 16px 56px;
+  }
+  
+  .cat-card {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    border-radius: 16px;
+  }
+  
+  .cat-card:active {
+    transform: scale(0.96);
+  }
+  
+  .cat-card-img {
+    transition: transform 0.5s cubic-bezier(0.4,0,0.2,1), opacity 0.4s;
+    opacity: 0.5;
+  }
+  
+  .cat-card:active .cat-card-img {
+    transform: scale(1.1);
+    opacity: 0.65;
+  }
+  
+  .cat-card-overlay {
+    background: linear-gradient(135deg, rgba(0,0,0,.92) 0%, rgba(0,0,0,.6) 50%, rgba(0,0,0,.3) 100%);
+  }
+  
+  .cat-card-glow {
+    top: -25px;
+    right: -25px;
+    width: 90px;
+    height: 90px;
+    opacity: 0.4;
+  }
+  
+  .cat-card:active .cat-card-glow {
+    opacity: 0.7;
+  }
+  
+  .cat-card-num {
+    font-size: 0.7rem;
+    top: 10px !important;
+    left: 12px !important;
+  }
+  
+  .cat-card-name {
+    font-size: clamp(0.7rem, 2.8vw, 0.9rem) !important;
+    line-height: 1.15;
+    letter-spacing: 0.04em;
+  }
+  
+  .cat-card-accent {
+    height: 2px !important;
+    margin-bottom: 8px !important;
+  }
+  
+  /* Ajustar padding para tarjetas más compactas pero legibles */
+  .cat-card > div:last-child {
+    padding: 10px 12px !important;
+  }
+  
+  /* Mejorar visibilidad del número de categoría */
+  .cat-card > span:first-of-type {
+    opacity: 0.4;
+  }
+  
+  /* Mejorar el botón de flecha en mobile */
+  .cat-card > div:nth-child(3) {
+    width: 24px !important;
+    height: 24px !important;
+    top: 10px !important;
+    right: 10px !important;
+  }
+  
+  .cat-card > div:nth-child(3) svg {
+    width: 12px !important;
+    height: 12px !important;
+  }
+}

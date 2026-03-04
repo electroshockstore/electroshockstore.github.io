@@ -1,6 +1,5 @@
 import { useState } from 'react';
 import { ArrowRight, ArrowUpRight } from 'lucide-react';
-import { useNavigate } from 'react-router-dom';
 
 const allCategories = [
   { id: 1, name: 'PROCESADORES',   image: '/images/category_grid/procesador_grid_tiny.webp',      slug: 'procesadores',   accent: '#f97316' },
@@ -8,123 +7,77 @@ const allCategories = [
   { id: 3, name: 'MEMORIAS RAM',   image: '/images/category_grid/ram_grid_tiny.webp',             slug: 'memorias-ram',   accent: '#10b981' },
   { id: 4, name: 'ALMACENAMIENTO', image: '/images/category_grid/almacenamiento_grid_tiny.webp',  slug: 'almacenamiento', accent: '#8b5cf6' },
   { id: 5, name: 'FUENTES',        image: '/images/category_grid/fuente_grid_tiny.webp',          slug: 'fuentes',        accent: '#eab308' },
-  { id: 6, name: 'REFRIGERACIÓN',  image: '/images/category_grid/refrigeracion_grid_tiny.webp',   slug: 'refrigeracion',  accent: '#06b6d4' },
+  { id: 6, name: 'REFRIGERACIÓN',  image: '/images/category_grid/refrigeracion_grid_tiny.webp',  slug: 'refrigeracion',  accent: '#06b6d4' },
   { id: 7, name: 'TECLADOS',       image: '/images/category_grid/teclados_grid_tiny.webp',        slug: 'teclados',       accent: '#ec4899' },
   { id: 8, name: 'MOUSE',          image: '/images/category_grid/mouse_grid_tiny.webp',           slug: 'mouse',          accent: '#f97316' },
   { id: 9, name: 'AURICULARES',    image: '/images/category_grid/auriculares_grid_tiny.webp',     slug: 'auriculares',    accent: '#2563eb' },
 ];
 
-/* ── CARD ── */
-const CategoryCard = ({ category, index, onCategoryClick, large = false, tall = false, wide = false }) => {
+const CategoryCard = ({ category, index, onClick, textSize = 'text-sm' }) => {
   const [hover, setHover] = useState(false);
   const num = String(index + 1).padStart(2, '0');
 
   return (
     <button
-      onClick={() => onCategoryClick(category.slug)}
+      onClick={() => onClick(category.slug)}
       onMouseEnter={() => setHover(true)}
       onMouseLeave={() => setHover(false)}
       aria-label={`Explorar ${category.name}`}
+      className="relative overflow-hidden rounded-2xl bg-[#0a0a0a] cursor-pointer w-full h-full flex flex-col justify-end outline-none transition-transform duration-200 hover:-translate-y-0.5 active:scale-95 p-3"
       style={{
-        position: 'relative',
-        overflow: 'hidden',
-        borderRadius: 16,
-        border: `1px solid ${hover ? category.accent + '55' : 'rgba(255,255,255,0.07)'}`,
-        background: '#0a0a0a',
-        cursor: 'pointer',
-        width: '100%',
-        height: '100%',
-        display: 'flex',
-        flexDirection: 'column',
-        justifyContent: 'flex-end',
-        transition: 'border-color .25s, transform .2s',
-        transform: hover ? 'translateY(-2px)' : 'none',
-        boxShadow: hover ? `0 12px 40px ${category.accent}22` : '0 2px 12px rgba(0,0,0,.4)',
-        outline: 'none',
+        border: `2px solid ${hover ? category.accent + '60' : 'rgba(255,255,255,0.08)'}`,
+        boxShadow: hover ? `0 8px 28px ${category.accent}25` : '0 2px 8px rgba(0,0,0,0.5)',
       }}
     >
-      {/* Imagen de fondo */}
+      {/* Image */}
       <img
         src={category.image}
         alt={category.name}
         loading="lazy"
-        style={{
-          position: 'absolute', inset: 0,
-          width: '100%', height: '100%',
-          objectFit: 'cover',
-          transition: 'transform .4s cubic-bezier(.4,0,.2,1), opacity .3s',
-          transform: hover ? 'scale(1.06)' : 'scale(1)',
-          opacity: hover ? 0.55 : 0.4,
-        }}
+        className="absolute inset-0 w-full h-full object-cover transition-all duration-500"
+        style={{ opacity: hover ? 0.5 : 0.35, transform: hover ? 'scale(1.07)' : 'scale(1)' }}
         onError={e => e.target.style.display = 'none'}
       />
 
-      {/* Overlay base */}
-      <div style={{
-        position: 'absolute', inset: 0,
-        background: 'linear-gradient(to top, rgba(0,0,0,.92) 0%, rgba(0,0,0,.4) 50%, rgba(0,0,0,.1) 100%)',
-      }} />
+      {/* Gradient overlay */}
+      <div className="absolute inset-0" style={{ background: 'linear-gradient(to top, rgba(0,0,0,0.92) 0%, rgba(0,0,0,0.3) 60%, transparent 100%)' }} />
 
-      {/* Accent glow top-right en hover */}
-      <div style={{
-        position: 'absolute', top: -40, right: -40,
-        width: 120, height: 120,
-        borderRadius: '50%',
-        background: `radial-gradient(circle, ${category.accent}44 0%, transparent 70%)`,
-        opacity: hover ? 1 : 0,
-        transition: 'opacity .3s',
-        pointerEvents: 'none',
-      }} />
+      {/* Glow */}
+      {hover && (
+        <div className="absolute inset-0 pointer-events-none" style={{ background: `radial-gradient(circle at 30% 80%, ${category.accent}22 0%, transparent 60%)` }} />
+      )}
 
-      {/* Número índice — top left */}
-      <span style={{
-        position: 'absolute', top: 14, left: 16,
-        fontFamily: "'Bebas Neue', sans-serif",
-        fontSize: large ? '1.1rem' : '.85rem',
-        letterSpacing: '.1em',
-        color: hover ? category.accent : 'rgba(255,255,255,0.2)',
-        transition: 'color .2s',
-        lineHeight: 1,
-      }}>
+      {/* Number */}
+      <span
+        className="absolute top-2 left-2.5 font-bold tracking-widest text-[10px] leading-none transition-colors duration-200"
+        style={{ fontFamily: 'monospace', color: hover ? category.accent : 'rgba(255,255,255,0.22)' }}
+      >
         {num}
       </span>
 
-      {/* Arrow top-right en hover */}
-      <div style={{
-        position: 'absolute', top: 12, right: 12,
-        width: 28, height: 28,
-        borderRadius: 8,
-        background: category.accent,
-        display: 'flex', alignItems: 'center', justifyContent: 'center',
-        opacity: hover ? 1 : 0,
-        transform: hover ? 'scale(1)' : 'scale(0.6)',
-        transition: 'opacity .2s, transform .25s cubic-bezier(.4,0,.2,1)',
-      }}>
-        <ArrowUpRight size={14} color="#fff" strokeWidth={2.5} />
+      {/* Arrow badge */}
+      <div
+        className="absolute top-2 right-2 w-5 h-5 rounded-md flex items-center justify-center transition-all duration-200"
+        style={{
+          background: category.accent,
+          opacity: hover ? 1 : 0,
+          transform: hover ? 'scale(1)' : 'scale(0.6)',
+        }}
+      >
+        <ArrowUpRight size={11} color="#fff" strokeWidth={2.5} />
       </div>
 
-      {/* Contenido inferior */}
-      <div style={{ position: 'relative', zIndex: 1, padding: large ? '20px 20px 18px' : '14px 14px 13px' }}>
-        {/* Línea de acento */}
-        <div style={{
-          height: 2,
-          width: hover ? (large ? 40 : 28) : (large ? 20 : 14),
-          background: category.accent,
-          borderRadius: 1,
-          marginBottom: large ? 10 : 7,
-          transition: 'width .3s cubic-bezier(.4,0,.2,1)',
-        }} />
-
-        <span style={{
-          display: 'block',
-          fontFamily: "'Bebas Neue', sans-serif",
-          fontSize: large ? 'clamp(1.3rem,2.5vw,1.7rem)' : wide ? '1.1rem' : 'clamp(.85rem,1.6vw,1.05rem)',
-          letterSpacing: '.06em',
-          color: '#fff',
-          lineHeight: 1,
-          textAlign: 'left',
-          textShadow: '0 2px 8px rgba(0,0,0,.8)',
-        }}>
+      {/* Content */}
+      <div className="relative z-10">
+        {/* Accent bar */}
+        <div
+          className="mb-1.5 h-0.5 rounded-full transition-all duration-300"
+          style={{ width: hover ? 28 : 14, background: category.accent }}
+        />
+        <span
+          className={`block font-black tracking-wide text-white leading-tight ${textSize}`}
+          style={{ fontFamily: "'Bebas Neue', 'Arial Black', sans-serif", textShadow: '0 1px 6px rgba(0,0,0,0.9)' }}
+        >
           {category.name}
         </span>
       </div>
@@ -132,204 +85,219 @@ const CategoryCard = ({ category, index, onCategoryClick, large = false, tall = 
   );
 };
 
-/* ── SECCIÓN PRINCIPAL ── */
 const CategoryProductSection = ({ onCategoryClick }) => {
-  const navigate = useNavigate();
-
   const handle = (slug) => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
     onCategoryClick?.(slug);
   };
 
   return (
-    <section style={{ width: '100%', position: 'relative' }}>
-      <style>{`
-        @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500;600;700&display=swap');
+    <section className="w-full  px-3 pt-5 pb-3 flex flex-col gap-3">
 
-        .cps-wrap {
-          max-width: 1100px;
-          margin: 0 auto;
-          padding: 64px 24px 72px;
-          font-family: 'DM Sans', sans-serif;
-        }
-
-        /* ── HEADER ── */
-        .cps-head {
-          display: flex;
-          align-items: flex-end;
-          justify-content: space-between;
-          gap: 16px;
-          margin-bottom: 36px;
-        }
-        .cps-head-left {}
-        .cps-eyebrow {
-          font-size: 10px; font-weight: 700;
-          letter-spacing: .22em; text-transform: uppercase;
-          color: #2563eb; margin-bottom: 8px;
-        }
-        .cps-title {
-          font-family: 'Bebas Neue', sans-serif;
-          font-size: clamp(2.8rem, 6vw, 4.5rem);
-          letter-spacing: .03em;
-          color: #fff;
-          line-height: .9;
-        }
-        .cps-title em {
-          font-style: normal;
-          color: transparent;
-          -webkit-text-stroke: 1px rgba(255,255,255,0.35);
-        }
-        .cps-sub {
-          font-size: 13px; font-weight: 400;
-          color: rgba(255,255,255,.35);
-          margin-top: 10px; letter-spacing: .02em;
-        }
-        .cps-head-count {
-          flex-shrink: 0; text-align: right;
-        }
-        .cps-head-count-num {
-          font-family: 'Bebas Neue', sans-serif;
-          font-size: clamp(3rem,5vw,4.5rem);
-          color: rgba(255,255,255,.12);
-          line-height: 1;
-        }
-        .cps-head-count-lbl {
-          font-size: 9px; font-weight: 700;
-          letter-spacing: .2em; text-transform: uppercase;
-          color: rgba(255,255,255,.2);
-        }
-
-        /* ── BENTO DESKTOP ── */
-        .cps-bento {
-          display: grid;
-          grid-template-columns: repeat(6, 1fr);
-          grid-template-rows: 200px 160px 160px;
-          gap: 10px;
-        }
-        .c1  { grid-column: span 2; grid-row: span 2; }
-        .c2  { grid-column: span 2; grid-row: span 1; }
-        .c3  { grid-column: span 2; grid-row: span 1; }
-        .c4  { grid-column: span 2; grid-row: span 2; }
-        .c5  { grid-column: span 1; grid-row: span 1; }
-        .c6  { grid-column: span 1; grid-row: span 1; }
-        .c7  { grid-column: span 2; grid-row: span 1; }
-        .c8  { grid-column: span 1; grid-row: span 1; }
-        .c9  { grid-column: span 1; grid-row: span 1; }
-
-        /* ── BENTO TABLET ── */
-        @media (max-width: 1023px) and (min-width: 640px) {
-          .cps-bento {
-            grid-template-columns: repeat(4, 1fr);
-            grid-template-rows: 180px 140px 140px;
-          }
-          .c1 { grid-column: span 2; grid-row: span 2; }
-          .c2 { grid-column: span 2; grid-row: span 1; }
-          .c3 { grid-column: span 2; grid-row: span 1; }
-          .c4 { grid-column: span 2; grid-row: span 2; }
-          .c5 { grid-column: span 1; }
-          .c6 { grid-column: span 1; }
-          .c7 { grid-column: span 2; }
-          .c8 { grid-column: span 1; }
-          .c9 { grid-column: span 1; }
-        }
-
-        /* ── BENTO MOBILE ── */
-        @media (max-width: 639px) {
-          .cps-bento {
-            grid-template-columns: repeat(2, 1fr);
-            grid-template-rows: repeat(5, 120px);
-            gap: 8px;
-          }
-          .c1 { grid-column: span 2; grid-row: span 1; }
-          .c2, .c3, .c4, .c5, .c6, .c7, .c8, .c9 {
-            grid-column: span 1; grid-row: span 1;
-          }
-          .c7 { grid-column: span 2; }
-        }
-
-        /* ── CTA ── */
-        .cps-cta-wrap {
-          display: flex; justify-content: center;
-          margin-top: 28px;
-        }
-        .cps-cta {
-          display: inline-flex; align-items: center; gap: 10px;
-          padding: 14px 28px;
-          background: #fff;
-          color: #0a0a0a;
-          border: none;
-          border-radius: 12px;
-          font-family: 'DM Sans', sans-serif;
-          font-size: 13px; font-weight: 700;
-          letter-spacing: .06em; text-transform: uppercase;
-          cursor: pointer;
-          transition: background .15s, transform .15s, box-shadow .15s;
-          box-shadow: 0 4px 20px rgba(255,255,255,.1);
-        }
-        .cps-cta:hover {
-          background: #f1f5f9;
-          transform: translateY(-2px);
-          box-shadow: 0 8px 32px rgba(255,255,255,.15);
-        }
-        .cps-cta:active { transform: scale(.97); }
-        .cps-cta svg { transition: transform .2s; }
-        .cps-cta:hover svg { transform: translateX(4px); }
-      `}</style>
-
-      <div className="cps-wrap">
-
+      
+      
+ 
         {/* HEADER */}
-        <div className="cps-head">
-          <div className="cps-head-left">
-            <div className="cps-eyebrow">Shock Store · Catálogo</div>
-            <div className="cps-title">
-              Explorá<br /><em>categorías</em>
+        <div className="flex items-end justify-between gap-4 mb-12">
+          <div className="flex-1">
+            <div className="cps-eyebrow text-[13px] text-white/40 uppercase tracking-tighter">ElectroShock · Catálogo</div>
+            <div className="cps-title-brutalist flex flex-col">
+              <span className="cps-title-main text-[clamp(4.5rem,10vw,7.5rem)] font-black leading-[0.8] text-white">EXPLORÁ</span>
+              <span className="cps-title-accent text-[clamp(2.8rem,6vw,4.8rem)] font-black leading-[0.8] text-blue-600 translate-x-3 -mt-2">CATEGORÍAS</span>
             </div>
-            <div className="cps-sub">Todo para tu setup en un solo lugar</div>
+            <div className="text-[17px] leading-relaxed text-white/50 mt-4 max-w-[600px] font-medium tracking-wide">Todo para tu setup en un solo lugar</div>
           </div>
-          <div className="cps-head-count">
-            <div className="cps-head-count-num">{String(allCategories.length).padStart(2,'0')}</div>
-            <div className="cps-head-count-lbl">secciones</div>
+          <div className="flex-shrink-0 text-right hidden sm:block">
+            <div className="text-6xl font-black text-white/10">{String(allCategories.length).padStart(2,'0')}</div>
+            <div className="text-[11px] font-bold tracking-[0.2em] uppercase text-white/25 mt-1">secciones</div>
           </div>
-        </div>
+           </div>
 
-        {/* BENTO GRID */}
-        <div className="cps-bento">
-          {[
-            { cls: 'c1', i: 0, large: true },
-            { cls: 'c2', i: 1, wide: true },
-            { cls: 'c3', i: 2, wide: true },
-            { cls: 'c4', i: 3, large: true },
-            { cls: 'c5', i: 4 },
-            { cls: 'c6', i: 5 },
-            { cls: 'c7', i: 6, wide: true },
-            { cls: 'c8', i: 7 },
-            { cls: 'c9', i: 8 },
-          ].map(({ cls, i, large, wide }) => (
-            <div key={allCategories[i].id} className={cls}>
-              <CategoryCard
-                category={allCategories[i]}
-                index={i}
-                onCategoryClick={handle}
-                large={large}
-                wide={wide}
-              />
+
+      {/* ── MOBILE GRID (hidden on lg+) ── */}
+      <div className="lg:hidden max-w-md mx-auto">
+        <div className="grid grid-cols-2 gap-3">
+          
+          {/* CARD 1: PROCESADORES */}
+          <div className="bg-[#0a0a0a] rounded-2xl p-3 border-2 border-white/10 flex flex-col justify-between relative overflow-hidden group">
+            <div className="absolute inset-0 bg-gradient-to-br from-orange-100/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+            <img
+              src={allCategories[0].image}
+              alt={allCategories[0].name}
+              loading="lazy"
+              className="absolute inset-0 w-full h-full object-cover opacity-30"
+            />
+            <div className="absolute inset-0" style={{ background: 'linear-gradient(to top, rgba(0,0,0,0.92) 0%, rgba(0,0,0,0.3) 60%, transparent 100%)' }} />
+            <div className="relative z-10">
+              <span className="inline-block px-1.5 py-0.5 bg-orange-600 text-white text-[7px] font-black rounded-full uppercase mb-1.5 shadow-sm">
+                Hardware
+              </span>
+              <h3 className="text-base font-black text-white leading-tight mb-1">
+                {allCategories[0].name}
+              </h3>
+              <p className="text-[10px] text-white/60 font-medium leading-tight">
+                AMD e Intel
+              </p>
             </div>
-          ))}
+          </div>
+
+          {/* CARD 2: FUENTES */}
+          <div className="bg-[#0a0a0a] rounded-2xl p-3 border-2 border-white/10 flex flex-col justify-between relative overflow-hidden group">
+            <div className="absolute inset-0 bg-gradient-to-br from-yellow-100/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+            <img
+              src={allCategories[4].image}
+              alt={allCategories[4].name}
+              loading="lazy"
+              className="absolute inset-0 w-full h-full object-cover opacity-30"
+            />
+            <div className="absolute inset-0" style={{ background: 'linear-gradient(to top, rgba(0,0,0,0.92) 0%, rgba(0,0,0,0.3) 60%, transparent 100%)' }} />
+            <div className="relative z-10">
+              <span className="inline-block px-1.5 py-0.5 bg-yellow-600 text-white text-[7px] font-black rounded-full uppercase mb-1.5 shadow-sm">
+                Energía
+              </span>
+              <h3 className="text-base font-black text-white leading-tight mb-1">
+                {allCategories[4].name}
+              </h3>
+              <p className="text-[10px] text-white/60 font-medium leading-tight">
+                Certificadas
+              </p>
+            </div>
+          </div>
+
+          {/* CARD 3: MOTHERBOARDS - TALL (row-span-2) */}
+          <div className="row-span-2 bg-[#0a0a0a] rounded-2xl border-2 border-blue-200/20 relative flex items-center justify-center overflow-hidden shadow-sm group">
+            <div 
+              className="absolute w-28 h-28 bg-blue-100/20 rounded-full opacity-40 group-hover:opacity-60 transition-opacity duration-500" 
+              style={{ filter: 'blur(40px)' }}
+            />
+            <img 
+              src={allCategories[5].image}
+              alt={allCategories[1].name}
+              loading="lazy"
+              className="w-full h-full object-contain p-2 relative z-10 scale-110 group-hover:scale-115 transition-transform duration-500"
+            />
+          </div>
+
+          {/* CARD 4: ALMACENAMIENTO */}
+          <div className="bg-[#0a0a0a] rounded-2xl p-2.5 border-2 border-white/10 flex flex-col justify-center relative overflow-hidden group">
+            <div className="absolute inset-0 bg-gradient-to-br from-purple-100/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+            <img
+              src={allCategories[3].image}
+              alt={allCategories[3].name}
+              loading="lazy"
+              className="absolute inset-0 w-full h-full object-cover opacity-30"
+            />
+            <div className="absolute inset-0" style={{ background: 'linear-gradient(to top, rgba(0,0,0,0.92) 0%, rgba(0,0,0,0.3) 60%, transparent 100%)' }} />
+            <div className="relative z-10">
+              <span className="inline-block px-1.5 py-0.5 bg-purple-600 text-white text-[7px] font-black rounded-full uppercase mb-1 shadow-sm">
+                Storage
+              </span>
+              <h3 className="text-sm font-black text-white leading-tight">
+                {allCategories[3].name}
+              </h3>
+            </div>
+          </div>
+
+          {/* CARD 5: REFRIGERACIÓN */}
+          <div className="bg-[#0a0a0a] rounded-2xl p-2.5 border-2 border-white/10 flex flex-col justify-center relative overflow-hidden group">
+            <div className="absolute inset-0 bg-gradient-to-br from-cyan-100/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+            <img
+              src={allCategories[5].image}
+              alt={allCategories[5].name}
+              loading="lazy"
+              className="absolute inset-0 w-full h-full object-cover opacity-30"
+            />
+            <div className="absolute inset-0" style={{ background: 'linear-gradient(to top, rgba(0,0,0,0.92) 0%, rgba(0,0,0,0.3) 60%, transparent 100%)' }} />
+            <div className="relative z-10">
+              <span className="inline-block px-1.5 py-0.5 bg-cyan-600 text-white text-[7px] font-black rounded-full uppercase mb-1 shadow-sm">
+                Cooling
+              </span>
+              <h3 className="text-sm font-black text-white leading-tight">
+                {allCategories[5].name}
+              </h3>
+            </div>
+          </div>
+
+          {/* CARD 6: MEMORIAS RAM - FULL WIDTH (col-span-2) */}
+          <div className="col-span-2 bg-[#0a0a0a] rounded-2xl p-3 border-2 border-white/10 relative overflow-hidden group">
+            <div className="absolute inset-0 bg-gradient-to-br from-green-100/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+            <img
+              src={allCategories[2].image}
+              alt={allCategories[2].name}
+              loading="lazy"
+              className="absolute inset-0 w-full h-full object-cover opacity-30"
+            />
+            <div className="absolute inset-0" style={{ background: 'linear-gradient(to top, rgba(0,0,0,0.92) 0%, rgba(0,0,0,0.3) 60%, transparent 100%)' }} />
+            
+            <div className="relative z-10 flex items-start gap-2.5">
+              <div className="flex-1 min-w-0">
+                <div className="flex items-center gap-1 mb-1.5 flex-wrap">
+                  <span className="px-1.5 py-0.5 bg-green-600 text-white text-[7px] font-black rounded-full uppercase shadow-sm">
+                    RAM
+                  </span>
+                </div>
+                
+                <h3 className="text-sm font-black text-white leading-tight mb-1">
+                  {allCategories[2].name}
+                </h3>
+                
+                <p className="text-[9px] text-white/60 font-medium leading-tight">
+                  DDR4 y DDR5 disponibles
+                </p>
+              </div>
+            </div>
+          </div>
+
         </div>
 
         {/* CTA */}
-        <div className="cps-cta-wrap">
-          <button
-            className="cps-cta"
-            onClick={() => handle('procesadores')}
-          >
-            Ver todo el catálogo
-            <ArrowRight size={15} strokeWidth={2.5} />
-          </button>
-        </div>
-
+        <button
+          onClick={() => handle('procesadores')}
+          className="mt-3 w-full relative overflow-hidden rounded-xl flex items-center justify-center gap-2 font-black text-sm tracking-widest uppercase text-[#060608] bg-white transition-all duration-150 active:scale-95 h-12"
+          style={{ fontFamily: "'Bebas Neue','Arial Black',sans-serif", letterSpacing: '0.1em' }}
+        >
+          Ver todo
+          <ArrowRight size={15} strokeWidth={2.5} />
+        </button>
       </div>
+
+      {/* ── DESKTOP GRID (hidden below lg) ── */}
+      <div
+        className="hidden lg:grid gap-2"
+        style={{
+          gridTemplateColumns: 'repeat(6, 1fr)',
+          gridTemplateRows: '200px 160px 160px',
+          flex: 1,
+        }}
+      >
+        {[
+          { cls: { gridColumn: 'span 2', gridRow: 'span 2' }, i: 0, textSize: 'text-xl' },
+          { cls: { gridColumn: 'span 2', gridRow: 'span 1' }, i: 4, textSize: 'text-base' },
+          { cls: { gridColumn: 'span 2', gridRow: 'span 1' }, i: 2, textSize: 'text-base' },
+          { cls: { gridColumn: 'span 2', gridRow: 'span 2' }, i: 5, textSize: 'text-base' },
+          { cls: { gridColumn: 'span 1', gridRow: 'span 1' }, i: 1, textSize: 'text-sm' },
+          { cls: { gridColumn: 'span 1', gridRow: 'span 1' }, i: 6, textSize: 'text-sm' },
+          { cls: { gridColumn: 'span 2', gridRow: 'span 1' }, i: 3, textSize: 'text-base' },
+          { cls: { gridColumn: 'span 1', gridRow: 'span 1' }, i: 7, textSize: 'text-sm' },
+          { cls: { gridColumn: 'span 1', gridRow: 'span 1' }, i: 8, textSize: 'text-sm' },
+        ].map(({ cls, i, textSize }) => (
+          <div key={allCategories[i].id} style={cls}>
+            <CategoryCard category={allCategories[i]} index={i} onClick={handle} textSize={textSize} />
+          </div>
+        ))}
+      </div>
+
+      {/* Desktop CTA */}
+      <div className="hidden lg:flex justify-center pt-1">
+        <button
+          onClick={() => handle('procesadores')}
+          className="inline-flex items-center gap-2.5 px-7 py-3 bg-white text-[#0a0a0a] rounded-xl font-bold text-xs tracking-widest uppercase cursor-pointer transition-all duration-150 hover:bg-slate-100 hover:-translate-y-0.5 active:scale-95 group"
+        >
+          Ver todo el catálogo
+          <ArrowRight size={14} strokeWidth={2.5} className="transition-transform group-hover:translate-x-1" />
+        </button>
+      </div>
+
     </section>
   );
 };

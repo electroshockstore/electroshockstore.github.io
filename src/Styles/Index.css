@@ -4395,3 +4395,320 @@
   color: #64748b;
   margin-left: 2px;
 }
+
+
+/* ============================================
+   CATEGORY PRODUCT SECTION
+   ============================================ */
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500;600;700&display=swap');
+
+/* Section wrapper con ambient glow */
+.cps-section-wrapper {
+  position: relative;
+  overflow: hidden;
+}
+
+.cps-ambient-glow {
+  position: absolute;
+  top: -200px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 1400px;
+  height: 600px;
+  background: radial-gradient(
+    ellipse at center,
+    rgba(37, 99, 235, 0.15) 0%,
+    rgba(139, 92, 246, 0.08) 30%,
+    rgba(236, 72, 153, 0.05) 50%,
+    transparent 70%
+  );
+  pointer-events: none;
+  filter: blur(60px);
+  opacity: 0.8;
+  animation: ambientPulse 8s ease-in-out infinite;
+}
+
+@keyframes ambientPulse {
+  0%, 100% {
+    opacity: 0.6;
+    transform: translateX(-50%) scale(1);
+  }
+  50% {
+    opacity: 0.9;
+    transform: translateX(-50%) scale(1.1);
+  }
+}
+
+.cps-wrap {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 80px 24px 80px;
+  font-family: 'DM Sans', sans-serif;
+  position: relative;
+  z-index: 1;
+}
+
+.cps-eyebrow {
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: #2563eb;
+  margin-bottom: 12px;
+  text-shadow: 0 0 20px rgba(37, 99, 235, 0.5);
+}
+
+.cps-subtitle {
+  font-size: 17px;
+  line-height: 1.5;
+  color: rgba(255, 255, 255, 0.5);
+  margin-top: 16px;
+  max-width: 600px;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+}
+
+.cps-head-count-label {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.25);
+  margin-top: 4px;
+}
+
+.cps-title {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(2.8rem, 6vw, 4.5rem);
+  letter-spacing: 0.03em;
+  color: #fff;
+  line-height: 0.9;
+}
+
+.cps-title em {
+  font-style: normal;
+  color: transparent;
+  -webkit-text-stroke: 1px rgba(255,255,255,0.35);
+}
+
+.cps-head-count-num {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(3rem,5vw,4.5rem);
+  color: rgba(255,255,255,.12);
+  line-height: 1;
+}
+
+.cps-bento {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  grid-template-rows: 200px 160px 160px;
+  gap: 10px;
+}
+
+.c1 { grid-column: span 2; grid-row: span 2; }
+.c2 { grid-column: span 2; grid-row: span 1; }
+.c3 { grid-column: span 2; grid-row: span 1; }
+.c4 { grid-column: span 2; grid-row: span 2; }
+.c5 { grid-column: span 1; grid-row: span 1; }
+.c6 { grid-column: span 1; grid-row: span 1; }
+.c7 { grid-column: span 2; grid-row: span 1; }
+.c8 { grid-column: span 1; grid-row: span 1; }
+.c9 { grid-column: span 1; grid-row: span 1; }
+
+@media (max-width: 1023px) and (min-width: 640px) {
+  .cps-bento {
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: 180px 140px 140px;
+  }
+  .c1 { grid-column: span 2; grid-row: span 2; }
+  .c2 { grid-column: span 2; grid-row: span 1; }
+  .c3 { grid-column: span 2; grid-row: span 1; }
+  .c4 { grid-column: span 2; grid-row: span 2; }
+  .c5 { grid-column: span 1; }
+  .c6 { grid-column: span 1; }
+  .c7 { grid-column: span 2; }
+  .c8 { grid-column: span 1; }
+  .c9 { grid-column: span 1; }
+}
+
+@media (max-width: 639px) {
+  .cps-bento {
+    grid-template-columns: repeat(2, 1fr);
+    grid-auto-rows: 180px;
+    gap: 12px;
+  }
+  
+  /* Solo 4 cards principales en mobile - Grid 2x2 limpio */
+  .c1 { 
+    grid-column: span 1; 
+    grid-row: span 1;
+  }
+  .c2 { 
+    grid-column: span 1; 
+    grid-row: span 1;
+  }
+  .c3 { 
+    grid-column: span 1; 
+    grid-row: span 1;
+  }
+  .c5 { 
+    grid-column: span 1; 
+    grid-row: span 1;
+  }
+  /* Ocultar el resto en mobile */
+  .c4, .c6, .c7, .c8, .c9 { 
+    display: none;
+  }
+}
+
+.cat-card-img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s cubic-bezier(0.4,0,0.2,1), opacity 0.3s;
+}
+
+.cat-card:hover .cat-card-img {
+  transform: scale(1.06);
+  opacity: 0.55;
+}
+
+.cat-card-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(0,0,0,.92) 0%, rgba(0,0,0,.4) 50%, rgba(0,0,0,.1) 100%);
+}
+
+.cat-card-glow {
+  position: absolute;
+  top: -40px;
+  right: -40px;
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  opacity: 0;
+  transition: opacity 0.3s;
+  pointer-events: none;
+}
+
+.cat-card:hover .cat-card-glow {
+  opacity: 1;
+}
+
+.cat-card-num {
+  font-family: 'Bebas Neue', sans-serif;
+  letter-spacing: 0.1em;
+  transition: color 0.2s;
+  line-height: 1;
+}
+
+.cat-card-accent {
+  height: 2px;
+  border-radius: 1px;
+  transition: width 0.3s cubic-bezier(0.4,0,0.2,1);
+}
+
+.cat-card-name {
+  font-family: 'Bebas Neue', sans-serif;
+  letter-spacing: 0.06em;
+  color: #fff;
+  line-height: 1;
+  text-align: left;
+  text-shadow: 0 2px 8px rgba(0,0,0,.8);
+}
+
+/* Estilos específicos para mobile - Sección compacta y enfocada en CTA */
+@media (max-width: 639px) {
+  .cps-wrap {
+    padding: 40px 16px 48px;
+  }
+  
+  .cps-title {
+    font-size: clamp(2rem, 8vw, 2.5rem);
+  }
+  
+  .cps-head-count-num {
+    display: none;
+  }
+  
+  /* CTA más prominente en mobile */
+  .cps-wrap > div:last-child button {
+    width: 100%;
+    max-width: 100%;
+    padding: 18px 24px;
+    font-size: 15px;
+    border-radius: 14px;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.3);
+  }
+  
+  .cat-card {
+    border-radius: 18px;
+  }
+  
+  .cat-card-name {
+    font-size: clamp(1rem, 4vw, 1.2rem) !important;
+  }
+}
+
+/* ============================================
+   BRUTALIST TITLE STYLES
+   ============================================ */
+.cps-title-brutalist {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  line-height: 0.85;
+  margin-top: 4px;
+}
+
+.cps-title-main {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(4.5rem, 6vw, 9rem);
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  color: #ffffff;
+  text-shadow: 
+    3px 3px 0 rgba(37, 99, 235, 0.4),
+    -1px -1px 0 rgba(37, 99, 235, 0.2);
+  transform: translateX(-2px);
+  position: relative;
+  z-index: 2;
+}
+
+.cps-title-accent {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(2.2rem, 5vw, 3.8rem);
+  font-weight: 400;
+  letter-spacing: 0.08em;
+  color: transparent;
+  -webkit-text-stroke: 1.5px rgba(255, 255, 255, 0.5);
+  text-stroke: 1.5px rgba(255, 255, 255, 0.5);
+  transform: translateX(8px);
+  margin-top: -8px;
+  position: relative;
+  z-index: 1;
+}
+
+@media (max-width: 639px) {
+  .cps-title-brutalist {
+    gap: 0;
+    margin-top: 2px;
+  }
+  
+  .cps-title-main {
+    font-size: clamp(2.8rem, 12vw, 4rem);
+    text-shadow: 
+      2px 2px 0 rgba(37, 99, 235, 0.4),
+      -1px -1px 0 rgba(37, 99, 235, 0.2);
+  }
+  
+  .cps-title-accent {
+    font-size: clamp(1.6rem, 8vw, 2.4rem);
+    -webkit-text-stroke: 1.2px rgba(255, 255, 255, 0.5);
+    text-stroke: 1.2px rgba(255, 255, 255, 0.5);
+    transform: translateX(6px);
+    margin-top: -6px;
+  }
+}
