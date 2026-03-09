@@ -1,6 +1,6 @@
 import { memo } from 'react';
 import ProductCard from './ProductCard/index';
-import ProductCardMayoristaBlanco from './ProductCardMayoristaBlanco';
+import ProductCardMayorista from './ProductCard/ProductCardMayorista';
 
 // Pre-check para evitar condicional en cada render
 const isMayoristaProduct = (product) => 
@@ -11,10 +11,13 @@ const ProductCardWrapper = memo(({ product, viewMode, onClick, index = 0, listNa
   if (isMayoristaProduct(product)) {
     return (
       <div className="product-card-enter" style={style}>
-        <ProductCardMayoristaBlanco
+        <ProductCardMayorista
           product={product}
+          viewMode={viewMode}
           onClick={onClick}
           index={index}
+          listName={listName}
+          isFeatured={isFeatured}
         />
       </div>
     );

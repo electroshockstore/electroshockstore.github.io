@@ -1,5 +1,5 @@
 import { Wrench } from 'lucide-react';
-import PCBuilderCard from './PCBuilderCard';
+import PCBuilderCard from '../PCBuilder/ManualMode/PcbuilderCard';
 import MotionReveal from '../Shared/MotionReveal';
 
 const PCBuilderSection = () => {

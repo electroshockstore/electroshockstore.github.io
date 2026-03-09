@@ -7,7 +7,7 @@
       "model": "DualSense",
       "category": "Joystick",
       "manufacturerUrl": "https://www.playstation.com/es-ar/accessories/dualsense-wireless-controller/",
-      "price": 145000,
+      "price": 140000,
       "stock": 1,
       "images": [
         "/images/joystick/ps5_galactic.webp",
@@ -136,7 +136,7 @@
       "category": "Joystick",
       "manufacturerUrl": "https://www.playstation.com/es-ar/accessories/dualsense-wireless-controller/",
       "price": 115000,
-      "stock": 5,
+      "stock": 4,
       "images": [
         "/images/joystick/joystps5_white.webp",
         "/images/joystick/joystps5_white_front.webp",

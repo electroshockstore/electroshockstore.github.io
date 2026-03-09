@@ -15,6 +15,7 @@ import { getSlugFromCategory } from '../utils/slugify';
 import { useSEO } from '../hooks/useSEO';
 import mayoristaData from '../data/categories/mayorista.json';
 import RevendedoresSection from '../components/Home/RevendedoresSection';
+import SalesSection from '../components/Home/SalesSection';
 
 const mayoristaProducts = mayoristaData.products;
 
@@ -150,6 +151,8 @@ const Home = () => {
           <div className={`px-3 sm:px-4 mb-6 sm:mb-10 transition-opacity duration-700 delay-400 ${isLoaded ? 'opacity-100' : 'opacity-0'}`}>
             <CategoryProductSection onCategoryClick={handleCategoryClick} />
           </div>
+
+     
         </div>
       </main>
 
