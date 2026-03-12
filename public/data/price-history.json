@@ -599,16 +599,20 @@
     ]
   },
   "223": {
-    "name": "HDD Seagate SkyHawk 4TB para Seguridad SATA ST4000VX016",
+    "name": "Disco Externo Western Digital Elements WD 4TB USB 3.0",
     "h": [
       [
         1768571377217,
         130000
+      ],
+      [
+        1773352412809,
+        240000
       ]
     ]
   },
   "224": {
-    "name": "Kingston A400 SSD 240GB SATA III",
+    "name": "HDD Seagate SkyHawk 4TB para Seguridad SATA ST4000VX016",
     "h": [
       [
         1769519369796,
@@ -616,6 +620,19 @@
       ],
       [
         1770221531875,
+        85000
+      ],
+      [
+        1773352412809,
+        130000
+      ]
+    ]
+  },
+  "225": {
+    "name": "Kingston A400 SSD 240GB SATA III",
+    "h": [
+      [
+        1773352412809,
         85000
       ]
     ]
@@ -647,6 +664,10 @@
       [
         1773059307446,
         265000
+      ],
+      [
+        1773352412809,
+        260000
       ]
     ]
   },
@@ -668,6 +689,10 @@
       [
         1773059307446,
         320000
+      ],
+      [
+        1773352412809,
+        300000
       ]
     ]
   },
@@ -693,6 +718,10 @@
       [
         1773059307446,
         155000
+      ],
+      [
+        1773352412809,
+        150000
       ]
     ]
   },
@@ -714,6 +743,10 @@
       [
         1772375789535,
         230000
+      ],
+      [
+        1773352412809,
+        215000
       ]
     ]
   },
@@ -739,6 +772,10 @@
       [
         1772375789535,
         215000
+      ],
+      [
+        1773352412809,
+        210000
       ]
     ]
   },
@@ -756,6 +793,10 @@
       [
         1772375789535,
         270000
+      ],
+      [
+        1773352412809,
+        240000
       ]
     ]
   },
@@ -798,6 +839,10 @@
       [
         1772375789535,
         235000
+      ],
+      [
+        1773352412809,
+        230000
       ]
     ]
   },
@@ -849,6 +894,10 @@
       [
         1772375789535,
         50000
+      ],
+      [
+        1773352412809,
+        45000
       ]
     ]
   },
@@ -1657,6 +1706,10 @@
       [
         1768571377217,
         45000
+      ],
+      [
+        1773352412809,
+        40000
       ]
     ]
   },
@@ -1670,7 +1723,7 @@
     ]
   },
   "709": {
-    "name": "Razer Cyclosa + Abyssus - Kit 2x1 Retroiluminado Alámbrico",
+    "name": "Redragon K619W Horus FS Blanco Cableado USB",
     "h": [
       [
         1768571377217,
@@ -1683,6 +1736,10 @@
       [
         1769519369796,
         30000
+      ],
+      [
+        1773352412809,
+        65000
       ]
     ]
   },
@@ -1704,7 +1761,7 @@
     ]
   },
   "711": {
-    "name": "Logitech MK220 - Kit Teclado + Mouse Membrana Inalámbrico",
+    "name": "Redragon Shiva K512W Cableado USB Latinoamérica",
     "h": [
       [
         1768571377217,
@@ -1713,50 +1770,101 @@
       [
         1768830448923,
         25000
+      ],
+      [
+        1773352412809,
+        35000
       ]
     ]
   },
   "712": {
-    "name": "Logitech MK270 - Kit Teclado + Mouse Membrana Inalámbrico",
+    "name": "Razer Cyclosa + Abyssus - Kit 2x1 Retroiluminado Alámbrico",
     "h": [
       [
         1770391978456,
         32000
-      ]
-    ]
-  },
-  "713": {
-    "name": "Logitech MK470 Slim - Kit Teclado + Mouse Inalámbrico",
-    "h": [
+      ],
       [
-        1770391978456,
-        50000
-      ]
-    ]
-  },
-  "714": {
-    "name": "Logitech G213 Gaming Lightsync RGB - Teclado Membrana",
-    "h": [
-      [
-        1770391978456,
-        45000
-      ]
-    ]
-  },
-  "715": {
-    "name": "Logitech K400 Plus - Touchpad Inalámbrico",
-    "h": [
-      [
-        1770391978456,
+        1773352412809,
         30000
       ]
     ]
   },
-  "716": {
-    "name": "Logitech K600 - Touchpad Inalámbrico ",
+  "713": {
+    "name": "Redragon S101-BA-Kit 3x1+RGB Alámbrico",
     "h": [
       [
         1770391978456,
+        50000
+      ],
+      [
+        1773352412809,
+        40000
+      ]
+    ]
+  },
+  "714": {
+    "name": "Logitech MK220 - Kit Teclado + Mouse Membrana Inalámbrico",
+    "h": [
+      [
+        1770391978456,
+        45000
+      ],
+      [
+        1773352412809,
+        25000
+      ]
+    ]
+  },
+  "715": {
+    "name": "Logitech MK270 - Kit Teclado + Mouse Membrana Inalámbrico",
+    "h": [
+      [
+        1770391978456,
+        30000
+      ],
+      [
+        1773352412809,
+        32000
+      ]
+    ]
+  },
+  "716": {
+    "name": "Logitech MK470 Slim - Kit Teclado + Mouse Inalámbrico",
+    "h": [
+      [
+        1770391978456,
+        40000
+      ],
+      [
+        1773352412809,
+        50000
+      ]
+    ]
+  },
+  "717": {
+    "name": "Logitech G213 Gaming Lightsync RGB - Teclado Membrana",
+    "h": [
+      [
+        1773352412809,
+        45000
+      ]
+    ]
+  },
+  "718": {
+    "name": "Logitech K400 Plus - Touchpad Inalámbrico",
+    "h": [
+      [
+        1773352412809,
+        30000
+      ]
+    ]
+  },
+  "719": {
+    "name": "Logitech K600 - Touchpad Inalámbrico ",
+    "h": [
+      [
+        1773352412809,
         40000
       ]
     ]
@@ -1831,7 +1939,7 @@
     ]
   },
   "804": {
-    "name": "Redragon Pandora 2 H350RGB-1 - USB 7.1 RGB Blanco",
+    "name": "Logitech G335 Con Micrófono Alámbrico",
     "h": [
       [
         1768571377217,
@@ -1844,11 +1952,15 @@
       [
         1772375789535,
         65000
+      ],
+      [
+        1773352412809,
+        75000
       ]
     ]
   },
   "805": {
-    "name": "Redragon Pelops H818 - Inalámbrico USB 7.1 RGB",
+    "name": "HyperX Cloud Mini Inalámbricos Bluetooth",
     "h": [
       [
         1768571377217,
@@ -1857,11 +1969,15 @@
       [
         1772375789535,
         100000
+      ],
+      [
+        1773352412809,
+        50000
       ]
     ]
   },
   "806": {
-    "name": "Razer Kraken X Console - Alámbrico 3.5mm. Consolas",
+    "name": "Redragon Pandora 2 H350RGB-1 - USB 7.1 RGB Blanco",
     "h": [
       [
         1768571377217,
@@ -1870,11 +1986,15 @@
       [
         1772375789535,
         85000
+      ],
+      [
+        1773352412809,
+        65000
       ]
     ]
   },
   "807": {
-    "name": "HyperX Cloud Stinger 2 - Alámbrico 3.5mm DTS:X",
+    "name": "Redragon Pelops H818 - Inalámbrico USB 7.1 RGB",
     "h": [
       [
         1768571377217,
@@ -1887,11 +2007,15 @@
       [
         1772375789535,
         70000
+      ],
+      [
+        1773352412809,
+        100000
       ]
     ]
   },
   "808": {
-    "name": "Razer Blackshark V2 X - Alámbrico 3.5mm 7.1 Verde",
+    "name": "Razer Kraken X Console - Alámbrico 3.5mm. Consolas",
     "h": [
       [
         1768571377217,
@@ -1904,11 +2028,15 @@
       [
         1772375789535,
         80000
+      ],
+      [
+        1773352412809,
+        85000
       ]
     ]
   },
   "809": {
-    "name": "HyperX Cloud Stinger 2 Core PS5 - Alámbrico 3.5mm Blanco",
+    "name": "HyperX Cloud Stinger 2 - Alámbrico 3.5mm DTS:X",
     "h": [
       [
         1768571377217,
@@ -1921,11 +2049,15 @@
       [
         1772375789535,
         75000
+      ],
+      [
+        1773352412809,
+        70000
       ]
     ]
   },
   "810": {
-    "name": "Redragon Lamia 2 H320 - USB 7.1 RGB Blanco",
+    "name": "Razer Blackshark V2 X - Alámbrico 3.5mm 7.1 Verde",
     "h": [
       [
         1768571377217,
@@ -1942,11 +2074,15 @@
       [
         1772375789535,
         55000
+      ],
+      [
+        1773352412809,
+        80000
       ]
     ]
   },
   "811": {
-    "name": "Thermaltake Pulse G100 RGB Alambrico Negro",
+    "name": "HyperX Cloud Stinger 2 Core PS5 - Alámbrico 3.5mm Blanco",
     "h": [
       [
         1768571377217,
@@ -1959,11 +2095,15 @@
       [
         1772375789535,
         40000
+      ],
+      [
+        1773352412809,
+        75000
       ]
     ]
   },
   "812": {
-    "name": "Razer Kraken X Lite 7.1 Alambrico Negro",
+    "name": "Redragon Lamia 2 H320 - USB 7.1 RGB Blanco",
     "h": [
       [
         1768571377217,
@@ -1976,11 +2116,15 @@
       [
         1772375789535,
         80000
+      ],
+      [
+        1773352412809,
+        55000
       ]
     ]
   },
   "813": {
-    "name": "Motorola XT220 - Inalámbrico Bluetooth & Jack 3.5mm Negro",
+    "name": "Thermaltake Pulse G100 RGB Alambrico Negro",
     "h": [
       [
         1768571377217,
@@ -1997,11 +2141,15 @@
       [
         1772375789535,
         45000
+      ],
+      [
+        1773352412809,
+        40000
       ]
     ]
   },
   "814": {
-    "name": "Redragon Ire Pro Bluetooth Inalámbrico dongle",
+    "name": "Razer Kraken X Lite 7.1 Alambrico Negro",
     "h": [
       [
         1768571377217,
@@ -2010,11 +2158,15 @@
       [
         1772375789535,
         60000
+      ],
+      [
+        1773352412809,
+        80000
       ]
     ]
   },
   "815": {
-    "name": "Skullcandy SLYR - Alámbrico 3.5mm Negro",
+    "name": "Motorola XT220 - Inalámbrico Bluetooth & Jack 3.5mm Negro",
     "h": [
       [
         1768571377217,
@@ -2031,11 +2183,15 @@
       [
         1772375789535,
         60000
+      ],
+      [
+        1773352412809,
+        45000
       ]
     ]
   },
   "816": {
-    "name": "Trust GXT 307B Ravu - Alámbrico 3.5mm Negro/Azul",
+    "name": "Redragon Ire Pro Bluetooth Inalámbrico dongle",
     "h": [
       [
         1770391978456,
@@ -2044,11 +2200,15 @@
       [
         1772375789535,
         40000
+      ],
+      [
+        1773352412809,
+        60000
       ]
     ]
   },
   "817": {
-    "name": "Turtle Beach Recon 70 - Alámbrico 3.5mm Blanco PS5",
+    "name": "Skullcandy SLYR - Alámbrico 3.5mm Negro",
     "h": [
       [
         1772245430788,
@@ -2057,11 +2217,15 @@
       [
         1772375789535,
         45000
+      ],
+      [
+        1773352412809,
+        60000
       ]
     ]
   },
   "818": {
-    "name": "Xiaomi Redmi Buds 6 Play - In-ear Bluetooth 5.4 Inalámbricos",
+    "name": "Trust GXT 307B Ravu - Alámbrico 3.5mm Negro/Azul",
     "h": [
       [
         1772245430788,
@@ -2070,11 +2234,15 @@
       [
         1772375789535,
         20000
+      ],
+      [
+        1773352412809,
+        40000
       ]
     ]
   },
   "819": {
-    "name": "Xiaomi Redmi Buds Essential - In-ear Bluetooth 5.2 Inalámbricos",
+    "name": "Turtle Beach Recon 70 - Alámbrico 3.5mm Blanco PS5",
     "h": [
       [
         1772245430788,
@@ -2082,6 +2250,37 @@
       ],
       [
         1772375789535,
+        20000
+      ],
+      [
+        1773352412809,
+        45000
+      ]
+    ]
+  },
+  "820": {
+    "name": "Xiaomi Redmi Buds 6 Play - In-ear Bluetooth 5.4 Inalámbricos",
+    "h": [
+      [
+        1773352412809,
+        20000
+      ]
+    ]
+  },
+  "821": {
+    "name": "Xiaomi Redmi Buds Essential - In-ear Bluetooth 5.2 Inalámbricos",
+    "h": [
+      [
+        1773352412809,
+        20000
+      ]
+    ]
+  },
+  "822": {
+    "name": "QCY T1C In-ear Bluetooth 5.0 Carga 30h",
+    "h": [
+      [
+        1773352412809,
         20000
       ]
     ]
@@ -2242,6 +2441,33 @@
       ]
     ]
   },
+  "912": {
+    "name": "Cámara Interior Ezviz H6C Pro 2K+ Domo Wifi",
+    "h": [
+      [
+        1773352412809,
+        55000
+      ]
+    ]
+  },
+  "913": {
+    "name": "Cámara Interior Ezviz C6N 1080p Domo FHD Wifi",
+    "h": [
+      [
+        1773352412809,
+        35000
+      ]
+    ]
+  },
+  "914": {
+    "name": "Cámara Interior Ezviz H6C Pro 1080p Domo FHD Wifi",
+    "h": [
+      [
+        1773352412809,
+        40000
+      ]
+    ]
+  },
   "1000": {
     "name": "Monitor LED Daewoo 19\" HD DWMGN19 HDMI/VGA",
     "h": [
@@ -2310,6 +2536,10 @@
       [
         1768571377217,
         90000
+      ],
+      [
+        1773352412809,
+        80000
       ]
     ]
   },
@@ -2362,6 +2592,24 @@
       [
         1770907782206,
         40000
+      ]
+    ]
+  },
+  "1108": {
+    "name": "Redragon Juno G818 USB Inalámbrico PC/ANDROID/CONSOLA",
+    "h": [
+      [
+        1773352412809,
+        42000
+      ]
+    ]
+  },
+  "1109": {
+    "name": "T-Dagger Aries T-TGP500 PC/ANDROID/CONSOLA ",
+    "h": [
+      [
+        1773352412809,
+        30000
       ]
     ]
   },
