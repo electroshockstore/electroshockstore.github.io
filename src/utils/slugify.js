@@ -32,6 +32,10 @@ export const getCategoryFromSlug = (slug) => {
     'teclados': 'Teclados',
     'mouse': 'Mouse',
     'joystick': 'Joystick',
+    'conectividad': 'Conectividad',
+    'placas-video': 'Placas de Video',
+    'monitores': 'Monitores',
+    'portatiles': 'Portátiles',
     'mayorista': 'Mayorista'
   };
   return categoryMap[slug] || null;
@@ -51,6 +55,10 @@ export const getSlugFromCategory = (category) => {
     'Teclados': 'teclados',
     'Mouse': 'mouse',
     'Joystick': 'joystick',
+    'Conectividad': 'conectividad',
+    'Placas de Video': 'placas-video',
+    'Monitores': 'monitores',
+    'Portátiles': 'portatiles',
     'Mayorista': 'mayorista'
   };
   return slugMap[category] || slugify(category);
