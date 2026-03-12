@@ -44,7 +44,7 @@
       "category": "Joystick",
       "manufacturerUrl": "https://www.xbox.com/es-AR/accessories/controllers/xbox-wireless-controller",
       "price": 110000,
-      "stock": 3,
+      "stock": 4,
       "images": [
         "/images/joystick/joyst_carbonblack_usb.webp",
         "/images/joystick/joyst_carbonblack_usb_front.webp",
@@ -187,8 +187,8 @@
       "model": "DualShock 4",
       "category": "Joystick",
       "manufacturerUrl": "https://www.playstation.com/es-ar/accessories/dualshock-4-wireless-controller/",
-      "price": 90000,
-      "stock": 8,
+      "price": 80000,
+      "stock": 9,
       "images": [
         "/images/joystick/joyst_ps4_v2.webp",
         "/images/joystick/joyst_ps4_v2_side.webp",
@@ -365,6 +365,115 @@
         "peso": "197.8 g",
         "touchpad": "Sí",
         "conexionUSBOpcional": "Sí"
+      }
+    },
+    {
+      "id": 1107,
+      "name": "Redragon Harrow G808 Pro PC/ANDROID/CONSOLA",
+      "brand": "Redragon",
+      "model": "G808 Pro",
+      "category": "Joystick",
+      "price": 40000,
+      "stock": 2,
+      "sku": "RED-G808-PRO",
+      "description": "Gamepad inalámbrico 2.4GHz con vibración dual, LED, autonomía 10-15h, compatible PC/Android/PS3",
+      "images": [
+        "/images/joystick/rd_harrow.webp",
+        "/images/joystick/rd_harrow_side.webp",
+        "/images/joystick/rd_harrow_side2.webp",
+        "/images/joystick/rd_harrow_side3.webp",
+        "/images/joystick/rd_harrow_side4.webp",
+        "/images/joystick/rd_harrow_side5.webp"
+      ],
+      "specifications": {
+        "Marca": "Redragon",
+        "Modelo": "Harrow Pro",
+        "Modelo detallado": "G808-PRO",
+        "Tipo": "Gamepad inalámbrico",
+        "tipoConectividad": "Inalámbrico",
+        "Tipo de conexión": "Receptor USB 2.4 GHz",
+        "Compatibilidad": "PC, Android, PS3",
+        "Alcance inalámbrico": "8-10 m",
+        "Batería": "Integrada recargable",
+        "Autonomía": "10-15 horas",
+        "Tiempo de carga": "2-3 horas",
+        "Vibración": "Sí (dual vibration)",
+        "Iluminación": "LED",
+        "Cantidad de botones": "12",
+        "Joysticks": "2 analógicos",
+        "Gatillos": "Sí (L2 / R2)",
+        "Material": "Plástico ABS"
+      }
+    },
+    {
+      "id": 1108,
+      "name": "Redragon Juno G818 USB Inalámbrico PC/ANDROID/CONSOLA",
+      "brand": "Redragon",
+      "model": "Juno G818",
+      "category": "Joystick",
+      "price": 42000,
+      "stock": 2,
+      "sku": "RED-G818",
+      "description": "Gamepad inalámbrico 2.4GHz con vibración dual, LED indicador, autonomía 8-12h, compatible PC/Android/PS3",
+      "images": [
+        "/images/joystick/rd_juno.webp",
+        "/images/joystick/rd_juno_side.webp",
+        "/images/joystick/rd_juno_side3.webp",
+        "/images/joystick/rd_juno_side4.webp"
+      ],
+      "specifications": {
+        "Marca": "Redragon",
+        "Línea": "Juno",
+        "Modelo": "G818",
+        "Modelo detallado": "Juno G818",
+        "Tipo": "Gamepad inalámbrico",
+        "tipoConectividad": "Inalámbrico",
+        "Tipo de conexión": "Receptor USB 2.4 GHz",
+        "Compatibilidad": "PC, Android, PS3",
+        "Alcance inalámbrico": "8-10 m",
+        "Batería": "Integrada recargable",
+        "Autonomía": "8-12 horas",
+        "Tiempo de carga": "2-3 horas",
+        "Vibración": "Sí (dual vibration)",
+        "Cantidad de botones": "12",
+        "Joysticks": "2 analógicos",
+        "Gatillos": "Sí (L2 / R2)",
+        "Iluminación": "LED indicador",
+        "Material": "Plástico ABS"
+      }
+    },
+    {
+      "id": 1109,
+      "name": "T-Dagger Aries T-TGP500 PC/ANDROID/CONSOLA ",
+      "brand": "T-Dagger",
+      "model": "Aries T-TGP500",
+      "category": "Joystick",
+      "price": 30000,
+      "stock": 1,
+      "sku": "TD-TGP500",
+      "description": "Gamepad cableado USB con vibración dual, 12 botones, compatible PC/Android/PS3",
+      "images": [
+        "/images/joystick/tdagger_aries.webp",
+        "/images/joystick/tdagger_aries_side.webp",
+        "/images/joystick/tdagger_aries_side2.webp"
+      ],
+      "specifications": {
+        "Cod": "#506917",
+        "Marca": "T-Dagger",
+        "Línea": "Aries",
+        "Modelo": "T-TGP500",
+        "Tipo": "Gamepad cableado",
+        "tipoConectividad": "Alámbrico",
+        "Tipo de conexión": "USB",
+        "Compatibilidad": "PC, Android, PS3",
+        "Longitud del cable": "1.8 m",
+        "Vibración": "Sí (dual vibration)",
+        "Cantidad de botones": "12",
+        "Joysticks": "2 analógicos",
+        "Gatillos": "Sí (L2 / R2)",
+        "D-Pad": "Sí",
+        "Material": "Plástico ABS",
+        "Sistema soportado": "Windows 7 / 8 / 10 / 11"
       }
     }
   ]

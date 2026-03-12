@@ -469,7 +469,7 @@
       "model": "WD Green SN350",
       "category": "Almacenamiento",
       "price": 140000,
-      "stock": 2,
+      "stock": 3,
       "sku": "WD-500-SN350",
       "description": "SSD M.2 NVMe PCIe Gen3 x4 de 500GB, lectura 2400 MB/s, escritura 1500 MB/s",
       "manufacturerUrl": "https://www.westerndigital.com/es-la/products/internal-drives/wd-green-sn350-nvme-ssd",
@@ -521,7 +521,7 @@
       "images": [
         "/images/almacenamiento/wd_elements_2tb.webp",
         "/images/almacenamiento/wd_elements_2tb_side.webp",
-        "/images/almacenamiento/wd_elements_2tb_specs.webp"
+        "/images/almacenamiento/wd_elements_2tb_front.webp"
       ],
       "specifications": {
         "capacidadTotal": "2 TB",
@@ -543,7 +543,7 @@
       "images": [
         "/images/almacenamiento/wd_elements_1tb.webp",
         "/images/almacenamiento/wd_elements_1tb_side.webp",
-        "/images/almacenamiento/wd_elements_1tb_back.webp"
+        "/images/almacenamiento/wd_elements_1tb_front.webp"
       ],
       "specifications": {
         "capacidadTotal": "1 TB",
@@ -553,6 +553,46 @@
     },
     {
       "id": 223,
+      "name": "Disco Externo Western Digital Elements WD 4TB USB 3.0",
+      "brand": "Western Digital",
+      "model": "Elements 4TB",
+      "category": "Almacenamiento",
+      "price": 240000,
+      "stock": 1,
+      "sku": "WD-ELEMENTS-4TB",
+      "description": "Disco duro externo portátil 2.5\" 4TB USB 3.0, 5400 RPM, plug and play, compatible Windows/Mac",
+      "manufacturerUrl": "https://www.westerndigital.com/products/portable-drives/wd-elements-portable-usb-3-0-hdd",
+      "images": [
+        "/images/almacenamiento/wd_elements_4tb.webp",
+        "/images/almacenamiento/wd_elements_4tb_side.webp",
+         "/images/almacenamiento/wd_elements_2tb_front.webp"
+   
+      ],
+      "specifications": {
+        "Marca": "Western Digital",
+        "Línea": "Elements",
+        "Modelo": "Elements",
+        "Modelo detallado": "WD Elements Portable 4TB",
+        "capacidadTotal": "4 TB",
+        "tipoAlmacenamiento": "HDD",
+        "formato": "2.5\"",
+        "Interfaz": "USB 3.0",
+        "Compatibilidad USB": "USB 3.0 / USB 2.0",
+        "Velocidad de transferencia": "Hasta 5 Gb/s",
+        "Velocidad": "5400 RPM",
+        "Sistema de archivos": "NTFS (preformateado)",
+        "Compatibilidad": "Windows 10 / 11, MacOS (requiere reformateo)",
+        "Alimentación": "USB (no requiere fuente externa)",
+        "Plug and Play": "Sí",
+        "Indicador LED": "Sí",
+        "Material": "Plástico",
+        "Color": "Negro",
+        "Dimensiones": "111 x 82 x 15 mm",
+        "Peso": "230 g"
+      }
+    },
+    {
+      "id": 224,
       "name": "HDD Seagate SkyHawk 4TB para Seguridad SATA ST4000VX016",
       "brand": "Seagate",
       "model": "SkyHawk ST4000VX016",
@@ -577,7 +617,7 @@
       }
     },
     {
-      "id": 224,
+      "id": 225,
       "name": "Kingston A400 SSD 240GB SATA III",
       "brand": "Kingston",
       "model": "A400",

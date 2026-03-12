@@ -66,7 +66,7 @@
       "model": "G435",
       "category": "Auriculares",
       "price": 110000,
-      "stock": 2,
+      "stock": 3,
       "sku": "LOGI-G435-WHT",
       "description": "Auriculares gaming Inalámbricos Lightspeed y Bluetooth con micrÃ³fonos duales beamforming, autonomÃ­a 18 horas, peso 165g",
       "images": [
@@ -161,8 +161,83 @@
         "Reacondicionado": "Estado Bueno â€“ probado y funcional"
       }
     },
-    {
+      {
       "id": 804,
+      "name": "Logitech G335 Con Micrófono Alámbrico",
+      "brand": "Logitech G",
+      "model": "G335",
+      "category": "Auriculares",
+      "price": 75000,
+      "stock": 1,
+      "sku": "LOGI-G335",
+      "description": "Auriculares gaming alámbricos con drivers 40mm, micrófono cardioide flip-to-mute, peso 240g",
+      "images": [
+        "/images/auriculares/logi_g335.webp",
+        "/images/auriculares/logi_g335_side.webp",
+        "/images/auriculares/logi_g335_side3.webp",
+        "/images/auriculares/logi_g335_side4.webp"
+      ],
+      "specifications": {
+        "Marca": "Logitech G",
+        "Línea": "G Series",
+        "Modelo": "G335",
+        "Modelo alfanumérico": "981-001023",
+        "Tipo": "Auricular gaming",
+        "tipoConectividad": "Alámbrico",
+        "Conector": "Jack 3.5 mm",
+        "Iluminación": "No",
+        "Respuesta en frecuencia": "20 Hz - 20 kHz",
+        "Sensibilidad": "87.5 dB SPL/mW",
+        "Impedancia": "36 ohm",
+        "Tipo de driver": "Dinámico",
+        "Tamaño del driver": "40 mm",
+        "Micrófono": "Sí",
+        "Tipo de micrófono": "Cardioide",
+        "Frecuencia del micrófono": "100 Hz - 10 kHz",
+        "Control de volumen": "Sí (en auricular)",
+        "Compatibilidad": "PC, PlayStation, Xbox, Nintendo Switch, móviles",
+        "Peso": "240 g"
+      }
+    },
+    
+    {
+      "id": 805,
+      "name": "HyperX Cloud Mini Inalámbricos Bluetooth",
+      "brand": "HyperX",
+      "model": "Cloud Mini",
+      "category": "Auriculares",
+      "price": 50000,
+      "stock": 1,
+      "sku": "HYPE-CLOUD-MINI",
+      "description": "Auriculares gaming inalámbricos Bluetooth 5.2 con drivers 30mm, hasta 25h autonomía, peso 130g",
+      "images": [
+        "/images/auriculares/hyperx_cloudmini.webp",
+        "/images/auriculares/hyperx_cloudmini_side.webp",
+        "/images/auriculares/hyperx_cloudmini_side3.webp",
+        "/images/auriculares/hyperx_cloudmini_side4.webp"
+      ],
+      "specifications": {
+        "Marca": "HyperX",
+        "Línea": "Cloud",
+        "Modelo": "Cloud Mini",
+        "Tipo": "Auricular gaming",
+        "tipoConectividad": "Inalámbrico",
+        "Versión de Bluetooth": "5.2",
+        "Respuesta en frecuencia": "100 Hz - 10 kHz",
+        "Tipo de driver": "Dinámico",
+        "Tamaño del driver": "30 mm",
+        "Micrófono": "Sí",
+        "Tipo de micrófono": "Integrado",
+        "Cancelación de ruido": "Reducción de ruido para llamadas",
+        "Autonomía": "Hasta 25 horas",
+        "Tiempo de carga": "3 horas",
+        "Controles": "Botones en auricular",
+        "Compatibilidad": "PC, Android, iOS, tablets",
+        "Peso": "130 g"
+      }
+     },
+    {
+      "id": 806,
       "name": "Redragon Pandora 2 H350RGB-1 - USB 7.1 RGB Blanco",
       "brand": "Redragon",
       "model": "Pandora 2 H350RGB-1",
@@ -193,7 +268,7 @@
       }
     },
     {
-      "id": 805,
+      "id": 807,
       "name": "Redragon Pelops H818 - Inalámbrico USB 7.1 RGB",
       "brand": "Redragon",
       "model": "Pelops H818",
@@ -226,7 +301,7 @@
       }
     },
     {
-      "id": 806,
+      "id": 808,
       "name": "Razer Kraken X Console - Alámbrico 3.5mm. Consolas",
       "brand": "Razer",
       "model": "Kraken X for Console",
@@ -254,7 +329,7 @@
       }
     },
     {
-      "id": 807,
+      "id": 809,
       "name": "HyperX Cloud Stinger 2 - Alámbrico 3.5mm DTS:X",
       "brand": "HyperX",
       "model": "Cloud Stinger Core 2",
@@ -284,7 +359,7 @@
       }
     },
     {
-      "id": 808,
+      "id": 810,
       "name": "Razer Blackshark V2 X - Alámbrico 3.5mm 7.1 Verde",
       "brand": "Razer",
       "model": "Blackshark V2 X",
@@ -314,7 +389,7 @@
       }
     },
     {
-      "id": 809,
+      "id": 811,
       "name": "HyperX Cloud Stinger 2 Core PS5 - Alámbrico 3.5mm Blanco",
       "brand": "HyperX",
       "model": "Cloud Stinger Core 2 75X29AA",
@@ -345,7 +420,7 @@
       }
     },
     {
-      "id": 810,
+      "id": 812,
       "name": "Redragon Lamia 2 H320 - USB 7.1 RGB Blanco",
       "brand": "Redragon",
       "model": "Lamia 2 H320",
@@ -375,7 +450,7 @@
       }
     },
     {
-      "id": 811,
+      "id": 813,
       "name": "Thermaltake Pulse G100 RGB Alambrico Negro",
       "brand": "Thermaltake",
       "model": "Pulse G100 RGB",
@@ -405,7 +480,7 @@
       }
     },
     {
-      "id": 812,
+      "id": 814,
       "name": "Razer Kraken X Lite 7.1 Alambrico Negro",
       "brand": "Razer",
       "model": "Kraken X Lite 7.1",
@@ -447,7 +522,7 @@
       }
     },
     {
-      "id": 813,
+      "id": 815,
       "name": "Motorola XT220 - Inalámbrico Bluetooth & Jack 3.5mm Negro",
       "brand": "Motorola",
       "model": "XT220",
@@ -479,7 +554,7 @@
       }
     },
     {
-      "id": 814,
+      "id": 816,
       "name": "Redragon Ire Pro Bluetooth Inalámbrico dongle",
       "brand": "Redragon",
       "model": "Ire Pro H848B",
@@ -510,7 +585,7 @@
       }
     },
     {
-      "id": 815,
+      "id": 817,
       "name": "Skullcandy SLYR - Alámbrico 3.5mm Negro",
       "brand": "Skullcandy",
       "model": "SLYR S6SYY-Q763",
@@ -538,7 +613,7 @@
       }
     },
     {
-      "id": 816,
+      "id": 818,
       "name": "Trust GXT 307B Ravu - Alámbrico 3.5mm Negro/Azul",
       "brand": "Trust",
       "model": "GXT 307B Ravu",
@@ -566,7 +641,7 @@
       }
     },
     {
-      "id": 817,
+      "id": 819,
       "name": "Turtle Beach Recon 70 - Alámbrico 3.5mm Blanco PS5",
       "brand": "Turtle Beach",
       "model": "Recon 70",
@@ -594,7 +669,7 @@
       }
     },
     {
-      "id": 818,
+      "id": 820,
       "name": "Xiaomi Redmi Buds 6 Play - In-ear Bluetooth 5.4 Inalámbricos",
       "brand": "Xiaomi",
       "model": "Redmi Buds 6 Play",
@@ -630,7 +705,7 @@
       }
     },
     {
-      "id": 819,
+      "id": 821,
       "name": "Xiaomi Redmi Buds Essential - In-ear Bluetooth 5.2 Inalámbricos",
       "brand": "Xiaomi",
       "model": "Redmi Buds Essential",
@@ -657,6 +732,48 @@
         "Compatibilidad": "Android y iOS",
         "Contenido de la caja": "Auriculares, estuche de carga, manual"
       }
+    },
+  
+    {
+      "id": 822,
+      "name": "QCY T1C In-ear Bluetooth 5.0 Carga 30h",
+      "brand": "QCY",
+      "model": "T1C",
+      "category": "Auriculares",
+      "price": 20000,
+      "stock": 12,
+      "sku": "QCY-T1C",
+      "description": "Auriculares inalámbricos TWS Bluetooth 5.0 con drivers 6mm, IPX4, hasta 30h autonomía total",
+      "images": [
+        "/images/auriculares/qcy_tc1.webp",
+        "/images/auriculares/qcy_tc1_side.webp",
+        "/images/auriculares/qcy_tc1_side2.webp",
+        "/images/auriculares/qcy_tc1_side3.webp"
+      ],
+      "specifications": {
+        "Marca": "QCY",
+        "Línea": "In Ear",
+        "Modelo": "T1C",
+        "Tipo": "Auriculares inalámbricos TWS",
+        "tipoConectividad": "Inalámbrico",
+        "Versión de Bluetooth": "5.0",
+        "Alcance inalámbrico": "10 m",
+        "Respuesta en frecuencia": "20 Hz - 20 kHz",
+        "Impedancia": "32 ohm",
+        "Tipo de driver": "Dinámico",
+        "Tamaño del driver": "6 mm",
+        "Micrófono": "Sí",
+        "Cancelación de ruido": "Cancelación de ruido para llamadas",
+        "Autonomía auriculares": "4-5 horas",
+        "Autonomía total con estuche": "Hasta 20-30 horas",
+        "Tiempo de carga": "2 horas",
+        "Tipo de carga": "Micro USB",
+        "Resistencia": "IPX4",
+        "Controles": "Botón físico",
+        "Compatibilidad": "Android, iOS, PC con Bluetooth"
+      }
     }
+    
+    
   ]
 }

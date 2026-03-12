@@ -220,7 +220,7 @@
       "category": "Teclados",
       "manufacturerUrl": "https://www.redragonzone.com/collections/",
       "price": 45000,
-      "stock": 2,
+      "stock": 5,
       "sku": "RED-S143-KIT",
       "description": "Combo gaming RGB: Teclado mecánico 60% compacto + Mouse 7 botones programables",
       "images": [
@@ -365,8 +365,8 @@
       "model": "Ziggs K669",
       "category": "Teclados",
       "manufacturerUrl": "https://www.redragonzone.com/collections/",
-      "price": 45000,
-      "stock": 2,
+      "price": 40000,
+      "stock": 4,
       "sku": "RED-ZIGGS",
       "description": "Teclado mecánico RGB full size con switches Outemu Blue y distribución español LATAM",
       "images": [
@@ -433,8 +433,118 @@
         "Peso": "0.87 kg"
       }
     },
+
     {
       "id": 709,
+      "name": "Redragon K619W Horus FS Blanco Cableado USB",
+      "brand": "Redragon",
+      "model": "K619W",
+      "category": "Teclados",
+      "price": 65000,
+      "stock": 1,
+      "sku": "RED-K619W",
+      "description": "Teclado mecánico Low Profile TKL con switches Red lineales, hot swap, RGB, USB-C",
+      "images": [
+        "/images/teclados/RG_horus.webp",
+        "/images/teclados/RG_horus_side.webp",
+        "/images/teclados/RG_horus_side2.webp",
+        "/images/teclados/RG_horus_side3.webp"
+      ],
+      "specifications": {
+        "Marca": "Redragon",
+        "Línea": "Horus",
+        "Modelo": "K619W",
+        "Modelo detallado": "K619-RGB",
+        "Tipo": "Teclado mecánico",
+        "formato": "Low Profile TKL",
+        "Arquitectura": "Mecánico",
+        "Tipo de switch": "Red (lineal)",
+        "Hot Swap": "Sí",
+        "Retroiluminación": "RGB",
+        "tipoConectividad": "Alámbrico",
+        "Tipo de conexión": "USB-C",
+        "Distribución": "Español / Latinoamérica",
+        "Teclas multimedia": "Sí",
+        "Anti-ghosting": "Sí",
+        "Material": "Plástico ABS",
+        "Compatibilidad": "Windows, Linux"
+      }
+    },
+    {
+      "id": 710,
+      "name": "Redragon K630 Dragonborn 60% RGB Cableado USB",
+      "brand": "Redragon",
+      "model": "K630",
+      "category": "Teclados",
+      "price": 40000,
+      "stock": 2,
+      "sku": "RED-K630",
+      "description": "Teclado mecánico 60% con hot swap, RGB, USB-C, distribución español",
+      "images": [
+        "/images/teclados/rd_dragonborn.webp",
+        "/images/teclados/rd_dragonborn_side.webp",
+        "/images/teclados/rd_dragonborn_side2.webp",
+        "/images/teclados/rd_dragonborn_side3.webp"
+      ],
+      "specifications": {
+        "Marca": "Redragon",
+        "Línea": "Dragonborn",
+        "Modelo": "K630",
+        "Tipo": "Teclado mecánico",
+        "formato": "60%",
+        "Arquitectura": "Mecánico",
+        "Tipo de switch": "Red / Brown / Blue (según versión)",
+        "Hot Swap": "Sí",
+        "Retroiluminación": "RGB",
+        "tipoConectividad": "Alámbrico",
+        "Tipo de conexión": "USB-C",
+        "Distribución": "Español / Latinoamérica",
+        "Anti-ghosting": "Sí (NKRO)",
+        "Teclas multimedia": "Sí (por función FN)",
+        "Material": "Plástico ABS",
+        "Compatibilidad": "Windows, Linux"
+      }
+    },
+    {
+      "id": 711,
+      "name": "Redragon Shiva K512W Cableado USB Latinoamérica",
+      "brand": "Redragon",
+      "model": "K512W",
+      "category": "Teclados",
+      "price": 35000,
+      "stock": 3,
+      "sku": "RED-K512W",
+      "description": "Teclado gaming membrana full size con RGB, 6 teclas macro, reposamuñecas removible",
+      "images": [
+        "/images/teclados/rd_shiva.webp",
+        "/images/teclados/rd_shiva_side.webp",
+        "/images/teclados/rd_shiva_side3.webp",
+        "/images/teclados/rd_shiva_side4.webp"
+      ],
+      "specifications": {
+        "Marca": "Redragon",
+        "Línea": "K Series",
+        "Modelo": "K512W",
+        "Modelo detallado": "K512W-RGB",
+        "Tipo": "Teclado gaming",
+        "Arquitectura": "Membrana",
+        "formato": "Completo (Full Size)",
+        "Retroiluminación": "RGB",
+        "tipoConectividad": "Alámbrico",
+        "Tipo de conexión": "USB",
+        "Teclas macro": "6 teclas dedicadas",
+        "Teclas multimedia": "Sí",
+        "Reposamuñecas": "Sí (removible)",
+        "Anti-ghosting": "26 teclas",
+        "Distribución": "Español Latinoamérica",
+        "Material": "Plástico ABS",
+        "Compatibilidad": "Windows"
+      }
+    }
+  ,
+
+    {
+      "id": 712,
       "name": "Razer Cyclosa + Abyssus - Kit 2x1 Retroiluminado Alámbrico",
       "brand": "Razer",
       "model": "Cyclosa + Abyssus",
@@ -471,7 +581,7 @@
       }
     },
     {
-      "id": 710,
+      "id": 713,
       "name": "Redragon S101-BA-Kit 3x1+RGB Alámbrico",
       "brand": "Redragon",
       "model": "S101-BA",
@@ -512,7 +622,7 @@
       }
     },
     {
-      "id": 711,
+      "id": 714,
       "name": "Logitech MK220 - Kit Teclado + Mouse Membrana Inalámbrico",
       "brand": "Logitech",
       "model": "MK220",
@@ -549,7 +659,7 @@
       }
     },
     {
-      "id": 712,
+      "id": 715,
       "name": "Logitech MK270 - Kit Teclado + Mouse Membrana Inalámbrico",
       "brand": "Logitech",
       "model": "MK270",
@@ -576,7 +686,7 @@
       }
     },
     {
-      "id": 713,
+      "id": 716,
       "name": "Logitech MK470 Slim - Kit Teclado + Mouse Inalámbrico",
       "brand": "Logitech",
       "model": "MK470 Slim",
@@ -606,7 +716,7 @@
       }
     },
     {
-      "id": 714,
+      "id": 717,
       "name": "Logitech G213 Gaming Lightsync RGB - Teclado Membrana",
       "brand": "Logitech",
       "model": "G213",
@@ -631,7 +741,7 @@
       }
     },
     {
-      "id": 715,
+      "id": 718,
       "name": "Logitech K400 Plus - Touchpad Inalámbrico",
       "brand": "Logitech",
       "model": "K400 Plus",
@@ -656,7 +766,7 @@
       }
     },
     {
-      "id": 716,
+      "id": 719,
       "name": "Logitech K600 - Touchpad Inalámbrico ",
       "brand": "Logitech",
       "model": "K600",
@@ -680,5 +790,6 @@
         "tipoConectividad": "Inalámbrico"
       }
     }
+    
   ]
 }
