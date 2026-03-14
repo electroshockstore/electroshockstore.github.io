@@ -2,6 +2,42 @@
   "products": [
     {
       "id": 99,
+      "name": "XPG Pylon 750W - 80 Plus Bronze",
+      "brand": "XPG",
+      "model": "PYLON750B-BKCUS",
+      "category": "Fuentes",
+      "manufacturerUrl": "https://www.xpg.com/en/category/memory",
+      "price": 85000,
+      "stock": 12,
+      "sku": "XPG-750-PYLON",
+      "description": "Fuente ATX 750W no modular con certificación 80 Plus Bronze, MTBF 100,000 horas",
+      "images": [
+        "/images/fuentes/pylon_750.webp",
+        "/images/fuentes/pylon_750_specs.webp",
+        "/images/fuentes/pylon_750_specs_side.webp"
+      ],
+      "specifications": {
+        "Marca": "ADATA",
+        "Modelo": "PYLON",
+        "Número de Parte": "PYLON750B-BKCUS",
+        "Factor de Forma y Tipo": "ATX - NO MODULAR",
+        "Potencia": "750W",
+        "Certificacion": "80 Plus Bronze",
+        "Voltaje": "100V-240V, 5A MAX",
+        "MTBF": "100 000 Horas",
+        "ATX (24 pin)": "1",
+        "CPU (4+4 pin)": "2",
+        "PCIe (6+2 pin)": "4",
+        "SATA (4 pin)": "8",
+        "Molex (4 pin)": "3",
+        "Floppy (4 pin)": "1",
+        "Protecciones": "OCP / OVP / UVP / OPP / SCP / OTP / NLO / SIP",
+        "Dimensiones": "140 x 150 x 86mm"
+      },
+      "certType": "80_PLUS_BRONZE"
+    },
+    {
+      "id": 100,
       "name": "Thermaltake Toughpower GT 850W Full Modular 80 Plus Gold",
       "brand": "Thermaltake",
       "model": "PS-TPT-0850FNFAGG-3",
@@ -53,7 +89,7 @@
       "certType": "80_PLUS_GOLD"
     },
     {
-      "id": 100,
+      "id": 101,
       "name": "Adata XPG Core Reactor II VE 850W - 80 Plus Gold Modular",
       "brand": "XPG",
       "model": "COREREACTORIIVE850G-BKCAR",
@@ -90,7 +126,7 @@
       "certType": "80_PLUS_GOLD"
     },
     {
-      "id": 101,
+      "id": 102,
       "name": "Gigabyte GP-UD750GM - 750W 80 Plus Gold Modular",
       "brand": "Gigabyte",
       "model": "GP-UD750GM",
@@ -126,49 +162,13 @@
       "certType": "80_PLUS_GOLD"
     },
     {
-      "id": 102,
-      "name": "XPG Pylon 750W - 80 Plus Bronze",
-      "brand": "XPG",
-      "model": "PYLON750B-BKCUS",
-      "category": "Fuentes",
-      "manufacturerUrl": "https://www.xpg.com/en/category/memory",
-      "price": 85000,
-      "stock": 12,
-      "sku": "XPG-750-PYLON",
-      "description": "Fuente ATX 750W no modular con certificación 80 Plus Bronze, MTBF 100,000 horas",
-      "images": [
-        "/images/fuentes/pylon_750.webp",
-        "/images/fuentes/pylon_750_specs.webp",
-        "/images/fuentes/pylon_750_specs_side.webp"
-      ],
-      "specifications": {
-        "Marca": "ADATA",
-        "Modelo": "PYLON",
-        "Número de Parte": "PYLON750B-BKCUS",
-        "Factor de Forma y Tipo": "ATX - NO MODULAR",
-        "Potencia": "750W",
-        "Certificacion": "80 Plus Bronze",
-        "Voltaje": "100V-240V, 5A MAX",
-        "MTBF": "100 000 Horas",
-        "ATX (24 pin)": "1",
-        "CPU (4+4 pin)": "2",
-        "PCIe (6+2 pin)": "4",
-        "SATA (4 pin)": "8",
-        "Molex (4 pin)": "3",
-        "Floppy (4 pin)": "1",
-        "Protecciones": "OCP / OVP / UVP / OPP / SCP / OTP / NLO / SIP",
-        "Dimensiones": "140 x 150 x 86mm"
-      },
-      "certType": "80_PLUS_BRONZE"
-    },
-    {
       "id": 103,
       "name": "Gigabyte GP-P650SS - 650W 80 Plus Silver",
       "brand": "Gigabyte",
       "model": "GP-P650SS",
       "category": "Fuentes",
       "manufacturerUrl": "https://www.gigabyte.com/Power-Supply",
-      "price": 75000,
+      "price": 70000,
       "stock": 6,
       "sku": "GB-P650SS",
       "description": "Fuente ATX 650W con certificación 80 Plus Silver, eficiencia hasta 90%, ventilador FDB 120mm",
@@ -342,9 +342,102 @@
       },
       "certType": "80_PLUS_BRONZE"
     },
-
-    {
+     {
       "id": 108,
+      "name": "Thermaltake Smart RGB 600W 80 Plus White",
+      "brand": "Thermaltake",
+      "model": "Smart RGB 600W",
+      "category": "Fuentes",
+      "manufacturerUrl": "https://www.thermaltake.com/power-supply.html",
+      "price": 70000,
+      "stock": 1,
+      "sku": "TT-SMART-RGB-600",
+      "description": "Fuente ATX 600W con certificación 80 Plus White, ventilador RGB 120mm con control de iluminación integrado",
+      "images": [
+        "/images/fuentes/thermaltake_600rgb.webp",
+        "/images/fuentes/thermaltake_600rgb_side.webp",
+        "/images/fuentes/thermaltake_600rgb_side2.webp",
+        "/images/fuentes/thermaltake_600rgb_side3.webp",
+        "/images/fuentes/thermaltake_600rgb_side4.webp"
+      ],
+      "specifications": {
+        "Marca": "Thermaltake Technology",
+        "Línea": "Smart RGB Series",
+        "Modelo": "PS-SPR-0600NHFAWU-1",
+        "Potencia": "600W",
+        "Certificacion": "80 Plus White",
+        "Frecuencia": "50/60 Hz",
+        "Voltaje entrada": "100-240V",
+        "formato": "ATX",
+        "Modular": "No",
+        "Ventilador": "120 mm RGB",
+        "Control iluminación": "Botón RGB integrado",
+        "Protecciones": "OVP, OPP, SCP",
+        "Eficiencia": "Hasta 80%",
+        "Uso recomendado": "PC gaming de gama media"
+      }
+    },
+    {
+      "id": 109,
+      "name": "Thermaltake Smart 700W - 80 Plus White",
+      "brand": "Thermaltake",
+      "model": "Smart White 700W",
+      "category": "Fuentes",
+      "manufacturerUrl": "https://www.thermaltake.com/power-supply.html",
+      "price": 70000,
+      "stock": 2,
+      "sku": "TT-SMART-700",
+      "description": "Fuente ATX 700W no modular con certificación 80 Plus White, ventilador 120mm",
+      "images": [
+        "/images/fuentes/thermaltake_700.webp",
+        "/images/fuentes/thermaltake_700_side.webp",
+        "/images/fuentes/thermaltake_700_back.webp"
+      ],
+      "specifications": {
+        "Marca": "Thermaltake",
+        "Línea": "Smart",
+        "Modelo": "Smart White 700w",
+        "Potencia": "700W",
+        "Certificacion": "80 Plus White",
+        "Frecuencia": "60 Hz",
+        "formato": "ATX",
+        "Modular": "No",
+        "Ventilador": "120mm",
+        "Eficiencia": "Hasta 80%",
+        "Compatibilidad": "ATX 12V v2.3"
+      }
+    },
+    {
+      "id": 110,
+      "name": "Thermaltake Smart - 600W 80 Plus White",
+      "brand": "Thermaltake",
+      "model": "SPD-0600",
+      "category": "Fuentes",
+      "manufacturerUrl": "https://www.thermaltake.com/power-supply.html",
+      "price": 65000,
+      "stock": 1,
+      "sku": "TT-SMART-600",
+      "description": "Fuente ATX 600W con certificación 80 Plus White, eficiencia hasta 80%",
+      "images": [
+        "/images/fuentes/thermaltake_600smart.webp",
+        "/images/fuentes/thermaltake_600smart_side.webp",
+        "/images/fuentes/thermaltake_600smart_specs.webp"
+      ],
+      "specifications": {
+        "Marca": "Thermaltake",
+        "Línea": "Smart",
+        "Modelo": "SPD-0600",
+        "Potencia": "600W",
+        "Certificacion": "80 Plus White",
+        "formato": "ATX",
+        "Modular": "No",
+        "Ventilador": "120mm",
+        "Eficiencia": "Hasta 80%",
+        "Compatibilidad": "ATX 12V v2.3"
+      }
+    },
+    {
+      "id": 111,
       "name": "Thermaltake TR2 TR2-600NL2NC - 600W",
       "brand": "Thermaltake",
       "model": "TR2-600NL2NC",
@@ -381,7 +474,7 @@
       "certType": "80_PLUS"
     },
     {
-      "id": 109,
+      "id": 112,
       "name": "Aureox ARXGU-80PBZ-550W - Unlimited Series 80 Plus",
       "brand": "Aureox",
       "model": "ARXGU-80PBZ-550W",
@@ -417,7 +510,7 @@
       "certType": "80_PLUS_BRONZE"
     },
     {
-      "id": 110,
+      "id": 113,
       "name": "Gigabyte P550B - 550W 80 Plus Bronze",
       "brand": "Gigabyte",
       "model": "P550B",
@@ -453,7 +546,7 @@
       "certType": "80_PLUS_BRONZE"
     },
     {
-      "id": 111,
+      "id": 114,
       "name": "Aureox ARXGP-600W - Powerful Series",
       "brand": "Aureox",
       "model": "ARXGP-600W",
@@ -487,7 +580,7 @@
       "certType": "80_PLUS"
     },
     {
-      "id": 112,
+      "id": 115,
       "name": "Gigabyte GP-P450B - 450W 80 Plus Bronze",
       "brand": "Gigabyte",
       "model": "GP-P450B",
@@ -522,5 +615,6 @@
       },
       "certType": "80_PLUS_BRONZE"
     }
+   
   ]
 }

@@ -585,6 +585,40 @@
         "Compatibilidad": "PC",
         "Color": "Negro"
       }
+    },
+    {
+      "id": 515,
+      "name": "Mouse Pad Redragon Flick XL 40cm x 90cm x 4mm",
+      "brand": "Redragon",
+      "model": "Flick P032",
+      "category": "Mouse",
+      "price": 30000,
+      "stock": 5,
+      "sku": "RD-FLICK-P032",
+      "description": "Mousepad gaming extendido Redragon Flick XL 900x400mm con superficie microtexturizada, bordes cocidos y base antideslizante",
+      "images": [
+        "/images/mouse/rd_mousepad.webp",
+        "/images/mouse/rd_mousepad_side.webp",
+        "/images/mouse/rd_mousepad_side2.webp",
+        "/images/mouse/rd_mousepad_side3.webp",
+        "/images/mouse/rd_mousepad_side4.webp",
+        "/images/mouse/rd_mousepad_side5.webp"
+        
+      ],
+      "specifications": {
+        "Marca": "Redragon",
+        "Modelo": "Flick",
+        "Modelo detallado": "P032",
+        "Tipo": "Mousepad gaming extendido",
+        "Dimensiones": "900 x 400 mm",
+        "Grosor": "4 mm",
+        "Material superficie": "Tela microtexturizada",
+        "Material base": "Goma antideslizante",
+        "Bordes": "Cocidos anti-desgaste",
+        "Compatibilidad sensor": "Óptico y láser",
+        "Características": "Superficie optimizada para precisión, gran tamaño para teclado y mouse, flexible y enrollable, alta estabilidad",
+        "Uso recomendado": "Gaming y escritorio con teclado y mouse"
+      }
     }
   ]
 }

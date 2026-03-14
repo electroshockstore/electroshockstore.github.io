@@ -289,6 +289,49 @@
         "tipoMemoriaRAM": "DDR4"
       },
       "ddrType": "DDR4"
+    },
+    {
+      "id": 610,
+      "name": "Asus Prime H610M-K D4 CSM LGA1700",
+      "brand": "ASUS",
+      "model": "Prime H610M-K D4 CSM",
+      "category": "Motherboards",
+      "manufacturerUrl": "https://www.asus.com/motherboards-components/motherboards/prime/prime-h610m-k-d4-csm/",
+      "price": 90000,
+      "stock": 1,
+      "ownConsumption": "25W - 35W",
+      "maxPowerSupport": "Hasta 125W (Intel 12/13/14 gen)",
+      "images": [
+        "/images/motherboard/asus_h610m-k.webp",
+        "/images/motherboard/asus_h610m-k_side.webp",
+        "/images/motherboard/asus_h610m-k_side2.webp",
+        "/images/motherboard/asus_h610m-k_side3.webp",
+        "/images/motherboard/asus_h610m-k_side4.webp"
+      ],
+      "description": "Motherboard Asus Prime H610M-K D4 CSM Micro ATX LGA1700 con soporte DDR4, ideal para PC de oficina o gaming de entrada con Intel 12/13/14 gen",
+      "sku": "ASUS-H610M-K-D4",
+      "specifications": {
+        "Marca": "Asus",
+        "Línea": "Prime",
+        "Modelo": "H610M-K D4 CSM",
+        "Socket": "LGA1700",
+        "Chipset": "Intel H610",
+        "formato": "Micro-ATX",
+        "tipoMemoriaRAM": "DDR4",
+        "slotsMemoria": "2",
+        "capacidadMaximaRAM": "64 GB",
+        "velocidadRAMSoportada": "Hasta 3200 MHz",
+        "Slots PCIe x16": "1",
+        "Slots PCIe x1": "1",
+        "puertosM2": "1",
+        "puertosSATA": "4",
+        "Puertos video": "HDMI, VGA",
+        "Red": "Ethernet Gigabit",
+        "USB": "USB 3.2, USB 2.0",
+        "Compatibilidad procesadores": "Intel 12th/13th/14th Gen",
+        "Uso recomendado": "PC de oficina o gaming de entrada con Intel 12/13/14 gen"
+      },
+      "ddrType": "DDR4"
     }
   ]
 }
