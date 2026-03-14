@@ -1,15 +1,19 @@
 {
   "99": {
-    "name": "Thermaltake Toughpower GT 850W Full Modular 80 Plus Gold",
+    "name": "XPG Pylon 750W - 80 Plus Bronze",
     "h": [
       [
         1770899160375,
         150000
+      ],
+      [
+        1773454818091,
+        85000
       ]
     ]
   },
   "100": {
-    "name": "Adata XPG Core Reactor II VE 850W - 80 Plus Gold Modular",
+    "name": "Thermaltake Toughpower GT 850W Full Modular 80 Plus Gold",
     "h": [
       [
         1768571377217,
@@ -18,20 +22,28 @@
       [
         1768824908493,
         145000
-      ]
-    ]
-  },
-  "101": {
-    "name": "Gigabyte GP-UD750GM - 750W 80 Plus Gold Modular",
-    "h": [
+      ],
       [
-        1768571377217,
+        1773454818091,
         150000
       ]
     ]
   },
+  "101": {
+    "name": "Adata XPG Core Reactor II VE 850W - 80 Plus Gold Modular",
+    "h": [
+      [
+        1768571377217,
+        150000
+      ],
+      [
+        1773454818091,
+        145000
+      ]
+    ]
+  },
   "102": {
-    "name": "XPG Pylon 750W - 80 Plus Bronze",
+    "name": "Gigabyte GP-UD750GM - 750W 80 Plus Gold Modular",
     "h": [
       [
         1768571377217,
@@ -40,11 +52,15 @@
       [
         1768824908493,
         85000
+      ],
+      [
+        1773454818091,
+        150000
       ]
     ]
   },
   "103": {
-    "name": "Gigabyte GP-P650SS - 650W 80 Plus Gold",
+    "name": "Gigabyte GP-P650SS - 650W 80 Plus Silver",
     "h": [
       [
         1768571377217,
@@ -53,6 +69,10 @@
       [
         1768824908493,
         75000
+      ],
+      [
+        1773454818091,
+        70000
       ]
     ]
   },
@@ -105,7 +125,7 @@
     ]
   },
   "108": {
-    "name": "Thermaltake TR2 TR2-600NL2NC - 600W",
+    "name": "Thermaltake Smart RGB 600W 80 Plus White",
     "h": [
       [
         1768571377217,
@@ -122,11 +142,15 @@
       [
         1772635541088,
         60000
+      ],
+      [
+        1773454818091,
+        70000
       ]
     ]
   },
   "109": {
-    "name": "Aureox ARXGU-80PBZ-550W - Unlimited Series 80 Plus",
+    "name": "Thermaltake Smart 700W - 80 Plus White",
     "h": [
       [
         1768571377217,
@@ -139,11 +163,15 @@
       [
         1772635541088,
         50000
+      ],
+      [
+        1773454818091,
+        70000
       ]
     ]
   },
   "110": {
-    "name": "Gigabyte P550B - 550W 80 Plus Bronze",
+    "name": "Thermaltake Smart - 600W 80 Plus White",
     "h": [
       [
         1769519715004,
@@ -156,11 +184,15 @@
       [
         1772635541088,
         70000
+      ],
+      [
+        1773454818091,
+        65000
       ]
     ]
   },
   "111": {
-    "name": "Aureox ARXGP-600W - Powerful Series",
+    "name": "Thermaltake TR2 TR2-600NL2NC - 600W",
     "h": [
       [
         1768571377217,
@@ -173,11 +205,15 @@
       [
         1772635541088,
         55000
+      ],
+      [
+        1773454818091,
+        60000
       ]
     ]
   },
   "112": {
-    "name": "Gigabyte GP-P450B - 450W 80 Plus Bronze",
+    "name": "Aureox ARXGU-80PBZ-550W - Unlimited Series 80 Plus",
     "h": [
       [
         1768571377217,
@@ -186,15 +222,23 @@
       [
         1772635541088,
         55000
+      ],
+      [
+        1773454818091,
+        50000
       ]
     ]
   },
   "113": {
-    "name": "Aureox ARXGP-600W - Powerful Series",
+    "name": "Gigabyte P550B - 550W 80 Plus Bronze",
     "h": [
       [
         1768571377217,
         55000
+      ],
+      [
+        1773454818091,
+        70000
       ]
     ]
   },
@@ -203,6 +247,15 @@
     "h": [
       [
         1768571377217,
+        55000
+      ]
+    ]
+  },
+  "115": {
+    "name": "Gigabyte GP-P450B - 450W 80 Plus Bronze",
+    "h": [
+      [
+        1773454818091,
         55000
       ]
     ]
@@ -928,11 +981,24 @@
     ]
   },
   "317": {
-    "name": "Intel Core i7-12700KF sin gráfica integrada",
+    "name": "Intel Core i5-10400F LGA1200 Sin grafica integrada C/cooler",
     "h": [
       [
         1772245430788,
         410000
+      ],
+      [
+        1773454818091,
+        170000
+      ]
+    ]
+  },
+  "318": {
+    "name": "Intel Core i5-14400F LGA1700 sin grafica integrada C/cooler",
+    "h": [
+      [
+        1773454818091,
+        290000
       ]
     ]
   },
@@ -1480,6 +1546,15 @@
       ]
     ]
   },
+  "515": {
+    "name": "Mouse Pad Redragon Flick XL 40cm x 90cm x 4mm",
+    "h": [
+      [
+        1773454818091,
+        30000
+      ]
+    ]
+  },
   "600": {
     "name": "ASUS TUF Gaming A620M-PLUS WiFi AM5",
     "h": [
@@ -1579,6 +1654,15 @@
       [
         1768571377217,
         180000
+      ]
+    ]
+  },
+  "610": {
+    "name": "Asus Prime H610M-K D4 CSM LGA1700",
+    "h": [
+      [
+        1773454818091,
+        90000
       ]
     ]
   },
@@ -2282,6 +2366,15 @@
       [
         1773352412809,
         20000
+      ]
+    ]
+  },
+  "823": {
+    "name": "Barra de Sonido Redragon GS570 Darknets Estéreo RGB",
+    "h": [
+      [
+        1773454818091,
+        50000
       ]
     ]
   },
