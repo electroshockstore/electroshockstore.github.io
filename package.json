@@ -10,7 +10,7 @@
     "preview": "vite preview",
     "test": "vitest run",
     "test:watch": "vitest",
-    "deploy": "npm run build && node scripts/generate-404.js && gh-pages -d dist",
+    "deploy": "npm run build && node scripts/generate-404.js && npx gh-pages -d dist --add",
     "clean": "rm -rf dist node_modules/.vite",
     "analyze": "vite build --mode analyze",
     "setup:mcp": "node scripts/setup-mcp.js",

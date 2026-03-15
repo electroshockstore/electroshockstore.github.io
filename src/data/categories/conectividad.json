@@ -285,7 +285,7 @@
       }
     },
     {
-      "id": 9010,
+      "id": 910,
       "name": "Cámara Web HD Logitech C505",
       "brand": "Logitech",
       "model": "C505",
@@ -327,43 +327,9 @@
         "incluye": "Cámara Logitech C505, Manual de usuario"
       }
     },
+   
     {
       "id": 911,
-      "name": "Cámara web Redragon Fobos GW600 HD 30FPS color negro",
-      "brand": "Redragon",
-      "model": "Fobos GW600",
-      "category": "Conectividad",
-      "manufacturerUrl": "https://www.redragonzone.com/collections/",
-      "price": 40000,
-      "stock": 1,
-      "images": [
-        "/images/conectividad/RGcam_fobos.webp",
-        "/images/conectividad/RGcam_fobos_side.webp",
-        "/images/conectividad/RGcam_fobos_side2.webp",
-        "/images/conectividad/RGcam_fobos_side3.webp",
-        "/images/conectividad/RGcam_fobos_back.webp"
-      ],
-      "description": "Cámara web Redragon Fobos GW600 HD con resolución 720p a 30FPS, micrófono integrado y clip universal para streaming y videollamadas",
-      "specifications": {
-        "Marca": "Redragon",
-        "Modelo": "Fobos GW600",
-        "Modelo detallado": "GW600 FOBOS",
-        "resolucionVideo": "HD 1280 x 720",
-        "velocidadCuadros": "30 FPS",
-        "Sensor": "CMOS",
-        "enfoque": "Fijo",
-        "campoVision": "65°",
-        "microfono": "Integrado",
-        "tipoConectividad": "Alámbrico",
-        "interfaz": "USB 2.0",
-        "Compatibilidad": "Windows / macOS / Linux",
-        "Color": "Negro",
-        "montaje": "Clip universal",
-        "usoRecomendado": "Streaming / Videollamadas / Clases online"
-      }
-    },
-    {
-      "id": 912,
       "name": "Cámara Interior Ezviz H6C Pro 2K+ Domo Wifi",
       "brand": "Ezviz",
       "model": "H6C Pro 2K+",
@@ -413,7 +379,7 @@
       }
     },
     {
-      "id": 913,
+      "id": 912,
       "name": "Cámara Interior Ezviz C6N 1080p Domo FHD Wifi",
       "brand": "Ezviz",
       "model": "C6N Pro",
@@ -453,7 +419,7 @@
       }
     },
     {
-      "id": 914,
+      "id": 913,
       "name": "Cámara Interior Ezviz H6C Pro 1080p Domo FHD Wifi",
       "brand": "Ezviz",
       "model": "H6C Pro 1080p",
