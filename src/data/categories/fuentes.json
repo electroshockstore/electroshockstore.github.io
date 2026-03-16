@@ -88,43 +88,7 @@
       },
       "certType": "80_PLUS_GOLD"
     },
-    {
-      "id": 101,
-      "name": "Adata XPG Core Reactor II VE 850W - 80 Plus Gold Modular",
-      "brand": "XPG",
-      "model": "COREREACTORIIVE850G-BKCAR",
-      "category": "Fuentes",
-      "manufacturerUrl": "https://www.xpg.com/en/category/memory",
-      "price": 145000,
-      "stock": 1,
-      "sku": "XPG-850-REACTOR",
-      "description": "Fuente ATX 850W modular con certificación 80 Plus Gold, ventilador FDB 120mm ultra silencioso",
-      "images": [
-        "/images/fuentes/xpg_850wcore.webp",
-        "/images/fuentes/xpg_850wcore_side.webp",
-        "/images/fuentes/xpg_850wcore_back.webp"
-      ],
-      "specifications": {
-        "Marca": "ADATA",
-        "Línea": "Core Reactor II VE",
-        "Modelo": "COREREACTORIIVE850G-BKCAR",
-        "Potencia": "850W",
-        "Certificacion": "80 Plus Gold",
-        "Frecuencia": "50-60 Hz",
-        "formato": "ATX",
-        "Cableado": "Modular",
-        "Conectores": {
-          "ATX 24 pines": "1",
-          "EPS 8 pines": "2",
-          "PCI-E 6+2": "4",
-          "SATA": "10",
-          "Molex": "3"
-        },
-        "Ventilador": "120 mm FDB ultra silencioso",
-        "Protecciones": "OCP / OVP / UVP / OPP / SCP / OTP"
-      },
-      "certType": "80_PLUS_GOLD"
-    },
+    
     {
       "id": 102,
       "name": "Gigabyte GP-UD750GM - 750W 80 Plus Gold Modular",

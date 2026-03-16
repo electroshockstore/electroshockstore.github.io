@@ -418,36 +418,7 @@
         "Compatibilidad": "PS5, PS4, Xbox, Switch, PC"
       }
     },
-    {
-      "id": 812,
-      "name": "Redragon Lamia 2 H320 - USB 7.1 RGB Blanco",
-      "brand": "Redragon",
-      "model": "Lamia 2 H320",
-      "category": "Auriculares",
-      "manufacturerUrl": "https://www.redragonzone.com/collections/",
-      "price": 55000,
-      "stock": 1,
-      "sku": "RED-LAMIA2-WHT",
-      "description": "Auriculares gaming USB 7.1 virtual con iluminaciÃ³n RGB, drivers 50mm",
-      "images": [
-        "/images/auriculares/RG_lamia2.webp",
-        "/images/auriculares/RG_lamia2_side.webp",
-        "/images/auriculares/RG_lamia2_side2.webp"
-      ],
-      "specifications": {
-        "Marca": "Redragon",
-        "LÃ­nea": "H320W-RGB",
-        "Modelo": "H320 Lamia 2",
-        "Modelo detallado": "H320W-RGB",
-        "Respuesta en frecuencia": "20 Hz - 20 kHz",
-        "TamaÃ±o del driver": "50 mm",
-        "Sonido": "7.1 Virtual USB",
-        "Peso": "No especificado",
-        "tipoConectividad": "Alámbrico",
-        "MicrÃ³fono": "Flexible con cancelaciÃ³n pasiva",
-        "Compatibilidad": "PC"
-      }
-    },
+   
     {
       "id": 813,
       "name": "Thermaltake Pulse G100 RGB Alambrico Negro",
