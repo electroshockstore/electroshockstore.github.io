@@ -48,9 +48,10 @@ export function PriceChart({ productId }) {
   const yMin = Math.floor((minPrice - padding) / 1000) * 1000;
   const yMax = Math.ceil((maxPrice + padding) / 1000) * 1000;
 
-  // Colores según tendencia
-  const isPositive = priceChange > 0;
+  // Colores según tendencia (invertido para el usuario: baja = verde, sube = rojo)
+  const isPositive = priceChange > 0;  // Precio subió
   const isNeutral = priceChange === 0;
+  // INVERTIDO: Si sube (malo para usuario) = rojo, si baja (bueno) = verde
   const lineColor = isNeutral ? '#3b82f6' : (isPositive ? '#ef4444' : '#10b981');
   const gradientColor = isNeutral ? '#3b82f6' : (isPositive ? '#ef4444' : '#10b981');
   

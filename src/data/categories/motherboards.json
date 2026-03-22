@@ -158,60 +158,7 @@
       },
       "ddrType": "DDR5"
     },
-    {
-      "id": 605,
-      "name": "Gigabyte A620M H DDR5 AMD AM5",
-      "brand": "Gigabyte",
-      "model": "A620M H",
-      "category": "Motherboards",
-      "manufacturerUrl": "https://www.gigabyte.com/Motherboard/A620M-H-rev-10",
-      "price": 120000,
-      "stock": 1,
-      "ownConsumption": "30W - 40W",
-      "maxPowerSupport": "Hasta 120W (PPT recomendado)",
-      "images": [
-        "/images/motherboard/a620m_h_ud.webp",
-        "/images/motherboard/a620m_h_ud_front.webp"
-      ],
-      "description": "Mother Gigabyte A620M H DDR5 AMD AM5 para Ryzen Serie 7000/8000/9000",
-      "specifications": {
-        "Marca": "Gigabyte",
-        "Chipset": "AMD A620",
-        "Socket": "AM5",
-        "formato": "Micro-ATX",
-        "tipoMemoriaRAM": "DDR5",
-        "vrm": "5+2+2 Digital VRM"
-      },
-      "ddrType": "DDR5"
-    },
-    {
-      "id": 606,
-      "name": "ASUS Prime B450M-A II CSM AM4",
-      "brand": "ASUS",
-      "model": "Prime B450M-A II CSM",
-      "category": "Motherboards",
-      "manufacturerUrl": "https://www.asus.com/motherboards-components/motherboards/prime/prime-b450m-a-ii/",
-      "price": 120000,
-      "stock": 1,
-      "ownConsumption": "30W - 40W",
-      "maxPowerSupport": "Hasta 105W TDP",
-      "images": [
-        "/images/motherboard/b450m_II_full.webp",
-        "/images/motherboard/b450m_II_mother.webp"
-      ],
-      "description": "Mother Asus Prime B450M-A II CSM AM4 DDR4 128GB",
-      "specifications": {
-        "Marca": "ASUS",
-        "Línea": "Prime",
-        "Modelo": "B450M-A II CSM",
-        "Socket": "AM4",
-        "Chipset": "B450",
-        "formato": "Micro-ATX",
-        "tipoMemoriaRAM": "DDR4",
-        "capacidadMaximaSoportada": "128 GB"
-      },
-      "ddrType": "DDR4"
-    },
+    
     {
       "id": 607,
       "name": "Gigabyte A520M K V2 UD DDR4 AM4",

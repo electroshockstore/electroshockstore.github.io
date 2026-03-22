@@ -63,12 +63,17 @@ export function usePriceHistory(productId) {
             });
 
             const currentPrice = formattedHistory[formattedHistory.length - 1]?.price;
+            const previousPrice = formattedHistory.length > 1 
+              ? formattedHistory[formattedHistory.length - 2]?.price 
+              : formattedHistory[0]?.price;
             const oldestPrice = formattedHistory[0]?.price;
+            
+            // Calcular cambio respecto al precio anterior (no el más antiguo)
             const priceChange = formattedHistory.length > 1 
-              ? currentPrice - oldestPrice
+              ? currentPrice - previousPrice
               : 0;
-            const priceChangePercent = formattedHistory.length > 1 && oldestPrice > 0
-              ? ((currentPrice - oldestPrice) / oldestPrice * 100).toFixed(1)
+            const priceChangePercent = formattedHistory.length > 1 && previousPrice > 0
+              ? ((currentPrice - previousPrice) / previousPrice * 100).toFixed(1)
               : 0;
 
             setHistory({

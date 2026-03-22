@@ -86,33 +86,7 @@
       },
       "ddrType": "DDR4"
     },
-    {
-      "id": 307,
-      "name": "AMD Ryzen 5 5600GT AM4",
-      "brand": "AMD",
-      "model": "Ryzen 5 5600GT",
-      "category": "Procesadores",
-      "price": 215000,
-      "stock": 1,
-      "realPowerConsumption": "65W (TDP) / 88W (PPT Max Load)",
-      "manufacturerUrl": "https://www.amd.com/es/support/downloads/drivers.html/processors/ryzen/ryzen-5000-series/amd-ryzen-5-5600gt.html",
-      "images": [
-        "/images/procesadores/r5_5600gt.webp",
-        "/images/procesadores/r5_5600gt_specs.webp",
-        "/images/procesadores/cooler_stock.webp"
-      ],
-      "description": "Procesador AMD Ryzen 5 5600GT con Cooler 6/12, 3.6GHz con gráficos integrados AMD Radeon Vega 7",
-      "specifications": {
-        "Marca": "AMD",
-        "Modelo": "5600GT",
-        "Socket": "AM4",
-        "Núcleos": "6",
-        "hilos": "12",
-        "TDP": "65 W",
-        "graficosIntegrados": "AMD Radeon Vega 7"
-      },
-      "ddrType": "DDR4"
-    },
+   
     {
       "id": 308,
       "name": "AMD Ryzen 5 8500G AM5 DDR5",
