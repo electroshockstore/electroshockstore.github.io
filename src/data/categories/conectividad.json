@@ -199,36 +199,9 @@
         "Funciones": "Adaptador Wi-Fi USB Dual Band"
       }
     },
+    
     {
       "id": 907,
-      "name": "Tarjeta de Memoria Kingston Micro SD 64GB Clase 10",
-      "brand": "Kingston",
-      "model": "Canvas Select Plus 64GB",
-      "category": "Conectividad",
-      "manufacturerUrl": "https://www.kingston.com/es/memory/gaming",
-      "price": 11000,
-      "stock": 9,
-      "images": [
-        "/images/conectividad/64_sd.webp",
-        "/images/conectividad/64_sd_side.webp",
-        "/images/conectividad/64_sd_side2.webp"
-      ],
-      "description": "Tarjeta de Memoria Kingston Micro SD 64GB Clase 10 con adaptador SD incluido, ideal para smartphones, cámaras y tablets",
-      "specifications": {
-        "Marca": "Kingston",
-        "Línea": "Canvas Select Plus",
-        "Modelo": "64GB",
-        "Modelo alfanumérico": "MicroSD",
-        "capacidadTotal": "64 GB",
-        "clase": "Clase 10",
-        "velocidadLectura": "Hasta 100 MB/s",
-        "formato": "Micro SD",
-        "Compatibilidad": "Smartphones / Cámaras / Tablets",
-        "incluyeAdaptadorSD": "Sí"
-      }
-    },
-    {
-      "id": 908,
       "name": "Pendrive Kingston DataTraveler Exodia 64GB USB 3.2",
       "brand": "Kingston",
       "model": "DataTraveler Exodia",
@@ -256,36 +229,9 @@
         "usoRecomendado": "Almacenamiento portátil"
       }
     },
+    
     {
-      "id": 909,
-      "name": "Kingston Micro SD 128GB Canvas Select Plus",
-      "brand": "Kingston",
-      "model": "Canvas Select Plus 128GB",
-      "category": "Conectividad",
-      "manufacturerUrl": "https://www.kingston.com/es/memory/gaming",
-      "price": 21000,
-      "stock": 5,
-      "images": [
-        "/images/conectividad/sd_128.webp",
-        "/images/conectividad/sd_128_side.webp",
-        "/images/conectividad/sd_128_side2.webp"
-      ],
-      "description": "Kingston Micro SD 128GB Canvas Select Plus Clase 10 con adaptador SD incluido, perfecta para smartphones, cámaras y consolas",
-      "specifications": {
-        "Marca": "Kingston",
-        "Línea": "Canvas Select Plus",
-        "Modelo": "SDCS2/128GBSP",
-        "Modelo alfanumérico": "SDCS2/128GB",
-        "capacidadTotal": "128 GB",
-        "clase": "Clase 10",
-        "velocidadLectura": "Hasta 100 MB/s",
-        "formato": "Micro SD",
-        "Compatibilidad": "Smartphones / Cámaras / Consolas",
-        "incluyeAdaptadorSD": "Sí"
-      }
-    },
-    {
-      "id": 910,
+      "id": 908,
       "name": "Cámara Web HD Logitech C505",
       "brand": "Logitech",
       "model": "C505",
@@ -329,7 +275,7 @@
     },
    
     {
-      "id": 911,
+      "id": 909,
       "name": "Cámara Interior Ezviz H6C Pro 2K+ Domo Wifi",
       "brand": "Ezviz",
       "model": "H6C Pro 2K+",
@@ -379,7 +325,7 @@
       }
     },
     {
-      "id": 912,
+      "id": 910,
       "name": "Cámara Interior Ezviz C6N 1080p Domo FHD Wifi",
       "brand": "Ezviz",
       "model": "C6N Pro",
@@ -419,7 +365,7 @@
       }
     },
     {
-      "id": 913,
+      "id": 911,
       "name": "Cámara Interior Ezviz H6C Pro 1080p Domo FHD Wifi",
       "brand": "Ezviz",
       "model": "H6C Pro 1080p",
