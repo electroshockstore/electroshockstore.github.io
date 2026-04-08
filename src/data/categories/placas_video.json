@@ -7,7 +7,7 @@
       "model": "DUAL-RTX3050-O6G",
       "category": "Placas de Video",
       "manufacturerUrl": "https://www.asus.com/graphics-cards/asus/dual/dual-rtx3050-o6g/",
-      "price": 500000,
+      "price": 35000,
       "stock": 1,
       "isUsed": false,
       "images": [
@@ -139,8 +139,8 @@
       "model": "RTX 5050 Twin Edge OC",
       "category": "Placas de Video",
       "manufacturerUrl": "https://www.zotac.com/",
-      "price": 450000,
-      "stock": 0,
+      "price": 500000,
+      "stock": 1,
       "isUsed": false,
       "images": [
         "/images/placas_video/zotac5050.webp",
