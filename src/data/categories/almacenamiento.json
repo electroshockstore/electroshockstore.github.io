@@ -39,9 +39,8 @@
       "description": "SSD M.2 NVMe PCIe Gen3 x4 de 500GB con iluminación RGB direccionable, lectura 2500 MB/s, escritura 1800 MB/s",
       "manufacturerUrl": "https://www.xpg.com/es/xpg/818",
       "images": [
-        "/images/almacenamiento/s40g_1tb.webp",
-            "/images/almacenamiento/s40g_1tb_side.webp",
-                "/images/almacenamiento/s40g_1tb_side2.webp"
+        "/images/almacenamiento/xpg_spectrix_s20g.webp"
+          
                  
       ],
       "specifications": {
@@ -68,7 +67,9 @@
       "description": "SSD M.2 NVMe PCIe Gen3 x4 de 1TB con iluminación RGB configurable, lectura 3500 MB/s, escritura 3000 MB/s",
       "manufacturerUrl": "https://www.xpg.com/es/xpg/spectrix-s40g",
       "images": [
-        "/images/almacenamiento/adata_legend710_1tb.webp"
+      "/images/almacenamiento/s40g_1tb.webp",
+            "/images/almacenamiento/s40g_1tb_side.webp",
+                "/images/almacenamiento/s40g_1tb_side2.webp"
       ],
       "specifications": {
         "Marca": "Adata",
