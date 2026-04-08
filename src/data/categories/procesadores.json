@@ -1,13 +1,13 @@
 {
   "products": [
     {
-      "id": 304,
+      "id": 300,
       "name": "AMD Ryzen 7 5700G AM4",
       "brand": "AMD",
       "model": "Ryzen 7 5700G",
       "category": "Procesadores",
       "price": 255000,
-      "stock": 6,
+      "stock": 7,
       "powerConsumption": 88,
       "realPowerConsumption": "65W (TDP) / 88W (PPT) - Puede alcanzar 125W con iGPU activa en carga",
       "manufacturerUrl": "https://www.amd.com/es/products/processors/desktops/ryzen.html",
@@ -30,7 +30,7 @@
       "ddrType": "DDR4"
     },
     {
-      "id": 305,
+      "id": 301,
       "name": "AMD Ryzen 5 7600 AM5",
       "brand": "AMD",
       "model": "Ryzen 5 7600",
@@ -60,7 +60,7 @@
       "ddrType": "DDR5"
     },
     {
-      "id": 306,
+      "id": 302,
       "name": "AMD Ryzen 5 5500 AM4",
       "brand": "AMD",
       "model": "Ryzen 5 5500",
@@ -88,7 +88,7 @@
     },
    
     {
-      "id": 308,
+      "id": 303,
       "name": "AMD Ryzen 5 8500G AM5 DDR5",
       "brand": "AMD",
       "model": "Ryzen 5 8500G",
@@ -123,7 +123,7 @@
       "ddrType": "DDR5"
     },
     {
-      "id": 309,
+      "id": 304,
       "name": "AMD Ryzen 5 8600G AM5 DDR5",
       "brand": "AMD",
       "model": "Ryzen 5 8600G",
@@ -148,36 +148,9 @@
       },
       "ddrType": "DDR5"
     },
+    
     {
-      "id": 310,
-      "name": "Intel Core i5-11400 LGA1200",
-      "brand": "Intel",
-      "model": "Core i5-11400",
-      "category": "Procesadores",
-      "price": 180000,
-      "stock": 1,
-      "realPowerConsumption": "65W (PL1) / 154W (PL2 Max Turbo Boost)",
-      "manufacturerUrl": "https://www.intel.la/content/www/xl/es/products/sku/212279/intel-core-i511400-processor-12m-cache-up-to-4-40-ghz/specifications.html",
-      "images": [
-        "/images/procesadores/i5_11400.webp",
-        "/images/procesadores/i5_11400_cpu.webp",
-        "/images/procesadores/cooler_stock.webp"
-      ],
-      "description": "Procesador Intel Core i5 11400 4.4GHz 6 Cores con gráficos integrados Intel UHD Graphics 730",
-      "specifications": {
-        "Marca": "Intel",
-        "Línea": "Core i5",
-        "Modelo": "i5-11400",
-        "Socket": "FCLGA1200",
-        "Núcleos": "6",
-        "hilos": "12",
-        "TDP": "65 W",
-        "graficosIntegrados": "Intel UHD Graphics 730"
-      },
-      "ddrType": "DDR4"
-    },
-    {
-      "id": 311,
+      "id": 305,
       "name": "AMD Ryzen 5 8400F AM5",
       "brand": "AMD",
       "model": "Ryzen 5 8400F",
@@ -206,7 +179,7 @@
       "ddrType": "DDR5"
     },
     {
-      "id": 312,
+      "id": 306,
       "name": "AMD Ryzen 3 3200G AM4",
       "brand": "AMD",
       "model": "Ryzen 3 3200G",
@@ -234,7 +207,7 @@
       "ddrType": "DDR4"
     },
     {
-      "id": 313,
+      "id": 307,
       "name": "AMD Ryzen 5 4500 AM4",
       "brand": "AMD",
       "model": "Ryzen 5 4500",
@@ -261,7 +234,45 @@
       "ddrType": "DDR4"
     },
     {
-      "id": 314,
+      "id": 308,
+      "name": "AMD Ryzen 5 3400G AM4",
+      "brand": "AMD",
+      "model": "Ryzen 5 3400G",
+      "category": "Procesadores",
+      "price": 105000,
+      "stock": 1,
+      "powerConsumption": 65,
+      "realPowerConsumption": "65W (TDP) / 85W (PPT con iGPU en carga)",
+      "manufacturerUrl": "https://www.amd.com/es/products/apu/amd-ryzen-5-3400g",
+      "images": [
+        "/images/procesadores/R5_3400g.webp"
+      ],
+      "description": "Procesador AMD Ryzen 5 3400G 4 núcleos, 8 hilos, hasta 4.2GHz con gráfica integrada Radeon Vega 11",
+      "sku": "AMD-R5-3400G",
+      "specifications": {
+        "Marca": "AMD",
+        "Línea": "Ryzen 5",
+        "Modelo": "3400G",
+        "Modelo alfanumérico": "YD3400C5FHBOX",
+        "Arquitectura": "Zen+ (12nm)",
+        "Socket": "AM4",
+        "Núcleos": "4",
+        "hilos": "8",
+        "Frecuencia base": "3.7 GHz",
+        "Frecuencia turbo": "4.2 GHz",
+        "TDP": "65 W",
+        "graficosIntegrados": "AMD Radeon Vega 11",
+        "Marca de GPU": "AMD",
+        "Línea de GPU": "Radeon",
+        "Modelo de GPU": "Vega 11",
+        "Tipo memoria": "DDR4",
+        "Capacidad máxima RAM": "64 GB",
+        "Año de lanzamiento": "2019"
+      },
+      "ddrType": "DDR4"
+    },
+    {
+      "id": 309,
       "name": "AMD Athlon 3000G AM4",
       "brand": "AMD",
       "model": "Athlon 3000G",
@@ -286,8 +297,38 @@
       },
       "ddrType": "DDR4"
     },
+
     {
-      "id": 315,
+      "id": 310,
+      "name": "Intel Core i5-11400 LGA1200",
+      "brand": "Intel",
+      "model": "Core i5-11400",
+      "category": "Procesadores",
+      "price": 180000,
+      "stock": 1,
+      "realPowerConsumption": "65W (PL1) / 154W (PL2 Max Turbo Boost)",
+      "manufacturerUrl": "https://www.intel.la/content/www/xl/es/products/sku/212279/intel-core-i511400-processor-12m-cache-up-to-4-40-ghz/specifications.html",
+      "images": [
+        "/images/procesadores/i5_11400.webp",
+        "/images/procesadores/i5_11400_cpu.webp",
+        "/images/procesadores/cooler_stock.webp"
+      ],
+      "description": "Procesador Intel Core i5 11400 4.4GHz 6 Cores con gráficos integrados Intel UHD Graphics 730",
+      "specifications": {
+        "Marca": "Intel",
+        "Línea": "Core i5",
+        "Modelo": "i5-11400",
+        "Socket": "FCLGA1200",
+        "Núcleos": "6",
+        "hilos": "12",
+        "TDP": "65 W",
+        "graficosIntegrados": "Intel UHD Graphics 730"
+      },
+      "ddrType": "DDR4"
+    },
+
+    {
+      "id": 311,
       "name": "Intel Core i3-10100F sin gráfica integrada",
       "brand": "Intel",
       "model": "i3-10100F",
@@ -323,7 +364,7 @@
       "ddrType": "DDR4"
     },
     {
-      "id": 316,
+      "id": 312,
       "name": "Intel Core i7-12700KF sin gráfica integrada",
       "brand": "Intel",
       "model": "i7-12700KF",
@@ -360,7 +401,7 @@
       "ddrType": "DDR4/DDR5"
     },
     {
-      "id": 317,
+      "id": 313,
       "name": "Intel Core i5-10400F LGA1200 Sin grafica integrada C/cooler",
       "brand": "Intel",
       "model": "Core i5-10400F",
@@ -402,7 +443,7 @@
       "ddrType": "DDR4"
     },
     {
-      "id": 318,
+      "id": 314,
       "name": "Intel Core i5-14400F LGA1700 sin grafica integrada C/cooler",
       "brand": "Intel",
       "model": "Core i5-14400F",
@@ -444,6 +485,48 @@
         "Canales memoria": "2",
         "Chipsets compatibles": "H610, B660, B760, Z690, Z790",
         "Uso recomendado": "Gaming moderno y productividad"
+      },
+      "ddrType": "DDR4/DDR5"
+    },
+    {
+      "id": 315,
+      "name": "Intel Core i3-12100 LGA1700 con gráfica integrada",
+      "brand": "Intel",
+      "model": "Core i3-12100",
+      "category": "Procesadores",
+      "price": 115000,
+      "stock": 1,
+      "powerConsumption": 89,
+      "realPowerConsumption": "60W (TDP) / 89W (PL2 Max Turbo)",
+      "manufacturerUrl": "https://www.intel.com/content/www/us/en/products/sku/134586/intel-core-i312100-processor-12m-cache-up-to-4-30-ghz/specifications.html",
+      "images": [
+        "/images/procesadores/i3_12100_side.webp"
+      ],
+      "description": "Procesador Intel Core i3-12100 4 núcleos, 8 hilos, hasta 4.3GHz con gráfica integrada Intel UHD Graphics 730",
+      "sku": "INTEL-I3-12100",
+      "specifications": {
+        "Marca": "Intel",
+        "Línea": "Core i3",
+        "Modelo": "i3-12100",
+        "Modelo alfanumérico": "BX8071512100",
+        "Arquitectura": "Alder Lake (Intel 7)",
+        "Socket": "FCLGA1700",
+        "Núcleos": "4",
+        "hilos": "8",
+        "Frecuencia base": "3.3 GHz",
+        "Frecuencia turbo": "4.3 GHz",
+        "Cache L3": "12 MB",
+        "TDP": "60 W",
+        "graficosIntegrados": "Intel UHD Graphics 730",
+        "Marca de GPU": "Intel",
+        "Línea de GPU": "UHD Graphics",
+        "Modelo de GPU": "730",
+        "Tipo memoria": "DDR4 / DDR5",
+        "Velocidad memoria DDR5": "4800 MT/s",
+        "Velocidad memoria DDR4": "3200 MT/s",
+        "Capacidad máxima RAM": "128 GB",
+        "Canales memoria": "2",
+        "Año de lanzamiento": "2022"
       },
       "ddrType": "DDR4/DDR5"
     }

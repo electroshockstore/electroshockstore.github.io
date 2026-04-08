@@ -77,7 +77,7 @@
       "category": "Motherboards",
       "manufacturerUrl": "https://www.asus.com/motherboards-components/motherboards/prime/prime-a520m-k/",
       "price": 75000,
-      "stock": 7,
+      "stock": 8,
       "ownConsumption": "25W - 35W",
       "maxPowerSupport": "Hasta 105W TDP",
       "images": [
@@ -279,6 +279,63 @@
         "Uso recomendado": "PC de oficina o gaming de entrada con Intel 12/13/14 gen"
       },
       "ddrType": "DDR4"
+    },
+    {
+      "id": 611,
+      "name": "Gigabyte B760M DS3H LGA1700",
+      "brand": "Gigabyte",
+      "model": "B760M DS3H",
+      "category": "Motherboards",
+      "manufacturerUrl": "https://www.gigabyte.com/Motherboard/B760M-DS3H-rev-10",
+      "price": 180000,
+      "stock": 1,
+      "ownConsumption": "30W - 45W",
+      "maxPowerSupport": "Hasta 181W (PL2)",
+      "images": [
+        "/images/motherboard/b760m_ds3h.webp",
+        "/images/motherboard/b760m_ds3h_side.webp",
+        "/images/motherboard/b760m_ds3h_side2.webp"
+      ],
+      "description": "Motherboard Gigabyte B760M DS3H Micro ATX LGA1700 con soporte DDR4/DDR5, PCIe 5.0, ideal para gaming gama media con Intel 12/13/14 gen",
+      "sku": "GIGABYTE-B760M-DS3H",
+      "specifications": {
+        "Marca": "Gigabyte",
+        "Línea": "DS3H",
+        "Modelo": "B760M DS3H",
+        "Socket": "LGA1700",
+        "Chipset": "Intel B760",
+        "formato": "Micro-ATX",
+        "Año de lanzamiento": "2023",
+        "Compatibilidad CPU": "Intel Core 12th, 13th y 14th Gen",
+        "tipoMemoriaRAM": "DDR4 o DDR5 (según versión)",
+        "slotsMemoria": "4",
+        "capacidadMaximaRAM": "128 GB",
+        "velocidadRAMSoportada": "Hasta 7600 MHz (OC en DDR5)",
+        "Canales de memoria": "Dual Channel",
+        "VRM": "6+2+1 fases",
+        "Slot principal GPU": "1 x PCIe 5.0 x16",
+        "Slots adicionales": "2 x PCIe x1",
+        "puertosM2": "2 x M.2 PCIe 4.0 x4",
+        "puertosSATA": "4 x SATA III (6Gb/s)",
+        "Red": "2.5 GbE LAN",
+        "WiFi": "Opcional (solo versiones AX)",
+        "Bluetooth": "Opcional (solo versiones AX)",
+        "USB traseros": "USB 3.2 Gen2 (Type-C), USB 3.2 Gen1, USB 2.0",
+        "Salidas de video": "HDMI, DisplayPort, VGA (según modelo)",
+        "Audio": "7.1 canales HD Audio",
+        "Sistema de refrigeración": "Disipadores en VRM + M.2 Thermal Guard",
+        "Conectores ventiladores": "Smart Fan 6 (PWM/DC)",
+        "RGB": "RGB Fusion (headers ARGB y RGB)",
+        "BIOS": "UEFI con Q-Flash Plus (actualización sin CPU)",
+        "Características destacadas": [
+          "Soporte PCIe 5.0",
+          "Red 2.5G",
+          "Buena base para gaming económico",
+          "Compatibilidad con CPUs modernas"
+        ],
+        "Uso recomendado": "Gaming gama media, PC general, builds económicas modernas"
+      },
+      "ddrType": "DDR4/DDR5"
     }
   ]
 }

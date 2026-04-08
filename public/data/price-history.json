@@ -311,7 +311,7 @@
     ]
   },
   "202": {
-    "name": "Lexar NM620 1TB - M.2 NVMe Gen3 Chip Micron",
+    "name": "Adata XPG Spectrix S40G 1TB RGB M.2 NVMe",
     "h": [
       [
         1768571377217,
@@ -328,11 +328,15 @@
       [
         1775341059428,
         220000
+      ],
+      [
+        1775615415730,
+        230000
       ]
     ]
   },
   "203": {
-    "name": "Kingston NV3 1TB - M.2 NVMe Gen4 Chip Micron",
+    "name": "Adata Legend 710 2TB M.2 NVMe Gen3 Azul",
     "h": [
       [
         1768571377217,
@@ -361,11 +365,15 @@
       [
         1774301904469,
         240000
+      ],
+      [
+        1775615415730,
+        400000
       ]
     ]
   },
   "204": {
-    "name": "Adata Legend 710 512GB - M.2 NVMe Gen3 Chip MICRON",
+    "name": "Lexar NM620 1TB - M.2 NVMe Gen3 Chip Micron",
     "h": [
       [
         1768571377217,
@@ -378,11 +386,15 @@
       [
         1770221531875,
         130000
+      ],
+      [
+        1775615415730,
+        220000
       ]
     ]
   },
   "205": {
-    "name": "Kingston A400 960GB - SSD SATA III 2.5\"",
+    "name": "Kingston NV3 1TB - M.2 NVMe Gen4 Chip Micron",
     "h": [
       [
         1768571377217,
@@ -399,11 +411,15 @@
       [
         1775341059428,
         190000
+      ],
+      [
+        1775615415730,
+        240000
       ]
     ]
   },
   "206": {
-    "name": " SanDisk SSD Plus M.2 NVMe 1TB PCIe Gen3x4",
+    "name": "Adata Legend 710 512GB - M.2 NVMe Gen3 Chip MICRON",
     "h": [
       [
         1768571377217,
@@ -428,11 +444,15 @@
       [
         1775341059428,
         210000
+      ],
+      [
+        1775615415730,
+        130000
       ]
     ]
   },
   "207": {
-    "name": "Kingston NV2 250GB, M.2 NVMe PCIe Generacion 4.0",
+    "name": "Kingston A400 960GB - SSD SATA III 2.5\"",
     "h": [
       [
         1768571377217,
@@ -441,11 +461,15 @@
       [
         1770221531875,
         80000
+      ],
+      [
+        1775615415730,
+        190000
       ]
     ]
   },
   "208": {
-    "name": "SSD Lexar NM620 512GB M.2 NVMe PCIe Gen3x4 Chip Micron",
+    "name": "SanDisk SSD Plus M.2 NVMe 1TB PCIe Gen3x4",
     "h": [
       [
         1768571377217,
@@ -458,11 +482,15 @@
       [
         1772635541088,
         140000
+      ],
+      [
+        1775615415730,
+        210000
       ]
     ]
   },
   "209": {
-    "name": "SSD Patriot Burst Elite 480GB SATA III 2.5\"",
+    "name": "Kingston NV2 250GB, M.2 NVMe PCIe Generacion 4.0",
     "h": [
       [
         1768571377217,
@@ -475,11 +503,15 @@
       [
         1772635541088,
         100000
+      ],
+      [
+        1775615415730,
+        80000
       ]
     ]
   },
   "210": {
-    "name": "SSD Hiksemi Wave 960GB SATA",
+    "name": "SSD Lexar NM620 512GB M.2 NVMe PCIe Gen3x4 Chip Micron",
     "h": [
       [
         1768571377217,
@@ -492,11 +524,15 @@
       [
         1772635541088,
         165000
+      ],
+      [
+        1775615415730,
+        140000
       ]
     ]
   },
   "211": {
-    "name": "SSD Netac N535S SATA III 480GB 2.5\"",
+    "name": "SSD Patriot Burst Elite 480GB SATA III 2.5\"",
     "h": [
       [
         1768571377217,
@@ -505,11 +541,15 @@
       [
         1772635541088,
         85000
+      ],
+      [
+        1775615415730,
+        100000
       ]
     ]
   },
   "212": {
-    "name": "SSD Western Digital Green 480GB SATA III 2.5\"",
+    "name": "SSD Hiksemi Wave 960GB SATA",
     "h": [
       [
         1768571377217,
@@ -526,11 +566,15 @@
       [
         1772635541088,
         110000
+      ],
+      [
+        1775615415730,
+        165000
       ]
     ]
   },
   "213": {
-    "name": "SSD Patriot Burst Elite 960GB SATA3 2.5\"",
+    "name": "SSD Netac N535S SATA III 480GB 2.5\"",
     "h": [
       [
         1768571377217,
@@ -543,11 +587,15 @@
       [
         1774301904469,
         175000
+      ],
+      [
+        1775615415730,
+        85000
       ]
     ]
   },
   "214": {
-    "name": "SSD Patriot Burst Elite 240GB SATA3 2.5\"",
+    "name": "SSD Western Digital Green 480GB SATA III 2.5\"",
     "h": [
       [
         1768571377217,
@@ -560,11 +608,15 @@
       [
         1772635541088,
         65000
+      ],
+      [
+        1775615415730,
+        110000
       ]
     ]
   },
   "215": {
-    "name": "Kingston A400 480GB - SSD SATA III 2.5\"",
+    "name": "SSD Patriot Burst Elite 960GB SATA3 2.5\"",
     "h": [
       [
         1768571377217,
@@ -577,11 +629,15 @@
       [
         1770221531875,
         120000
+      ],
+      [
+        1775615415730,
+        175000
       ]
     ]
   },
   "216": {
-    "name": "Adata Swordfish 500GB - M.2 NVMe Gen3",
+    "name": "SSD Patriot Burst Elite 240GB SATA3 2.5\"",
     "h": [
       [
         1768571377217,
@@ -594,11 +650,15 @@
       [
         1774301904469,
         100000
+      ],
+      [
+        1775615415730,
+        65000
       ]
     ]
   },
   "217": {
-    "name": "NVME Western Digital Green SN350 240GB",
+    "name": "Kingston A400 480GB - SSD SATA III 2.5\"",
     "h": [
       [
         1768571377217,
@@ -611,11 +671,15 @@
       [
         1770221531875,
         80000
+      ],
+      [
+        1775615415730,
+        120000
       ]
     ]
   },
   "218": {
-    "name": "NVME Western Digital Green SN350 480GB",
+    "name": "Adata Swordfish 500GB - M.2 NVMe Gen3",
     "h": [
       [
         1768571377217,
@@ -632,11 +696,15 @@
       [
         1770221531875,
         120000
+      ],
+      [
+        1775615415730,
+        100000
       ]
     ]
   },
   "219": {
-    "name": "NVME Western Digital Green SN350 500GB",
+    "name": "NVME Western Digital Green SN350 240GB",
     "h": [
       [
         1768571377217,
@@ -649,11 +717,15 @@
       [
         1769519369796,
         140000
+      ],
+      [
+        1775615415730,
+        80000
       ]
     ]
   },
   "220": {
-    "name": "SSD Adata SU650 256GB 2.5\" NAND 3D",
+    "name": "NVME Western Digital Green SN350 480GB",
     "h": [
       [
         1768571377217,
@@ -666,29 +738,41 @@
       [
         1772635541088,
         65000
+      ],
+      [
+        1775615415730,
+        120000
       ]
     ]
   },
   "221": {
-    "name": "Externo Western Digital WD Elements 2TB",
+    "name": "NVME Western Digital Green SN350 500GB",
     "h": [
       [
         1768571377217,
         170000
+      ],
+      [
+        1775615415730,
+        140000
       ]
     ]
   },
   "222": {
-    "name": "Externo Western Digital WD Elements 1TB",
+    "name": "Kingston A400 SSD 240GB SATA III",
     "h": [
       [
         1768571377217,
         110000
+      ],
+      [
+        1775615415730,
+        85000
       ]
     ]
   },
   "223": {
-    "name": "Disco Externo Western Digital Elements WD 4TB USB 3.0",
+    "name": "SSD Adata SU650 256GB 2.5\" NAND 3D",
     "h": [
       [
         1768571377217,
@@ -697,11 +781,15 @@
       [
         1773352412809,
         240000
+      ],
+      [
+        1775615415730,
+        65000
       ]
     ]
   },
   "224": {
-    "name": "HDD Seagate SkyHawk 4TB para Seguridad SATA ST4000VX016",
+    "name": "Externo Western Digital WD Elements 2TB",
     "h": [
       [
         1769519369796,
@@ -714,20 +802,73 @@
       [
         1773352412809,
         130000
+      ],
+      [
+        1775615415730,
+        170000
       ]
     ]
   },
   "225": {
-    "name": "Kingston A400 SSD 240GB SATA III",
+    "name": "Externo Western Digital WD Elements 1TB",
     "h": [
       [
         1773352412809,
         85000
+      ],
+      [
+        1775615415730,
+        110000
+      ]
+    ]
+  },
+  "226": {
+    "name": "Disco Externo Western Digital Elements WD 4TB USB 3.0",
+    "h": [
+      [
+        1775615415730,
+        240000
+      ]
+    ]
+  },
+  "227": {
+    "name": "HDD Seagate SkyHawk 4TB para Seguridad SATA ST4000VX016",
+    "h": [
+      [
+        1775615415730,
+        130000
+      ]
+    ]
+  },
+  "300": {
+    "name": "AMD Ryzen 7 5700G AM4",
+    "h": [
+      [
+        1775615415730,
+        255000
+      ]
+    ]
+  },
+  "301": {
+    "name": "AMD Ryzen 5 7600 AM5",
+    "h": [
+      [
+        1775615415730,
+        280000
+      ]
+    ]
+  },
+  "302": {
+    "name": "AMD Ryzen 5 5500 AM4",
+    "h": [
+      [
+        1775615415730,
+        150000
       ]
     ]
   },
   "303": {
-    "name": "AMD Ryzen 7 5700G AM4",
+    "name": "AMD Ryzen 5 8500G AM5 DDR5",
     "h": [
       [
         1768571377217,
@@ -736,11 +877,15 @@
       [
         1770032112311,
         265000
+      ],
+      [
+        1775615415730,
+        200000
       ]
     ]
   },
   "304": {
-    "name": "AMD Ryzen 7 5700G AM4",
+    "name": "AMD Ryzen 5 8600G AM5 DDR5",
     "h": [
       [
         1768571377217,
@@ -761,11 +906,15 @@
       [
         1774122126771,
         255000
+      ],
+      [
+        1775615415730,
+        235000
       ]
     ]
   },
   "305": {
-    "name": "AMD Ryzen 5 7600 AM5",
+    "name": "AMD Ryzen 5 8400F AM5",
     "h": [
       [
         1768571377217,
@@ -794,11 +943,15 @@
       [
         1775324931407,
         280000
+      ],
+      [
+        1775615415730,
+        225000
       ]
     ]
   },
   "306": {
-    "name": "AMD Ryzen 5 5500 AM4",
+    "name": "AMD Ryzen 3 3200G AM4",
     "h": [
       [
         1768571377217,
@@ -823,11 +976,15 @@
       [
         1773352412809,
         150000
+      ],
+      [
+        1775615415730,
+        90000
       ]
     ]
   },
   "307": {
-    "name": "AMD Ryzen 5 5600GT AM4",
+    "name": "AMD Ryzen 5 4500 AM4",
     "h": [
       [
         1768571377217,
@@ -848,11 +1005,15 @@
       [
         1773352412809,
         215000
+      ],
+      [
+        1775615415730,
+        85000
       ]
     ]
   },
   "308": {
-    "name": "AMD Ryzen 5 8500G AM5 DDR5",
+    "name": "AMD Ryzen 5 3400G AM4",
     "h": [
       [
         1768571377217,
@@ -881,11 +1042,15 @@
       [
         1774122126771,
         200000
+      ],
+      [
+        1775615415730,
+        105000
       ]
     ]
   },
   "309": {
-    "name": "AMD Ryzen 5 8600G AM5 DDR5",
+    "name": "AMD Athlon 3000G AM4",
     "h": [
       [
         1768571377217,
@@ -906,6 +1071,10 @@
       [
         1774122126771,
         235000
+      ],
+      [
+        1775615415730,
+        40000
       ]
     ]
   },
@@ -935,7 +1104,7 @@
     ]
   },
   "311": {
-    "name": "AMD Ryzen 5 8400F AM5",
+    "name": "Intel Core i3-10100F sin gráfica integrada",
     "h": [
       [
         1768571377217,
@@ -956,11 +1125,15 @@
       [
         1774122126771,
         225000
+      ],
+      [
+        1775615415730,
+        95000
       ]
     ]
   },
   "312": {
-    "name": "AMD Ryzen 3 3200G AM4",
+    "name": "Intel Core i7-12700KF sin gráfica integrada",
     "h": [
       [
         1768571377217,
@@ -977,11 +1150,15 @@
       [
         1772375789535,
         90000
+      ],
+      [
+        1775615415730,
+        410000
       ]
     ]
   },
   "313": {
-    "name": "AMD Ryzen 5 4500 AM4",
+    "name": "Intel Core i5-10400F LGA1200 Sin grafica integrada C/cooler",
     "h": [
       [
         1768571377217,
@@ -998,11 +1175,15 @@
       [
         1774122126771,
         85000
+      ],
+      [
+        1775615415730,
+        170000
       ]
     ]
   },
   "314": {
-    "name": "AMD Athlon 3000G AM4",
+    "name": "Intel Core i5-14400F LGA1700 sin grafica integrada C/cooler",
     "h": [
       [
         1770899160375,
@@ -1019,11 +1200,15 @@
       [
         1775324931407,
         40000
+      ],
+      [
+        1775615415730,
+        290000
       ]
     ]
   },
   "315": {
-    "name": "Intel Core i3-10100F sin gráfica integrada",
+    "name": "Intel Core i3-12100 LGA1700 con gráfica integrada",
     "h": [
       [
         1770899160375,
@@ -1032,6 +1217,10 @@
       [
         1772375789535,
         95000
+      ],
+      [
+        1775615415730,
+        115000
       ]
     ]
   },
@@ -1519,6 +1708,24 @@
       ]
     ]
   },
+  "425": {
+    "name": "Netac Basic SODIMM DDR5 16GB 4800MHz CL40",
+    "h": [
+      [
+        1775615415730,
+        250000
+      ]
+    ]
+  },
+  "426": {
+    "name": "Adata XPG Hunter DDR4 8GB 3000MHz CL16-20 disipador",
+    "h": [
+      [
+        1775615415730,
+        95000
+      ]
+    ]
+  },
   "500": {
     "name": "Logitech G305 Inalámbrico varios colores",
     "h": [
@@ -1795,6 +2002,15 @@
       [
         1773454818091,
         90000
+      ]
+    ]
+  },
+  "611": {
+    "name": "Gigabyte B760M DS3H LGA1700",
+    "h": [
+      [
+        1775615415730,
+        180000
       ]
     ]
   },
@@ -3019,6 +3235,19 @@
       [
         1775324931407,
         330000
+      ],
+      [
+        1775615415730,
+        500000
+      ]
+    ]
+  },
+  "1401": {
+    "name": "Nvidia GeForce Zotac RTX 5050 Twin Edge OC 8GB GDDR6",
+    "h": [
+      [
+        1775615415730,
+        450000
       ]
     ]
   },

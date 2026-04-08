@@ -7,8 +7,8 @@
       "model": "DUAL-RTX3050-O6G",
       "category": "Placas de Video",
       "manufacturerUrl": "https://www.asus.com/graphics-cards/asus/dual/dual-rtx3050-o6g/",
-      "price": 330000,
-      "stock": 2,
+      "price": 500000,
+      "stock": 1,
       "isUsed": false,
       "images": [
         "/images/placas_video/rtx_3050.webp",
@@ -130,6 +130,125 @@
           "Compatible con gabinetes compactos"
         ],
         "capacidadTotal": "6 GB"
+      }
+    },
+    {
+      "id": 1401,
+      "name": "Nvidia GeForce Zotac RTX 5050 Twin Edge OC 8GB GDDR6",
+      "brand": "Zotac",
+      "model": "RTX 5050 Twin Edge OC",
+      "category": "Placas de Video",
+      "manufacturerUrl": "https://www.zotac.com/",
+      "price": 450000,
+      "stock": 0,
+      "isUsed": false,
+      "images": [
+        "/images/placas_video/zotac5050.webp",
+        "/images/placas_video/zotac5050_side.webp",
+        "/images/placas_video/zotac5050_side2.webp",
+        "/images/placas_video/zotac5050_side3.webp",
+        "/images/placas_video/zotac5050_side4.webp"
+      ],
+      "description": "Zotac GeForce RTX 5050 Twin Edge OC 8GB GDDR6. Arquitectura NVIDIA Blackwell con 2560 núcleos CUDA, Ray Tracing, DLSS 4, y refrigeración dual. Ideal para gaming 1080p/1440p, eSports y PC compactas. Overclocked de fábrica con backplate metálico.",
+      "specifications": {
+        "producto": "Placa Video Nvidia GeForce Zotac RTX 5050 Twin Edge OC 8GB",
+        "Marca": "Zotac",
+        "Línea": "GeForce RTX 50 Series",
+        "Modelo": "RTX 5050 Twin Edge OC",
+        "Modelo detallado": "Zotac GeForce RTX 5050 Twin Edge OC 8GB GDDR6",
+        "Arquitectura": "NVIDIA Blackwell",
+        "procesoFabricacion": "5 nm",
+        "gpu": "NVIDIA GeForce RTX 5050",
+        "añoLanzamiento": "2025",
+        "memoria": {
+          "tamaño": "8 GB",
+          "tipo": "GDDR6",
+          "bus": "128 bit",
+          "velocidad": "20 Gbps",
+          "anchoBanda": "320 GB/s"
+        },
+        "Núcleos": {
+          "cuda": "2560",
+          "tensorCores": "80",
+          "rtCores": "20"
+        },
+        "frecuencias": {
+          "base": "2317 MHz",
+          "boost": "2602 MHz (OC de fábrica)",
+          "modoOC": "Activado de fábrica"
+        },
+        "interfaz": {
+          "tipo": "PCI Express 5.0 x8",
+          "compatibilidad": "PCIe 5.0 / 4.0 / 3.0"
+        },
+        "salidas": {
+          "hdmi": "1x HDMI 2.1b",
+          "displayPort": "3x DisplayPort 2.1b",
+          "resolucionMaxima": "Hasta 8K 165Hz (DSC)",
+          "monitoresSimultaneos": "Hasta 4"
+        },
+        "tecnologias": {
+          "rayTracing": "Sí (RT Cores 4ª Gen)",
+          "dlss": "DLSS 4",
+          "nvidiaReflex": "Sí",
+          "av1": "AV1 Encode/Decode",
+          "directX": "12 Ultimate",
+          "openGL": "4.6",
+          "apis": "DirectX 12 Ultimate, OpenGL 4.6"
+        },
+        "refrigeracion": {
+          "tipo": "Dual Fan (Twin Edge)",
+          "diseño": "2 slots",
+          "backplate": "Sí (metal)"
+        },
+        "energia": {
+          "tdp": "130 W",
+          "conectorEnergia": "1 x 8-pin",
+          "fuenteRecomendada": "550 W"
+        },
+        "dimensiones": {
+          "largo": "220.5 mm",
+          "formato": "Compacta (2 slots)"
+        },
+        "requisitosMinimos": {
+          "fuente": "550W",
+          "slot": "PCIe x16",
+          "espacioGabinete": "230mm mínimo",
+          "sistemaOperativo": "Windows 10/11 (64-bit)"
+        },
+        "usoRecomendado": [
+          "Gaming 1080p (Ultra settings)",
+          "Gaming 1440p (High settings)",
+          "eSports competitivo",
+          "PC compactas",
+          "Streaming",
+          "Edición de video 1080p/1440p"
+        ],
+        "rendimiento": {
+          "gaming1080p": "Excelente (100+ FPS en títulos AAA)",
+          "gaming1440p": "Muy bueno (60+ FPS)",
+          "rayTracing": "Bueno (1080p/1440p con DLSS 4)",
+          "edicionVideo": "1440p fluido, 4K básico"
+        },
+        "caracteristicasDestacadas": [
+          "Arquitectura Blackwell (2025)",
+          "DLSS 4 con generación de frames mejorada",
+          "Ray Tracing de 4ª generación",
+          "PCIe 5.0 x8",
+          "Overclocked de fábrica",
+          "Backplate metálico",
+          "Diseño compacto Twin Edge",
+          "Soporte AV1 Encode/Decode",
+          "DisplayPort 2.1b y HDMI 2.1b"
+        ],
+        "garantia": "Según fabricante",
+        "notas": [
+          "Producto nuevo sellado",
+          "Requiere conector 8-pin",
+          "Ideal para gaming 1080p/1440p",
+          "Compatible con gabinetes compactos"
+        ],
+        "capacidadTotal": "8 GB"
       }
     }
   ]

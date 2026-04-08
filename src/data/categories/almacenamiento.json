@@ -29,7 +29,7 @@
     },
     {
       "id": 201,
-      "name": " XPG Spectrix S20G 500GB RGB M.2 NVMe. Chip MICRON",
+      "name": "XPG Spectrix S20G 500GB RGB M.2 NVMe. Chip MICRON",
       "brand": "ADATA",
       "model": "XPG Spectrix S20G",
       "category": "Almacenamiento",
@@ -55,6 +55,74 @@
     },
     {
       "id": 202,
+      "name": "Adata XPG Spectrix S40G 1TB RGB M.2 NVMe",
+      "brand": "ADATA",
+      "model": "XPG Spectrix S40G",
+      "category": "Almacenamiento",
+      "price": 230000,
+      "stock": 1,
+      "sku": "ADATA-1TB-S40G",
+      "description": "SSD M.2 NVMe PCIe Gen3 x4 de 1TB con iluminación RGB configurable, lectura 3500 MB/s, escritura 3000 MB/s",
+      "manufacturerUrl": "https://www.xpg.com/es/xpg/spectrix-s40g",
+      "images": [
+        "/images/almacenamiento/adata_legend710_1tb.webp"
+      ],
+      "specifications": {
+        "Marca": "Adata",
+        "Línea": "XPG Spectrix",
+        "Modelo": "S40G",
+        "Modelo detallado": "AS40G-1TT-C",
+        "capacidadTotal": "1 TB",
+        "formato": "M.2 2280",
+        "Interfaz": "PCIe Gen3x4",
+        "Protocolo": "NVMe 1.3",
+        "Lectura": "3500 MB/s",
+        "Escritura": "3000 MB/s",
+        "tipoMemoriaRAM": "3D NAND",
+        "Iluminación": "RGB configurable",
+        "Software compatible": "XPG RGB Sync",
+        "Resistencia": "640 TBW",
+        "MTBF": "2,000,000 horas",
+        "Disipador": "Integrado",
+        "Compatibilidad": "PC de escritorio y notebooks con M.2 NVMe"
+      }
+    },
+    {
+      "id": 203,
+      "name": "Adata Legend 710 2TB M.2 NVMe Gen3 Azul",
+      "brand": "ADATA",
+      "model": "Legend 710",
+      "category": "Almacenamiento",
+      "price": 400000,
+      "stock": 1,
+      "sku": "ADATA-2TB-L710",
+      "description": "SSD M.2 NVMe Gen3 x4 de 2TB con disipador delgado incluido, lectura 2400 MB/s, escritura 1800 MB/s",
+      "manufacturerUrl": "https://www.adata.com/ar/consumer/category/ssds/solid-state-drives-LEGEND-710/",
+      "images": [
+        "/images/almacenamiento/adata_legend710_1tb.webp"
+      ],
+      "specifications": {
+        "Marca": "Adata",
+        "Línea": "LEGEND 710",
+        "Modelo": "ALEG-710-2TCS",
+        "Modelo detallado": "ALEG-710-2TCS",
+        "capacidadTotal": "2 TB",
+        "formato": "M.2 2280",
+        "Interfaz": "PCIe Gen3x4",
+        "Protocolo": "NVMe 1.4",
+        "Lectura": "2400 MB/s",
+        "Escritura": "1800 MB/s",
+        "tipoMemoriaRAM": "3D NAND",
+        "Resistencia": "520 TBW",
+        "MTBF": "1,500,000 horas",
+        "Disipador": "Sí, disipador delgado incluido",
+        "Temperatura de operación": "0°C a 70°C",
+        "Compatibilidad": "PC y notebooks con soporte NVMe"
+      }
+    },
+
+    {
+      "id": 204,
       "name": "Lexar NM620 1TB - M.2 NVMe Gen3 Chip Micron",
       "brand": "Lexar",
       "model": "NM620",
@@ -81,7 +149,7 @@
       }
     },
     {
-      "id": 203,
+      "id": 205,
       "name": "Kingston NV3 1TB - M.2 NVMe Gen4 Chip Micron",
       "brand": "Kingston",
       "model": "NV3 SNV3S/1000G",
@@ -107,7 +175,7 @@
       }
     },
     {
-      "id": 204,
+      "id": 206,
       "name": "Adata Legend 710 512GB - M.2 NVMe Gen3 Chip MICRON",
       "brand": "ADATA",
       "model": "Legend 710 ALEG-710-512GCS",
@@ -133,7 +201,7 @@
       }
     },
     {
-      "id": 205,
+      "id": 207,
       "name": "Kingston A400 960GB - SSD SATA III 2.5\"",
       "brand": "Kingston",
       "model": "A400 SA400S37/960G",
@@ -157,8 +225,8 @@
       }
     },
     {
-      "id": 206,
-      "name": " SanDisk SSD Plus M.2 NVMe 1TB PCIe Gen3x4",
+      "id": 208,
+      "name": "SanDisk SSD Plus M.2 NVMe 1TB PCIe Gen3x4",
       "brand": "SanDisk",
       "model": "SSD Plus M.2 NVMe",
       "category": "Almacenamiento",
@@ -180,7 +248,7 @@
       }
     },
     {
-      "id": 207,
+      "id": 209,
       "name": "Kingston NV2 250GB, M.2 NVMe PCIe Generacion 4.0",
       "brand": "Kingston",
       "model": "NV2",
@@ -210,7 +278,7 @@
       }
     },
     {
-      "id": 208,
+      "id": 210,
       "name": "SSD Lexar NM620 512GB M.2 NVMe PCIe Gen3x4 Chip Micron",
       "brand": "Lexar",
       "model": "NM620",
@@ -233,7 +301,7 @@
       }
     },
     {
-      "id": 209,
+      "id": 211,
       "name": "SSD Patriot Burst Elite 480GB SATA III 2.5\"",
       "brand": "Patriot",
       "model": "Burst Elite",
@@ -255,13 +323,13 @@
       }
     },
     {
-      "id": 210,
+      "id": 212,
       "name": "SSD Hiksemi Wave 960GB SATA",
       "brand": "Hiksemi",
       "model": "Wave HS-SSD-WAVE(S) 960G",
       "category": "Almacenamiento",
       "price": 165000,
-      "stock": 2,
+      "stock": 3,
       "sku": "HIKSEMI-960GB-WAVE",
       "description": "SSD SATA III 2.5\" de 960GB con memoria 3D NAND, lectura 550 MB/s, escritura 500 MB/s",
       "manufacturerUrl": "https://www.hiksemi.com/",
@@ -285,7 +353,7 @@
       }
     },
     {
-      "id": 211,
+      "id": 213,
       "name": "SSD Netac N535S SATA III 480GB 2.5\"",
       "brand": "Netac",
       "model": "N535S",
@@ -307,7 +375,7 @@
       }
     },
     {
-      "id": 212,
+      "id": 214,
       "name": "SSD Western Digital Green 480GB SATA III 2.5\"",
       "brand": "Western Digital",
       "model": "WD Green",
@@ -329,7 +397,7 @@
       }
     },
     {
-      "id": 213,
+      "id": 215,
       "name": "SSD Patriot Burst Elite 960GB SATA3 2.5\"",
       "brand": "Patriot",
       "model": "Burst Elite",
@@ -351,7 +419,7 @@
       }
     },
     {
-      "id": 214,
+      "id": 216,
       "name": "SSD Patriot Burst Elite 240GB SATA3 2.5\"",
       "brand": "Patriot",
       "model": "Burst Elite",
@@ -373,7 +441,7 @@
       }
     },
     {
-      "id": 215,
+      "id": 217,
       "name": "Kingston A400 480GB - SSD SATA III 2.5\"",
       "brand": "Kingston",
       "model": "A400 SA400S37/480G",
@@ -395,7 +463,7 @@
       }
     },
     {
-      "id": 216,
+      "id": 218,
       "name": "Adata Swordfish 500GB - M.2 NVMe Gen3",
       "brand": "ADATA",
       "model": "Swordfish ASWORDFISH-500G-C",
@@ -419,7 +487,7 @@
       }
     },
     {
-      "id": 217,
+      "id": 219,
       "name": "NVME Western Digital Green SN350 240GB",
       "brand": "Western Digital",
       "model": "WD Green SN350",
@@ -441,7 +509,7 @@
       }
     },
     {
-      "id": 218,
+      "id": 220,
       "name": "NVME Western Digital Green SN350 480GB",
       "brand": "Western Digital",
       "model": "WD Green SN350",
@@ -463,7 +531,7 @@
       }
     },
     {
-      "id": 219,
+      "id": 221,
       "name": "NVME Western Digital Green SN350 500GB",
       "brand": "Western Digital",
       "model": "WD Green SN350",
@@ -485,7 +553,45 @@
       }
     },
     {
-      "id": 220,
+      "id": 222,
+      "name": "Kingston A400 SSD 240GB SATA III",
+      "brand": "Kingston",
+      "model": "A400",
+      "category": "Almacenamiento",
+      "price": 85000,
+      "stock": 2,
+      "sku": "KING-240-A400",
+      "description": "SSD Kingston A400 240GB SATA III 2.5\", lectura hasta 500 MB/s, escritura hasta 350 MB/s",
+      "manufacturerUrl": "https://www.kingston.com/es/ssd/a400-solid-state-drive",
+      "images": [
+        "/images/almacenamiento/kingston_a400_240.webp",
+        "/images/almacenamiento/kingston_a400_240_side.webp",
+        "/images/almacenamiento/kingston_a400_240_side2.webp",
+        "/images/almacenamiento/kingston_a400_240_side3.webp"
+      ],
+      "specifications": {
+        "Marca": "Kingston",
+        "Línea": "A400",
+        "Modelo": "SA400S37/240G",
+        "ModeloDetallado": "SA400S37/240G",
+        "capacidadTotal": "240 GB",
+        "formato": "2.5\"",
+        "Interfaz": "SATA III 6 Gb/s",
+        "tipoMemoriaRAM": "NAND Flash",
+        "VelocidadLecturaSecuencial": "Hasta 500 MB/s",
+        "VelocidadEscrituraSecuencial": "Hasta 350 MB/s",
+        "SoporteTRIM": "Sí",
+        "SoporteSMART": "Sí",
+        "ConsumoEnergetico": "Bajo",
+        "ResistenteGolpes": "Sí",
+        "UsoRecomendado": "PC / Notebook",
+        "Peso": "41 g",
+        "PaisOrigen": "China / Taiwán"
+      }
+    },
+
+    {
+      "id": 223,
       "name": "SSD Adata SU650 256GB 2.5\" NAND 3D",
       "brand": "Adata",
       "model": "Ultimate SU650",
@@ -508,7 +614,7 @@
       }
     },
     {
-      "id": 221,
+      "id": 224,
       "name": "Externo Western Digital WD Elements 2TB",
       "brand": "Western Digital",
       "model": "WD Elements Portable",
@@ -530,7 +636,7 @@
       }
     },
     {
-      "id": 222,
+      "id": 225,
       "name": "Externo Western Digital WD Elements 1TB",
       "brand": "Western Digital",
       "model": "WD Elements Portable",
@@ -552,7 +658,7 @@
       }
     },
     {
-      "id": 223,
+      "id": 226,
       "name": "Disco Externo Western Digital Elements WD 4TB USB 3.0",
       "brand": "Western Digital",
       "model": "Elements 4TB",
@@ -592,7 +698,7 @@
       }
     },
     {
-      "id": 224,
+      "id": 227,
       "name": "HDD Seagate SkyHawk 4TB para Seguridad SATA ST4000VX016",
       "brand": "Seagate",
       "model": "SkyHawk ST4000VX016",
@@ -615,43 +721,8 @@
         "Caché": "256 MB",
         "Uso": "CCTV / Seguridad 24/7"
       }
-    },
-    {
-      "id": 225,
-      "name": "Kingston A400 SSD 240GB SATA III",
-      "brand": "Kingston",
-      "model": "A400",
-      "category": "Almacenamiento",
-      "price": 85000,
-      "stock": 2,
-      "sku": "KING-240-A400",
-      "description": "SSD Kingston A400 240GB SATA III 2.5\", lectura hasta 500 MB/s, escritura hasta 350 MB/s",
-      "manufacturerUrl": "https://www.kingston.com/es/ssd/a400-solid-state-drive",
-      "images": [
-        "/images/almacenamiento/kingston_a400_240.webp",
-        "/images/almacenamiento/kingston_a400_240_side.webp",
-        "/images/almacenamiento/kingston_a400_240_side2.webp",
-        "/images/almacenamiento/kingston_a400_240_side3.webp"
-      ],
-      "specifications": {
-        "Marca": "Kingston",
-        "Línea": "A400",
-        "Modelo": "SA400S37/240G",
-        "ModeloDetallado": "SA400S37/240G",
-        "capacidadTotal": "240 GB",
-        "formato": "2.5\"",
-        "Interfaz": "SATA III 6 Gb/s",
-        "tipoMemoriaRAM": "NAND Flash",
-        "VelocidadLecturaSecuencial": "Hasta 500 MB/s",
-        "VelocidadEscrituraSecuencial": "Hasta 350 MB/s",
-        "SoporteTRIM": "Sí",
-        "SoporteSMART": "Sí",
-        "ConsumoEnergetico": "Bajo",
-        "ResistenteGolpes": "Sí",
-        "UsoRecomendado": "PC / Notebook",
-        "Peso": "41 g",
-        "PaisOrigen": "China / Taiwán"
-      }
     }
+    
+   
   ]
 }

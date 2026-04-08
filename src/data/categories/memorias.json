@@ -188,7 +188,7 @@
       "model": "Basic",
       "category": "Memorias RAM",
       "price": 120000,
-      "stock": 11,
+      "stock": 12,
       "realPowerConsumption": "≈ 3W",
       "images": [
         "/images/ram/netac_ddr5_8gb.webp",
@@ -414,7 +414,7 @@
       "model": "Shadow",
       "category": "Memorias RAM",
       "price": 160000,
-      "stock": 7,
+      "stock": 9,
       "realPowerConsumption": "3.4W - 4.0W",
       "images": [
         "/images/ram/ram_netac_shadow_ddr4.webp"
@@ -698,6 +698,80 @@
         "capacidadTotal": "8 GB"
       },
       "ddrType": "DDR3"
+    },
+    {
+      "id": 425,
+      "name": "Netac Basic SODIMM DDR5 16GB 4800MHz CL40",
+      "brand": "Netac",
+      "model": "Basic",
+      "category": "Memorias RAM",
+      "manufacturerUrl": "https://www.netac.com/",
+      "price": 250000,
+      "stock": 3,
+      "realPowerConsumption": "2.5W - 3.0W",
+      "images": [
+        "/images/ram/netacddr5_soddim.webp",
+        "/images/ram/netacddr5_soddim_side.webp",
+        "/images/ram/netacddr5_soddim_side2.webp"
+      ],
+      "description": "Memoria RAM Netac Basic SODIMM DDR5 16GB 4800MHz CL40 para notebooks con On-die ECC",
+      "specifications": {
+        "Marca": "Netac",
+        "Línea": "Basic",
+        "Modelo": "NTBSD5N48SP-16",
+        "Modelo detallado": "NTBSD5N48SP-16",
+        "capacidadTotal": "16 GB",
+        "modulos": "1",
+        "configuracion": "1x16 GB",
+        "tipoMemoriaRAM": "DDR5",
+        "formato": "SODIMM",
+        "Velocidad": "4800 MHz",
+        "Latencia": "CL40",
+        "Voltaje": "1.1 V",
+        "ecc": "Sí (On-die ECC)",
+        "Arquitectura": "Single Rank",
+        "Compatibilidad": "Notebooks DDR5",
+        "Disipador": "No",
+        "rgb": "No"
+      },
+      "ddrType": "DDR5"
+    },
+    {
+      "id": 426,
+      "name": "Adata XPG Hunter DDR4 8GB 3000MHz CL16-20 disipador",
+      "brand": "ADATA",
+      "model": "XPG Hunter",
+      "category": "Memorias RAM",
+      "manufacturerUrl": "https://www.xpg.com/en/category/memory",
+      "price": 95000,
+      "stock": 5,
+      "realPowerConsumption": "3.2W - 3.8W",
+      "images": [
+        "/images/ram/ddr4_hunter8gb.webp",
+        "/images/ram/ddr4_hunter8gb_side.webp"
+      ],
+      "description": "Memoria RAM Adata XPG Hunter DDR4 8GB 3000MHz CL16-20 con disipador de aluminio y soporte XMP",
+      "specifications": {
+        "Marca": "Adata",
+        "Línea": "XPG Hunter",
+        "Modelo": "AX4U30008G16A-SBHT",
+        "Modelo detallado": "AX4U30008G16A-SBHT",
+        "capacidadTotal": "8 GB",
+        "modulos": "1",
+        "configuracion": "1x8 GB",
+        "tipoMemoriaRAM": "DDR4",
+        "formato": "UDIMM",
+        "Velocidad": "3000 MHz",
+        "Latencia": "CL16-20",
+        "Voltaje": "1.35 V",
+        "Perfil XMP": "Sí",
+        "ecc": "No",
+        "Disipador": "Sí, disipador de aluminio",
+        "rgb": "No",
+        "Compatibilidad": "PC de escritorio DDR4",
+        "Color": "Negro/Gris"
+      },
+      "ddrType": "DDR4"
     }
   ]
 }
