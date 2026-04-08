@@ -6,7 +6,7 @@
       "brand": "AMD",
       "model": "Ryzen 7 5700G",
       "category": "Procesadores",
-      "price": 255000,
+      "price": 250000,
       "stock": 7,
       "powerConsumption": 88,
       "realPowerConsumption": "65W (TDP) / 88W (PPT) - Puede alcanzar 125W con iGPU activa en carga",
@@ -500,7 +500,10 @@
       "realPowerConsumption": "60W (TDP) / 89W (PL2 Max Turbo)",
       "manufacturerUrl": "https://www.intel.com/content/www/us/en/products/sku/134586/intel-core-i312100-processor-12m-cache-up-to-4-30-ghz/specifications.html",
       "images": [
-        "/images/procesadores/i3_12100_side.webp"
+        "/images/procesadores/i3_12100.webp",
+           "/images/procesadores/i3_12100_side.webp",
+              "/images/procesadores/i3_12100_side2.webp",
+                 "/images/procesadores/i3_12100_side3.webp"
       ],
       "description": "Procesador Intel Core i3-12100 4 núcleos, 8 hilos, hasta 4.3GHz con gráfica integrada Intel UHD Graphics 730",
       "sku": "INTEL-I3-12100",
