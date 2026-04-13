@@ -35,7 +35,7 @@
       "category": "Auriculares",
       "manufacturerUrl": "https://www.redragonzone.com/collections/",
       "price": 60000,
-      "stock": 2,
+      "stock": 1,
       "sku": "RED-IRE-H848",
       "description": "Auriculares gaming Inalámbricos Bluetooth 5.0 con micrÃ³fono desmontable, autonomÃ­a 20 horas",
       "images": [
@@ -710,7 +710,7 @@
       "model": "T1C",
       "category": "Auriculares",
       "price": 20000,
-      "stock": 12,
+      "stock": 10,
       "sku": "QCY-T1C",
       "description": "Auriculares inalámbricos TWS Bluetooth 5.0 con drivers 6mm, IPX4, hasta 30h autonomía total",
       "images": [
@@ -741,46 +741,8 @@
         "Controles": "Botón físico",
         "Compatibilidad": "Android, iOS, PC con Bluetooth"
       }
-    },
-    {
-      "id": 823,
-      "name": "Barra de Sonido Redragon GS570 Darknets Estéreo RGB",
-      "brand": "Redragon",
-      "model": "GS570 Darknets",
-      "category": "Auriculares",
-      "price": 50000,
-      "stock": 2,
-      "sku": "RD-GS570",
-      "description": "Barra de sonido estéreo 2.0 para PC con iluminación RGB, 6W de potencia, control de volumen integrado, ideal para gaming y multimedia",
-      "images": [
-        "/images/auriculares/rd_parlante.webp",
-        "/images/auriculares/rd_parlante_side.webp",
-        "/images/auriculares/rd_parlante_side2.webp",
-        "/images/auriculares/rd_parlante_side3.webp",
-        "/images/auriculares/rd_parlante_side4.webp",
-        "/images/auriculares/rd_parlante_side5.webp",
-            "/images/auriculares/rd_parlante_side6.webp"
-      ],
-      "specifications": {
-        "Marca": "Redragon",
-        "Modelo": "GS570 Darknets",
-        "Modelo detallado": "GS570",
-        "Tipo": "Barra de sonido para PC",
-        "Configuración audio": "Estéreo 2.0",
-        "Respuesta en frecuencia": "150 Hz - 20 kHz",
-        "Potencia total aproximada": "6 W",
-        "tipoConectividad": "Alámbrico",
-        "Conectividad audio": "Jack 3.5 mm",
-        "Alimentación": "USB 5V",
-        "Iluminación": "RGB",
-        "Modos iluminación": "Efecto arcoíris con cambio automático",
-        "Control volumen": "Perilla lateral integrada",
-        "Material": "Plástico ABS",
-        "Colocación": "Debajo del monitor",
-        "Compatibilidad": "PC, Notebook, Consolas con salida 3.5 mm, Televisores con salida auxiliar",
-        "Características": "Diseño compacto tipo soundbar, RGB decorativo gaming, instalación plug and play, ideal para escritorios pequeños",
-        "Uso recomendado": "Gaming, multimedia, música, streaming"
-      }
     }
+   
+    
   ]
 }

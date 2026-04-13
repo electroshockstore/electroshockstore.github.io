@@ -96,7 +96,7 @@
       "category": "Refrigeración",
       "manufacturerUrl": "https://www.redragonzone.com/collections/",
       "price": 40000,
-      "stock": 5,
+      "stock": 4,
       "fanConsumption": "2.5W",
       "maxTdpDissipation": "180W",
       "images": [
@@ -148,7 +148,7 @@
       "model": "Ice Burg Plus",
       "category": "Refrigeración",
       "price": 30000,
-      "stock": 3,
+      "stock": 2,
       "fanConsumption": "2.5W",
       "maxTdpDissipation": "200W",
       "images": [

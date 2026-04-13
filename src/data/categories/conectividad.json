@@ -27,40 +27,7 @@
         "Antenas": "Integradas Nano"
       }
     },
-    {
-      "id": 901,
-      "name": "TP-Link TL-WN823N Adaptador Wifi USB 300 Mbps ",
-      "brand": "TP-Link",
-      "model": "TL-WN823N",
-      "category": "Conectividad",
-      "manufacturerUrl": "https://www.tp-link.com/ar/home-networking/",
-      "price": 13000,
-      "stock": 2,
-      "images": [
-        "/images/conectividad/tplink_usb.webp",
-        "/images/conectividad/tplink_usb_side.webp",
-        "/images/conectividad/tplink_usb_side2.webp"
-      ],
-      "description": "Adaptador Wifi USB 300 Mbps TP-Link TL-WN823N ultracompacto con antena interna de alta ganancia",
-      "specifications": {
-        "Marca": "TP-Link",
-        "Modelo": "TL-WN823N",
-        "velocidadMaxima": "300 Mbps",
-        "frecuencia": "2.4 GHz",
-        "estandaresWiFi": "IEEE 802.11b/g/n",
-        "modosOperacion": "Modo cliente (adaptador WiFi), Modo SoftAP",
-        "seguridad": "WEP, WPA, WPA2",
-        "interfaz": "USB 2.0",
-        "antena": "Antena interna de alta ganancia",
-        "formato": "Mini adaptador ultracompacto",
-        "Color": "Negro brillante",
-        "sistemasOperativos": "Windows XP/Vista/7/8/10/11, macOS, Linux",
-        "funcionesAdicionales": "WPS para conexión rápida, optimizado para streaming y navegación",
-        "dimensiones": "39 x 18.35 x 7.87 mm",
-        "peso": "8 g",
-        "incluye": "Adaptador USB TL-WN823N, CD con drivers (modelos antiguos), Guía rápida"
-      }
-    },
+   
     {
       "id": 902,
       "name": "TP-Link UB500 - Adaptador Bluetooth 5.3 USB Nano",

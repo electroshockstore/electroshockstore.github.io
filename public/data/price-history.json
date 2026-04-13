@@ -1890,6 +1890,10 @@
       [
         1774211917415,
         90000
+      ],
+      [
+        1776081809354,
+        80000
       ]
     ]
   },
@@ -2589,15 +2593,6 @@
       ]
     ]
   },
-  "823": {
-    "name": "Barra de Sonido Redragon GS570 Darknets Estéreo RGB",
-    "h": [
-      [
-        1773454818091,
-        50000
-      ]
-    ]
-  },
   "900": {
     "name": "TP-Link Archer T3U Nano - Adaptador Wifi USB AC1300 Dual Banda",
     "h": [
@@ -2612,19 +2607,6 @@
       [
         1772375789535,
         20000
-      ]
-    ]
-  },
-  "901": {
-    "name": "TP-Link TL-WN823N Adaptador Wifi USB 300 Mbps ",
-    "h": [
-      [
-        1768571377217,
-        40000
-      ],
-      [
-        1772375789535,
-        13000
       ]
     ]
   },
