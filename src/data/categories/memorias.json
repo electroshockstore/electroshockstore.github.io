@@ -110,27 +110,7 @@
       },
       "ddrType": "DDR5"
     },
-    {
-      "id": 404,
-      "name": "NEO FORZA DDR5 16GB 5200 MMHz CL42",
-      "brand": "Neo Forza",
-      "model": "DDR5 5200",
-      "category": "Memorias RAM",
-      "price": 200000,
-      "stock": 2,
-      "realPowerConsumption": "2.4W - 3.0W",
-      "images": [
-        "/images/ram/neo_forza_ddr5.webp"
-      ],
-      "description": "Memoria RAM Neo Forza DDR5 16GB 5200MHz CL42",
-      "specifications": {
-        "tipoMemoriaRAM": "DDR5",
-        "Velocidad": "5200 MHz",
-        "Voltaje": "1.25V",
-        "capacidadTotal": "16 GB"
-      },
-      "ddrType": "DDR5"
-    },
+   
     {
       "id": 405,
       "name": "Neo Forza DDR5 32GB 5200MHz CL42 UDIMM",

@@ -40,7 +40,7 @@
       "category": "Teclados",
       "manufacturerUrl": "https://www.redragonzone.com/collections/",
       "price": 50000,
-      "stock": 2,
+      "stock": 1,
       "sku": "RED-KUMARA-WHITE",
       "description": "Teclado mecánico TKL RGB blanco con switches Outemu Blue y distribución español",
       "images": [
@@ -595,9 +595,7 @@
       "description": "Combo gaming 4 en 1: Teclado membrana RGB + Mouse 6 botones + Pad + Auricular",
       "images": [
         "/images/teclados/RG_s101-BA_set.webp",
-      
         "/images/teclados/RG_s101-BA_side.webp",
-      
         "/images/teclados/RG_s101-BA_specs.webp"
       ],
       "specifications": {
@@ -630,7 +628,7 @@
       "model": "MK220",
       "category": "Teclados",
       "manufacturerUrl": "https://www.logitech.com/es-roam/products/",
-      "price": 25000,
+      "price": 20000,
       "stock": 11,
       "sku": "LOGI-MK220",
       "description": "Combo inalámbrico: Teclado compacto + Mouse óptico para oficina",
@@ -666,7 +664,7 @@
       "brand": "Logitech",
       "model": "MK270",
       "category": "Teclados",
-      "price": 32000,
+      "price": 28000,
       "stock": 10,
       "sku": "LOGI-MK270",
       "description": "Kit inalámbrico teclado de tijera + mouse óptico con receptor USB",
@@ -693,7 +691,7 @@
       "brand": "Logitech",
       "model": "MK470 Slim",
       "category": "Teclados",
-      "price": 50000,
+      "price": 40000,
       "stock": 4,
       "sku": "LOGI-MK470",
       "description": "Kit inalámbrico diseño slim y minimalista con teclas silenciosas y receptor USB",
