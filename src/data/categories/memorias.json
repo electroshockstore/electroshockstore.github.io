@@ -7,7 +7,7 @@
       "model": "Fury Beast",
       "category": "Memorias RAM",
       "manufacturerUrl": "https://www.kingston.com/es/memory/gaming",
-      "price": 340000,
+      "price": 330000,
       "stock": 2,
       "realPowerConsumption": "2.5W - 3.2W",
       "images": [
@@ -40,7 +40,7 @@
       "brand": "Patriot",
       "model": "Viper Venom",
       "category": "Memorias RAM",
-      "price": 380000,
+      "price": 370000,
       "stock": 1,
       "realPowerConsumption": "3.0W - 3.8W",
       "images": [
@@ -68,12 +68,12 @@
     },
     {
       "id": 402,
-      "name": "ADATA XPG Lancer Blade DDR5 16GB 6000mts CL30 EXPO/XMP",
+      "name": "ADATA XPG Lancer Blade DDR5 16GB 6000 MHZ CL30 EXPO/XMP",
       "brand": "ADATA",
       "model": "XPG Lancer Blade",
       "category": "Memorias RAM",
       "manufacturerUrl": "https://www.adata.com/ar/consumer/category/memory/",
-      "price": 360000,
+      "price": 350000,
       "stock": 2,
       "realPowerConsumption": "2.5W - 3.2W",
       "images": [
@@ -95,7 +95,7 @@
       "brand": "NETAC",
       "model": "Shadow 2",
       "category": "Memorias RAM",
-      "price": 270000,
+      "price": 260000,
       "stock": 7,
       "realPowerConsumption": "2.2W - 2.8W",
       "images": [
@@ -117,7 +117,7 @@
       "brand": "Neo Forza",
       "model": "NMUD532F82-5200JA10",
       "category": "Memorias RAM",
-      "price": 350000,
+      "price": 340000,
       "stock": 2,
       "realPowerConsumption": "2.8W - 3.5W",
       "images": [
@@ -138,7 +138,7 @@
       "model": "Premier",
       "category": "Memorias RAM",
       "manufacturerUrl": "https://www.adata.com/ar/consumer/category/memory/",
-      "price": 140000,
+      "price": 150000,
       "stock": 2,
       "realPowerConsumption": "≈ 3W",
       "images": [
@@ -167,7 +167,7 @@
       "brand": "Netac",
       "model": "Basic",
       "category": "Memorias RAM",
-      "price": 120000,
+      "price": 110000,
       "stock": 12,
       "realPowerConsumption": "≈ 3W",
       "images": [
