@@ -740,31 +740,7 @@
         "Funciones": "Teclas multimedia, retroiluminación programable"
       }
     },
-    {
-      "id": 718,
-      "name": "Logitech K400 Plus - Touchpad Inalámbrico",
-      "brand": "Logitech",
-      "model": "K400 Plus",
-      "category": "Teclados",
-      "price": 30000,
-      "stock": 1,
-      "sku": "LOGI-K400-PLUS",
-      "description": "Teclado inalámbrico con touchpad integrado, ideal para Smart TV y media center",
-      "images": [
-        "/images/teclados/logitech_k400plus.webp",
-        "/images/teclados/logitech_k400plus_side.webp",
-        "/images/teclados/logitech_k400plus_side2.webp",
-        "/images/teclados/logitech_k400plus_side3.webp"
-      ],
-      "specifications": {
-        "Marca": "Logitech",
-        "Modelo": "K400 Plus (920-007137)",
-        "formato": "Touchpad inalámbrico con teclado integrado",
-        "Tecnología": "Membrana",
-        "Arquitectura": "Membrana",
-        "tipoConectividad": "Inalámbrico"
-      }
-    },
+
     {
       "id": 719,
       "name": "Logitech K600 - Touchpad Inalámbrico ",

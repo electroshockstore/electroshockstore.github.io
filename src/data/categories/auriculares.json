@@ -741,6 +741,45 @@
         "Controles": "Botón físico",
         "Compatibilidad": "Android, iOS, PC con Bluetooth"
       }
+    },
+    {
+      "id": 823,
+      "name": "Logitech H390 Con Micrófono , USB",
+      "brand": "Logitech",
+      "model": "H390",
+      "category": "Auriculares",
+      "manufacturerUrl": "https://www.logitech.com/es-roam/products/",
+      "price": 25000,
+      "stock": 2,
+      "sku": "LOGI-H390",
+      "description": "Auriculares con micrófono Logitech H390 USB con cancelación de ruido, controles en cable y plug and play",
+      "images": [
+        "/images/auriculares/logitech_H390.webp",
+        "/images/auriculares/logitech_H390_side.webp",
+        "/images/auriculares/logitech_H390_side2.webp",
+         "/images/auriculares/logitech_H390_side3.webp",
+          "/images/auriculares/logitech_H390_side4.webp",
+           "/images/auriculares/logitech_H390_side5.webp"
+      ],
+      "specifications": {
+        "Marca": "Logitech",
+        "Línea": "Audio",
+        "Modelo": "H390",
+        "Modelo alfanumérico": "H390",
+        "Modelo detallado": "H390",
+        "Tipo": "Auriculares con micrófono (headset)",
+        "tipoConectividad": "Alámbrico",
+        "Conectividad": "USB-A",
+        "Formato": "Over-ear",
+        "Respuesta en frecuencia": "20 Hz - 20 kHz",
+        "Sensibilidad": "≈94 dB",
+        "Micrófono": "Unidireccional con cancelación de ruido",
+        "Controles": "Volumen y mute en cable",
+        "Longitud de cable": "≈1.9 m",
+        "Compatibilidad": "Windows, macOS, ChromeOS",
+        "Plug and Play": "Sí",
+        "Uso recomendado": "Videollamadas, oficina"
+      }
     }
    
     

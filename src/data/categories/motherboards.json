@@ -95,41 +95,7 @@
       },
       "ddrType": "DDR4"
     },
-    {
-      "id": 603,
-      "name": "Asus Prime B550M-K AM4 DDR4 PCIe 4.0",
-      "brand": "ASUS",
-      "model": "Prime B550M-K",
-      "category": "Motherboards",
-      "manufacturerUrl": "https://www.asus.com/motherboards-components/motherboards/prime/prime-b550m-k/",
-      "price": 105000,
-      "stock": 1,
-      "ownConsumption": "≈ 40W",
-      "maxPowerSupport": "Hasta 142W (PPT recomendado)",
-      "images": [
-        "/images/motherboard/asus_b550mk.webp",
-        "/images/motherboard/asus_b550mk_side.webp",
-        "/images/motherboard/asus_b550mk_back.webp",
-        "/images/motherboard/asus_b550mk_specs.webp"
-      ],
-      "description": "Motherboard ASUS Prime B550M-K AM4 Micro-ATX con soporte DDR4 y PCIe 4.0",
-      "specifications": {
-        "Marca": "ASUS",
-        "Línea": "Prime",
-        "Modelo": "B550M-K",
-        "Chipset": "AMD B550",
-        "Socket": "AM4",
-        "formato": "Micro-ATX",
-        "tipoMemoriaRAM": "DDR4",
-        "capacidadMaximaRAM": "128 GB",
-        "slotsMemoria": "2",
-        "soportePCIe": "PCIe 4.0",
-        "almacenamiento": "M.2 / SATA",
-        "red": "Gigabit LAN",
-        "TDP": "≈ 40 W"
-      },
-      "ddrType": "DDR4"
-    },
+   
     {
       "id": 604,
       "name": "Gigabyte B650M Gaming WiFi DDR5 AM5",
@@ -336,6 +302,106 @@
         "Uso recomendado": "Gaming gama media, PC general, builds económicas modernas"
       },
       "ddrType": "DDR4/DDR5"
+    },
+    {
+      "id": 612,
+      "name": "Gigabyte A620M-H UD DDR5 AM5",
+      "brand": "Gigabyte",
+      "model": "A620M-H",
+      "category": "Motherboards",
+      "manufacturerUrl": "https://www.gigabyte.com/Motherboard/A620M-H-rev-10",
+      "price": 95000,
+      "stock": 1,
+      "sku": "GIGABYTE-A620M-H",
+      "ownConsumption": "30W - 40W",
+      "maxPowerSupport": "Hasta 120W (PPT recomendado)",
+      "images": [
+        "/images/motherboard/a620m_h_ud.webp",
+        "/images/motherboard/a620m_h_ud_front.webp",
+        "/images/motherboard/a620m_h_ud_back.webp"
+      ],
+      "description": "Motherboard Gigabyte A620M-H UD Micro ATX AM5 con soporte DDR5, ideal para builds económicas con procesadores AMD Ryzen 7000/8000/9000",
+      "specifications": {
+        "Marca": "Gigabyte",
+        "Línea": "Ultra Durable",
+        "Modelo": "A620M-H",
+        "Socket": "AM5",
+        "Chipset": "AMD A620",
+        "formato": "Micro-ATX",
+        "Compatibilidad CPU": "AMD Ryzen 7000/8000/9000 Series",
+        "tipoMemoriaRAM": "DDR5",
+        "slotsMemoria": "2",
+        "capacidadMaximaRAM": "96 GB",
+        "velocidadRAMSoportada": "Hasta 6600 MHz (OC)",
+        "Canales de memoria": "Dual Channel",
+        "VRM": "5+2+1 fases",
+        "Slot principal GPU": "1 x PCIe 4.0 x16",
+        "Slots adicionales": "1 x PCIe 3.0 x1",
+        "puertosM2": "2 x M.2 (1x PCIe 4.0, 1x PCIe 3.0)",
+        "puertosSATA": "4 x SATA III (6Gb/s)",
+        "Red": "Gigabit LAN",
+        "USB traseros": "USB 3.2 Gen1, USB 2.0",
+        "Salidas de video": "HDMI, DisplayPort",
+        "Audio": "Realtek HD Audio",
+        "Sistema de refrigeración": "Disipadores en VRM",
+        "Conectores ventiladores": "Smart Fan 6",
+        "BIOS": "UEFI con Q-Flash Plus",
+        "Uso recomendado": "PC de oficina, gaming de entrada, builds económicas con Ryzen 7000+"
+      },
+      "ddrType": "DDR5"
+    },
+    {
+      "id": 613,
+      "name": "ASUS Prime B450M-A II AM4 DDR4",
+      "brand": "ASUS",
+      "model": "Prime B450M-A II",
+      "category": "Motherboards",
+      "manufacturerUrl": "https://www.asus.com/motherboards-components/motherboards/prime/prime-b450m-a-ii/",
+      "price": 120000,
+      "stock": 1,
+      "sku": "ASUS-B450M-A-II",
+      "ownConsumption": "30W - 40W",
+      "maxPowerSupport": "Hasta 105W TDP",
+      "images": [
+        "/images/motherboard/asus_b450ma.webp",
+        "/images/motherboard/asus_b450ma_side.webp",
+        "/images/motherboard/asus_b450ma_side2.webp"
+      ],
+      "description": "Motherboard ASUS Prime B450M-A II Micro ATX AM4 con soporte DDR4, ideal para procesadores AMD Ryzen 1000/2000/3000/5000",
+      "specifications": {
+        "Marca": "ASUS",
+        "Línea": "Prime",
+        "Modelo": "B450M-A II",
+        "Socket": "AM4",
+        "Chipset": "AMD B450",
+        "formato": "Micro-ATX",
+        "Compatibilidad CPU": "AMD Ryzen 1000/2000/3000/5000 Series",
+        "tipoMemoriaRAM": "DDR4",
+        "slotsMemoria": "4",
+        "capacidadMaximaRAM": "128 GB",
+        "velocidadRAMSoportada": "Hasta 4400 MHz (OC)",
+        "Canales de memoria": "Dual Channel",
+        "VRM": "6+2 fases",
+        "Slot principal GPU": "1 x PCIe 3.0 x16",
+        "Slots adicionales": "2 x PCIe x1",
+        "puertosM2": "1 x M.2 PCIe 3.0 x4",
+        "puertosSATA": "4 x SATA III (6Gb/s)",
+        "Red": "Gigabit LAN",
+        "USB traseros": "USB 3.2 Gen1, USB 2.0",
+        "Salidas de video": "HDMI, DVI-D, D-Sub",
+        "Audio": "Realtek ALC887 8-Channel HD Audio",
+        "Sistema de refrigeración": "Disipadores en VRM",
+        "Conectores ventiladores": "4-pin PWM/DC",
+        "BIOS": "UEFI BIOS con EZ Flash 3",
+        "Características destacadas": [
+          "Soporte PCIe 3.0",
+          "Compatible con Ryzen 5000 (con actualización BIOS)",
+          "Excelente relación precio/rendimiento",
+          "Ideal para upgrades AM4"
+        ],
+        "Uso recomendado": "PC de oficina, gaming económico, builds con Ryzen AM4"
+      },
+      "ddrType": "DDR4"
     }
   ]
 }

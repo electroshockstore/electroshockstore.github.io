@@ -198,7 +198,7 @@
       "category": "Memorias RAM",
       "manufacturerUrl": "https://www.adata.com/ar/consumer/category/memory/",
       "price": 200000,
-      "stock": 4,
+      "stock": 5,
       "realPowerConsumption": "3.5W - 4.2W",
       "images": [
         "/images/ram/ram_xpg_gamminxd35_ddr4.webp"
@@ -750,6 +750,38 @@
         "rgb": "No",
         "Compatibilidad": "PC de escritorio DDR4",
         "Color": "Negro/Gris"
+      },
+      "ddrType": "DDR4"
+    },
+    {
+      "id": 427,
+      "name": "Aimerican DDR4 16GB 3200MHz UDIMM",
+      "brand": "Aimerican",
+      "model": "DDR4 16GB",
+      "category": "Memorias RAM",
+      "price": 140000,
+      "stock": 2,
+      "sku": "AiMERICAN-DDR4-16GB",
+      "realPowerConsumption": "2.8W - 3.4W",
+      "images": [
+        "/images/ram/AIMERICAN_DDR416.webp"
+      ],
+      "description": "Memoria RAM Aimerican DDR4 16GB 3200MHz UDIMM CL22 sin disipador, ideal para PC de escritorio y workstation",
+      "specifications": {
+        "Marca": "Aimerican",
+        "capacidadTotal": "16 GB",
+        "modulos": "1",
+        "tipoMemoriaRAM": "DDR4 SDRAM",
+        "formato": "UDIMM (288-pin)",
+        "Velocidad": "3200 MHz",
+        "estandar": "PC4-25600",
+        "Latencia": "CL22",
+        "Voltaje": "1.2V",
+        "interfaz": "Single Rank / Dual Rank (según versión)",
+        "Disipador": "No (PCB despojado)",
+        "rgb": "No",
+        "ecc": "No",
+        "usoRecomendado": "PC de escritorio / Workstation"
       },
       "ddrType": "DDR4"
     }

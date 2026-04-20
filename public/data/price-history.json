@@ -856,6 +856,33 @@
       ]
     ]
   },
+  "228": {
+    "name": "SSD Netac SA500 960GB SATA III 2.5\"",
+    "h": [
+      [
+        1776701305085,
+        150000
+      ]
+    ]
+  },
+  "229": {
+    "name": "SSD Aimerican Immortality 1TB SATA III 2.5\"",
+    "h": [
+      [
+        1776701305085,
+        150000
+      ]
+    ]
+  },
+  "230": {
+    "name": "SSD Adata SU650 480GB SATA III 2.5\"",
+    "h": [
+      [
+        1776701305085,
+        110000
+      ]
+    ]
+  },
   "300": {
     "name": "AMD Ryzen 7 5700G AM4",
     "h": [
@@ -1541,6 +1568,15 @@
       ]
     ]
   },
+  "427": {
+    "name": "Aimerican DDR4 16GB 3200MHz UDIMM",
+    "h": [
+      [
+        1776701305085,
+        140000
+      ]
+    ]
+  },
   "500": {
     "name": "Logitech G305 Inalámbrico varios colores",
     "h": [
@@ -1689,6 +1725,51 @@
       ]
     ]
   },
+  "516": {
+    "name": "Logitech M185 Inalámbrico",
+    "h": [
+      [
+        1776701305085,
+        10000
+      ]
+    ]
+  },
+  "517": {
+    "name": "Logitech M170 Inalámbrico",
+    "h": [
+      [
+        1776701305085,
+        10000
+      ]
+    ]
+  },
+  "518": {
+    "name": "Logitech M190 Inalámbrico",
+    "h": [
+      [
+        1776701305085,
+        10000
+      ]
+    ]
+  },
+  "519": {
+    "name": "Logitech M317 Inalámbrico Negro",
+    "h": [
+      [
+        1776701305085,
+        15000
+      ]
+    ]
+  },
+  "520": {
+    "name": "Logitech G309 Inalámbrico Lightspeed",
+    "h": [
+      [
+        1776701305085,
+        55000
+      ]
+    ]
+  },
   "600": {
     "name": "ASUS TUF Gaming A620M-PLUS WiFi AM5",
     "h": [
@@ -1826,6 +1907,24 @@
       [
         1775615415730,
         180000
+      ]
+    ]
+  },
+  "612": {
+    "name": "Gigabyte A620M-H UD DDR5 AM5",
+    "h": [
+      [
+        1776701305085,
+        95000
+      ]
+    ]
+  },
+  "613": {
+    "name": "ASUS Prime B450M-A II AM4 DDR4",
+    "h": [
+      [
+        1776701305085,
+        120000
       ]
     ]
   },
@@ -2576,6 +2675,15 @@
       ]
     ]
   },
+  "823": {
+    "name": "Logitech H390 Con Micrófono , USB",
+    "h": [
+      [
+        1776701305085,
+        25000
+      ]
+    ]
+  },
   "900": {
     "name": "TP-Link Archer T3U Nano - Adaptador Wifi USB AC1300 Dual Banda",
     "h": [
@@ -2797,6 +2905,33 @@
       [
         1768571377217,
         200000
+      ]
+    ]
+  },
+  "1002": {
+    "name": "Gigabyte GS27QCA Monitor Curvo QHD 2K 180Hz , 1MS",
+    "h": [
+      [
+        1776701305085,
+        390000
+      ]
+    ]
+  },
+  "1003": {
+    "name": " Gigabyte GS27FA 27´ FullHD IPS 1Ms 180hz",
+    "h": [
+      [
+        1776701305085,
+        220000
+      ]
+    ]
+  },
+  "1004": {
+    "name": "Asus VA24EH-J 23.8\" Full HD IPS 75Hz 1ms Freesync",
+    "h": [
+      [
+        1776701305085,
+        140000
       ]
     ]
   },
