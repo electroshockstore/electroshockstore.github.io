@@ -9,13 +9,14 @@ import CategoryProductSection from '../components/Home/CategoryProductSection';
 import PuntosRetiroInfoSection from '../components/Home/PuntosRetiroInfoSection';
 import CategoryFilter from '../components/Catalog/CategoryFilter';
 import DiagonalDivider from '../components/Home/DiagonalDivider';
+import { HotSaleSection } from '../components/Home/FlashSale';
 
 import { useFilter } from '../context/FilterContext';
 import { getSlugFromCategory } from '../utils/slugify';
 import { useSEO } from '../hooks/useSEO';
+import { useFlashSaleProducts } from '../hooks/useFlashSaleProducts';
 import mayoristaData from '../data/categories/mayorista.json';
 import RevendedoresSection from '../components/Home/RevendedoresSection';
-import SalesSection from '../components/Home/SalesSection';
 
 const mayoristaProducts = mayoristaData.products;
 
@@ -23,6 +24,9 @@ const Home = () => {
   const navigate = useNavigate();
   const { searchQuery, setSearchQuery, setSelectedCategory, clearSubFilters } = useFilter();
   const [isLoaded, setIsLoaded] = useState(false);
+  
+  // Cargar productos de Flash Sale
+  const { products: flashSaleProducts, config: flashSaleConfig } = useFlashSaleProducts();
   
   // Scroll al inicio
   useScrollToTop();
@@ -60,7 +64,7 @@ const Home = () => {
   };
 
   const handleRevendedorProductClick = (product) => {
-    console.log('Pack seleccionado:', product);
+
     // navigate(`/pack/${product.id}`); // Si tienes una página especial para Kits
   };
 
@@ -108,8 +112,19 @@ const Home = () => {
             <HeroCarousel />
           </div>
 
+          {/* Hot Sale Section - Debajo del carousel */}
+          {flashSaleConfig.enabled && flashSaleProducts.length > 0 && (
+            <div className={`transition-opacity duration-700 delay-200 ${isLoaded ? 'opacity-100' : 'opacity-0'}`}>
+              <HotSaleSection
+                targetMs={new Date(flashSaleConfig.targetDate).getTime()}
+                products={flashSaleProducts}
+                onNavigate={() => navigate('/ofertas')}
+              />
+            </div>
+          )}
+
           {/* Mobile: Kits Ahorro con fade-in */}
-          <div className={`sm:hidden px-3 mb-4 transition-opacity duration-700 delay-200 ${isLoaded ? 'opacity-100' : 'opacity-0'}`}>
+          <div className={`sm:hidden px-3 mb-4 transition-opacity duration-700 delay-300 ${isLoaded ? 'opacity-100' : 'opacity-0'}`}>
             <RevendedoresSection
               products={mayoristaProducts}
               onProductClick={handleRevendedorProductClick}
@@ -117,7 +132,7 @@ const Home = () => {
           </div>
 
           {/* Mobile: PC Builder con fade-in */}
-          <div className={`sm:hidden transition-opacity duration-700 delay-300 ${isLoaded ? 'opacity-100' : 'opacity-0'}`}>
+          <div className={`sm:hidden transition-opacity duration-700 delay-[400ms] ${isLoaded ? 'opacity-100' : 'opacity-0'}`}>
             <PCBuilderSection />
           </div>
 
@@ -127,12 +142,12 @@ const Home = () => {
           </div>
 
           {/* Mobile: Puntos de Retiro con fade-in */}
-          <div className={`sm:hidden mb-4 transition-opacity duration-700 delay-400 ${isLoaded ? 'opacity-100' : 'opacity-0'}`}>
+          <div className={`sm:hidden mb-4 transition-opacity duration-700 delay-500 ${isLoaded ? 'opacity-100' : 'opacity-0'}`}>
             <PuntosRetiroInfoSection />
           </div>
           
           {/* Desktop: PC Builder y Puntos de Retiro con fade-in */}
-          <div className={`hidden sm:block mb-4 sm:mb-6 sm:px-4 transition-opacity duration-700 delay-200 ${isLoaded ? 'opacity-100' : 'opacity-0'}`}>
+          <div className={`hidden sm:block mb-4 sm:mb-6 sm:px-4 transition-opacity duration-700 delay-300 ${isLoaded ? 'opacity-100' : 'opacity-0'}`}>
             <div className="grid md:grid-cols-2 gap-3 sm:gap-4 h-[600px]">
               <PCBuilderSection />
               <PuntosRetiroInfoSection />
@@ -140,7 +155,7 @@ const Home = () => {
           </div>
 
           {/* Desktop: Kits Ahorro con fade-in */}
-          <div className={`hidden sm:block px-3 sm:px-4 mb-4 sm:mb-6 transition-opacity duration-700 delay-300 ${isLoaded ? 'opacity-100' : 'opacity-0'}`}>
+          <div className={`hidden sm:block px-3 sm:px-4 mb-4 sm:mb-6 transition-opacity duration-700 delay-[400ms] ${isLoaded ? 'opacity-100' : 'opacity-0'}`}>
             <RevendedoresSection
               products={mayoristaProducts}
               onProductClick={handleRevendedorProductClick}
@@ -148,7 +163,7 @@ const Home = () => {
           </div>
           
           {/* Categories con fade-in */}
-          <div className={`px-3 sm:px-4 mb-6 sm:mb-10 transition-opacity duration-700 delay-400 ${isLoaded ? 'opacity-100' : 'opacity-0'}`}>
+          <div className={`px-3 sm:px-4 mb-6 sm:mb-10 transition-opacity duration-700 delay-500 ${isLoaded ? 'opacity-100' : 'opacity-0'}`}>
             <CategoryProductSection onCategoryClick={handleCategoryClick} />
           </div>
 
