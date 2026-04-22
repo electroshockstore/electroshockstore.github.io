@@ -388,43 +388,26 @@ const FlashSaleTimer = ({ targetDate, products = [] }) => {
       {/* ══════════════════════════════════════════
           PRODUCTS SECTION
       ══════════════════════════════════════════ */}
-      <div style={{ maxWidth: 1280, margin: '0 auto', padding: '28px 40px 40px' }}>
+      <div className="max-w-[1280px] mx-auto px-10 pt-7 pb-10">
+  {/* Header de Productos - Responsive Container */}
+ <div className="flex flex-row items-center justify-between gap-4 pb-4 mb-5 border-b border-white/5">
+  
+  {/* Izquierda: Icono + Texto */}
+  <div className="flex items-center gap-2 overflow-hidden">
+    <span className="text-[#c8f519] text-sm shrink-0">⚡</span>
+    <span className="text-[10px] xs:text-[13px] font-extrabold uppercase tracking-tight xs:tracking-widest text-white font-mono truncate">
+      {Math.min(products.length, 3)} prod{products.length !== 1 ? 's' : ''} con descuento
+    </span>
+  </div>
 
-        {/* Products header */}
-        <div
-          style={{
-            display: 'flex', alignItems: 'center', justifyContent: 'space-between',
-            marginBottom: 20, paddingBottom: 16,
-            borderBottom: '1px solid rgba(255,255,255,0.06)',
-          }}
-        >
-          <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
-            <span style={{ color: '#c8f519', fontSize: 14 }}>⚡</span>
-            <span
-              style={{
-                fontSize: 13, fontWeight: 800, textTransform: 'uppercase',
-                letterSpacing: '0.1em', color: '#ffffff',
-                fontFamily: "'DM Mono', monospace",
-              }}
-            >
-              {Math.min(products.length, 3)} producto{products.length !== 1 ? 's' : ''} con descuento
-            </span>
-          </div>
-
-          <div
-            style={{
-              background: 'rgba(200,245,25,0.1)',
-              border: '1px solid rgba(200,245,25,0.3)',
-              color: '#c8f519',
-              fontSize: 9, fontWeight: 800,
-              padding: '4px 14px', borderRadius: 20,
-              letterSpacing: '0.1em', textTransform: 'uppercase',
-              fontFamily: "'DM Mono', monospace",
-            }}
-          >
-            20% off en todos
-          </div>
-        </div>
+  {/* Derecha: Badge */}
+  <div className="shrink-0">
+    <div className="bg-[#c8f519]/10 border border-[#c8f519]/30 text-[#c8f519] text-[8px] xs:text-[9px] font-black px-2 xs:px-3.5 py-1 rounded-full tracking-widest uppercase font-mono whitespace-nowrap">
+      20% off
+    </div>
+  </div>
+  
+</div>
 
         {/* Grid */}
         <div

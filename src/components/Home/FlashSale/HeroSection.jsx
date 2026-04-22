@@ -46,7 +46,7 @@ const HeroSection = ({ timeLeft, onNavigate }) => {
             </h2>
 
             {/* Bolt SVG */}
-            <div className="absolute -right-2 sm:-right-4 top-1/2 -translate-y-1/2 pointer-events-none animate-bolt-glow hidden lg:block">
+            <div className="absolute -right-2 sm:-right-4 top-1/4 -translate-y-1/2 pointer-events-none animate-bolt-glow hidden lg:block">
               <svg width="60" height="82" viewBox="0 0 80 110" fill="none" className="w-12 h-16 lg:w-16 lg:h-20 xl:w-20 xl:h-28">
                 <polygon points="48,0 14,60 38,60 30,110 66,42 42,42" fill="#c8f519" />
                 <polygon points="48,0 14,60 38,60 30,110 66,42 42,42" fill="url(#bolt-grad)" opacity="0.35" />
@@ -60,8 +60,8 @@ const HeroSection = ({ timeLeft, onNavigate }) => {
             </div>
           </div>
 
-          {/* Trust badges */}
-          <div className="flex flex-col sm:flex-row gap-4 sm:gap-7 pt-4 sm:pt-5 border-t border-white/[0.055]">
+          {/* Trust badges - Solo desktop */}
+          <div className="hidden sm:flex flex-col sm:flex-row gap-4 sm:gap-7 pt-4 sm:pt-5 border-t border-white/[0.055]">
             {[
               {
                 icon: <AlertTriangle className="w-3.5 h-3.5 sm:w-4 sm:h-4" />,
@@ -92,25 +92,7 @@ const HeroSection = ({ timeLeft, onNavigate }) => {
 
         {/* RIGHT - Nav, Timer & CTA */}
         <div className="flex flex-col items-end gap-4 sm:gap-5 pb-6 sm:pb-8 flex-shrink-0 w-full md:w-auto">
-          {/* Nav buttons */}
-          <div className="flex gap-2 self-end">
-            {[
-              <svg key="l" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-                <polyline points="15 18 9 12 15 6" />
-              </svg>,
-              <svg key="r" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-                <polyline points="9 18 15 12 9 6" />
-              </svg>
-            ].map((icon, i) => (
-              <button
-                key={i}
-                className="w-9 h-9 sm:w-10 sm:h-10 border border-white/[0.18] bg-transparent text-white flex items-center justify-center cursor-pointer transition-all duration-200 hover:bg-lime-400/10 hover:border-lime-400/55"
-              >
-                {icon}
-              </button>
-            ))}
-          </div>
-
+         
           {/* Timer */}
           <div className="w-full md:w-auto">
             <div className="flex items-center gap-2 justify-end text-[#555565] text-[9px] sm:text-[10px] tracking-[0.28em] uppercase font-mono text-right mb-2.5">
@@ -128,17 +110,11 @@ const HeroSection = ({ timeLeft, onNavigate }) => {
             </div>
           </div>
 
-          {/* CTA */}
-          <button
-            onClick={onNavigate}
-            className="bg-lime-400 text-[#09090d] border-none px-6 sm:px-8 py-3 sm:py-3.5 font-sans text-[10px] sm:text-[11px] font-extrabold tracking-[0.14em] uppercase cursor-pointer transition-all duration-200 clip-path-arrow-btn hover:bg-lime-300 active:scale-[0.98] w-full md:w-auto"
-          >
-            Ver todas las ofertas →
-          </button>
+         
         </div>
       </div>
 
-      <style jsx>{`
+      <style>{`
         .clip-path-arrow {
           clip-path: polygon(0 0, calc(100% - 6px) 0, 100% 50%, calc(100% - 6px) 100%, 0 100%);
         }

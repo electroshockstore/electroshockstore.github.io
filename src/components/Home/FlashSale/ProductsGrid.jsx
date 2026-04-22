@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import { Zap, Clock } from 'lucide-react';
+import { Zap } from 'lucide-react';
 import FlashSaleProduct from './FlashSaleProduct';
 
 /**
@@ -22,19 +22,19 @@ const ProductsGrid = ({ products = [] }) => {
       </span>
 
       {/* Products header */}
-      <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 sm:gap-4 mb-5 pb-4 border-b border-white/[0.055]">
+      <div className="flex flex-row items-center justify-between gap-3 sm:gap-4 mb-5 pb-4 border-b border-white/[0.055]">
         <div className="flex items-center gap-2">
-          <Zap className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-lime-400" />
-          <span className="font-mono text-xs sm:text-[13px] font-medium tracking-[0.1em] uppercase text-white">
+          <Zap className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-lime-400 flex-shrink-0" />
+          <span className="font-mono text-[10px] sm:text-xs md:text-[13px] font-medium tracking-[0.1em] uppercase text-white">
             {Math.min(products.length, 3)} Producto{products.length !== 1 ? 's' : ''} con descuento
           </span>
         </div>
-        <span className="border border-lime-400/30 bg-lime-400/[0.07] text-lime-400 font-mono text-[9px] font-medium tracking-[0.1em] uppercase px-4 py-1.5 rounded-full">
+        <span className="border border-lime-400/30 bg-lime-400/[0.07] text-lime-400 font-mono text-[8px] sm:text-[9px] font-medium tracking-[0.1em] uppercase px-2 sm:px-4 py-1 sm:py-1.5 rounded-full whitespace-nowrap flex-shrink-0">
           Hasta {avgDiscount}% Off
         </span>
       </div>
 
-      {/* Grid - Mobile: 2 arriba, 1 abajo horizontal | Desktop: 3 columnas */}
+      {/* Grid - Mobile: 2 arriba verticales, 1 abajo horizontal | Desktop: 3 columnas */}
       <div className="mb-5">
         {/* Mobile layout */}
         <div className="sm:hidden">
@@ -59,6 +59,7 @@ const ProductsGrid = ({ products = [] }) => {
               );
             })}
           </div>
+          {/* Tercera card horizontal */}
           {products[2] && (() => {
             const product = products[2];
             const originalPrice = product.price;
@@ -67,17 +68,16 @@ const ProductsGrid = ({ products = [] }) => {
             const isLowStock = product.stock != null && product.stock <= 5;
 
             return (
-              <div className="w-full">
-                <FlashSaleProduct 
-                  product={product} 
-                  index={2}
-                  discountPercentage={product.discountPercentage}
-                  originalPrice={originalPrice}
-                  discountedPrice={discountedPrice}
-                  savings={savings}
-                  isLowStock={isLowStock}
-                />
-              </div>
+              <FlashSaleProduct 
+                product={product} 
+                index={2}
+                discountPercentage={product.discountPercentage}
+                originalPrice={originalPrice}
+                discountedPrice={discountedPrice}
+                savings={savings}
+                isLowStock={isLowStock}
+                horizontal={true}
+              />
             );
           })()}
         </div>
@@ -103,17 +103,6 @@ const ProductsGrid = ({ products = [] }) => {
               />
             );
           })}
-        </div>
-      </div>
-
-      {/* Footer */}
-      <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2 sm:gap-4 pt-4 border-t border-white/[0.04]">
-        <span className="text-[11px] text-[#252530] font-sans">
-          Precios válidos hasta agotar stock
-        </span>
-        <div className="flex items-center gap-1.5 text-[#252530] text-[10px] font-mono">
-          <Clock className="w-2.5 h-2.5" />
-          Tiempo sincronizado · Argentina
         </div>
       </div>
     </div>
