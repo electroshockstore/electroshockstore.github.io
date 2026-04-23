@@ -22,22 +22,34 @@ const FlashSaleProduct = ({
 
   // Layout horizontal para mobile (tercera card)
   if (horizontal) {
+    // Colores de acento para el border
+    const accents = ['#c8f519', '#10b981', '#3b82f6'];
+    const accent = accents[index % accents.length];
+    
     return (
       <div
         onMouseEnter={() => setHovered(true)}
         onMouseLeave={() => setHovered(false)}
         className={`
           group relative flex flex-row cursor-pointer
-          border rounded-xl overflow-hidden
+          rounded-xl overflow-hidden bg-[#0b0b0d]
           transition-all duration-300 ease-out
-          ${hovered
-            ? 'border-lime-400/40 shadow-[0_12px_40px_rgba(0,0,0,0.5),0_0_0_1px_rgba(200,245,25,0.12),inset_0_1px_0_rgba(200,245,25,0.06)]'
-            : 'border-white/7 shadow-none'
-          }
+          ${hovered ? 'shadow-[0_12px_40px_rgba(0,0,0,0.5)]' : 'shadow-none'}
           opacity-0 animate-[fadeSlideUp_0.45s_cubic-bezier(0.22,1,0.36,1)_forwards]
         `}
-        style={{ animationDelay: `${index * 0.08 + 0.3}s` }}
+        style={{ 
+          animationDelay: `${index * 0.08 + 0.3}s`,
+          transform: 'translateY(-4px)',
+          boxShadow: `0 20px 60px rgba(0,0,0,0.8), 0 0 60px ${accent}35, 0 0 0 1px ${accent}60`,
+          borderColor: `${accent}70`,
+          border: '1px solid',
+        }}
       >
+        {/* Accent line left */}
+        <div
+          className="w-1 h-full"
+          style={{ background: `linear-gradient(to bottom, transparent 5%, ${accent} 40%, transparent 95%)` }}
+        />
         {/* Image — lado izquierdo */}
         <div
           onMouseEnter={() => setImgHovered(true)}
@@ -129,11 +141,20 @@ const FlashSaleProduct = ({
             discountPercentage={discountPercentage}
           />
         </div>
+
+        {/* Accent line right */}
+        <div
+          className="w-1 h-full"
+          style={{ background: `linear-gradient(to bottom, transparent 5%, ${accent} 40%, transparent 95%)` }}
+        />
       </div>
     );
   }
 
   // Layout vertical (default)
+  // Colores de acento para el border
+  const accents = ['#c8f519', '#10b981', '#3b82f6'];
+  const accent = accents[index % accents.length];
 
   return (
     <div
@@ -141,16 +162,24 @@ const FlashSaleProduct = ({
       onMouseLeave={() => setHovered(false)}
       className={`
         group relative flex flex-col cursor-pointer
-        border rounded-xl overflow-hidden
+        rounded-xl overflow-hidden bg-[#0b0b0d]
         transition-all duration-300 ease-out
-        ${hovered
-          ? 'border-lime-400/40 -translate-y-1 shadow-[0_12px_40px_rgba(0,0,0,0.5),0_0_0_1px_rgba(200,245,25,0.12),inset_0_1px_0_rgba(200,245,25,0.06)]'
-          : 'border-white/7 translate-y-0 shadow-none'
-        }
+        ${hovered ? '-translate-y-1 shadow-[0_12px_40px_rgba(0,0,0,0.5)]' : 'translate-y-0 shadow-none'}
         opacity-0 animate-[fadeSlideUp_0.45s_cubic-bezier(0.22,1,0.36,1)_forwards]
       `}
-      style={{ animationDelay: `${index * 0.08 + 0.3}s` }}
+      style={{ 
+        animationDelay: `${index * 0.08 + 0.3}s`,
+        transform: hovered ? 'translateY(-8px)' : 'translateY(-4px)',
+        boxShadow: `0 20px 60px rgba(0,0,0,0.8), 0 0 60px ${accent}35, 0 0 0 1px ${accent}60`,
+        borderColor: `${accent}70`,
+        border: '1px solid',
+      }}
     >
+      {/* Accent line top */}
+      <div
+        className="h-1 w-full"
+        style={{ background: `linear-gradient(to right, transparent 5%, ${accent} 40%, transparent 95%)` }}
+      />
       {/* Image — fondo blanco uniforme */}
       <div
         onMouseEnter={() => setImgHovered(true)}
@@ -263,6 +292,12 @@ const FlashSaleProduct = ({
         />
 
       </div>
+
+      {/* Accent line bottom */}
+      <div
+        className="h-1 w-full"
+        style={{ background: `linear-gradient(to right, transparent 5%, ${accent} 40%, transparent 95%)` }}
+      />
     </div>
   );
 };

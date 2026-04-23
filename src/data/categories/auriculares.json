@@ -27,38 +27,7 @@
         "Compatibilidad": "PC / PS4 / PS5 / Switch / MÃ³viles"
       }
     },
-    {
-      "id": 800,
-      "name": "Redragon Ire Pro H848 Negro- Bluetooth Inalámbrico dongle",
-      "brand": "Redragon",
-      "model": "Ire Pro H848",
-      "category": "Auriculares",
-      "manufacturerUrl": "https://www.redragonzone.com/collections/",
-      "price": 60000,
-      "stock": 1,
-      "sku": "RED-IRE-H848",
-      "description": "Auriculares gaming Inalámbricos Bluetooth 5.0 con micrÃ³fono desmontable, autonomÃ­a 20 horas",
-      "images": [
-        "/images/auriculares/RG_irepro_auri.webp",
-        "/images/auriculares/RG_irepro_auri_side.webp",
-        "/images/auriculares/RG_irepro_auri_cab.webp"
-      ],
-      "specifications": {
-        "Marca": "Redragon",
-        "LÃ­nea": "H848",
-        "Modelo": "Ire",
-        "Modelo alfanumÃ©rico": "H848G",
-        "Respuesta en frecuencia": "100 Hz - 10000 Hz",
-        "TamaÃ±o de la memoria": "1 MB",
-        "tipoConectividad": "Inalámbrico",
-        "Alcance Inalámbrico": "10 m",
-        "AutonomÃ­a": "Hasta 20 horas",
-        "Cargado por": "USB-C",
-        "MicrÃ³fono": "Omnidireccional desmontable",
-        "rgb": "No",
-        "Compatibilidad": "PC / Android / iOS / Consolas vÃ­a BT"
-      }
-    },
+   
     {
       "id": 801,
       "name": "Logitech lightspeed G435- Inalámbrico Bluetooth/Dongle",
@@ -307,7 +276,7 @@
       "category": "Auriculares",
       "manufacturerUrl": "https://www.razer.com/",
       "price": 85000,
-      "stock": 2,
+      "stock": 1,
       "sku": "RAZER-KX-WHT",
       "description": "Auriculares gaming estÃ©reo para consolas con drivers 40mm, micrÃ³fono cardioide",
       "images": [
@@ -523,37 +492,7 @@
         "Uso recomendado": "MÃºsica y llamadas"
       }
     },
-    {
-      "id": 816,
-      "name": "Redragon Ire Pro Bluetooth Inalámbrico dongle",
-      "brand": "Redragon",
-      "model": "Ire Pro H848B",
-      "category": "Auriculares",
-      "manufacturerUrl": "https://www.redragonzone.com/collections/",
-      "price": 60000,
-      "stock": 1,
-      "sku": "RED-IRE-H848B",
-      "description": "Auriculares gaming Inalámbricos Redragon Ire Pro H848B con Wireless 2.4 GHz y Bluetooth, RGB, autonomÃ­a 20 horas",
-      "images": [
-        "/images/auriculares/irepro_white.webp",
-        "/images/auriculares/irepro_white_side.webp",
-        "/images/auriculares/irepro_white_side2.webp",
-        "/images/auriculares/irepro_white_side3.webp"
-      ],
-      "specifications": {
-        "Marca": "Redragon",
-        "LÃ­nea": "Ire Pro",
-        "Modelo": "H848B",
-        "formato": "Auricular Inalámbrico",
-        "tipoConectividad": "Inalámbrico",
-        "Respuesta en frecuencia": "100 Hz â€“ 10 kHz",
-        "Impedancia": "32 Î©",
-        "MicrÃ³fono": "Integrado",
-        "AutonomÃ­a": "hasta 20 h",
-        "rgb": "RGB",
-        "TDP": "â‰ˆ 5 W (en carga)"
-      }
-    },
+  
     {
       "id": 817,
       "name": "Skullcandy SLYR - Alámbrico 3.5mm Negro",

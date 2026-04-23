@@ -1,5 +1,6 @@
 import PropTypes from 'prop-types';
 import { Zap, AlertTriangle, CheckCircle } from 'lucide-react';
+import { motion } from 'framer-motion';
 import TimerDigit from './TimerDigit';
 
 /**
@@ -36,14 +37,40 @@ const HeroSection = ({ timeLeft, onNavigate }) => {
 
           {/* Title */}
           <div className="relative mb-6 sm:mb-8">
-            <h2 className="font-black italic leading-[0.87] tracking-tighter text-white uppercase m-0">
+            <motion.h2 
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, ease: "easeOut" }}
+              className="font-black italic leading-[0.87] tracking-tighter text-white uppercase m-0"
+            >
               <span className="block text-5xl sm:text-6xl md:text-7xl lg:text-8xl">
                 OFERTAS
               </span>
-              <span className="block text-5xl sm:text-6xl md:text-7xl lg:text-8xl text-lime-400 relative inline-block title-lime-underline">
+              <motion.span 
+                initial={{ opacity: 0, x: -20 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.6, delay: 0.2, ease: "easeOut" }}
+                className="block text-5xl sm:text-6xl md:text-7xl lg:text-8xl text-lime-400 relative inline-block title-lime-underline cyberpunk-text"
+              >
                 RELÁMPAGO
-              </span>
-            </h2>
+                {/* Efecto de destello eléctrico */}
+                <motion.span
+                  className="absolute inset-0 cyberpunk-glitch"
+                  initial={{ opacity: 0 }}
+                  animate={{ 
+                    opacity: [0, 0.8, 0, 0.6, 0],
+                  }}
+                  transition={{
+                    duration: 0.3,
+                    repeat: Infinity,
+                    repeatDelay: 3,
+                    ease: "easeInOut"
+                  }}
+                >
+                  RELÁMPAGO
+                </motion.span>
+              </motion.span>
+            </motion.h2>
 
             {/* Bolt SVG */}
             <div className="absolute -right-2 sm:-right-4 top-1/4 -translate-y-1/2 pointer-events-none animate-bolt-glow hidden lg:block">
@@ -141,6 +168,42 @@ const HeroSection = ({ timeLeft, onNavigate }) => {
         }
         .animate-bolt-glow {
           animation: bolt-glow 2.2s ease-in-out infinite;
+        }
+        
+        /* Cyberpunk text effects */
+        .cyberpunk-text {
+          text-shadow: 
+            0 0 10px rgba(200, 245, 25, 0.8),
+            0 0 20px rgba(200, 245, 25, 0.6),
+            0 0 30px rgba(200, 245, 25, 0.4),
+            0 0 40px rgba(200, 245, 25, 0.2),
+            2px 2px 0px rgba(200, 245, 25, 0.3),
+            -2px -2px 0px rgba(0, 255, 255, 0.2);
+          position: relative;
+        }
+        
+        .cyberpunk-glitch {
+          color: #c8f519;
+          text-shadow: 
+            -2px 0 #ff00ff,
+            2px 0 #00ffff;
+          clip-path: polygon(0 0, 100% 0, 100% 45%, 0 45%);
+        }
+        
+        @keyframes electric-pulse {
+          0%, 100% {
+            text-shadow: 
+              0 0 10px rgba(200, 245, 25, 0.8),
+              0 0 20px rgba(200, 245, 25, 0.6),
+              0 0 30px rgba(200, 245, 25, 0.4);
+          }
+          50% {
+            text-shadow: 
+              0 0 20px rgba(200, 245, 25, 1),
+              0 0 30px rgba(200, 245, 25, 0.8),
+              0 0 40px rgba(200, 245, 25, 0.6),
+              0 0 50px rgba(200, 245, 25, 0.4);
+          }
         }
       `}</style>
     </div>
