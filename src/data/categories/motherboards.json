@@ -311,7 +311,7 @@
       "category": "Motherboards",
       "manufacturerUrl": "https://www.gigabyte.com/Motherboard/A620M-H-rev-10",
       "price": 95000,
-      "stock": 1,
+      "stock": 2,
       "sku": "GIGABYTE-A620M-H",
       "ownConsumption": "30W - 40W",
       "maxPowerSupport": "Hasta 120W (PPT recomendado)",
@@ -402,6 +402,56 @@
         "Uso recomendado": "PC de oficina, gaming económico, builds con Ryzen AM4"
       },
       "ddrType": "DDR4"
-    }
+    },
+    
+
+    {
+  "id": 614,
+  "name": "Asus Prime B550M-K AM4 DDR4 PCIe 4.0",
+  "brand": "Asus",
+  "model": "PRIME B550M-K",
+  "category": "Motherboards",
+  "manufacturerUrl": "https://www.asus.com/motherboards-components/motherboards/prime/prime-b550m-k/",
+  "price": 105000,
+  "stock": 1,
+  "sku": "ASUS-B550M-K",
+  "ownConsumption": "30W - 50W",
+  "maxPowerSupport": "Hasta 105W (CPU recomendado)",
+  "images": [
+    "/images/motherboard/asus_b550mk.webp",
+    "/images/motherboard/asus_b550mk_side.webp",
+    "/images/motherboard/asus_b550mk_back.webp",
+    "/images/motherboard/asus_b550mk_specs.webp"
+  ],
+  "description": "Motherboard Asus Prime B550M-K Micro ATX AM4 con soporte DDR4 y PCIe 4.0, ideal para builds gaming y productividad con Ryzen 3000/4000/5000",
+  "specifications": {
+    "Marca": "Asus",
+    "Línea": "Prime",
+    "Modelo": "PRIME B550M-K",
+    "Socket": "AM4",
+    "Chipset": "AMD B550",
+    "formato": "Micro-ATX",
+    "Compatibilidad CPU": "AMD Ryzen 3000 / 4000G / 5000 Series",
+    "tipoMemoriaRAM": "DDR4",
+    "slotsMemoria": "2",
+    "capacidadMaximaRAM": "128 GB",
+    "velocidadRAMSoportada": "Hasta 4600 MHz (OC)",
+    "Canales de memoria": "Dual Channel",
+    "VRM": "6 fases",
+    "Slot principal GPU": "1 x PCIe 4.0 x16",
+    "Slots adicionales": "2 x PCIe 3.0 x1",
+    "puertosM2": "2 x M.2 (1x PCIe 4.0, 1x PCIe 3.0)",
+    "puertosSATA": "4 x SATA III (6Gb/s)",
+    "Red": "Gigabit LAN",
+    "USB traseros": "USB 3.2 Gen1, USB 2.0",
+    "Salidas de video": "HDMI, DVI-D",
+    "Audio": "Realtek HD Audio",
+    "Sistema de refrigeración": "Disipador en VRM",
+    "Conectores ventiladores": "Fan Xpert",
+    "BIOS": "UEFI",
+    "Uso recomendado": "Gaming, oficina y builds económicas con Ryzen AM4"
+  },
+  "ddrType": "DDR4"
+}
   ]
 }

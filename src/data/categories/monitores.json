@@ -46,7 +46,7 @@
       "model": "F24T35",
       "category": "Monitores",
       "manufacturerUrl": "https://www.samsung.com/ar/monitors/",
-      "price": 200000,
+      "price": 180000,
       "stock": 1,
       "images": [
         "/images/monitores/samsung_24.webp",
@@ -207,6 +207,62 @@
         "montajeVESA": "100x100 mm",
         "usoRecomendado": "Gaming casual y oficina"
       }
-    }
+    },
+{
+  "id": 1005,
+  "name": "Gigabyte 25\" LED IPS 200Hz GS25F2",
+  "brand": "Gigabyte",
+  "model": "GS25F2",
+  "category": "Monitores",
+  "manufacturerUrl": "https://www.gigabyte.com/Monitor",
+  "price": 200000,
+  "stock": 2,
+  "images": [
+    "/images/monitores/gigabyte_gs25f2.webp",
+    "/images/monitores/gigabyte_gs25f2_side.webp",
+    "/images/monitores/gigabyte_gs25f2_side2.webp",
+  "/images/monitores/gigabyte_gs25f2_side3.webp",
+    "/images/monitores/gigabyte_gs25f2_side4.webp",
+      "/images/monitores/gigabyte_gs25f2_side5.webp"
+    
+  ],
+  "description": "Monitor Gigabyte 25\" IPS Full HD 200Hz 1ms (MPRT) con FreeSync Premium, ideal para gaming competitivo",
+  "specifications": {
+    "Marca": "Gigabyte",
+    "Línea": "Gaming",
+    "Modelo": "GS25F2",
+    "tamanoPantalla": "24.5 pulgadas",
+    "tipoPanel": "IPS",
+    "resolucion": "Full HD 1920 x 1080",
+    "relacionAspecto": "16:9",
+    "brillo": "300 cd/m²",
+    "contrasteEstatico": "1000:1",
+    "angulosVision": "178° / 178°",
+    "frecuenciaActualizacion": "200 Hz",
+    "frecuenciaMaxima": "200 Hz",
+    "tiempoRespuesta": "1 ms (MPRT)",
+    "tecnologiasDestacadas": "AMD FreeSync Premium, Flicker Free, Low Blue Light",
+    "curvatura": "No, panel plano",
+    "hdmi": "2x HDMI 2.0",
+    "displayPort": "1x DisplayPort 1.4",
+    "salidaAudio": "Sí (Jack 3.5 mm)",
+    "entradaAudio": "No",
+    "borde": "Bisel delgado (3 lados)",
+    "Color": "Negro",
+    "inclinacion": "Sí, -5° a 20°",
+    "montajeVESA": "100 x 100 mm",
+    "consumo": "Max 36W",
+    "dimensionesConBase": "557 × 419 × 202 mm",
+    "dimensionesSinBase": "557 × 332 × 52 mm",
+    "pesoConBase": "3.5 kg",
+    "pesoSinBase": "3.1 kg",
+    "incluye": "Cable HDMI, Base, Manual",
+    "observaciones": "Monitor orientado a esports con alta tasa de refresco de 200Hz y tiempo de respuesta rápido. Excelente para FPS competitivos y gaming fluido."
+  }
+}
+
+
+
+
   ]
 }

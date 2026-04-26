@@ -798,6 +798,74 @@
         "Compatibilidad": "Windows, macOS",
         "Uso recomendado": "Gaming competitivo"
       }
-    }
+    },
+
+{
+  "id": 521,
+  "name": "Mouse Pad Yelandar XXL 90cm x 40cm x 4mm Negro",
+  "brand": "Yelandar",
+  "model": "XXL90X40",
+  "category": "Mouse",
+  "price": 20000,
+  "stock": 5,
+  "sku": "YEL-XXL90X40",
+  "description": "Mousepad gaming extendido Yelandar XXL 900x400mm con superficie suave, base antideslizante y diseño flexible ideal para escritorio completo",
+  "images": [
+    "/images/mouse/yelandar_4090.webp",
+    "/images/mouse/yelandar_4090_side.webp",
+    "/images/mouse/yelandar_4090_side2.webp",
+    "/images/mouse/yelandar_4090_side3.webp",
+     "/images/mouse/yelandar_4090_side4.webp",
+      "/images/mouse/yelandar_4090_side5.webp"
+  ],
+  "specifications": {
+    "Marca": "Yelandar",
+    "Modelo": "XXL90X40",
+    "Tipo": "Mousepad gaming extendido",
+    "Dimensiones": "900 x 400 mm",
+    "Grosor": "4 mm",
+    "Material superficie": "Tela suave",
+    "Material base": "Goma antideslizante",
+    "Bordes": "Corte estándar",
+    "Compatibilidad sensor": "Óptico y láser",
+    "Características": "Gran tamaño para teclado y mouse, superficie uniforme, flexible y enrollable, buena estabilidad",
+    "Uso recomendado": "Gaming y escritorio con teclado y mouse"
+  }
+},
+
+{
+  "id": 522,
+  "name": "Mouse Pad Shoply XL 70cm x 30cm Aurora Boreal y Mapa",
+  "brand": "Shoply",
+  "model": "V103-AURORA",
+  "category": "Mouse",
+  "price": 10000,
+  "stock": 4,
+  "sku": "SHOPLY-V103-AURORA",
+  "description": "Mousepad gaming XL 700x300mm con diseño Aurora Boreal, superficie suave y base antideslizante ideal para escritorio completo",
+  "images": [
+    "/images/mouse/shoply_aurora.webp",
+    "/images/mouse/shoply_aurora_side.webp",
+    "/images/mouse/shoply_aurora_side2.webp",
+    "/images/mouse/shoply_aurora_side3.webp",
+     "/images/mouse/shoply_aurora_side4.webp",
+      "/images/mouse/shoply_aurora_side5.webp",
+      "/images/mouse/shoply_aurora_side6.webp"
+  ],
+  "specifications": {
+    "Marca": "Shoply",
+    "Modelo": "V103-AURORA",
+    "Tipo": "Mousepad gaming extendido",
+    "Dimensiones": "700 x 300 mm",
+    "Grosor": "3 mm",
+    "Material superficie": "Tela suave microtexturizada",
+    "Material base": "Goma antideslizante",
+    "Bordes": "Corte estándar / algunos lotes con bordes cosidos",
+    "Compatibilidad sensor": "Óptico y láser",
+    "Características": "Diseño Aurora Boreal, superficie uniforme para precisión, flexible y enrollable, cubre teclado y mouse",
+    "Uso recomendado": "Gaming, oficina y setups estéticos"
+  }
+}
+
   ]
 }
