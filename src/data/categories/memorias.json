@@ -784,6 +784,45 @@
         "usoRecomendado": "PC de escritorio / Workstation"
       },
       "ddrType": "DDR4"
+    },
+    {
+      "id": 428,
+      "name": "ADATA XPG Lancer Blade White 16GB DDR5 5600MHz",
+      "brand": "ADATA XPG",
+      "model": "Lancer Blade",
+      "category": "Memorias RAM",
+      "price": 340000,
+      "stock": 2,
+      "powerConsumption": 5,
+      "realPowerConsumption": "3W-5W por módulo",
+      "manufacturerUrl": "https://www.xpg.com/",
+      "images": [
+        "/images/ram/lancerblade16_white.webp"
+      ],
+      "description": "Memoria RAM ADATA XPG Lancer Blade White DDR5 de 16GB a 5600MHz formato UDIMM con disipador blanco",
+      "sku": "XPG-LANCER-BLADE-16GB-5600-WHITE",
+      "specifications": {
+        "Marca": "ADATA XPG",
+        "Línea": "Lancer Blade",
+        "Modelo": "AX5U5600C4616G-SLABWH",
+        "Modelo detallado": "AX5U5600C4616G-SLABWH",
+        "capacidadTotal": "16 GB",
+        "modulos": "1",
+        "configuracion": "1x16 GB",
+        "tipoMemoriaRAM": "DDR5",
+        "formato": "UDIMM",
+        "Velocidad": "5600 MHz",
+        "Latencia": "CL46",
+        "Voltaje": "1.1V",
+        "ecc": "On-Die ECC",
+        "Compatibilidad": "Intel XMP / AMD EXPO",
+        "Disipador": "Sí",
+        "Color": "Blanco",
+        "rgb": "No",
+        "anchoBanda": "45 GB/s",
+        "Año de lanzamiento": "2023"
+      },
+      "ddrType": "DDR5"
     }
   ]
 }

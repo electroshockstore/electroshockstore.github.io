@@ -133,7 +133,7 @@
       "category": "Motherboards",
       "manufacturerUrl": "https://www.gigabyte.com/Motherboard/A520M-K-V2-rev-10",
       "price": 80000,
-      "stock": 6,
+      "stock": 7,
       "ownConsumption": "20W - 30W",
       "maxPowerSupport": "Hasta 105W TDP",
       "images": [
@@ -452,6 +452,53 @@
     "Uso recomendado": "Gaming, oficina y builds económicas con Ryzen AM4"
   },
   "ddrType": "DDR4"
+},
+{
+  "id": 615,
+  "name": "ASUS PRIME A620M-A-CSM DDR5 AM5",
+  "brand": "ASUS",
+  "model": "PRIME A620M-A-CSM",
+  "category": "Motherboards",
+  "price": 165000,
+  "stock": 2,
+  "sku": "ASUS-PRIME-A620M-A-CSM",
+  "ownConsumption": "30W - 40W",
+  "maxPowerSupport": "Hasta 120W (PPT recomendado)",
+  "manufacturerUrl": "https://www.asus.com/motherboards-components/motherboards/prime/prime-a620m-a-csm/",
+  "images": [
+    "/images/motherboard/a620m_a.webp"
+  ],
+  "description": "Motherboard ASUS PRIME A620M-A-CSM para procesadores AMD Ryzen serie 7000/8000 socket AM5 con soporte DDR5, PCIe 4.0 y formato Micro-ATX",
+  "specifications": {
+    "Marca": "ASUS",
+    "Línea": "PRIME",
+    "Modelo": "A620M-A-CSM",
+    "Modelo alfanumérico": "PRIME A620M-A-CSM",
+    "Chipset": "AMD A620",
+    "Socket": "AM5",
+    "Compatibilidad CPU": "AMD Ryzen 7000 / 8000 Series",
+    "Formato": "Micro-ATX",
+    "tipoMemoriaRAM": "DDR5",
+    "slotsMemoria": "4",
+    "capacidadMaximaRAM": "192 GB",
+    "velocidadRAMSoportada": "7600+ MT/s (OC)",
+    "Canales memoria": "2",
+    "Slot principal GPU": "1 x PCIe 4.0 x16",
+    "Slots adicionales": "2 x PCIe x1",
+    "puertosM2": "2",
+    "puertosSATA": "4",
+    "Red": "Realtek 2.5Gb Ethernet",
+    "WiFi": "No",
+    "Bluetooth": "No",
+    "USB traseros": "USB 3.2 Gen1 + USB 2.0",
+    "Salidas de video": "HDMI, DisplayPort",
+    "Audio": "Realtek 7.1 HD Audio",
+    "Iluminación RGB": "ARGB Gen 2",
+    "BIOS Flashback": "No",
+    "TPM": "Sí",
+    "Año de lanzamiento": "2023"
+  },
+  "ddrType": "DDR5"
 }
   ]
 }

@@ -66,7 +66,7 @@
       "model": "Ryzen 5 5500",
       "category": "Procesadores",
       "price": 140000,
-      "stock": 4,
+      "stock": 5,
       "realPowerConsumption": "65W (TDP) / 76W-82W (PPT Max Load)",
       "manufacturerUrl": "https://www.amd.com/es/support/downloads/drivers.html/processors/ryzen/ryzen-5000-series/amd-ryzen-5-5500.html",
       "images": [
@@ -94,7 +94,7 @@
       "model": "Ryzen 5 8500G",
       "category": "Procesadores",
       "price": 200000,
-      "stock": 1,
+      "stock": 2,
       "realPowerConsumption": "65W (TDP) / 88W (PPT Max Load)",
       "manufacturerUrl": "https://www.amd.com/en/products/processors/desktops/ryzen/8000-series/amd-ryzen-5-8500g.html",
       "images": [
@@ -617,6 +617,45 @@
         "Velocidad memoria DDR4": "3200 MT/s",
         "Capacidad máxima RAM": "128 GB",
         "Canales memoria": "2",
+        "Año de lanzamiento": "2022"
+      },
+      "ddrType": "DDR4"
+    },
+    {
+      "id": 318,
+      "name": "AMD Ryzen 7 5700X AM4 sin gráfica integrada",
+      "brand": "AMD",
+      "model": "Ryzen 7 5700X",
+      "category": "Procesadores",
+      "price": 240000,
+      "stock": 4,
+      "powerConsumption": 65,
+      "realPowerConsumption": "65W (TDP)",
+      "manufacturerUrl": "https://www.amd.com/en/products/cpu/amd-ryzen-7-5700x",
+      "images": [
+        "/images/procesadores/r7_5700x.webp"
+      ],
+      "description": "Procesador AMD Ryzen 7 5700X 8 núcleos, 16 hilos, 3.4-4.6 GHz sin gráfica integrada, sin Cooler",
+      "sku": "AMD-R7-5700X",
+      "specifications": {
+        "Marca": "AMD",
+        "Línea": "Ryzen 7",
+        "Modelo": "5700X",
+        "Modelo alfanumérico": "100-100000926WOF",
+        "Arquitectura": "Zen 3",
+        "Socket": "AM4",
+        "Núcleos": "8",
+        "hilos": "16",
+        "Frecuencia base": "3.4 GHz",
+        "Frecuencia turbo": "4.6 GHz",
+        "Cache L3": "32 MB",
+        "TDP": "65 W",
+        "graficosIntegrados": "No",
+        "Tipo memoria": "DDR4",
+        "Velocidad memoria DDR4": "3200 MT/s",
+        "Capacidad máxima RAM": "128 GB",
+        "Canales memoria": "2",
+        "Disipacion incluida": "No",
         "Año de lanzamiento": "2022"
       },
       "ddrType": "DDR4"

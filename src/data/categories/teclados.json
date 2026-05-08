@@ -220,7 +220,7 @@
       "category": "Teclados",
       "manufacturerUrl": "https://www.redragonzone.com/collections/",
       "price": 45000,
-      "stock": 5,
+      "stock": 4,
       "sku": "RED-S143-KIT",
       "description": "Combo gaming RGB: Teclado mecánico 60% compacto + Mouse 7 botones programables",
       "images": [
@@ -323,41 +323,7 @@
         "Modo gaming": "Sí"
       }
     },
-    {
-      "id": 706,
-      "name": "Redragon Horus Mini K632 - Mecánico 60% RGB Inalámbrico",
-      "brand": "Redragon",
-      "model": "Horus Mini K632-RGB",
-      "category": "Teclados",
-      "manufacturerUrl": "https://www.redragonzone.com/collections/",
-      "price": 55000,
-      "stock": 1,
-      "sku": "RED-HORUS-MINI",
-      "description": "Teclado mecánico 60% RGB con switches Red lineales y cable USB-C desmontable",
-      "images": [
-        "/images/teclados/horus_mini_k632.webp",
-        "/images/teclados/horus_mini_k632_side.webp",
-        "/images/teclados/horus_mini_k632,side2.webp"
-      ],
-      "specifications": {
-        "Marca": "Redragon",
-        "Línea": "Horus Mini",
-        "Modelo": "K632-RGB",
-        "Arquitectura": "Mecánico",
-        "Tipo de switch": "Redragon Red (lineales)",
-        "formato": "60%",
-        "rgb": "RGB con 20 efectos",
-        "tipoConectividad": "Inalámbrico",
-        "Anti-ghosting": "100% N-Key Rollover",
-        "Keycaps": "ABS doble inyección",
-        "Chasis": "Plástico reforzado",
-        "Durabilidad": "50 millones de clics",
-        "Cable": "USB-C 1.8 m",
-        "Software": "Redragon configurador",
-        "Compatibilidad": "Windows / macOS / Linux",
-        "Modo gaming": "Sí"
-      }
-    },
+  
     {
       "id": 707,
       "name": "Redragon Ziggs K669 - Mecánico Full Size RGB Alámbrico",
@@ -658,63 +624,7 @@
         "Receptor": "Nano receptor USB"
       }
     },
-    {
-      "id": 715,
-      "name": "Logitech MK270 - Kit Teclado + Mouse Membrana Inalámbrico",
-      "brand": "Logitech",
-      "model": "MK270",
-      "category": "Teclados",
-      "price": 28000,
-      "stock": 10,
-      "sku": "LOGI-MK270",
-      "description": "Kit inalámbrico teclado de tijera + mouse óptico con receptor USB",
-      "images": [
-        "/images/teclados/teclado_mk270.webp",
-        "/images/teclados/teclado_mk270_side.webp",
-        "/images/teclados/teclado_mk270_side2.webp",
-        "/images/teclados/teclado_mk270_side3.webp"
-      ],
-      "specifications": {
-        "Marca": "Logitech",
-        "Modelo completo": "MK270 Wireless",
-        "Tipo de teclado": "De tijera",
-        "Arquitectura": "Membrana",
-        "Modelo teclado": "MK270",
-        "Modelo mouse": "MK270",
-        "tipoConectividad": "Inalámbrico",
-        "Funciones": "Plug & Play"
-      }
-    },
-    {
-      "id": 716,
-      "name": "Logitech MK470 Slim - Kit Teclado + Mouse Inalámbrico",
-      "brand": "Logitech",
-      "model": "MK470 Slim",
-      "category": "Teclados",
-      "price": 40000,
-      "stock": 4,
-      "sku": "LOGI-MK470",
-      "description": "Kit inalámbrico diseño slim y minimalista con teclas silenciosas y receptor USB",
-      "images": [
-        "/images/teclados/logitech_mk470.webp",
-        "/images/teclados/logitech_mk470_rosa.webp",
-        "/images/teclados/logitech_mk470_rosa2.webp",
-        "/images/teclados/logitech_mk470_rosa3.webp",
-        "/images/teclados/logitech_mk470_side.webp",
-        "/images/teclados/logitech_mk470_side2.webp",
-        "/images/teclados/logitech_mk470_side3.webp"
-      ],
-      "specifications": {
-        "Marca": "Logitech",
-        "Modelo": "920-009437",
-        "formato": "Wireless combo",
-        "Arquitectura": "Membrana",
-        "Características": "Diseño slim y minimalista con receptor USB",
-        "tipoConectividad": "Inalámbrico",
-        "Tecnología teclado": "Silent Touch (teclas silenciosas)",
-        "Funciones": "Plug & Play"
-      }
-    },
+ 
     {
       "id": 717,
       "name": "Logitech G213 Gaming Lightsync RGB - Teclado Membrana",

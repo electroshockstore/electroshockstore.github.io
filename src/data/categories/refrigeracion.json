@@ -170,6 +170,48 @@
         "conector": "4 pines PWM",
         "usoRecomendado": "Gaming / Alto rendimiento"
       }
+    },
+    {
+      "id": 1208,
+      "name": "Cooler Master MasterLiquid ML240 Core II ARGB 240mm",
+      "brand": "Cooler Master",
+      "model": "MasterLiquid ML240 Core II ARGB",
+      "category": "Refrigeración Líquida",
+      "price": 95000,
+      "stock": 3,
+      "powerConsumption": 8,
+      "realPowerConsumption": "Bomba + 2 ventiladores ARGB (~6W-10W)",
+      "manufacturerUrl": "https://www.coolermaster.com/",
+      "images": [
+        "/images/refrigeracion/coolermaster-ml240_side.webp"
+      ],
+      "description": "Watercooler Cooler Master MasterLiquid ML240 Core II ARGB con radiador de 240mm, iluminación ARGB y compatibilidad Intel y AMD",
+      "sku": "CM-ML240-CORE-II-ARGB",
+      "specifications": {
+        "Marca": "Cooler Master",
+        "Línea": "MasterLiquid",
+        "Modelo": "ML240 Core II ARGB",
+        "Tipo": "Watercooling AIO",
+        "Tamaño radiador": "240 mm",
+        "Material radiador": "Aluminio",
+        "Ventiladores incluidos": "2",
+        "Tamaño ventiladores": "120 mm",
+        "Velocidad ventiladores": "650-1750 RPM",
+        "Flujo de aire": "70.7 CFM",
+        "Presión estática": "2.0 mmH2O",
+        "Nivel de ruido": "30 dBA",
+        "Iluminación": "ARGB",
+        "Control PWM": "Sí",
+        "Socket Intel": "LGA 1700 / 1200 / 115X",
+        "Socket AMD": "AM5 / AM4",
+        "Compatibilidad gabinete": "240 mm",
+        "Tipo de bomba": "Dual Chamber Gen S",
+        "Conector ventilador": "4-pin PWM",
+        "Conector ARGB": "3-pin 5V",
+        "Vida útil bomba": "50.000 horas",
+        "Color": "Negro",
+        "Año de lanzamiento": "2024"
+      }
     }
   ]
 }
