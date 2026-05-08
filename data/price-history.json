@@ -1150,11 +1150,15 @@
     ]
   },
   "318": {
-    "name": "Intel Core i5-14400F LGA1700 sin grafica integrada C/cooler",
+    "name": "AMD Ryzen 7 5700X AM4 sin gráfica integrada",
     "h": [
       [
         1773454818091,
         290000
+      ],
+      [
+        1778202959819,
+        240000
       ]
     ]
   },
@@ -1633,6 +1637,15 @@
       ]
     ]
   },
+  "428": {
+    "name": "ADATA XPG Lancer Blade White 16GB DDR5 5600MHz",
+    "h": [
+      [
+        1778202959819,
+        340000
+      ]
+    ]
+  },
   "500": {
     "name": "Logitech G305 Inalámbrico varios colores",
     "h": [
@@ -2008,6 +2021,15 @@
       [
         1777175592747,
         105000
+      ]
+    ]
+  },
+  "615": {
+    "name": "ASUS PRIME A620M-A-CSM DDR5 AM5",
+    "h": [
+      [
+        1778202959819,
+        165000
       ]
     ]
   },
@@ -3035,6 +3057,24 @@
       ]
     ]
   },
+  "1006": {
+    "name": "Samsung Essential S3 S30GD 24\" Full HD 100Hz IPS",
+    "h": [
+      [
+        1778202959819,
+        155000
+      ]
+    ]
+  },
+  "1007": {
+    "name": "Philips V-Line 221V8 22\" Full HD",
+    "h": [
+      [
+        1778202959819,
+        130000
+      ]
+    ]
+  },
   "1099": {
     "name": "Sony DualSense PS5 Galactic Purple",
     "h": [
@@ -3222,6 +3262,15 @@
       [
         1768571377217,
         30000
+      ]
+    ]
+  },
+  "1208": {
+    "name": "Cooler Master MasterLiquid ML240 Core II ARGB 240mm",
+    "h": [
+      [
+        1778202959819,
+        95000
       ]
     ]
   },
