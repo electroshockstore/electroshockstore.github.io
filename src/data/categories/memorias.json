@@ -168,7 +168,7 @@
       "model": "Basic",
       "category": "Memorias RAM",
       "price": 110000,
-      "stock": 12,
+      "stock": 11,
       "realPowerConsumption": "≈ 3W",
       "images": [
         "/images/ram/netac_ddr5_8gb.webp",
@@ -476,7 +476,7 @@
       "model": "Basic",
       "category": "Memorias RAM",
       "price": 120000,
-      "stock": 7,
+      "stock": 6,
       "realPowerConsumption": "3.4W - 4.0W",
       "images": [
         "/images/ram/netac_basic_16gb.webp"

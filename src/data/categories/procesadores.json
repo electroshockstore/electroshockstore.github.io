@@ -7,7 +7,7 @@
       "model": "Ryzen 7 5700G",
       "category": "Procesadores",
       "price": 250000,
-      "stock": 7,
+      "stock": 5,
       "powerConsumption": 88,
       "realPowerConsumption": "65W (TDP) / 88W (PPT) - Puede alcanzar 125W con iGPU activa en carga",
       "manufacturerUrl": "https://www.amd.com/es/products/processors/desktops/ryzen.html",
@@ -122,32 +122,6 @@
       },
       "ddrType": "DDR5"
     },
-    {
-      "id": 304,
-      "name": "AMD Ryzen 5 8600G AM5 DDR5",
-      "brand": "AMD",
-      "model": "Ryzen 5 8600G",
-      "category": "Procesadores",
-      "price": 235000,
-      "stock": 1,
-      "realPowerConsumption": "65W (TDP) / 88W (PPT) - Hasta 105W con overclock de GPU",
-      "manufacturerUrl": "https://www.amd.com/es/products/processors/desktops/ryzen/8000-series/amd-ryzen-5-8600g.html",
-      "images": [
-        "/images/procesadores/ryzen5_5800g.webp",
-        "/images/procesadores/ryzen5_5800g_side.webp"
-      ],
-      "description": "Procesador AMD Ryzen 5 8600G 5.0GHz AM5 con gráfica integrada Radeon 760M",
-      "specifications": {
-        "Marca": "AMD",
-        "Modelo": "8600G",
-        "Socket": "AM5",
-        "Núcleos": "6",
-        "hilos": "12",
-        "TDP": "65 W",
-        "graficosIntegrados": "Radeon 760M"
-      },
-      "ddrType": "DDR5"
-    },
     
     {
       "id": 305,
@@ -213,7 +187,7 @@
       "model": "Ryzen 5 4500",
       "category": "Procesadores",
       "price": 85000,
-      "stock": 8,
+      "stock": 7,
       "realPowerConsumption": "65W (TDP) / 72W (PPT Max Load)",
       "manufacturerUrl": "https://www.amd.com/es/products/processors/desktops/ryzen/4000-series/amd-ryzen-5-4500.html",
       "images": [
@@ -233,44 +207,7 @@
       },
       "ddrType": "DDR4"
     },
-    {
-      "id": 308,
-      "name": "AMD Ryzen 5 3400G AM4",
-      "brand": "AMD",
-      "model": "Ryzen 5 3400G",
-      "category": "Procesadores",
-      "price": 105000,
-      "stock": 1,
-      "powerConsumption": 65,
-      "realPowerConsumption": "65W (TDP) / 85W (PPT con iGPU en carga)",
-      "manufacturerUrl": "https://www.amd.com/es/products/apu/amd-ryzen-5-3400g",
-      "images": [
-        "/images/procesadores/R5_3400g.webp"
-      ],
-      "description": "Procesador AMD Ryzen 5 3400G 4 núcleos, 8 hilos, hasta 4.2GHz con gráfica integrada Radeon Vega 11",
-      "sku": "AMD-R5-3400G",
-      "specifications": {
-        "Marca": "AMD",
-        "Línea": "Ryzen 5",
-        "Modelo": "3400G",
-        "Modelo alfanumérico": "YD3400C5FHBOX",
-        "Arquitectura": "Zen+ (12nm)",
-        "Socket": "AM4",
-        "Núcleos": "4",
-        "hilos": "8",
-        "Frecuencia base": "3.7 GHz",
-        "Frecuencia turbo": "4.2 GHz",
-        "TDP": "65 W",
-        "graficosIntegrados": "AMD Radeon Vega 11",
-        "Marca de GPU": "AMD",
-        "Línea de GPU": "Radeon",
-        "Modelo de GPU": "Vega 11",
-        "Tipo memoria": "DDR4",
-        "Capacidad máxima RAM": "64 GB",
-        "Año de lanzamiento": "2019"
-      },
-      "ddrType": "DDR4"
-    },
+    
     {
       "id": 309,
       "name": "AMD Athlon 3000G AM4",
@@ -579,48 +516,7 @@
       },
       "ddrType": "DDR4"
     },
-    {
-      "id": 317,
-      "name": "AMD Ryzen 7 5700 AM4 sin gráfica integrada",
-      "brand": "AMD",
-      "model": "Ryzen 7 5700",
-      "category": "Procesadores",
-      "price": 200000,
-      "stock": 1,
-      "powerConsumption": 65,
-      "realPowerConsumption": "65W (TDP)",
-      "manufacturerUrl": "https://www.amd.com/en/products/cpu/amd-ryzen-7-5700",
-      "images": [
-        "/images/procesadores/r7_5700g.webp",
-        "/images/procesadores/r7_5700x.webp"
-      ],
-      "description": "Procesador AMD Ryzen 7 5700 8 núcleos, 16 hilos, hasta 4.6GHz sin gráfica integrada",
-      "sku": "AMD-R7-5700",
-      "specifications": {
-        "Marca": "AMD",
-        "Línea": "Ryzen 7",
-        "Modelo": "5700",
-        "Modelo alfanumérico": "100-100000743BOX",
-        "Arquitectura": "Zen 3 (Cezanne)",
-        "Socket": "AM4",
-        "Núcleos": "8",
-        "hilos": "16",
-        "Frecuencia base": "3.7 GHz",
-        "Frecuencia turbo": "4.6 GHz",
-        "Cache L3": "16 MB",
-        "TDP": "65 W",
-        "graficosIntegrados": "No",
-        "Marca de GPU": "N/A",
-        "Línea de GPU": "N/A",
-        "Modelo de GPU": "N/A",
-        "Tipo memoria": "DDR4",
-        "Velocidad memoria DDR4": "3200 MT/s",
-        "Capacidad máxima RAM": "128 GB",
-        "Canales memoria": "2",
-        "Año de lanzamiento": "2022"
-      },
-      "ddrType": "DDR4"
-    },
+    
     {
       "id": 318,
       "name": "AMD Ryzen 7 5700X AM4 sin gráfica integrada sin cooler",

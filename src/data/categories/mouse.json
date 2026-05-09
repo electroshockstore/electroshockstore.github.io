@@ -8,7 +8,7 @@
       "category": "Mouse",
       "manufacturerUrl": "https://www.logitech.com/es-roam/products/",
       "price": 45000,
-      "stock": 5,
+      "stock": 4,
       "images": [
         "/images/mouse/logitech_g305mouse.webp",
         "/images/mouse/logitech_g305mouse_side.webp",
@@ -840,7 +840,7 @@
   "model": "V103-AURORA",
   "category": "Mouse",
   "price": 10000,
-  "stock": 4,
+  "stock": 3,
   "sku": "SHOPLY-V103-AURORA",
   "description": "Mousepad gaming XL 700x300mm con diseño Aurora Boreal, superficie suave y base antideslizante ideal para escritorio completo",
   "images": [

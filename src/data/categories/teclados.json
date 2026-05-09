@@ -548,45 +548,7 @@
         "Plug and Play": "Sí"
       }
     },
-    {
-      "id": 713,
-      "name": "Redragon S101-BA-Kit 4x1 RGB Alámbrico USB",
-      "brand": "Redragon",
-      "model": "S101-BA",
-      "category": "Teclados",
-      "manufacturerUrl": "https://www.redragonzone.com/collections/",
-      "price": 40000,
-      "stock": 1,
-      "sku": "RED-S101-BA",
-      "description": "Combo gaming 4 en 1: Teclado membrana RGB + Mouse 6 botones + Pad + Auricular",
-      "images": [
-        "/images/teclados/RG_s101-BA_set.webp",
-        "/images/teclados/RG_s101-BA_side.webp",
-        "/images/teclados/RG_s101-BA_specs.webp"
-      ],
-      "specifications": {
-        "Marca": "Redragon",
-        "Modelo": "S101-BA",
-        "Modelo del teclado": "Harpe K503",
-        "Modelo del mouse": "Centrophorus M601",
-        "Arquitectura del teclado": "Membrana",
-        "Tipo de switch": "Membrana silenciosa",
-        "Iluminación del teclado": "RGB Rainbow con 7 modos",
-        "tipoConectividad": "Alámbrico",
-        "Conexión del teclado": "USB 2.0",
-        "Reposamuñecas": "Integrado",
-        "Teclas multimedia": "Sí, dedicadas",
-        "Durabilidad del teclado": "Hasta 10 millones de pulsaciones",
-        "DPI del mouse": "800 / 1600 / 2400 / 3200",
-        "Sensor del mouse": "Óptico Redragon",
-        "Botones del mouse": "6 botones programables",
-        "Peso del mouse": "135 g",
-        "Base del mouse": "Deslizadores teflón",
-        "Cable del mouse": "1.8 m mallado",
-        "Compatibilidad": "Windows / macOS / Linux",
-        "Plug and Play": "Sí"
-      }
-    },
+    
     {
       "id": 714,
       "name": "Logitech MK220 - Kit Teclado + Mouse Membrana Inalámbrico",
