@@ -68,9 +68,9 @@ export const flashSaleConfig = {
   
   // Productos en oferta con sus descuentos individuales y stock
   products: [
-    { id: 501, discountPercentage: 20, stock: 5 },  // Logitech G203 - 20% OFF - 5 unidades
+    { id: 228, discountPercentage: 10, stock: 5 },  // Logitech G203 - 20% OFF - 5 unidades
     { id: 704, discountPercentage: 10, stock: 5 },  // Producto 704 - 10% OFF - 5 unidades
-    { id: 414, discountPercentage: 10, stock: 2 }   // Producto 414 - 10% OFF - 2 unidades
+    { id: 806, discountPercentage: 16.50, stock: 2 }   // Producto 414 - 10% OFF - 2 unidades
   ],
   
   // Habilitar/deshabilitar la oferta flash

@@ -736,7 +736,7 @@
       "model": "SA500",
       "category": "Almacenamiento",
       "price": 150000,
-      "stock": 3,
+      "stock": 10,
       "sku": "NETAC-960-SA500",
       "description": "SSD SATA III 2.5\" de 960GB con memoria 3D NAND, lectura 560 MB/s, escritura 520 MB/s",
       "manufacturerUrl": "https://www.netac.com/",

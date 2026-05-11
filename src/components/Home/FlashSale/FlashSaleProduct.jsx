@@ -259,7 +259,7 @@ const FlashSaleProduct = ({
 
           {/* Precio final — protagonista absoluto */}
           <span className="font-mono text-2xl sm:text-[32px] font-bold text-white tracking-tight leading-none">
-            {formatPrice(discountedPrice)}
+            {formatPrice(discountedPrice)} EN EFECTIVO
           </span>
 
           {/* Cuotas o saving pill */}
