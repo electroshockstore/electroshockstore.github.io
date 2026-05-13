@@ -578,7 +578,7 @@
       "category": "Memorias RAM",
       "manufacturerUrl": "https://www.netac.com/",
       "price": 190000,
-      "stock": 4,
+      "stock": 8,
       "realPowerConsumption": "2.5W - 3.0W",
       "images": [
         "/images/ram/netac_sodimm16.webp",
@@ -687,7 +687,7 @@
       "category": "Memorias RAM",
       "manufacturerUrl": "https://www.netac.com/",
       "price": 250000,
-      "stock": 3,
+      "stock": 5,
       "realPowerConsumption": "2.5W - 3.0W",
       "images": [
         "/images/ram/netacddr5_soddim.webp",
@@ -760,7 +760,7 @@
       "model": "DDR4 16GB",
       "category": "Memorias RAM",
       "price": 140000,
-      "stock": 2,
+      "stock": 5,
       "sku": "AiMERICAN-DDR4-16GB",
       "realPowerConsumption": "2.8W - 3.4W",
       "images": [
@@ -824,5 +824,49 @@
       },
       "ddrType": "DDR5"
     }
+
+,
+{
+  "id": 429,
+  "name": "ADATA 16GB DDR5 5600MHz SODIMM",
+  "brand": "ADATA",
+  "model": "AD5S560016G-S",
+  "category": "Memorias RAM",
+  "price": 350000,
+  "stock": 2,
+  "powerConsumption": 3,
+  "realPowerConsumption": "1.1W-3W por módulo",
+  "manufacturerUrl": "https://www.adata.com/ar/consumer/category/computer-memory/ddr5-5600-so-dimm/",
+  "images": [
+    "/images/ram/adata16_ddr5sodimm.webp",
+    "/images/ram/adata_16_ddr5sodimm_side.webp",
+    "/images/ram/adata_16_ddr5sodimm_side2.webp"
+  ],
+  "description": "Memoria RAM ADATA de 16GB DDR5 a 5600MHz en formato SODIMM, diseñada para notebooks de última generación ofreciendo alta eficiencia y velocidad.",
+  "sku": "ADATA-16GB-DDR5-5600-SODIMM",
+  "specifications": {
+    "Marca": "ADATA",
+    "Línea": "Standard",
+    "Modelo": "AD5S560016G-S",
+    "Modelo detallado": "AD5S560016G-S",
+    "capacidadTotal": "16 GB",
+    "modulos": "1",
+    "configuracion": "1x16 GB",
+    "tipoMemoriaRAM": "DDR5",
+    "formato": "SODIMM",
+    "Velocidad": "5600 MHz",
+    "Latencia": "CL46",
+    "Voltaje": "1.1V",
+    "ecc": "On-Die ECC",
+    "Compatibilidad": "Notebooks / Mini PCs DDR5",
+    "Disipador": "No",
+    "Color": "Verde / Negro (PCB)",
+    "rgb": "No",
+    "anchoBanda": "45 GB/s",
+    "Año de lanzamiento": "2022"
+  },
+  "ddrType": "DDR5"
+}
+
   ]
 }

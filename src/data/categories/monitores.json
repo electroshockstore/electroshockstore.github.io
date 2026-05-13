@@ -265,6 +265,9 @@
       "manufacturerUrl": "https://www.samsung.com/",
       "images": [
         "/images/monitores/samsung_essentials3.webp"
+      ,      "/images/monitores/samsung_essentials3_side.webp",
+            "/images/monitores/samsung_essentials3_side2.webp",
+                  "/images/monitores/samsung_essentials3_side3.webp"
       ],
       "description": "Monitor Samsung Essential S3 S30GD de 24 pulgadas con panel IPS, resolución Full HD y tasa de refresco de 100Hz",
       "sku": "SAMSUNG-S30GD-24",
@@ -298,13 +301,15 @@
       "brand": "Philips",
       "model": "221V8",
       "category": "Monitores",
-      "price": 130000,
-      "stock": 1,
+      "price": 120000,
+      "stock": 3,
       "powerConsumption": 18,
       "realPowerConsumption": "15W-18W en uso",
       "manufacturerUrl": "https://www.philips.com/",
       "images": [
-        "/images/monitores/philips22.webp"
+        "/images/monitores/philips22.webp",
+         "/images/monitores/philips22_side.webp",
+          "/images/monitores/philips22_side2.webp"
       ],
       "description": "Monitor Philips V-Line 221V8 de 22 pulgadas con resolución Full HD y panel VA",
       "sku": "PHILIPS-221V8",
@@ -330,6 +335,133 @@
         "Color": "Negro",
         "Año de lanzamiento": "2023"
       }
+    },
+
+  {
+    "id": 1008,
+    "name": "LG 24 24MS500 LED 100Hz HDMI Full HD",
+    "brand": "LG",
+    "model": "24MS500-B",
+    "category": "Monitores",
+    "manufacturerUrl": "https://www.lg.com/monitor",
+    "price": 130000,
+    "stock": 1,
+    "sku": "LG-24MS500B",
+    "description": "Monitor LG de 24 pulgadas con panel IPS, frecuencia de actualización de 100Hz y resolución Full HD para una experiencia visual fluida.",
+    "images": [
+      "/images/monitores/lg_24ms500.webp",
+      "/images/monitores/lg_24ms500_side.webp",
+      "/images/monitores/lg_24ms500_side2.webp",
+      "/images/monitores/lg_24ms500_side3.webp"
+
+    ],
+    "specifications": {
+      "Marca": "LG",
+      "Línea": "Monitor IPS",
+      "Modelo": "24MS500-B",
+      "tipoPantalla": "Plano",
+      "tamanoPantalla": "24 pulgadas",
+      "resolucion": "1920 x 1080 (Full HD)",
+      "relacionAspecto": "16:9",
+      "tipoPanel": "IPS",
+      "frecuenciaActualizacion": "100 Hz",
+      "frecuenciaMaxima": "100 Hz",
+      "tiempoRespuesta": "5 ms (GtG)",
+      "brillo": "250 nits",
+      "contraste": "1000:1",
+      "coberturaColor": "NTSC 72%",
+      "tecnologiaSincronizacion": "No especifica",
+      "HDR": "No",
+      "Conectividad": "2x HDMI",
+      "angulosVision": "178°/178°",
+      "montajeVESA": "Sí (75x75)",
+      "altavocesIntegrados": "No",
+      "usoRecomendado": "Oficina / Multimedia"
     }
-  ]
+  },
+  {
+    "id": 1009,
+    "name": "Samsung Curvo Led 1080p 4ms Full HD",
+    "brand": "Samsung",
+    "model": "C24F390FHL",
+    "category": "Monitores",
+    "manufacturerUrl": "https://www.samsung.com/monitor",
+    "price": 160000,
+    "stock": 1,
+    "sku": "SAM-C24F390",
+    "description": "Monitor curvo Samsung de 24 pulgadas con curvatura 1800R, ofreciendo una experiencia inmersiva y modo Eye Saver.",
+    "images": [
+      "/images/monitores/samsung_C24F390FHL.webp",
+      "/images/monitores/samsung_C24F390FHL_side.webp",
+         "/images/monitores/samsung_C24F390FHL_side2.webp",
+            "/images/monitores/samsung_C24F390FHL_side3.webp",
+               "/images/monitores/samsung_C24F390FHL_side4.webp"
+
+    ],
+    "specifications": {
+      "Marca": "Samsung",
+      "Línea": "CF390",
+      "Modelo": "C24F390FHL",
+      "tipoPantalla": "Curvo (1800R)",
+      "tamanoPantalla": "24 pulgadas",
+      "resolucion": "1920 x 1080 (Full HD)",
+      "relacionAspecto": "16:9",
+      "tipoPanel": "VA",
+      "frecuenciaActualizacion": "60 Hz",
+      "frecuenciaMaxima": "60 Hz",
+      "tiempoRespuesta": "4 ms (GtG)",
+      "brillo": "250 nits",
+      "contraste": "3000:1",
+      "coberturaColor": "72% NTSC",
+      "tecnologiaSincronizacion": "AMD FreeSync",
+      "HDR": "No",
+      "Conectividad": "1x HDMI, 1x VGA",
+      "angulosVision": "178°/178°",
+      "montajeVESA": "Sí (75x75)",
+      "altavocesIntegrados": "No",
+      "usoRecomendado": "Hogar / Multimedia"
+    }
+  },
+  {
+    "id": 1010,
+    "name": "Samsung 22 LED IPS 75Hz Bordes Ultradelgados",
+    "brand": "Samsung",
+    "model": "LF22T350FHL",
+    "category": "Monitores",
+    "manufacturerUrl": "https://www.samsung.com/monitor",
+    "price":120000,
+    "stock": 1,
+    "sku": "SAM-LF22T350",
+    "description": "Monitor Samsung T350 de 22 pulgadas con diseño minimalista sin bordes en tres lados y panel IPS para colores nítidos.",
+    "images": [
+      "/images/monitores/samsung_22t350.webp",
+      "/images/monitores/samsung_22t350_side.webp",
+        "/images/monitores/samsung_22t350_side2.webp",
+          "/images/monitores/samsung_22t350_side3.webp"
+    ],
+    "specifications": {
+      "Marca": "Samsung",
+      "Línea": "T350",
+      "Modelo": "LF22T350FHL",
+      "tipoPantalla": "Plano",
+      "tamanoPantalla": "22 pulgadas",
+      "resolucion": "1920 x 1080 (Full HD)",
+      "relacionAspecto": "16:9",
+      "tipoPanel": "IPS",
+      "frecuenciaActualizacion": "75 Hz",
+      "frecuenciaMaxima": "75 Hz",
+      "tiempoRespuesta": "5 ms (GtG)",
+      "brillo": "250 nits",
+      "contraste": "1000:1",
+      "coberturaColor": "72% NTSC",
+      "tecnologiaSincronizacion": "AMD FreeSync",
+      "HDR": "No",
+      "Conectividad": "1x HDMI, 1x VGA",
+      "angulosVision": "178°/178°",
+      "montajeVESA": "Sí (100x100)",
+      "altavocesIntegrados": "No",
+      "usoRecomendado": "Oficina / Diseño básico"
+    }
+  }
+]
 }

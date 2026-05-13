@@ -470,52 +470,7 @@
       },
       "ddrType": "DDR4/DDR5"
     },
-    {
-      "id": 316,
-      "name": "AMD Ryzen 5 5600GT AM4 con gráfica integrada",
-      "brand": "AMD",
-      "model": "Ryzen 5 5600GT",
-      "category": "Procesadores",
-      "price": 200000,
-      "stock": 1,
-      "powerConsumption": 65,
-      "realPowerConsumption": "65W (TDP)",
-      "manufacturerUrl": "https://www.amd.com/en/products/apu/amd-ryzen-5-5600gt",
-      "images": [
-        "/images/procesadores/r5_5600gt.webp",
-        "/images/procesadores/ryzen5_5600gt.webp",
-        "/images/procesadores/ryzen5_5600gt_side.webp",
-        "/images/procesadores/ryzen5_5600gt_side2.webp",
-        "/images/procesadores/ryzen5_5600gt_side3.webp"
-      ],
-      "description": "Procesador AMD Ryzen 5 5600GT 6 núcleos, 12 hilos, hasta 4.6GHz con gráfica integrada Radeon Vega 7",
-      "sku": "AMD-R5-5600GT",
-      "specifications": {
-        "Marca": "AMD",
-        "Línea": "Ryzen 5",
-        "Modelo": "5600GT",
-        "Modelo alfanumérico": "100-100001488BOX",
-        "Arquitectura": "Zen 3 (Cezanne)",
-        "Socket": "AM4",
-        "Núcleos": "6",
-        "hilos": "12",
-        "Frecuencia base": "3.6 GHz",
-        "Frecuencia turbo": "4.6 GHz",
-        "Cache L3": "16 MB",
-        "TDP": "65 W",
-        "graficosIntegrados": "AMD Radeon Vega 7",
-        "Marca de GPU": "AMD",
-        "Línea de GPU": "Radeon Vega",
-        "Modelo de GPU": "7",
-        "Tipo memoria": "DDR4",
-        "Velocidad memoria DDR4": "3200 MT/s",
-        "Capacidad máxima RAM": "128 GB",
-        "Canales memoria": "2",
-        "Disipacion incluida": "Wraith Stealth Cooler",
-        "Año de lanzamiento": "2024"
-      },
-      "ddrType": "DDR4"
-    },
+
     
     {
       "id": 318,

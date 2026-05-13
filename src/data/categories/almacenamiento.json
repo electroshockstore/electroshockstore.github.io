@@ -62,7 +62,7 @@
       "model": "XPG Spectrix S40G",
       "category": "Almacenamiento",
       "price": 230000,
-      "stock": 1,
+      "stock": 2,
       "sku": "ADATA-1TB-S40G",
       "description": "SSD M.2 NVMe PCIe Gen3 x4 de 1TB con iluminación RGB configurable, lectura 3500 MB/s, escritura 3000 MB/s",
       "manufacturerUrl": "https://www.xpg.com/es/xpg/spectrix-s40g",
@@ -291,7 +291,7 @@
       "model": "NM620",
       "category": "Almacenamiento",
       "price": 140000,
-      "stock": 6,
+      "stock": 7,
       "sku": "LEXAR-512-NM620",
       "description": "SSD M.2 NVMe Gen3 x4 de 512GB, lectura 3500 MB/s, escritura 3000 MB/s",
       "manufacturerUrl": "https://www.lexar.com/product/lexar-nm620-m-2-2280-nvme-ssd/",
@@ -314,7 +314,7 @@
       "model": "Burst Elite",
       "category": "Almacenamiento",
       "price": 100000,
-      "stock": 7,
+      "stock": 9,
       "sku": "PATRIOT-480-ELITE",
       "description": "SSD SATA III 2.5\" de 480GB, lectura 450 MB/s, escritura 320 MB/s, 3D NAND",
       "manufacturerUrl": "https://viper.patriotmemory.com/products/patriot-burst-elite-ssd",
@@ -476,7 +476,7 @@
       "model": "Swordfish ASWORDFISH-500G-C",
       "category": "Almacenamiento",
       "price": 90000,
-      "stock": 5,
+      "stock": 6,
       "sku": "ADATA-500-SWORD",
       "description": "SSD M.2 NVMe Gen3 x4 de 500GB con disipador de aluminio, lectura 1800 MB/s",
       "manufacturerUrl": "https://www.adata.com/ar/consumer/category/ssds/solid-state-drives-SWORDFISH/",
@@ -802,7 +802,7 @@
       "model": "SU650",
       "category": "Almacenamiento",
       "price": 110000,
-      "stock": 9,
+      "stock": 11,
       "sku": "ADATA-480-SU650",
       "description": "SSD SATA III 2.5\" de 480GB con memoria 3D NAND y caché SLC, lectura 520 MB/s, escritura 450 MB/s",
       "manufacturerUrl": "https://www.adata.com/ar/consumer/category/ssds/solid-state-drives-SU650/",
@@ -829,8 +829,115 @@
         "Soporte TRIM": "Sí",
         "Soporte S.M.A.R.T": "Sí"
       }
-    }
+    },
     
+  {
+    "id": 231,
+    "name": "SSD Aimerican Immortality 512GB SATA III 2.5\"",
+    "brand": "Aimerican",
+    "model": "Immortality",
+    "category": "Almacenamiento",
+    "price": 100000,
+    "stock": 5,
+    "sku": "AIM-512-IMMORTALITY",
+    "description": "Unidad de estado sólido Aimerican Immortality de 512GB, interfaz SATA III de 2.5\" para una actualización confiable de PC y laptops.",
+    "manufacturerUrl": "https://www.aimerican.com/storage",
+    "images": [
+      "/images/almacenamiento/ssd_aimerican_1tb.webp"
    
-  ]
+    ],
+    "specifications": {
+      "Marca": "Aimerican",
+      "Línea": "Immortality",
+      "Modelo": "AISSD512S25",
+      "Modelo detallado": "AISSD512S25",
+      "capacidadTotal": "512 GB",
+      "formato": "2.5\"",
+      "Interfaz": "SATA III 6 Gb/s",
+      "tipoMemoriaRAM": "3D NAND",
+      "Velocidad de lectura": "hasta 500 MB/s",
+      "Velocidad de escritura": "hasta 450 MB/s",
+      "Controlador": "N/A",
+      "Resistencia": "N/A",
+      "Consumo energético": "bajo consumo",
+      "Compatibilidad": "PC y notebooks con interfaz SATA",
+      "Soporte TRIM": "Sí",
+      "Soporte S.M.A.R.T": "Sí"
+    }
+  },
+
+ {
+    "id": 232,
+    "name": "SSD NVMe 500GB Western Digital Blue SN570",
+    "brand": "Western Digital",
+    "model": "SN570",
+    "category": "Almacenamiento",
+    "price": 160000,
+    "stock": 1,
+    "sku": "WD-500-SN570",
+    "description": "SSD NVMe PCIe Gen3 x4 de alto rendimiento. Una solución potente para creadores que buscan velocidad y fiabilidad sin saltar a Gen4.",
+    "manufacturerUrl": "https://www.westerndigital.com/es-la/products/internal-drives/wd-blue-sn570-nvme-ssd",
+    "images": [
+       "/images/almacenamiento/wd_blue_500.webp",
+      "/images/almacenamiento/wd_blue_500_side.webp",
+      "/images/almacenamiento/wd_blue_500_side2.webp"
+    ],
+    "specifications": {
+      "Marca": "Western Digital",
+      "Línea": "Blue",
+      "Modelo": "SN570",
+      "Modelo detallado": "WDS500G3B0C",
+      "capacidadTotal": "500 GB",
+      "formato": "M.2 2280",
+      "Interfaz": "PCIe Gen3 x4",
+      "tipoMemoriaRAM": "TLC NAND",
+      "Velocidad de lectura": "hasta 3500 MB/s",
+      "Velocidad de escritura": "hasta 2300 MB/s",
+      "Controlador": "WD Proprietary",
+      "Resistencia": "300 TBW",
+      "Consumo energético": "Eficiencia optimizada",
+      "Compatibilidad": "Motherboards con slot M.2 NVMe PCIe Gen3 o superior",
+      "Soporte TRIM": "Sí",
+      "Soporte S.M.A.R.T": "Sí"
+    }
+  }
+,
+
+{
+  "id": 233,
+  "name": "SSD NVMe XPG Spectrix S40G 512GB RGB PCIe Gen3x4",
+  "brand": "Adata",
+  "model": "XPG Spectrix S40G",
+  "category": "Almacenamiento",
+  "price": 160000,
+  "stock": 1,
+  "sku": "XPG-512-S40G",
+  "description": "SSD NVMe de alto rendimiento con iluminación RGB programable y velocidades de hasta 3500MB/s, ideal para setups gaming que buscan estética y velocidad.",
+  "manufacturerUrl": "https://www.xpg.com/es/xpg/610",
+  "images": [
+    "/images/almacenamiento/spectrix_s40g_512.webp",
+    "/images/almacenamiento/spectrix_s40g_512_side.webp",
+    "/images/almacenamiento/spectrix_s40g_512_side2.webp",
+     "/images/almacenamiento/spectrix_s40g_512_side3.webp"
+  ],
+  "specifications": {
+    "Marca": "Adata",
+    "Línea": "XPG Spectrix",
+    "Modelo": "S40G",
+    "Modelo detallado": "AS40G-512GT-C",
+    "capacidadTotal": "512 GB",
+    "formato": "M.2 2280",
+    "Interfaz": "PCIe Gen3x4 NVMe 1.3",
+    "tipoMemoriaRAM": "3D NAND",
+    "Velocidad de lectura": "hasta 3500 MB/s",
+    "Velocidad de escritura": "hasta 2400 MB/s",
+    "Controlador": "Realtek RTS5762",
+    "Resistencia": "320 TBW",
+    "Consumo energético": "Bajo consumo con soporte LDPC",
+    "Compatibilidad": "Motherboards con slot M.2 NVMe PCIe Gen3 o superior",
+    "Iluminación": "RGB personalizable (XPG RGB Sync App)",
+    "Soporte S.M.A.R.T": "Sí"
+  }
+}
+]
 }
