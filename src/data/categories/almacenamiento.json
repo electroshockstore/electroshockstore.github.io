@@ -868,7 +868,7 @@
 
  {
     "id": 232,
-    "name": "SSD NVMe 500GB Western Digital Blue SN570",
+    "name": "NVMe 500GB Western Digital Blue SN570",
     "brand": "Western Digital",
     "model": "SN570",
     "category": "Almacenamiento",
@@ -905,7 +905,7 @@
 
 {
   "id": 233,
-  "name": "SSD NVMe XPG Spectrix S40G 512GB RGB PCIe Gen3x4",
+  "name": "NVMe XPG Spectrix S40G 512GB RGB PCIe Gen3x4",
   "brand": "Adata",
   "model": "XPG Spectrix S40G",
   "category": "Almacenamiento",
