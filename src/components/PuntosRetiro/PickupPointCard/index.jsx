@@ -24,7 +24,7 @@ const PickupPointCard = memo(({ point }) => {
         </div>
 
         {/* Content area - Diseño flotante moderno */}
-        <div className="relative flex-1 flex flex-col p-5 gap-3.5">
+        <div className="relative flex-1 flex flex-col p-4 gap-1.5">
           
           {/* Security features - Expandible con glassmorphism */}
           <SecurityFeatures security={point.security} />

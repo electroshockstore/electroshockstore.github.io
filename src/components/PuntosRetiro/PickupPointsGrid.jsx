@@ -14,14 +14,15 @@ const PickupPointsGrid = memo(({ pickupPoints }) => {
 
     const handleScroll = () => {
       const scrollLeft = container.scrollLeft;
-      const cardWidth = container.offsetWidth;
+      const containerWidth = container.offsetWidth;
+      const cardWidth = containerWidth * 0.82 + 20; // 82vw + gap de 20px
       const index = Math.round(scrollLeft / cardWidth);
-      setActiveIndex(index);
+      setActiveIndex(Math.min(index, pickupPoints.length - 1));
     };
 
     container.addEventListener('scroll', handleScroll);
     return () => container.removeEventListener('scroll', handleScroll);
-  }, []);
+  }, [pickupPoints.length]);
 
   return (
     <div className="w-full">
@@ -53,10 +54,10 @@ const PickupPointsGrid = memo(({ pickupPoints }) => {
       {/* Mobile Carousel */}
       <MotionReveal animation="fade-in" duration={0.7} delay={0.2}>
         <div className="md:hidden">
-          {/* Carousel Container */}
+          {/* Carousel Container - ASIMÉTRICO con overflow visible */}
           <div 
             ref={scrollContainerRef}
-            className="flex overflow-x-auto snap-x snap-mandatory scrollbar-hide gap-3 px-4 pb-2"
+            className="flex overflow-x-auto snap-x snap-mandatory scrollbar-hide gap-5 pl-5 pr-16 pb-2"
             style={{
               scrollbarWidth: 'none',
               msOverflowStyle: 'none',
@@ -66,7 +67,7 @@ const PickupPointsGrid = memo(({ pickupPoints }) => {
             {pickupPoints.map((point) => (
               <div 
                 key={point.id} 
-                className="flex-shrink-0 w-[90vw] snap-center"
+                className="flex-shrink-0 w-[82vw] snap-start"
               >
                 <PickupPointCard point={point} />
               </div>
@@ -81,8 +82,9 @@ const PickupPointsGrid = memo(({ pickupPoints }) => {
                 onClick={() => {
                   const container = scrollContainerRef.current;
                   if (container) {
+                    const cardWidth = container.offsetWidth * 0.82 + 20; // 82vw + gap
                     container.scrollTo({
-                      left: index * container.offsetWidth,
+                      left: index * cardWidth,
                       behavior: 'smooth'
                     });
                   }
