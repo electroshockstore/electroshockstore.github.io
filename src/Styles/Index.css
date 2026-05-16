@@ -5074,3 +5074,203 @@
 .pcb-highlight-text {
   text-shadow: 3px 3px 0px rgba(0,0,0,0.4);
 }
+
+/* ============================================
+   PICKUP POINTS CAROUSEL - Mobile
+   ============================================ */
+
+/* Ocultar scrollbar en todos los navegadores */
+.scrollbar-hide {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;  /* Chrome, Safari and Opera */
+}
+
+/* Smooth scroll para el carousel */
+.snap-x {
+  scroll-snap-type: x mandatory;
+}
+
+.snap-center {
+  scroll-snap-align: center;
+}
+
+/* Animación suave para el scroll */
+@media (prefers-reduced-motion: no-preference) {
+  .snap-x {
+    scroll-behavior: smooth;
+  }
+}
+
+/* ============================================
+   PICKUP CARD PREMIUM - Diseño moderno
+   ============================================ */
+
+/* Cubic bezier suave */
+.cubic-bezier-smooth {
+  transition-timing-function: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* Card wrapper con hover */
+.pickup-card-wrapper {
+  will-change: transform;
+}
+
+.pickup-card-wrapper:hover .pickup-card-premium {
+  transform: translateY(-4px) scale(1.01);
+}
+
+/* Card principal con glassmorphism premium */
+.pickup-card-premium {
+  background: linear-gradient(
+    180deg,
+    rgba(18, 27, 51, 0.95) 0%,
+    rgba(10, 16, 36, 0.98) 100%
+  );
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  border-radius: 28px;
+  border: 1px solid rgba(34, 245, 199, 0.18);
+  box-shadow: 
+    0 0 0 1px rgba(255, 255, 255, 0.02) inset,
+    0 10px 30px rgba(0, 0, 0, 0.45),
+    0 0 30px rgba(34, 245, 199, 0.08);
+  will-change: transform, box-shadow;
+}
+
+.pickup-card-premium:hover {
+  box-shadow: 
+    0 0 0 1px rgba(255, 255, 255, 0.04) inset,
+    0 20px 60px rgba(0, 0, 0, 0.55),
+    0 0 40px rgba(34, 245, 199, 0.15);
+}
+
+/* Point Badge Premium */
+.point-badge-premium {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(34, 245, 199, 0.3);
+  box-shadow: 
+    0 4px 12px rgba(0, 0, 0, 0.3),
+    0 0 20px rgba(34, 245, 199, 0.2);
+}
+
+/* Security Block Premium */
+.security-block-premium {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-radius: 18px;
+}
+
+/* Schedule Block Premium */
+.schedule-block-premium {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-radius: 18px;
+  padding: 14px;
+}
+
+/* Schedule Items */
+.schedule-item-premium {
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border-radius: 14px;
+  padding: 12px;
+  transition: all 350ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.schedule-item-premium:hover {
+  background: rgba(255, 255, 255, 0.04);
+  transform: translateY(-2px);
+}
+
+/* Weekend Block */
+.weekend-block-premium {
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-radius: 14px;
+  overflow: hidden;
+  transition: all 350ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.weekend-closed {
+  border: 1px solid rgba(255, 92, 122, 0.25);
+}
+
+.weekend-open {
+  border: 1px solid rgba(168, 85, 247, 0.25);
+}
+
+/* ============================================
+   MAP BUTTON PREMIUM - Borde RGB animado
+   ============================================ */
+
+.map-button-premium {
+  position: relative;
+  isolation: isolate;
+  will-change: transform, box-shadow;
+}
+
+.map-button-border-premium {
+  background: linear-gradient(
+    90deg,
+    #22F5C7,
+    #00D9FF,
+    #3B82F6,
+    #7B5CFF,
+    #A855F7,
+    #EC4899,
+    #FF5C7A,
+    #F59E0B,
+    #22F5C7
+  );
+  background-size: 300% 300%;
+  animation: map-button-border-flow-premium 4s linear infinite;
+  will-change: background-position;
+}
+
+@keyframes map-button-border-flow-premium {
+  0% {
+    background-position: 0% 50%;
+  }
+  100% {
+    background-position: 300% 50%;
+  }
+}
+
+/* Hover más rápido */
+.map-button-premium:hover .map-button-border-premium {
+  animation-duration: 2s;
+}
+
+/* Glow dinámico cyan */
+.map-button-premium::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 1rem;
+  box-shadow: 
+    0 0 20px rgba(34, 245, 199, 0.35),
+    0 0 40px rgba(0, 217, 255, 0.15);
+  opacity: 0;
+  transition: opacity 350ms cubic-bezier(0.22, 1, 0.36, 1);
+  pointer-events: none;
+  z-index: -1;
+}
+
+.map-button-premium:hover::after {
+  opacity: 1;
+  box-shadow: 
+    0 0 25px rgba(34, 245, 199, 0.5),
+    0 0 50px rgba(0, 217, 255, 0.25);
+}
+

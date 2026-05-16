@@ -5,47 +5,41 @@ import CardBackground from './CardBackground';
 import PointBadge from './PointBadge';
 import CardImage from './CardImage';
 import LocationInfo from './LocationInfo';
-import InfoBlock from './InfoBlock';
 import MapButton from './MapButton';
 
 const PickupPointCard = memo(({ point }) => {
   return (
-    <div className="h-full font-sans">
-      <div className="ppc-card pickup-card-bg relative h-full flex flex-col rounded-2xl sm:rounded-3xl border border-white/[0.08] overflow-hidden shadow-2xl">
+    <div className="h-full font-sans pickup-card-wrapper">
+      {/* Card principal con diseño premium */}
+      <div className="pickup-card-premium relative h-full flex flex-col overflow-hidden transition-all duration-[350ms] cubic-bezier-smooth">
+        
         {/* Background elements */}
         <CardBackground pointId={point.id} />
 
-        {/* Image header with badge and location */}
-        <div className="relative">
+        {/* Imagen dominante más grande */}
+        <div className="relative flex-shrink-0">
           <CardImage image={point.image} name={point.name} />
           <PointBadge pointId={point.id} />
           <LocationInfo name={point.name} address={point.address} />
         </div>
 
-        {/* Content area */}
-        <div className="relative flex-1 flex flex-col p-4 sm:p-6 gap-4 sm:gap-5">
+        {/* Content area - Diseño flotante moderno */}
+        <div className="relative flex-1 flex flex-col p-5 gap-3.5">
           
-          {/* Security features */}
-          <InfoBlock variant="security">
-            <SecurityFeatures security={point.security} />
-          </InfoBlock>
+          {/* Security features - Expandible con glassmorphism */}
+          <SecurityFeatures security={point.security} />
 
-          {/* Separator */}
-          <hr className="border-none border-t-[1.5px] border-dashed border-white/[0.07] m-0" />
+          {/* Schedule - Diseño moderno sin separador */}
+          <ScheduleGrid
+            days={point.days}
+            schedule={point.schedule}
+            weekendSchedule={point.weekendSchedule}
+          />
 
-          {/* Schedule */}
-          <InfoBlock variant="schedule">
-            <ScheduleGrid
-              days={point.days}
-              schedule={point.schedule}
-              weekendSchedule={point.weekendSchedule}
-            />
-          </InfoBlock>
+          {/* Spacer flexible */}
+          <div className="flex-1 min-h-[12px]" />
 
-          {/* Spacer */}
-          <div className="flex-1" />
-
-          {/* CTA Button */}
+          {/* CTA Button - Gigante y dominante */}
           <MapButton mapUrl={point.mapUrl} />
 
         </div>

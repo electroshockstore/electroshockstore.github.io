@@ -3,54 +3,52 @@ import { Calendar, Clock } from 'lucide-react';
 
 const ScheduleGrid = memo(({ days, schedule, weekendSchedule }) => {
   return (
-    <div className="space-y-3 sm:space-y-4 flex-shrink-0">
-      {/* Grid 2 columnas ultra-optimizado */}
-      <div className="grid grid-cols-[1.4fr_1fr] gap-3 sm:gap-4">
+    <div className="schedule-block-premium space-y-3.5">
+      {/* Grid 2 columnas moderno */}
+      <div className="grid grid-cols-2 gap-3">
         {/* Días */}
-        <div className="relative bg-gray-800/50 rounded-xl sm:rounded-2xl border border-white/10 p-3 sm:p-5 overflow-hidden hover:bg-gray-800/70 transition-colors duration-200">
-          <div className="flex flex-col gap-2 sm:gap-3">
-           <div className="w-8 h-8 sm:w-10 sm:h-10 bg-blue-500/20 rounded-lg sm:rounded-xl flex items-center justify-center border border-blue-400/30">
-              <Calendar className="w-4 h-4 sm:w-5 sm:h-5 text-blue-400" strokeWidth={2} />
+        <div className="schedule-item-premium group">
+          <div className="flex flex-col gap-2">
+            <div className="w-8 h-8 bg-[#3B82F6]/10 rounded-lg flex items-center justify-center border border-[#3B82F6]/30 shadow-[0_0_15px_rgba(59,130,246,0.12)] group-hover:shadow-[0_0_25px_rgba(59,130,246,0.25)] transition-all duration-[350ms]">
+              <Calendar className="w-4 h-4 text-[#3B82F6]" strokeWidth={2.5} />
             </div>
             <div>
-              <p className="text-[10px] sm:text-xs text-gray-400 font-medium mb-0.5 sm:mb-1 uppercase tracking-wide">Días</p>
-              <p className="text-sm sm:text-base font-bold text-white leading-tight whitespace-nowrap">{days}</p>
+              <p className="text-[9px] text-[#94A3B8] font-bold mb-0.5 uppercase tracking-[0.8px]">Días</p>
+              <p className="text-xs font-extrabold text-white leading-tight">{days}</p>
             </div>
           </div>
         </div>
 
         {/* Horario */}
-        <div className="relative bg-gray-800/50 rounded-xl sm:rounded-2xl border border-white/10 p-3 sm:p-5 overflow-hidden hover:bg-gray-800/70 transition-colors duration-200">
-          <div className="flex flex-col gap-2 sm:gap-3">
-            <div className="w-8 h-8 sm:w-10 sm:h-10 bg-cyan-500/20 rounded-lg sm:rounded-xl flex items-center justify-center border border-cyan-400/30">
-              <Clock className="w-4 h-4 sm:w-5 sm:h-5 text-cyan-400" strokeWidth={2} />
+        <div className="schedule-item-premium group">
+          <div className="flex flex-col gap-2">
+            <div className="w-8 h-8 bg-[#00D9FF]/10 rounded-lg flex items-center justify-center border border-[#00D9FF]/30 shadow-[0_0_15px_rgba(0,217,255,0.12)] group-hover:shadow-[0_0_25px_rgba(0,217,255,0.25)] transition-all duration-[350ms]">
+              <Clock className="w-4 h-4 text-[#00D9FF]" strokeWidth={2.5} />
             </div>
             <div>
-              <p className="text-[10px] sm:text-xs text-gray-400 font-medium mb-0.5 sm:mb-1 uppercase tracking-wide">Horario</p>
-              <p className="text-sm sm:text-base font-bold text-white leading-tight">{schedule}</p>
+              <p className="text-[9px] text-[#94A3B8] font-bold mb-0.5 uppercase tracking-[0.8px]">Horario</p>
+              <p className="text-xs font-extrabold text-white leading-tight">{schedule}</p>
             </div>
           </div>
         </div>
       </div>
       
-      {/* Fines de semana ultra-optimizado */}
+      {/* Fines de semana */}
       {weekendSchedule && (
-        <div className={`relative rounded-xl sm:rounded-2xl border overflow-hidden ${
-          weekendSchedule === 'NO' 
-            ? 'bg-red-500/10 border-red-500/30' 
-            : 'bg-purple-500/10 border-purple-500/30'
+        <div className={`weekend-block-premium ${
+          weekendSchedule === 'NO' ? 'weekend-closed' : 'weekend-open'
         }`}>
-          <div className="flex items-center gap-3 sm:gap-4 p-3 sm:p-5">
-            <div className={`w-8 h-8 sm:w-10 sm:h-10 rounded-lg sm:rounded-xl flex items-center justify-center border flex-shrink-0 ${
+          <div className="flex items-center gap-3 p-3.5">
+            <div className={`w-8 h-8 rounded-lg flex items-center justify-center border flex-shrink-0 ${
               weekendSchedule === 'NO'
-                ? 'bg-red-500/20 border-red-400/30'
-                : 'bg-purple-500/20 border-purple-400/30'
+                ? 'bg-[#FF5C7A]/10 border-[#FF5C7A]/30 shadow-[0_0_15px_rgba(255,92,122,0.15)]'
+                : 'bg-[#A855F7]/10 border-[#A855F7]/30 shadow-[0_0_15px_rgba(168,85,247,0.15)]'
             }`}>
-              <Calendar className={`w-4 h-4 sm:w-5 sm:h-5 ${weekendSchedule === 'NO' ? 'text-red-400' : 'text-purple-400'}`} strokeWidth={2} />
+              <Calendar className={`w-4 h-4 ${weekendSchedule === 'NO' ? 'text-[#FF5C7A]' : 'text-[#A855F7]'}`} strokeWidth={2.5} />
             </div>
             <div className="flex-1 min-w-0">
-              <p className="text-[10px] sm:text-xs text-gray-400 font-medium mb-0.5 sm:mb-1 uppercase tracking-wide">Fines de Semana / Feriados</p>
-              <p className={`text-base sm:text-lg font-black ${weekendSchedule === 'NO' ? 'text-red-400' : 'text-purple-400'}`}>
+              <p className="text-[9px] text-[#94A3B8] font-bold mb-0.5 uppercase tracking-[0.8px]">Fines de Semana</p>
+              <p className={`text-sm font-extrabold ${weekendSchedule === 'NO' ? 'text-[#FF5C7A]' : 'text-[#A855F7]'}`}>
                 {weekendSchedule}
               </p>
             </div>
