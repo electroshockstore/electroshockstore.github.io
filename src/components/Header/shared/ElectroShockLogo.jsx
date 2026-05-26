@@ -32,6 +32,7 @@ const ElectroShockLogo = ({ onClick, size = 'default' }) => {
             src="/public/logo.webp" 
             alt="ElectroShock Logo" 
             className={`${currentSize.image} object-contain drop-shadow-lg`}
+           
           />
         </div>
       </div>

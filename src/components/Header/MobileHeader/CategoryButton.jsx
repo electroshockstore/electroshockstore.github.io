@@ -4,10 +4,10 @@ const CategoryButton = ({ onClick }) => {
   return (
     <button
       onClick={onClick}
-      className="relative w-full overflow-hidden rounded-[3rem] group"
+      className="relative w-full overflow-hidden rounded-[3rem] group animate-border-rotate"
     >
-      {/* Glow exterior animado */}
-      <div className="absolute -inset-1 bg-gradient-to-r from-blue-500 via-purple-500 to-emerald-500 rounded-[3rem] opacity-75 blur-lg group-hover:opacity-100 transition-opacity duration-300" />
+      {/* Glow exterior animado - Reducido para iOS */}
+      <div className="absolute -inset-1 bg-gradient-to-r from-blue-500 via-purple-500 to-emerald-500 rounded-[3rem] opacity-50 blur-md group-hover:opacity-75 transition-opacity duration-300" />
       
       {/* Borde RGB con gradiente */}
       <div 
