@@ -1,20 +1,13 @@
 import { useState } from 'react';
-import { useFilter } from '../../context/FilterContext';
-import { useNavigate, useLocation } from 'react-router-dom';
-import { getSlugFromCategory } from '../../utils/slugify';
+import { useLocation } from 'react-router-dom';
 import { useScrollEffect } from '../../hooks/useScrollEffect';
-import CategoryFilter from '../Catalog/CategoryFilter';
 import ConditionsModal from './ConditionsModal';
-import PromoCarousel from './PromoCarousel';
-import SearchBar from './SearchBar';
-import Logo from './Logo';
-import HeaderActions from './HeaderActions';
 
-const Header = ({ searchQuery = '', onSearchChange, onGoHome, hideSearchOnMobile = false }) => {
-  const [showMobileSearch, setShowMobileSearch] = useState(false);
+import MobileHeaderWrapper from './MobileHeader/MobileHeaderWrapper';
+import DesktopHeader from './DesktopHeader';
+
+const Header = ({ onGoHome }) => {
   const [showConditionsModal, setShowConditionsModal] = useState(false);
-  const { selectedCategory, setSelectedCategory } = useFilter();
-  const navigate = useNavigate();
   const location = useLocation();
   const isScrolled = useScrollEffect(20);
 
@@ -29,26 +22,6 @@ const Header = ({ searchQuery = '', onSearchChange, onGoHome, hideSearchOnMobile
   
   // En PC Builder el header es fijo (no sticky)
   const headerPosition = isPCBuilderPage ? 'relative' : 'sticky';
-
-  const handleCategoryClick = (category) => {
-    const targetPath = `/categoria/${getSlugFromCategory(category)}`;
-    
-    // No navegar si ya estás en la ruta
-    if (location.pathname === targetPath) {
-      return;
-    }
-    
-    setSelectedCategory(category);
-    navigate(targetPath);
-  };
-
-  const handleSearchToggle = () => {
-    setShowMobileSearch(true);
-  };
-
-  const handleSearchClose = () => {
-    setShowMobileSearch(false);
-  };
 
   return (
     <>
@@ -67,49 +40,20 @@ const Header = ({ searchQuery = '', onSearchChange, onGoHome, hideSearchOnMobile
           }
         `}
       >
-        {/* PromoCarousel arriba de todo */}
-        <PromoCarousel />
+    
         
         <div className="w-full px-4 sm:px-6 py-3 sm:py-4">
-          {/* Layout mobile */}
-          <div className="flex flex-col gap-3 sm:hidden">
-            <div className="flex items-center justify-between gap-2">
-              <Logo onGoHome={onGoHome} isMobile />
-              <HeaderActions 
-                isMobile
-                showMobileSearch={showMobileSearch}
-                onSearchToggle={handleSearchToggle}
-                onSearchClose={handleSearchClose}
-                onConditionsClick={() => setShowConditionsModal(true)}
-              />
-            </div>
-            
-            {/* Search Input - Mobile */}
-            {showMobileSearch && !hideSearchOnMobile && (
-              <div className="animate-in fade-in slide-in-from-top-2 duration-200">
-                <SearchBar isMobile onClose={handleSearchClose} />
-              </div>
-            )}
-            
-            {/* CategoryFilter - Mobile */}
-            {!showMobileSearch && !hideSearchOnMobile && (
-              <div className="animate-in fade-in slide-in-from-top-2 duration-200">
-                <CategoryFilter 
-                  selectedCategory={selectedCategory}
-                  onCategoryChange={handleCategoryClick}
-                />
-              </div>
-            )}
-          </div>
+          {/* Mobile Header */}
+          <MobileHeaderWrapper 
+            onGoHome={onGoHome}
+            onConditionsClick={() => setShowConditionsModal(true)}
+          />
 
-          {/* Layout desktop */}
-          <div className="hidden sm:flex items-center justify-between gap-6">
-            <Logo onGoHome={onGoHome} />
-            <SearchBar />
-            <HeaderActions 
-              onConditionsClick={() => setShowConditionsModal(true)}
-            />
-          </div>
+          {/* Desktop Header */}
+          <DesktopHeader 
+            onGoHome={onGoHome}
+            onConditionsClick={() => setShowConditionsModal(true)}
+          />
         </div>
       </header>
     </>
