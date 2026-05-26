@@ -259,7 +259,7 @@
       "model": "S30GD",
       "category": "Monitores",
       "price": 155000,
-      "stock": 1,
+      "stock": 3,
       "powerConsumption": 25,
       "realPowerConsumption": "20W-25W en uso",
       "manufacturerUrl": "https://www.samsung.com/",
@@ -462,6 +462,58 @@
       "altavocesIntegrados": "No",
       "usoRecomendado": "Oficina / Diseño básico"
     }
-  }
+  },
+
+  {
+  "id": 1011,
+  "name": "ASUS TUF VG279Q3A-J 27 FHD IPS 180Hz Freesync Premium G-SYNC",
+  "brand": "ASUS",
+  "model": "VG279Q3A",
+  "category": "Monitores",
+  "price": 300000,
+  "stock": 1,
+  "realPowerConsumption": "18W Typical / <0.5W Standby",
+  "manufacturerUrl": "https://www.asus.com/displays-desktops/monitors/tuf-gaming/tuf-gaming-vg279q3a/",
+  "images": [
+    "/images/monitores/tuf_27.webp",
+    "/images/monitores/tuf_27_side.webp",
+    "/images/monitores/tuf_27_side2.webp",
+    "/images/monitores/tuf_27_side3.webp",
+    "/images/monitores/tuf_27_side4.webp"
+   
+  ],
+  "description": "Monitor gamer ASUS TUF Gaming VG279Q3A de 27 pulgadas con panel IPS Full HD, tasa de refresco de 180Hz y tiempo de respuesta de 1ms para gaming competitivo.",
+  "specifications": {
+    "Marca": "ASUS",
+    "Línea": "TUF Gaming",
+    "Modelo": "VG279Q3A",
+    "TamañoPantalla": "27 pulgadas",
+    "Resolucion": "1920x1080 (Full HD)",
+    "TipoPanel": "IPS",
+    "Frecuencia": "180 Hz",
+    "TiempoRespuesta": "1 ms MPRT",
+    "Brillo": "250 nits",
+    "Contraste": "1000:1",
+    "CoberturaColor": "99% sRGB",
+    "TecnologiaSync": "Adaptive-Sync",
+    "HDR": "HDR10",
+    "EntradasVideo": [
+      "2x HDMI 2.0",
+      "1x DisplayPort 1.2"
+    ],
+    "SalidaAudio": "Jack 3.5mm",
+    "MontajeVESA": "100x100",
+    "Inclinacion": "-5° a +23°",
+    "ParlantesIntegrados": "No",
+    "Consumo": "18 W",
+    "Color": "Negro"
+  },
+  "screenSize": "27\"",
+  "resolution": "Full HD",
+  "refreshRate": "180Hz",
+  "panelType": "IPS"
+}
+
+
 ]
 }

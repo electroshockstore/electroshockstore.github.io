@@ -266,7 +266,7 @@
       "category": "Memorias RAM",
       "manufacturerUrl": "https://www.adata.com/ar/consumer/category/memory/",
       "price": 100000,
-      "stock": 6,
+      "stock": 8,
       "realPowerConsumption": "3.5W - 4.2W",
       "images": [
         "/images/ram/xpg_gammix8gb.webp",
@@ -308,7 +308,7 @@
       "category": "Memorias RAM",
       "manufacturerUrl": "https://www.kingston.com/es/memory/gaming",
       "price": 100000,
-      "stock": 5,
+      "stock": 6,
       "realPowerConsumption": "3.5W - 4.2W",
       "images": [
         "/images/ram/kingston_fury8gbddr4.webp",
@@ -539,7 +539,7 @@
       "category": "Memorias RAM",
       "manufacturerUrl": "https://www.kingston.com/es/memory/valueram",
       "price": 90000,
-      "stock": 4,
+      "stock": 8,
       "realPowerConsumption": "2.8W - 3.4W",
       "images": [
         "/images/ram/KINGSTON_VALUE_DDR8GB.webp"
@@ -578,7 +578,7 @@
       "category": "Memorias RAM",
       "manufacturerUrl": "https://www.netac.com/",
       "price": 190000,
-      "stock": 8,
+      "stock": 11,
       "realPowerConsumption": "2.5W - 3.0W",
       "images": [
         "/images/ram/netac_sodimm16.webp",
@@ -866,6 +866,101 @@
     "Año de lanzamiento": "2022"
   },
   "ddrType": "DDR5"
+},
+
+{
+      "id": 415,
+      "name": "HyperX Fury 8GB DDR4 2666MHz CL16",
+      "brand": "HyperX",
+      "model": "Fury",
+      "category": "Memorias RAM",
+      "manufacturerUrl": "https://www.hyperxgaming.com/latam/products/",
+      "price": 90000,
+      "stock": 2,
+      "realPowerConsumption": "2.8W - 3.2W",
+      "images": [
+        "/images/ram/kingston_fury.webp"
+      ],
+      "description": "Memoria RAM HyperX Fury 8GB DDR4 2666MHz CL16",
+      "specifications": {
+        "tipoMemoriaRAM": "DDR4 SDRAM",
+        "Voltaje": "1.2V",
+        "Velocidad": "2666 MHz",
+        "capacidadTotal": "16 GB"
+      },
+      "ddrType": "DDR4"
+    },
+
+      {
+      "id": 416,
+      "name": "Aimerican DDR4 8GB 3200MHz UDIMM",
+      "brand": "Aimerican",
+      "model": "DDR4 8GB",
+      "category": "Memorias RAM",
+      "price": 90000,
+      "stock": 3,
+      "sku": "AiMERICAN-DDR4-16GB",
+      "realPowerConsumption": "2.8W - 3.4W",
+      "images": [
+        "/images/ram/AIMERICAN_DDR416.webp"
+      ],
+      "description": "Memoria RAM Aimerican DDR4 8GB 3200MHz UDIMM CL22 sin disipador, ideal para PC de escritorio y workstation",
+      "specifications": {
+        "Marca": "Aimerican",
+        "capacidadTotal": "16 GB",
+        "modulos": "1",
+        "tipoMemoriaRAM": "DDR4 SDRAM",
+        "formato": "UDIMM (288-pin)",
+        "Velocidad": "3200 MHz",
+        "estandar": "PC4-25600",
+        "Latencia": "CL22",
+        "Voltaje": "1.2V",
+        "interfaz": "Single Rank / Dual Rank (según versión)",
+        "Disipador": "No (PCB despojado)",
+        "rgb": "No",
+        "ecc": "No",
+        "usoRecomendado": "PC de escritorio / Workstation"
+      },
+      "ddrType": "DDR4"
+    },
+{
+  "id": 417,
+  "name": "Mushkin Redline 16GB DDR5 5600 SODIMM",
+  "brand": "Mushkin",
+  "model": "MRA5S560LKKD16G",
+  "category": "Memorias RAM",
+  "price": 250000,
+  "stock": 3,
+  "realPowerConsumption": "1.1V Operating Voltage",
+  "manufacturerUrl": "https://mushkin.com",
+  "images": [
+    "/images/ram/redline16_ddr5.webp",
+      "/images/ram/redline16_ddr5_side.webp",
+        "/images/ram/redline16_ddr5_side2.webp"
+  ],
+  "description": "Memoria RAM Mushkin Redline SODIMM DDR5 de 16GB a 5600MHz para notebooks y mini PCs, diseñada para alto rendimiento y baja latencia.",
+  "specifications": {
+    "Marca": "Mushkin",
+    "Línea": "Redline",
+    "Modelo": "MRA5S560LKKD16G",
+    "Capacidad": "16 GB",
+    "TipoMemoria": "DDR5",
+    "Formato": "SODIMM",
+    "Frecuencia": "5600 MHz",
+    "VelocidadTransferencia": "44.8 GB/s",
+    "Voltaje": "1.1 V",
+    "Canales": "Single Channel",
+    "ECC": "No",
+    "Buffered": "No",
+    "Latencia": "CL46",
+    "Compatibilidad": "Notebooks y Mini PCs compatibles con DDR5 SODIMM",
+    "PerfilXMP": "No",
+    "Disipador": "No",
+    "Color": "Rojo/Negro"
+  },
+  "ddrType": "DDR5",
+  "capacity": "16GB",
+  "formFactor": "SODIMM"
 }
 
   ]

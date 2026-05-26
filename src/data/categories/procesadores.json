@@ -187,7 +187,7 @@
       "model": "Ryzen 5 4500",
       "category": "Procesadores",
       "price": 85000,
-      "stock": 7,
+      "stock": 6,
       "realPowerConsumption": "65W (TDP) / 72W (PPT Max Load)",
       "manufacturerUrl": "https://www.amd.com/es/products/processors/desktops/ryzen/4000-series/amd-ryzen-5-4500.html",
       "images": [
@@ -510,6 +510,52 @@
         "Año de lanzamiento": "2022"
       },
       "ddrType": "DDR4"
-    }
+    },
+    {
+  "id": 0,
+  "name": "AMD Ryzen 5 8600G AM5",
+  "brand": "AMD",
+  "model": "Ryzen 5 8600G",
+  "category": "Procesadores",
+  "price": 240000,
+  "stock": 1,
+  "realPowerConsumption": "65W (TDP) / ~88W PPT Max Load",
+  "manufacturerUrl": "https://www.amd.com/es/products/apu/amd-ryzen-5-8600g",
+  "images": [
+    "/images/procesadores/ryzen5_8600g.webp",
+     "/images/procesadores/ryzen5_8600g_side.webp",
+    "/images/procesadores/ryzen5_8600g_side2.webp"
+  ],
+  "description": "Procesador AMD Ryzen 5 8600G AM5 de 6 núcleos y 12 hilos hasta 5.0GHz, con gráficos integrados Radeon 760M y Cooler Wraith Stealth incluido.",
+  "specifications": {
+    "Marca": "AMD",
+    "Línea": "Ryzen 5",
+    "Modelo": "8600G",
+    "ModeloAlfanumerico": "100-100001237BOX",
+    "Socket": "AM5",
+    "Arquitectura": "Zen 4",
+    "Núcleos": "6",
+    "Hilos": "12",
+    "FrecuenciaBase": "4.3 GHz",
+    "FrecuenciaBoost": "5.0 GHz",
+    "CacheL2": "6 MB",
+    "CacheL3": "16 MB",
+    "TDP": "65 W",
+    "PPTMax": "88 W",
+    "ProcesoFabricacion": "4 nm",
+    "MemoriaSoportada": "DDR5",
+    "VelocidadMemoria": "DDR5-5200",
+    "CapacidadMaximaRAM": "128 GB",
+    "CanalesMemoria": "2",
+    "PCIeVersion": "PCIe 4.0",
+    "CoolerIncluido": "Wraith Stealth",
+    "graficosIntegrados": "AMD Radeon 760M",
+    "FrecuenciaGPU": "2800 MHz",
+    "AñoLanzamiento": "2024",
+    "OverclockDesbloqueado": "Sí"
+  },
+  "ddrType": "DDR5",
+  "integratedGraphics": true
+}
   ]
 }

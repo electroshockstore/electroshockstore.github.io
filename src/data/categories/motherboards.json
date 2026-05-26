@@ -77,7 +77,7 @@
       "category": "Motherboards",
       "manufacturerUrl": "https://www.asus.com/motherboards-components/motherboards/prime/prime-a520m-k/",
       "price": 75000,
-      "stock": 7,
+      "stock": 6,
       "ownConsumption": "25W - 35W",
       "maxPowerSupport": "Hasta 105W TDP",
       "images": [
@@ -452,6 +452,66 @@
     "Año de lanzamiento": "2023"
   },
   "ddrType": "DDR5"
+},
+
+
+{
+  "id": 616,
+  "name": "ASUS TUF Gaming B650M-PLUS WIFI AM5",
+  "brand": "ASUS",
+  "model": "TUF Gaming B650M-PLUS WIFI",
+  "category": "Motherboards",
+  "price": 340000,
+  "stock": 1,
+  "realPowerConsumption": "Dependent on installed CPU and components",
+  "manufacturerUrl": "https://www.asus.com/motherboards-components/motherboards/tuf-gaming/tuf-gaming-b650m-plus-wifi/",
+  "images": [
+    "/images/motherboards/asus_b650mplus.webp",
+    "/images/motherboards/asus_b650mplus_side.webp",
+    "/images/motherboards/asus_b650mplus_side2.webp",
+    "/images/motherboards/asus_b650mplus_side3.webp"
+  ],
+  "description": "Motherboard ASUS TUF Gaming B650M-PLUS WIFI para procesadores AMD Ryzen AM5 con soporte DDR5, PCIe 5.0, Wi-Fi 6 y diseño robusto orientado a gaming y alto rendimiento.",
+  "specifications": {
+    "Marca": "ASUS",
+    "Línea": "TUF Gaming",
+    "Modelo": "B650M-PLUS WIFI",
+    "Chipset": "AMD B650",
+    "Socket": "AM5",
+    "Formato": "Micro-ATX",
+    "MemoriaSoportada": "DDR5",
+    "CapacidadMaximaRAM": "128 GB",
+    "SlotsRAM": "4",
+    "FormatoRAM": "DIMM",
+    "FrecuenciaRAM": "Hasta 7600+ MHz (OC)",
+    "CanalesMemoria": "Dual Channel",
+    "PCIePrincipal": "PCIe 4.0 x16",
+    "M2Slots": "2",
+    "SoporteM2": "PCIe 5.0 / PCIe 4.0 NVMe",
+    "PuertosSATA": "4",
+    "Red": "2.5 Gigabit Ethernet",
+    "WiFi": "Wi-Fi 6",
+    "Bluetooth": "Bluetooth 5.2",
+    "Audio": "Realtek 7.1 HD Audio",
+    "USBTraseros": [
+      "USB 3.2 Gen 2 Type-C",
+      "USB 3.2 Gen 2",
+      "USB 2.0"
+    ],
+    "SalidaVideo": [
+      "HDMI",
+      "DisplayPort"
+    ],
+    "VRM": "12+2 DrMOS",
+    "BIOSFlashback": "Sí",
+    "CompatibilidadCPU": "AMD Ryzen 7000 / 8000 / 9000 Series",
+    "Color": "Negro"
+  },
+  "socket": "AM5",
+  "ddrType": "DDR5",
+  "formFactor": "Micro-ATX",
+  "wifi": true
 }
+
   ]
 }
