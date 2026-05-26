@@ -2,15 +2,15 @@ const ElectroShockLogo = ({ onClick, size = 'default' }) => {
   const sizes = {
     small: {
       container: 'w-9 h-9',
-      image: 'w-7 h-7'
+      icon: 'w-5 h-5'
     },
     default: {
       container: 'w-11 h-11',
-      image: 'w-9 h-9'
+      icon: 'w-6 h-6'
     },
     large: {
       container: 'w-14 h-14',
-      image: 'w-11 h-11'
+      icon: 'w-8 h-8'
     }
   };
 
@@ -23,17 +23,23 @@ const ElectroShockLogo = ({ onClick, size = 'default' }) => {
     >
       {/* Logo con glow verde premium */}
       <div className="relative">
-        {/* Glow exterior */}
-        <div className="absolute inset-0 bg-gradient-to-br from-emerald-400 to-cyan-400 rounded-xl blur-xl opacity-60 group-hover:opacity-80 transition-opacity" />
+        {/* Glow exterior suave */}
+        <div className="absolute inset-0 bg-gradient-to-br from-emerald-400 to-cyan-400 rounded-xl blur-lg opacity-40 group-hover:opacity-60 transition-opacity" />
         
-        {/* Contenedor del logo */}
-        <div>
-          <img 
-            src="/public/logo.webp" 
-            alt="ElectroShock Logo" 
-            className={`${currentSize.image} object-contain drop-shadow-lg`}
-           
-          />
+        {/* Contenedor del logo con SVG moderno */}
+        <div className={`relative ${currentSize.container} bg-gradient-to-br from-emerald-400 via-emerald-500 to-cyan-500 rounded-xl flex items-center justify-center shadow-xl shadow-emerald-500/30`}>
+          {/* SVG de rayo moderno y atractivo */}
+          <svg 
+            viewBox="0 0 24 24" 
+            fill="none"
+            stroke="currentColor"
+            className={`${currentSize.icon} text-gray-900`}
+            strokeWidth="2.5"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          >
+            <path d="M13 2L3 14h8l-1 8 10-12h-8l1-8z" fill="currentColor" />
+          </svg>
         </div>
       </div>
       
