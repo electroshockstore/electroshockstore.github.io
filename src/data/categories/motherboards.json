@@ -466,10 +466,10 @@
   "realPowerConsumption": "Dependent on installed CPU and components",
   "manufacturerUrl": "https://www.asus.com/motherboards-components/motherboards/tuf-gaming/tuf-gaming-b650m-plus-wifi/",
   "images": [
-    "/images/motherboards/asus_b650mplus.webp",
-    "/images/motherboards/asus_b650mplus_side.webp",
-    "/images/motherboards/asus_b650mplus_side2.webp",
-    "/images/motherboards/asus_b650mplus_side3.webp"
+    "/images/motherboard/asus_b650mplus.webp",
+    "/images/motherboard/asus_b650mplus_side.webp",
+    "/images/motherboard/asus_b650mplus_side2.webp",
+    "/images/motherboard/asus_b650mplus_side3.webp"
   ],
   "description": "Motherboard ASUS TUF Gaming B650M-PLUS WIFI para procesadores AMD Ryzen AM5 con soporte DDR5, PCIe 5.0, Wi-Fi 6 y diseño robusto orientado a gaming y alto rendimiento.",
   "specifications": {

@@ -425,51 +425,7 @@
       },
       "ddrType": "DDR4/DDR5"
     },
-    {
-      "id": 315,
-      "name": "Intel Core i3-12100 LGA1700 con gráfica integrada",
-      "brand": "Intel",
-      "model": "Core i3-12100",
-      "category": "Procesadores",
-      "price": 115000,
-      "stock": 1,
-      "powerConsumption": 89,
-      "realPowerConsumption": "60W (TDP) / 89W (PL2 Max Turbo)",
-      "manufacturerUrl": "https://www.intel.com/content/www/us/en/products/sku/134586/intel-core-i312100-processor-12m-cache-up-to-4-30-ghz/specifications.html",
-      "images": [
-        "/images/procesadores/i3_12100.webp",
-           "/images/procesadores/i3_12100_side.webp",
-              "/images/procesadores/i3_12100_side2.webp",
-                 "/images/procesadores/i3_12100_side3.webp"
-      ],
-      "description": "Procesador Intel Core i3-12100 4 núcleos, 8 hilos, hasta 4.3GHz con gráfica integrada Intel UHD Graphics 730",
-      "sku": "INTEL-I3-12100",
-      "specifications": {
-        "Marca": "Intel",
-        "Línea": "Core i3",
-        "Modelo": "i3-12100",
-        "Modelo alfanumérico": "BX8071512100",
-        "Arquitectura": "Alder Lake (Intel 7)",
-        "Socket": "FCLGA1700",
-        "Núcleos": "4",
-        "hilos": "8",
-        "Frecuencia base": "3.3 GHz",
-        "Frecuencia turbo": "4.3 GHz",
-        "Cache L3": "12 MB",
-        "TDP": "60 W",
-        "graficosIntegrados": "Intel UHD Graphics 730",
-        "Marca de GPU": "Intel",
-        "Línea de GPU": "UHD Graphics",
-        "Modelo de GPU": "730",
-        "Tipo memoria": "DDR4 / DDR5",
-        "Velocidad memoria DDR5": "4800 MT/s",
-        "Velocidad memoria DDR4": "3200 MT/s",
-        "Capacidad máxima RAM": "128 GB",
-        "Canales memoria": "2",
-        "Año de lanzamiento": "2022"
-      },
-      "ddrType": "DDR4/DDR5"
-    },
+    
 
     
     {
