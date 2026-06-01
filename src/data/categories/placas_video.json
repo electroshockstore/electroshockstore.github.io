@@ -250,6 +250,128 @@
         ],
         "capacidadTotal": "8 GB"
       }
-    }
+    },
+    {
+  "id": 1402,
+  "name": "AMD Radeon Sapphire Pulse RX 6600 XT OC 8GB GDDR6",
+  "brand": "Sapphire",
+  "model": "Pulse RX 6600 XT OC",
+  "category": "Placas de Video",
+  "manufacturerUrl": "https://www.sapphiretech.com/",
+  "price": 400000,
+  "stock": 1,
+  "isUsed": false,
+  "images": [
+    "/images/placas_video/rx6600xt.webp",
+    "/images/placas_video/rx6600xt_side.webp",
+    "/images/placas_video/rx6600xt_side2.webp",
+    "/images/placas_video/rx6600xt_side3.webp"
+  ],
+  "description": "Sapphire Pulse Radeon RX 6600 XT OC 8GB GDDR6 basada en arquitectura AMD RDNA 2. Diseñada para gaming en 1080p y 1440p, con soporte para Ray Tracing, AMD FidelityFX Super Resolution (FSR), refrigeración Dual-X y backplate metálico.",
+  "specifications": {
+    "producto": "Placa Video AMD Radeon Sapphire Pulse RX 6600 XT OC 8GB",
+    "Marca": "Sapphire",
+    "Línea": "Pulse",
+    "Modelo": "RX 6600 XT",
+    "Modelo detallado": "Sapphire Pulse Radeon RX 6600 XT OC 8GB GDDR6",
+    "Arquitectura": "AMD RDNA 2",
+    "procesoFabricacion": "7 nm",
+    "gpu": "AMD Radeon RX 6600 XT",
+    "añoLanzamiento": "2021",
+    "memoria": {
+      "tamaño": "8 GB",
+      "tipo": "GDDR6",
+      "bus": "128 bit",
+      "velocidad": "16 Gbps",
+      "anchoBanda": "256 GB/s",
+      "infinityCache": "32 MB"
+    },
+    "Núcleos": {
+      "streamProcessors": "2048",
+      "computeUnits": "32",
+      "rayAccelerators": "32"
+    },
+    "frecuencias": {
+      "gameClock": "2382 MHz",
+      "boostClock": "2593 MHz",
+      "modoOC": "Activado de fábrica"
+    },
+    "interfaz": {
+      "tipo": "PCI Express 4.0 x8",
+      "compatibilidad": "PCIe 4.0 / 3.0"
+    },
+    "salidas": {
+      "hdmi": "1x HDMI 2.1",
+      "displayPort": "3x DisplayPort 1.4",
+      "resolucionMaxima": "Hasta 7680 x 4320",
+      "monitoresSimultaneos": "Hasta 4"
+    },
+    "tecnologias": {
+      "rayTracing": "Sí",
+      "fsr": "AMD FidelityFX Super Resolution",
+      "smartAccessMemory": "Sí",
+      "radeonAntiLag": "Sí",
+      "directX": "12 Ultimate",
+      "openGL": "4.6",
+      "apis": "DirectX 12 Ultimate, Vulkan, OpenGL 4.6"
+    },
+    "refrigeracion": {
+      "tipo": "Dual Fan (Dual-X Cooling)",
+      "diseño": "2 slots",
+      "backplate": "Sí (metal)"
+    },
+    "energia": {
+      "tbp": "160 W",
+      "conectorEnergia": "1 x 8-pin",
+      "fuenteRecomendada": "500 W"
+    },
+    "dimensiones": {
+      "largo": "240 mm",
+      "formato": "Dual Slot"
+    },
+    "requisitosMinimos": {
+      "fuente": "500W",
+      "slot": "PCIe x16",
+      "espacioGabinete": "245mm mínimo",
+      "sistemaOperativo": "Windows 10/11 (64-bit)"
+    },
+    "usoRecomendado": [
+      "Gaming 1080p Ultra",
+      "Gaming 1440p High",
+      "eSports competitivo",
+      "Streaming",
+      "Edición de video",
+      "Creación de contenido"
+    ],
+    "rendimiento": {
+      "gaming1080p": "Excelente (100+ FPS en la mayoría de títulos AAA)",
+      "gaming1440p": "Muy bueno (60-100 FPS según configuración)",
+      "rayTracing": "Aceptable en 1080p con FSR",
+      "edicionVideo": "Muy buena aceleración por hardware"
+    },
+    "caracteristicasDestacadas": [
+      "Arquitectura AMD RDNA 2",
+      "32 Ray Accelerators",
+      "32 MB Infinity Cache",
+      "PCIe 4.0",
+      "FSR compatible",
+      "Dual-X Cooling",
+      "Backplate metálico",
+      "Diseño eficiente de 160W",
+      "Ideal para gaming 1080p Ultra"
+    ],
+    "garantia": "Según fabricante",
+    "notas": [
+      "Producto lanzado en 2021",
+      "Requiere 1 conector PCIe de 8 pines",
+      "Excelente relación rendimiento/consumo",
+      "Ideal para gaming competitivo y AAA en 1080p"
+    ],
+    "capacidadTotal": "8 GB"
+  }
+}
+
+
+
   ]
 }

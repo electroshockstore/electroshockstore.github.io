@@ -96,7 +96,7 @@
       "model": "Shadow 2",
       "category": "Memorias RAM",
       "price": 260000,
-      "stock": 7,
+      "stock": 8,
       "realPowerConsumption": "2.2W - 2.8W",
       "images": [
         "/images/ram/netac_shadow2_ram.webp"
@@ -307,8 +307,8 @@
       "model": "Fury Beast",
       "category": "Memorias RAM",
       "manufacturerUrl": "https://www.kingston.com/es/memory/gaming",
-      "price": 100000,
-      "stock": 6,
+      "price": 120000,
+      "stock": 7,
       "realPowerConsumption": "3.5W - 4.2W",
       "images": [
         "/images/ram/kingston_fury8gbddr4.webp",
@@ -350,7 +350,7 @@
       "model": "Fury Beast RGB",
       "category": "Memorias RAM",
       "manufacturerUrl": "https://www.kingston.com/es/memory/gaming",
-      "price": 115000,
+      "price": 130000,
       "stock": 1,
       "realPowerConsumption": "4.0W - 5.0W",
       "images": [
@@ -394,7 +394,7 @@
       "model": "Shadow",
       "category": "Memorias RAM",
       "price": 160000,
-      "stock": 9,
+      "stock": 11,
       "realPowerConsumption": "3.4W - 4.0W",
       "images": [
         "/images/ram/ram_netac_shadow_ddr4.webp"
@@ -415,7 +415,7 @@
       "category": "Memorias RAM",
       "manufacturerUrl": "https://www.hyperxgaming.com/latam/products/",
       "price": 160000,
-      "stock": 1,
+      "stock": 3,
       "realPowerConsumption": "2.8W - 3.2W",
       "images": [
         "/images/ram/kingston_fury.webp"
@@ -539,7 +539,7 @@
       "category": "Memorias RAM",
       "manufacturerUrl": "https://www.kingston.com/es/memory/valueram",
       "price": 90000,
-      "stock": 8,
+      "stock": 10,
       "realPowerConsumption": "2.8W - 3.4W",
       "images": [
         "/images/ram/KINGSTON_VALUE_DDR8GB.webp"
@@ -961,7 +961,42 @@
   "ddrType": "DDR5",
   "capacity": "16GB",
   "formFactor": "SODIMM"
+},
+{
+  "id": 418,
+  "name": "Neo Forza Nox DDR4 8GB 3200MHz RGB",
+  "brand": "Neo Forza",
+  "model": "Nox RGB 8GB",
+  "category": "Memorias RAM",
+  "price": 130000,
+  "stock": 7,
+  "sku": "519881",
+  "realPowerConsumption": "3W - 5W",
+  "images": [
+    "/images/ram/neoforza_nox_8gb_3200_rgb.webp"
+  ],
+  "description": "Memoria RAM Neo Forza Nox DDR4 8GB 3200MHz RGB para PC de escritorio. Diseño gaming con iluminación RGB, compatible con plataformas Intel y AMD.",
+  "specifications": {
+    "Marca": "Neo Forza",
+    "Línea": "Nox RGB",
+    "Modelo": "Nox DDR4 RGB",
+    "capacidadTotal": "8 GB",
+    "modulos": "1",
+    "tipoMemoriaRAM": "DDR4 SDRAM",
+    "formato": "UDIMM (288-pin)",
+    "Velocidad": "3200 MHz",
+    "estandar": "PC4-25600",
+    "Latencia": "CL16 - CL22 (según revisión)",
+    "Voltaje": "1.35V",
+    "interfaz": "Non-ECC Unbuffered",
+    "Disipador": "Sí",
+    "rgb": "Sí",
+    "ecc": "No",
+    "perfilXMP": "Sí",
+    "compatibilidad": "Intel XMP / AMD Ryzen",
+    "usoRecomendado": "Gaming / PC de escritorio / Workstation"
+  },
+  "ddrType": "DDR4"
 }
-
   ]
 }
