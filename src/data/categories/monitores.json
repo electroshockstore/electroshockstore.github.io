@@ -422,47 +422,7 @@
       "usoRecomendado": "Hogar / Multimedia"
     }
   },
-  {
-    "id": 1010,
-    "name": "Samsung 22 LED IPS 75Hz Bordes Ultradelgados",
-    "brand": "Samsung",
-    "model": "LF22T350FHL",
-    "category": "Monitores",
-    "manufacturerUrl": "https://www.samsung.com/monitor",
-    "price":120000,
-    "stock": 1,
-    "sku": "SAM-LF22T350",
-    "description": "Monitor Samsung T350 de 22 pulgadas con diseño minimalista sin bordes en tres lados y panel IPS para colores nítidos.",
-    "images": [
-      "/images/monitores/samsung_22t350.webp",
-      "/images/monitores/samsung_22t350_side.webp",
-        "/images/monitores/samsung_22t350_side2.webp",
-          "/images/monitores/samsung_22t350_side3.webp"
-    ],
-    "specifications": {
-      "Marca": "Samsung",
-      "Línea": "T350",
-      "Modelo": "LF22T350FHL",
-      "tipoPantalla": "Plano",
-      "tamanoPantalla": "22 pulgadas",
-      "resolucion": "1920 x 1080 (Full HD)",
-      "relacionAspecto": "16:9",
-      "tipoPanel": "IPS",
-      "frecuenciaActualizacion": "75 Hz",
-      "frecuenciaMaxima": "75 Hz",
-      "tiempoRespuesta": "5 ms (GtG)",
-      "brillo": "250 nits",
-      "contraste": "1000:1",
-      "coberturaColor": "72% NTSC",
-      "tecnologiaSincronizacion": "AMD FreeSync",
-      "HDR": "No",
-      "Conectividad": "1x HDMI, 1x VGA",
-      "angulosVision": "178°/178°",
-      "montajeVESA": "Sí (100x100)",
-      "altavocesIntegrados": "No",
-      "usoRecomendado": "Oficina / Diseño básico"
-    }
-  },
+
 
   {
   "id": 1011,

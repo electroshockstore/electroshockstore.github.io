@@ -973,7 +973,8 @@
   "sku": "519881",
   "realPowerConsumption": "3W - 5W",
   "images": [
-    "/images/ram/neoforza_nox_8gb_3200_rgb.webp"
+    "/images/ram/neoforzargb.webp",
+       "/images/ram/neoforzargb_side.webp"
   ],
   "description": "Memoria RAM Neo Forza Nox DDR4 8GB 3200MHz RGB para PC de escritorio. Diseño gaming con iluminación RGB, compatible con plataformas Intel y AMD.",
   "specifications": {
