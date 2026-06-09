@@ -13,7 +13,7 @@ const HeaderActions = ({
   if (isMobile) {
     return (
       <div className="flex items-center gap-2 flex-shrink-0">
-        {/* Search Icon - Mobile - SIEMPRE VISIBLE con toggle */}
+   
         <button
           onClick={() => showMobileSearch ? onSearchClose() : onSearchToggle()}
           className={`relative p-2.5 rounded-full text-white
@@ -32,7 +32,7 @@ const HeaderActions = ({
           <Search className="h-4 w-4 relative z-10" strokeWidth={2.5} />
         </button>
 
-        {/* Inicio */}
+   
         <button
           onClick={() => navigate('/')}
           className="relative p-2.5

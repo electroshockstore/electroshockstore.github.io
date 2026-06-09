@@ -197,42 +197,7 @@
       },
       "certType": "80_PLUS_BRONZE"
     },
-    {
-      "id": 105,
-      "name": "Adata XPG Probe 700W - 80 Plus Bronze",
-      "brand": "XPG",
-      "model": "Probe 700W",
-      "category": "Fuentes",
-      "manufacturerUrl": "https://www.xpg.com/en/category/memory",
-      "price": 70000,
-      "stock": 1,
-      "sku": "XPG-700-PROBE",
-      "description": "Fuente ATX 700W con certificación 80 Plus Bronze, cableado no modular",
-      "images": [
-        "/images/fuentes/xpg_probe700.webp",
-        "/images/fuentes/xpg_probe700_side.webp",
-        "/images/fuentes/xpg_probe700_back.webp"
-      ],
-      "specifications": {
-        "Marca": "ADATA",
-        "Línea": "PROBE",
-        "Modelo": "Probe 700 Bronze",
-        "Potencia": "700W",
-        "Certificacion": "80 Plus Bronze",
-        "formato": "ATX",
-        "Cableado": "No modular",
-        "Conectores": {
-          "ATX 24 pines": "1",
-          "EPS 8 pines": "1",
-          "PCI-E 6+2": "2",
-          "SATA": "6",
-          "Molex": "2"
-        },
-        "Ventilador": "120 mm",
-        "Protecciones": "OCP / OVP / UVP / SCP / OPP"
-      },
-      "certType": "80_PLUS_BRONZE"
-    },
+   
     {
       "id": 106,
       "name": "XPG Pylon 650W - 80 Plus Bronze",
