@@ -122,50 +122,7 @@
         "usoRecomendado": "Gaming casual y oficina"
       }
     },
-    {
-      "id": 1005,
-      "name": "Gigabyte 25\" LED IPS 200Hz GS25F2",
-      "brand": "Gigabyte",
-      "model": "GS25F2",
-      "category": "Monitores",
-      "manufacturerUrl": "https://www.gigabyte.com/Monitor",
-      "price": 200000,
-      "stock": 1,
-      "powerConsumption": 36,
-      "realPowerConsumption": "30W-36W en uso",
-      "images": [
-        "/images/monitores/gigabyte_gs25f2.webp",
-        "/images/monitores/gigabyte_gs25f2_side.webp",
-        "/images/monitores/gigabyte_gs25f2_side2.webp",
-        "/images/monitores/gigabyte_gs25f2_side3.webp",
-        "/images/monitores/gigabyte_gs25f2_side4.webp",
-        "/images/monitores/gigabyte_gs25f2_side5.webp"
-      ],
-      "description": "Monitor Gigabyte 25\" IPS Full HD 200Hz 1ms (MPRT) con FreeSync Premium, ideal para gaming competitivo",
-      "sku": "GIGABYTE-GS25F2",
-      "specifications": {
-        "Marca": "Gigabyte",
-        "Línea": "Gaming",
-        "Modelo": "GS25F2",
-        "Tamaño pantalla": "24.5 pulgadas",
-        "Tipo de panel": "IPS",
-        "Resolución": "1920x1080",
-        "Resolución comercial": "Full HD",
-        "Relación aspecto": "16:9",
-        "Brillo": "300 nits",
-        "Contraste": "1000:1",
-        "Frecuencia refresco": "200 Hz",
-        "Tiempo de respuesta": "1 ms (MPRT)",
-        "Tecnología sincronización": "AMD FreeSync Premium",
-        "Entradas video": "2x HDMI 2.0, 1x DisplayPort 1.4",
-        "Parlantes integrados": "No",
-        "Curvo": "No",
-        "Montaje VESA": "100 x 100 mm",
-        "Consumo energético": "36 W",
-        "Color": "Negro",
-        "Año de lanzamiento": "2023"
-      }
-    },
+   
     {
       "id": 1006,
       "name": "Samsung Essential S3 S30GD 24\" Full HD 100Hz IPS",
@@ -335,58 +292,10 @@
       "altavocesIntegrados": "No",
       "usoRecomendado": "Hogar / Multimedia"
     }
-  },
+  }
 
 
-  {
-  "id": 1011,
-  "name": "ASUS TUF VG279Q3A-J 27 FHD IPS 180Hz Freesync Premium G-SYNC",
-  "brand": "ASUS",
-  "model": "VG279Q3A",
-  "category": "Monitores",
-  "price": 300000,
-  "stock": 1,
-  "realPowerConsumption": "18W Typical / <0.5W Standby",
-  "manufacturerUrl": "https://www.asus.com/displays-desktops/monitors/tuf-gaming/tuf-gaming-vg279q3a/",
-  "images": [
-    "/images/monitores/tuf_27.webp",
-    "/images/monitores/tuf_27_side.webp",
-    "/images/monitores/tuf_27_side2.webp",
-    "/images/monitores/tuf_27_side3.webp",
-    "/images/monitores/tuf_27_side4.webp"
-   
-  ],
-  "description": "Monitor gamer ASUS TUF Gaming VG279Q3A de 27 pulgadas con panel IPS Full HD, tasa de refresco de 180Hz y tiempo de respuesta de 1ms para gaming competitivo.",
-  "specifications": {
-    "Marca": "ASUS",
-    "Línea": "TUF Gaming",
-    "Modelo": "VG279Q3A",
-    "TamañoPantalla": "27 pulgadas",
-    "Resolucion": "1920x1080 (Full HD)",
-    "TipoPanel": "IPS",
-    "Frecuencia": "180 Hz",
-    "TiempoRespuesta": "1 ms MPRT",
-    "Brillo": "250 nits",
-    "Contraste": "1000:1",
-    "CoberturaColor": "99% sRGB",
-    "TecnologiaSync": "Adaptive-Sync",
-    "HDR": "HDR10",
-    "EntradasVideo": [
-      "2x HDMI 2.0",
-      "1x DisplayPort 1.2"
-    ],
-    "SalidaAudio": "Jack 3.5mm",
-    "MontajeVESA": "100x100",
-    "Inclinacion": "-5° a +23°",
-    "ParlantesIntegrados": "No",
-    "Consumo": "18 W",
-    "Color": "Negro"
-  },
-  "screenSize": "27\"",
-  "resolution": "Full HD",
-  "refreshRate": "180Hz",
-  "panelType": "IPS"
-}
+ 
 
 
 ]
