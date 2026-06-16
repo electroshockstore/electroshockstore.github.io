@@ -526,7 +526,8 @@
   "realPowerConsumption": "65W Processor Base Power - hasta 117W Turbo",
   "manufacturerUrl": "https://www.intel.com",
   "images": [
-    "/images/procesadores/i5_12400.webp"
+    "/images/procesadores/i512400.webp",
+      "/images/procesadores/i512400_side.webp"
   ],
   "description": "Procesador Intel Core i5-12400 de 12ª generación con 6 núcleos y 12 hilos, frecuencia turbo hasta 4.4GHz, socket LGA1700 y gráfica integrada Intel UHD 730.",
   "sku": "INTEL-I5-12400",
