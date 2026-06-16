@@ -292,7 +292,46 @@
       "altavocesIntegrados": "No",
       "usoRecomendado": "Hogar / Multimedia"
     }
+  },
+
+  {
+  "id": 1010,
+  "name": "Acer KG241Q 23.8\" Full HD 165Hz 1ms FreeSync",
+  "brand": "Acer",
+  "model": "KG241Q",
+  "category": "Monitores",
+  "manufacturerUrl": "https://www.acer.com",
+  "price": 160000,
+  "stock": 1,
+  "sku": "ACER-KG241Q",
+  "description": "Monitor gamer Acer de 23.8 pulgadas Full HD con frecuencia de actualización de 165Hz, tiempo de respuesta de 1ms y tecnología AMD FreeSync.",
+  "images": [
+    "/images/monitores/acernitro.webp",
+     "/images/monitores/acernitro_side.webp",
+      "/images/monitores/acernitro_side2.webp",
+       "/images/monitores/acernitro_side3.webp",
+        "/images/monitores/acernitro_side4.webp"
+  ],
+  "specifications": {
+    "Marca": "Acer",
+    "Modelo": "KG241Q",
+    "TipoPanel": "TN",
+    "TamanoPantalla": "23.8 pulgadas",
+    "Resolucion": "Full HD (1920x1080)",
+    "RelacionAspecto": "16:9",
+    "FrecuenciaActualizacion": "165 Hz",
+    "FrecuenciaMaxima": "165 Hz",
+    "TiempoRespuesta": "1 ms",
+    "TecnologiaSincronizacion": "AMD FreeSync",
+    "Brillo": "250 nits",
+    "Contraste": "1000:1",
+    "AngulosVision": "170° H / 160° V",
+    "Conectividad": "1 x HDMI, 1 x DisplayPort",
+    "Parlantes": "Sí",
+    "MontajeVESA": "100x100 mm",
+    "UsoRecomendado": "Gaming competitivo FPS y eSports"
   }
+}
 
 
  

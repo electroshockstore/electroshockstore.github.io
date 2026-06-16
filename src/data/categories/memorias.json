@@ -111,6 +111,45 @@
       "ddrType": "DDR5"
     },
    
+
+{
+"id": 404,
+  "name": "Neo Forza Nox DDR4 8GB 3200MHz RGB",
+  "brand": "Neo Forza",
+  "model": "Nox RGB 8GB",
+  "category": "Memorias RAM",
+  "price": 130000,
+  "stock": 19,
+  "sku": "519881",
+  "realPowerConsumption": "3W - 5W",
+  "images": [
+    "/images/ram/neoforzargb.webp",
+       "/images/ram/neoforzargb_side.webp"
+  ],
+  "description": "Memoria RAM Neo Forza Nox DDR4 8GB 3200MHz RGB para PC de escritorio. Diseño gaming con iluminación RGB, compatible con plataformas Intel y AMD.",
+  "specifications": {
+    "Marca": "Neo Forza",
+    "Línea": "Nox RGB",
+    "Modelo": "Nox DDR4 RGB",
+    "capacidadTotal": "8 GB",
+    "modulos": "1",
+    "tipoMemoriaRAM": "DDR4 SDRAM",
+    "formato": "UDIMM (288-pin)",
+    "Velocidad": "3200 MHz",
+    "estandar": "PC4-25600",
+    "Latencia": "CL16 - CL22 (según revisión)",
+    "Voltaje": "1.35V",
+    "interfaz": "Non-ECC Unbuffered",
+    "Disipador": "Sí",
+    "rgb": "Sí",
+    "ecc": "No",
+    "perfilXMP": "Sí",
+    "compatibilidad": "Intel XMP / AMD Ryzen",
+    "usoRecomendado": "Gaming / PC de escritorio / Workstation"
+  },
+  "ddrType": "DDR4"
+},
+
     {
       "id": 405,
       "name": "Neo Forza DDR5 32GB 5200MHz CL42 UDIMM",
@@ -869,7 +908,7 @@
 },
 
 {
-      "id": 415,
+      "id": 430,
       "name": "HyperX Fury 8GB DDR4 2666MHz CL16",
       "brand": "HyperX",
       "model": "Fury",
@@ -892,7 +931,7 @@
     },
 
       {
-      "id": 416,
+      "id": 431,
       "name": "Aimerican DDR4 8GB 3200MHz UDIMM",
       "brand": "Aimerican",
       "model": "DDR4 8GB",
@@ -924,7 +963,7 @@
       "ddrType": "DDR4"
     },
 {
-  "id": 417,
+  "id": 432,
   "name": "Mushkin Redline 16GB DDR5 5600 SODIMM",
   "brand": "Mushkin",
   "model": "MRA5S560LKKD16G",
@@ -961,43 +1000,7 @@
   "ddrType": "DDR5",
   "capacity": "16GB",
   "formFactor": "SODIMM"
-},
-{
-  "id": 418,
-  "name": "Neo Forza Nox DDR4 8GB 3200MHz RGB",
-  "brand": "Neo Forza",
-  "model": "Nox RGB 8GB",
-  "category": "Memorias RAM",
-  "price": 130000,
-  "stock": 7,
-  "sku": "519881",
-  "realPowerConsumption": "3W - 5W",
-  "images": [
-    "/images/ram/neoforzargb.webp",
-       "/images/ram/neoforzargb_side.webp"
-  ],
-  "description": "Memoria RAM Neo Forza Nox DDR4 8GB 3200MHz RGB para PC de escritorio. Diseño gaming con iluminación RGB, compatible con plataformas Intel y AMD.",
-  "specifications": {
-    "Marca": "Neo Forza",
-    "Línea": "Nox RGB",
-    "Modelo": "Nox DDR4 RGB",
-    "capacidadTotal": "8 GB",
-    "modulos": "1",
-    "tipoMemoriaRAM": "DDR4 SDRAM",
-    "formato": "UDIMM (288-pin)",
-    "Velocidad": "3200 MHz",
-    "estandar": "PC4-25600",
-    "Latencia": "CL16 - CL22 (según revisión)",
-    "Voltaje": "1.35V",
-    "interfaz": "Non-ECC Unbuffered",
-    "Disipador": "Sí",
-    "rgb": "Sí",
-    "ecc": "No",
-    "perfilXMP": "Sí",
-    "compatibilidad": "Intel XMP / AMD Ryzen",
-    "usoRecomendado": "Gaming / PC de escritorio / Workstation"
-  },
-  "ddrType": "DDR4"
 }
+
   ]
 }

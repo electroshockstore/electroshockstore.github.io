@@ -7,7 +7,7 @@
       "model": "Ryzen 7 5700G",
       "category": "Procesadores",
       "price": 270000,
-      "stock": 4,
+      "stock": 5,
       "powerConsumption": 88,
       "realPowerConsumption": "65W (TDP) / 88W (PPT) - Puede alcanzar 125W con iGPU activa en carga",
       "manufacturerUrl": "https://www.amd.com/es/products/processors/desktops/ryzen.html",
@@ -94,7 +94,7 @@
       "model": "Ryzen 5 8500G",
       "category": "Procesadores",
       "price": 205000,
-      "stock": 3,
+      "stock": 4,
       "realPowerConsumption": "65W (TDP) / 88W (PPT Max Load)",
       "manufacturerUrl": "https://www.amd.com/en/products/processors/desktops/ryzen/8000-series/amd-ryzen-5-8500g.html",
       "images": [
@@ -123,6 +123,53 @@
       "ddrType": "DDR5"
     },
     
+  {
+  "id": 304,
+  "name": "AMD Ryzen 5 8600G AM5",
+  "brand": "AMD",
+  "model": "Ryzen 5 8600G",
+  "category": "Procesadores",
+  "price": 250000,
+  "stock": 1,
+  "realPowerConsumption": "65W (TDP) / ~88W PPT Max Load",
+  "manufacturerUrl": "https://www.amd.com/es/products/apu/amd-ryzen-5-8600g",
+  "images": [
+    "/images/procesadores/ryzen5_8600g.webp",
+     "/images/procesadores/ryzen5_8600g_side.webp",
+    "/images/procesadores/ryzen5_8600g_side2.webp"
+  ],
+  "description": "Procesador AMD Ryzen 5 8600G AM5 de 6 núcleos y 12 hilos hasta 5.0GHz, con gráficos integrados Radeon 760M y Cooler Wraith Stealth incluido.",
+  "specifications": {
+    "Marca": "AMD",
+    "Línea": "Ryzen 5",
+    "Modelo": "8600G",
+    "ModeloAlfanumerico": "100-100001237BOX",
+    "Socket": "AM5",
+    "Arquitectura": "Zen 4",
+    "Núcleos": "6",
+    "Hilos": "12",
+    "FrecuenciaBase": "4.3 GHz",
+    "FrecuenciaBoost": "5.0 GHz",
+    "CacheL2": "6 MB",
+    "CacheL3": "16 MB",
+    "TDP": "65 W",
+    "PPTMax": "88 W",
+    "ProcesoFabricacion": "4 nm",
+    "MemoriaSoportada": "DDR5",
+    "VelocidadMemoria": "DDR5-5200",
+    "CapacidadMaximaRAM": "128 GB",
+    "CanalesMemoria": "2",
+    "PCIeVersion": "PCIe 4.0",
+    "CoolerIncluido": "Wraith Stealth",
+    "graficosIntegrados": "AMD Radeon 760M",
+    "FrecuenciaGPU": "2800 MHz",
+    "AñoLanzamiento": "2024",
+    "OverclockDesbloqueado": "Sí"
+  },
+  "ddrType": "DDR5",
+  "integratedGraphics": true
+},
+
     {
       "id": 305,
       "name": "AMD Ryzen 5 8400F AM5",
@@ -208,6 +255,47 @@
       "ddrType": "DDR4"
     },
     
+{
+      "id": 308,
+      "name": "AMD Ryzen 7 5700X AM4 sin gráfica integrada sin cooler",
+      "brand": "AMD",
+      "model": "Ryzen 7 5700X",
+      "category": "Procesadores",
+      "price": 320000,
+      "stock": 1,
+      "powerConsumption": 65,
+      "realPowerConsumption": "65W (TDP)",
+      "manufacturerUrl": "https://www.amd.com/en/products/cpu/amd-ryzen-7-5700x",
+      "images": [
+        "/images/procesadores/r7_5700x.webp"
+      ],
+      "description": "Procesador AMD Ryzen 7 5700X 8 núcleos, 16 hilos, 3.4-4.6 GHz sin gráfica integrada, sin Cooler",
+      "sku": "AMD-R7-5700X",
+      "specifications": {
+        "Marca": "AMD",
+        "Línea": "Ryzen 7",
+        "Modelo": "5700X",
+        "Modelo alfanumérico": "100-100000926WOF",
+        "Arquitectura": "Zen 3",
+        "Socket": "AM4",
+        "Núcleos": "8",
+        "hilos": "16",
+        "Frecuencia base": "3.4 GHz",
+        "Frecuencia turbo": "4.6 GHz",
+        "Cache L3": "32 MB",
+        "TDP": "65 W",
+        "graficosIntegrados": "No",
+        "Tipo memoria": "DDR4",
+        "Velocidad memoria DDR4": "3200 MT/s",
+        "Capacidad máxima RAM": "128 GB",
+        "Canales memoria": "2",
+        "Disipacion incluida": "No",
+        "Año de lanzamiento": "2022"
+      },
+      "ddrType": "DDR4"
+    },
+
+
     {
       "id": 309,
       "name": "AMD Athlon 3000G AM4",
@@ -386,7 +474,7 @@
       "model": "Core i5-14400F",
       "category": "Procesadores",
       "price": 280000,
-      "stock": 1,
+      "stock": 2,
       "powerConsumption": 65,
       "realPowerConsumption": "65W (TDP) / 148W (PL2 Max Turbo)",
       "manufacturerUrl": "https://www.intel.com/content/www/us/en/products/sku/236773/intel-core-i514400f-processor-20m-cache-up-to-4-70-ghz/specifications.html",
@@ -428,90 +516,54 @@
     
 
     
-    {
-      "id": 318,
-      "name": "AMD Ryzen 7 5700X AM4 sin gráfica integrada sin cooler",
-      "brand": "AMD",
-      "model": "Ryzen 7 5700X",
-      "category": "Procesadores",
-      "price": 320000,
-      "stock": 1,
-      "powerConsumption": 65,
-      "realPowerConsumption": "65W (TDP)",
-      "manufacturerUrl": "https://www.amd.com/en/products/cpu/amd-ryzen-7-5700x",
-      "images": [
-        "/images/procesadores/r7_5700x.webp"
-      ],
-      "description": "Procesador AMD Ryzen 7 5700X 8 núcleos, 16 hilos, 3.4-4.6 GHz sin gráfica integrada, sin Cooler",
-      "sku": "AMD-R7-5700X",
-      "specifications": {
-        "Marca": "AMD",
-        "Línea": "Ryzen 7",
-        "Modelo": "5700X",
-        "Modelo alfanumérico": "100-100000926WOF",
-        "Arquitectura": "Zen 3",
-        "Socket": "AM4",
-        "Núcleos": "8",
-        "hilos": "16",
-        "Frecuencia base": "3.4 GHz",
-        "Frecuencia turbo": "4.6 GHz",
-        "Cache L3": "32 MB",
-        "TDP": "65 W",
-        "graficosIntegrados": "No",
-        "Tipo memoria": "DDR4",
-        "Velocidad memoria DDR4": "3200 MT/s",
-        "Capacidad máxima RAM": "128 GB",
-        "Canales memoria": "2",
-        "Disipacion incluida": "No",
-        "Año de lanzamiento": "2022"
-      },
-      "ddrType": "DDR4"
-    },
-    {
-  "id": 0,
-  "name": "AMD Ryzen 5 8600G AM5",
-  "brand": "AMD",
-  "model": "Ryzen 5 8600G",
+    
+  
+
+
+
+{
+  "id": 315,
+  "name": "Intel Core i5-12400 LGA1700 con gráfica integrada C/cooler",
+  "brand": "Intel",
+  "model": "Core i5-12400",
   "category": "Procesadores",
-  "price": 250000,
+  "price": 220000,
   "stock": 1,
-  "realPowerConsumption": "65W (TDP) / ~88W PPT Max Load",
-  "manufacturerUrl": "https://www.amd.com/es/products/apu/amd-ryzen-5-8600g",
+  "powerConsumption": 65,
+  "realPowerConsumption": "65W Processor Base Power - hasta 117W Turbo",
+  "manufacturerUrl": "https://www.intel.com",
   "images": [
-    "/images/procesadores/ryzen5_8600g.webp",
-     "/images/procesadores/ryzen5_8600g_side.webp",
-    "/images/procesadores/ryzen5_8600g_side2.webp"
+    "/images/procesadores/i5_12400.webp"
   ],
-  "description": "Procesador AMD Ryzen 5 8600G AM5 de 6 núcleos y 12 hilos hasta 5.0GHz, con gráficos integrados Radeon 760M y Cooler Wraith Stealth incluido.",
+  "description": "Procesador Intel Core i5-12400 de 12ª generación con 6 núcleos y 12 hilos, frecuencia turbo hasta 4.4GHz, socket LGA1700 y gráfica integrada Intel UHD 730.",
+  "sku": "INTEL-I5-12400",
   "specifications": {
-    "Marca": "AMD",
-    "Línea": "Ryzen 5",
-    "Modelo": "8600G",
-    "ModeloAlfanumerico": "100-100001237BOX",
-    "Socket": "AM5",
-    "Arquitectura": "Zen 4",
+    "Marca": "Intel",
+    "Línea": "Core i5",
+    "Modelo": "i5-12400",
+    "Arquitectura": "Alder Lake",
+    "Año lanzamiento": "2022",
+    "Socket": "LGA1700",
     "Núcleos": "6",
     "Hilos": "12",
-    "FrecuenciaBase": "4.3 GHz",
-    "FrecuenciaBoost": "5.0 GHz",
-    "CacheL2": "6 MB",
-    "CacheL3": "16 MB",
+    "P-Cores": "6",
+    "E-Cores": "0",
+    "Frecuencia base": "2.5 GHz",
+    "Frecuencia turbo": "4.4 GHz",
+    "Cache L3": "18 MB",
     "TDP": "65 W",
-    "PPTMax": "88 W",
-    "ProcesoFabricacion": "4 nm",
-    "MemoriaSoportada": "DDR5",
-    "VelocidadMemoria": "DDR5-5200",
-    "CapacidadMaximaRAM": "128 GB",
-    "CanalesMemoria": "2",
-    "PCIeVersion": "PCIe 4.0",
-    "CoolerIncluido": "Wraith Stealth",
-    "graficosIntegrados": "AMD Radeon 760M",
-    "FrecuenciaGPU": "2800 MHz",
-    "AñoLanzamiento": "2024",
-    "OverclockDesbloqueado": "Sí"
+    "Potencia turbo máxima": "117 W",
+    "GraficosIntegrados": "Intel UHD Graphics 730",
+    "Tipo memoria": "DDR4 / DDR5",
+    "Velocidad memoria DDR4": "3200 MT/s",
+    "Velocidad memoria DDR5": "4800 MT/s",
+    "Capacidad máxima RAM": "128 GB",
+    "Canales memoria": "2",
+    "PCIe": "PCIe 5.0 y PCIe 4.0",
+    "Uso recomendado": "Gaming, productividad, desarrollo, virtualización ligera"
   },
-  "ddrType": "DDR5",
-  "integratedGraphics": true
+  "ddrType": "DDR4-DDR5"
 }
+
   ]
 }
