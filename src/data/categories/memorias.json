@@ -509,26 +509,6 @@
       "ddrType": "DDR4"
     },
     {
-      "id": 418,
-      "name": "NETAC BASIC DDR4 16GB 3200 MHZ C16",
-      "brand": "Netac",
-      "model": "Basic",
-      "category": "Memorias RAM",
-      "price": 120000,
-      "stock": 6,
-      "realPowerConsumption": "3.4W - 4.0W",
-      "images": [
-        "/images/ram/netac_basic_16gb.webp"
-      ],
-      "description": "NETAC BASIC DDR4 16GB 3200 MHZ C16",
-      "specifications": {
-        "Voltaje": "1.35 V",
-        "tipoMemoriaRAM": "DDR4",
-        "capacidadTotal": "16 GB"
-      },
-      "ddrType": "DDR4"
-    },
-    {
       "id": 419,
       "name": "ADATA DDR4 Premier 16GB 3200MHz",
       "brand": "ADATA",
