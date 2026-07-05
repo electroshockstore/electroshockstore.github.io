@@ -7,7 +7,7 @@
       "model": "Fury Beast",
       "category": "Memorias RAM",
       "manufacturerUrl": "https://www.kingston.com/es/memory/gaming",
-      "price": 330000,
+      "price": 370000,
       "stock": 2,
       "realPowerConsumption": "2.5W - 3.2W",
       "images": [
@@ -40,7 +40,7 @@
       "brand": "Patriot",
       "model": "Viper Venom",
       "category": "Memorias RAM",
-      "price": 370000,
+      "price": 400000,
       "stock": 1,
       "realPowerConsumption": "3.0W - 3.8W",
       "images": [
@@ -73,7 +73,7 @@
       "model": "XPG Lancer Blade",
       "category": "Memorias RAM",
       "manufacturerUrl": "https://www.adata.com/ar/consumer/category/memory/",
-      "price": 350000,
+      "price": 370000,
       "stock": 2,
       "realPowerConsumption": "2.5W - 3.2W",
       "images": [
@@ -95,7 +95,7 @@
       "brand": "NETAC",
       "model": "Shadow 2",
       "category": "Memorias RAM",
-      "price": 260000,
+      "price": 290000,
       "stock": 8,
       "realPowerConsumption": "2.2W - 2.8W",
       "images": [
@@ -156,7 +156,7 @@
       "brand": "Neo Forza",
       "model": "NMUD532F82-5200JA10",
       "category": "Memorias RAM",
-      "price": 340000,
+      "price": 450000,
       "stock": 2,
       "realPowerConsumption": "2.8W - 3.5W",
       "images": [
@@ -177,7 +177,7 @@
       "model": "Premier",
       "category": "Memorias RAM",
       "manufacturerUrl": "https://www.adata.com/ar/consumer/category/memory/",
-      "price": 150000,
+      "price": 180000,
       "stock": 2,
       "realPowerConsumption": "≈ 3W",
       "images": [
@@ -206,7 +206,7 @@
       "brand": "Netac",
       "model": "Basic",
       "category": "Memorias RAM",
-      "price": 110000,
+      "price": 140000,
       "stock": 11,
       "realPowerConsumption": "≈ 3W",
       "images": [
@@ -258,7 +258,7 @@
       "model": "Spectrix D35G",
       "category": "Memorias RAM",
       "manufacturerUrl": "https://www.xpg.com/en/category/memory",
-      "price": 210000,
+      "price": 230000,
       "stock": 3,
       "realPowerConsumption": "4.0W - 5.0W",
       "images": [
@@ -281,7 +281,7 @@
       "model": "Spectrix D35",
       "category": "Memorias RAM",
       "manufacturerUrl": "https://www.xpg.com/en/category/memory",
-      "price": 210000,
+      "price": 230000,
       "stock": 2,
       "realPowerConsumption": "4.0W - 5.0W",
       "images": [
@@ -304,7 +304,7 @@
       "model": "XPG Gammix D35",
       "category": "Memorias RAM",
       "manufacturerUrl": "https://www.adata.com/ar/consumer/category/memory/",
-      "price": 100000,
+      "price": 115000,
       "stock": 8,
       "realPowerConsumption": "3.5W - 4.2W",
       "images": [
@@ -346,7 +346,7 @@
       "model": "Fury Beast",
       "category": "Memorias RAM",
       "manufacturerUrl": "https://www.kingston.com/es/memory/gaming",
-      "price": 120000,
+      "price": 130000,
       "stock": 7,
       "realPowerConsumption": "3.5W - 4.2W",
       "images": [
@@ -389,7 +389,7 @@
       "model": "Fury Beast RGB",
       "category": "Memorias RAM",
       "manufacturerUrl": "https://www.kingston.com/es/memory/gaming",
-      "price": 130000,
+      "price": 150000,
       "stock": 1,
       "realPowerConsumption": "4.0W - 5.0W",
       "images": [
@@ -432,7 +432,7 @@
       "brand": "NETAC",
       "model": "Shadow",
       "category": "Memorias RAM",
-      "price": 160000,
+      "price": 180000,
       "stock": 11,
       "realPowerConsumption": "3.4W - 4.0W",
       "images": [
@@ -474,7 +474,7 @@
       "brand": "Lexar",
       "model": "LD4AU016G",
       "category": "Memorias RAM",
-      "price": 160000,
+      "price": 170000,
       "stock": 12,
       "realPowerConsumption": "2.8W - 3.4W",
       "images": [
@@ -494,7 +494,7 @@
       "brand": "Patriot",
       "model": "Signature",
       "category": "Memorias RAM",
-      "price": 150000,
+      "price": 190000,
       "stock": 5,
       "realPowerConsumption": "2.8W - 3.4W",
       "images": [
@@ -515,7 +515,7 @@
       "model": "Premier",
       "category": "Memorias RAM",
       "manufacturerUrl": "https://www.adata.com/ar/consumer/category/memory/",
-      "price": 150000,
+      "price": 170000,
       "stock": 6,
       "realPowerConsumption": "2.8W - 3.4W",
       "images": [
@@ -557,7 +557,7 @@
       "model": "ValueRAM",
       "category": "Memorias RAM",
       "manufacturerUrl": "https://www.kingston.com/es/memory/valueram",
-      "price": 90000,
+      "price": 100000,
       "stock": 10,
       "realPowerConsumption": "2.8W - 3.4W",
       "images": [
@@ -810,7 +810,7 @@
       "brand": "ADATA XPG",
       "model": "Lancer Blade",
       "category": "Memorias RAM",
-      "price": 340000,
+      "price": 390000,
       "stock": 2,
       "powerConsumption": 5,
       "realPowerConsumption": "3W-5W por módulo",
