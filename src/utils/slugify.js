@@ -35,8 +35,7 @@ export const getCategoryFromSlug = (slug) => {
     'conectividad': 'Conectividad',
     'placas-video': 'Placas de Video',
     'monitores': 'Monitores',
-    'portatiles': 'Portátiles',
-    'mayorista': 'Mayorista'
+    'portatiles': 'Portátiles'
   };
   return categoryMap[slug] || null;
 };
@@ -58,8 +57,7 @@ export const getSlugFromCategory = (category) => {
     'Conectividad': 'conectividad',
     'Placas de Video': 'placas-video',
     'Monitores': 'monitores',
-    'Portátiles': 'portatiles',
-    'Mayorista': 'mayorista'
+    'Portátiles': 'portatiles'
   };
   return slugMap[category] || slugify(category);
 };

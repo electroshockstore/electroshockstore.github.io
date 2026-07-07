@@ -367,44 +367,7 @@
         "conexionUSBOpcional": "Sí"
       }
     },
-    {
-      "id": 1107,
-      "name": "Redragon Harrow G808 Pro PC/ANDROID/CONSOLA",
-      "brand": "Redragon",
-      "model": "G808 Pro",
-      "category": "Joystick",
-      "price": 40000,
-      "stock": 2,
-      "sku": "RED-G808-PRO",
-      "description": "Gamepad inalámbrico 2.4GHz con vibración dual, LED, autonomía 10-15h, compatible PC/Android/PS3",
-      "images": [
-        "/images/joystick/rd_harrow.webp",
-        "/images/joystick/rd_harrow_side.webp",
-        "/images/joystick/rd_harrow_side2.webp",
-        "/images/joystick/rd_harrow_side3.webp",
-        "/images/joystick/rd_harrow_side4.webp",
-        "/images/joystick/rd_harrow_side5.webp"
-      ],
-      "specifications": {
-        "Marca": "Redragon",
-        "Modelo": "Harrow Pro",
-        "Modelo detallado": "G808-PRO",
-        "Tipo": "Gamepad inalámbrico",
-        "tipoConectividad": "Inalámbrico",
-        "Tipo de conexión": "Receptor USB 2.4 GHz",
-        "Compatibilidad": "PC, Android, PS3",
-        "Alcance inalámbrico": "8-10 m",
-        "Batería": "Integrada recargable",
-        "Autonomía": "10-15 horas",
-        "Tiempo de carga": "2-3 horas",
-        "Vibración": "Sí (dual vibration)",
-        "Iluminación": "LED",
-        "Cantidad de botones": "12",
-        "Joysticks": "2 analógicos",
-        "Gatillos": "Sí (L2 / R2)",
-        "Material": "Plástico ABS"
-      }
-    },
+    
     {
       "id": 1108,
       "name": "Redragon Juno G818 USB Inalámbrico PC/ANDROID/CONSOLA",

@@ -73,8 +73,7 @@ const categoriesToProcess = [
   'conectividad.js',
   'monitores.js',
   'portatiles.js',
-  'placas_video.js',
-  'mayorista.js'
+  'placas_video.js'
 ];
 
 function addManufacturerUrl(filePath) {

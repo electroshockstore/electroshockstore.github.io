@@ -17,8 +17,8 @@ export const loadCategory = async (categoryName) => {
     'Conectividad': () => import('./categories/conectividad.json'),
     'Monitores': () => import('./categories/monitores.json'),
     'Portátiles': () => import('./categories/portatiles.json'),
-    'Placas de Video': () => import('./categories/placas_video.json'),
-    'Mayorista': () => import('./categories/mayorista.json')
+    'Placas de Video': () => import('./categories/placas_video.json')
+
   };
 
   const loader = categoryMap[categoryName];
@@ -63,7 +63,7 @@ import conectividadData from './categories/conectividad.json';
 import monitoresData from './categories/monitores.json';
 import portatilesData from './categories/portatiles.json';
 import placasVideoData from './categories/placas_video.json';
-import mayoristaData from './categories/mayorista.json';
+
 import { extendProductsWithCompatibility } from './compatibility/index.js';
 
 // Extract products arrays from wrapped objects
@@ -81,7 +81,6 @@ const conectividadProducts = conectividadData.products;
 const monitoresProducts = monitoresData.products;
 const portatilesProducts = portatilesData.products;
 const placasVideoProducts = placasVideoData.products;
-const mayoristaProducts = mayoristaData.products;
 
 // Extend products with compatibility data
 const allProductsRaw = [
@@ -98,8 +97,7 @@ const allProductsRaw = [
   ...conectividadProducts,
   ...monitoresProducts,
   ...portatilesProducts,
-  ...placasVideoProducts,
-  ...mayoristaProducts
+  ...placasVideoProducts
 ];
 
 export const products = extendProductsWithCompatibility(allProductsRaw);

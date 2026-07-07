@@ -15,10 +15,6 @@ import { useFilter } from '../context/FilterContext';
 import { getSlugFromCategory } from '../utils/slugify';
 import { useSEO } from '../hooks/useSEO';
 import { useFlashSaleProducts } from '../hooks/useFlashSaleProducts';
-import mayoristaData from '../data/categories/mayorista.json';
-import RevendedoresSection from '../components/Home/RevendedoresSection';
-
-const mayoristaProducts = mayoristaData.products;
 
 const Home = () => {
   const navigate = useNavigate();
@@ -61,11 +57,6 @@ const Home = () => {
     setSearchQuery('');
     clearSubFilters();
     navigate('/');
-  };
-
-  const handleRevendedorProductClick = (product) => {
-
-    // navigate(`/pack/${product.id}`); // Si tienes una página especial para Kits
   };
 
   return (
@@ -123,14 +114,6 @@ const Home = () => {
             </div>
           )}
 
-          {/* Mobile: Kits Ahorro con fade-in */}
-          <div className={`sm:hidden px-3 mb-4 transition-opacity duration-700 delay-300 ${isLoaded ? 'opacity-100' : 'opacity-0'}`}>
-            <RevendedoresSection
-              products={mayoristaProducts}
-              onProductClick={handleRevendedorProductClick}
-            />
-          </div>
-
           {/* Mobile: PC Builder con fade-in */}
           <div className={`sm:hidden transition-opacity duration-700 delay-[400ms] ${isLoaded ? 'opacity-100' : 'opacity-0'}`}>
             <PCBuilderSection />
@@ -154,16 +137,9 @@ const Home = () => {
             </div>
           </div>
 
-          {/* Desktop: Kits Ahorro con fade-in */}
-          <div className={`hidden sm:block px-3 sm:px-4 mb-4 sm:mb-6 transition-opacity duration-700 delay-[400ms] ${isLoaded ? 'opacity-100' : 'opacity-0'}`}>
-            <RevendedoresSection
-              products={mayoristaProducts}
-              onProductClick={handleRevendedorProductClick}
-            />
-          </div>
           
           {/* Categories con fade-in */}
-          <div className={`px-3 sm:px-4 mb-6 sm:mb-10 transition-opacity duration-700 delay-500 ${isLoaded ? 'opacity-100' : 'opacity-0'}`}>
+          <div className={`px-3 sm:px-4 mt-12 sm:mt-20 mb-6 sm:mb-10 transition-opacity duration-700 delay-500 ${isLoaded ? 'opacity-100' : 'opacity-0'}`}>
             <CategoryProductSection onCategoryClick={handleCategoryClick} />
           </div>
 
