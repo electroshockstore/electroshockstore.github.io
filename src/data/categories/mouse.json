@@ -40,7 +40,7 @@
       "category": "Mouse",
       "manufacturerUrl": "https://www.logitech.com/es-roam/products/",
       "price": 25000,
-      "stock": 36,
+      "stock": 35,
       "images": [
         "/images/mouse/logitech_g203_mouse.webp",
         "/images/mouse/logitech_g203_mouse_specs1.webp",
@@ -333,7 +333,7 @@
       "category": "Mouse",
       "manufacturerUrl": "https://www.razer.com/",
       "price": 45000,
-      "stock": 4,
+      "stock": 3,
       "images": [
         "/images/mouse/razer_v2mini.webp",
         "/images/mouse/razer_v2mini_front.webp",
@@ -427,7 +427,7 @@
       "category": "Mouse",
       "manufacturerUrl": "https://www.logitech.com/es-roam/products/",
       "price": 10000,
-      "stock": 15,
+      "stock": 11,
       "images": [
         "/images/mouse/logitech_m170_mouse.webp",
         "/images/mouse/logitech_m170_mouse_side.webp",
