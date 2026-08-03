@@ -35,3 +35,6 @@ build/
 
 # OS
 Thumbs.db
+
+# Deploy worktree temporal
+.gh-pages-deploy/
