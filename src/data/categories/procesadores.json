@@ -263,7 +263,7 @@
       "brand": "AMD",
       "model": "Athlon 3000G",
       "category": "Procesadores",
-      "price": 40000,
+      "price": 45000,
       "stock": 9,
       "realPowerConsumption": "35W (TDP) / 45W (Max Load)",
       "manufacturerUrl": "https://www.amd.com/es/products/apu/amd-athlon-3000g",
@@ -386,48 +386,7 @@
       },
       "ddrType": "DDR4/DDR5"
     },
- {
-  "id": 313,
-  "name": "Intel Core i5-10400 LGA1200 con gráfica integrada C/cooler",
-  "brand": "Intel",
-  "model": "Core i5-10400",
-  "category": "Procesadores",
-  "price": 200000,
-  "stock": 1,
-  "powerConsumption": 65,
-  "realPowerConsumption": "65W (TDP)",
-  "manufacturerUrl": "https://www.intel.com/content/www/us/en/products/sku/199278/intel-core-i510400-processor-12m-cache-up-to-4-30-ghz/specifications.html",
-  "images": [
-    "/images/procesadores/i5_10400f.webp",
-    "/images/procesadores/i5_10400f_side.webp",
-    "/images/procesadores/i5_10400f_side2.webp",
-    "/images/procesadores/i5_10400f_side3.webp"
-  ],
-  "description": "Procesador Intel Core i5-10400 6 núcleos 12 hilos hasta 4.3GHz, socket LGA1200, con gráfica integrada Intel UHD Graphics 630",
-  "sku": "INTEL-I5-10400",
-  "specifications": {
-    "Marca": "Intel",
-    "Línea": "Core i5",
-    "Modelo": "i5-10400",
-    "Modelo alfanumérico": "BX8070110400",
-    "Arquitectura": "Comet Lake",
-    "Año lanzamiento": "2020",
-    "Socket": "LGA1200",
-    "Núcleos": "6",
-    "hilos": "12",
-    "Frecuencia base": "2.9 GHz",
-    "Frecuencia turbo": "4.3 GHz",
-    "Cache L3": "12 MB",
-    "TDP": "65 W",
-    "graficosIntegrados": "Intel UHD Graphics 630",
-    "Tipo memoria": "DDR4",
-    "Velocidad memoria": "2666 MT/s",
-    "Capacidad máxima RAM": "128 GB",
-    "Canales memoria": "2",
-    "Uso recomendado": "Gaming de gama media, oficina y uso general"
-  },
-  "ddrType": "DDR4"
-},
+ 
     {
       "id": 314,
       "name": "Intel Core i5-14400F LGA1700 sin grafica integrada C/cooler",
