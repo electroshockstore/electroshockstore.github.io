@@ -1,32 +1,6 @@
 {
   "products": [
-    {
-      "id": 799,
-      "name": "Redragon Zeus Pro H510-pro - USB/Bluetooth 7.1 Inalámbricos",
-      "brand": "Redragon",
-      "model": "Zeus Pro Wireless",
-      "category": "Auriculares",
-      "price": 110000,
-      "stock": 1,
-      "sku": "RED-ZEUS-PRO-H510",
-      "description": "Auriculares gaming Inalámbricos USB/Bluetooth con sonido 7.1, micrÃ³fono desmontable",
-      "images": [
-        "/images/auriculares/zeus_pro.webp",
-        "/images/auriculares/zeus_pro_front.webp",
-        "/images/auriculares/zeus_pro_side.webp"
-      ],
-      "specifications": {
-        "Marca": "Redragon",
-        "LÃ­nea": "Gaming",
-        "Modelo": "Zeus Pro Wireless",
-        "Modelo alfanumÃ©rico": "H510-PRO",
-        "Respuesta en frecuencia": "20 Hz - 20 kHz",
-        "tipoConectividad": "Inalámbrico",
-        "Sonido": "7.1 Surround",
-        "MicrÃ³fono": "Desmontable",
-        "Compatibilidad": "PC / PS4 / PS5 / Switch / MÃ³viles"
-      }
-    },
+   
    
     {
       "id": 801,

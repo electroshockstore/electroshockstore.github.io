@@ -8,7 +8,7 @@
       "category": "Fuentes",
       "manufacturerUrl": "https://www.xpg.com/en/category/memory",
       "price": 85000,
-      "stock": 11,
+      "stock": 10,
       "sku": "XPG-750-PYLON",
       "description": "Fuente ATX 750W no modular con certificación 80 Plus Bronze, MTBF 100,000 horas",
       "images": [
@@ -235,42 +235,7 @@
       },
       "certType": "80_PLUS_BRONZE"
     },
-    {
-      "id": 107,
-      "name": "Adata XPG Probe 600W - 80 Plus Bronze",
-      "brand": "ADATA",
-      "model": "XPG Probe 600W",
-      "category": "Fuentes",
-      "manufacturerUrl": "https://www.adata.com/ar/consumer/category/memory/",
-      "price": 60000,
-      "stock": 2,
-      "sku": "XPG-600-PROBE",
-      "description": "Fuente ATX 600W con certificación 80 Plus Bronze, ventilador 120mm silencioso",
-      "images": [
-        "/images/fuentes/xpg_probe700.webp",
-        "/images/fuentes/xpg_probe700_side.webp",
-        "/images/fuentes/xpg_probe700_back.webp"
-      ],
-      "specifications": {
-        "Cod": "#523207",
-        "Marca": "ADATA",
-        "Línea": "XPG Probe",
-        "Modelo": "Probe 600W",
-        "Potencia": "600W",
-        "Certificacion": "80 Plus Bronze",
-        "formato": "ATX",
-        "Conectores": {
-          "ATX 24 pines": "1",
-          "EPS 8 pines (CPU)": "1",
-          "PCI-E 6+2 pines": "2",
-          "SATA": "5",
-          "Molex": "2"
-        },
-        "Protecciones": "OVP / UVP / OPP / SCP / OCP",
-        "Ventilador": "120 mm silencioso"
-      },
-      "certType": "80_PLUS_BRONZE"
-    },
+    
      {
       "id": 108,
       "name": "Thermaltake Smart RGB 600W 80 Plus White",

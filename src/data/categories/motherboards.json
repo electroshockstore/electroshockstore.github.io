@@ -77,7 +77,7 @@
       "category": "Motherboards",
       "manufacturerUrl": "https://www.asus.com/motherboards-components/motherboards/prime/prime-a520m-k/",
       "price": 75000,
-      "stock": 6,
+      "stock": 1,
       "ownConsumption": "25W - 35W",
       "maxPowerSupport": "Hasta 105W TDP",
       "images": [
@@ -125,33 +125,7 @@
       "ddrType": "DDR5"
     },
     
-    {
-      "id": 607,
-      "name": "Gigabyte A520M K V2 UD DDR4 AM4 Micro-ATX",
-      "brand": "Gigabyte",
-      "model": "A520M K V2",
-      "category": "Motherboards",
-      "manufacturerUrl": "https://www.gigabyte.com/Motherboard/A520M-K-V2-rev-10",
-      "price": 75000,
-      "stock": 7,
-      "ownConsumption": "20W - 30W",
-      "maxPowerSupport": "Hasta 105W TDP",
-      "images": [
-        "/images/motherboard/a520m_k_v2.webp",
-        "/images/motherboard/a520m_k_v2_moth.webp"
-      ],
-      "description": "Mother Gigabyte UD A520M K V2 DDR4 AMD Ryzen Gamer M.2 PC",
-      "specifications": {
-        "Marca": "Gigabyte",
-        "Línea": "Ultra Durable",
-        "Chipset": "AMD A520",
-        "Socket": "AM4",
-        "formato": "Micro-ATX",
-        "tipoMemoriaRAM": "DDR4",
-        "vrm": "4+2 Fases"
-      },
-      "ddrType": "DDR4"
-    },
+    
     {
       "id": 608,
       "name": "Gigabyte B650M-H UD AMD AM5 DDR5",
@@ -303,53 +277,7 @@
       },
       "ddrType": "DDR4/DDR5"
     },
-    {
-      "id": 612,
-      "name": "Gigabyte A620M-H UD DDR5 AM5",
-      "brand": "Gigabyte",
-      "model": "A620M-H",
-      "category": "Motherboards",
-      "manufacturerUrl": "https://www.gigabyte.com/Motherboard/A620M-H-rev-10",
-      "price": 110000,
-      "stock": 2,
-      "sku": "GIGABYTE-A620M-H",
-      "ownConsumption": "30W - 40W",
-      "maxPowerSupport": "Hasta 120W (PPT recomendado)",
-      "images": [
-        "/images/motherboard/a620m_h_ud.webp",
-        "/images/motherboard/a620m_h_ud_front.webp",
-        "/images/motherboard/a620m_h_ud_back.webp"
-      ],
-      "description": "Motherboard Gigabyte A620M-H UD Micro ATX AM5 con soporte DDR5, ideal para builds económicas con procesadores AMD Ryzen 7000/8000/9000",
-      "specifications": {
-        "Marca": "Gigabyte",
-        "Línea": "Ultra Durable",
-        "Modelo": "A620M-H",
-        "Socket": "AM5",
-        "Chipset": "AMD A620",
-        "formato": "Micro-ATX",
-        "Compatibilidad CPU": "AMD Ryzen 7000/8000/9000 Series",
-        "tipoMemoriaRAM": "DDR5",
-        "slotsMemoria": "2",
-        "capacidadMaximaRAM": "96 GB",
-        "velocidadRAMSoportada": "Hasta 6600 MHz (OC)",
-        "Canales de memoria": "Dual Channel",
-        "VRM": "5+2+1 fases",
-        "Slot principal GPU": "1 x PCIe 4.0 x16",
-        "Slots adicionales": "1 x PCIe 3.0 x1",
-        "puertosM2": "2 x M.2 (1x PCIe 4.0, 1x PCIe 3.0)",
-        "puertosSATA": "4 x SATA III (6Gb/s)",
-        "Red": "Gigabit LAN",
-        "USB traseros": "USB 3.2 Gen1, USB 2.0",
-        "Salidas de video": "HDMI, DisplayPort",
-        "Audio": "Realtek HD Audio",
-        "Sistema de refrigeración": "Disipadores en VRM",
-        "Conectores ventiladores": "Smart Fan 6",
-        "BIOS": "UEFI con Q-Flash Plus",
-        "Uso recomendado": "PC de oficina, gaming de entrada, builds económicas con Ryzen 7000+"
-      },
-      "ddrType": "DDR5"
-    },
+    
     {
       "id": 613,
       "name": "ASUS Prime B450M-A II AM4 DDR4",
