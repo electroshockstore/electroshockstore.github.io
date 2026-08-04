@@ -3,29 +3,12 @@ import { DollarSign, AlertTriangle, CheckCircle, Shield, Camera, MapPinned, Truc
 export const PICKUP_POINTS = [
   {
     id: 1,
-    name: 'Berazategui Centro',
-    address: 'Av Mitre y 14. Via Cosenza',
-    schedule: '16:00 hs',
-    days: 'Lunes a Viernes',
-    weekendSchedule: 'NO',
-    mapUrl: 'https://maps.app.goo.gl/vZYggDMLYFrYt3qv5',
-    image: '/images/puntos_retiro/via_cosenza.webp',
-    color: 'from-blue-600 to-cyan-500',
-    gradient: 'from-blue-500/20 to-cyan-500/20',
-    security: [
-      { icon: Shield, text: 'Frente a Base Policial' },
-      { icon: Camera, text: 'Cámaras de Seguridad' },
-      { icon: MapPinned, text: 'Punto Seguro Transitable' }
-    ]
-  },
-  {
-    id: 2,
-    name: 'Cruce Florencio Varela',
-    address: 'Puerta del Bingo',
+    name: 'Bingo BZ Cruce (Puerta)',
+    address: 'Cruce Florencio Varela, Provincia de Buenos Aires',
     schedule: '16:30 hs',
     days: 'Lunes a Viernes',
     weekendSchedule: 'Todo el día',
-    mapUrl: 'https://maps.app.goo.gl/qouSL9xAgsLR3x4EA',
+    mapUrl: 'https://maps.app.goo.gl/ivNLJMo7kHxtdUJAA',
     image: '/images/puntos_retiro/bz_cruce.webp',
     color: 'from-purple-600 to-pink-500',
     gradient: 'from-purple-500/20 to-pink-500/20',
@@ -36,13 +19,13 @@ export const PICKUP_POINTS = [
     ]
   },
   {
-    id: 3,
-    name: 'Carrefour Fcio Varela',
-    address: 'Patio Comida. AV del Trabajo',
+    id: 2,
+    name: 'Carrefour (Patio Comidas)',
+    address: 'Av. Gral. José de San Martín 554. Florencio Varela, Provincia de Buenos Aires',
     schedule: 'Coordinar',
     days: 'Todos los días',
     weekendSchedule: 'Disponible',
-    mapUrl: 'https://maps.app.goo.gl/2wB6dvSTKSSVPcsu9',
+    mapUrl: 'https://maps.app.goo.gl/kXdMaP1UVaRw5x767',
     image: '/images/puntos_retiro/carrefour.webp',
     color: 'from-green-600 to-emerald-500',
     gradient: 'from-green-500/20 to-emerald-500/20',

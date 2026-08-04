@@ -3,15 +3,14 @@ import { MapPin, Phone, Mail, Clock, ExternalLink, MessageCircle } from 'lucide-
 const Footer = () => {
   const locations = [
     {
-      name: 'Berazategui',
-      address: 'Berazategui, Buenos Aires',
-
+      name: 'Bingo BZ Cruce (Puerta)',
+      address: 'Cruce Florencio Varela, Provincia de Buenos Aires',
+      mapsUrl: 'https://maps.app.goo.gl/ivNLJMo7kHxtdUJAA'
     },
     {
-      name: 'Cruce Florencio Varela',
-      address: 'Florencio Varela, Buenos Aires',
- 
-
+      name: 'Carrefour (Patio Comidas)',
+      address: 'Av. Gral. José de San Martín 554. Florencio Varela, Provincia de Buenos Aires',
+      mapsUrl: 'https://maps.app.goo.gl/kXdMaP1UVaRw5x767'
     }
   ];
 
@@ -135,7 +134,7 @@ const Footer = () => {
              {/* Mapa */}
              <div className="relative h-48 rounded-[2rem] overflow-hidden border border-white/20 shadow-2xl group cursor-pointer">
                 <a 
-                  href="https://www.google.com/maps/search/Berazategui,+Buenos+Aires/@-34.79,-58.25,13z"
+                  href="https://www.google.com/maps/search/Florencio+Varela,+Buenos+Aires/@-34.78,-58.28,13z"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="block w-full h-full"
@@ -259,7 +258,7 @@ const Footer = () => {
                {/* Mapa Desktop - Lado derecho con estilo mejorado */}
                <div className="relative h-full min-h-[160px] rounded-[2rem] overflow-hidden border border-white/20 shadow-2xl group cursor-pointer">
                   <a 
-                    href="https://www.google.com/maps/search/Berazategui,+Buenos+Aires/@-34.79,-58.25,13z"
+                    href="https://www.google.com/maps/search/Florencio+Varela,+Buenos+Aires/@-34.78,-58.28,13z"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="block w-full h-full"
