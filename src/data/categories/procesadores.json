@@ -264,7 +264,7 @@
       "model": "Athlon 3000G",
       "category": "Procesadores",
       "price": 45000,
-      "stock": 9,
+      "stock": 4,
       "realPowerConsumption": "35W (TDP) / 45W (Max Load)",
       "manufacturerUrl": "https://www.amd.com/es/products/apu/amd-athlon-3000g",
       "images": [
@@ -432,52 +432,9 @@
         "Uso recomendado": "Gaming moderno y productividad"
       },
       "ddrType": "DDR4/DDR5"
-    },
+    }
     
-{
-  "id": 315,
-  "name": "Intel Core i5-12400 LGA1700 con gráfica integrada C/cooler",
-  "brand": "Intel",
-  "model": "Core i5-12400",
-  "category": "Procesadores",
-  "price": 230000,
-  "stock": 1,
-  "powerConsumption": 65,
-  "realPowerConsumption": "65W Processor Base Power - hasta 117W Turbo",
-  "manufacturerUrl": "https://www.intel.com",
-  "images": [
-    "/images/procesadores/i512400.webp",
-      "/images/procesadores/i512400_side.webp"
-  ],
-  "description": "Procesador Intel Core i5-12400 de 12ª generación con 6 núcleos y 12 hilos, frecuencia turbo hasta 4.4GHz, socket LGA1700 y gráfica integrada Intel UHD 730.",
-  "sku": "INTEL-I5-12400",
-  "specifications": {
-    "Marca": "Intel",
-    "Línea": "Core i5",
-    "Modelo": "i5-12400",
-    "Arquitectura": "Alder Lake",
-    "Año lanzamiento": "2022",
-    "Socket": "LGA1700",
-    "Núcleos": "6",
-    "Hilos": "12",
-    "P-Cores": "6",
-    "E-Cores": "0",
-    "Frecuencia base": "2.5 GHz",
-    "Frecuencia turbo": "4.4 GHz",
-    "Cache L3": "18 MB",
-    "TDP": "65 W",
-    "Potencia turbo máxima": "117 W",
-    "GraficosIntegrados": "Intel UHD Graphics 730",
-    "Tipo memoria": "DDR4 / DDR5",
-    "Velocidad memoria DDR4": "3200 MT/s",
-    "Velocidad memoria DDR5": "4800 MT/s",
-    "Capacidad máxima RAM": "128 GB",
-    "Canales memoria": "2",
-    "PCIe": "PCIe 5.0 y PCIe 4.0",
-    "Uso recomendado": "Gaming, productividad, desarrollo, virtualización ligera"
-  },
-  "ddrType": "DDR4-DDR5"
-}
+
 
   ]
 }
