@@ -130,7 +130,7 @@
       "model": "S30GD",
       "category": "Monitores",
       "price": 155000,
-      "stock": 3,
+      "stock": 2,
       "powerConsumption": 25,
       "realPowerConsumption": "20W-25W en uso",
       "manufacturerUrl": "https://www.samsung.com/",
@@ -215,7 +215,7 @@
     "model": "24MS500-B",
     "category": "Monitores",
     "manufacturerUrl": "https://www.lg.com/monitor",
-    "price": 130000,
+    "price": 145000,
     "stock": 1,
     "sku": "LG-24MS500B",
     "description": "Monitor LG de 24 pulgadas con panel IPS, frecuencia de actualización de 100Hz y resolución Full HD para una experiencia visual fluida.",
@@ -249,50 +249,9 @@
       "altavocesIntegrados": "No",
       "usoRecomendado": "Oficina / Multimedia"
     }
-  },
-  {
-    "id": 1009,
-    "name": "Samsung Curvo Led 1080p 4ms Full HD",
-    "brand": "Samsung",
-    "model": "C24F390FHL",
-    "category": "Monitores",
-    "manufacturerUrl": "https://www.samsung.com/monitor",
-    "price": 160000,
-    "stock": 1,
-    "sku": "SAM-C24F390",
-    "description": "Monitor curvo Samsung de 24 pulgadas con curvatura 1800R, ofreciendo una experiencia inmersiva y modo Eye Saver.",
-    "images": [
-      "/images/monitores/samsung_C24F390FHL.webp",
-      "/images/monitores/samsung_C24F390FHL_side.webp",
-         "/images/monitores/samsung_C24F390FHL_side2.webp",
-            "/images/monitores/samsung_C24F390FHL_side3.webp",
-               "/images/monitores/samsung_C24F390FHL_side4.webp"
-
-    ],
-    "specifications": {
-      "Marca": "Samsung",
-      "Línea": "CF390",
-      "Modelo": "C24F390FHL",
-      "tipoPantalla": "Curvo (1800R)",
-      "tamanoPantalla": "24 pulgadas",
-      "resolucion": "1920 x 1080 (Full HD)",
-      "relacionAspecto": "16:9",
-      "tipoPanel": "VA",
-      "frecuenciaActualizacion": "60 Hz",
-      "frecuenciaMaxima": "60 Hz",
-      "tiempoRespuesta": "4 ms (GtG)",
-      "brillo": "250 nits",
-      "contraste": "3000:1",
-      "coberturaColor": "72% NTSC",
-      "tecnologiaSincronizacion": "AMD FreeSync",
-      "HDR": "No",
-      "Conectividad": "1x HDMI, 1x VGA",
-      "angulosVision": "178°/178°",
-      "montajeVESA": "Sí (75x75)",
-      "altavocesIntegrados": "No",
-      "usoRecomendado": "Hogar / Multimedia"
-    }
   }
+  
+  
 
  
 

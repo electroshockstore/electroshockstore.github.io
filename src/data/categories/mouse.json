@@ -8,7 +8,7 @@
       "category": "Mouse",
       "manufacturerUrl": "https://www.logitech.com/es-roam/products/",
       "price": 45000,
-      "stock": 4,
+      "stock": 5,
       "images": [
         "/images/mouse/logitech_g305mouse.webp",
         "/images/mouse/logitech_g305mouse_side.webp",
@@ -40,7 +40,7 @@
       "category": "Mouse",
       "manufacturerUrl": "https://www.logitech.com/es-roam/products/",
       "price": 25000,
-      "stock": 35,
+      "stock": 33,
       "images": [
         "/images/mouse/logitech_g203_mouse.webp",
         "/images/mouse/logitech_g203_mouse_specs1.webp",
