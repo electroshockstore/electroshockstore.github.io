@@ -69,32 +69,7 @@
       },
       "ddrType": "DDR5"
     },
-    {
-      "id": 602,
-      "name": "ASUS Prime A520M-K AM4 DDR4",
-      "brand": "ASUS",
-      "model": "Prime A520M-K",
-      "category": "Motherboards",
-      "manufacturerUrl": "https://www.asus.com/motherboards-components/motherboards/prime/prime-a520m-k/",
-      "price": 75000,
-      "stock": 1,
-      "ownConsumption": "25W - 35W",
-      "maxPowerSupport": "Hasta 105W TDP",
-      "images": [
-        "/images/motherboard/A520m_K_Csm.webp",
-        "/images/motherboard/A520m_K_Csm_moth.webp"
-      ],
-      "description": "Mother Asus Prime A520M-K AM4 DDR4 64GB HDMI M.2",
-      "specifications": {
-        "Marca": "ASUS",
-        "Chipset": "AMD A520",
-        "Socket": "AM4",
-        "formato": "Micro-ATX",
-        "tipoMemoriaRAM": "DDR4",
-        "vrm": "4+2 Fases de poder"
-      },
-      "ddrType": "DDR4"
-    },
+    
    
     {
       "id": 604,
