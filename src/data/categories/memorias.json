@@ -79,7 +79,27 @@
       },
       "ddrType": "DDR5"
     },
-   
+     {
+      "id": 403,
+      "name": "NETAC Shadow 2 DDR5 16GB 4800MHz CL40",
+      "brand": "NETAC",
+      "model": "Shadow 2",
+      "category": "Memorias RAM",
+      "price": 290000,
+      "stock": 8,
+      "realPowerConsumption": "2.2W - 2.8W",
+      "images": [
+        "/images/ram/netac_shadow2_ram.webp"
+      ],
+      "description": "Memoria RAM Netac 16gb Shadow 2 Ddr5 4800mhz Sin RGB",
+      "specifications": {
+        "tipoMemoriaRAM": "DDR5",
+        "capacidadTotal": "16 GB",
+        "Velocidad": "4800 MHz",
+        "Voltaje": "1.1V"
+      },
+      "ddrType": "DDR5"
+    },
   
 {
 "id": 404,
