@@ -155,32 +155,7 @@
         "formato": "M.2"
       }
     },
-    {
-      "id": 205,
-      "name": "Kingston NV3 1TB - M.2 NVMe Gen4 Chip Micron",
-      "brand": "Kingston",
-      "model": "NV3 SNV3S/1000G",
-      "category": "Almacenamiento",
-      "price": 260000,
-      "stock": 3,
-      "sku": "KING-1TB-GEN4",
-      "description": "SSD M.2 NVMe Gen4 x4 de 1TB, lectura 3500 MB/s, escritura 2800 MB/s",
-      "manufacturerUrl": "https://www.kingston.com/es/ssd/nv3-nvme-pcie-ssd",
-      "images": [
-        "/images/almacenamiento/kingston_nv3_1tb.webp",
-        "/images/almacenamiento/kingston_nv3_1tb_side.webp"
-      ],
-      "specifications": {
-        "Marca": "Kingston",
-        "Línea": "NV3",
-        "capacidadTotal": "1 TB",
-        "Chip": "Micron B58R TLC",
-        "Interfaz": "PCIe Gen4 x4 NVMe",
-        "Lectura": "3500 MB/s",
-        "Escritura": "2800 MB/s",
-        "formato": "M.2"
-      }
-    },
+   
     {
       "id": 206,
       "name": "Adata Legend 710 512GB - M.2 NVMe Gen3 Chip MICRON",
