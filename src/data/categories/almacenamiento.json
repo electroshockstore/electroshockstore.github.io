@@ -467,28 +467,7 @@
         "formato": "M.2"
       }
     },
-    {
-      "id": 220,
-      "name": "NVME Western Digital Green SN350 480GB",
-      "brand": "Western Digital",
-      "model": "WD Green SN350",
-      "category": "Almacenamiento",
-      "price": 130000,
-      "stock": 1,
-      "sku": "WD-480-SN350",
-      "description": "SSD M.2 NVMe PCIe Gen3 x4 de 480GB, lectura 2400 MB/s, escritura 1500 MB/s",
-      "manufacturerUrl": "https://www.westerndigital.com/es-la/products/internal-drives/wd-green-sn350-nvme-ssd",
-      "images": [
-        "/images/almacenamiento/nvme_wdgreen_480.webp",
-        "/images/almacenamiento/nvme_wdgreen_480_side.webp"
-      ],
-      "specifications": {
-        "capacidadTotal": "480 GB",
-        "Lectura": "2400 MB/s",
-        "Escritura": "1500 MB/s",
-        "formato": "M.2"
-      }
-    },
+   
     {
       "id": 221,
       "name": "NVME Western Digital Green SN350 500GB",
