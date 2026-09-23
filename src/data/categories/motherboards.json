@@ -70,7 +70,41 @@
       "ddrType": "DDR5"
     },
     
-   
+{
+  "id": 602,
+  "name": "ASUS Prime A520M-K AM4",
+  "brand": "ASUS",
+  "model": "Prime A520M-K",
+  "category": "Motherboards",
+  "manufacturerUrl": "https://www.asus.com/motherboards-components/motherboards/prime/prime-a520m-k/",
+  "price": 80000,
+  "stock": 5,
+  "ownConsumption": "30W - 40W",
+  "maxPowerSupport": "Hasta 105W",
+  "images": [
+    "/images/motherboard/A520m_K_Csm.webp",
+    "/images/motherboard/A520m_K_Csm_moth.webp"
+  
+  ],
+  "description": "Motherboard ASUS Prime A520M-K AM4 para gaming y uso general con soporte para procesadores AMD Ryzen 3000, 4000 G y 5000",
+  "specifications": {
+    "Marca": "ASUS",
+    "Línea": "Prime",
+    "Modelo": "Prime A520M-K",
+    "Socket": "AM4",
+    "Chipset": "AMD A520",
+    "formato": "Micro-ATX",
+    "tipoMemoriaRAM": "DDR4",
+    "slotsMemoria": "2",
+    "capacidadMaximaRAM": "64 GB",
+    "velocidadRAMSoportada": "Hasta 4600 MHz (OC)",
+    "puertosM2": "1",
+    "puertosSATA": "4",
+    "red": "LAN Gigabit",
+    "usoRecomendado": "Gaming"
+  },
+  "ddrType": "DDR4"
+},
     {
       "id": 604,
       "name": "Gigabyte B650M Gaming WiFi DDR5 AM5",
