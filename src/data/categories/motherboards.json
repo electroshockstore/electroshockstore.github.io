@@ -253,60 +253,7 @@
       "ddrType": "DDR4/DDR5"
     },
     
-    {
-      "id": 613,
-      "name": "ASUS Prime B450M-A II AM4 DDR4",
-      "brand": "ASUS",
-      "model": "Prime B450M-A II",
-      "category": "Motherboards",
-      "manufacturerUrl": "https://www.asus.com/motherboards-components/motherboards/prime/prime-b450m-a-ii/",
-      "price": 120000,
-      "stock": 1,
-      "sku": "ASUS-B450M-A-II",
-      "ownConsumption": "30W - 40W",
-      "maxPowerSupport": "Hasta 105W TDP",
-      "images": [
-        "/images/motherboard/asus_b450ma.webp",
-        "/images/motherboard/asus_b450ma_side.webp",
-        "/images/motherboard/asus_b450ma_side2.webp"
-      ],
-      "description": "Motherboard ASUS Prime B450M-A II Micro ATX AM4 con soporte DDR4, ideal para procesadores AMD Ryzen 1000/2000/3000/5000",
-      "specifications": {
-        "Marca": "ASUS",
-        "Línea": "Prime",
-        "Modelo": "B450M-A II",
-        "Socket": "AM4",
-        "Chipset": "AMD B450",
-        "formato": "Micro-ATX",
-        "Compatibilidad CPU": "AMD Ryzen 1000/2000/3000/5000 Series",
-        "tipoMemoriaRAM": "DDR4",
-        "slotsMemoria": "4",
-        "capacidadMaximaRAM": "128 GB",
-        "velocidadRAMSoportada": "Hasta 4400 MHz (OC)",
-        "Canales de memoria": "Dual Channel",
-        "VRM": "6+2 fases",
-        "Slot principal GPU": "1 x PCIe 3.0 x16",
-        "Slots adicionales": "2 x PCIe x1",
-        "puertosM2": "1 x M.2 PCIe 3.0 x4",
-        "puertosSATA": "4 x SATA III (6Gb/s)",
-        "Red": "Gigabit LAN",
-        "USB traseros": "USB 3.2 Gen1, USB 2.0",
-        "Salidas de video": "HDMI, DVI-D, D-Sub",
-        "Audio": "Realtek ALC887 8-Channel HD Audio",
-        "Sistema de refrigeración": "Disipadores en VRM",
-        "Conectores ventiladores": "4-pin PWM/DC",
-        "BIOS": "UEFI BIOS con EZ Flash 3",
-        "Características destacadas": [
-          "Soporte PCIe 3.0",
-          "Compatible con Ryzen 5000 (con actualización BIOS)",
-          "Excelente relación precio/rendimiento",
-          "Ideal para upgrades AM4"
-        ],
-        "Uso recomendado": "PC de oficina, gaming económico, builds con Ryzen AM4"
-      },
-      "ddrType": "DDR4"
-    },
-    
+   
 
 
 {
