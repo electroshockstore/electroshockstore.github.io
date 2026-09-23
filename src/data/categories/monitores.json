@@ -90,40 +90,6 @@
     },
   
     {
-      "id": 1004,
-      "name": "Asus VA24EH-J 23.8\" Full HD IPS 75Hz 1ms Freesync",
-      "brand": "Asus",
-      "model": "VA24E",
-      "category": "Monitores",
-      "manufacturerUrl": "https://www.asus.com/displays-desktops/monitors/",
-      "price": 140000,
-      "stock": 1,
-      "sku": "ASUS-VA24EHF",
-      "description": "Monitor Asus 23.8\" Full HD 100Hz con panel IPS, Freesync, tiempo de respuesta 1ms MPRT y tecnologías Flicker-free y Low Blue Light",
-      "images": [
-        "/images/monitores/ASUS_VA24E.webp",
-        "/images/monitores/ASUS_VA24E_side.webp"
-      ],
-      "specifications": {
-        "Marca": "Asus",
-        "Modelo": "VA24EHF",
-        "tipoPanel": "IPS",
-        "tamanoPantalla": "23.8 pulgadas",
-        "resolucion": "Full HD (1920x1080)",
-        "relacionAspecto": "16:9",
-        "frecuenciaActualizacion": "100 Hz",
-        "frecuenciaMaxima": "100 Hz",
-        "tiempoRespuesta": "1 ms (MPRT)",
-        "tecnologiaSincronizacion": "Adaptive-Sync / FreeSync",
-        "angulosVision": "178° (H) / 178° (V)",
-        "Conectividad": "1 x HDMI (v1.4)",
-        "tecnologiasAdicionales": "Flicker-free, Low Blue Light, GamePlus",
-        "montajeVESA": "100x100 mm",
-        "usoRecomendado": "Gaming casual y oficina"
-      }
-    },
-   
-    {
       "id": 1006,
       "name": "Samsung Essential S3 S30GD 24\" Full HD 100Hz IPS",
       "brand": "Samsung",
