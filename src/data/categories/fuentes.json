@@ -288,42 +288,7 @@
       },
       "certType": "80_PLUS"
     },
-    {
-      "id": 112,
-      "name": "Aureox ARXGU-80PBZ-550W - Unlimited Series 80 Plus",
-      "brand": "Aureox",
-      "model": "ARXGU-80PBZ-550W",
-      "category": "Fuentes",
-      "price": 50000,
-      "stock": 1,
-      "sku": "AUR-550-BRZ",
-      "description": "Fuente ATX 550W con certificación 80 Plus White/Bronze, ventilador 120mm",
-      "images": [
-        "/images/fuentes/aureox_550w.webp",
-        "/images/fuentes/aureox_550w_side.webp",
-        "/images/fuentes/aureox_550w_specs.webp"
-      ],
-      "specifications": {
-        "Marca": "Aureox",
-        "Línea": "Unlimited Series",
-        "Modelo": "ARXGU-80PBZ-550W",
-        "Potencia": "550W",
-        "Certificacion": "80 Plus Bronze",
-        "Frecuencia": "60 Hz",
-        "formato": "ATX",
-        "Cableado": "No modular",
-        "Ventilador": "120 mm",
-        "Conectores": {
-          "ATX 24 pines": "1",
-          "EPS 4+4 pines": "1",
-          "PCI-E 6+2 pines": "1",
-          "SATA": "4",
-          "Molex": "2"
-        },
-        "Protecciones": "OCP / OVP / SCP"
-      },
-      "certType": "80_PLUS_BRONZE"
-    },
+    
     {
       "id": 113,
       "name": "Gigabyte P550B - 550W 80 Plus Bronze",
@@ -367,7 +332,7 @@
       "model": "ARXGP-600W",
       "category": "Fuentes",
       "price": 55000,
-      "stock": 2,
+      "stock": 1,
       "sku": "AUR-ARXGP-600",
       "description": "Fuente ATX 600W sin certificación 80 Plus, ventilador 120mm",
       "images": [
