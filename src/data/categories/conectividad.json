@@ -321,6 +321,264 @@
         "App": "EZVIZ",
         "Uso": "Interior"
       }
-    }
+    },
+
+{
+  "id": 912,
+  "name": "ADATA UV128 USB 3.2 Flash Drive 256GB Retractil",
+  "brand": "ADATA",
+  "model": "UV128",
+  "category": "Conectividad",
+  "price": 60000,
+  "stock": 2,
+  "sku": "AUV128-256G-RBE",
+  "description": "Pendrive ADATA UV128 de 256GB con interfaz USB 3.2 Gen1, conector USB-A deslizante sin tapa y velocidad de lectura de hasta 100 MB/s.",
+  "images": ["/images/conectividad/adata_256_usba.webp",
+        "/images/conectividad/adata_256_usba_side.webp"],
+  "specifications": {
+    "Marca": "ADATA",
+    "Modelo": "UV128",
+    "Capacidad": "256 GB",
+    "Interfaz": "USB 3.2 Gen1 (USB 5Gbps)",
+    "Conector": "USB Type-A",
+    "Velocidad de lectura": "Hasta 100 MB/s",
+    "Color": "Negro / Azul",
+    "Material": "Plástico",
+    "Diseño": "Conector USB deslizante sin tapa",
+    "Dimensiones": "60 x 20 x 9 mm",
+    "Peso": "10 g",
+    "Compatibilidad": "Windows, macOS, Linux",
+    "Plug and Play": "Sí",
+    "Soporte para correa": "Sí",
+    "Soporte para llavero": "Sí",
+    "Garantía": "5 años"
+  }
+},
+
+{
+  "id": 913,
+  "name": "Verbatim Store 'n' Go PinStripe 128GB USB 2.0 Pendrive",
+  "brand": "Verbatim",
+  "model": "Store 'n' Go PinStripe",
+  "category": "Conectividad",
+  "price": 30000,
+  "stock": 10,
+  "sku": "49071",
+  "description": "Pendrive Verbatim Store 'n' Go PinStripe de 128GB con interfaz USB 2.0, conector USB-A y diseño retráctil que protege el conector cuando no está en uso.",
+  "images": ["/images/conectividad/verbatim_go128.webp",
+        "/images/conectividad/verbatim_go128_side.webp",
+      "/images/conectividad/verbatim_go128_side2.webp"],
+  "specifications": {
+    "Marca": "Verbatim",
+    "Línea": "Store 'n' Go",
+    "Modelo": "PinStripe",
+    "Capacidad": "128 GB",
+    "Interfaz": "USB 2.0",
+    "Conector": "USB-A",
+    "Velocidad de lectura": "Hasta 12 MB/s",
+    "Velocidad de escritura": "Hasta 5 MB/s",
+    "Diseño": "Retráctil / deslizable",
+    "Material": "Plástico",
+    "Color": "Negro",
+    "Dimensiones": "54 x 21 x 9,2 mm",
+    "Sistemas operativos compatibles": "Windows, macOS, Linux",
+    "Alimentación": "Bus USB",
+    "Plug and Play": "Sí"
+  }
+},
+
+
+
+{
+  "id": 914,
+  "name": "Pendrive ADATA UC300 128GB USB-C 3.2 Notebooks y Cels.",
+  "brand": "ADATA",
+  "model": "UC300",
+  "category": "Conectividad",
+  "price": 33000,
+  "stock": 2,
+  "sku": "ACHO-UC300-128G-RBK/GN",
+  "description": "Pendrive ADATA UC300 de 128GB con interfaz USB 3.2 Gen1 y conector USB Type-C, compatible con PC, notebooks, smartphones y tablets.",
+   "images": ["/images/conectividad/adata_128usbc.jpg",
+        "/images/conectividad/adata_128usbc_side.jpg"
+      ],
+  "specifications": {
+    "Marca": "ADATA",
+    "Modelo": "UC300",
+    "Capacidad": "128 GB",
+    "Interfaz": "USB 3.2 Gen1 (USB 5Gbps)",
+    "Conector": "USB Type-C",
+    "Compatibilidad USB": "Compatible con USB 2.0",
+    "Color": "Negro / Verde",
+    "Material": "Plástico",
+    "Diseño": "Conector USB Type-C deslizante sin tapa",
+    "Dimensiones": "63 x 20 x 10 mm",
+    "Peso": "7 g",
+    "Compatibilidad": "Windows, macOS, Linux, Android, iPhone 15/16",
+    "Plug and Play": "Sí",
+    "Soporte para correa": "Sí",
+    "Garantía": "5 años"
+  }
+},
+
+{
+  "id": 915,
+  "name": "Pendrive Kingston DataTraveler Exodia M 128GB USB 3.2 Retractil",
+  "brand": "Kingston",
+  "model": "DataTraveler Exodia M",
+  "category": "Conectividad",
+  "price": 25000,
+  "stock": 5,
+  "sku": "DTXM/128GB",
+  "description": "Pendrive Kingston DataTraveler Exodia M de 128GB con interfaz USB 3.2 Gen 1, conector USB Type-A y tapa móvil para proteger el conector.",
+   "images": ["/images/conectividad/kingston_128exodia.jpg",
+        "/images/conectividad/kingston_128exodia_side.jpg",
+      "/images/conectividad/kinsgton_128exodia_side2.webp"],
+  "specifications": {
+    "Marca": "Kingston",
+    "Línea": "DataTraveler",
+    "Modelo": "Exodia M",
+    "Capacidad": "128 GB",
+    "Interfaz": "USB 3.2 Gen 1",
+    "Conector": "USB Type-A",
+    "Diseño": "Tapa móvil",
+    "Color": "Negro / Rojo",
+    "Dimensiones": "67.4 x 21.8 x 11.6 mm",
+    "Peso": "10 g",
+    "Temperatura de operación": "0 a 60 °C",
+    "Temperatura de almacenamiento": "-20 a 85 °C",
+    "Compatibilidad": "Windows 11/10, macOS, Linux, Chrome OS",
+    "Anillo para llavero": "Sí",
+    "Garantía": "5 años"
+  }
+},
+
+
+{
+  "id": 916,
+  "name": "Pendrive SanDisk Cruzer Glide 3.0 128GB USB",
+  "brand": "SanDisk",
+  "model": "Cruzer Glide 3.0",
+  "category": "Conectividad",
+  "price": 50000,
+  "stock": 5,
+  "sku": "SDCZ600-128G-G35",
+  "description": "Pendrive SanDisk Cruzer Glide 3.0 de 128GB con interfaz USB 3.0, conector USB-A retráctil y software SanDisk SecureAccess para proteger archivos mediante contraseña.",
+   "images": ["/images/conectividad/sandisk_128cruzer.webp",
+        "/images/conectividad/sandisk_128cruzer_side.webp",
+      "/images/conectividad/sandisk_128cruzer_side2.webp"],
+  "specifications": {
+    "Marca": "SanDisk",
+    "Línea": "Cruzer Glide",
+    "Modelo": "Cruzer Glide 3.0",
+    "Capacidad": "128 GB",
+    "Interfaz": "USB 3.0",
+    "Conector": "USB-A",
+    "Diseño": "Conector USB retráctil",
+    "Color": "Negro / Rojo",
+    "Software": "SanDisk SecureAccess",
+    "Protección por contraseña": "Sí",
+    "Dimensiones": "21.84 x 8.38 x 59.44 mm",
+    "Peso": "9.07 g",
+    "Compatibilidad": "Windows, macOS",
+    "Garantía": "5 años"
+  }
+},
+{
+"id": 917,
+"name": "Pendrive SanDisk Cruzer Fit 64GB USB 2.0",
+"brand": "SanDisk",
+"model": "Cruzer Fit",
+"category": "Conectividad",
+"price": 15000,
+"stock": 5,
+"sku": "SDCZ33-064G-B35",
+"description": "Pendrive SanDisk Cruzer Fit de 64GB con interfaz USB 2.0 y diseño ultracompacto, ideal para almacenar y transportar archivos ocupando el mínimo espacio.",
+"images": [
+"/images/conectividad/sandisk_cruzerfit64.webp",
+"/images/conectividad/sandisk_cruzerfit64_side.webp"
+],
+"specifications": {
+"Marca": "SanDisk",
+"Línea": "Cruzer Fit",
+"Modelo": "SDCZ33-064G-B35",
+"Capacidad": "64 GB",
+"Interfaz": "USB 2.0",
+"Conector": "USB-A",
+"Diseño": "Ultracompacto",
+"Dimensiones": "17.53 x 12.70 x 7.37 mm",
+"Temperatura de operación": "0 a 35 °C",
+"Temperatura de almacenamiento": "-10 a 70 °C",
+"Compatibilidad": "Puerto USB 2.0",
+"Software": "SanDisk SecureAccess",
+"Protección con contraseña": "Sí",
+"Cifrado": "AES de 128 bits",
+"Garantía": "5 años"
+}
+},
+
+{
+  "id": 918,
+  "name": "Pendrive SanDisk Cruzer Blade Z50 128GB USB 2.0 Negro",
+  "brand": "SanDisk",
+  "model": "Cruzer Blade Z50",
+  "category": "Conectividad",
+  "price": 20000,
+  "stock": 5,
+  "sku": "SDCZ50-128G-B35",
+  "description": "Pendrive SanDisk Cruzer Blade Z50 de 128GB con interfaz USB 2.0, conector USB-A y diseño compacto para transportar, compartir y realizar copias de seguridad de archivos.",
+"images": ["/images/conectividad/sandisk_128_cruzerblade.webp",
+        "/images/conectividad/sandisk_128_cruzerblade_side.webp"],
+  "specifications": {
+    "Marca": "SanDisk",
+    "Línea": "Cruzer Blade",
+    "Modelo": "Z50",
+    "Capacidad": "128 GB",
+    "Interfaz": "USB 2.0",
+    "Conector": "USB-A",
+    "Color": "Negro / Rojo",
+    "Material": "Plástico",
+    "Diseño": "Compacto, sin tapa",
+    "Dimensiones": "41.5 x 17.6 x 7.4 mm",
+    "Peso": "3 g",
+    "Velocidad de lectura": "Hasta 150 MB/s",
+    "Compatibilidad": "Windows, macOS y dispositivos Android compatibles",
+    "Protección con contraseña": "Sí",
+    "Cifrado": "AES de 128 bits",
+    "Software": "SanDisk SecureAccess",
+    "Temperatura de operación": "0 a 45 °C",
+    "Garantía": "5 años"
+  }
+},
+{
+  "id": 919,
+  "name": "Verbatim Slider 64GB USB 2.0 Negro",
+  "brand": "Verbatim",
+  "model": "Slider",
+  "category": "Conectividad",
+  "price": 15000,
+  "stock": 15,
+  "sku": "98698",
+  "description": "Pendrive Verbatim Slider de 64GB con interfaz USB 2.0, conector USB-A y mecanismo deslizante retráctil que protege el conector cuando no está en uso.",
+  "images": ["/images/conectividad/verbatim_64slider.jpg"],
+  "specifications": {
+    "Marca": "Verbatim",
+    "Modelo": "Slider",
+    "Capacidad": "64 GB",
+    "Interfaz": "USB 2.0",
+    "Conector": "USB-A",
+    "Velocidad de lectura": "Hasta 10 MB/s",
+    "Velocidad de escritura": "Hasta 4 MB/s",
+    "Diseño": "Mecanismo deslizante retráctil",
+    "Color": "Negro",
+    "Material": "Plástico",
+    "Dimensiones": "58.5 x 21 x 11 mm",
+    "Peso": "8 g",
+    "Compatibilidad": "Windows 11, 10, 8; Mac OS X 10.4 o superior",
+    "Garantía": "Limitada"
+  }
+}
+
+
   ]
 }

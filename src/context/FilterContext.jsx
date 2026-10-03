@@ -1,20 +1,28 @@
-import { createContext, useContext, useState, useEffect, useMemo, useCallback } from 'react';
+import {
+  createContext,
+  useContext,
+  useState,
+  useEffect,
+  useMemo,
+  useCallback,
+} from 'react';
+
 import { products as allProducts } from '../data';
 import { normalizeFilterValue } from '../utils/filterNormalizers';
 import { FILTER_KEY_ALIASES } from '../utils/filterConfig';
 import { getCategoryFromSlug } from '../utils/slugify';
 
-const FilterContext = createContext();
-
-export { FilterContext };
+const FilterContext = createContext(null);
 
 // Helper para obtener categoría inicial desde URL
 const getInitialCategoryFromURL = () => {
   const path = window.location.pathname;
   const match = path.match(/\/categoria\/([^/]+)/);
+
   if (match && match[1]) {
     return getCategoryFromSlug(match[1]);
   }
+
   return null;
 };
 
@@ -24,6 +32,7 @@ const applyViewTransition = (callback) => {
     callback();
     return;
   }
+
   document.startViewTransition(() => {
     callback();
   });
@@ -31,8 +40,9 @@ const applyViewTransition = (callback) => {
 
 export function FilterProvider({ children }) {
   const [searchQuery, setSearchQuery] = useState('');
-  // OPTIMIZACIÓN: Leer categoría inicial desde URL para evitar flash
-  const [selectedCategory, setSelectedCategory] = useState(getInitialCategoryFromURL);
+  const [selectedCategory, setSelectedCategory] = useState(
+    getInitialCategoryFromURL
+  );
   const [subFilters, setSubFilters] = useState({});
 
   // Limpiar subfiltros cuando cambia la categoría
@@ -40,82 +50,117 @@ export function FilterProvider({ children }) {
     setSubFilters({});
   }, [selectedCategory]);
 
-  // OPTIMIZACIÓN CRÍTICA: Memoizar productos filtrados
+  // Productos filtrados
   const filteredProducts = useMemo(() => {
     let filtered = allProducts;
 
+    // Búsqueda
     if (searchQuery.trim()) {
       const query = searchQuery.toLowerCase();
-      filtered = filtered.filter(p =>
-        p.name?.toLowerCase().includes(query) ||
-        p.brand?.toLowerCase().includes(query) ||
-        p.model?.toLowerCase().includes(query) ||
-        p.sku?.toLowerCase().includes(query) ||
-        p.category?.toLowerCase().includes(query)
+
+      filtered = filtered.filter(
+        (p) =>
+          p.name?.toLowerCase().includes(query) ||
+          p.brand?.toLowerCase().includes(query) ||
+          p.model?.toLowerCase().includes(query) ||
+          p.sku?.toLowerCase().includes(query) ||
+          p.category?.toLowerCase().includes(query)
       );
     } else {
+      // Categoría
       if (selectedCategory) {
-        filtered = filtered.filter(p => p.category === selectedCategory);
+        filtered = filtered.filter(
+          (p) => p.category === selectedCategory
+        );
       }
 
-      const activeFilters = Object.entries(subFilters).filter(([, values]) => values?.length > 0);
-      
+      // Subfiltros
+      const activeFilters = Object.entries(subFilters).filter(
+        ([, values]) => values?.length > 0
+      );
+
       if (activeFilters.length > 0) {
-        filtered = filtered.filter(product => {
-          if (!product.specifications) return false;
-          
-          return activeFilters.every(([filterType, selectedValues]) => {
-            // Buscar el valor en el producto - primero con la clave exacta
-            let specValue = product.specifications[filterType];
-            
-            // Si no se encuentra, buscar con aliases (tanto dirección como inversa)
-            if (!specValue) {
-              // Buscar aliases que apuntan a filterType
-              const aliasKeys = Object.entries(FILTER_KEY_ALIASES)
-                .filter(([, target]) => target === filterType)
-                .map(([key]) => key);
-              
-              // Buscar si filterType es un alias de otra clave
-              const targetKey = FILTER_KEY_ALIASES[filterType];
-              if (targetKey) {
-                aliasKeys.push(targetKey);
-              }
-              
-              // Agregar la clave original
-              aliasKeys.push(filterType);
-              
-              // Buscar en todas las posibles claves
-              for (const key of aliasKeys) {
-                if (product.specifications[key]) {
-                  specValue = product.specifications[key];
-                  break;
+        filtered = filtered.filter((product) => {
+          if (!product.specifications) {
+            return false;
+          }
+
+          return activeFilters.every(
+            ([filterType, selectedValues]) => {
+              let specValue =
+                product.specifications[filterType];
+
+              // Buscar aliases
+              if (!specValue) {
+                const aliasKeys = Object.entries(
+                  FILTER_KEY_ALIASES
+                )
+                  .filter(([, target]) => target === filterType)
+                  .map(([key]) => key);
+
+                const targetKey =
+                  FILTER_KEY_ALIASES[filterType];
+
+                if (targetKey) {
+                  aliasKeys.push(targetKey);
+                }
+
+                aliasKeys.push(filterType);
+
+                for (const key of aliasKeys) {
+                  if (product.specifications[key]) {
+                    specValue = product.specifications[key];
+                    break;
+                  }
                 }
               }
-            }
-            
-            if (!specValue) return false;
-            
-            // Normalizar el valor del producto
-            const normalizedProductValue = normalizeFilterValue(filterType, specValue);
-            
-            // Si la normalización falla, excluir el producto
-            if (!normalizedProductValue || normalizedProductValue === '' || normalizedProductValue === 'null') {
-              return false;
-            }
-            
-            // Comparar con los valores seleccionados (exact match, case insensitive)
-            return selectedValues.some(selectedValue => {
-              const normalizedSelected = normalizeFilterValue(filterType, selectedValue);
-              
-              if (!normalizedSelected || normalizedSelected === '' || normalizedSelected === 'null') {
+
+              if (!specValue) {
                 return false;
               }
-              
-              // Comparación exacta con trim para evitar espacios
-              return normalizedProductValue.toString().toLowerCase().trim() === 
-                     normalizedSelected.toString().toLowerCase().trim();
-            });
-          });
+
+              const normalizedProductValue =
+                normalizeFilterValue(
+                  filterType,
+                  specValue
+                );
+
+              if (
+                !normalizedProductValue ||
+                normalizedProductValue === '' ||
+                normalizedProductValue === 'null'
+              ) {
+                return false;
+              }
+
+              return selectedValues.some((selectedValue) => {
+                const normalizedSelected =
+                  normalizeFilterValue(
+                    filterType,
+                    selectedValue
+                  );
+
+                if (
+                  !normalizedSelected ||
+                  normalizedSelected === '' ||
+                  normalizedSelected === 'null'
+                ) {
+                  return false;
+                }
+
+                return (
+                  normalizedProductValue
+                    .toString()
+                    .toLowerCase()
+                    .trim() ===
+                  normalizedSelected
+                    .toString()
+                    .toLowerCase()
+                    .trim()
+                );
+              });
+            }
+          );
         });
       }
     }
@@ -123,14 +168,17 @@ export function FilterProvider({ children }) {
     return filtered;
   }, [searchQuery, selectedCategory, subFilters]);
 
-  const handleSubFilterChange = useCallback((filterType, values) => {
-    applyViewTransition(() => {
-      setSubFilters(prev => ({
-        ...prev,
-        [filterType]: values
-      }));
-    });
-  }, []);
+  const handleSubFilterChange = useCallback(
+    (filterType, values) => {
+      applyViewTransition(() => {
+        setSubFilters((prev) => ({
+          ...prev,
+          [filterType]: values,
+        }));
+      });
+    },
+    []
+  );
 
   const clearFilters = useCallback(() => {
     applyViewTransition(() => {
@@ -146,17 +194,28 @@ export function FilterProvider({ children }) {
     });
   }, []);
 
-  const value = useMemo(() => ({
-    searchQuery,
-    setSearchQuery,
-    selectedCategory,
-    setSelectedCategory,
-    subFilters,
-    handleSubFilterChange,
-    filteredProducts,
-    clearFilters,
-    clearSubFilters
-  }), [searchQuery, selectedCategory, subFilters, filteredProducts, handleSubFilterChange, clearFilters, clearSubFilters]);
+  const value = useMemo(
+    () => ({
+      searchQuery,
+      setSearchQuery,
+      selectedCategory,
+      setSelectedCategory,
+      subFilters,
+      handleSubFilterChange,
+      filteredProducts,
+      clearFilters,
+      clearSubFilters,
+    }),
+    [
+      searchQuery,
+      selectedCategory,
+      subFilters,
+      handleSubFilterChange,
+      filteredProducts,
+      clearFilters,
+      clearSubFilters,
+    ]
+  );
 
   return (
     <FilterContext.Provider value={value}>
@@ -167,33 +226,51 @@ export function FilterProvider({ children }) {
 
 export function useFilter() {
   const context = useContext(FilterContext);
-  if (context === undefined) {
-    throw new Error('useFilter must be used within a FilterProvider');
+
+  if (context === undefined || context === null) {
+    throw new Error(
+      'useFilter must be used within a FilterProvider'
+    );
   }
+
   return context;
 }
 
-// OPTIMIZACIÓN: Selectores específicos para evitar re-renders innecesarios
 export function useFilteredProducts() {
   const context = useContext(FilterContext);
-  if (context === undefined) {
-    throw new Error('useFilteredProducts must be used within a FilterProvider');
+
+  if (context === undefined || context === null) {
+    throw new Error(
+      'useFilteredProducts must be used within a FilterProvider'
+    );
   }
+
   return context.filteredProducts;
 }
 
 export function useSearchQuery() {
   const context = useContext(FilterContext);
-  if (context === undefined) {
-    throw new Error('useSearchQuery must be used within a FilterProvider');
+
+  if (context === undefined || context === null) {
+    throw new Error(
+      'useSearchQuery must be used within a FilterProvider'
+    );
   }
+
   return [context.searchQuery, context.setSearchQuery];
 }
 
 export function useSelectedCategory() {
   const context = useContext(FilterContext);
-  if (context === undefined) {
-    throw new Error('useSelectedCategory must be used within a FilterProvider');
+
+  if (context === undefined || context === null) {
+    throw new Error(
+      'useSelectedCategory must be used within a FilterProvider'
+    );
   }
-  return [context.selectedCategory, context.setSelectedCategory];
+
+  return [
+    context.selectedCategory,
+    context.setSelectedCategory,
+  ];
 }

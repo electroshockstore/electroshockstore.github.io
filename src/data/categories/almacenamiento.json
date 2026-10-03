@@ -55,42 +55,7 @@
         "formato": "M.2"
       }
     },
-    {
-      "id": 202,
-      "name": "Adata XPG Spectrix S40G 1TB RGB M.2 NVMe",
-      "brand": "ADATA",
-      "model": "XPG Spectrix S40G",
-      "category": "Almacenamiento",
-      "price": 245000,
-      "stock": 2,
-      "sku": "ADATA-1TB-S40G",
-      "description": "SSD M.2 NVMe PCIe Gen3 x4 de 1TB con iluminación RGB configurable, lectura 3500 MB/s, escritura 3000 MB/s",
-      "manufacturerUrl": "https://www.xpg.com/es/xpg/spectrix-s40g",
-      "images": [
-      "/images/almacenamiento/s40g_1tb.webp",
-            "/images/almacenamiento/s40g_1tb_side.webp",
-                "/images/almacenamiento/s40g_1tb_side2.webp"
-      ],
-      "specifications": {
-        "Marca": "Adata",
-        "Línea": "XPG Spectrix",
-        "Modelo": "S40G",
-        "Modelo detallado": "AS40G-1TT-C",
-        "capacidadTotal": "1 TB",
-        "formato": "M.2 2280",
-        "Interfaz": "PCIe Gen3x4",
-        "Protocolo": "NVMe 1.3",
-        "Lectura": "3500 MB/s",
-        "Escritura": "3000 MB/s",
-        "tipoMemoriaRAM": "3D NAND",
-        "Iluminación": "RGB configurable",
-        "Software compatible": "XPG RGB Sync",
-        "Resistencia": "640 TBW",
-        "MTBF": "2,000,000 horas",
-        "Disipador": "Integrado",
-        "Compatibilidad": "PC de escritorio y notebooks con M.2 NVMe"
-      }
-    },
+    
     {
       "id": 203,
       "name": "Adata Legend 710 2TB M.2 NVMe Gen3",
@@ -135,7 +100,7 @@
       "model": "NM620",
       "category": "Almacenamiento",
       "price": 235000,
-      "stock": 3,
+      "stock": 2,
       "sku": "LEXAR-1TB-NM620",
       "description": "SSD M.2 NVMe Gen3 x4 de 1TB, lectura 3500 MB/s, escritura 3000 MB/s",
       "manufacturerUrl": "https://www.lexar.com/product/lexar-nm620-m-2-2280-nvme-ssd/",
