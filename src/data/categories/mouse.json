@@ -427,7 +427,7 @@
       "category": "Mouse",
       "manufacturerUrl": "https://www.logitech.com/es-roam/products/",
       "price": 10000,
-      "stock": 11,
+      "stock": 8,
       "images": [
         "/images/mouse/logitech_m170_mouse.webp",
         "/images/mouse/logitech_m170_mouse_side.webp",
@@ -664,7 +664,7 @@
       "category": "Mouse",
       "manufacturerUrl": "https://www.logitech.com/es-roam/products/",
       "price": 10000,
-      "stock": 20,
+      "stock": 15,
       "sku": "LOGI-M170",
       "description": "Mouse inalámbrico Logitech M170 con receptor USB 2.4 GHz, sensor óptico 1000 DPI y hasta 12 meses de autonomía",
       "images": [
