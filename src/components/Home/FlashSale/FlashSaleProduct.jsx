@@ -67,7 +67,7 @@ const FlashSaleProduct = ({
           />
 
           {/* Discount badge */}
-          <div className="absolute top-2 right-2 z-10 bg-lime-400 text-[#09090d] text-xs font-black px-2 py-0.5 rounded-full font-mono tracking-tight shadow-md">
+          <div className="pill-lime absolute top-2 right-2 z-10 text-xs font-black px-2 py-0.5 rounded-full font-mono tracking-tight">
             -{discountPercentage}%
           </div>
 
@@ -104,7 +104,7 @@ const FlashSaleProduct = ({
               <span className="font-mono text-[10px] text-gray-500 line-through">
                 {formatPrice(originalPrice)}
               </span>
-              <span className="bg-lime-400/10 border border-lime-400/30 text-lime-400 font-mono text-[8px] font-bold px-1.5 py-0.5 rounded-md">
+              <span className="pill bg-lime-400/10 border border-lime-400/30 text-lime-400 font-mono text-[8px] font-bold px-1.5 py-0.5 tracking-tight">
                 − {formatPrice(savings)}
               </span>
             </div>
@@ -205,7 +205,7 @@ const FlashSaleProduct = ({
         />
 
         {/* Discount badge — más grande y bold */}
-        <div className="absolute top-2 sm:top-3 right-2 sm:right-3 z-10 bg-lime-400 text-[#09090d] text-xs sm:text-sm font-black px-2 sm:px-3 py-0.5 sm:py-1 rounded-full font-mono tracking-tight shadow-md">
+        <div className="pill-lime absolute top-2 sm:top-3 right-2 sm:right-3 z-10 text-xs sm:text-sm font-black px-2 sm:px-3 py-0.5 sm:py-1 rounded-full font-mono tracking-tight">
           -{discountPercentage}%
         </div>
 

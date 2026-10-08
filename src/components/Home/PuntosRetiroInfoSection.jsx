@@ -98,7 +98,7 @@ const PuntosRetiroInfoSection = () => {
           <div className="flex flex-col items-center lg:items-start text-center lg:text-left space-y-2 sm:space-y-6 md:space-y-7 lg:space-y-8 order-2 lg:order-1 w-full">
             
             {/* Badge Sin Local Físico */}
-            <div className="inline-flex items-center gap-2 px-4 py-2 bg-purple-500/20 backdrop-blur-sm rounded-full border border-purple-400/30 shadow-lg shadow-purple-500/30">
+            <div className="pill inline-flex items-center gap-2 px-4 py-2 bg-purple-500/20 backdrop-blur-sm rounded-full border border-purple-400/30 shadow-lg shadow-purple-500/30">
               <MapPin className="text-purple-300 w-4 h-4" strokeWidth={2.5} />
               <span className="font-bold text-purple-200 uppercase tracking-wider text-xs">
                 Sin Local Físico

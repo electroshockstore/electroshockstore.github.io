@@ -71,7 +71,7 @@ const ManualMode = ({ onGoHome }) => {
   const selectedProductId = selectedCategory ? getSelectedProductId(selectedCategory) : null;
 
   return (
-    <div className="h-screen w-full flex flex-col catalog-bg overflow-hidden">
+    <div className="h-screen w-full flex flex-col catalog-bg overflow-clip">
       <Header 
         searchQuery={searchQuery}
         onSearchChange={setSearchQuery}

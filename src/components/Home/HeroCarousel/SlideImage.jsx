@@ -1,10 +1,15 @@
 import { motion } from 'framer-motion';
 
 const SlideImage = ({ slide, animationVariants, isVisible, isIOS, isFirstSlide }) => {
+  // El primer slide es el candidato a LCP: entra sin fade para pintar de inmediato.
+  const imageVariants = isFirstSlide
+    ? { initial: { opacity: 1 }, animate: { opacity: 1 }, transition: { duration: 0 } }
+    : animationVariants.image;
+
   return (
     <motion.div
       key={`hero-image-${slide.id}`}
-      {...animationVariants.image}
+      {...imageVariants}
       exit={{ 
         opacity: 0,
         transition: { duration: 0.4, ease: "easeOut" }

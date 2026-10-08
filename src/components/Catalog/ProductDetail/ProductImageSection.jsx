@@ -1,4 +1,5 @@
 // Sección de imagen del producto — Editorial Premium
+import { useRef } from 'react';
 import { Package, ChevronLeft, ChevronRight, X, ZoomIn } from 'lucide-react';
 import Portal from '../../Shared/Portal';
 import { useImageGallery } from '../../../hooks/useImageGallery';
@@ -8,6 +9,39 @@ import { canUseViewTransition, productImageTransitionName } from '../../../utils
 const ProductImageSection = ({ images = [], name, stock, stockStatus, productId }) => {
   const gallery = useImageGallery(images);
   const lightbox = useLightbox(images);
+
+  // Swipe mobile: distingue gesto horizontal de scroll vertical.
+  const touchStart = useRef(null);
+  const swiped = useRef(false);
+
+  const handleTouchStart = (e) => {
+    const t = e.touches[0];
+    touchStart.current = { x: t.clientX, y: t.clientY };
+    swiped.current = false;
+  };
+
+  const handleTouchEnd = (e) => {
+    if (!touchStart.current || !gallery.hasMultiple) return;
+    const t = e.changedTouches[0];
+    const dx = t.clientX - touchStart.current.x;
+    const dy = t.clientY - touchStart.current.y;
+    // Gesto claramente horizontal y con recorrido mínimo
+    if (Math.abs(dx) > 40 && Math.abs(dx) > Math.abs(dy) * 1.5) {
+      swiped.current = true;
+      if (dx < 0) gallery.next();
+      else gallery.prev();
+    }
+    touchStart.current = null;
+  };
+
+  // Evita abrir el lightbox justo después de un swipe
+  const handleFrameClick = () => {
+    if (swiped.current) {
+      swiped.current = false;
+      return;
+    }
+    lightbox.open(gallery.currentIndex);
+  };
 
   const stockBg = stockStatus?.badgeColor || 'bg-emerald-500';
 
@@ -27,7 +61,9 @@ const ProductImageSection = ({ images = [], name, stock, stockStatus, productId 
         <div
           className="pis-frame"
           style={{ aspectRatio: gallery.hasMultiple ? undefined : '1/1', flex: 1 }}
-          onClick={() => lightbox.open(gallery.currentIndex)}
+          onClick={handleFrameClick}
+          onTouchStart={handleTouchStart}
+          onTouchEnd={handleTouchEnd}
         >
           <img
             src={gallery.currentImage}
@@ -81,6 +117,23 @@ const ProductImageSection = ({ images = [], name, stock, stockStatus, productId 
                 {gallery.currentIndex + 1} / {images.length}
               </div>
             </>
+          )}
+
+          {/* Dots de paginación — Solo mobile (Fase 3.2) */}
+          {gallery.hasMultiple && (
+            <div className="pis-dots lg:hidden" role="tablist" aria-label="Seleccionar imagen">
+              {images.map((img, i) => (
+                <button
+                  key={`dot-${i}`}
+                  type="button"
+                  role="tab"
+                  aria-selected={i === gallery.currentIndex}
+                  aria-label={`Ir a imagen ${i + 1}`}
+                  className={`pis-dot ${i === gallery.currentIndex ? 'active' : ''}`}
+                  onClick={(e) => { e.stopPropagation(); gallery.goTo(i); }}
+                />
+              ))}
+            </div>
           )}
         </div>
 

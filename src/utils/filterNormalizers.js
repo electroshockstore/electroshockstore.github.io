@@ -1,7 +1,6 @@
 /**
  * Normalizadores de filtros - SOLID Single Responsibility
- * Cada función tiene una única responsabilidad de normalización.
- * Las claves del mapa son canónicas (ver filterConfig.getFilterKey).
+ * Cada función tiene una única responsabilidad de normalización
  */
 import { getFilterKey } from './filterConfig.js';
 
@@ -73,8 +72,7 @@ export const normalizeMemoryType = (value) => {
   return value.toUpperCase();
 };
 
-// Normalizar conectividad (unificado: teclados, mouse, auriculares, joystick)
-// Detecta cualquier variante inalámbrica: Bluetooth, 2.4GHz, Wireless, Dongle, Lightspeed…
+// Normalizar conectividad
 export const normalizeConnectivity = (value) => {
   const valueStr = value.toString().toLowerCase().trim();
 
@@ -268,7 +266,6 @@ export const normalizeStorageFormat = (value) => {
   return value;
 };
 
-// Normalizar tamaño de monitor a "24 pulgadas"
 export const normalizeMonitorSize = (value) => {
   const str = value.toString().trim();
   const match = str.match(/(\d+(?:[.,]\d+)?)\s*(?:"|''|pulgadas|pulg|")?/i);
@@ -278,7 +275,6 @@ export const normalizeMonitorSize = (value) => {
   return `${clean} pulgadas`;
 };
 
-// Normalizar tipo de panel (IPS / VA / TN / OLED)
 export const normalizePanel = (value) => {
   const v = value.toString().toLowerCase();
   if (v.includes('ips')) return 'IPS';
@@ -289,7 +285,6 @@ export const normalizePanel = (value) => {
   return value.toString().trim();
 };
 
-// Normalizar resolución (Full HD, QHD, 4K…)
 export const normalizeResolution = (value) => {
   const v = value.toString().toLowerCase().replace(/\s+/g, '');
   if (v.includes('3840') || v.includes('2160') || v.includes('4k') || v.includes('uhd')) return '4K UHD';
@@ -299,7 +294,6 @@ export const normalizeResolution = (value) => {
   return value.toString().trim();
 };
 
-// Normalizar frecuencia (GHz / MHz / Hz) a formato consistente
 export const normalizeFrequency = (value) => {
   const str = value.toString().trim();
   const match = str.match(/(\d+(?:[.,]\d+)?)\s*(ghz|mhz|hz)/i);
@@ -309,18 +303,16 @@ export const normalizeFrequency = (value) => {
   return `${num} ${unit}`;
 };
 
-// Normalizar texto técnico (socket, chipset, cableado): trim + colapsa espacios
 export const normalizeTechnical = (value) => {
   return value.toString().trim().replace(/\s+/g, ' ');
 };
 
-// Normalizar memoria VRAM/RAM ("8GB" -> "8 GB")
 export const normalizeMemorySize = (value) => {
   const normalized = normalizeCapacity(value);
   return normalized ?? value.toString().trim();
 };
 
-// Mapa de normalizadores por tipo de filtro (claves canónicas)
+// Mapa de normalizadores por tipo de filtro
 const NORMALIZER_MAP = {
   'Marca': normalizeBrand,
 
@@ -369,7 +361,6 @@ const NORMALIZER_MAP = {
 /**
  * Función principal de normalización
  * Aplica el normalizador correspondiente según el tipo de filtro
- * (resuelve alias a clave canónica primero)
  */
 export const normalizeFilterValue = (filterType, value) => {
   if (value == null) return null;

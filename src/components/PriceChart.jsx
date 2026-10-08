@@ -1,5 +1,6 @@
 import { usePriceHistory } from '../hooks/usePriceHistory';
 import { TrendingUp, TrendingDown, Minus } from 'lucide-react';
+import { ChartSkeleton } from './Shared/Skeleton';
 import {
   AreaChart,
   Area,
@@ -17,7 +18,11 @@ import {
 export function PriceChart({ productId }) {
   const { history, loading, error } = usePriceHistory(productId);
 
-  if (loading || error || !history || history.data.length < 1) {
+  if (loading) {
+    return <ChartSkeleton />;
+  }
+
+  if (error || !history || history.data.length < 1) {
     return null;
   }
 

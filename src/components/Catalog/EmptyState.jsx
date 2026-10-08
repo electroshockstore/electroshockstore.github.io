@@ -11,7 +11,7 @@ const EmptyState = ({ onReset }) => {
         <p className="text-gray-400 mb-6">No encontramos productos que coincidan con los filtros seleccionados.</p>
         <button
           onClick={onReset}
-          className="px-6 py-3 bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white font-bold rounded-xl transition-all duration-200 shadow-lg"
+          className="mi-lift mi-press px-6 py-3 bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white font-bold rounded-xl transition-all duration-200 shadow-lg"
         >
           Ver todas las categorías
         </button>

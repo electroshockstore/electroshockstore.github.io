@@ -1,0 +1,321 @@
+- generic [active] [ref=e1]:
+  - generic [ref=e2]:
+    - link "Saltar al contenido principal" [ref=e3] [cursor=pointer]:
+      - /url: "#main-content"
+    - main [ref=e6]:
+      - generic [ref=e1088]:
+        - generic [ref=e1091]:
+          - button "ElectroShock Tecnología y Conectividad" [ref=e1092] [cursor=pointer]:
+            - generic [ref=e1098]:
+              - generic [ref=e1099]: ElectroShock
+              - generic [ref=e1100]: Tecnología y Conectividad
+          - generic [ref=e1101]:
+            - combobox "Buscar productos, marcas o categorías..." [ref=e1102]: ryzen
+            - button "Limpiar búsqueda" [ref=e1103] [cursor=pointer]
+          - generic [ref=e1107]:
+            - paragraph [ref=e1120]: ¡Info importante!
+            - button "Condiciones" [ref=e1123] [cursor=pointer]
+            - button "Puntos de Retiro" [ref=e1130] [cursor=pointer]
+            - button "Inicio" [ref=e1135] [cursor=pointer]
+        - main [ref=e1140]:
+          - generic [ref=e1147]:
+            - generic [ref=e1148]:
+              - button "Procesadores" [ref=e1149] [cursor=pointer]:
+                - generic [ref=e1155]:
+                  - generic [ref=e1156]: Procesadores
+                  - generic [aria-hidden] [ref=e1157]: Procesadores
+              - button "Motherboards" [ref=e1158] [cursor=pointer]:
+                - generic [ref=e1167]:
+                  - generic [ref=e1168]: Motherboards
+                  - generic [aria-hidden] [ref=e1169]: Motherboards
+              - button "Memorias RAM" [ref=e1170] [cursor=pointer]:
+                - generic [ref=e1175]:
+                  - generic [ref=e1176]: Memorias RAM
+                  - generic [aria-hidden] [ref=e1177]: Memorias RAM
+              - button "Almacenamiento" [ref=e1178] [cursor=pointer]:
+                - generic [ref=e1183]:
+                  - generic [ref=e1184]: Almacenamiento
+                  - generic [aria-hidden] [ref=e1185]: Almacenamiento
+              - button "Fuentes" [ref=e1186] [cursor=pointer]:
+                - generic [ref=e1191]:
+                  - generic [ref=e1192]: Fuentes
+                  - generic [aria-hidden] [ref=e1193]: Fuentes
+              - button "Refrigeración" [ref=e1194] [cursor=pointer]:
+                - generic [ref=e1199]:
+                  - generic [ref=e1200]: Refrigeración
+                  - generic [aria-hidden] [ref=e1201]: Refrigeración
+              - button "Teclados" [ref=e1202] [cursor=pointer]:
+                - generic [ref=e1207]:
+                  - generic [ref=e1208]: Teclados
+                  - generic [aria-hidden] [ref=e1209]: Teclados
+              - button "Mouse" [ref=e1210] [cursor=pointer]:
+                - generic [ref=e1215]:
+                  - generic [ref=e1216]: Mouse
+                  - generic [aria-hidden] [ref=e1217]: Mouse
+              - button "Auriculares" [ref=e1218] [cursor=pointer]:
+                - generic [ref=e1223]:
+                  - generic [ref=e1224]: Auriculares
+                  - generic [aria-hidden] [ref=e1225]: Auriculares
+              - button "Joystick" [ref=e1226] [cursor=pointer]:
+                - generic [ref=e1231]:
+                  - generic [ref=e1232]: Joystick
+                  - generic [aria-hidden] [ref=e1233]: Joystick
+              - button "Conectividad" [ref=e1234] [cursor=pointer]:
+                - generic [ref=e1241]:
+                  - generic [ref=e1242]: Conectividad
+                  - generic [aria-hidden] [ref=e1243]: Conectividad
+              - button "Monitores" [ref=e1244] [cursor=pointer]:
+                - generic [ref=e1249]:
+                  - generic [ref=e1250]: Monitores
+                  - generic [aria-hidden] [ref=e1251]: Monitores
+              - button "Portátiles" [ref=e1252] [cursor=pointer]:
+                - generic [ref=e1257]:
+                  - generic [ref=e1258]: Portátiles
+                  - generic [aria-hidden] [ref=e1259]: Portátiles
+              - button "Placas de Video" [ref=e1260] [cursor=pointer]:
+                - generic [ref=e1267]:
+                  - generic [ref=e1268]: Placas de Video
+                  - generic [aria-hidden] [ref=e1269]: Placas de Video
+            - button [ref=e1270] [cursor=pointer]
+          - generic [ref=e1273]:
+            - generic [ref=e1274]:
+              - heading "Resultados para “ryzen”" [level=1] [ref=e1275]:
+                - text: Resultados para
+                - generic [ref=e1276]: “ryzen”
+              - button "Limpiar búsqueda" [ref=e1277] [cursor=pointer]
+            - paragraph [ref=e1278]: 9 resultados
+          - generic [ref=e1280]:
+            - generic [ref=e1282]:
+              - button "Ordenar" [ref=e1284] [cursor=pointer]
+              - generic [ref=e1289]:
+                - button "Vista en cuadrícula" [ref=e1290] [cursor=pointer]
+                - button "Vista en lista" [ref=e1293] [cursor=pointer]
+            - generic [ref=e1296]:
+              - generic [ref=e1297]:
+                - generic: Más Vendido
+                - generic [ref=e1300] [cursor=pointer]:
+                  - generic [ref=e1302]:
+                    - img "AMD Ryzen 7 5700G AM4" [ref=e1304]
+                    - generic [ref=e1305]: "5"
+                  - generic [ref=e1307]:
+                    - generic [ref=e1310]:
+                      - generic [ref=e1311]:
+                        - generic [ref=e1312]: AMD
+                        - img "DDR4" [ref=e1315]
+                      - heading "Ryzen 7 5700G AM4" [level=3] [ref=e1317]
+                    - generic [ref=e1319]:
+                      - generic [ref=e1320]:
+                        - generic [ref=e1321]:
+                          - generic [ref=e1322]: Precio
+                          - generic [ref=e1323]: CONTADO
+                        - generic [ref=e1324]:
+                          - generic [ref=e1325]: $
+                          - generic [ref=e1326]: "300.000"
+                      - generic [ref=e1327]: en Procesadores
+              - generic [ref=e1332] [cursor=pointer]:
+                - generic [ref=e1334]:
+                  - img "AMD Ryzen 5 7600 AM5" [ref=e1336]
+                  - generic [ref=e1337]: Disponible
+                  - generic [ref=e1339]: "3"
+                - generic [ref=e1341]:
+                  - generic [ref=e1344]:
+                    - generic [ref=e1345]:
+                      - generic [ref=e1346]: AMD
+                      - img "DDR5" [ref=e1349]
+                    - heading "Ryzen 5 7600 AM5" [level=3] [ref=e1351]
+                  - generic [ref=e1353]:
+                    - generic [ref=e1354]:
+                      - generic [ref=e1355]:
+                        - generic [ref=e1356]: Precio
+                        - generic [ref=e1357]: CONTADO
+                      - generic [ref=e1358]:
+                        - generic [ref=e1359]: $
+                        - generic [ref=e1360]: "325.000"
+                    - generic [ref=e1361]: en Procesadores
+              - generic [ref=e1366] [cursor=pointer]:
+                - generic [ref=e1368]:
+                  - img "AMD Ryzen 5 5500 AM4" [ref=e1370]
+                  - generic [ref=e1371]: Disponible
+                  - generic [ref=e1373]: "1"
+                - generic [ref=e1375]:
+                  - generic [ref=e1378]:
+                    - generic [ref=e1379]:
+                      - generic [ref=e1380]: AMD
+                      - img "DDR4" [ref=e1383]
+                    - heading "Ryzen 5 5500 AM4" [level=3] [ref=e1385]
+                  - generic [ref=e1387]:
+                    - generic [ref=e1388]:
+                      - generic [ref=e1389]:
+                        - generic [ref=e1390]: Precio
+                        - generic [ref=e1391]: CONTADO
+                      - generic [ref=e1392]:
+                        - generic [ref=e1393]: $
+                        - generic [ref=e1394]: "150.000"
+                    - generic [ref=e1395]: en Procesadores
+              - generic [ref=e1400] [cursor=pointer]:
+                - generic [ref=e1402]:
+                  - img "AMD Ryzen 5 8500G AM5 DDR5" [ref=e1404]
+                  - generic [ref=e1405]: Disponible
+                  - generic [ref=e1407]: "4"
+                - generic [ref=e1409]:
+                  - generic [ref=e1412]:
+                    - generic [ref=e1413]:
+                      - generic [ref=e1414]: AMD
+                      - img "DDR5" [ref=e1417]
+                    - heading "Ryzen 5 8500G AM5 DDR5" [level=3] [ref=e1419]
+                  - generic [ref=e1421]:
+                    - generic [ref=e1422]:
+                      - generic [ref=e1423]:
+                        - generic [ref=e1424]: Precio
+                        - generic [ref=e1425]: CONTADO
+                      - generic [ref=e1426]:
+                        - generic [ref=e1427]: $
+                        - generic [ref=e1428]: "215.000"
+                    - generic [ref=e1429]: en Procesadores
+              - generic [ref=e1434] [cursor=pointer]:
+                - generic [ref=e1436]:
+                  - img "AMD Ryzen 5 8600G AM5" [ref=e1438]
+                  - generic [ref=e1439]: Disponible
+                  - generic [ref=e1441]: "1"
+                - generic [ref=e1443]:
+                  - generic [ref=e1446]:
+                    - generic [ref=e1447]:
+                      - generic [ref=e1448]: AMD
+                      - img "DDR5" [ref=e1451]
+                    - heading "Ryzen 5 8600G AM5" [level=3] [ref=e1453]
+                  - generic [ref=e1455]:
+                    - generic [ref=e1456]:
+                      - generic [ref=e1457]:
+                        - generic [ref=e1458]: Precio
+                        - generic [ref=e1459]: CONTADO
+                      - generic [ref=e1460]:
+                        - generic [ref=e1461]: $
+                        - generic [ref=e1462]: "275.000"
+                    - generic [ref=e1463]: en Procesadores
+              - generic [ref=e1468] [cursor=pointer]:
+                - generic [ref=e1470]:
+                  - img "AMD Ryzen 5 8400F AM5" [ref=e1472]
+                  - generic [ref=e1473]: Disponible
+                  - generic [ref=e1475]: "2"
+                - generic [ref=e1477]:
+                  - generic [ref=e1480]:
+                    - generic [ref=e1481]:
+                      - generic [ref=e1482]: AMD
+                      - img "DDR5" [ref=e1485]
+                    - heading "Ryzen 5 8400F AM5" [level=3] [ref=e1487]
+                  - generic [ref=e1489]:
+                    - generic [ref=e1490]:
+                      - generic [ref=e1491]:
+                        - generic [ref=e1492]: Precio
+                        - generic [ref=e1493]: CONTADO
+                      - generic [ref=e1494]:
+                        - generic [ref=e1495]: $
+                        - generic [ref=e1496]: "245.000"
+                    - generic [ref=e1497]: en Procesadores
+              - generic [ref=e1502] [cursor=pointer]:
+                - generic [ref=e1504]:
+                  - img "AMD Ryzen 3 3200G AM4" [ref=e1506]
+                  - generic [ref=e1507]: Disponible
+                  - generic [ref=e1509]: "1"
+                - generic [ref=e1511]:
+                  - generic [ref=e1514]:
+                    - generic [ref=e1515]:
+                      - generic [ref=e1516]: AMD
+                      - img "DDR4" [ref=e1519]
+                    - heading "Ryzen 3 3200G AM4" [level=3] [ref=e1521]
+                  - generic [ref=e1523]:
+                    - generic [ref=e1524]:
+                      - generic [ref=e1525]:
+                        - generic [ref=e1526]: Precio
+                        - generic [ref=e1527]: CONTADO
+                      - generic [ref=e1528]:
+                        - generic [ref=e1529]: $
+                        - generic [ref=e1530]: "90.000"
+                    - generic [ref=e1531]: en Procesadores
+              - generic [ref=e1536] [cursor=pointer]:
+                - generic [ref=e1538]:
+                  - img "AMD Ryzen 5 4500 AM4" [ref=e1540]
+                  - generic [ref=e1541]: Disponible
+                  - generic [ref=e1543]: "4"
+                - generic [ref=e1545]:
+                  - generic [ref=e1548]:
+                    - generic [ref=e1549]:
+                      - generic [ref=e1550]: AMD
+                      - img "DDR4" [ref=e1553]
+                    - heading "Ryzen 5 4500 AM4" [level=3] [ref=e1555]
+                  - generic [ref=e1557]:
+                    - generic [ref=e1558]:
+                      - generic [ref=e1559]:
+                        - generic [ref=e1560]: Precio
+                        - generic [ref=e1561]: CONTADO
+                      - generic [ref=e1562]:
+                        - generic [ref=e1563]: $
+                        - generic [ref=e1564]: "115.000"
+                    - generic [ref=e1565]: en Procesadores
+              - generic [ref=e1570] [cursor=pointer]:
+                - generic [ref=e1572]:
+                  - img "Notebook HP Pavilion 15 Ryzen 7 3700U, 16GB 500gb nvme- SIN BATERIA" [ref=e1574]
+                  - generic [ref=e1575]: Disponible
+                  - generic [ref=e1577]: Usada
+                - generic [ref=e1579]:
+                  - generic [ref=e1582]:
+                    - generic [ref=e1583]: HP
+                    - heading "Notebook HP Pavilion 15 Ryzen 7 3700U, 16GB 500gb nvme- SIN BATERIA - USADA" [level=3] [ref=e1587]
+                  - generic [ref=e1589]:
+                    - generic [ref=e1590]:
+                      - generic [ref=e1591]:
+                        - generic [ref=e1592]: Precio
+                        - generic [ref=e1593]: CONTADO
+                      - generic [ref=e1594]:
+                        - generic [ref=e1595]: $
+                        - generic [ref=e1596]: "650.000"
+                    - generic [ref=e1597]: en Portátiles
+        - generic [ref=e1600]:
+          - generic [ref=e1601]:
+            - generic [ref=e1602]:
+              - generic [ref=e1605]:
+                - img "Logo" [ref=e1607]
+                - heading "ElectroShock" [level=3] [ref=e1609]
+              - paragraph [ref=e1611]: Elevando tu experiencia tecnológica con componentes de alta gama y asesoramiento especializado. Expertos en hardware de alto rendimiento.
+            - generic [ref=e1612]:
+              - heading "Contacto" [level=4] [ref=e1613]
+              - generic [ref=e1615]:
+                - generic [ref=e1621]:
+                  - paragraph [ref=e1622]: Horarios
+                  - paragraph [ref=e1623]: "Lun - Dom: 9h a 21h"
+                - generic [ref=e1628]:
+                  - paragraph [ref=e1629]: Ventas
+                  - paragraph [ref=e1630]: WhatsApp Oficial
+                - generic [ref=e1636]:
+                  - paragraph [ref=e1637]: Email
+                  - paragraph [ref=e1638]: info@electroshock.com
+            - generic [ref=e1639]:
+              - heading "Puntos De Retiro" [level=4] [ref=e1641]
+              - generic [ref=e1643]:
+                - generic [ref=e1644]:
+                  - link [ref=e1645] [cursor=pointer]:
+                    - /url: https://maps.app.goo.gl/ivNLJMo7kHxtdUJAA
+                    - generic [ref=e1648]:
+                      - paragraph [ref=e1649]: Bingo BZ Cruce (Puerta)
+                      - paragraph [ref=e1650]: Cruce Florencio Varela, Provincia de Buenos Aires
+                  - link [ref=e1655] [cursor=pointer]:
+                    - /url: https://maps.app.goo.gl/kXdMaP1UVaRw5x767
+                    - generic [ref=e1658]:
+                      - paragraph [ref=e1659]: Carrefour (Patio Comidas)
+                      - paragraph [ref=e1660]: Av. Gral. José de San Martín 554. Florencio Varela, Provincia de Buenos Aires
+                - link "Mapa de ubicaciones ElectroShock 📍 Ver en Maps" [ref=e1666] [cursor=pointer]:
+                  - /url: https://www.google.com/maps/search/Florencio+Varela,+Buenos+Aires/@-34.78,-58.28,13z
+                  - img "Mapa de ubicaciones ElectroShock" [ref=e1667]
+                  - generic [ref=e1668]: 📍 Ver en Maps
+          - generic [ref=e1669]:
+            - paragraph [ref=e1672]: © 2025 ElectroShock · Buenos Aires, Argentina
+            - generic [ref=e1674]:
+              - generic [ref=e1675]: Desarrollado por
+              - generic [ref=e1676]: JLdev Studio
+  - generic:
+    - button "Abrir menú de ayuda" [ref=e783] [cursor=pointer]:
+      - generic [ref=e789]:
+        - generic [ref=e790]: ¿Necesitás ayuda?
+        - generic [ref=e791]: Chatea con nosotros
+    - generic [ref=e795]:
+      - button "Ir al inicio"

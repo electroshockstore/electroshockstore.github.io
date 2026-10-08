@@ -8,7 +8,7 @@ const ViewToggleButton = memo(({ viewMode, toggleViewMode }) => {
       <button
         onClick={() => viewMode === 'list' && toggleViewMode()}
         className={`
-          flex items-center justify-center w-10 h-10 sm:w-12 sm:h-12 rounded-full
+          mi-press flex items-center justify-center w-10 h-10 sm:w-12 sm:h-12 rounded-full
           transition-all duration-200
           ${viewMode === 'grid' 
             ? 'bg-blue-600 text-white shadow-[0_4px_12px_rgba(37,99,235,0.3)] scale-105' 
@@ -23,7 +23,7 @@ const ViewToggleButton = memo(({ viewMode, toggleViewMode }) => {
       <button
         onClick={() => viewMode === 'grid' && toggleViewMode()}
         className={`
-          flex items-center justify-center w-10 h-10 sm:w-12 sm:h-12 rounded-full
+          mi-press flex items-center justify-center w-10 h-10 sm:w-12 sm:h-12 rounded-full
           transition-all duration-200
           ${viewMode === 'list' 
             ? 'bg-blue-600 text-white shadow-[0_4px_12px_rgba(37,99,235,0.3)] scale-105' 

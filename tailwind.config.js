@@ -268,6 +268,40 @@ export default {
       
       addUtilities({
         // ===== SISTEMA DE DISEÑO APPLE HIGH-ROUND =====
+
+        '.pill': {
+          'display': 'inline-flex',
+          'align-items': 'center',
+          'gap': '0.375rem',
+          'border-radius': '9999px',
+          'font-weight': '700',
+          'white-space': 'nowrap',
+          'box-shadow': 'inset 0 1px 0 rgba(255,255,255,0.25)',
+        },
+
+        '.pill-gradient': {
+          'background': 'linear-gradient(135deg, #003B99 0%, #7D2FE6 50%, #E82387 100%)',
+          'color': '#ffffff',
+          'box-shadow': '0 8px 20px -6px rgba(125,47,230,0.5), inset 0 1px 0 rgba(255,255,255,0.35)',
+        },
+
+        '.pill-lime': {
+          'background-color': '#a3e635',
+          'color': '#09090d',
+          'box-shadow': '0 4px 14px -4px rgba(163,230,53,0.5), inset 0 1px 0 rgba(255,255,255,0.4)',
+        },
+
+        '.glass': {
+          'background-color': 'rgba(255,255,255,0.72)',
+          'backdrop-filter': 'blur(16px)',
+          '-webkit-backdrop-filter': 'blur(16px)',
+          'border': '1px solid rgba(255,255,255,0.65)',
+          'box-shadow': '0 12px 32px -12px rgba(15,23,42,0.18), inset 0 1px 0 rgba(255,255,255,0.8)',
+        },
+
+        '.tnum': {
+          'font-variant-numeric': 'tabular-nums',
+        },
         
         // Card estándar - Estilo Apple
         '.design-card': {
@@ -625,7 +659,7 @@ export default {
             linear-gradient(to bottom right, #eff6ff, #faf5ff, #fdf2f8)
           `,
           'background-size': '60px 60px, 60px 60px, 100% 100%',
-          'overflow': 'hidden',
+          'overflow': 'clip',
         },
         
         // Mesh blob superior izquierdo (azul)

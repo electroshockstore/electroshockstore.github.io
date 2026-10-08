@@ -103,8 +103,6 @@
 
 /* ============================================
    APP SHELL + SCROLL CONTAINER
-   El scroll de la app vive en .app-scroll (no en window) para que las
-   View Transitions + shared elements no hereden ni congelen el scroll.
    ============================================ */
 html,
 body {
@@ -147,7 +145,6 @@ body {
   min-height: 0;
   overflow-y: auto;
   overflow-x: hidden;
-  /* auto explícito: ignora el scroll-behavior: smooth global del html */
   scroll-behavior: auto;
   -webkit-overflow-scrolling: touch;
   overscroll-behavior-y: contain;
@@ -1791,14 +1788,11 @@ body {
   animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-/* Shared element: morph de la imagen producto (card → detalle).
-   El nombre es dinámico (product-image-<id>), por eso se estiliza con *. */
 ::view-transition-group(*) {
   animation-duration: 0.42s;
   animation-timing-function: cubic-bezier(0.22, 1, 0.36, 1);
 }
 
-/* El crossfade del root se mantiene ágil para cambios de ruta */
 ::view-transition-group(root) {
   animation-duration: 0.3s;
   animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
@@ -2145,6 +2139,8 @@ body {
 .product-card-reveal {
   opacity: 0;
   transform: translateY(30px) scale(0.95);
+  content-visibility: auto;
+  contain-intrinsic-size: auto 420px;
   /* Sombra más pronunciada para mejor contraste */
   box-shadow: 
     0 4px 12px -2px rgba(0, 0, 0, 0.08),
@@ -2357,8 +2353,6 @@ body {
   }
 }
 
-/* 8. SHINE SWEEP - Barrido de brillo premium al hacer hover (solo desktop)
-   Compositado con transform (no anima `left` para no provocar layout). */
 @keyframes card-shine-sweep {
   0% {
     transform: translateX(-160%) skewX(-20deg);
@@ -4088,6 +4082,7 @@ body {
   color: #fff;
   line-height: 1;
   letter-spacing: 0.02em;
+  font-variant-numeric: tabular-nums;
 }
 
 .pic-stock-dot {
@@ -5382,7 +5377,6 @@ body {
 }
 
 
-/* Perf-low: apaga blobs animados con blur (2 capas fullscreen) en gama baja. Microinteracciones intactas en medio/alto. */
 .perf-low .animated-bg-container .mesh-blob,
 .is-low-end .animated-bg-container .mesh-blob {
   display: none;
@@ -5392,4 +5386,288 @@ body {
   .animated-bg-container .mesh-blob {
     animation: none;
   }
+}
+
+/* ============================================
+   FASE 3 — DETALLE / CONVERSIÓN
+   --------------------------------------------
+   REGLA DE MOVIMIENTO (Fase 0.3) — obligatoria para toda animación nueva:
+   - Solo se animan `transform` y `opacity` (compuestos por GPU, sin layout).
+   - Duración ≤ 450ms.
+   - Debe apagarse con `prefers-reduced-motion: reduce` y en equipos lentos
+     (`.perf-low` / `.is-low-end`).
+   - Nunca animar width/height/top/left en el critical path.
+   ============================================ */
+
+/* ── StickyCTA (3.1): barra fija mobile, safe-area, aparece al scrollear ── */
+.sticky-cta {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 99990;
+  padding: 10px 12px calc(10px + env(safe-area-inset-bottom, 0px));
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-top: 1px solid rgba(15, 23, 42, 0.08);
+  box-shadow: 0 -10px 30px -12px rgba(15, 23, 42, 0.25);
+  transform: translateY(110%);
+  opacity: 0;
+  pointer-events: none;
+  will-change: transform;
+  transition: transform 300ms cubic-bezier(0.22, 1, 0.36, 1), opacity 300ms ease;
+}
+
+.sticky-cta[data-visible="true"] {
+  transform: translateY(0);
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.sticky-cta-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  max-width: 640px;
+  margin: 0 auto;
+}
+
+.sticky-cta-price {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.sticky-cta-label {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: #94a3b8;
+}
+
+.sticky-cta-amount {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 1.6rem;
+  line-height: 1;
+  color: #0f172a;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.sticky-cta-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-shrink: 0;
+}
+
+.sticky-cta-icon-btn {
+  width: 48px;
+  height: 48px;
+  border-radius: 14px;
+  border: 1px solid #e2e8f0;
+  background: #fff;
+  color: #334155;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 8px rgba(15, 23, 42, 0.06);
+  cursor: pointer;
+  transition: transform 150ms ease, background-color 150ms ease;
+}
+
+.sticky-cta-icon-btn:active {
+  transform: scale(0.94);
+}
+
+.sticky-cta-wa-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  height: 48px;
+  padding: 0 18px;
+  border-radius: 14px;
+  border: none;
+  color: #fff;
+  font-weight: 800;
+  font-size: 0.9rem;
+  cursor: pointer;
+  background: linear-gradient(135deg, #25D366, #128C7E);
+  box-shadow: 0 10px 22px -10px rgba(18, 140, 126, 0.8), inset 0 1px 0 rgba(255, 255, 255, 0.25);
+  transition: transform 150ms ease, filter 150ms ease;
+}
+
+.sticky-cta-wa-btn:active {
+  transform: scale(0.96);
+}
+
+/* No tapar flotantes: al mostrar la barra, subirlos por encima (solo mobile) */
+@media (max-width: 1023.98px) {
+  :root.has-sticky-cta .floating-button-fixed,
+  :root.has-sticky-cta .floating-button-fixed-right {
+    bottom: calc(78px + env(safe-area-inset-bottom, 0px)) !important;
+    top: auto !important;
+  }
+}
+
+/* ── Dots de galería (3.2): solo mobile ── */
+.pis-dots {
+  position: absolute;
+  bottom: 12px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  padding: 7px 11px;
+  border-radius: 99px;
+  background: rgba(15, 23, 42, 0.5);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+}
+
+.pis-dot {
+  width: 7px;
+  height: 7px;
+  padding: 0;
+  border: none;
+  border-radius: 99px;
+  background: rgba(255, 255, 255, 0.45);
+  cursor: pointer;
+  transition: transform 250ms ease, background-color 250ms ease;
+}
+
+.pis-dot.active {
+  background: #fff;
+  transform: scaleX(2.6);
+}
+
+@media (max-width: 1023.98px) {
+  .pis-counter {
+    display: none;
+  }
+}
+
+/* ── Fila de confianza (3.3) ── */
+.pic-trust {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 16px;
+  margin: 0 0 4px;
+  padding: 14px 16px 20px;
+  border-top: 1px solid #f1f5f9;
+}
+
+.pic-trust-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  color: #475569;
+}
+
+.pic-trust-icon {
+  width: 15px;
+  height: 15px;
+  color: #2563eb;
+  flex-shrink: 0;
+}
+
+/* Gate de movimiento (reduced-motion + equipos lentos) */
+@media (prefers-reduced-motion: reduce) {
+  .sticky-cta,
+  .pis-dot {
+    transition-duration: 0.01ms !important;
+  }
+}
+
+.perf-low .sticky-cta,
+.is-low-end .sticky-cta,
+.perf-low .pis-dot,
+.is-low-end .pis-dot {
+  transition-duration: 0.01ms !important;
+}
+
+/* ============================================
+   FASE 6 — BÚSQUEDA (highlight del término)
+   ============================================ */
+.search-mark {
+  background: rgba(96, 165, 250, 0.22);
+  color: #bfdbfe;
+  border-radius: 3px;
+  padding: 0 1px;
+  font-weight: 700;
+}
+
+/* ============================================
+   FASE 7 — MICROINTERACCIONES (matriz coherente)
+   --------------------------------------------
+   Matriz:
+     - Card:        hover = lift (-2px) + sombra   | press = scale(.98)
+     - CTA primario: hover = brillo/elevación       | press = scale(.96)
+     - Botón/ícono:  hover = bg/borde               | press = scale(.95)
+   Reglas: solo transform/opacity/filter, ≤200ms. Hover únicamente en
+   dispositivos con puntero fino. Gate: prefers-reduced-motion + perf-low.
+   ============================================ */
+.mi-lift {
+  transition: transform 180ms cubic-bezier(0.22, 1, 0.36, 1),
+              box-shadow 180ms ease,
+              border-color 180ms ease,
+              background-color 180ms ease,
+              color 180ms ease;
+  will-change: transform;
+}
+
+.mi-press {
+  transition: transform 140ms ease,
+              box-shadow 140ms ease,
+              border-color 140ms ease,
+              background-color 140ms ease,
+              color 140ms ease;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .mi-lift:hover {
+    transform: translateY(-2px);
+  }
+}
+
+.mi-press:active {
+  transform: scale(0.95);
+}
+
+/* Combinado: el press gana al hover cuando están ambos */
+.mi-lift.mi-press:active {
+  transform: scale(0.96);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .mi-lift,
+  .mi-press {
+    transition-duration: 0.01ms !important;
+  }
+  .mi-lift:hover,
+  .mi-press:active,
+  .mi-lift.mi-press:active {
+    transform: none;
+  }
+}
+
+.perf-low .mi-lift,
+.is-low-end .mi-lift,
+.perf-low .mi-press,
+.is-low-end .mi-press {
+  transition-duration: 0.01ms !important;
+}
+
+.perf-low .mi-lift:hover,
+.is-low-end .mi-lift:hover {
+  transform: none;
 }

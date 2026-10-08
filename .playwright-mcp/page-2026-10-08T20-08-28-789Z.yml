@@ -1,0 +1,355 @@
+- generic [active] [ref=f6e1]:
+  - generic [ref=f6e2]:
+    - link "Saltar al contenido principal" [ref=f6e3] [cursor=pointer]:
+      - /url: "#main-content"
+    - main [ref=f6e6]:
+      - generic [ref=f6e1018]:
+        - generic [ref=f6e1021]:
+          - button "ElectroShock Tecnología y Conectividad" [ref=f6e1022] [cursor=pointer]:
+            - generic [ref=f6e1028]:
+              - generic [ref=f6e1029]: ElectroShock
+              - generic [ref=f6e1030]: Tecnología y Conectividad
+          - combobox "Buscar productos, marcas o categorías..." [ref=f6e1032]
+          - generic [ref=f6e1033]:
+            - paragraph [ref=f6e1046]: ¡Info importante!
+            - button "Condiciones" [ref=f6e1049] [cursor=pointer]
+            - button "Puntos de Retiro" [ref=f6e1056] [cursor=pointer]
+            - button "Inicio" [ref=f6e1061] [cursor=pointer]
+        - main [ref=f6e1066]:
+          - generic [ref=f6e1073]:
+            - generic [ref=f6e1074]:
+              - button "Procesadores" [ref=f6e1075] [cursor=pointer]:
+                - generic [ref=f6e1081]:
+                  - generic [ref=f6e1082]: Procesadores
+                  - generic [aria-hidden] [ref=f6e1083]: Procesadores
+              - button "Motherboards" [ref=f6e1084] [cursor=pointer]:
+                - generic [ref=f6e1093]:
+                  - generic [ref=f6e1094]: Motherboards
+                  - generic [aria-hidden] [ref=f6e1095]: Motherboards
+              - button "Memorias RAM" [ref=f6e1096] [cursor=pointer]:
+                - generic [ref=f6e1101]:
+                  - generic [ref=f6e1102]: Memorias RAM
+                  - generic [aria-hidden] [ref=f6e1103]: Memorias RAM
+              - button "Almacenamiento" [ref=f6e1104] [cursor=pointer]:
+                - generic [ref=f6e1109]:
+                  - generic [ref=f6e1110]: Almacenamiento
+                  - generic [aria-hidden] [ref=f6e1111]: Almacenamiento
+              - button "Fuentes" [ref=f6e1112] [cursor=pointer]:
+                - generic [ref=f6e1117]:
+                  - generic [ref=f6e1118]: Fuentes
+                  - generic [aria-hidden] [ref=f6e1119]: Fuentes
+              - button "Refrigeración" [ref=f6e1120] [cursor=pointer]:
+                - generic [ref=f6e1125]:
+                  - generic [ref=f6e1126]: Refrigeración
+                  - generic [aria-hidden] [ref=f6e1127]: Refrigeración
+              - button "Teclados" [ref=f6e1128] [cursor=pointer]:
+                - generic [ref=f6e1133]:
+                  - generic [ref=f6e1134]: Teclados
+                  - generic [aria-hidden] [ref=f6e1135]: Teclados
+              - button "Mouse" [ref=f6e1136] [cursor=pointer]
+              - button "Auriculares" [ref=f6e1144] [cursor=pointer]:
+                - generic [ref=f6e1149]:
+                  - generic [ref=f6e1150]: Auriculares
+                  - generic [aria-hidden] [ref=f6e1151]: Auriculares
+              - button "Joystick" [ref=f6e1152] [cursor=pointer]:
+                - generic [ref=f6e1157]:
+                  - generic [ref=f6e1158]: Joystick
+                  - generic [aria-hidden] [ref=f6e1159]: Joystick
+              - button "Conectividad" [ref=f6e1160] [cursor=pointer]:
+                - generic [ref=f6e1167]:
+                  - generic [ref=f6e1168]: Conectividad
+                  - generic [aria-hidden] [ref=f6e1169]: Conectividad
+              - button "Monitores" [ref=f6e1170] [cursor=pointer]:
+                - generic [ref=f6e1175]:
+                  - generic [ref=f6e1176]: Monitores
+                  - generic [aria-hidden] [ref=f6e1177]: Monitores
+              - button "Portátiles" [ref=f6e1178] [cursor=pointer]:
+                - generic [ref=f6e1183]:
+                  - generic [ref=f6e1184]: Portátiles
+                  - generic [aria-hidden] [ref=f6e1185]: Portátiles
+              - button "Placas de Video" [ref=f6e1186] [cursor=pointer]:
+                - generic [ref=f6e1193]:
+                  - generic [ref=f6e1194]: Placas de Video
+                  - generic [aria-hidden] [ref=f6e1195]: Placas de Video
+            - button [ref=f6e1196] [cursor=pointer]
+          - generic [ref=f6e1200]:
+            - generic [ref=f6e1203]:
+              - button "Volver atrás" [ref=f6e1204] [cursor=pointer]
+              - navigation "Migas de pan" [ref=f6e1208]:
+                - link "Ir al inicio" [ref=f6e1209] [cursor=pointer]:
+                  - /url: /
+                - link "Mouse" [ref=f6e1215] [cursor=pointer]:
+                  - /url: /categoria/mouse
+                - generic "Logitech G203 Lightsync Alambrico Usb varios colores" [ref=f6e1219]: Logitech G203 Lightsync Alambr…
+            - generic [ref=f6e1220]:
+              - generic [ref=f6e1222]:
+                - generic [ref=f6e1223]:
+                  - generic [ref=f6e1225]:
+                    - img "Logitech G203 Lightsync Alambrico Usb varios colores — 1" [ref=f6e1226]
+                    - generic [ref=f6e1227]: Click para ampliar
+                    - generic [ref=f6e1228]: 33 en stock
+                    - button "Imagen anterior" [ref=f6e1230] [cursor=pointer]
+                    - button "Imagen siguiente" [ref=f6e1233] [cursor=pointer]
+                    - generic: 1 / 3
+                  - generic [ref=f6e1236]:
+                    - button "Ver imagen 1" [ref=f6e1237] [cursor=pointer]:
+                      - img "Miniatura 1" [ref=f6e1238]
+                    - button "Ver imagen 2" [ref=f6e1239] [cursor=pointer]:
+                      - img "Miniatura 2" [ref=f6e1240]
+                    - button "Ver imagen 3" [ref=f6e1241] [cursor=pointer]:
+                      - img "Miniatura 3" [ref=f6e1242]
+                - generic [ref=f6e1243]:
+                  - generic [ref=f6e1245]:
+                    - generic [ref=f6e1246]: Logitech
+                    - generic [ref=f6e1250]: G203 Lightsync
+                    - link "Web oficial" [ref=f6e1254] [cursor=pointer]:
+                      - /url: https://www.logitech.com/es-roam/products/
+                  - heading "Logitech G203 Lightsync Alambrico Usb varios colores" [level=1] [ref=f6e1260]
+                  - paragraph [ref=f6e1262]: Mouse Logitech G203 Lightsync, CABLEADO RGB NEGRO
+                  - generic [ref=f6e1263]:
+                    - generic [ref=f6e1264]:
+                      - generic [ref=f6e1265]: Precio
+                      - generic [ref=f6e1266]:
+                        - generic [ref=f6e1267]: $
+                        - generic [ref=f6e1268]: "25.000"
+                    - generic [ref=f6e1269]: Stock
+                  - generic [ref=f6e1272]:
+                    - button "Compartir Este producto" [ref=f6e1273] [cursor=pointer]:
+                      - generic [ref=f6e1281]:
+                        - generic [ref=f6e1282]: Compartir
+                        - generic [ref=f6e1283]: Este producto
+                    - button "Consultar por WhatsApp Más información" [ref=f6e1288] [cursor=pointer]:
+                      - generic [ref=f6e1292]:
+                        - generic [ref=f6e1293]: Consultar por WhatsApp
+                        - generic [ref=f6e1294]: Más información
+                  - generic "Información de compra" [ref=f6e1299]:
+                    - generic [ref=f6e1300]: Retiro en puntos
+                    - generic [ref=f6e1305]: Efectivo o transferencia
+                    - generic [ref=f6e1310]: Atención por WhatsApp
+              - generic [ref=f6e1314]:
+                - generic [ref=f6e1316]:
+                  - heading "Histórico de Precios" [level=3] [ref=f6e1317]
+                  - generic [ref=f6e1319]:
+                    - generic [ref=f6e1320]: Precio Actual
+                    - generic [ref=f6e1321]: $25.000
+                - img [ref=f6e1327]:
+                  - generic [ref=f6e1331]:
+                    - generic [ref=f6e1332]: 16 de
+                    - generic [ref=f6e1334]: Actual
+                  - generic [ref=f6e1337]:
+                    - generic [ref=f6e1338]: $23k
+                    - generic [ref=f6e1340]: $24k
+                    - generic [ref=f6e1342]: $25k
+                    - generic [ref=f6e1344]: $26k
+                    - generic [ref=f6e1346]: $27k
+                  - generic [ref=f6e1348]: Promedio
+              - generic [ref=f6e1355]:
+                - generic [ref=f6e1356]:
+                  - generic [ref=f6e1357]:
+                    - generic [ref=f6e1358]: Producto
+                    - generic [ref=f6e1359]: DetallesTécnicos
+                  - generic [ref=f6e1360]:
+                    - generic [ref=f6e1361]: "26"
+                    - generic [ref=f6e1362]: specs
+                - generic [ref=f6e1364]:
+                  - generic [ref=f6e1366]:
+                    - generic [ref=f6e1367]:
+                      - generic [ref=f6e1368]: Marca
+                      - generic [ref=f6e1370]: Logitech
+                    - generic [ref=f6e1371]:
+                      - generic [ref=f6e1372]: Línea
+                      - generic [ref=f6e1374]: G Series
+                    - generic [ref=f6e1375]:
+                      - generic [ref=f6e1376]: Modelo
+                      - generic [ref=f6e1378]: Lightsync
+                    - generic [ref=f6e1379]:
+                      - generic [ref=f6e1380]: Modelo alfanumérico
+                      - generic [ref=f6e1382]: G102 / G203
+                    - generic [ref=f6e1383]:
+                      - generic [ref=f6e1384]: Modelo detallado
+                      - generic [ref=f6e1386]: 910-005790
+                    - generic [ref=f6e1388]:
+                      - generic [ref=f6e1389]: Color
+                      - generic [ref=f6e1391]: Negro
+                    - generic [ref=f6e1392]:
+                      - generic [ref=f6e1393]: Tipo Memoria R A M
+                      - generic [ref=f6e1395]: Gaming, cableado
+                    - generic [ref=f6e1396]:
+                      - generic [ref=f6e1397]: Sensor
+                      - generic [ref=f6e1399]: Óptico
+                    - generic [ref=f6e1400]:
+                      - generic [ref=f6e1401]: Resolucion Minima D P I
+                      - generic [ref=f6e1403]: "200"
+                    - generic [ref=f6e1405]:
+                      - generic [ref=f6e1406]: Resolucion Maxima D P I
+                      - generic [ref=f6e1408]: "8000"
+                    - generic [ref=f6e1410]:
+                      - generic [ref=f6e1411]: Rango D P I
+                      - generic [ref=f6e1413]: 200-8000
+                    - generic [ref=f6e1415]:
+                      - generic [ref=f6e1416]: Niveles Ajustables
+                      - generic [ref=f6e1418]: "5"
+                    - generic [ref=f6e1420]:
+                      - generic [ref=f6e1421]: Polling Rate
+                      - generic [ref=f6e1424]:
+                        - text: "1000"
+                        - generic [ref=f6e1425]: Hz
+                  - generic [ref=f6e1427]:
+                    - generic [ref=f6e1428]:
+                      - generic [ref=f6e1429]: Tiempo Respuesta
+                      - generic [ref=f6e1432]:
+                        - text: "1"
+                        - generic [ref=f6e1433]: ms
+                    - generic [ref=f6e1434]:
+                      - generic [ref=f6e1435]: Cantidad Botones
+                      - generic [ref=f6e1437]: "6"
+                    - generic [ref=f6e1439]:
+                      - generic [ref=f6e1440]: Botones Programables
+                      - generic [ref=f6e1442]: "6"
+                    - generic [ref=f6e1444]:
+                      - generic [ref=f6e1445]: Rgb
+                      - generic [ref=f6e1447]: Sí
+                    - generic [ref=f6e1448]:
+                      - generic [ref=f6e1449]: Tecnologia R G B
+                      - generic [ref=f6e1451]: LIGHTSYNC
+                    - generic [ref=f6e1452]:
+                      - generic [ref=f6e1453]: Colores R G B
+                      - generic [ref=f6e1456]:
+                        - text: "16.8"
+                        - generic [ref=f6e1457]: millones
+                    - generic [ref=f6e1458]:
+                      - generic [ref=f6e1459]: Interfaz
+                      - generic [ref=f6e1461]: USB-A (cableado)
+                    - generic [ref=f6e1462]:
+                      - generic [ref=f6e1463]: Longitud Cable
+                      - generic [ref=f6e1466]:
+                        - text: "2.1"
+                        - generic [ref=f6e1467]: m
+                    - generic [ref=f6e1468]:
+                      - generic [ref=f6e1469]: Dimensiones
+                      - generic [ref=f6e1471]: 116.6 x 62.15 x 38.2 mm
+                    - generic [ref=f6e1473]:
+                      - generic [ref=f6e1474]: Peso
+                      - generic [ref=f6e1477]:
+                        - text: "85"
+                        - generic [ref=f6e1478]: g
+                    - generic [ref=f6e1479]:
+                      - generic [ref=f6e1480]: Compatibilidad
+                      - generic [ref=f6e1482]: Windows 7+, macOS 10.13+, ChromeOS
+                    - generic [ref=f6e1483]:
+                      - generic [ref=f6e1484]: Software Requerido
+                      - generic [ref=f6e1486]: Logitech G HUB
+                    - generic [ref=f6e1487]:
+                      - generic [ref=f6e1488]: Funciones
+                      - generic [ref=f6e1490]: Config DPI, Botones, RGB, Perfiles
+              - generic [ref=f6e1491]:
+                - generic [ref=f6e1493]:
+                  - generic [ref=f6e1494]:
+                    - generic [ref=f6e1495]: Métodos de Pago
+                    - heading "Opciones de Pago Seguros y Confiables" [level=2] [ref=f6e1499]:
+                      - text: Opciones de Pago
+                      - generic [ref=f6e1500]: Seguros y Confiables
+                  - generic [ref=f6e1501]:
+                    - generic [ref=f6e1511]:
+                      - heading "Efectivo" [level=3] [ref=f6e1512]
+                      - paragraph [ref=f6e1513]: En el momento
+                    - generic [ref=f6e1523]:
+                      - heading "Transferencia" [level=3] [ref=f6e1524]
+                      - paragraph [ref=f6e1525]: Mayores a $100.000
+                - generic [ref=f6e1528]:
+                  - generic [ref=f6e1529]:
+                    - generic [ref=f6e1530]: Sin local físico
+                    - heading "Coordiná la entrega Revisás y pagás" [level=2] [ref=f6e1535]:
+                      - text: Coordiná la entrega
+                      - generic [ref=f6e1536]: Revisás y pagás
+                  - generic [ref=f6e1540]:
+                    - img "Condiciones" [ref=f6e1543]
+                    - generic [ref=f6e1549]:
+                      - generic [ref=f6e1550]: Seguridad
+                      - heading "Sin Depositos Previos" [level=3] [ref=f6e1551]
+                      - paragraph [ref=f6e1552]: "\"Sin Anticipos ni Señas\""
+                      - paragraph [ref=f6e1553]: No solicitamos pagos previos, No se deje engañar con estafas
+                    - generic [ref=f6e1560]:
+                      - generic [ref=f6e1561]: Transparencia
+                      - heading "Pago Inmediato" [level=3] [ref=f6e1562]
+                      - generic [ref=f6e1563]:
+                        - generic [ref=f6e1564]: Efectivo
+                        - generic [ref=f6e1568]: Transferencia
+                      - paragraph [ref=f6e1571]: No lo intenten estafadores, conocemos todas las modalidades
+                    - generic [ref=f6e1580]:
+                      - generic [ref=f6e1581]: Cargos extras aplicables
+                      - generic [ref=f6e1582]:
+                        - generic [ref=f6e1583]: 10%
+                        - generic [ref=f6e1584]: Recargo
+                      - paragraph [ref=f6e1585]: Transferencias menores a $100.000
+                    - generic [ref=f6e1597]:
+                      - generic [ref=f6e1598]: Puntos Seguros
+                      - generic [ref=f6e1599]:
+                        - generic [ref=f6e1600]: "NO"
+                        - generic [ref=f6e1601]: hacemos Envios
+                      - generic [ref=f6e1602]:
+                        - generic [ref=f6e1603]: NO se retira en mi Domicilio
+                        - generic [ref=f6e1607]: NO vendo por Mercadolibre
+                    - generic [ref=f6e1618]:
+                      - generic [ref=f6e1619]:
+                        - heading "Sin Local físico" [level=3] [ref=f6e1620]
+                        - generic [ref=f6e1621]:
+                          - generic [ref=f6e1622]: Stock local cerrado
+                          - generic [ref=f6e1623]: Sin Garantía
+                          - generic [ref=f6e1624]: Atención
+                      - separator [ref=f6e1625]
+                      - paragraph [ref=f6e1626]:
+                        - text: Los productos se entregan sellados,
+                        - strong [ref=f6e1627]: Pago previo para apertura
+                        - text: .
+                  - button "¿Dónde retiro mi producto?" [ref=f6e1630] [cursor=pointer]
+        - generic [ref=f6e1639]:
+          - generic [ref=f6e1640]:
+            - generic [ref=f6e1641]:
+              - generic [ref=f6e1644]:
+                - img "Logo" [ref=f6e1646]
+                - heading "ElectroShock" [level=3] [ref=f6e1648]
+              - paragraph [ref=f6e1650]: Elevando tu experiencia tecnológica con componentes de alta gama y asesoramiento especializado. Expertos en hardware de alto rendimiento.
+            - generic [ref=f6e1651]:
+              - heading "Contacto" [level=4] [ref=f6e1652]
+              - generic [ref=f6e1654]:
+                - generic [ref=f6e1660]:
+                  - paragraph [ref=f6e1661]: Horarios
+                  - paragraph [ref=f6e1662]: "Lun - Dom: 9h a 21h"
+                - generic [ref=f6e1667]:
+                  - paragraph [ref=f6e1668]: Ventas
+                  - paragraph [ref=f6e1669]: WhatsApp Oficial
+                - generic [ref=f6e1675]:
+                  - paragraph [ref=f6e1676]: Email
+                  - paragraph [ref=f6e1677]: info@electroshock.com
+            - generic [ref=f6e1678]:
+              - heading "Puntos De Retiro" [level=4] [ref=f6e1680]
+              - generic [ref=f6e1682]:
+                - generic [ref=f6e1683]:
+                  - link [ref=f6e1684] [cursor=pointer]:
+                    - /url: https://maps.app.goo.gl/ivNLJMo7kHxtdUJAA
+                    - generic [ref=f6e1687]:
+                      - paragraph [ref=f6e1688]: Bingo BZ Cruce (Puerta)
+                      - paragraph [ref=f6e1689]: Cruce Florencio Varela, Provincia de Buenos Aires
+                  - link [ref=f6e1694] [cursor=pointer]:
+                    - /url: https://maps.app.goo.gl/kXdMaP1UVaRw5x767
+                    - generic [ref=f6e1697]:
+                      - paragraph [ref=f6e1698]: Carrefour (Patio Comidas)
+                      - paragraph [ref=f6e1699]: Av. Gral. José de San Martín 554. Florencio Varela, Provincia de Buenos Aires
+                - link "Mapa de ubicaciones ElectroShock 📍 Ver en Maps" [ref=f6e1705] [cursor=pointer]:
+                  - /url: https://www.google.com/maps/search/Florencio+Varela,+Buenos+Aires/@-34.78,-58.28,13z
+                  - img "Mapa de ubicaciones ElectroShock" [ref=f6e1706]
+                  - generic [ref=f6e1707]: 📍 Ver en Maps
+          - generic [ref=f6e1708]:
+            - paragraph [ref=f6e1711]: © 2025 ElectroShock · Buenos Aires, Argentina
+            - generic [ref=f6e1713]:
+              - generic [ref=f6e1714]: Desarrollado por
+              - generic [ref=f6e1715]: JLdev Studio
+  - generic:
+    - button "Abrir menú de ayuda" [ref=f6e62] [cursor=pointer]:
+      - generic [ref=f6e68]:
+        - generic [ref=f6e69]: ¿Necesitás ayuda?
+        - generic [ref=f6e70]: Chatea con nosotros
+    - generic [ref=f6e74]:
+      - button "Ir al inicio"
+  - generic [aria-hidden] [ref=f6e1716]: $23k

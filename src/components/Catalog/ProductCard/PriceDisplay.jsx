@@ -30,7 +30,7 @@ const PriceDisplay = ({ price, category }) => {
         {/* Sección Derecha: El Precio - Responsive */}
         <div className="flex items-baseline gap-0.5">
           <span className="text-xs sm:text-lg text-green-500 font-medium select-none">$</span>
-          <span className="text-lg sm:text-3xl md:text-4xl lg:text-5xl font-black text-gray-900 tracking-tighter leading-none">
+          <span className="tnum text-lg sm:text-3xl md:text-4xl lg:text-5xl font-black text-gray-900 tracking-tighter leading-none">
             {formatPrice(price)}
           </span>
         </div>

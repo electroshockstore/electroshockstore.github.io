@@ -1,5 +1,5 @@
 // Card unificada de información del producto - Editorial Premium
-import { Cpu, Tag, ExternalLink } from 'lucide-react';
+import { Cpu, Tag, ExternalLink, MapPin, Banknote, MessageCircle } from 'lucide-react';
 import WhatsAppButton from '../../Shared/WhatsAppButton';
 import ShareButton from '../../Shared/ShareButton';
 import { formatPriceNumber } from '../../../utils/priceFormatter';
@@ -10,7 +10,8 @@ const ProductInfoCard = ({
   model,
   description,
   price,
-  product
+  product,
+  ctasRef
 }) => {
   return (
     <div className="pic-root">
@@ -61,9 +62,25 @@ const ProductInfoCard = ({
       </div>
 
       {/* ── CTAs ── */}
-      <div className="pic-ctas">
+      <div className="pic-ctas" ref={ctasRef}>
         <ShareButton productName={name} product={product} />
         <WhatsAppButton productName={name} product={product} />
+      </div>
+
+      {/* ── FILA DE CONFIANZA (Fase 3.3) ── */}
+      <div className="pic-trust" aria-label="Información de compra">
+        <div className="pic-trust-item">
+          <MapPin className="pic-trust-icon" strokeWidth={2.25} />
+          <span>Retiro en puntos</span>
+        </div>
+        <div className="pic-trust-item">
+          <Banknote className="pic-trust-icon" strokeWidth={2.25} />
+          <span>Efectivo o transferencia</span>
+        </div>
+        <div className="pic-trust-item">
+          <MessageCircle className="pic-trust-icon" strokeWidth={2.25} />
+          <span>Atención por WhatsApp</span>
+        </div>
       </div>
     </div>
   );

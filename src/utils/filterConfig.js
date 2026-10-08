@@ -23,7 +23,6 @@ export const CATEGORY_FILTERS = {
 };
 
 // Mapeo de claves alternativas a clave principal (para compatibilidad con datos antiguos)
-// NOTA: se conservan variantes con mojibake (archivos legacy) marcadas como legacy.
 export const FILTER_KEY_ALIASES = {
   // RGB/Iluminación
   'iluminacionRGB': 'Iluminación',
@@ -31,7 +30,7 @@ export const FILTER_KEY_ALIASES = {
   'RGB': 'Iluminación',
   'rgb': 'Iluminación',
   'Retroiluminación': 'Iluminación',
-  'IluminaciÃ³n': 'Iluminación', // legacy mojibake
+  'IluminaciÃ³n': 'Iluminación',
   'Iluminación RGB': 'Iluminación',
   
   // Tipo de memoria
@@ -55,14 +54,13 @@ export const FILTER_KEY_ALIASES = {
   'Capacidad total': 'Capacidad',
   'Capacidad Total': 'Capacidad',
   
-  // Formato (almacenamiento / RAM)
+  // Formato (almacenamiento)
   'formato': 'Formato',
   'Factor de forma': 'Formato',
   'factorDeForma': 'Formato',
   'Factor de Forma y Tipo': 'Formato',
   'Tipo de switch': 'Tipo de switch',
 
-  // Interfaz / Conector (almacenamiento, conectividad)
   'interfaz': 'Interfaz',
   'Protocolo': 'Interfaz',
   'Conector': 'Interfaz',
@@ -70,12 +68,12 @@ export const FILTER_KEY_ALIASES = {
   // Potencia (fuentes)
   'Potencia Continua': 'Potencia',
   
-  // Certificación (fuentes) — el JSON usa "Certificacion" sin tilde
+  // Certificación (fuentes)
   'Certificacion': 'Certificación',
-  'CertificaciÃ³n': 'Certificación', // legacy mojibake
+  'CertificaciÃ³n': 'Certificación',
   'Eficiencia': 'Certificación',
 
-  // Conectividad (periféricos)
+  // Conectividad
   'conectividad': 'Conectividad',
   'tipoConectividad': 'Conectividad',
   'Tipo de conexión': 'Conectividad',
@@ -108,11 +106,10 @@ export const FILTER_KEY_ALIASES = {
   'Consumo energético': 'TDP',
   'tdpSoportado': 'TDP',
 
-  // Arquitectura (teclados, placas, procesadores)
+  // Arquitectura
   'arquitectura': 'Arquitectura',
   'Arquitectura del teclado': 'Arquitectura',
 
-  // Monitores
   'tamanoPantalla': 'Tamaño pantalla',
   'Tamaño Pantalla': 'Tamaño pantalla',
   'tipoPanel': 'Tipo de panel',
@@ -127,13 +124,13 @@ export const FILTER_KEY_ALIASES = {
   'tipoBateria': 'Batería',
   'Bateria': 'Batería',
   'Autonomía': 'Batería',
-  'AutonomÃ­a': 'Batería', // legacy mojibake
+  'AutonomÃ­a': 'Batería',
   'capacidadBateria': 'Batería',
 
   // Compatibilidad
   'compatibilidad': 'Compatibilidad',
 
-  // Frecuencia (procesadores)
+  // Frecuencia
   'frecuenciaBase': 'Frecuencia base',
   'FrecuenciaBase': 'Frecuencia base',
   'Frecuencia': 'Frecuencia base',
@@ -142,12 +139,11 @@ export const FILTER_KEY_ALIASES = {
   'frecuencias': 'Frecuencia base',
   'Velocidad': 'Frecuencia base',
 
-  // Línea (monitores, fuentes, memorias)
+  // Línea
   'linea': 'Línea',
   'Linea': 'Línea',
-  'LÃ­nea': 'Línea', // legacy mojibake
+  'LÃ­nea': 'Línea',
 
-  // Cableado / Modular (fuentes)
   'Modular': 'Cableado'
 };
 
@@ -186,15 +182,12 @@ export const FILTER_LABELS = {
   'TDP': 'TDP',
   'Socket': 'Socket',
   'Tamaño del ventilador': 'Tamaño',
-  // Placas de video
   'Memoria': 'Memoria VRAM',
   'Memoria RAM': 'Memoria RAM',
-  // Monitores
   'Tamaño pantalla': 'Tamaño',
   'Tipo de panel': 'Panel',
   'Resolución': 'Resolución',
   'Frecuencia refresco': 'Frecuencia',
-  // Conectividad / almacenamiento
   'Interfaz': 'Interfaz',
   'Almacenamiento': 'Almacenamiento'
 };
@@ -220,7 +213,6 @@ export const getFilterLabel = (key) => {
   return FILTER_LABELS[key] || key;
 };
 
-// Mapa inverso canónico -> [variantes] precalculado (evita O(n) por producto en filtrado)
 const REVERSE_ALIAS_MAP = (() => {
   const map = {};
   for (const [alias, canonical] of Object.entries(FILTER_KEY_ALIASES)) {
@@ -230,10 +222,6 @@ const REVERSE_ALIAS_MAP = (() => {
   return map;
 })();
 
-/**
- * Lee el valor de spec resolviendo alias en O(1) amortizado.
- * Orden: clave exacta -> canónica -> variantes conocidas.
- */
 export const getSpecValue = (specifications, filterType) => {
   if (!specifications) return undefined;
   if (specifications[filterType] != null) return specifications[filterType];

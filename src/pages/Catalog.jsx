@@ -65,6 +65,31 @@ const Catalog = () => {
         />
       </div>
 
+      {/* Encabezado de resultados de búsqueda (/buscar) */}
+      {!selectedCategory && searchQuery.trim() && (
+        <div className="px-4 sm:px-6 pt-4 sm:pt-6">
+          <div className="flex flex-wrap items-center justify-between gap-3">
+            <h1 className="text-lg sm:text-2xl font-black text-gray-900">
+              Resultados para{' '}
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600">
+                “{searchQuery.trim()}”
+              </span>
+            </h1>
+            <button
+              type="button"
+              onClick={() => setSearchQuery('')}
+              className="px-3 py-1.5 rounded-full text-xs sm:text-sm font-semibold text-gray-600 bg-white border border-gray-200 shadow-sm hover:bg-gray-50 hover:text-gray-900 active:scale-95 transition-all duration-200"
+            >
+              Limpiar búsqueda
+            </button>
+          </div>
+          <p className="mt-1 text-sm text-gray-500">
+            {sortedProducts.length}{' '}
+            {sortedProducts.length === 1 ? 'resultado' : 'resultados'}
+          </p>
+        </div>
+      )}
+
       {/* Catalog Content (sin key remount: preserva scroll/DOM al cambiar vista) */}
       <CatalogContent
         selectedCategory={selectedCategory}

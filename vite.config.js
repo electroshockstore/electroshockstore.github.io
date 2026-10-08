@@ -38,7 +38,18 @@ export default defineConfig({
             const category = id.split('categories/')[1]?.split('.')[0];
             return category ? `category-${category}` : 'data';
           }
-          
+
+          // Header + búsqueda: se usan en TODAS las páginas. Chunk propio para
+          // que no terminen fusionados con pc-builder y se carguen en el
+          // critical path de Home/Catálogo.
+          if (
+            id.includes('src/components/Header/') ||
+            id.includes('src/hooks/useProductSearch') ||
+            id.includes('src/hooks/useRecentSearches')
+          ) {
+            return 'header';
+          }
+
           // Separar componentes grandes
           if (id.includes('src/components/PCBuilder/')) {
             return 'pc-builder';
@@ -52,7 +63,7 @@ export default defineConfig({
       }
     },
     minify: 'esbuild',
-    chunkSizeWarningLimit: 500,
+    chunkSizeWarningLimit: 250,
     cssCodeSplit: true,
     sourcemap: false,
     target: 'es2020',

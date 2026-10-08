@@ -402,7 +402,7 @@ const FlashSaleTimer = ({ targetDate, products = [] }) => {
 
   {/* Derecha: Badge */}
   <div className="shrink-0">
-    <div className="bg-[#c8f519]/10 border border-[#c8f519]/30 text-[#c8f519] text-[8px] xs:text-[9px] font-black px-2 xs:px-3.5 py-1 rounded-full tracking-widest uppercase font-mono whitespace-nowrap">
+    <div className="pill bg-[#c8f519]/10 border border-[#c8f519]/30 text-[#c8f519] text-[8px] xs:text-[9px] font-black px-2 xs:px-3.5 py-1 rounded-full tracking-widest uppercase font-mono whitespace-nowrap">
       20% off
     </div>
   </div>

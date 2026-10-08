@@ -8,6 +8,11 @@ import ErrorNotification from "./components/ErrorNotification";
 import { useErrorHandler } from "./hooks/useErrorHandler";
 import SkipToContent from "./components/SEO/SkipToContent";
 import ModernLoader from "./components/Shared/ModernLoader";
+import {
+  CatalogSkeleton,
+  ProductDetailSkeleton,
+  HomeSkeleton,
+} from "./components/Shared/Skeleton";
 import ScrollToTop from "./components/Shared/ScrollToTop";
 import FloatingChatButton from "./components/Shared/FloatingChatButton";
 import ScrollButton from "./components/Shared/ScrollButton";
@@ -21,22 +26,23 @@ const ProductDetailPage = lazy(() => import("./pages/ProductDetailPage"));
 const PCBuilder = lazy(() => import("./pages/PCBuilder"));
 const PuntosRetiro = lazy(() => import("./pages/PuntosRetiro"));
 
-// Loading component simple con logo real
+// Loading component simple con logo real (rutas sin skeleton dedicado)
 const PageLoader = () => <ModernLoader />;
 
+// Suspense por ruta: cada chunk lazy muestra un skeleton con la forma
+// de su contenido en lugar de un spinner genérico.
 function AnimatedRoutes() {
   return (
-    <Suspense fallback={<PageLoader />}>
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/categoria/:categorySlug" element={<Catalog />} />
-        <Route path="/categoria/:categorySlug/:productSku" element={<ProductDetailPage />} />
-        <Route path="/producto/:id" element={<ProductDetailPage />} />
-        <Route path="/armatupc" element={<PCBuilder />} />
-        <Route path="/pc-builder" element={<PCBuilder />} />
-        <Route path="/puntos-de-retiro" element={<PuntosRetiro />} />
-      </Routes>
-    </Suspense>
+    <Routes>
+      <Route path="/" element={<Suspense fallback={<HomeSkeleton />}><Home /></Suspense>} />
+      <Route path="/categoria/:categorySlug" element={<Suspense fallback={<CatalogSkeleton />}><Catalog /></Suspense>} />
+      <Route path="/buscar" element={<Suspense fallback={<CatalogSkeleton />}><Catalog /></Suspense>} />
+      <Route path="/categoria/:categorySlug/:productSku" element={<Suspense fallback={<ProductDetailSkeleton />}><ProductDetailPage /></Suspense>} />
+      <Route path="/producto/:id" element={<Suspense fallback={<ProductDetailSkeleton />}><ProductDetailPage /></Suspense>} />
+      <Route path="/armatupc" element={<Suspense fallback={<PageLoader />}><PCBuilder /></Suspense>} />
+      <Route path="/pc-builder" element={<Suspense fallback={<PageLoader />}><PCBuilder /></Suspense>} />
+      <Route path="/puntos-de-retiro" element={<Suspense fallback={<PageLoader />}><PuntosRetiro /></Suspense>} />
+    </Routes>
   );
 }
 

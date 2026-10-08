@@ -60,7 +60,7 @@ const Home = () => {
   };
 
   return (
-    <div className="min-h-screen w-full flex flex-col relative overflow-x-hidden">
+    <div className="min-h-screen w-full flex flex-col relative overflow-x-clip">
       {/* Background Gradients - Solo desktop */}
       <div className="fixed inset-0 -z-10 bg-[#0a0a0f]">
         {/* Wrapper interno para contener los gradientes */}
@@ -88,7 +88,7 @@ const Home = () => {
         onGoHome={handleGoHome}
       />
 
-      <main className="flex-1 w-full flex flex-col relative overflow-x-hidden">
+      <main className="flex-1 w-full flex flex-col relative overflow-x-clip">
         <div className="w-full flex-1 flex flex-col">
           {/* CategoryFilter - Solo Desktop con fade-in */}
           <div className={`hidden sm:block px-3 sm:px-4 py-3 sm:py-4 bg-[#0a0a0f] transition-opacity duration-500 ${isLoaded ? 'opacity-100' : 'opacity-0'}`}>
@@ -98,8 +98,8 @@ const Home = () => {
             />
           </div>
 
-          {/* Hero con fade-in */}
-          <div className={`mb-4 sm:mb-6 transition-opacity duration-700 delay-100 ${isLoaded ? 'opacity-100' : 'opacity-0'}`}>
+          {/* Hero — elemento LCP: sin gate de opacidad, pinta de inmediato */}
+          <div className="mb-4 sm:mb-6">
             <HeroCarousel />
           </div>
 
@@ -115,7 +115,7 @@ const Home = () => {
           )}
 
           {/* Mobile: PC Builder con fade-in */}
-          <div className={`sm:hidden transition-opacity duration-700 delay-[400ms] ${isLoaded ? 'opacity-100' : 'opacity-0'}`}>
+          <div className={`sm:hidden transition-opacity duration-700 delay-200 ${isLoaded ? 'opacity-100' : 'opacity-0'}`}>
             <PCBuilderSection />
           </div>
 
@@ -125,7 +125,7 @@ const Home = () => {
           </div>
 
           {/* Mobile: Puntos de Retiro con fade-in */}
-          <div className={`sm:hidden mb-4 transition-opacity duration-700 delay-500 ${isLoaded ? 'opacity-100' : 'opacity-0'}`}>
+          <div className={`sm:hidden mb-4 transition-opacity duration-700 delay-200 ${isLoaded ? 'opacity-100' : 'opacity-0'}`}>
             <PuntosRetiroInfoSection />
           </div>
           
@@ -139,7 +139,7 @@ const Home = () => {
 
           
           {/* Categories con fade-in */}
-          <div className={`px-3 sm:px-4 mt-12 sm:mt-20 mb-6 sm:mb-10 transition-opacity duration-700 delay-500 ${isLoaded ? 'opacity-100' : 'opacity-0'}`}>
+          <div className={`px-3 sm:px-4 mt-12 sm:mt-20 mb-6 sm:mb-10 transition-opacity duration-700 delay-200 ${isLoaded ? 'opacity-100' : 'opacity-0'}`}>
             <CategoryProductSection onCategoryClick={handleCategoryClick} />
           </div>
 

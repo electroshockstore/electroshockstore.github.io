@@ -1,8 +1,9 @@
-import { memo, useMemo, useEffect, lazy, Suspense } from 'react';
+import { memo, useMemo, useEffect, useRef, lazy, Suspense } from 'react';
 import { CheckCircle2 } from 'lucide-react';
 import DetailHeader from './DetailHeader';
 import ProductImageSection from './ProductImageSection';
 import ProductInfoCard from './ProductInfoCard';
+import StickyCTA from './StickyCTA';
 import SpecsSection from './SpecsSection';
 import MetodosDePago from './MetodosDePago';
 import PuntosRetiroSection from './PuntosRetiroSection';
@@ -14,6 +15,9 @@ const PriceChart = lazy(() =>
 );
 
 const ProductDetail = memo(({ product, onClose, isPage = false }) => {
+  // Ref al bloque de CTAs de la ficha (dispara el StickyCTA al scrollear)
+  const ctasRef = useRef(null);
+
   const stockStatus = useMemo(() => {
     if (!product) return null;
     return {
@@ -56,6 +60,7 @@ const ProductDetail = memo(({ product, onClose, isPage = false }) => {
                   description={product.description}
                   price={product.price}
                   product={product}
+                  ctasRef={ctasRef}
                 />
               </div>
             </div>
@@ -69,6 +74,12 @@ const ProductDetail = memo(({ product, onClose, isPage = false }) => {
             </div>
           </div>
         </div>
+        <StickyCTA
+          product={product}
+          productName={product.name}
+          price={product.price}
+          triggerRef={ctasRef}
+        />
       </div>
     );
   }

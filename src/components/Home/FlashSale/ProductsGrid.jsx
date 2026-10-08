@@ -29,7 +29,7 @@ const ProductsGrid = ({ products = [] }) => {
             {Math.min(products.length, 3)} Producto{products.length !== 1 ? 's' : ''} con descuento
           </span>
         </div>
-        <span className="border border-lime-400/30 bg-lime-400/[0.07] text-lime-400 font-mono text-[8px] sm:text-[9px] font-medium tracking-[0.1em] uppercase px-2 sm:px-4 py-1 sm:py-1.5 rounded-full whitespace-nowrap flex-shrink-0">
+        <span className="pill border border-lime-400/30 bg-lime-400/[0.07] text-lime-400 font-mono text-[8px] sm:text-[9px] font-medium tracking-[0.1em] uppercase px-2 sm:px-4 py-1 sm:py-1.5 rounded-full whitespace-nowrap flex-shrink-0">
           Hasta {avgDiscount}% Off
         </span>
       </div>

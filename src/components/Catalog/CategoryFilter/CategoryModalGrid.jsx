@@ -6,7 +6,7 @@ const CategoryModalGrid = ({ categories, selectedCategory, onCategorySelect }) =
 
   return (
     <div
-      className="flex-1 overflow-y-auto overflow-x-hidden relative"
+      className="flex-1 overflow-y-auto overflow-x-clip relative"
       style={{
         background: '#0d0d0d',
         WebkitOverflowScrolling: 'touch',

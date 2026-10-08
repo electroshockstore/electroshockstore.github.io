@@ -4,7 +4,7 @@ import Footer from '../Shared/Footer';
 const CatalogLayout = ({ children, searchQuery, onSearchChange, onGoHome }) => {
   return (
     //BG component
-    <div className="min-h-screen w-full catalog-bg overflow-hidden relative">
+    <div className="min-h-screen w-full catalog-bg overflow-clip relative">
       <div className="relative z-10 flex flex-col min-h-screen">
         
         <Header 

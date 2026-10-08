@@ -13,7 +13,7 @@ const SortSelector = ({ sortOrder, onSortChange }) => {
       <button
         onClick={handleToggle}
         className={`
-          flex items-center justify-center gap-2 px-4
+          mi-press flex items-center justify-center gap-2 px-4
           h-10 sm:h-12 rounded-full
           transition-all duration-200 min-w-[120px] sm:min-w-[140px]
           ${sortOrder 
