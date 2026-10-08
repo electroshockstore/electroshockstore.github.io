@@ -2422,41 +2422,69 @@ body {
   }
 }
 
-/* Filter Sheet mobile - entrada/salida y drag gestionados por framer-motion (spring) */
-.filter-sheet-overlay {
-  position: absolute;
+/* Drawer optimizado - Con fade-in automático */
+.drawer-container {
+  position: fixed;
   inset: 0;
-  background: rgba(15, 23, 42, 0.55);
-  -webkit-backdrop-filter: blur(6px);
-  backdrop-filter: blur(6px);
+  z-index: 50;
+  animation: drawer-fade-in 0.25s ease-out forwards;
 }
 
-.filter-sheet-panel {
+@keyframes drawer-fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.drawer-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(4px);
+  animation: overlay-fade-in 0.3s ease-out forwards;
+  will-change: opacity;
+}
+
+@keyframes overlay-fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.drawer-panel {
   position: absolute;
   top: 0;
   left: 0;
   bottom: 0;
-  width: 88%;
+  width: 85%;
   max-width: 24rem;
-  overflow-y: auto;
-  overflow-x: hidden;
-  overscroll-behavior: contain;
-  -webkit-overflow-scrolling: touch;
-  /* pan-y: permite scroll vertical, el drag horizontal lo captura framer */
-  touch-action: pan-y;
-  padding: 0.25rem 0.5rem calc(6rem + env(safe-area-inset-bottom, 0px));
-  padding-left: max(0.5rem, env(safe-area-inset-left, 0px));
+  background: white;
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  padding-bottom: 6rem;
+  animation: drawer-slide-in 0.3s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+  will-change: transform;
 }
 
-/* En mobile, quitar el negrito del blur del overlay para GPUs débiles */
-.perf-low .filter-sheet-overlay,
-.is-low-end .filter-sheet-overlay {
-  -webkit-backdrop-filter: none;
-  backdrop-filter: none;
-  background: rgba(15, 23, 42, 0.65);
+@keyframes drawer-slide-in {
+  from {
+    transform: translateX(-100%);
+  }
+  to {
+    transform: translateX(0);
+  }
 }
 
+/* Reducir motion */
 @media (prefers-reduced-motion: reduce) {
+  .drawer-container,
+  .drawer-overlay,
+  .drawer-panel,
   .category-image-reveal {
     animation-duration: 0.01ms !important;
   }

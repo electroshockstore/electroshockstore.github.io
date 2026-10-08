@@ -6,14 +6,14 @@ const DetailHeader = ({ onClose, isPage = false, product }) => {
   return (
     <div className={`${isPage ? '' : 'sticky top-0 z-50'} bg-white sm:backdrop-blur-xl sm:bg-white/95 border-b border-gray-200 shadow-lg rounded-t-2xl sm:rounded-t-3xl`}>
       <div className="px-3 sm:px-6 lg:px-8 py-3 sm:py-4">
-        <div className="flex items-center justify-between gap-3">
+        <div className="flex items-center gap-2 sm:gap-3">
           <button
             onClick={onClose}
-            className="flex items-center gap-2 px-3 sm:px-4 py-2 text-gray-700 hover:text-blue-600 
-                     font-semibold transition-colors rounded-xl hover:bg-blue-50 text-sm sm:text-base flex-shrink-0 active:scale-95"
+            aria-label="Volver atrás"
+            title="Volver atrás"
+            className="flex h-11 w-11 flex-shrink-0 items-center justify-center rounded-full bg-gradient-to-br from-blue-600 via-indigo-600 to-violet-600 text-white shadow-[0_12px_26px_-10px_rgba(79,70,229,0.8),inset_0_1px_0_rgba(255,255,255,0.4)] ring-1 ring-white/40 transition-all duration-200 hover:brightness-110 active:scale-90"
           >
-            <ArrowLeft className="h-4 w-4 sm:h-5 sm:w-5" />
-            <span className="hidden sm:inline">Volver</span>
+            <ArrowLeft className="h-5 w-5" strokeWidth={2.5} />
           </button>
 
           {/* Breadcrumb en el centro */}
@@ -23,13 +23,17 @@ const DetailHeader = ({ onClose, isPage = false, product }) => {
             </div>
           )}
 
-          <button
-            onClick={onClose}
-            className="p-2 sm:p-2.5 hover:bg-gray-100 rounded-xl transition-colors flex-shrink-0 active:scale-95"
-            aria-label="Cerrar"
-          >
-            <X className="h-5 w-5 sm:h-6 sm:w-6 text-gray-600" />
-          </button>
+          {/* Cerrar: solo en modal (en página, Volver ya hace esto) */}
+          {!isPage && (
+            <button
+              onClick={onClose}
+              className="flex min-h-[44px] min-w-[44px] flex-shrink-0 items-center justify-center rounded-full bg-gray-900/[0.05] text-gray-500 ring-1 ring-black/[0.05] transition-all duration-200 hover:bg-gray-900/10 hover:text-gray-800 active:scale-90"
+              aria-label="Cerrar"
+              title="Cerrar"
+            >
+              <X className="h-5 w-5" strokeWidth={2.5} />
+            </button>
+          )}
         </div>
       </div>
     </div>

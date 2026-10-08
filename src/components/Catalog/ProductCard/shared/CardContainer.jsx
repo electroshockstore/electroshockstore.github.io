@@ -8,17 +8,17 @@ const CardContainer = memo(({
   isFeatured = false,
   className = '' 
 }) => {
-  const revealRef = useScrollReveal({ 
-    threshold: 0.1, 
+  const [revealRef, revealed] = useScrollReveal({
+    threshold: 0.1,
     rootMargin: '50px',
     delay: Math.min(index * 50, 300)
   });
 
   return (
-    <div 
+    <div
       ref={revealRef}
       onClick={onClick}
-      className={`product-card-reveal group relative bg-white rounded-xl sm:rounded-2xl 
+      className={`${revealed ? 'scroll-revealed' : ''} product-card-reveal group relative bg-white rounded-xl sm:rounded-2xl
                  ${isFeatured ? 'border-0' : 'border border-gray-100 hover:border-blue-500/30'}
                  hover:shadow-2xl hover:shadow-blue-500/10
                  shadow-[0_4px_12px_-2px_rgba(0,0,0,0.08),0_2px_6px_-1px_rgba(0,0,0,0.06)]

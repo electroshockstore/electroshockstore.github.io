@@ -24,7 +24,7 @@ const ProductCard = memo(({ product, viewMode, onClick, index = 0, listName = 'P
   const isDDR5 = ddrType === 'DDR5';
   const isDDR4 = ddrType === 'DDR4';
   
-  const revealRef = useRevealOnScroll(Math.min(index * 45, 360));
+  const [revealRef, revealed] = useRevealOnScroll(Math.min(index * 45, 360));
   const imageRef = useRef(null);
 
   // Precargar el chunk del detalle en cuanto hay intención (hover/touch)
@@ -54,9 +54,9 @@ const ProductCard = memo(({ product, viewMode, onClick, index = 0, listName = 'P
         onClick={handleClick}
         onPointerEnter={prefetchDetail}
         onPointerDown={prefetchDetail}
-        className="product-card-reveal group relative bg-white rounded-lg border border-gray-200 p-3 sm:p-4
+        className={`${revealed ? 'scroll-revealed' : ''} product-card-reveal group relative bg-white rounded-lg border border-gray-200 p-3 sm:p-4
                    hover:border-blue-400 hover:shadow-lg
-                   transition-all duration-200 cursor-pointer flex gap-3 sm:gap-4 items-center"
+                   transition-all duration-200 cursor-pointer flex gap-3 sm:gap-4 items-center`}
       >
         {/* Imagen - Tamaño medio */}
         <div className="w-16 h-16 sm:w-20 sm:h-20 flex-shrink-0 bg-gray-50 rounded-md p-2 relative overflow-hidden">
@@ -126,8 +126,11 @@ const ProductCard = memo(({ product, viewMode, onClick, index = 0, listName = 'P
       onClick={handleClick}
       onPointerEnter={prefetchDetail}
       onPointerDown={prefetchDetail}
-      className={`product-card-reveal group relative bg-white rounded-xl sm:rounded-2xl 
-                 ${isFeatured ? 'border-0' : 'border border-gray-100 hover:border-blue-500/30'}
+      className={`${revealed ? 'scroll-revealed' : ''} product-card-reveal group relative bg-white
+                 ${isFeatured
+                   // Radio exacto: wrapper(16px/24px) − borde 2px → calza el borde gradiente
+                   ? 'rounded-[14px] sm:rounded-[22px] border-0'
+                   : 'rounded-xl sm:rounded-2xl border border-gray-100 hover:border-blue-500/30'}
                  hover:shadow-2xl hover:shadow-blue-500/10
                  shadow-[0_4px_12px_-2px_rgba(0,0,0,0.08),0_2px_6px_-1px_rgba(0,0,0,0.06)]
                  hover:shadow-[0_20px_40px_-8px_rgba(0,0,0,0.12),0_8px_16px_-4px_rgba(59,130,246,0.15)]
@@ -201,7 +204,7 @@ const ProductCard = memo(({ product, viewMode, onClick, index = 0, listName = 'P
            />
         </div>
         
-        <div className="space-y-2 sm:space-y-3">
+        <div className="mt-auto space-y-2 sm:space-y-3">
            <PriceDisplay price={price} category={product.category} />
         </div>
       </div>

@@ -59,10 +59,10 @@ const ProductInfo = ({ name, brand, model, isUsed, isDDR5, isDDR4, certType }) =
         </div>
       </div>
 
-      {/* 2. Título - Altura fija con line-clamp */}
+      {/* 2. Título - Altura fija con line-clamp (block para que el clamp sea fiable) */}
       <div className="min-h-[52px] sm:min-h-[56px]">
-        <h3 className="inline-block text-left px-2 sm:px-4 py-1.5 sm:py-2 rounded-lg sm:rounded-xl
-                      font-black text-xs sm:text-xs text-white line-clamp-2 sm:line-clamp-2 max-w-full
+        <h3 className="block text-left px-2 sm:px-4 py-1.5 sm:py-2 rounded-lg sm:rounded-xl
+                      font-black text-xs sm:text-xs text-white line-clamp-2 max-w-full break-words
                       bg-gradient-to-r from-blue-600 to-purple-600 
                       shadow-lg sm:shadow-xl border sm:border-2 border-blue-500
                       transition-all duration-300 leading-tight">

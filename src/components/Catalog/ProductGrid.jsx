@@ -62,7 +62,7 @@ const ProductGroup = memo(({ products, viewMode, openModal, gridClasses }) => {
         return (
           <div
             key={`${product.id}-${product.category}`}
-            className={isFeatured ? 'bento-item-featured' : ''}
+            className={`h-full ${isFeatured ? 'bento-item-featured' : ''}`}
           >
             {/* Badge "Más Vendido" - Responsive */}
             {isFeatured && (
@@ -75,7 +75,7 @@ const ProductGroup = memo(({ products, viewMode, openModal, gridClasses }) => {
             )}
 
             {/* Wrapper para aplicar el border shine - Este es el > div que CSS selecciona */}
-            <div className={isFeatured ? 'featured-card-wrapper' : ''}>
+            <div className={`h-full ${isFeatured ? 'featured-card-wrapper' : ''}`}>
               <ProductCardWrapper
                 product={product}
                 viewMode={viewMode}

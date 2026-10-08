@@ -45,12 +45,22 @@ const reveal = (element) => {
 
 let observer = null;
 
+// Callbacks pendientes por elemento (se invocan al revelarse)
+const revealCallbacks = new Map();
+
 if (typeof IntersectionObserver !== 'undefined') {
   observer = new IntersectionObserver(
     (entries, obs) => {
       for (const entry of entries) {
         if (!entry.isIntersecting) continue;
         reveal(entry.target);
+        const cb = revealCallbacks.get(entry.target);
+        revealCallbacks.delete(entry.target);
+        try {
+          cb?.();
+        } catch {
+          // ignorar errores de callbacks
+        }
         obs.unobserve(entry.target);
       }
     },
@@ -58,21 +68,36 @@ if (typeof IntersectionObserver !== 'undefined') {
   );
 }
 
-export const observeReveal = (element) => {
+export const observeReveal = (element, onReveal) => {
   if (!element) return;
 
-  // Ya revelado (p.ej. re-orden por re-render): no re-animar
-  if (element.classList.contains('scroll-revealed')) return;
+  // Ya revelado (p.ej. re-orden por re-render): notificar sin re-animar
+  if (element.classList.contains('scroll-revealed')) {
+    try {
+      onReveal?.();
+    } catch {
+      // ignorar
+    }
+    return;
+  }
 
   // Sin observer o con reduced-motion: mostrar inmediatamente (sin animación)
   if (!observer || prefersReducedMotion()) {
     element.classList.add('scroll-revealed');
+    try {
+      onReveal?.();
+    } catch {
+      // ignorar
+    }
     return;
   }
 
+  if (onReveal) revealCallbacks.set(element, onReveal);
   observer.observe(element);
 };
 
 export const unobserveReveal = (element) => {
-  if (observer && element) observer.unobserve(element);
+  if (!element) return;
+  revealCallbacks.delete(element);
+  if (observer) observer.unobserve(element);
 };
