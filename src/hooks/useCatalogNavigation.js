@@ -2,6 +2,8 @@ import { useCallback } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { getSlugFromCategory, generateSKU } from '../utils/slugify';
 import { useViewTransition } from './useViewTransition';
+import { canUseViewTransition, awaitDetailMount } from '../utils/viewTransition';
+import { getAppScroller } from '../context/ScrollContext';
 
 export const useCatalogNavigation = (setSelectedCategory, setSearchQuery, clearSubFilters) => {
   const navigate = useNavigate();
@@ -25,12 +27,32 @@ export const useCatalogNavigation = (setSelectedCategory, setSearchQuery, clearS
   }, [setSelectedCategory, navigate, location.pathname, startTransition]);
 
   const handleProductClick = useCallback((product) => {
-    startTransition(() => {
+    // Precargar el chunk del detalle: sin esto el lazy todavía no montó la
+    // imagen destino cuando se captura el snapshot "nuevo" y no hay morph.
+    import('../pages/ProductDetailPage');
+
+    startTransition(async () => {
+      // Esperar a que el detalle monte antes de capturar el snapshot nuevo
+      const detailMounted = canUseViewTransition() ? awaitDetailMount() : null;
+
       const categorySlug = getSlugFromCategory(product.category);
       const productSku = generateSKU(product.name, product.brand);
-      navigate(`/categoria/${categorySlug}/${productSku}`, { 
-        state: { productId: product.id } 
+      navigate(`/categoria/${categorySlug}/${productSku}`, {
+        state: { productId: product.id }
       });
+
+      // Reset del scroll del CONTAINER (no window): el scrollTop anidado SÍ
+      // aplica dentro del callback de la View Transition. Se hace sobre el
+      // contenido viejo (oculto tras el snapshot) para que el snapshot
+      // "nuevo" ya nazca arriba, sin salto posterior.
+      const scroller = getAppScroller();
+      if (scroller) {
+        scroller.scrollTop = 0;
+      } else if (typeof window !== 'undefined' && window.scrollY > 0) {
+        window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
+      }
+
+      if (detailMounted) await detailMounted;
     });
   }, [navigate, startTransition]);
 

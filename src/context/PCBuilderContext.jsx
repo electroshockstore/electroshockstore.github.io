@@ -273,7 +273,7 @@ export const PCBuilderProvider = ({ children }) => {
     }
   }, []);
   
-  const value = {
+  const value = useMemo(() => ({
     pcBuild,
     selectComponent,
     removeComponent,
@@ -288,7 +288,20 @@ export const PCBuilderProvider = ({ children }) => {
     evaluatePSU,
     clearConfiguration,
     loadConfiguration
-  };
+  }), [
+    pcBuild,
+    selectComponent,
+    removeComponent,
+    compatibilityStatus,
+    warnings,
+    totalPrice,
+    totalWattage,
+    minimumWattage,
+    recommendedWattage,
+    evaluatePSU,
+    clearConfiguration,
+    loadConfiguration
+  ]);
   
   return (
     <PCBuilderContext.Provider value={value}>

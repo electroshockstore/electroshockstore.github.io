@@ -21,8 +21,10 @@ export const usePerformanceOptimization = () => {
       html.classList.remove('is-low-end');
     }
 
-    // Logging
-    console.log(`[Performance] Tier: ${performance.tier} - Optimizations applied`);
+    // Logging solo en desarrollo
+    if (import.meta.env.DEV) {
+      console.log(`[Performance] Tier: ${performance.tier} - Optimizations applied`);
+    }
 
     return () => {
       html.classList.remove('perf-low', 'perf-medium', 'perf-high', 'is-low-end');

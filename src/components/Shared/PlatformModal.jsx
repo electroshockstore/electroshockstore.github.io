@@ -1,6 +1,7 @@
 import { memo, useEffect, useState } from 'react';
 import { useIsIOS } from '../../hooks/useDevice';
 import { getModalStyles, getBackdropStyles } from '../../constants/platform';
+import { useLockAppScroll } from '../../context/ScrollContext';
 import Portal from './Portal';
 
 /**
@@ -18,16 +19,16 @@ const PlatformModal = memo(({
   backdropClassName = ''
 }) => {
   const isIOS = useIsIOS();
-  const [scrollY, setScrollY] = useState(0);
   const [viewportHeight, setViewportHeight] = useState(window.innerHeight);
+
+  // Bloquear el scroll del container (el window está fijo globalmente)
+  useLockAppScroll(isOpen);
 
   // Bloquear scroll al abrir modal
   useEffect(() => {
     if (isOpen) {
       if (isIOS) {
-        // iOS: Capturar scrollY para position absolute
-        const currentScrollY = window.scrollY;
-        setScrollY(currentScrollY);
+        // iOS: viewport visible (el modal es absolute dentro del portal fijo)
         setViewportHeight(window.innerHeight);
       }
       
@@ -58,9 +59,11 @@ const PlatformModal = memo(({
   const backdropStyles = getBackdropStyles(isIOS);
 
   // Estilos condicionales por plataforma
+  // NOTA: con el ScrollContainer el window no scrollea; el modal vive en
+  // #portal-root (fixed = viewport), así que el top visible siempre es 0.
   const backdropPositionStyles = isIOS ? {
     position: 'absolute',
-    top: scrollY,
+    top: 0,
     left: 0,
     right: 0,
     minHeight: viewportHeight,
@@ -75,7 +78,7 @@ const PlatformModal = memo(({
 
   const modalPositionStyles = isIOS ? {
     position: 'absolute',
-    top: scrollY,
+    top: 0,
     left: 0,
     right: 0,
     minHeight: viewportHeight,

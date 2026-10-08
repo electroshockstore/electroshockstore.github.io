@@ -1,4 +1,4 @@
-import { memo, useMemo, useEffect } from 'react';
+import { memo, useMemo, useEffect, lazy, Suspense } from 'react';
 import { CheckCircle2 } from 'lucide-react';
 import DetailHeader from './DetailHeader';
 import ProductImageSection from './ProductImageSection';
@@ -6,8 +6,12 @@ import ProductInfoCard from './ProductInfoCard';
 import SpecsSection from './SpecsSection';
 import MetodosDePago from './MetodosDePago';
 import PuntosRetiroSection from './PuntosRetiroSection';
-import { PriceChart } from '../../PriceChart';
 import Portal from '../../Shared/Portal';
+
+// recharts (~240KB) fuera del bundle inicial: solo detalle con historial
+const PriceChart = lazy(() =>
+  import('../../PriceChart').then((m) => ({ default: m.PriceChart }))
+);
 
 const ProductDetail = memo(({ product, onClose, isPage = false }) => {
   const stockStatus = useMemo(() => {
@@ -44,7 +48,7 @@ const ProductDetail = memo(({ product, onClose, isPage = false }) => {
             {/* Contenedor unificado sin bordes separados */}
             <div className="bg-white rounded-xl border-2 border-gray-200 shadow-lg overflow-hidden">
               <div className="grid grid-cols-1 lg:grid-cols-2">
-                <ProductImageSection images={productImages} name={product.name} stock={product.stock} stockStatus={stockStatus} />
+                <ProductImageSection images={productImages} name={product.name} stock={product.stock} stockStatus={stockStatus} productId={product.id} />
                 <ProductInfoCard 
                   name={product.name}
                   brand={product.brand}
@@ -55,7 +59,9 @@ const ProductDetail = memo(({ product, onClose, isPage = false }) => {
                 />
               </div>
             </div>
-            <PriceChart productId={product.id} />
+            <Suspense fallback={null}>
+              <PriceChart productId={product.id} />
+            </Suspense>
             <SpecsSection specifications={product.specifications} />
             <div className="space-y-4 sm:space-y-6">
               <MetodosDePago />
@@ -96,7 +102,7 @@ const ProductDetail = memo(({ product, onClose, isPage = false }) => {
               {/* Contenedor unificado sin bordes separados */}
               <div className="bg-white rounded-xl border-2 border-gray-200 shadow-lg overflow-hidden">
                 <div className="grid grid-cols-1 lg:grid-cols-2">
-                  <ProductImageSection images={productImages} name={product.name} stock={product.stock} stockStatus={stockStatus} />
+                  <ProductImageSection images={productImages} name={product.name} stock={product.stock} stockStatus={stockStatus} productId={product.id} />
                   <ProductInfoCard 
                     name={product.name}
                     brand={product.brand}
@@ -107,7 +113,9 @@ const ProductDetail = memo(({ product, onClose, isPage = false }) => {
                   />
                 </div>
               </div>
-              <PriceChart productId={product.id} />
+              <Suspense fallback={null}>
+                <PriceChart productId={product.id} />
+              </Suspense>
               <SpecsSection specifications={product.specifications} />
               <div className="space-y-4 sm:space-y-6">
                 <MetodosDePago />

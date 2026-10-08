@@ -55,7 +55,7 @@ export default defineConfig({
     chunkSizeWarningLimit: 500,
     cssCodeSplit: true,
     sourcemap: false,
-    target: 'es2015',
+    target: 'es2020',
     reportCompressedSize: false,
     commonjsOptions: {
       transformMixedEsModules: true
@@ -66,7 +66,7 @@ export default defineConfig({
     open: true
   },
   optimizeDeps: {
-    include: ['react', 'react-dom', 'react-router-dom', 'framer-motion'],
+    include: ['react', 'react-dom', 'react-router-dom'],
   },
   esbuild: {
     logOverride: { 'this-is-undefined-in-esm': 'silent' },

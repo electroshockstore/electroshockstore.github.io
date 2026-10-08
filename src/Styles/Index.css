@@ -59,7 +59,7 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* Optimizaci├│n para animaciones Framer Motion */
+/* Optimización para animaciones Framer Motion */
 [data-projection-id] {
   transform: translateZ(0);
   backface-visibility: hidden;
@@ -99,6 +99,59 @@
 
 #portal-root > * {
   pointer-events: auto;
+}
+
+/* ============================================
+   APP SHELL + SCROLL CONTAINER
+   El scroll de la app vive en .app-scroll (no en window) para que las
+   View Transitions + shared elements no hereden ni congelen el scroll.
+   ============================================ */
+html,
+body {
+  height: 100%;
+}
+
+body {
+  overflow: hidden;
+  overscroll-behavior: none;
+}
+
+#root {
+  height: 100vh;
+  height: 100dvh;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.app-shell {
+  position: relative;
+  flex: 1;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.app-shell > .animated-bg-container {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.app-scroll {
+  position: relative;
+  z-index: 10;
+  flex: 1;
+  min-height: 0;
+  overflow-y: auto;
+  overflow-x: hidden;
+  /* auto explícito: ignora el scroll-behavior: smooth global del html */
+  scroll-behavior: auto;
+  -webkit-overflow-scrolling: touch;
+  overscroll-behavior-y: contain;
+  scrollbar-width: thin;
 }
 
 /* ============================================
@@ -604,7 +657,7 @@
 }
 
 /* ============================================
-   CLASES DE ANIMACI├ôN
+   CLASES DE ANIMACIÓN
    ============================================ */
 
 .animate-hero-content-enter {
@@ -722,7 +775,7 @@
 }
 
 /* ============================================
-   COMPONENTES ESPEC├ìFICOS
+   COMPONENTES ESPECÍFICOS
    ============================================ */
 
 .pc-builder-card-enter {
@@ -795,7 +848,7 @@
 }
 
 /* ÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉ
-   BOT├ôN PRINCIPAL
+   BOTÓN PRINCIPAL
 ÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉ */
 .fcb-main-button {
   position: relative;
@@ -1077,7 +1130,7 @@
 }
 
 /* ÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉ
-   MEN├Ü EXPANDIDO
+   MENÚ EXPANDIDO
 ÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉ */
 .fcb-menu-wrapper {
   display: flex;
@@ -1451,7 +1504,7 @@
 }
 
 /* ÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉ
-   PART├ìCULAS FLOTANTES
+   PARTÍCULAS FLOTANTES
 ÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉ */
 .fcb-particle {
   position: absolute;
@@ -1665,7 +1718,7 @@
   opacity: 0.04;
 }
 
-/* M├íscaras de gradiente */
+/* Máscaras de gradiente */
 .mask-edge-left {
   mask-image: linear-gradient(to right, black 70%, transparent 100%);
 }
@@ -1738,30 +1791,32 @@
   animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-/* Product Grid Transitions */
-.product-grid {
-  view-transition-name: product-grid;
+/* Shared element: morph de la imagen producto (card → detalle).
+   El nombre es dinámico (product-image-<id>), por eso se estiliza con *. */
+::view-transition-group(*) {
+  animation-duration: 0.42s;
+  animation-timing-function: cubic-bezier(0.22, 1, 0.36, 1);
 }
 
-::view-transition-old(product-grid),
-::view-transition-new(product-grid) {
+/* El crossfade del root se mantiene ágil para cambios de ruta */
+::view-transition-group(root) {
   animation-duration: 0.3s;
   animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-::view-transition-old(product-grid) {
-  animation-name: fadeIn;
-}
-
-::view-transition-new(product-grid) {
-  animation-name: fadeIn;
+@media (prefers-reduced-motion: reduce) {
+  ::view-transition-group(*),
+  ::view-transition-old(*),
+  ::view-transition-new(*) {
+    animation: none !important;
+  }
 }
 
 /* ============================================
    BENTO LAYOUT - ProductGrid
    ============================================ */
 
-/* Primer producto (M├ís Vendido) - Ocupa 2 columnas pero MISMA altura */
+/* Primer producto (Más Vendido) - Ocupa 2 columnas pero MISMA altura */
 .bento-item-featured {
   position: relative;
   /* Crear contexto de apilamiento para el badge */
@@ -1812,7 +1867,7 @@
   }
 }
 
-/* Efecto Pill - Expansi├│n suave en hover (solo desktop) */
+/* Efecto Pill - Expansión suave en hover (solo desktop) */
 @media (min-width: 1024px) {
   .bento-item-featured .featured-card-wrapper {
     transition: transform 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
@@ -1855,14 +1910,14 @@
   }
 }
 
-/* Ocultar los glows internos en la card destacada - Selector m├ís espec├¡fico */
+/* Ocultar los glows internos en la card destacada - Selector más específico */
 .bento-item-featured div.group > div.relative.aspect-square > div.absolute.inset-0.pointer-events-none {
   opacity: 0 !important;
   visibility: hidden !important;
 }
 
 /* ============================================
-   BORDER BEAM - ELIMINADO (no se ve├¡a bien)
+   BORDER BEAM - ELIMINADO (no se veía bien)
    ============================================ */
 
 .border-beam-wrapper {
@@ -1890,7 +1945,7 @@
    ============================================ */
 
 .liquid-pill-button {
-  /* Dise├▒o original restaurado */
+  /* Diseño original restaurado */
   position: relative;
   display: flex;
   align-items: center;
@@ -1916,7 +1971,7 @@
   }
 }
 
-/* Estados del bot├│n - Dise├▒o original */
+/* Estados del botón - Diseño original */
 .liquid-pill-button:not(.liquid-pill-active) {
   color: #64748b;
   background: rgba(241, 245, 249, 0.8);
@@ -1930,7 +1985,7 @@
   border-color: #bfdbfe;
 }
 
-/* C├¡rculo l├¡quido oculto debajo */
+/* Círculo líquido oculto debajo */
 .liquid-circle {
   position: absolute;
   bottom: -60%;
@@ -1945,7 +2000,7 @@
   z-index: 0;
 }
 
-/* Contenido del bot├│n */
+/* Contenido del botón */
 .liquid-content {
   position: relative;
   display: flex;
@@ -1954,7 +2009,7 @@
   z-index: 1;
 }
 
-/* Icono con fondo - Dise├▒o original */
+/* Icono con fondo - Diseño original */
 .liquid-icon {
   display: flex;
   align-items: center;
@@ -1986,7 +2041,7 @@
   transition: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
 }
 
-/* Wrapper de texto con posici├│n relativa */
+/* Wrapper de texto con posición relativa */
 .liquid-text-wrapper {
   position: relative;
   display: block;
@@ -2047,7 +2102,7 @@
   opacity: 1;
 }
 
-/* ===== ACTIVE STATE (bot├│n seleccionado) - Dise├▒o original ===== */
+/* ===== ACTIVE STATE (botón seleccionado) - Diseño original ===== */
 .liquid-pill-active {
   background: linear-gradient(to right, #2563eb, #1d4ed8);
   color: white;
@@ -2086,11 +2141,11 @@
    PREMIUM MICRO-EFFECTS - ProductCard
    ============================================ */
 
-/* SCROLL REVEAL - Animaci├│n de entrada al hacer scroll */
+/* SCROLL REVEAL - Animación de entrada al hacer scroll */
 .product-card-reveal {
   opacity: 0;
   transform: translateY(30px) scale(0.95);
-  /* Sombra m├ís pronunciada para mejor contraste */
+  /* Sombra más pronunciada para mejor contraste */
   box-shadow: 
     0 4px 12px -2px rgba(0, 0, 0, 0.08),
     0 2px 6px -1px rgba(0, 0, 0, 0.06);
@@ -2103,14 +2158,13 @@
               transform 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
 }
 
-/* 1. SMOOTH SCALE + LIFT - Mejorado con sombras m├ís pronunciadas */
+/* 1. SMOOTH SCALE + LIFT - Mejorado con sombras más pronunciadas */
 .scroll-revealed.group.relative.bg-white.rounded-xl {
   transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1),
               box-shadow 0.4s cubic-bezier(0.34, 1.56, 0.64, 1),
               border-color 0.3s ease,
               opacity 0.3s ease;
-  will-change: transform;
-  /* Sombra base m├ís visible */
+  /* Sombra base más visible */
   box-shadow: 
     0 4px 12px -2px rgba(0, 0, 0, 0.08),
     0 2px 6px -1px rgba(0, 0, 0, 0.06);
@@ -2120,14 +2174,16 @@
 @media (min-width: 1024px) {
   .scroll-revealed.group.relative.bg-white.rounded-xl:hover {
     transform: translateY(-8px) scale(1.02);
-    /* Sombra dram├ítica en hover con tinte azul */
+    /* will-change solo durante hover (evita reservar capas en 100+ cards) */
+    will-change: transform;
+    /* Sombra dramática en hover con tinte azul */
     box-shadow: 
       0 20px 40px -8px rgba(0, 0, 0, 0.12),
       0 8px 16px -4px rgba(59, 130, 246, 0.15),
       0 0 0 1px rgba(59, 130, 246, 0.1);
   }
   
-  /* 2. MAGNETIC HOVER - Efecto sutil de "atracci├│n" */
+  /* 2. MAGNETIC HOVER - Efecto sutil de "atracción" */
   .scroll-revealed.group.relative.bg-white.rounded-xl::before {
     content: '';
     position: absolute;
@@ -2186,7 +2242,7 @@
   animation: ripple 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
 }
 
-/* 4. MICRO-BOUNCE en badges y elementos peque├▒os */
+/* 4. MICRO-BOUNCE en badges y elementos pequeños */
 @keyframes micro-bounce {
   0%, 100% {
     transform: translateY(0);
@@ -2204,7 +2260,7 @@
   }
 }
 
-/* 5. GLOW DIN├üMICO en precio - Pulsa sutilmente */
+/* 5. GLOW DINüMICO en precio - Pulsa sutilmente */
 @keyframes price-glow {
   0%, 100% {
     text-shadow: 0 0 10px rgba(59, 130, 246, 0.3);
@@ -2227,14 +2283,14 @@
               opacity 0.4s ease;
 }
 
-/* Los c├¡rculos decorativos se expanden en hover */
+/* Los círculos decorativos se expanden en hover */
 @media (min-width: 1024px) {
   .scroll-revealed.group:hover .absolute.inset-0.pointer-events-none > div {
     transform: scale(1.15);
   }
 }
 
-/* 7. SHIMMER en im├ígenes mientras cargan */
+/* 7. SHIMMER en imágenes mientras cargan */
 @keyframes shimmer-loading {
   0% {
     background-position: -200% 0;
@@ -2276,7 +2332,7 @@
     animation: none !important;
   }
   
-  /* Solo mantener el ripple en mobile (es el m├ís satisfactorio) */
+  /* Solo mantener el ripple en mobile (es el más satisfactorio) */
   .scroll-revealed.group.relative.bg-white.rounded-xl:active {
     transform: scale(0.98);
     transition: transform 0.1s ease;
@@ -2294,10 +2350,54 @@
     transition-duration: 0.01ms !important;
   }
   
-  /* Mostrar cards inmediatamente sin animaci├│n */
+  /* Mostrar cards inmediatamente sin animación */
   .product-card-reveal {
     opacity: 1;
     transform: none;
+  }
+}
+
+/* 8. SHINE SWEEP - Barrido de brillo premium al hacer hover (solo desktop)
+   Compositado con transform (no anima `left` para no provocar layout). */
+@keyframes card-shine-sweep {
+  0% {
+    transform: translateX(-160%) skewX(-20deg);
+    opacity: 0.85;
+  }
+  100% {
+    transform: translateX(260%) skewX(-20deg);
+    opacity: 0;
+  }
+}
+
+@media (min-width: 1024px) {
+  .scroll-revealed.group .relative.aspect-square.bg-gradient-to-br::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 55%;
+    height: 100%;
+    background: linear-gradient(
+      120deg,
+      transparent 0%,
+      rgba(255, 255, 255, 0.5) 50%,
+      transparent 100%
+    );
+    transform: translateX(-160%) skewX(-20deg);
+    opacity: 0;
+    pointer-events: none;
+    z-index: 15;
+  }
+
+  .scroll-revealed.group:hover .relative.aspect-square.bg-gradient-to-br::after {
+    animation: card-shine-sweep 0.9s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .scroll-revealed.group .relative.aspect-square.bg-gradient-to-br::after {
+    display: none;
   }
 }
 
@@ -2305,7 +2405,7 @@
    SIDEBAR FILTERS - Optimizaciones Mobile
    ============================================ */
 
-/* Animaci├│n suave para la imagen de categor├¡a */
+/* Animación suave para la imagen de categoría */
 .category-image-reveal {
   animation: category-fade-in 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
   will-change: opacity, transform;
@@ -2322,69 +2422,41 @@
   }
 }
 
-/* Drawer optimizado - Con fade-in autom├ítico */
-.drawer-container {
-  position: fixed;
-  inset: 0;
-  z-index: 50;
-  animation: drawer-fade-in 0.25s ease-out forwards;
-}
-
-@keyframes drawer-fade-in {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-}
-
-.drawer-overlay {
+/* Filter Sheet mobile - entrada/salida y drag gestionados por framer-motion (spring) */
+.filter-sheet-overlay {
   position: absolute;
   inset: 0;
-  background: rgba(0, 0, 0, 0.6);
-  backdrop-filter: blur(4px);
-  animation: overlay-fade-in 0.3s ease-out forwards;
-  will-change: opacity;
+  background: rgba(15, 23, 42, 0.55);
+  -webkit-backdrop-filter: blur(6px);
+  backdrop-filter: blur(6px);
 }
 
-@keyframes overlay-fade-in {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-}
-
-.drawer-panel {
+.filter-sheet-panel {
   position: absolute;
   top: 0;
   left: 0;
   bottom: 0;
-  width: 85%;
+  width: 88%;
   max-width: 24rem;
-  background: white;
-  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
-  padding-bottom: 6rem;
-  animation: drawer-slide-in 0.3s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
-  will-change: transform;
+  overflow-y: auto;
+  overflow-x: hidden;
+  overscroll-behavior: contain;
+  -webkit-overflow-scrolling: touch;
+  /* pan-y: permite scroll vertical, el drag horizontal lo captura framer */
+  touch-action: pan-y;
+  padding: 0.25rem 0.5rem calc(6rem + env(safe-area-inset-bottom, 0px));
+  padding-left: max(0.5rem, env(safe-area-inset-left, 0px));
 }
 
-@keyframes drawer-slide-in {
-  from {
-    transform: translateX(-100%);
-  }
-  to {
-    transform: translateX(0);
-  }
+/* En mobile, quitar el negrito del blur del overlay para GPUs débiles */
+.perf-low .filter-sheet-overlay,
+.is-low-end .filter-sheet-overlay {
+  -webkit-backdrop-filter: none;
+  backdrop-filter: none;
+  background: rgba(15, 23, 42, 0.65);
 }
 
-/* Reducir motion */
 @media (prefers-reduced-motion: reduce) {
-  .drawer-container,
-  .drawer-overlay,
-  .drawer-panel,
   .category-image-reveal {
     animation-duration: 0.01ms !important;
   }
@@ -2474,7 +2546,7 @@
   pointer-events: none;
 }
 
-/* Part├¡culas de fondo - Reutilizable */
+/* Partículas de fondo - Reutilizable */
 .ambient-particles {
   position: absolute;
   inset: 0;
@@ -2516,7 +2588,7 @@
   }
 }
 
-/* Optimizaci├│n de performance */
+/* Optimización de performance */
 .ambient-light-card,
 .ambient-glow-purple,
 .ambient-glow-cyan,
@@ -2543,7 +2615,7 @@
   }
 }
 
-/* Optimizaci├│n para dispositivos con movimiento reducido */
+/* Optimización para dispositivos con movimiento reducido */
 @media (prefers-reduced-motion: reduce) {
   @keyframes drift {
     0%, 100% {
@@ -2557,8 +2629,8 @@
    BACKGROUND PATTERNS - Reutilizables
    ============================================ */
 
-/* Grid pattern - Cuadr├¡cula sutil (naranja)
-   USADO EN: Componentes legacy que a├║n no migraron a catalog-bg
+/* Grid pattern - Cuadrícula sutil (naranja)
+   USADO EN: Componentes legacy que aún no migraron a catalog-bg
    DEPRECADO: Usar catalog-bg para nuevos componentes */
 .bg-grid-pattern {
   background-image: 
@@ -2577,8 +2649,8 @@
   background-size: 60px 60px;
 }
 
-/* Grid pattern - Variante p├║rpura
-   USADO EN: Componentes con tema p├║rpura (mantener para compatibilidad) */
+/* Grid pattern - Variante púrpura
+   USADO EN: Componentes con tema púrpura (mantener para compatibilidad) */
 .bg-grid-pattern-purple {
   background-image: 
     linear-gradient(rgba(168,85,247,0.4) 1px, transparent 1px), 
@@ -2607,13 +2679,13 @@
 }
 
 /* Mesh blob - Variante naranja
-   USADO EN: Decoraci├│n de fondos con tema naranja */
+   USADO EN: Decoración de fondos con tema naranja */
 .mesh-blob-orange {
   background: radial-gradient(circle, rgba(251,146,60,0.5) 0%, transparent 70%);
 }
 
 /* Mesh blob - Variante roja
-   USADO EN: Decoraci├│n de fondos con tema rojo */
+   USADO EN: Decoración de fondos con tema rojo */
 .mesh-blob-red {
   background: radial-gradient(circle, rgba(239,68,68,0.45) 0%, transparent 70%);
   animation: drift 22s ease-in-out infinite reverse;
@@ -2626,7 +2698,7 @@
   background: radial-gradient(circle, rgba(59,130,246,0.4) 0%, transparent 70%);
 }
 
-/* Mesh blob - Variante p├║rpura
+/* Mesh blob - Variante púrpura
    DEPRECADO: Ahora incluido en catalog-bg (tailwind.config.js)
    ANTES USADO EN: ProductGrid.jsx - Ya migrado a catalog-bg */
 .mesh-blob-purple {
@@ -2634,12 +2706,12 @@
 }
 
 /* Mesh blob - Variante azul sutil para sidebar
-   USADO EN: Sidebar del PC Builder (decoraci├│n sutil en fondo oscuro) */
+   USADO EN: Sidebar del PC Builder (decoración sutil en fondo oscuro) */
 .mesh-blob-blue-subtle {
   background: radial-gradient(circle, rgba(14,165,233,0.15) 0%, transparent 70%);
 }
 
-/* Diagonal accent line - L├¡nea vertical decorativa
+/* Diagonal accent line - Línea vertical decorativa
    USADO EN: Elementos decorativos verticales en layouts */
 .accent-line-vertical {
   position: absolute;
@@ -2650,10 +2722,10 @@
 }
 
 /* ============================================
-   PC BUILDER SIDEBAR - Componentes espec├¡ficos
+   PC BUILDER SIDEBAR - Componentes específicos
    ============================================ */
 
-/* Animaci├│n de pulso para el dot indicador */
+/* Animación de pulso para el dot indicador */
 @keyframes pulse-dot {
   0%, 100% { opacity: 1; transform: scale(1); }
   50% { opacity: 0.7; transform: scale(1.1); }
@@ -2700,7 +2772,7 @@
   transition: width 0.5s ease;
 }
 
-/* Accent line - Variante ├ímbar */
+/* Accent line - Variante ámbar */
 .accent-line-amber {
   background: linear-gradient(to bottom, transparent, rgba(251,191,60,1), transparent);
 }
@@ -2757,7 +2829,7 @@
   background: linear-gradient(90deg, rgba(255,255,255,0.15), transparent);
 }
 
-/* Accent line - Variante ├ímbar */
+/* Accent line - Variante ámbar */
 .accent-line-amber {
   background: linear-gradient(to bottom, transparent, rgba(251,191,60,1), transparent);
 }
@@ -2767,7 +2839,7 @@
   background: linear-gradient(to bottom, transparent, rgba(59,130,246,1), transparent);
 }
 
-/* Accent line - Variante p├║rpura */
+/* Accent line - Variante púrpura */
 .accent-line-purple {
   background: linear-gradient(to bottom, transparent, rgba(168,85,247,1), transparent);
 }
@@ -2776,7 +2848,7 @@
    ANIMATED BACKGROUND CONTAINER
    ============================================ */
 
-/* Contenedor para fondos animados - Uso com├║n */
+/* Contenedor para fondos animados - Uso común */
 .animated-bg-container {
   position: absolute;
   inset: 0;
@@ -2882,7 +2954,7 @@
 
 
 /* ============================================
-   DOTTED SEPARATOR - Solo Desktop, m├¡nimo
+   DOTTED SEPARATOR - Solo Desktop, mínimo
    ============================================ */
 
 .dotted-sep {
@@ -3112,7 +3184,7 @@
    FLOATING CHAT BUTTON - Animaciones Interactivas
 ============================================ */
 
-/* Animaci├│n de entrada para items del men├║ - Staggered */
+/* Animación de entrada para items del menú - Staggered */
 @keyframes floatingMenuSlideIn {
   0% {
     opacity: 0;
@@ -3129,7 +3201,7 @@
   will-change: transform, opacity;
 }
 
-/* Part├¡cula flotante 3 - Nueva */
+/* Partícula flotante 3 - Nueva */
 @keyframes float-particle-3 {
   0%, 100% {
     transform: translate(0, 0) scale(1);
@@ -3153,7 +3225,7 @@
   animation: float-particle-3 3.5s ease-in-out infinite;
 }
 
-/* Efecto de pulso sutil en el bot├│n principal cuando no est├í expandido */
+/* Efecto de pulso sutil en el botón principal cuando no está expandido */
 @keyframes subtle-pulse {
   0%, 100% {
     box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.4);
@@ -3176,7 +3248,7 @@
   }
 }
 
-/* Aplicar wiggle al icono cuando el bot├│n principal tiene hover */
+/* Aplicar wiggle al icono cuando el botón principal tiene hover */
 .group:hover .chat-icon {
   animation: wiggle 0.5s ease-in-out;
 }
@@ -3195,7 +3267,7 @@
   animation: bounce-arrow 0.6s ease-in-out infinite;
 }
 
-/* Efecto de brillo en los botones del men├║ */
+/* Efecto de brillo en los botones del menú */
 @keyframes menu-shine {
   0% {
     background-position: -200% center;
@@ -3225,7 +3297,7 @@
   left: 100%;
 }
 
-/* Animaci├│n de llamada de atenci├│n inicial */
+/* Animación de llamada de atención inicial */
 @keyframes attention-bounce {
   0%, 20%, 50%, 80%, 100% {
     transform: translateY(0) scale(1);
@@ -3242,7 +3314,7 @@
   animation: attention-bounce 2s ease-in-out 1s 1;
 }
 
-/* Pulso sutil continuo despu├®s de la animaci├│n inicial */
+/* Pulso sutil continuo después de la animación inicial */
 @keyframes gentle-pulse {
   0%, 100% {
     box-shadow: 0 8px 32px rgba(34, 197, 94, 0.3), 0 0 0 0 rgba(34, 197, 94, 0.4);
@@ -3256,7 +3328,7 @@
   animation: attention-bounce 2s ease-in-out 1s 1, gentle-pulse 3s ease-in-out 3s infinite;
 }
 
-/* Badge de notificaci├│n - Pulso y escala */
+/* Badge de notificación - Pulso y escala */
 @keyframes notification-pulse {
   0%, 100% {
     transform: scale(1);
@@ -3293,7 +3365,7 @@
   }
 }
 
-/* Tooltip Hint - Animaci├│n de entrada y salida */
+/* Tooltip Hint - Animación de entrada y salida */
 @keyframes hint-bounce-in {
   0% {
     opacity: 0;
@@ -3313,7 +3385,7 @@
 }
 
 /* ============================================
-   FLOATING MENU CARDS - Dise├▒o Modal-like
+   FLOATING MENU CARDS - Diseño Modal-like
 ============================================ */
 
 /* Efecto de brillo en el header de las cards */
@@ -3337,12 +3409,12 @@
   left: 100%;
 }
 
-/* Efecto de elevaci├│n en hover */
+/* Efecto de elevación en hover */
 .floating-menu-item:hover {
   transform: translateY(-2px) scale(1.02);
 }
 
-/* Animaci├│n del punto de estado online */
+/* Animación del punto de estado online */
 @keyframes status-pulse {
   0%, 100% {
     opacity: 1;
@@ -3354,7 +3426,7 @@
   }
 }
 
-/* Efecto de part├¡culas en el fondo de las cards */
+/* Efecto de partículas en el fondo de las cards */
 .floating-menu-item::after {
   content: '';
   position: absolute;
@@ -3557,23 +3629,6 @@
   }
 }
 
-/* ============================================
-   CATEGORY MODAL ANIMATIONS
-   ============================================ */
-@keyframes category-modal-slide-up {
-  from {
-    transform: translateY(100%);
-    opacity: 0;
-  }
-  to {
-    transform: translateY(0);
-    opacity: 1;
-  }
-}
-
-.category-modal-slide-up {
-  animation: category-modal-slide-up 0.35s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-}
 /* ============================================
    CATEGORY MODAL HEADER - Blue/Purple Theme
    ============================================ */
@@ -5298,3 +5353,15 @@
     0 0 50px rgba(0, 217, 255, 0.25);
 }
 
+
+/* Perf-low: apaga blobs animados con blur (2 capas fullscreen) en gama baja. Microinteracciones intactas en medio/alto. */
+.perf-low .animated-bg-container .mesh-blob,
+.is-low-end .animated-bg-container .mesh-blob {
+  display: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animated-bg-container .mesh-blob {
+    animation: none;
+  }
+}

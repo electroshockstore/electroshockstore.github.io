@@ -1,12 +1,13 @@
-import { memo, useCallback } from 'react';
+import { memo, useCallback, useRef } from 'react';
 import { Flame } from 'lucide-react';
 import { trackSelectItem } from '../../../utils/analytics';
+import { canUseViewTransition, productImageTransitionName } from '../../../utils/viewTransition';
 import StockBadge from './StockBadge';
 import StockStatus from './StockStatus';
 import ProductImage from './ProductImage';
 import ProductInfo from './ProductInfo';
 import PriceDisplay from './PriceDisplay';
-import useScrollReveal from '../../../hooks/useScrollReveal';
+import { useRevealOnScroll } from '../../../hooks/useRevealOnScroll';
 
 // Constante estática - Se crea UNA SOLA VEZ
 const STOCK_STATUS = Object.freeze({ 
@@ -23,27 +24,36 @@ const ProductCard = memo(({ product, viewMode, onClick, index = 0, listName = 'P
   const isDDR5 = ddrType === 'DDR5';
   const isDDR4 = ddrType === 'DDR4';
   
-  // Scroll reveal con delay escalonado basado en el index
-  const revealRef = useScrollReveal({ 
-    threshold: 0.1, 
-    rootMargin: '50px',
-    delay: Math.min(index * 50, 300) // Max 300ms delay para no hacer esperar mucho
-  });
-  
+  const revealRef = useRevealOnScroll(Math.min(index * 45, 360));
+  const imageRef = useRef(null);
+
+  // Precargar el chunk del detalle en cuanto hay intención (hover/touch)
+  const prefetchDetail = useCallback(() => {
+    import('../../../pages/ProductDetailPage');
+  }, []);
+
   const handleClick = useCallback(() => {
+    // Nombrar la imagen ANTES de navegar → el morph card→detalle la toma.
+    // El snapshot "viejo" conserva el scroll actual y el callback resetea
+    // el container, así el morph arranca desde la posición real de la card.
+    if (canUseViewTransition() && imageRef.current) {
+      imageRef.current.style.viewTransitionName = productImageTransitionName(product.id);
+    }
     trackSelectItem(product, index, listName);
     onClick(product);
   }, [onClick, product, index, listName]);
 
-  // Determinar si debe cargar eager (primeros 8 productos)
-  const imageLoading = index < 8 ? "eager" : "lazy";
-  const imageFetchPriority = index < 8 ? "high" : "low";
+  // Solo las 4 primeras compiten por ancho de banda (above-the-fold real)
+  const imageLoading = index < 4 ? "eager" : "lazy";
+  const imageFetchPriority = index < 4 ? "high" : "low";
 
   if (viewMode === 'list') {
     return (
-      <div 
+      <div
         ref={revealRef}
         onClick={handleClick}
+        onPointerEnter={prefetchDetail}
+        onPointerDown={prefetchDetail}
         className="product-card-reveal group relative bg-white rounded-lg border border-gray-200 p-3 sm:p-4
                    hover:border-blue-400 hover:shadow-lg
                    transition-all duration-200 cursor-pointer flex gap-3 sm:gap-4 items-center"
@@ -51,6 +61,7 @@ const ProductCard = memo(({ product, viewMode, onClick, index = 0, listName = 'P
         {/* Imagen - Tamaño medio */}
         <div className="w-16 h-16 sm:w-20 sm:h-20 flex-shrink-0 bg-gray-50 rounded-md p-2 relative overflow-hidden">
           <img 
+            ref={imageRef}
             src={productImage} 
             alt={name} 
             className="w-full h-full object-contain" 
@@ -110,9 +121,11 @@ const ProductCard = memo(({ product, viewMode, onClick, index = 0, listName = 'P
   }
 
   return (
-    <div 
+    <div
       ref={revealRef}
       onClick={handleClick}
+      onPointerEnter={prefetchDetail}
+      onPointerDown={prefetchDetail}
       className={`product-card-reveal group relative bg-white rounded-xl sm:rounded-2xl 
                  ${isFeatured ? 'border-0' : 'border border-gray-100 hover:border-blue-500/30'}
                  hover:shadow-2xl hover:shadow-blue-500/10
@@ -155,7 +168,7 @@ const ProductCard = memo(({ product, viewMode, onClick, index = 0, listName = 'P
 
       {/* ── Image area ── */}
       <div className="relative aspect-square bg-gradient-to-br from-gray-50 to-gray-100 overflow-hidden">
-        <ProductImage src={productImage} alt={name} loading={imageLoading} fetchpriority={imageFetchPriority} />
+        <ProductImage ref={imageRef} src={productImage} alt={name} loading={imageLoading} fetchpriority={imageFetchPriority} />
         
         {/* Featured image overlays */}
         {isFeatured && (

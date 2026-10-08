@@ -5,7 +5,8 @@ import { allCategories } from './categories';
 
 const CategoryProductSection = ({ onCategoryClick }) => {
   const handleCategoryClick = (slug) => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    // El reset de scroll lo maneja ScrollRestoration + la View Transition
+    // (un smooth acá quedaría congelado dentro de la transición).
     onCategoryClick?.(slug);
   };
 

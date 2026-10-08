@@ -65,7 +65,7 @@ const Catalog = () => {
         />
       </div>
 
-      {/* Catalog Content */}
+      {/* Catalog Content (sin key remount: preserva scroll/DOM al cambiar vista) */}
       <CatalogContent
         selectedCategory={selectedCategory}
         filters={subFilters}
@@ -78,7 +78,6 @@ const Catalog = () => {
         products={sortedProducts}
         onProductClick={handleProductClick}
         onReset={handleReset}
-        key={`${selectedCategory}-${viewMode}`}
       />
     </CatalogLayout>
   );

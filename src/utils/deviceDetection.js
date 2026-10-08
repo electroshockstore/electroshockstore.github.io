@@ -124,8 +124,8 @@ export const addDeviceClasses = () => {
 export const initDeviceDetection = () => {
   addDeviceClasses();
   
-  // Log para debugging (solo en desarrollo)
-  if (process.env.NODE_ENV === 'development') {
+  // Log para debugging (solo en desarrollo, compatible Vite + CRA)
+  if (import.meta.env?.DEV ?? process.env.NODE_ENV === 'development') {
     console.log('🔍 Device Detection:', {
       isMobile: isMobile(),
       isIOS: isIOS(),

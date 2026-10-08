@@ -99,6 +99,7 @@ const WhatsAppButton = ({ productName, product, className = "" }) => {
         onClose={handleCloseModal}
         onSelectPoint={handleSelectAndSend}
         selectedPoint={selectedPoint}
+        subtitle={productName}
       />
     </>
   );

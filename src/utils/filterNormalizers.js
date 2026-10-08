@@ -1,7 +1,9 @@
 /**
  * Normalizadores de filtros - SOLID Single Responsibility
- * Cada función tiene una única responsabilidad de normalización
+ * Cada función tiene una única responsabilidad de normalización.
+ * Las claves del mapa son canónicas (ver filterConfig.getFilterKey).
  */
+import { getFilterKey } from './filterConfig.js';
 
 // Normalizar marcas relacionadas
 export const normalizeBrand = (value) => {
@@ -71,13 +73,17 @@ export const normalizeMemoryType = (value) => {
   return value.toUpperCase();
 };
 
-// Normalizar conectividad
+// Normalizar conectividad (unificado: teclados, mouse, auriculares, joystick)
+// Detecta cualquier variante inalámbrica: Bluetooth, 2.4GHz, Wireless, Dongle, Lightspeed…
 export const normalizeConnectivity = (value) => {
   const valueStr = value.toString().toLowerCase().trim();
-  
-  const isWireless = valueStr.includes('inalámbrico') || valueStr.includes('wireless') || 
-                     valueStr.includes('bluetooth') || valueStr === 'sí' || valueStr.includes('2.4');
-  
+
+  const isWireless = valueStr.includes('inalámbrico') || valueStr.includes('inalambrico') ||
+                     valueStr.includes('wireless') || valueStr.includes('bluetooth') ||
+                     valueStr.includes('2.4') || valueStr.includes('dongle') ||
+                     valueStr.includes('lightspeed') || valueStr.includes('triple modo') ||
+                     valueStr.includes('3 modos') || valueStr === 'sí';
+
   return isWireless ? 'Inalámbrico' : 'Alámbrico';
 };
 
@@ -262,63 +268,115 @@ export const normalizeStorageFormat = (value) => {
   return value;
 };
 
-// Mapa de normalizadores por tipo de filtro
+// Normalizar tamaño de monitor a "24 pulgadas"
+export const normalizeMonitorSize = (value) => {
+  const str = value.toString().trim();
+  const match = str.match(/(\d+(?:[.,]\d+)?)\s*(?:"|''|pulgadas|pulg|")?/i);
+  if (!match) return str;
+  const num = match[1].replace(',', '.');
+  const clean = Number(num).toString();
+  return `${clean} pulgadas`;
+};
+
+// Normalizar tipo de panel (IPS / VA / TN / OLED)
+export const normalizePanel = (value) => {
+  const v = value.toString().toLowerCase();
+  if (v.includes('ips')) return 'IPS';
+  if (v.includes('oled')) return 'OLED';
+  if (v.includes('va')) return 'VA';
+  if (v.includes('tn')) return 'TN';
+  if (v.includes('led')) return 'LED';
+  return value.toString().trim();
+};
+
+// Normalizar resolución (Full HD, QHD, 4K…)
+export const normalizeResolution = (value) => {
+  const v = value.toString().toLowerCase().replace(/\s+/g, '');
+  if (v.includes('3840') || v.includes('2160') || v.includes('4k') || v.includes('uhd')) return '4K UHD';
+  if (v.includes('2560') || v.includes('1440') || v.includes('qhd') || v.includes('2k')) return 'QHD 1440p';
+  if (v.includes('1920') || v.includes('1080') || v.includes('fullhd') || v.includes('fhd')) return 'Full HD 1080p';
+  if (v.includes('1366') || v.includes('768') || v.includes('hd')) return 'HD 720p';
+  return value.toString().trim();
+};
+
+// Normalizar frecuencia (GHz / MHz / Hz) a formato consistente
+export const normalizeFrequency = (value) => {
+  const str = value.toString().trim();
+  const match = str.match(/(\d+(?:[.,]\d+)?)\s*(ghz|mhz|hz)/i);
+  if (!match) return str;
+  const num = match[1].replace(',', '.');
+  const unit = match[2].toUpperCase() === 'GHZ' ? 'GHz' : match[2].toUpperCase();
+  return `${num} ${unit}`;
+};
+
+// Normalizar texto técnico (socket, chipset, cableado): trim + colapsa espacios
+export const normalizeTechnical = (value) => {
+  return value.toString().trim().replace(/\s+/g, ' ');
+};
+
+// Normalizar memoria VRAM/RAM ("8GB" -> "8 GB")
+export const normalizeMemorySize = (value) => {
+  const normalized = normalizeCapacity(value);
+  return normalized ?? value.toString().trim();
+};
+
+// Mapa de normalizadores por tipo de filtro (claves canónicas)
 const NORMALIZER_MAP = {
   'Marca': normalizeBrand,
-  'marca': normalizeBrand,
-  'Marca de la fuente': normalizeBrand,
-  
+
   'Iluminación': normalizeRGB,
-  'rgb': normalizeRGB,
-  'iluminacionRGB': normalizeRGB,
-  'RGB': normalizeRGB,
-  
+
   'Tipo de memoria': normalizeMemoryType,
-  'tipoMemoriaRAM': normalizeMemoryType,
-  'tipoMemoria': normalizeMemoryType,
-  
+  'Memoria': normalizeMemorySize,
+  'Memoria RAM': normalizeMemorySize,
+
   'Conectividad': normalizeConnectivity,
-  'tipoConectividad': normalizeConnectivity,
-  'Tipo de conexión': normalizeHeadphoneConnection,
-  
+
   'Batería': normalizeBattery,
-  'tipoBateria': normalizeBattery,
-  'bateria': normalizeBattery,
-  
+
   'Compatibilidad': normalizeCompatibility,
-  
+
   'Potencia': normalizePower,
-  'Potencia Continua': normalizePower,
-  
+
   'Certificación': normalizeCertification,
-  'Certificacion': normalizeCertification,
-  
+
   'Capacidad': normalizeCapacity,
-  'capacidad': normalizeCapacity,
-  'capacidadTotal': normalizeCapacity,
-  'Capacidad total': normalizeCapacity,
-  
+  'Almacenamiento': normalizeCapacity,
+
   'Arquitectura': normalizeArchitecture,
-  
+
   'Sensor': normalizeSensor,
-  'tipoSensor': normalizeSensor,
-  
+
   'DPI': normalizeDPI,
-  'dpi': normalizeDPI,
-  
+
   'Formato': normalizeStorageFormat,
-  'formato': normalizeStorageFormat,
-  'Factor de forma': normalizeStorageFormat,
-  'Tipo': normalizeStorageFormat
+
+  'Interfaz': normalizeTechnical,
+  'Socket': normalizeTechnical,
+  'Chipset': normalizeTechnical,
+  'Cableado': normalizeTechnical,
+  'Núcleos': normalizeTechnical,
+
+  'TDP': normalizePower,
+  'Frecuencia base': normalizeFrequency,
+  'Tamaño pantalla': normalizeMonitorSize,
+  'Tipo de panel': normalizePanel,
+  'Resolución': normalizeResolution,
+  'Frecuencia refresco': normalizeFrequency,
+  'Línea': normalizeTechnical
 };
 
 /**
  * Función principal de normalización
  * Aplica el normalizador correspondiente según el tipo de filtro
+ * (resuelve alias a clave canónica primero)
  */
 export const normalizeFilterValue = (filterType, value) => {
-  if (!value) return null;
-  
-  const normalizer = NORMALIZER_MAP[filterType];
-  return normalizer ? normalizer(value) : value;
+  if (value == null) return null;
+  if (typeof value !== 'string') value = value.toString();
+  if (value.trim() === '') return null;
+
+  const canonical = getFilterKey(filterType);
+  const normalizer = NORMALIZER_MAP[canonical] || NORMALIZER_MAP[filterType];
+  return normalizer ? normalizer(value) : value.toString().trim();
 };

@@ -1,9 +1,11 @@
+import { forwardRef } from 'react';
 import { Package } from 'lucide-react';
 
-const ProductImage = ({ src, alt, className = "", loading = "lazy", fetchpriority = "auto" }) => {
+const ProductImage = forwardRef(({ src, alt, className = "", loading = "lazy", fetchpriority = "auto" }, ref) => {
   return (
     <div className={`relative w-full h-full bg-white p-6 ${className}`}>
       <img
+        ref={ref}
         src={src}
         alt={alt}
         className="w-full h-full object-contain transition-transform duration-500 sm:group-hover:scale-110"
@@ -24,6 +26,8 @@ const ProductImage = ({ src, alt, className = "", loading = "lazy", fetchpriorit
       <div className="hidden sm:block absolute inset-0 bg-gradient-to-tr from-transparent via-white/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"></div>
     </div>
   );
-};
+});
+
+ProductImage.displayName = 'ProductImage';
 
 export default ProductImage;

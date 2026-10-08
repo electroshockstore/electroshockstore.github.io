@@ -15,7 +15,13 @@ const ProductCardWrapper = memo(({ product, viewMode, onClick, index = 0, listNa
     </div>
   );
 }, (prevProps, nextProps) => {
-  return prevProps.product.id === nextProps.product.id;
+  // Incluye index/viewMode: al reordenar cambia el stagger y la prioridad de imagen
+  return (
+    prevProps.product.id === nextProps.product.id &&
+    prevProps.index === nextProps.index &&
+    prevProps.viewMode === nextProps.viewMode &&
+    prevProps.isFeatured === nextProps.isFeatured
+  );
 });
 
 ProductCardWrapper.displayName = 'ProductCardWrapper';

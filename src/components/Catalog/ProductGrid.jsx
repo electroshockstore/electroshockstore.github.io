@@ -1,5 +1,5 @@
 import { memo, useCallback, useMemo } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion } from 'framer-motion';
 import { Package, Search, Flame } from 'lucide-react';
 import ProductCardWrapper from './ProductCardWrapper';
 
@@ -35,34 +35,19 @@ const EmptyState = memo(() => (
 
 EmptyState.displayName = 'EmptyState';
 
-// Variantes de animación optimizadas para productos
+// Fade suave del bloque de grilla (una sola animación del contenedor).
+// La entrada por card la hace cada ProductCard con la Web Animations API
+// (observer compartido), evitando doble animación de opacidad por nodo.
 const containerVariants = {
   hidden: { opacity: 0 },
   visible: {
     opacity: 1,
-    transition: {
-      staggerChildren: 0.05, // 50ms entre cada producto
-      delayChildren: 0.1
-    }
-  }
-};
-
-const itemVariants = {
-  hidden: { 
-    opacity: 0, 
-    y: 20 
-  },
-  visible: { 
-    opacity: 1, 
-    y: 0,
-    transition: {
-      duration: 0.4,
-      ease: [0.16, 1, 0.3, 1]
-    }
+    transition: { duration: 0.35, ease: [0.16, 1, 0.3, 1] }
   }
 };
 
 // Componente para grupo de productos con animación suave y Bento layout
+// Sin AnimatePresence mode="wait": evita remount total y re-animación en cada filtro
 const ProductGroup = memo(({ products, viewMode, openModal, gridClasses }) => {
   return (
     <motion.div
@@ -70,17 +55,14 @@ const ProductGroup = memo(({ products, viewMode, openModal, gridClasses }) => {
       initial="hidden"
       animate="visible"
       className={gridClasses}
-      style={{ willChange: 'opacity' }}
     >
       {products.map((product, index) => {
         const isFeatured = index === 0 && viewMode === 'grid'; // Solo el primero en vista grid
-        
+
         return (
-          <motion.div
+          <div
             key={`${product.id}-${product.category}`}
-            variants={itemVariants}
             className={isFeatured ? 'bento-item-featured' : ''}
-            style={{ willChange: 'opacity, transform', position: 'relative' }}
           >
             {/* Badge "Más Vendido" - Responsive */}
             {isFeatured && (
@@ -102,7 +84,7 @@ const ProductGroup = memo(({ products, viewMode, openModal, gridClasses }) => {
                 isFeatured={isFeatured}
               />
             </div>
-          </motion.div>
+          </div>
         );
       })}
     </motion.div>
@@ -128,15 +110,12 @@ const ProductGrid = memo(({ products, viewMode, openModal }) => {
 
   return (
     <div className="p-0 sm:p-4 md:p-6" data-catalog-results>
-      <AnimatePresence mode="wait">
-        <ProductGroup
-          key={products.map(p => p.id).join('-')}
-          products={products}
-          viewMode={viewMode}
-          openModal={handleOpenModal}
-          gridClasses={gridClasses}
-        />
-      </AnimatePresence>
+      <ProductGroup
+        products={products}
+        viewMode={viewMode}
+        openModal={handleOpenModal}
+        gridClasses={gridClasses}
+      />
     </div>
   );
 });

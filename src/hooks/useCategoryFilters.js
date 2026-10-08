@@ -1,6 +1,6 @@
 import { useMemo } from 'react';
 import { normalizeFilterValue } from '../utils/filterNormalizers';
-import { getAllowedFilters, getFilterKey, FILTER_KEY_ALIASES } from '../utils/filterConfig';
+import { getAllowedFilters, getFilterKey } from '../utils/filterConfig';
 import { getSorterForFilter } from '../utils/filterSorters';
 
 /**

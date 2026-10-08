@@ -2,6 +2,7 @@ import { lazy, Suspense } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { FilterProvider } from "./context/FilterContext";
 import { PCBuilderProvider } from "./context/PCBuilderContext";
+import { ScrollProvider, ScrollRestoration } from "./context/ScrollContext";
 import ErrorBoundary from "./components/ErrorBoundary";
 import ErrorNotification from "./components/ErrorNotification";
 import { useErrorHandler } from "./hooks/useErrorHandler";
@@ -49,8 +50,8 @@ function AppContent() {
   const currentError = networkError || resourceError;
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-[#E5E7EB] to-[#C7CCD1] antialiased relative">
-      {/* ─── Global Animated Background ─── */}
+    <div className="app-shell bg-gradient-to-b from-[#E5E7EB] to-[#C7CCD1] antialiased">
+      {/* ─── Global Animated Background (fijo, no scrollea) ─── */}
       <div className="animated-bg-container">
         {/* Animated mesh blobs */}
         <div className="mesh-blob mesh-blob-orange -top-32 -left-32 w-[600px] h-[600px] opacity-40" />
@@ -64,16 +65,19 @@ function AppContent() {
         <div className="accent-line-vertical accent-line-amber left-1/3 opacity-15 hidden lg:block" />
       </div>
 
-      {/* Notificación de errores */}
-      <ErrorNotification 
-        error={currentError}
-        onClose={clearErrors}
-        onReload={handleReload}
-      />
-      
-      <main id="main-content" className="relative z-10 w-full page-transition">
-        <AnimatedRoutes />
-      </main>
+      {/* ─── Scroll container de la app (único scroll) ─── */}
+      <ScrollProvider>
+        {/* Notificación de errores */}
+        <ErrorNotification 
+          error={currentError}
+          onClose={clearErrors}
+          onReload={handleReload}
+        />
+        
+        <main id="main-content" className="relative z-10 w-full page-transition">
+          <AnimatedRoutes />
+        </main>
+      </ScrollProvider>
 
       {/* Botones flotantes globales - Nivel más alto para evitar problemas de z-index */}
       <FloatingChatButton />
@@ -94,6 +98,7 @@ function App() {
       <FilterProvider>
         <PCBuilderProvider>
           <Router basename="/">
+            <ScrollRestoration />
             <ScrollToTop />
             <SkipToContent />
             <AppContent />

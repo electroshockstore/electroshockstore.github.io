@@ -13,7 +13,6 @@
     "deploy": "npm run build && node scripts/generate-404.js && node scripts/deploy-gh-pages.js",
     "clean": "rm -rf dist node_modules/.vite",
     "analyze": "vite build --mode analyze",
-    "setup:mcp": "node scripts/setup-mcp.js",
     "optimize": "node scripts/optimize-all.js",
     "optimize:thumbnails": "node scripts/generate-category-thumbnails.js",
     "save-prices": "node scripts/save-price-history.js"

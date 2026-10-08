@@ -1,5 +1,5 @@
 import { useParams, useNavigate, useLocation } from 'react-router-dom';
-import { useEffect, useCallback } from 'react';
+import { useEffect, useCallback, useMemo } from 'react';
 import { useProducts } from '../hooks/useProducts';
 import Header from '../components/Shared/Header';
 import ProductDetail from '../components/Catalog/ProductDetail/index';
@@ -9,6 +9,8 @@ import { useFilter } from '../context/FilterContext';
 import { generateSKU, getSlugFromCategory } from '../utils/slugify';
 import { useProductSEO } from '../hooks/useSEO';
 import { useProductView } from '../hooks/useAnalytics';
+import { notifyDetailMounted } from '../utils/viewTransition';
+import { getAppScroller } from '../context/ScrollContext';
 
 const ProductDetailPage = () => {
   const { id, productSku, categorySlug } = useParams();
@@ -17,26 +19,35 @@ const ProductDetailPage = () => {
   const { getProductById, products } = useProducts();
   const { searchQuery, setSearchQuery, selectedCategory, setSelectedCategory } = useFilter();
   
-  // Scroll al inicio al montar la página
+  // Scroll al inicio al cambiar de producto (instantáneo, en el container)
   useEffect(() => {
-    window.scrollTo(0, 0);
-  }, []);
-  
-  // Buscar producto por ID (ruta legacy) o por SKU
-  let product;
-  if (id) {
-    product = getProductById(parseInt(id));
-  } else if (productSku) {
-    const productId = location.state?.productId;
-    if (productId) {
-      product = getProductById(productId);
+    const scroller = getAppScroller();
+    if (scroller) {
+      scroller.scrollTop = 0;
     } else {
-      product = products.find(p => {
-        const sku = generateSKU(p.name, p.brand);
-        return sku === productSku;
-      });
+      window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
     }
-  }
+  }, [id, productSku]);
+
+  // Avisar a la View Transition que el detalle ya está en el DOM (morph card→detalle)
+  useEffect(() => {
+    notifyDetailMounted();
+  }, []);
+
+  // Buscar producto por ID (ruta legacy) o por SKU — memoizado (evita O(n) por render)
+  const product = useMemo(() => {
+    if (id) {
+      const parsed = parseInt(id, 10);
+      if (Number.isNaN(parsed)) return undefined;
+      return getProductById(parsed);
+    }
+    if (productSku) {
+      const productId = location.state?.productId;
+      if (productId) return getProductById(productId);
+      return products.find((p) => generateSKU(p.name, p.brand) === productSku);
+    }
+    return undefined;
+  }, [id, productSku, location.state, getProductById, products]);
 
   useProductSEO(product);
   useProductView(product);
@@ -46,10 +57,6 @@ const ProductDetailPage = () => {
       setSelectedCategory(product.category);
     }
   }, [product, selectedCategory, setSelectedCategory]);
-
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, [id]);
 
   const handleCategoryChange = (category) => {
     setSelectedCategory(category);

@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion';
 import { ChevronDown } from 'lucide-react';
+import { getAppScroller } from '../../context/ScrollContext';
 import HeroBackground from './HeroSection/HeroBackground';
 import HeroBadge from './HeroSection/HeroBadge';
 import HeroTitleDesktop from './HeroSection/HeroTitleDesktop';
@@ -10,10 +11,13 @@ import HeroFeatures from './HeroSection/HeroFeatures';
 
 const HeroSection = () => {
   const scrollToContent = () => {
-    window.scrollTo({
-      top: window.innerHeight * 0.75,
-      behavior: 'smooth'
-    });
+    const el = getAppScroller();
+    const top = window.innerHeight * 0.75;
+    if (el) {
+      el.scrollTo({ top, behavior: 'smooth' });
+      return;
+    }
+    window.scrollTo({ top, behavior: 'smooth' });
   };
 
   return (

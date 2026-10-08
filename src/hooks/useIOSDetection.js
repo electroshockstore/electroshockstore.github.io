@@ -10,7 +10,9 @@ const useIOSDetection = () => {
     
     if (isIOS) {
       document.body.classList.add('is-ios');
-      console.log('iOS detectado, aplicando estilos específicos');
+      if (import.meta.env.DEV) {
+        console.log('iOS detectado, aplicando estilos específicos');
+      }
     } else {
       document.body.classList.remove('is-ios');
     }

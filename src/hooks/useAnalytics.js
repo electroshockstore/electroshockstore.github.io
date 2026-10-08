@@ -3,38 +3,17 @@
 // Hook para facilitar el tracking de eventos de GA4 en componentes React
 // ═══════════════════════════════════════════════════════════════
 
-import { useCallback, useEffect, useRef } from 'react';
+import { useEffect, useRef } from 'react';
 import {
   trackViewItemList,
-  trackSelectItem,
   trackViewItem,
-  trackWhatsAppClick,
-  trackAddToCart,
-  trackBeginCheckout,
-  trackSearch,
-  trackViewCategory,
-  trackShareProduct,
-  trackPCBuilderAction
+  trackViewCategory
 } from '../utils/analytics';
 
 /**
- * Hook principal de analytics
- * Proporciona funciones memoizadas para tracking
+ * Hooks de tracking GA4 con guards anti doble-reporte.
+ * (Se eliminó el wrapper genérico `useAnalytics` sin usos.)
  */
-export const useAnalytics = () => {
-  return {
-    trackViewItemList: useCallback(trackViewItemList, []),
-    trackSelectItem: useCallback(trackSelectItem, []),
-    trackViewItem: useCallback(trackViewItem, []),
-    trackWhatsAppClick: useCallback(trackWhatsAppClick, []),
-    trackAddToCart: useCallback(trackAddToCart, []),
-    trackBeginCheckout: useCallback(trackBeginCheckout, []),
-    trackSearch: useCallback(trackSearch, []),
-    trackViewCategory: useCallback(trackViewCategory, []),
-    trackShareProduct: useCallback(trackShareProduct, []),
-    trackPCBuilderAction: useCallback(trackPCBuilderAction, [])
-  };
-};
 
 /**
  * Hook para trackear vista de producto automáticamente
@@ -92,5 +71,3 @@ export const useCategoryTracking = (category, productCount) => {
     }
   }, [category, productCount]);
 };
-
-export default useAnalytics;

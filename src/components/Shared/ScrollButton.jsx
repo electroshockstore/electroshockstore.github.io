@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef } from 'react';
 import { ArrowUp } from 'lucide-react';
 import Portal from './Portal';
+import { getAppScroller } from '../../context/ScrollContext';
 
 const ScrollButton = () => {
   const [showButton, setShowButton] = useState(false);
@@ -10,7 +11,10 @@ const ScrollButton = () => {
 
   useEffect(() => {
     const handleScroll = () => {
-      const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+      const el = getAppScroller();
+      const scrollTop = el
+        ? el.scrollTop
+        : window.pageYOffset || document.documentElement.scrollTop;
       const shouldShow = scrollTop > 200;
       
       if (shouldShow !== showButtonRef.current) {
@@ -19,12 +23,29 @@ const ScrollButton = () => {
       }
     };
 
+    const el = getAppScroller();
+    if (el) {
+      el.addEventListener('scroll', handleScroll, { passive: true });
+    }
     window.addEventListener('scroll', handleScroll, { passive: true });
     handleScroll();
-    return () => window.removeEventListener('scroll', handleScroll);
+    return () => {
+      if (el) {
+        el.removeEventListener('scroll', handleScroll);
+      }
+      window.removeEventListener('scroll', handleScroll);
+    };
   }, []); // Array vacío, se registra UNA SOLA VEZ
 
   const scrollToTop = () => {
+    const el = getAppScroller();
+    if (el) {
+      el.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+      return;
+    }
     window.scrollTo({
       top: 0,
       behavior: 'smooth'

@@ -61,12 +61,15 @@ const OptimizedImage = ({
         <div className="absolute inset-0 bg-gray-200 animate-pulse" />
       )}
       
-      {/* Imagen real */}
+      {/* Imagen real (width/height en el <img> para reservar layout y evitar CLS) */}
       {isInView && (
         <img
           src={src}
           alt={alt}
+          width={width}
+          height={height}
           loading={priority ? 'eager' : 'lazy'}
+          fetchpriority={priority ? 'high' : 'low'}
           decoding="async"
           onLoad={handleLoad}
           className={`

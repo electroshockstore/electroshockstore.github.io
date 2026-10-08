@@ -1,11 +1,11 @@
 import { useState, useEffect } from 'react';
 import { useIsIOS } from './useDevice';
+import { useLockAppScroll } from '../context/ScrollContext';
 
 export const useLightbox = (images = []) => {
   const isIOS = useIsIOS();
   const [isOpen, setIsOpen] = useState(false);
   const [currentIndex, setCurrentIndex] = useState(0);
-  const [scrollY, setScrollY] = useState(0);
   const [viewportHeight, setViewportHeight] = useState(window.innerHeight);
 
   const open = (index = 0) => {
@@ -29,12 +29,14 @@ export const useLightbox = (images = []) => {
     setCurrentIndex(index);
   };
 
+  // Bloquear el scroll del container (el window está fijo globalmente)
+  useLockAppScroll(isOpen);
+
   // Bloquear scroll cuando lightbox está abierto
   useEffect(() => {
     if (!isOpen) return;
 
     if (isIOS) {
-      setScrollY(window.scrollY);
       setViewportHeight(window.innerHeight);
     }
 
@@ -73,7 +75,6 @@ export const useLightbox = (images = []) => {
   return {
     isOpen,
     currentIndex,
-    scrollY,
     viewportHeight,
     isIOS,
     open,

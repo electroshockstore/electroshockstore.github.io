@@ -21,61 +21,9 @@ export const Z_INDEX = {
   BASE: 1
 };
 
-// Transforms para hardware acceleration
-export const TRANSFORMS = {
-  // iOS requiere translate3d para forzar GPU rendering
-  GPU_ACCELERATION: {
-    WebkitTransform: 'translate3d(0, 0, 0)',
-    transform: 'translate3d(0, 0, 0)',
-    WebkitBackfaceVisibility: 'hidden',
-    backfaceVisibility: 'hidden'
-  },
-  
-  // Transform básico sin prefijos webkit
-  BASIC: {
-    transform: 'translate3d(0, 0, 0)'
-  }
-};
-
-// Breakpoints
+// Breakpoints (solo se usa MOBILE; el resto se eliminó por código muerto)
 export const BREAKPOINTS = {
-  MOBILE: 768,
-  TABLET: 1024,
-  DESKTOP: 1280,
-  WIDE: 1536
-};
-
-// Duraciones de animación
-export const ANIMATION_DURATION = {
-  INSTANT: 150,
-  FAST: 200,
-  NORMAL: 300,
-  SLOW: 400,
-  SLOWER: 500
-};
-
-// Detección de plataforma (funciones puras)
-export const detectPlatform = () => {
-  if (typeof window === 'undefined') {
-    return {
-      isIOS: false,
-      isAndroid: false,
-      isMobile: false,
-      isDesktop: true,
-      isLowEnd: false
-    };
-  }
-
-  const ua = navigator.userAgent;
-  const isMobile = window.innerWidth <= BREAKPOINTS.MOBILE;
-
-  return {
-    isIOS: /iPad|iPhone|iPod/.test(ua) && !window.MSStream,
-    isAndroid: /Android/.test(ua),
-    isMobile,
-    isDesktop: !isMobile,
-    isLowEnd: false // Se detecta dinámicamente con detectPerformance()
-  };
+  MOBILE: 768
 };
 
 // Detección de performance del dispositivo
@@ -131,16 +79,18 @@ export const detectPerformance = () => {
     result.isLowEnd = false;
   }
 
-  // Logging para debug
-  console.log('[Performance Detection]', {
-    tier: result.tier,
-    factors,
-    score,
-    resolution: `${window.innerWidth}x${window.innerHeight}`,
-    dpr: window.devicePixelRatio,
-    cores: result.cores,
-    memory: result.memory
-  });
+  // Logging solo en desarrollo (evita ruido en producción)
+  if (import.meta.env.DEV) {
+    console.log('[Performance Detection]', {
+      tier: result.tier,
+      factors,
+      score,
+      resolution: `${window.innerWidth}x${window.innerHeight}`,
+      dpr: window.devicePixelRatio,
+      cores: result.cores,
+      memory: result.memory
+    });
+  }
 
   return result;
 };

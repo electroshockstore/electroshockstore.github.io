@@ -3,12 +3,19 @@ import { Package, ChevronLeft, ChevronRight, X, ZoomIn } from 'lucide-react';
 import Portal from '../../Shared/Portal';
 import { useImageGallery } from '../../../hooks/useImageGallery';
 import { useLightbox } from '../../../hooks/useLightbox';
+import { canUseViewTransition, productImageTransitionName } from '../../../utils/viewTransition';
 
-const ProductImageSection = ({ images = [], name, stock, stockStatus }) => {
+const ProductImageSection = ({ images = [], name, stock, stockStatus, productId }) => {
   const gallery = useImageGallery(images);
   const lightbox = useLightbox(images);
 
   const stockBg = stockStatus?.badgeColor || 'bg-emerald-500';
+
+  // Nombre compartido para el morph card→detalle (solo si el navegador lo soporta)
+  const sharedImageName =
+    canUseViewTransition() && productId
+      ? productImageTransitionName(productId)
+      : undefined;
 
   return (
     <>
@@ -26,7 +33,12 @@ const ProductImageSection = ({ images = [], name, stock, stockStatus }) => {
             src={gallery.currentImage}
             alt={`${name} — ${gallery.currentIndex + 1}`}
             className={`pis-img ${gallery.imageLoaded ? 'loaded' : 'loading'}`}
-            loading="lazy"
+            style={sharedImageName ? { viewTransitionName: sharedImageName } : undefined}
+            loading="eager"
+            fetchpriority="high"
+            decoding="async"
+            width="800"
+            height="800"
             onLoad={gallery.onLoad}
             onError={(e) => {
               e.target.style.display = 'none';
@@ -76,12 +88,12 @@ const ProductImageSection = ({ images = [], name, stock, stockStatus }) => {
           <div className="pis-thumbs-band">
             {images.map((img, i) => (
               <button
-                key={i}
+                key={`${img}-${i}`}
                 className={`pis-thumb ${i === gallery.currentIndex ? 'active' : ''}`}
                 onClick={() => gallery.goTo(i)}
                 aria-label={`Ver imagen ${i + 1}`}
               >
-                <img src={img} alt={`Miniatura ${i + 1}`} />
+                <img src={img} alt={`Miniatura ${i + 1}`} loading="lazy" decoding="async" width="160" height="160" />
               </button>
             ))}
           </div>
@@ -96,8 +108,9 @@ const ProductImageSection = ({ images = [], name, stock, stockStatus }) => {
               zIndex: 2147483647,
               WebkitTransform: 'translate3d(0,0,0)',
               transform: 'translate3d(0,0,0)',
+              // El lightbox vive en el portal fijo (= viewport): top 0 siempre.
               ...(lightbox.isIOS
-                ? { position: 'absolute', top: lightbox.scrollY, left: 0, right: 0, height: lightbox.viewportHeight }
+                ? { position: 'absolute', top: 0, left: 0, right: 0, height: lightbox.viewportHeight }
                 : { position: 'fixed', inset: 0 }),
             }}
             onClick={lightbox.close}

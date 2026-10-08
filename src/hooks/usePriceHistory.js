@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { fetchJSON } from '../utils/api/fetchWithRetry';
+import { fetchWithCache } from '../utils/api/fetchWithRetry';
 import { handleError } from '../utils/errors/errorHandler';
 import { DataError } from '../utils/errors/AppError';
 
@@ -26,8 +26,8 @@ export function usePriceHistory(productId) {
         setLoading(true);
         setError(null);
 
-        // Fetch con retry y timeout
-        const data = await fetchJSON('/data/price-history.json', {}, {
+        // Fetch con retry, timeout y caché (el JSON es estático y se pide 2x)
+        const data = await fetchWithCache('/data/price-history.json', {}, {
           retries: 2,
           timeout: 8000
         });
@@ -128,8 +128,8 @@ export function useAllPriceHistory() {
         setLoading(true);
         setError(null);
 
-        // Fetch con retry y timeout
-        const data = await fetchJSON('/data/price-history.json', {}, {
+        // Fetch con retry, timeout y caché
+        const data = await fetchWithCache('/data/price-history.json', {}, {
           retries: 2,
           timeout: 8000
         });

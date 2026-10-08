@@ -86,6 +86,7 @@ const FlashSaleWhatsAppButton = ({ product, discountPercentage }) => {
         onClose={handleCloseModal}
         onSelectPoint={handleSelectAndSend}
         selectedPoint={selectedPoint}
+        subtitle={product?.name}
       />
     </>
   );

@@ -1,5 +1,6 @@
 import { useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
+import { getAppScroller } from '../context/ScrollContext';
 import {
   updateMetaTags,
   insertStructuredData,
@@ -66,7 +67,14 @@ export const useSEO = ({
       });
     }
 
-    window.scrollTo(0, 0);
+    // Reset de scroll instantáneo en el container de la app
+    // (el window está fijo; el smooth global no aplica a scrollTop directo)
+    const scroller = getAppScroller();
+    if (scroller) {
+      scroller.scrollTop = 0;
+    } else {
+      window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
+    }
   }, [title, description, keywords, image, type, product, category, location]);
 };
 

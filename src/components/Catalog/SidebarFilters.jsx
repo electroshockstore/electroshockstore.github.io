@@ -1,91 +1,66 @@
-import { useState, useMemo, useEffect } from 'react';
-import { motion } from 'framer-motion';
+import { useState, useMemo, useEffect, useCallback, memo } from 'react';
+import { motion, AnimatePresence, useReducedMotion } from 'framer-motion';
 import { ChevronDown, ChevronUp, X, SlidersHorizontal } from 'lucide-react';
 import { useProducts } from '../../hooks/useProducts';
 import { useCategoryFilters } from '../../hooks/useCategoryFilters';
 import { getFilterLabel } from '../../utils/filterConfig';
+import { useLockAppScroll } from '../../context/ScrollContext';
 import Portal from '../Shared/Portal';
 
-const SidebarFilters = ({ selectedCategory, filters, onFilterChange, onClearFilters }) => {
-  const [expandedSections, setExpandedSections] = useState({});
-  const [isDrawerOpen, setIsDrawerOpen] = useState(false);
-  const { products } = useProducts();
+// Mapa de imágenes de categorías (estático, fuera del render)
+const CATEGORY_IMAGES = {
+  'Fuentes': '/images/category_filter/fuentes.webp',
+  'Almacenamiento': '/images/category_filter/almacenamiento.webp',
+  'Memorias RAM': '/images/category_filter/memorias_ram.webp',
+  'Motherboards': '/images/category_filter/motherboard.webp',
+  'Procesadores': '/images/category_filter/procesadores.webp',
+  'Refrigeración': '/images/category_filter/refrigeracion.webp',
+  'Auriculares': '/images/category_filter/auriculares.webp',
+  'Conectividad': '/images/category_filter/conectividad.webp',
+  'Monitores': '/images/category_filter/monitores.webp',
+  'Joystick': '/images/category_filter/Joystikc.webp',
+  'Placas de Video': '/images/category_filter/placas_video.webp',
+  'Portátiles': '/images/category_filter/portatiles.webp',
+  'Teclados': '/images/category_filter/teclado_mouse.webp',
+  'Mouse': '/images/category_filter/teclado_mouse.webp'
+};
 
-  // Hook personalizado que maneja toda la lógica de filtros
-  const categoryFilters = useCategoryFilters(selectedCategory, products);
+// Spring tipo iOS: rápido al entrar, asentamiento suave SIN overshoot brusco
+const SHEET_SPRING = { type: 'spring', stiffness: 360, damping: 36, mass: 0.9 };
+const SHEET_FADE = { duration: 0.28, ease: [0.22, 1, 0.36, 1] };
 
-  // Mapeo de imágenes de categorías
-  const getCategoryImage = (category) => {
-    const imageMap = {
-      'Fuentes': '/images/category_filter/fuentes.webp',
-      'Almacenamiento': '/images/category_filter/almacenamiento.webp',
-      'Memorias RAM': '/images/category_filter/memorias_ram.webp',
-      'Motherboards': '/images/category_filter/motherboard.webp',
-      'Procesadores': '/images/category_filter/procesadores.webp',
-      'Refrigeración': '/images/category_filter/refrigeracion.webp',
-      'Auriculares': '/images/category_filter/auriculares.webp',
-      'Conectividad': '/images/category_filter/conectividad.webp',
-      'Monitores': '/images/category_filter/monitores.webp',
-      'Joystick': '/images/category_filter/Joystikc.webp',
-      'Placas de Video': '/images/category_filter/placas_video.webp',
-      'Portátiles': '/images/category_filter/portatiles.webp',
-      'Teclados': '/images/category_filter/teclado_mouse.webp',
-      'Mouse': '/images/category_filter/teclado_mouse.webp'
-    };
-    return imageMap[category] || null;
-  };
-
-  const totalProducts = useMemo(() => {
-    return products.filter(p => p.category === selectedCategory).length;
-  }, [products, selectedCategory]);
-
+/**
+ * Panel de filtros reutilizable (desktop sidebar + mobile sheet).
+ * Extraído a nivel de módulo para NO recrear el componente en cada render
+ * (antes se definía dentro de SidebarFilters y React lo remontaba cada vez).
+ */
+const FilterPanel = memo(({
+  selectedCategory,
+  categoryFilters,
+  filters,
+  onFilterChange,
+  onClearFilters,
+  totalProducts,
+  expandedSections,
+  onToggleSection,
+  onClose
+}) => {
+  const categoryImage = CATEGORY_IMAGES[selectedCategory];
   const hasActiveFilters = Object.values(filters).some(arr => arr && arr.length > 0);
-  const activeFiltersCount = Object.values(filters).reduce((acc, arr) => acc + (arr?.length || 0), 0);
 
-  // Bloquear scroll cuando drawer está abierto
-  useEffect(() => {
-    if (isDrawerOpen) {
-      // ⚡ Scroll nativo - No necesita pausarse
-      
-      return () => {
-        // Cleanup si es necesario
-      };
-    }
-  }, [isDrawerOpen]);
-
-  if (selectedCategory === 'Todos' || Object.keys(categoryFilters).length === 0) {
-    return null;
-  }
-
-  const toggleSection = (section) => {
-    setExpandedSections(prev => ({
-      ...prev,
-      [section]: !prev[section]
-    }));
-  };
-
-  const handleFilterToggle = (filterType, value) => {
-    const currentFilters = filters[filterType] || [];
-    const newFilters = currentFilters.includes(value)
-      ? currentFilters.filter(v => v !== value)
-      : [...currentFilters, value];
-
-    onFilterChange(filterType, newFilters);
-  };
-
-  const FilterContent = () => (
-    <div className="bg-gradient-to-br from-white to-gray-50 rounded-2xl shadow-2xl mt-6 shadow-gray-300/50 border border-gray-200/50 p-5 backdrop-blur-sm h-full overflow-y-auto">
+  return (
+    <div className="bg-gradient-to-br from-white to-gray-50 rounded-2xl shadow-2xl mt-6 shadow-gray-300/50 border border-gray-200/50 p-5 h-full overflow-y-auto overscroll-contain">
       {/* Imagen de categoría - SIN framer-motion, solo CSS */}
-      {getCategoryImage(selectedCategory) && (
+      {categoryImage && (
         <div className="category-image-reveal" key={selectedCategory}>
           <div className="relative flex flex-col items-center">
             {/* Sombra flotante debajo de la imagen */}
             <div className="absolute bottom-12 left-1/2 -translate-x-1/2 w-48 h-10 bg-gray-400/20 rounded-full blur-2xl"></div>
-            
+
             {/* Contenedor de la imagen - tamaño máximo */}
             <div className="relative w-full max-w-[280px] h-84 flex items-center justify-center -mt-5">
-              <img 
-                src={getCategoryImage(selectedCategory)} 
+              <img
+                src={categoryImage}
                 alt={selectedCategory}
                 className="w-full h-full object-contain filter drop-shadow-2xl"
                 loading="lazy"
@@ -95,7 +70,7 @@ const SidebarFilters = ({ selectedCategory, filters, onFilterChange, onClearFilt
           </div>
         </div>
       )}
-      
+
       <div className="flex items-center justify-between mb-5">
         <h2 className="text-xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
           Filtros
@@ -110,13 +85,17 @@ const SidebarFilters = ({ selectedCategory, filters, onFilterChange, onClearFilt
               Limpiar
             </button>
           )}
-          {/* Botón cerrar solo en mobile drawer */}
-          <button
-            onClick={() => setIsDrawerOpen(false)}
-            className="lg:hidden p-2 hover:bg-gray-100 rounded-lg transition-colors"
-          >
-            <X className="w-5 h-5 text-gray-600" />
-          </button>
+          {/* Botón cerrar: solo cuando el panel es un sheet (mobile) */}
+          {onClose && (
+            <motion.button
+              onClick={onClose}
+              aria-label="Cerrar filtros"
+              whileTap={{ scale: 0.9 }}
+              className="p-2 hover:bg-gray-100 rounded-lg transition-colors"
+            >
+              <X className="w-5 h-5 text-gray-600" />
+            </motion.button>
+          )}
         </div>
       </div>
 
@@ -128,82 +107,136 @@ const SidebarFilters = ({ selectedCategory, filters, onFilterChange, onClearFilt
       </div>
 
       <div className="space-y-3">
-      {Object.entries(categoryFilters).map(([filterType, options]) => {
-        const isExpanded = expandedSections[filterType] !== false;
-        const activeCount = (filters[filterType] || []).length;
+        {Object.entries(categoryFilters).map(([filterType, options]) => {
+          const isExpanded = expandedSections[filterType] !== false;
+          const activeCount = (filters[filterType] || []).length;
 
-        return (
-          <div
-            key={filterType}
-            className="group bg-white rounded-xl border border-gray-200 hover:border-blue-300 hover:shadow-md transition-all duration-300 overflow-hidden"
-          >
-            <button
-              onClick={() => toggleSection(filterType)}
-              className="w-full flex items-center justify-between p-4 hover:bg-gradient-to-r hover:from-blue-50 hover:to-purple-50 transition-all duration-300"
+          return (
+            <div
+              key={filterType}
+              className="group bg-white rounded-xl border border-gray-200 hover:border-blue-300 hover:shadow-md transition-all duration-300 overflow-hidden"
             >
-              <div className="flex items-center gap-3">
-                <span className="text-base font-semibold text-gray-800 group-hover:text-blue-600 transition-colors">
-                  {getFilterLabel(filterType)}
-                </span>
-                {activeCount > 0 && (
-                  <span className="flex items-center justify-center min-w-[24px] h-6 px-2 bg-gradient-to-r from-blue-500 to-purple-500 text-white text-xs font-bold rounded-full shadow-md">
-                    {activeCount}
+              <button
+                onClick={() => onToggleSection(filterType)}
+                className="w-full flex items-center justify-between p-4 hover:bg-gradient-to-r hover:from-blue-50 hover:to-purple-50 transition-all duration-300"
+              >
+                <div className="flex items-center gap-3">
+                  <span className="text-base font-semibold text-gray-800 group-hover:text-blue-600 transition-colors">
+                    {getFilterLabel(filterType)}
                   </span>
-                )}
-              </div>
-              <div className="flex items-center gap-2">
-                {isExpanded ? (
-                  <ChevronUp className="w-5 h-5 text-gray-400 group-hover:text-blue-600 transition-all duration-300 group-hover:scale-110" />
-                ) : (
-                  <ChevronDown className="w-5 h-5 text-gray-400 group-hover:text-blue-600 transition-all duration-300 group-hover:scale-110" />
-                )}
-              </div>
-            </button>
+                  {activeCount > 0 && (
+                    <span className="flex items-center justify-center min-w-[24px] h-6 px-2 bg-gradient-to-r from-blue-500 to-purple-500 text-white text-xs font-bold rounded-full shadow-md">
+                      {activeCount}
+                    </span>
+                  )}
+                </div>
+                <div className="flex items-center gap-2">
+                  {isExpanded ? (
+                    <ChevronUp className="w-5 h-5 text-gray-400 group-hover:text-blue-600 transition-all duration-300 group-hover:scale-110" />
+                  ) : (
+                    <ChevronDown className="w-5 h-5 text-gray-400 group-hover:text-blue-600 transition-all duration-300 group-hover:scale-110" />
+                  )}
+                </div>
+              </button>
 
-            {isExpanded && (
-              <div className="px-4 pb-4 space-y-2 bg-gradient-to-b from-gray-50/50 to-transparent">
-                {options.map((option) => {
-                  const isSelected = (filters[filterType] || []).includes(option);
-                  return (
-                    <label
-                      key={option}
-                      className={`flex items-center gap-3 p-3 rounded-lg cursor-pointer transition-all duration-300 hover:scale-[1.02] hover:shadow-md ${
-                        isSelected
-                          ? 'bg-gradient-to-r from-blue-500 to-purple-500 text-white shadow-lg'
-                          : 'bg-white hover:bg-gradient-to-r hover:from-blue-50 hover:to-purple-50 border border-gray-200'
-                      }`}
-                    >
-                      <input
-                        type="checkbox"
-                        checked={isSelected}
-                        onChange={() => handleFilterToggle(filterType, option)}
-                        className="w-5 h-5 rounded-md border-2 focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 cursor-pointer transition-all"
-                        style={{
-                          accentColor: isSelected ? '#3b82f6' : undefined
-                        }}
-                      />
-                      <span className={`text-sm font-medium transition-colors ${
-                        isSelected ? 'text-white' : 'text-gray-700'
-                      }`}>
-                        {option}
-                      </span>
-                    </label>
-                  );
-                })}
-              </div>
-            )}
-          </div>
-        );
-      })}
+              {isExpanded && (
+                <div className="px-4 pb-4 space-y-2 bg-gradient-to-b from-gray-50/50 to-transparent">
+                  {options.map((option) => {
+                    const isSelected = (filters[filterType] || []).includes(option);
+                    return (
+                      <label
+                        key={option}
+                        className={`flex items-center gap-3 p-3 rounded-lg cursor-pointer transition-all duration-300 hover:scale-[1.02] hover:shadow-md ${
+                          isSelected
+                            ? 'bg-gradient-to-r from-blue-500 to-purple-500 text-white shadow-lg'
+                            : 'bg-white hover:bg-gradient-to-r hover:from-blue-50 hover:to-purple-50 border border-gray-200'
+                        }`}
+                      >
+                        <input
+                          type="checkbox"
+                          checked={isSelected}
+                          onChange={() => onFilterChange(filterType, option)}
+                          className="w-5 h-5 rounded-md border-2 focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 cursor-pointer transition-all"
+                          style={{
+                            accentColor: isSelected ? '#3b82f6' : undefined
+                          }}
+                        />
+                        <span className={`text-sm font-medium transition-colors ${
+                          isSelected ? 'text-white' : 'text-gray-700'
+                        }`}>
+                          {option}
+                        </span>
+                      </label>
+                    );
+                  })}
+                </div>
+              )}
+            </div>
+          );
+        })}
       </div>
     </div>
   );
+});
+
+FilterPanel.displayName = 'FilterPanel';
+
+const SidebarFilters = ({ selectedCategory, filters, onFilterChange, onClearFilters }) => {
+  const [expandedSections, setExpandedSections] = useState({});
+  const [isDrawerOpen, setIsDrawerOpen] = useState(false);
+  const { products } = useProducts();
+  const reduceMotion = useReducedMotion();
+
+  const categoryFilters = useCategoryFilters(selectedCategory, products);
+
+  const totalProducts = useMemo(() => {
+    return products.filter(p => p.category === selectedCategory).length;
+  }, [products, selectedCategory]);
+
+  const activeFiltersCount = Object.values(filters).reduce((acc, arr) => acc + (arr?.length || 0), 0);
+  const hasActiveFilters = activeFiltersCount > 0;
+
+  const closeDrawer = useCallback(() => setIsDrawerOpen(false), []);
+
+  const toggleSection = useCallback((section) => {
+    setExpandedSections(prev => ({
+      ...prev,
+      [section]: !prev[section]
+    }));
+  }, []);
+
+  const handleFilterToggle = useCallback((filterType, value) => {
+    const currentFilters = filters[filterType] || [];
+    const newFilters = currentFilters.includes(value)
+      ? currentFilters.filter(v => v !== value)
+      : [...currentFilters, value];
+
+    onFilterChange(filterType, newFilters);
+  }, [filters, onFilterChange]);
+
+  // Bloquear scroll del fondo mientras el sheet está abierto
+  useLockAppScroll(isDrawerOpen);
+
+  // Cerrar con Escape
+  useEffect(() => {
+    if (!isDrawerOpen) return;
+    const onKey = (e) => {
+      if (e.key === 'Escape') closeDrawer();
+    };
+    window.addEventListener('keydown', onKey);
+    return () => window.removeEventListener('keydown', onKey);
+  }, [isDrawerOpen, closeDrawer]);
+
+  if (selectedCategory === 'Todos' || Object.keys(categoryFilters).length === 0) {
+    return null;
+  }
 
   return (
     <>
-      {/* Botón para abrir drawer - SOLO MOBILE */}
-      <button
+      {/* Botón para abrir sheet - SOLO MOBILE */}
+      <motion.button
         onClick={() => setIsDrawerOpen(true)}
+        whileTap={{ scale: 0.94 }}
         className="lg:hidden inline-flex items-center justify-center gap-1.5 px-3 sm:px-4 h-10 sm:h-12 bg-gray-100 rounded-full shadow-[0_2px_8px_rgba(0,0,0,0.06)] text-gray-600 hover:text-gray-900 hover:bg-gray-50 transition-all duration-200"
       >
         <SlidersHorizontal className="h-5 w-5 sm:h-6 sm:w-6" strokeWidth={2.5} />
@@ -213,29 +246,67 @@ const SidebarFilters = ({ selectedCategory, filters, onFilterChange, onClearFilt
             {activeFiltersCount}
           </span>
         )}
-      </button>
+      </motion.button>
 
-      {/* Drawer mobile usando Portal */}
-      {isDrawerOpen && (
-        <Portal>
-          <div className="drawer-container lg:hidden fixed inset-0 z-50">
-            {/* Overlay con fade */}
-            <div 
-              className="drawer-overlay"
-              onClick={() => setIsDrawerOpen(false)}
-            />
-            
-            {/* Drawer con slide */}
-            <div className="drawer-panel">
-              <FilterContent />
+      {/* Sheet mobile con spring + drag-to-dismiss + exit animado */}
+      <Portal>
+        <AnimatePresence>
+          {isDrawerOpen && (
+            <div className="lg:hidden fixed inset-0 z-50" key="filter-sheet">
+              {/* Overlay */}
+              <motion.div
+                className="filter-sheet-overlay"
+                onClick={closeDrawer}
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                transition={reduceMotion ? { duration: 0 } : SHEET_FADE}
+              />
+
+              {/* Panel */}
+              <motion.div
+                className="filter-sheet-panel"
+                initial={{ x: '-100%' }}
+                animate={{ x: 0 }}
+                exit={{ x: '-100%' }}
+                transition={reduceMotion ? { duration: 0 } : SHEET_SPRING}
+                drag={reduceMotion ? false : 'x'}
+                dragDirectionLock
+                dragConstraints={{ left: 0, right: 0 }}
+                dragElastic={{ left: 0.6, right: 0 }}
+                onDragEnd={(_, info) => {
+                  if (info.offset.x < -90 || info.velocity.x < -550) closeDrawer();
+                }}
+              >
+                <FilterPanel
+                  selectedCategory={selectedCategory}
+                  categoryFilters={categoryFilters}
+                  filters={filters}
+                  onFilterChange={handleFilterToggle}
+                  onClearFilters={onClearFilters}
+                  totalProducts={totalProducts}
+                  expandedSections={expandedSections}
+                  onToggleSection={toggleSection}
+                  onClose={closeDrawer}
+                />
+              </motion.div>
             </div>
-          </div>
-        </Portal>
-      )}
+          )}
+        </AnimatePresence>
+      </Portal>
 
-      {/* Sidebar desktop - NORMAL como antes */}
+      {/* Sidebar desktop */}
       <div className="hidden lg:block w-full lg:w-80">
-        <FilterContent />
+        <FilterPanel
+          selectedCategory={selectedCategory}
+          categoryFilters={categoryFilters}
+          filters={filters}
+          onFilterChange={handleFilterToggle}
+          onClearFilters={onClearFilters}
+          totalProducts={totalProducts}
+          expandedSections={expandedSections}
+          onToggleSection={toggleSection}
+        />
       </div>
     </>
   );

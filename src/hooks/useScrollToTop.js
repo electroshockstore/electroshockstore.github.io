@@ -1,4 +1,5 @@
 import { useEffect } from 'react';
+import { getAppScroller } from '../context/ScrollContext';
 
 /**
  * Hook para hacer scroll al inicio de la página
@@ -16,8 +17,19 @@ export const useScrollToTop = (dependency = null, options = {}) => {
     // Si hay dependencia, solo hacer scroll si tiene valor truthy
     if (dependency !== null && !dependency) return;
 
+    const el = getAppScroller();
+    if (el) {
+      if (behavior === 'instant' || behavior === 'auto') {
+        el.scrollTop = 0;
+      } else {
+        el.scrollTo({ top: 0, behavior });
+      }
+      return;
+    }
+
     if (behavior === 'instant' || behavior === 'auto') {
-      window.scrollTo(0, 0);
+      // 'instant' explícito: ignora el `scroll-behavior: smooth` global del html
+      window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
     } else {
       window.scrollTo({ top: 0, behavior });
     }

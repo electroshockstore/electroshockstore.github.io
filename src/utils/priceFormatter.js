@@ -1,18 +1,6 @@
 /**
- * Formatea un precio en pesos argentinos
- * @param {number} price - El precio a formatear
- * @returns {string} - El precio formateado con símbolo de moneda
- */
-export const formatPrice = (price) => {
-  return new Intl.NumberFormat('es-AR', {
-    style: 'currency',
-    currency: 'ARS',
-    minimumFractionDigits: 0
-  }).format(price);
-};
-
-/**
- * Formatea un precio sin el símbolo de moneda
+ * Formato canónico ARS: ver `formatPrice.js` ("$ 1.234.567").
+ * Este módulo solo expone variantes sin símbolo para no duplicar.
  * @param {number} price - El precio a formatear
  * @returns {string} - El precio formateado sin símbolo
  */

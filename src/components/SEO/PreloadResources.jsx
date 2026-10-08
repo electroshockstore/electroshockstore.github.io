@@ -17,6 +17,7 @@ const PreloadResources = () => {
       link.as = 'image';
       link.href = src;
       link.type = 'image/webp';
+      link.fetchPriority = 'high';
       document.head.appendChild(link);
     });
 
