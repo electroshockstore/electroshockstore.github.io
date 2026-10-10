@@ -5671,3 +5671,235 @@ body {
 .is-low-end .mi-lift:hover {
   transform: none;
 }
+
+/* ============================================
+   FASE A — TOKENS CYBERPUNK MINIMALISTA (base)
+   --------------------------------------------
+   Sistema cerrado: fondo + superficie + hairline + 2 acentos.
+   - Cian #00E5FF = acción / info / estado activo.
+   - Lima #C6F52B = energía / ofertas.
+   Todo lo demás (púrpura, naranja, verde, arcoíris) queda fuera del
+   sistema y se migra en las Fases B→D.
+   Estas clases son ADITIVAS: ningún componente las usa todavía, así que
+   esta fase no cambia ningún píxel visible.
+   ============================================ */
+:root {
+  --cyber-bg: #0A0A0F;
+  --cyber-surface: #121218;
+  --cyber-line: rgba(255, 255, 255, 0.08);
+  --cyber-cyan: #00E5FF;
+  --cyber-lime: #C6F52B;
+}
+
+/* Superficie oscura + hairline (reemplaza cards blancas/blur en Fases B→D) */
+.surface-cyber {
+  background-color: var(--cyber-surface);
+  border: 1px solid var(--cyber-line);
+}
+
+/* Borde hairline suelto para separar sin sombras */
+.hairline {
+  border: 1px solid var(--cyber-line);
+}
+.hairline-b {
+  border-bottom: 1px solid var(--cyber-line);
+}
+
+/* Datos fríos: mono + números tabulares + tracking técnico */
+.font-tech {
+  font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 0.02em;
+}
+
+/* Acento cian con glow SOLO para hover de interactivos (Fases B→D) */
+.mi-glow-cyan {
+  transition: box-shadow 180ms ease, border-color 180ms ease;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .mi-glow-cyan:hover {
+    box-shadow: 0 0 0 1px rgba(0, 229, 255, 0.45), 0 8px 28px -10px rgba(0, 229, 255, 0.35);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .mi-glow-cyan {
+    transition-duration: 0.01ms !important;
+  }
+}
+
+.perf-low .mi-glow-cyan,
+.is-low-end .mi-glow-cyan {
+  transition-duration: 0.01ms !important;
+}
+
+/* ============================================
+   CTA PILL ESTILO APPLE — etiqueta + círculo de acción
+   --------------------------------------------
+   Patrón: pill con el texto a la izquierda y un círculo sólido con
+   flecha a la derecha. El hover desplaza la flecha, el press escala
+   la pill. Solo transform/filter/opacity, ≤200ms.
+   `.cta-pill-flat` desactiva el press-scale (para filas/botones anchos
+   donde escalar queda raro); el nudge de la flecha se mantiene.
+   ============================================ */
+.cta-pill {
+  transition: transform 150ms ease, filter 150ms ease, background-color 200ms ease;
+}
+
+.cta-pill-circle {
+  transition: transform 180ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .cta-pill:hover .cta-pill-circle {
+    transform: translateX(3px);
+  }
+}
+
+.cta-pill:active:not(.cta-pill-flat) {
+  transform: scale(0.97);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cta-pill,
+  .cta-pill-circle {
+    transition-duration: 0.01ms !important;
+  }
+  .cta-pill:hover .cta-pill-circle,
+  .cta-pill:active:not(.cta-pill-flat) {
+    transform: none;
+  }
+}
+
+.perf-low .cta-pill,
+.is-low-end .cta-pill,
+.perf-low .cta-pill-circle,
+.is-low-end .cta-pill-circle {
+  transition-duration: 0.01ms !important;
+}
+
+.perf-low .cta-pill:hover .cta-pill-circle,
+.is-low-end .cta-pill:hover .cta-pill-circle {
+  transform: none;
+}
+
+/* ============================================
+   OFFSET GLOW CTA — frente carbón + backing lima
+   --------------------------------------------
+   Patrón de énfasis máximo para el CTA primario sobre superficies
+   oscuras. El backing es una capa estática (sombra fija, sin
+   animación). En press, el frente se traslada hacia el backing.
+   El `breathe` escala el círculo en loop (máx. 1 por pantalla);
+   se apaga con reduced-motion/low-end.
+   Todo GPU: solo transform + sombras estáticas.
+   ============================================ */
+.ogc {
+  position: relative;
+  display: inline-block;
+}
+
+.ogc-back {
+  position: absolute;
+  inset: 0;
+  border-radius: 20px;
+  background: var(--cyber-lime);
+  transform: translate(5px, 4px);
+  box-shadow: 0 0 28px -6px rgba(200, 245, 25, 0.5);
+  pointer-events: none;
+}
+
+.ogc > .cta-pill {
+  position: relative;
+  border-radius: 20px;
+}
+
+.ogc > .cta-pill:active:not(.cta-pill-flat) {
+  transform: translate(3px, 2.5px);
+}
+
+@keyframes ogc-breathe {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.04); }
+}
+
+.ogc-breathe .ogc-breath-icon {
+  animation: ogc-breathe 1.2s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ogc-breathe .ogc-breath-icon {
+    animation: none;
+  }
+  .ogc-back {
+    box-shadow: none;
+  }
+  .ogc > .cta-pill:active:not(.cta-pill-flat) {
+    transform: none;
+  }
+}
+
+.perf-low .ogc-breathe .ogc-breath-icon,
+.is-low-end .ogc-breathe .ogc-breath-icon {
+  animation: none;
+}
+
+.perf-low .ogc-back,
+.is-low-end .ogc-back {
+  box-shadow: none;
+}
+
+
+
+/* Fase C: las animaciones decorativas infinitas del FlashSale/Hero
+   (glow del rayo, glitch del título) se apagan con reduced-motion
+   y en equipos lentos. */
+@media (prefers-reduced-motion: reduce) {
+  .animate-bolt-glow,
+  .cyberpunk-glitch {
+    animation: none !important;
+  }
+}
+
+.perf-low .animate-bolt-glow,
+.is-low-end .animate-bolt-glow,
+.perf-low .cyberpunk-glitch,
+.is-low-end .cyberpunk-glitch {
+  animation: none !important;
+}
+
+/* ============================================
+   LAVADOS CLAROS ESTÁTICOS (bento)
+   --------------------------------------------
+   Fondos con degradados suaves fijos aplicados como overlay `::before`
+   (nunca pisan el fondo propio de la card, ni siquiera los
+   `bg-gradient-*` de Tailwind) y SIN blur ni animación, así se pintan
+   una sola vez y no cuestan GPU en scroll.
+   ============================================ */
+.bg-wash-pink::before,
+.bg-wash-red::before,
+.bg-wash-mint::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+}
+
+.bg-wash-pink::before {
+  background-image:
+    linear-gradient(115deg, transparent 55%, rgba(249, 168, 212, 0.16) 100%),
+    radial-gradient(140px 140px at 88% 8%, rgba(249, 168, 212, 0.30), transparent 70%);
+}
+
+.bg-wash-red::before {
+  background-image:
+    linear-gradient(115deg, transparent 55%, rgba(252, 165, 165, 0.16) 100%),
+    radial-gradient(140px 140px at 88% 8%, rgba(252, 165, 165, 0.28), transparent 70%);
+}
+
+.bg-wash-mint::before {
+  background-image:
+    linear-gradient(115deg, transparent 55%, rgba(167, 243, 208, 0.20) 100%),
+    radial-gradient(140px 140px at 88% 8%, rgba(167, 243, 208, 0.25), transparent 70%);
+}

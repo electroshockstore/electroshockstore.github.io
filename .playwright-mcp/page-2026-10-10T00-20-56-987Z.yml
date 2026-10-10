@@ -1,0 +1,241 @@
+- generic [active] [ref=e1]:
+  - generic [ref=e2]:
+    - link "Saltar al contenido principal" [ref=e3] [cursor=pointer]:
+      - /url: "#main-content"
+    - main [ref=e6]:
+      - generic [ref=e34]:
+        - generic [ref=e38]:
+          - generic [ref=e40]:
+            - button "ElectroShock Tecnología y Conectividad" [ref=e41] [cursor=pointer]:
+              - generic [ref=e46]:
+                - generic [ref=e47]: ElectroShock
+                - generic [ref=e48]: Tecnología y Conectividad
+            - generic [ref=e49]:
+              - button "Buscar" [ref=e50] [cursor=pointer]
+              - button "Notificaciones" [ref=e54] [cursor=pointer]:
+                - generic [ref=e55]: "1"
+          - button "Explorar todas las categorías" [ref=e63] [cursor=pointer]:
+            - generic [ref=e69]:
+              - generic [ref=e70]: Explorar
+              - generic [ref=e71]: Todas las categorías
+          - generic [ref=e76]:
+            - generic [ref=e77]: Puntos de retiro
+            - generic [ref=e85]: Pago seguro
+            - generic [ref=e91]: Sin Depositos Previos
+        - main [ref=e97]:
+          - generic [ref=e98]:
+            - generic [ref=e99]:
+              - generic [ref=e102]:
+                - button "Volver atrás" [ref=e103] [cursor=pointer]
+                - navigation "Migas de pan" [ref=e107]:
+                  - link "Ir al inicio" [ref=e108] [cursor=pointer]:
+                    - /url: /
+                  - link "Procesadores" [ref=e114] [cursor=pointer]:
+                    - /url: /categoria/procesadores
+              - generic [ref=e116]:
+                - generic [ref=e118]:
+                  - generic [ref=e119]:
+                    - generic [ref=e120]:
+                      - img "AMD Ryzen 5 5500 AM4 — 1" [ref=e121]
+                      - generic [ref=e122]: Click para ampliar
+                      - generic [ref=e123]: 1 en stock
+                      - button "Imagen anterior" [ref=e125] [cursor=pointer]
+                      - button "Imagen siguiente" [ref=e128] [cursor=pointer]
+                      - tablist "Seleccionar imagen" [ref=e131]:
+                        - tab "Ir a imagen 1" [selected] [ref=e132] [cursor=pointer]
+                        - tab "Ir a imagen 2" [ref=e133] [cursor=pointer]
+                    - generic [ref=e134]:
+                      - button "Ver imagen 1" [ref=e135] [cursor=pointer]:
+                        - img "Miniatura 1" [ref=e136]
+                      - button "Ver imagen 2" [ref=e137] [cursor=pointer]:
+                        - img "Miniatura 2" [ref=e138]
+                  - generic [ref=e139]:
+                    - generic [ref=e140]:
+                      - generic [ref=e141]: AMD
+                      - generic [ref=e145]: Ryzen 5 5500
+                      - link "Web oficial" [ref=e149] [cursor=pointer]:
+                        - /url: https://www.amd.com/es/support/downloads/drivers.html/processors/ryzen/ryzen-5000-series/amd-ryzen-5-5500.html
+                    - heading "AMD Ryzen 5 5500 AM4" [level=1] [ref=e155]
+                    - paragraph [ref=e157]: Procesador AMD Ryzen 5 5500 4.2 GHz AM4 6 Core sin integrada con Cooler Wraith Stealth
+                    - generic [ref=e158]:
+                      - generic [ref=e159]:
+                        - generic [ref=e160]: Precio
+                        - generic [ref=e161]:
+                          - generic [ref=e162]: $
+                          - generic [ref=e163]: "150.000"
+                      - generic [ref=e164]: Stock
+                    - generic [ref=e167]:
+                      - button "Compartir Este producto" [ref=e169] [cursor=pointer]:
+                        - generic [ref=e177]:
+                          - generic [ref=e178]: Compartir
+                          - generic [ref=e179]: Este producto
+                      - button "Consultar por WhatsApp Más información" [ref=e183] [cursor=pointer]:
+                        - generic [ref=e187]:
+                          - generic [ref=e188]: Consultar por WhatsApp
+                          - generic [ref=e189]: Más información
+                    - generic "Información de compra" [ref=e193]:
+                      - generic [ref=e194]: Puntos Retiro
+                      - generic [ref=e199]: Efectivo o transferencia
+                      - generic [ref=e204]: WhatsApp
+                - generic [ref=e208]:
+                  - generic [ref=e210]:
+                    - heading "Histórico de Precios" [level=3] [ref=e211]
+                    - generic [ref=e212]: $150.000
+                  - img [ref=e222]:
+                    - generic [ref=e226]:
+                      - generic [ref=e227]: 7 de
+                      - generic [ref=e229]: 26 de
+                      - generic [ref=e231]: 8 de
+                      - generic [ref=e233]: 3 de
+                      - generic [ref=e235]: 1 de
+                    - generic [ref=e238]:
+                      - generic [ref=e239]: $139k
+                      - generic [ref=e241]: $142k
+                      - generic [ref=e243]: $145k
+                      - generic [ref=e245]: $148k
+                      - generic [ref=e247]: $151k
+                    - generic [ref=e249]: Promedio
+                - generic [ref=e263]:
+                  - generic [ref=e264]:
+                    - generic [ref=e265]:
+                      - generic [ref=e266]: Producto
+                      - generic [ref=e267]: DetallesTécnicos
+                    - generic [ref=e268]:
+                      - generic [ref=e269]: "08"
+                      - generic [ref=e270]: specs
+                  - generic [ref=e272]:
+                    - button "Principales · 4" [ref=e273] [cursor=pointer]
+                    - button "Adicional · 4" [ref=e274] [cursor=pointer]
+                  - generic [ref=e276]:
+                    - generic [ref=e277]:
+                      - generic [ref=e278]: Marca
+                      - generic [ref=e280]: AMD
+                    - generic [ref=e281]:
+                      - generic [ref=e282]: Línea
+                      - generic [ref=e284]: Ryzen 5
+                    - generic [ref=e285]:
+                      - generic [ref=e286]: Modelo
+                      - generic [ref=e288]: "5500"
+                    - generic [ref=e290]:
+                      - generic [ref=e291]: Socket
+                      - generic [ref=e293]: AM4
+                - generic [ref=e294]:
+                  - generic [ref=e296]:
+                    - generic [ref=e297]:
+                      - generic [aria-hidden]: "01"
+                      - generic [ref=e298]: Métodos de Pago
+                      - heading "Opciones de Pago Seguros y Confiables" [level=2] [ref=e303]:
+                        - text: Opciones de Pago
+                        - generic [ref=e304]: Seguros y Confiables
+                      - paragraph [ref=e305]: 02 métodos · Sin anticipos
+                    - generic [ref=e306]:
+                      - generic [ref=e315]:
+                        - heading "Efectivo" [level=3] [ref=e316]
+                        - paragraph [ref=e317]: En el momento
+                      - generic [ref=e326]:
+                        - heading "Transferencia" [level=3] [ref=e327]
+                        - paragraph [ref=e328]: Mayores a $100.000
+                  - generic [ref=e331]:
+                    - generic [ref=e332]:
+                      - generic [aria-hidden]: "02"
+                      - generic [ref=e333]: Sin local físico
+                      - heading "Coordiná la entrega Revisás y pagás" [level=2] [ref=e339]:
+                        - text: Coordiná la entrega
+                        - generic [ref=e340]: Revisás y pagás
+                      - paragraph [ref=e341]: 02 puntos · Revisás antes de pagar
+                    - generic [ref=e346]:
+                      - generic [ref=e351]:
+                        - generic [ref=e352]: Seguridad
+                        - heading "Sin Depósitos Previos" [level=3] [ref=e356]:
+                          - generic [ref=e357]: Sin Depósitos
+                          - generic [ref=e358]: Previos
+                        - paragraph [ref=e359]: "\"Sin anticipos ni señas\""
+                        - paragraph [ref=e361]: Revisas y Pagas. No se deje engañar
+                      - generic [ref=e365]:
+                        - generic [ref=e366]: Transparencia
+                        - heading "Pago Inmediato" [level=3] [ref=e369]:
+                          - generic [ref=e370]: Pago
+                          - generic [ref=e371]: Inmediato
+                        - generic [ref=e373]:
+                          - generic [ref=e374]: Efectivo
+                          - generic [ref=e378]: Transferencia
+                        - paragraph [ref=e381]: Ni lo intenten estafadores
+                      - img "Condiciones" [ref=e384]
+                      - generic [ref=e390]:
+                        - generic [ref=e391]: Cargos extras aplicables
+                        - paragraph [ref=e397]: 10%
+                        - paragraph [ref=e398]: Recargo
+                        - paragraph [ref=e400]: Transferencias menores a $100.000
+                      - generic [ref=e408]:
+                        - generic [ref=e409]: Puntos seguros
+                        - generic [ref=e412]:
+                          - generic [ref=e413]: "NO"
+                          - generic [ref=e414]: HacemosEnvíos
+                        - generic [ref=e415]:
+                          - generic [ref=e416]: NO Domicilio
+                          - generic [ref=e420]: NO Mercadolibre
+                      - generic [ref=e432]:
+                        - generic [ref=e433]:
+                          - generic [ref=e434]: Stock local
+                          - generic [ref=e435]: Sin Garantía
+                          - generic [ref=e436]: Atención
+                        - heading "Sin Local físico" [level=3] [ref=e437]
+                        - paragraph [ref=e438]: Productos sellados de Fábrica, Pago previo por apertura.
+                    - button "¿Dónde retiro mi producto?" [ref=e441] [cursor=pointer]
+            - generic [aria-hidden]:
+              - generic:
+                - generic:
+                  - generic: Precio
+                  - generic: $ 150.000
+                - generic:
+                  - button
+                  - button:
+                    - generic: Consultar
+        - generic [ref=e449]:
+          - generic [ref=e450]:
+            - generic [ref=e451]:
+              - generic [ref=e453]:
+                - img "Logo" [ref=e455]
+                - heading "ElectroShock" [level=3] [ref=e457]
+              - paragraph [ref=e459]: Elevando tu experiencia tecnológica con componentes de alta gama y asesoramiento especializado. Expertos en hardware de alto rendimiento.
+            - generic [ref=e460]:
+              - heading "Contacto" [level=4] [ref=e461]
+              - generic [ref=e463]:
+                - generic [ref=e469]:
+                  - paragraph [ref=e470]: Horarios
+                  - paragraph [ref=e471]: "Lun - Dom: 9h a 21h"
+                - generic [ref=e476]:
+                  - paragraph [ref=e477]: Ventas
+                  - paragraph [ref=e478]: WhatsApp Oficial
+                - generic [ref=e484]:
+                  - paragraph [ref=e485]: Email
+                  - paragraph [ref=e486]: info@electroshock.com
+            - generic [ref=e487]:
+              - generic [ref=e488]:
+                - heading "Puntos De Retiro" [level=4] [ref=e489]
+                - generic [ref=e491]: 2 SUCURSALES
+              - generic [ref=e492]:
+                - link [ref=e493] [cursor=pointer]:
+                  - /url: https://maps.app.goo.gl/ivNLJMo7kHxtdUJAA
+                  - generic [ref=e496]:
+                    - paragraph [ref=e497]: Bingo BZ Cruce (Puerta)
+                    - paragraph [ref=e498]: Cruce Florencio Varela, Provincia de Buenos Aires
+                - link [ref=e503] [cursor=pointer]:
+                  - /url: https://maps.app.goo.gl/kXdMaP1UVaRw5x767
+                  - generic [ref=e506]:
+                    - paragraph [ref=e507]: Carrefour (Patio Comidas)
+                    - paragraph [ref=e508]: Av. Gral. José de San Martín 554. Florencio Varela, Provincia de Buenos Aires
+              - link "Mapa de ubicaciones ElectroShock Ver en Maps" [ref=e514] [cursor=pointer]:
+                - /url: https://www.google.com/maps/search/Florencio+Varela,+Buenos+Aires/@-34.78,-58.28,13z
+                - img "Mapa de ubicaciones ElectroShock" [ref=e515]
+                - generic [ref=e516]: Ver en Maps
+          - generic [ref=e521]:
+            - paragraph [ref=e523]: © 2025 ElectroShock · Buenos Aires, Argentina
+            - generic [ref=e524]:
+              - generic [ref=e525]: Desarrollado por
+              - generic [ref=e526]: JLdev Studio
+  - generic:
+    - button "Abrir menú de ayuda" [ref=e27] [cursor=pointer]
+    - generic [ref=e33]:
+      - button "Ir al inicio"
+  - generic [aria-hidden] [ref=e527]: $139k

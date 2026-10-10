@@ -1,4 +1,4 @@
-import { ArrowRight } from 'lucide-react';
+import OffsetGlowCTA from '../../Shared/OffsetGlowCTA';
 import MobileCard from './MobileCard';
 
 const MobileGrid = ({ categories, onCategoryClick }) => {
@@ -43,19 +43,19 @@ const MobileGrid = ({ categories, onCategoryClick }) => {
       </div>
 
       {/* CTA */}
-      <button
+      <OffsetGlowCTA
+        label="Ver todo el catálogo"
         onClick={() => onCategoryClick('procesadores')}
-        className="mt-1.5 w-full relative overflow-hidden rounded-xl flex items-center justify-center gap-2 font-black tracking-widest uppercase text-[#060608] bg-white active:scale-95 transition-transform duration-150"
-        style={{ 
-          height: 48, 
-          fontFamily: "'Bebas Neue','Arial Black',sans-serif", 
-          letterSpacing: '0.1em', 
-          fontSize: 14 
+        className="mt-1.5 w-full font-black uppercase"
+        frontClassName="w-full"
+        labelClassName="uppercase"
+        style={{
+          height: 56,
+          fontFamily: "'Bebas Neue','Arial Black',sans-serif",
+          letterSpacing: '0.1em',
+          fontSize: 15
         }}
-      >
-        Ver todo el catálogo
-        <ArrowRight size={14} strokeWidth={2.5} />
-      </button>
+      />
     </div>
   );
 };

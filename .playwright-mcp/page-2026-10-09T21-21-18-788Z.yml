@@ -1,0 +1,416 @@
+- generic [ref=f1e1]:
+  - generic [ref=f1e2]:
+    - link "Saltar al contenido principal" [ref=f1e3] [cursor=pointer]:
+      - /url: "#main-content"
+    - main [ref=f1e6]:
+      - generic [ref=f1e70]:
+        - combobox "¿Qué componente buscas?" [active] [ref=f1e76]
+        - main [ref=f1e77]:
+          - generic [ref=f1e79]:
+            - generic [ref=f1e80]: Catálogo · 23 productos
+            - heading "MOUSE 23 PRODUCTOS" [level=1] [ref=f1e83]:
+              - generic [ref=f1e84]: MOUSE
+              - generic [ref=f1e85]: 23 PRODUCTOS
+          - generic [ref=f1e87]:
+            - generic [ref=f1e88]:
+              - button "Filtros" [ref=f1e90] [cursor=pointer]
+              - generic [ref=f1e93]:
+                - button "Ordenar" [ref=f1e95] [cursor=pointer]
+                - generic [ref=f1e100]:
+                  - button "Vista en cuadrícula" [ref=f1e101] [cursor=pointer]
+                  - button "Vista en lista" [ref=f1e104] [cursor=pointer]
+            - generic [ref=f1e107]:
+              - generic [ref=f1e108]:
+                - generic: Más Vendido
+                - generic [ref=f1e111] [cursor=pointer]:
+                  - generic [ref=f1e113]:
+                    - img "Logitech G305 Inalámbrico varios colores" [ref=f1e115]
+                    - generic [ref=f1e116]: "5"
+                  - generic [ref=f1e118]:
+                    - generic [ref=f1e121]:
+                      - generic [ref=f1e122]: Logitech
+                      - heading "G305 Inalámbrico varios colores" [level=3] [ref=f1e126]
+                    - generic [ref=f1e129]:
+                      - generic [ref=f1e130]:
+                        - generic [ref=f1e131]: Precio
+                        - generic [ref=f1e132]: CONTADO
+                      - generic [ref=f1e133]:
+                        - generic [ref=f1e134]: $
+                        - generic [ref=f1e135]: "45.000"
+              - generic [ref=f1e139] [cursor=pointer]:
+                - generic [ref=f1e141]:
+                  - img "Logitech G203 Lightsync Alambrico Usb varios colores" [ref=f1e143]
+                  - generic [ref=f1e144]: "33"
+                - generic [ref=f1e146]:
+                  - generic [ref=f1e149]:
+                    - generic [ref=f1e150]: Logitech
+                    - heading "G203 Lightsync Alambrico Usb varios colores" [level=3] [ref=f1e154]
+                  - generic [ref=f1e157]:
+                    - generic [ref=f1e158]:
+                      - generic [ref=f1e159]: Precio
+                      - generic [ref=f1e160]: CONTADO
+                    - generic [ref=f1e161]:
+                      - generic [ref=f1e162]: $
+                      - generic [ref=f1e163]: "25.000"
+              - generic [ref=f1e167] [cursor=pointer]:
+                - generic [ref=f1e169]:
+                  - img "Redragon Storm Pro M808-KS Negro Inalámbrico RGB" [ref=f1e171]
+                  - generic [ref=f1e172]: "1"
+                - generic [ref=f1e174]:
+                  - generic [ref=f1e177]:
+                    - generic [ref=f1e178]: Redragon
+                    - heading "Storm Pro M808-KS Negro Inalámbrico RGB" [level=3] [ref=f1e182]
+                  - generic [ref=f1e185]:
+                    - generic [ref=f1e186]:
+                      - generic [ref=f1e187]: Precio
+                      - generic [ref=f1e188]: CONTADO
+                    - generic [ref=f1e189]:
+                      - generic [ref=f1e190]: $
+                      - generic [ref=f1e191]: "40.000"
+              - generic [ref=f1e195] [cursor=pointer]:
+                - generic [ref=f1e197]:
+                  - img "Redragon Invader M719-RGB Negro Alambrico Usb" [ref=f1e199]
+                  - generic [ref=f1e200]: "1"
+                - generic [ref=f1e202]:
+                  - generic [ref=f1e205]:
+                    - generic [ref=f1e206]: Redragon
+                    - heading "Invader M719-RGB Negro Alambrico Usb" [level=3] [ref=f1e210]
+                  - generic [ref=f1e213]:
+                    - generic [ref=f1e214]:
+                      - generic [ref=f1e215]: Precio
+                      - generic [ref=f1e216]: CONTADO
+                    - generic [ref=f1e217]:
+                      - generic [ref=f1e218]: $
+                      - generic [ref=f1e219]: "20.000"
+              - generic [ref=f1e223] [cursor=pointer]:
+                - generic [ref=f1e225]:
+                  - img "Redragon Storm Elite M988 Negro Alambrico Usb" [ref=f1e227]
+                  - generic [ref=f1e228]: "2"
+                - generic [ref=f1e230]:
+                  - generic [ref=f1e233]:
+                    - generic [ref=f1e234]: Redragon
+                    - heading "Storm Elite M988 Negro Alambrico Usb" [level=3] [ref=f1e238]
+                  - generic [ref=f1e241]:
+                    - generic [ref=f1e242]:
+                      - generic [ref=f1e243]: Precio
+                      - generic [ref=f1e244]: CONTADO
+                    - generic [ref=f1e245]:
+                      - generic [ref=f1e246]: $
+                      - generic [ref=f1e247]: "35.000"
+              - generic [ref=f1e251] [cursor=pointer]:
+                - generic [ref=f1e253]:
+                  - img "Redragon Cobra White M711-W RGB Alambrico Usb" [ref=f1e255]
+                  - generic [ref=f1e256]: "2"
+                - generic [ref=f1e258]:
+                  - generic [ref=f1e261]:
+                    - generic [ref=f1e262]: Redragon
+                    - heading "Cobra White M711-W RGB Alambrico Usb" [level=3] [ref=f1e266]
+                  - generic [ref=f1e269]:
+                    - generic [ref=f1e270]:
+                      - generic [ref=f1e271]: Precio
+                      - generic [ref=f1e272]: CONTADO
+                    - generic [ref=f1e273]:
+                      - generic [ref=f1e274]: $
+                      - generic [ref=f1e275]: "25.000"
+              - generic [ref=f1e279] [cursor=pointer]:
+                - generic [ref=f1e281]:
+                  - img "Redragon Gainer M610 RGB Alambrico Usb" [ref=f1e283]
+                  - generic [ref=f1e284]: "4"
+                - generic [ref=f1e286]:
+                  - generic [ref=f1e289]:
+                    - generic [ref=f1e290]: Redragon
+                    - heading "Gainer M610 RGB Alambrico Usb" [level=3] [ref=f1e294]
+                  - generic [ref=f1e297]:
+                    - generic [ref=f1e298]:
+                      - generic [ref=f1e299]: Precio
+                      - generic [ref=f1e300]: CONTADO
+                    - generic [ref=f1e301]:
+                      - generic [ref=f1e302]: $
+                      - generic [ref=f1e303]: "20.000"
+              - generic [ref=f1e307] [cursor=pointer]:
+                - generic [ref=f1e309]:
+                  - img "Redragon K1ng M724 1K Negro Alambrico Usb" [ref=f1e311]
+                  - generic [ref=f1e312]: "3"
+                - generic [ref=f1e314]:
+                  - generic [ref=f1e317]:
+                    - generic [ref=f1e318]: Redragon
+                    - heading "K1ng M724 1K Negro Alambrico Usb" [level=3] [ref=f1e322]
+                  - generic [ref=f1e325]:
+                    - generic [ref=f1e326]:
+                      - generic [ref=f1e327]: Precio
+                      - generic [ref=f1e328]: CONTADO
+                    - generic [ref=f1e329]:
+                      - generic [ref=f1e330]: $
+                      - generic [ref=f1e331]: "20.000"
+              - generic [ref=f1e335] [cursor=pointer]:
+                - generic [ref=f1e337]:
+                  - img "Razer Deathadder V2 Mini Negro Alambrico Usb" [ref=f1e339]
+                  - generic [ref=f1e340]: "3"
+                - generic [ref=f1e342]:
+                  - generic [ref=f1e345]:
+                    - generic [ref=f1e346]: Razer
+                    - heading "Deathadder V2 Mini Negro Alambrico Usb" [level=3] [ref=f1e350]
+                  - generic [ref=f1e353]:
+                    - generic [ref=f1e354]:
+                      - generic [ref=f1e355]: Precio
+                      - generic [ref=f1e356]: CONTADO
+                    - generic [ref=f1e357]:
+                      - generic [ref=f1e358]: $
+                      - generic [ref=f1e359]: "45.000"
+              - generic [ref=f1e363] [cursor=pointer]:
+                - generic [ref=f1e365]:
+                  - img "Redragon Griffin M607 RGB Negro Alambrico Usb" [ref=f1e367]
+                  - generic [ref=f1e368]: "4"
+                - generic [ref=f1e370]:
+                  - generic [ref=f1e373]:
+                    - generic [ref=f1e374]: Redragon
+                    - heading "Griffin M607 RGB Negro Alambrico Usb" [level=3] [ref=f1e378]
+                  - generic [ref=f1e381]:
+                    - generic [ref=f1e382]:
+                      - generic [ref=f1e383]: Precio
+                      - generic [ref=f1e384]: CONTADO
+                    - generic [ref=f1e385]:
+                      - generic [ref=f1e386]: $
+                      - generic [ref=f1e387]: "15.000"
+              - generic [ref=f1e391] [cursor=pointer]:
+                - generic [ref=f1e393]:
+                  - img "Logitech M170 Rojo Inalámbrico" [ref=f1e395]
+                  - generic [ref=f1e396]: "8"
+                - generic [ref=f1e398]:
+                  - generic [ref=f1e401]:
+                    - generic [ref=f1e402]: Logitech
+                    - heading "M170 Rojo Inalámbrico" [level=3] [ref=f1e406]
+                  - generic [ref=f1e409]:
+                    - generic [ref=f1e410]:
+                      - generic [ref=f1e411]: Precio
+                      - generic [ref=f1e412]: CONTADO
+                    - generic [ref=f1e413]:
+                      - generic [ref=f1e414]: $
+                      - generic [ref=f1e415]: "10.000"
+              - generic [ref=f1e419] [cursor=pointer]:
+                - generic [ref=f1e421]:
+                  - img "Redragon King Pro Blanco/Negro M916-Pro Inalámbrico" [ref=f1e423]
+                  - generic [ref=f1e424]: "3"
+                - generic [ref=f1e426]:
+                  - generic [ref=f1e429]:
+                    - generic [ref=f1e430]: Redragon
+                    - heading "King Pro Blanco/Negro M916-Pro Inalámbrico" [level=3] [ref=f1e434]
+                  - generic [ref=f1e437]:
+                    - generic [ref=f1e438]:
+                      - generic [ref=f1e439]: Precio
+                      - generic [ref=f1e440]: CONTADO
+                    - generic [ref=f1e441]:
+                      - generic [ref=f1e442]: $
+                      - generic [ref=f1e443]: "45.000"
+              - generic [ref=f1e447] [cursor=pointer]:
+                - generic [ref=f1e449]:
+                  - img "Redragon Centrophorus2 M601-RGB Black Alambrico Usb" [ref=f1e451]
+                  - generic [ref=f1e452]: "2"
+                - generic [ref=f1e454]:
+                  - generic [ref=f1e457]:
+                    - generic [ref=f1e458]: Redragon
+                    - heading "Centrophorus2 M601-RGB Black Alambrico Usb" [level=3] [ref=f1e462]
+                  - generic [ref=f1e465]:
+                    - generic [ref=f1e466]:
+                      - generic [ref=f1e467]: Precio
+                      - generic [ref=f1e468]: CONTADO
+                    - generic [ref=f1e469]:
+                      - generic [ref=f1e470]: $
+                      - generic [ref=f1e471]: "23.000"
+              - generic [ref=f1e475] [cursor=pointer]:
+                - generic [ref=f1e477]:
+                  - img "Redragon Mirage M690 inalámbrico RGB" [ref=f1e479]
+                  - generic [ref=f1e480]: "2"
+                - generic [ref=f1e482]:
+                  - generic [ref=f1e485]:
+                    - generic [ref=f1e486]: Redragon
+                    - heading "Mirage M690 inalámbrico RGB" [level=3] [ref=f1e490]
+                  - generic [ref=f1e493]:
+                    - generic [ref=f1e494]:
+                      - generic [ref=f1e495]: Precio
+                      - generic [ref=f1e496]: CONTADO
+                    - generic [ref=f1e497]:
+                      - generic [ref=f1e498]: $
+                      - generic [ref=f1e499]: "50.000"
+              - generic [ref=f1e503] [cursor=pointer]:
+                - generic [ref=f1e505]:
+                  - img "Redragon M917GB St4r Pro Inalámbrico RGB" [ref=f1e507]
+                  - generic [ref=f1e508]: "2"
+                - generic [ref=f1e510]:
+                  - generic [ref=f1e513]:
+                    - generic [ref=f1e514]: Redragon
+                    - heading "M917GB St4r Pro Inalámbrico RGB" [level=3] [ref=f1e518]
+                  - generic [ref=f1e521]:
+                    - generic [ref=f1e522]:
+                      - generic [ref=f1e523]: Precio
+                      - generic [ref=f1e524]: CONTADO
+                    - generic [ref=f1e525]:
+                      - generic [ref=f1e526]: $
+                      - generic [ref=f1e527]: "40.000"
+              - generic [ref=f1e531] [cursor=pointer]:
+                - generic [ref=f1e533]:
+                  - img "Mouse Pad Redragon Flick XL 40cm x 90cm x 4mm" [ref=f1e535]
+                  - generic [ref=f1e536]: "5"
+                - generic [ref=f1e538]:
+                  - generic [ref=f1e541]:
+                    - generic [ref=f1e542]: Redragon
+                    - heading "Mouse Pad Redragon Flick XL 40cm x 90cm x 4mm" [level=3] [ref=f1e546]
+                  - generic [ref=f1e549]:
+                    - generic [ref=f1e550]:
+                      - generic [ref=f1e551]: Precio
+                      - generic [ref=f1e552]: CONTADO
+                    - generic [ref=f1e553]:
+                      - generic [ref=f1e554]: $
+                      - generic [ref=f1e555]: "30.000"
+              - generic [ref=f1e559] [cursor=pointer]:
+                - generic [ref=f1e561]:
+                  - img "Logitech M185 Inalámbrico" [ref=f1e563]
+                  - generic [ref=f1e564]: "2"
+                - generic [ref=f1e566]:
+                  - generic [ref=f1e569]:
+                    - generic [ref=f1e570]: Logitech
+                    - heading "M185 Inalámbrico" [level=3] [ref=f1e574]
+                  - generic [ref=f1e577]:
+                    - generic [ref=f1e578]:
+                      - generic [ref=f1e579]: Precio
+                      - generic [ref=f1e580]: CONTADO
+                    - generic [ref=f1e581]:
+                      - generic [ref=f1e582]: $
+                      - generic [ref=f1e583]: "10.000"
+              - generic [ref=f1e587] [cursor=pointer]:
+                - generic [ref=f1e589]:
+                  - img "Logitech M170 Inalámbrico" [ref=f1e591]
+                  - generic [ref=f1e592]: "15"
+                - generic [ref=f1e594]:
+                  - generic [ref=f1e597]:
+                    - generic [ref=f1e598]: Logitech
+                    - heading "M170 Inalámbrico" [level=3] [ref=f1e602]
+                  - generic [ref=f1e605]:
+                    - generic [ref=f1e606]:
+                      - generic [ref=f1e607]: Precio
+                      - generic [ref=f1e608]: CONTADO
+                    - generic [ref=f1e609]:
+                      - generic [ref=f1e610]: $
+                      - generic [ref=f1e611]: "10.000"
+              - generic [ref=f1e615] [cursor=pointer]:
+                - generic [ref=f1e617]:
+                  - img "Logitech M190 Inalámbrico" [ref=f1e619]
+                  - generic [ref=f1e620]: "7"
+                - generic [ref=f1e622]:
+                  - generic [ref=f1e625]:
+                    - generic [ref=f1e626]: Logitech
+                    - heading "M190 Inalámbrico" [level=3] [ref=f1e630]
+                  - generic [ref=f1e633]:
+                    - generic [ref=f1e634]:
+                      - generic [ref=f1e635]: Precio
+                      - generic [ref=f1e636]: CONTADO
+                    - generic [ref=f1e637]:
+                      - generic [ref=f1e638]: $
+                      - generic [ref=f1e639]: "10.000"
+              - generic [ref=f1e643] [cursor=pointer]:
+                - generic [ref=f1e645]:
+                  - img "Logitech M317 Inalámbrico Negro" [ref=f1e647]
+                  - generic [ref=f1e648]: "6"
+                - generic [ref=f1e650]:
+                  - generic [ref=f1e653]:
+                    - generic [ref=f1e654]: Logitech
+                    - heading "M317 Inalámbrico Negro" [level=3] [ref=f1e658]
+                  - generic [ref=f1e661]:
+                    - generic [ref=f1e662]:
+                      - generic [ref=f1e663]: Precio
+                      - generic [ref=f1e664]: CONTADO
+                    - generic [ref=f1e665]:
+                      - generic [ref=f1e666]: $
+                      - generic [ref=f1e667]: "15.000"
+              - generic [ref=f1e671] [cursor=pointer]:
+                - generic [ref=f1e673]:
+                  - img "Logitech G309 Inalámbrico Lightspeed" [ref=f1e675]
+                  - generic [ref=f1e676]: "4"
+                - generic [ref=f1e678]:
+                  - generic [ref=f1e681]:
+                    - generic [ref=f1e682]: Logitech
+                    - heading "G309 Inalámbrico Lightspeed" [level=3] [ref=f1e686]
+                  - generic [ref=f1e689]:
+                    - generic [ref=f1e690]:
+                      - generic [ref=f1e691]: Precio
+                      - generic [ref=f1e692]: CONTADO
+                    - generic [ref=f1e693]:
+                      - generic [ref=f1e694]: $
+                      - generic [ref=f1e695]: "55.000"
+              - generic [ref=f1e699] [cursor=pointer]:
+                - generic [ref=f1e701]:
+                  - img "Mouse Pad Yelandar XXL 90cm x 40cm x 4mm Negro" [ref=f1e703]
+                  - generic [ref=f1e704]: "4"
+                - generic [ref=f1e706]:
+                  - generic [ref=f1e709]:
+                    - generic [ref=f1e710]: Yelandar
+                    - heading "Mouse Pad Yelandar XXL 90cm x 40cm x 4mm Negro" [level=3] [ref=f1e714]
+                  - generic [ref=f1e717]:
+                    - generic [ref=f1e718]:
+                      - generic [ref=f1e719]: Precio
+                      - generic [ref=f1e720]: CONTADO
+                    - generic [ref=f1e721]:
+                      - generic [ref=f1e722]: $
+                      - generic [ref=f1e723]: "20.000"
+              - generic [ref=f1e727] [cursor=pointer]:
+                - generic [ref=f1e729]:
+                  - img "Mouse Pad Shoply XL 70cm x 30cm Aurora Boreal y Mapa" [ref=f1e731]
+                  - generic [ref=f1e732]: "3"
+                - generic [ref=f1e734]:
+                  - generic [ref=f1e737]:
+                    - generic [ref=f1e738]: Shoply
+                    - heading "Mouse Pad Shoply XL 70cm x 30cm Aurora Boreal y Mapa" [level=3] [ref=f1e742]
+                  - generic [ref=f1e745]:
+                    - generic [ref=f1e746]:
+                      - generic [ref=f1e747]: Precio
+                      - generic [ref=f1e748]: CONTADO
+                    - generic [ref=f1e749]:
+                      - generic [ref=f1e750]: $
+                      - generic [ref=f1e751]: "10.000"
+        - generic [ref=f1e753]:
+          - generic [ref=f1e754]:
+            - generic [ref=f1e755]:
+              - generic [ref=f1e757]:
+                - img "Logo" [ref=f1e759]
+                - heading "ElectroShock" [level=3] [ref=f1e761]
+              - paragraph [ref=f1e763]: Elevando tu experiencia tecnológica con componentes de alta gama y asesoramiento especializado. Expertos en hardware de alto rendimiento.
+            - generic [ref=f1e764]:
+              - heading "Contacto" [level=4] [ref=f1e765]
+              - generic [ref=f1e767]:
+                - generic [ref=f1e773]:
+                  - paragraph [ref=f1e774]: Horarios
+                  - paragraph [ref=f1e775]: "Lun - Dom: 9h a 21h"
+                - generic [ref=f1e780]:
+                  - paragraph [ref=f1e781]: Ventas
+                  - paragraph [ref=f1e782]: WhatsApp Oficial
+                - generic [ref=f1e788]:
+                  - paragraph [ref=f1e789]: Email
+                  - paragraph [ref=f1e790]: info@electroshock.com
+            - generic [ref=f1e791]:
+              - generic [ref=f1e792]:
+                - heading "Puntos De Retiro" [level=4] [ref=f1e793]
+                - generic [ref=f1e795]: 2 SUCURSALES
+              - generic [ref=f1e796]:
+                - link [ref=f1e797] [cursor=pointer]:
+                  - /url: https://maps.app.goo.gl/ivNLJMo7kHxtdUJAA
+                  - generic [ref=f1e800]:
+                    - paragraph [ref=f1e801]: Bingo BZ Cruce (Puerta)
+                    - paragraph [ref=f1e802]: Cruce Florencio Varela, Provincia de Buenos Aires
+                - link [ref=f1e807] [cursor=pointer]:
+                  - /url: https://maps.app.goo.gl/kXdMaP1UVaRw5x767
+                  - generic [ref=f1e810]:
+                    - paragraph [ref=f1e811]: Carrefour (Patio Comidas)
+                    - paragraph [ref=f1e812]: Av. Gral. José de San Martín 554. Florencio Varela, Provincia de Buenos Aires
+              - link "Mapa de ubicaciones ElectroShock Ver en Maps" [ref=f1e818] [cursor=pointer]:
+                - /url: https://www.google.com/maps/search/Florencio+Varela,+Buenos+Aires/@-34.78,-58.28,13z
+                - img "Mapa de ubicaciones ElectroShock" [ref=f1e819]
+                - generic [ref=f1e820]: Ver en Maps
+          - generic [ref=f1e825]:
+            - paragraph [ref=f1e827]: © 2025 ElectroShock · Buenos Aires, Argentina
+            - generic [ref=f1e828]:
+              - generic [ref=f1e829]: Desarrollado por
+              - generic [ref=f1e830]: JLdev Studio
+  - generic:
+    - button "Abrir menú de ayuda" [ref=f1e62] [cursor=pointer]
+    - generic [ref=f1e68]:
+      - button "Ir al inicio"

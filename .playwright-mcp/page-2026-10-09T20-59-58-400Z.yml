@@ -1,0 +1,10 @@
+- generic [ref=f1e41]:
+  - generic [ref=f1e47]:
+    - heading "¡Ups! Algo salió mal" [level=1] [ref=f1e48]
+    - paragraph [ref=f1e49]: Ocurrió un error inesperado en la aplicación
+  - generic [ref=f1e50]:
+    - paragraph [ref=f1e52]: No te preocupes, nuestro equipo ha sido notificado. Puedes intentar recargar la página o volver al inicio.
+    - generic [ref=f1e53]:
+      - button "Intentar nuevamente" [ref=f1e54] [cursor=pointer]
+      - button "Volver al inicio" [ref=f1e60] [cursor=pointer]
+    - paragraph [ref=f1e65]: Si el problema persiste, contacta con soporte técnico

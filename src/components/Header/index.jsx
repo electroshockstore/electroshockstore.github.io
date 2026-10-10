@@ -34,8 +34,8 @@ const Header = ({ onGoHome }) => {
         className={`
           ${headerPosition} top-0 z-50 w-full
           transition-all duration-300 ease-in-out
-          ${shouldBeScrolled 
-            ? 'bg-black border-b border-gray-800' 
+          ${shouldBeScrolled
+            ? 'bg-cyber-bg border-b border-cyber-line'
             : 'bg-transparent border-b border-transparent'
           }
         `}

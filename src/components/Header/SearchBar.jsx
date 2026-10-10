@@ -1,6 +1,7 @@
 import { useState, useRef, useEffect, useId } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Search, X, Package, Clock, ArrowRight } from 'lucide-react';
+import { Search, X, Package, Clock } from 'lucide-react';
+import CTAPill from '../Shared/CTAPill';
 import { useFilter } from '../../context/FilterContext';
 import { useProductSearch } from '../../hooks/useProductSearch';
 import { useDebouncedValue } from '../../hooks/useDebouncedValue';
@@ -50,6 +51,9 @@ const SearchBar = ({ isMobile = false, onClose }) => {
   const debouncedInput = useDebouncedValue(inputValue, 200);
 
   const searchRef = useRef(null);
+  // En mobile conviven dos instancias (la desktop oculta sigue montada):
+  // solo la que escribió la query puede pisarla o limpiarla.
+  const ownedRef = useRef(false);
   const listId = useId();
 
   const trimmed = inputValue.trim();
@@ -58,12 +62,25 @@ const SearchBar = ({ isMobile = false, onClose }) => {
   // Empujar al contexto (debounced): filtrado del catálogo en vivo sin
   // re-renderizar la página entera en cada tecla.
   useEffect(() => {
-    if (debouncedInput !== searchQuery) setSearchQuery(debouncedInput);
+    if (debouncedInput !== searchQuery) {
+      if (debouncedInput !== '') {
+        setSearchQuery(debouncedInput);
+        ownedRef.current = true;
+      } else if (ownedRef.current) {
+        setSearchQuery('');
+        ownedRef.current = false;
+      }
+    } else if (debouncedInput !== '') {
+      ownedRef.current = true;
+    }
   }, [debouncedInput, searchQuery, setSearchQuery]);
 
   // Adoptar limpiezas externas (p. ej. "ir a home") solo sin foco.
   useEffect(() => {
-    if (searchQuery === '' && !isFocused && !isOpen) setInputValue('');
+    if (searchQuery === '' && !isFocused && !isOpen) {
+      setInputValue('');
+      ownedRef.current = false;
+    }
   }, [searchQuery, isFocused, isOpen]);
 
   // Cerrar al hacer click afuera.
@@ -113,6 +130,7 @@ const SearchBar = ({ isMobile = false, onClose }) => {
   const handleClear = () => {
     setInputValue('');
     setSearchQuery('');
+    ownedRef.current = false;
     setIsOpen(false);
     resetActive();
   };
@@ -304,19 +322,20 @@ const SearchBar = ({ isMobile = false, onClose }) => {
                 </button>
               ))}
 
-              <button
-                type="button"
+              <CTAPill
+                variant="bare"
+                size="sm"
+                flat
+                label="Ver todos los resultados"
+                labelClassName="text-sm font-semibold text-blue-300"
+                suffix={
+                  <span className="text-xs text-gray-400">
+                    {total} {total === 1 ? 'producto' : 'productos'}
+                  </span>
+                }
                 onClick={handleViewAll}
-                className="w-full flex items-center justify-between gap-2 px-4 py-3 bg-gray-950/60 hover:bg-gray-800 active:bg-gray-700 transition-colors"
-              >
-                <span className="text-sm font-semibold text-blue-300">
-                  Ver todos los resultados
-                </span>
-                <span className="flex items-center gap-1.5 text-xs text-gray-400">
-                  {total} {total === 1 ? 'producto' : 'productos'}
-                  <ArrowRight className="h-3.5 w-3.5" />
-                </span>
-              </button>
+                className="w-full bg-gray-950/60 px-4 hover:bg-gray-800 active:bg-gray-700"
+              />
             </>
           ) : isStale ? (
             <div className="px-4 py-6 text-center text-sm text-gray-500">Buscando…</div>

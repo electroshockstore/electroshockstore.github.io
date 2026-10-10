@@ -1,5 +1,5 @@
 import { lazy, Suspense } from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import { FilterProvider } from "./context/FilterContext";
 import { PCBuilderProvider } from "./context/PCBuilderContext";
 import { ScrollProvider, ScrollRestoration } from "./context/ScrollContext";
@@ -40,7 +40,8 @@ function AnimatedRoutes() {
       <Route path="/categoria/:categorySlug/:productSku" element={<Suspense fallback={<ProductDetailSkeleton />}><ProductDetailPage /></Suspense>} />
       <Route path="/producto/:id" element={<Suspense fallback={<ProductDetailSkeleton />}><ProductDetailPage /></Suspense>} />
       <Route path="/armatupc" element={<Suspense fallback={<PageLoader />}><PCBuilder /></Suspense>} />
-      <Route path="/pc-builder" element={<Suspense fallback={<PageLoader />}><PCBuilder /></Suspense>} />
+      {/* /pc-builder es un alias legacy: canónico /armatupc (SEO, sin duplicar) */}
+      <Route path="/pc-builder" element={<Navigate to="/armatupc" replace />} />
       <Route path="/puntos-de-retiro" element={<Suspense fallback={<PageLoader />}><PuntosRetiro /></Suspense>} />
     </Routes>
   );

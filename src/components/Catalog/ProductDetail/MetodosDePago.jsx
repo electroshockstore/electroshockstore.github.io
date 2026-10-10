@@ -7,10 +7,10 @@ const MetodosDePago = () => {
       id: 'efectivo',
       icon: Banknote,
       title: 'Efectivo',
-      description: 'En el momento', 
+      description: 'En el momento',
       color: 'emerald',
-   gradient: 'from-yellow-500 to-cyan-500',
-      bgColor: 'from-emerald-50 to-green-50',
+      iconBg: 'bg-emerald-500',
+      accentLine: 'bg-emerald-500',
       available: true
     },
     {
@@ -19,8 +19,8 @@ const MetodosDePago = () => {
       title: 'Transferencia',
       description: 'Mayores a $100.000', // Texto mejorado
       color: 'blue',
-      gradient: 'from-blue-500 to-cyan-400',
-      bgColor: 'from-blue-50 to-indigo-50',
+      iconBg: 'bg-blue-500',
+      accentLine: 'bg-blue-500',
       available: true
     }
   ];
@@ -51,27 +51,39 @@ const MetodosDePago = () => {
   ];
 
   return (
-    <div className="bg-gradient-to-br from-gray-50 via-white to-blue-50 p-4 sm:p-6 rounded-xl relative overflow-hidden">
-      {/* Decorative background elements */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute top-5 right-5 w-32 h-32 bg-blue-200/20 rounded-full blur-2xl" />
-        <div className="absolute bottom-5 left-5 w-32 h-32 bg-emerald-200/20 rounded-full blur-2xl" />
-      </div>
-
+    <div className="bg-white border border-gray-200 p-4 sm:p-6 rounded-xl relative overflow-hidden">
       <div className="relative">
-        {/* Header Section */}
-        <div className="text-center mb-6">
-          <div className="inline-flex items-center gap-2 sm:gap-3 px-3 sm:px-4 py-2 bg-white rounded-full border-2 border-blue-200 shadow-sm mb-4 sm:mb-6">
-            <Sparkles className="h-3 w-3 sm:h-4 sm:w-4 text-blue-600" />
-            <span className="text-xs sm:text-sm font-bold text-gray-700">Métodos de Pago</span>
+        {/* Header Section — composición maximalista */}
+        <div className="relative overflow-hidden text-center mb-6 sm:mb-8">
+          {/* Número fantasma */}
+          <span
+            aria-hidden="true"
+            className="pointer-events-none absolute -right-2 top-0 select-none font-black leading-none text-gray-900/[0.05] text-[clamp(4rem,12vw,8rem)]"
+            style={{ fontFamily: "'Bebas Neue','Arial Black',sans-serif" }}
+          >
+            01
+          </span>
+
+          {/* Eyebrow con reglas */}
+          <div className="relative flex items-center justify-center gap-3 mb-4 sm:mb-5">
+            <span className="hidden h-px w-10 bg-gray-300 sm:block" />
+            <span className="inline-flex items-center gap-2 rounded-full border border-gray-200 bg-gray-50 px-3 py-1.5 shadow-sm sm:px-4 sm:py-2">
+              <Sparkles className="h-3 w-3 text-blue-600 sm:h-4 sm:w-4" />
+              <span className="text-xs font-bold text-gray-700 sm:text-sm">Métodos de Pago</span>
+            </span>
+            <span className="hidden h-px w-10 bg-gray-300 sm:block" />
           </div>
-          
-          <h2 className="text-2xl sm:text-4xl lg:text-5xl font-black text-gray-900 mb-4 sm:mb-6 px-4">
+
+          <h2 className="relative font-black uppercase leading-[0.9] tracking-tight text-gray-900 text-[clamp(2.4rem,6vw,4.5rem)]">
             Opciones de Pago
-            <span className="block text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-emerald-600 mt-1 sm:mt-2 pb-1 sm:pb-2">
+            <span className="block bg-gradient-to-r from-blue-600 to-emerald-600 bg-clip-text text-transparent">
               Seguros y Confiables
             </span>
           </h2>
+
+          <p className="relative mt-3 font-mono text-[10px] font-bold uppercase tracking-[0.22em] text-gray-400 sm:text-[11px]">
+            02 métodos · Sin anticipos
+          </p>
         </div>
 
         {/* Payment Methods Grid */}
@@ -113,13 +125,10 @@ const MetodosDePago = () => {
                     />
                   )}
                   
-                  {/* Gradient background decoration */}
-                  <div className={`absolute top-0 right-0 w-32 h-32 bg-gradient-to-br ${method.bgColor} opacity-40 rounded-full blur-3xl`} />
-
                   {/* Content */}
                   <div className="relative p-4 sm:p-6">
                     {/* Icon Circle */}
-                    <div className={`inline-flex p-3 sm:p-4 rounded-xl sm:rounded-2xl bg-gradient-to-br ${method.gradient} shadow-lg mb-3 sm:mb-4`}>
+                    <div className={`inline-flex p-3 sm:p-4 rounded-xl sm:rounded-2xl ${method.iconBg} shadow-lg mb-3 sm:mb-4`}>
                       <Icon className="h-5 w-5 sm:h-8 sm:w-8 text-white" strokeWidth={2.5} />
                     </div>
 
@@ -136,7 +145,7 @@ const MetodosDePago = () => {
                   </div>
 
                   {/* Bottom accent line */}
-                  <div className={`h-1.5 sm:h-2 bg-gradient-to-r ${method.gradient}`} />
+                  <div className={`h-1.5 sm:h-2 ${method.accentLine}`} />
                 </div>
               </div>
             );

@@ -7,6 +7,7 @@ import { useCategorySEO } from '../hooks/useSEO';
 import { useProductListView, useCategoryTracking } from '../hooks/useAnalytics';
 import { useScrollToTop } from '../hooks/useScrollToTop';
 import CatalogLayout from '../components/Catalog/CatalogLayout';
+import SectionTitle from '../components/Shared/SectionTitle';
 import CategoryFilter from '../components/Catalog/CategoryFilter';
 import CatalogContent from '../components/Catalog/CatalogContent';
 
@@ -48,8 +49,10 @@ const Catalog = () => {
   useProductListView(sortedProducts, listName);
   useCategoryTracking(selectedCategory, sortedProducts.length);
 
-  // SEO
-  useCategorySEO(selectedCategory, filteredProducts.length);
+  // SEO (/buscar no se indexa: resultados efímeros)
+  useCategorySEO(selectedCategory, filteredProducts.length, {
+    robots: categorySlug ? undefined : 'noindex, follow',
+  });
 
   return (
     <CatalogLayout
@@ -65,28 +68,41 @@ const Catalog = () => {
         />
       </div>
 
-      {/* Encabezado de resultados de búsqueda (/buscar) */}
-      {!selectedCategory && searchQuery.trim() && (
+      {/* Encabezado firma: categoría o resultados de búsqueda (/buscar) */}
+      {(selectedCategory || searchQuery.trim()) && (
         <div className="px-4 sm:px-6 pt-4 sm:pt-6">
-          <div className="flex flex-wrap items-center justify-between gap-3">
-            <h1 className="text-lg sm:text-2xl font-black text-gray-900">
-              Resultados para{' '}
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600">
-                “{searchQuery.trim()}”
-              </span>
-            </h1>
-            <button
-              type="button"
-              onClick={() => setSearchQuery('')}
-              className="px-3 py-1.5 rounded-full text-xs sm:text-sm font-semibold text-gray-600 bg-white border border-gray-200 shadow-sm hover:bg-gray-50 hover:text-gray-900 active:scale-95 transition-all duration-200"
-            >
-              Limpiar búsqueda
-            </button>
-          </div>
-          <p className="mt-1 text-sm text-gray-500">
-            {sortedProducts.length}{' '}
-            {sortedProducts.length === 1 ? 'resultado' : 'resultados'}
-          </p>
+          {selectedCategory ? (
+            <SectionTitle
+              as="h1"
+              tone="dark"
+              eyebrow={`Catálogo · ${sortedProducts.length} ${
+                sortedProducts.length === 1 ? 'producto' : 'productos'
+              }`}
+              titleTop={selectedCategory.toUpperCase()}
+              titleAccent={`${sortedProducts.length} ${
+                sortedProducts.length === 1 ? 'PRODUCTO' : 'PRODUCTOS'
+              }`}
+            />
+          ) : (
+            <SectionTitle
+              as="h1"
+              tone="dark"
+              eyebrow={`Búsqueda · ${sortedProducts.length} ${
+                sortedProducts.length === 1 ? 'resultado' : 'resultados'
+              }`}
+              titleTop="Resultados"
+              titleAccent={`“${searchQuery.trim()}”`}
+              action={
+                <button
+                  type="button"
+                  onClick={() => setSearchQuery('')}
+                  className="rounded-full border border-gray-200 bg-white px-3 py-1.5 text-xs font-semibold text-gray-600 shadow-sm transition-all duration-200 hover:bg-gray-50 hover:text-gray-900 active:scale-95 sm:text-sm"
+                >
+                  Limpiar búsqueda
+                </button>
+              }
+            />
+          )}
         </div>
       )}
 

@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import { Share2, Link2, Check, ChevronDown } from 'lucide-react';
 import Portal from './Portal';
 import BottomSheet from './BottomSheet';
+import CTAPill from './CTAPill';
 import { useIsDesktop } from '../../hooks/useMediaQuery';
 import { formatPrice } from '../../utils/formatPrice';
 
@@ -304,39 +305,31 @@ const ShareButton = ({ productName, product, className = '' }) => {
 
   return (
     <>
-      <button
-        ref={buttonRef}
-        onClick={() => setShowOptions(!showOptions)}
-        onTouchEnd={(e) => {
-          e.preventDefault();
-          setShowOptions(!showOptions);
-        }}
-        style={{
-          WebkitTapHighlightColor: 'transparent',
-          cursor: 'pointer',
-          touchAction: 'manipulation'
-        }}
-        className={`w-full flex items-center justify-center gap-3 bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white px-4 py-3 sm:px-6 sm:py-4 rounded-xl shadow-lg hover:shadow-blue-500/50 transition-all duration-300 font-bold text-sm sm:text-base hover:scale-[1.02] hover:-translate-y-0.5 active:scale-[0.98] group relative overflow-hidden ${className}`}
-      >
-        <div className="flex-shrink-0">
-          <Share2 className="w-5 h-5 sm:w-6 sm:h-6" strokeWidth={2.5} />
-        </div>
-
-        <div className="flex flex-col items-start">
-          <span className="text-xs sm:text-sm font-semibold opacity-90">
-            Compartir
-          </span>
-          <span className="text-sm sm:text-base font-black">
-            Este producto
-          </span>
-        </div>
-
-        <div className="flex-shrink-0 group-hover:translate-y-0.5 transition-transform duration-300">
-          <ChevronDown className="w-4 h-4 sm:w-5 sm:h-5" strokeWidth={2.5} />
-        </div>
-
-        <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000 rounded-xl" />
-      </button>
+      <span ref={buttonRef} className="block w-full">
+        <CTAPill
+          variant="brand"
+          caption="Compartir"
+          label="Este producto"
+          prefix={<Share2 className="h-5 w-5 shrink-0 sm:h-6 sm:w-6" strokeWidth={2.5} />}
+          circleIcon={
+            <ChevronDown
+              className={`h-4 w-4 transition-transform duration-200 sm:h-5 sm:w-5 ${showOptions ? 'rotate-180' : ''}`}
+              strokeWidth={2.5}
+            />
+          }
+          onClick={() => setShowOptions(!showOptions)}
+          onTouchEnd={(e) => {
+            e.preventDefault();
+            setShowOptions(!showOptions);
+          }}
+          className={`w-full text-sm shadow-lg sm:text-base ${className}`}
+          style={{
+            WebkitTapHighlightColor: 'transparent',
+            cursor: 'pointer',
+            touchAction: 'manipulation'
+          }}
+        />
+      </span>
 
       {/* Desktop: dropdown posicionado junto al botón */}
       {isDesktop && showOptions && dropdownPosition && (

@@ -29,7 +29,13 @@ try {
     </script>`;
 
   // Insertar el script antes del cierre de </head>
-  const content404 = indexContent.replace('</head>', `${redirectScript}\n  </head>`);
+  const content404 = indexContent
+    .replace('</head>', `${redirectScript}\n  </head>`)
+    // El 404 no se indexa (pero no se bloquea en robots para que el noindex se procese)
+    .replace(
+      /<meta name="robots" content="[^"]*"\s*\/?>/,
+      '<meta name="robots" content="noindex, follow" />'
+    );
   
   // Escribir el archivo 404.html
   fs.writeFileSync(dist404Path, content404);

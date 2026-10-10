@@ -14,22 +14,22 @@ const ProductsGrid = ({ products = [] }) => {
   return (
     <div className="relative px-4 sm:px-6 md:px-11 py-6 sm:py-8 md:py-10 bg-[#09090d]">
       {/* Side labels - Solo desktop */}
-      <span className="hidden lg:block absolute left-2.5 top-1/2 -translate-y-1/2 font-mono text-[8px] font-medium tracking-[0.22em] uppercase text-lime-400 opacity-35 [writing-mode:vertical-rl] rotate-180 pointer-events-none">
+      <span className="hidden lg:block absolute left-2.5 top-1/2 -translate-y-1/2 font-mono text-[8px] font-medium tracking-[0.22em] uppercase text-cyber-lime opacity-35 [writing-mode:vertical-rl] rotate-180 pointer-events-none">
         Ofertas que vuelan
       </span>
-      <span className="hidden lg:block absolute right-2.5 top-1/2 -translate-y-1/2 font-mono text-[8px] font-medium tracking-[0.22em] uppercase text-lime-400 opacity-35 [writing-mode:vertical-rl] pointer-events-none">
+      <span className="hidden lg:block absolute right-2.5 top-1/2 -translate-y-1/2 font-mono text-[8px] font-medium tracking-[0.22em] uppercase text-cyber-lime opacity-35 [writing-mode:vertical-rl] pointer-events-none">
         No te las pierdas
       </span>
 
       {/* Products header */}
       <div className="flex flex-row items-center justify-between gap-3 sm:gap-4 mb-5 pb-4 border-b border-white/[0.055]">
         <div className="flex items-center gap-2">
-          <Zap className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-lime-400 flex-shrink-0" />
+          <Zap className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-cyber-lime flex-shrink-0" />
           <span className="font-mono text-[10px] sm:text-xs md:text-[13px] font-medium tracking-[0.1em] uppercase text-white">
             {Math.min(products.length, 3)} Producto{products.length !== 1 ? 's' : ''} con descuento
           </span>
         </div>
-        <span className="pill border border-lime-400/30 bg-lime-400/[0.07] text-lime-400 font-mono text-[8px] sm:text-[9px] font-medium tracking-[0.1em] uppercase px-2 sm:px-4 py-1 sm:py-1.5 rounded-full whitespace-nowrap flex-shrink-0">
+        <span className="pill border border-cyber-lime/30 bg-cyber-lime/[0.07] text-cyber-lime font-mono text-[8px] sm:text-[9px] font-medium tracking-[0.1em] uppercase px-2 sm:px-4 py-1 sm:py-1.5 rounded-full whitespace-nowrap flex-shrink-0">
           Hasta {avgDiscount}% Off
         </span>
       </div>

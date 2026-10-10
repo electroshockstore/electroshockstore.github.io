@@ -7,11 +7,11 @@ const HeroBadge = ({ text, icon, showDot = false, className = '' }) => {
           clipPath: 'polygon(8px 0%, 100% 0%, calc(100% - 8px) 100%, 0% 100%)'
         }}
       >
-        {icon && <span className="inline-block mr-1">{icon}</span>}
+        {icon && <span className="mr-1 inline-flex items-center [&>svg]:h-3.5 [&>svg]:w-3.5">{icon}</span>}
         {text}
       </span>
       {showDot && (
-        <span className="hero-badge-dot w-2 h-2 rounded-full bg-blue-400" />
+        <span className="hero-badge-dot w-2 h-2 rounded-full bg-cyber-cyan" />
       )}
     </div>
   );

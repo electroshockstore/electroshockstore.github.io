@@ -34,7 +34,7 @@ const SlideTitle = ({ slide, animationVariants, isVisible, isIOS }) => {
           {slide.titleHighlight}
         </span>
         
-        <span className={`hidden sm:block absolute inset-0 ${slide.highlightColor} ${isIOS ? 'blur-xl' : 'blur-2xl'} opacity-60 ${isIOS ? '' : 'animate-pulse'}`} />
+        <span className={`hidden sm:block absolute inset-0 ${slide.highlightColor} ${isIOS ? 'blur-xl' : 'blur-2xl'} opacity-60 ${isIOS ? '' : 'motion-reduce:animate-none animate-pulse'}`} />
       </motion.span>
     </h1>
   );

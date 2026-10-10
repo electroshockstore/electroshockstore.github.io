@@ -1,0 +1,257 @@
+- generic [active] [ref=e1]:
+  - generic [ref=e2]:
+    - link "Saltar al contenido principal" [ref=e3] [cursor=pointer]:
+      - /url: "#main-content"
+    - main [ref=e6]:
+      - generic [ref=e7]:
+        - generic [ref=e13]:
+          - generic [ref=e15]:
+            - button "ElectroShock Tecnología y Conectividad" [ref=e16] [cursor=pointer]:
+              - generic [ref=e21]:
+                - generic [ref=e22]: ElectroShock
+                - generic [ref=e23]: Tecnología y Conectividad
+            - generic [ref=e24]:
+              - button "Buscar" [ref=e25] [cursor=pointer]
+              - button "Notificaciones" [ref=e29] [cursor=pointer]:
+                - generic [ref=e30]: "1"
+          - button "Explorar todas las categorías" [ref=e38] [cursor=pointer]:
+            - generic [ref=e44]:
+              - generic [ref=e45]: Explorar
+              - generic [ref=e46]: Todas las categorías
+          - generic [ref=e51]:
+            - generic [ref=e52]: Puntos de retiro
+            - generic [ref=e60]: Pago seguro
+            - generic [ref=e66]: Sin Depositos Previos
+        - main [ref=e72]:
+          - generic [ref=e73]:
+            - generic [ref=e75]:
+              - generic [ref=e82]:
+                - generic [ref=e83]: VERIFICADO
+                - heading "COMPRÁ SEGURO" [level=1] [ref=e88]:
+                  - generic [ref=e89]: COMPRÁ
+                  - generic [ref=e90]: SEGURO
+                - paragraph [ref=e95]: ¡NO TE DEJES ENGAÑAR!
+                - generic [ref=e98]:
+                  - generic [ref=e99]:
+                    - generic [ref=e100]: "!"
+                    - generic [ref=e103]: No tenemos Instagram ni Facebook.
+                  - generic [ref=e104]:
+                    - generic [ref=e105]: ✓
+                    - generic [ref=e108]: Solo Whatsapp Oficial.
+              - generic [ref=e109]:
+                - generic [ref=e110]:
+                  - generic [ref=e111]: "01"
+                  - generic [ref=e112]: /05
+                - generic [ref=e113]:
+                  - button "Ir a slide 1" [ref=e114] [cursor=pointer]
+                  - button "Ir a slide 2" [ref=e115] [cursor=pointer]
+                  - button "Ir a slide 3" [ref=e116] [cursor=pointer]
+                  - button "Ir a slide 4" [ref=e117] [cursor=pointer]
+                  - button "Ir a slide 5" [ref=e118] [cursor=pointer]
+            - generic [ref=e120]:
+              - generic [ref=e124]:
+                - generic [ref=e125]:
+                  - generic [ref=e126]: Ofertas relámpago
+                  - heading "OFERTAS RELÁMPAGO RELÁMPAGO" [level=2] [ref=e129]:
+                    - generic [ref=e130]: OFERTAS
+                    - generic [ref=e131]:
+                      - text: RELÁMPAGO
+                      - generic [ref=e132]: RELÁMPAGO
+                - generic [ref=e134]:
+                  - generic [ref=e135]: Termina en
+                  - generic [ref=e137]:
+                    - generic [ref=e138]:
+                      - generic [ref=e139]: "02"
+                      - generic [ref=e146]: Días
+                    - generic [ref=e147]: ":"
+                    - generic [ref=e148]:
+                      - generic [ref=e149]: "07"
+                      - generic [ref=e156]: Hrs
+                    - generic [ref=e157]: ":"
+                    - generic [ref=e158]:
+                      - generic [ref=e159]: "54"
+                      - generic [ref=e166]: Min
+                    - generic [ref=e167]: ":"
+                    - generic [ref=e168]:
+                      - generic [ref=e169]: "59"
+                      - generic [ref=e176]: Seg
+              - generic [ref=e178]:
+                - generic [ref=e179]:
+                  - generic [ref=e180]: TIEMPO LIMITADO
+                  - generic [ref=e184]: STOCK LIMITADO
+                  - generic [ref=e188]: PRECIOS IRREPETIBLES
+                - generic [ref=e192]:
+                  - generic [ref=e193]: TIEMPO LIMITADO
+                  - generic [ref=e197]: STOCK LIMITADO
+                  - generic [ref=e201]: PRECIOS IRREPETIBLES
+                - generic [ref=e205]:
+                  - generic [ref=e206]: TIEMPO LIMITADO
+                  - generic [ref=e210]: STOCK LIMITADO
+                  - generic [ref=e214]: PRECIOS IRREPETIBLES
+                - generic [ref=e218]:
+                  - generic [ref=e219]: TIEMPO LIMITADO
+                  - generic [ref=e223]: STOCK LIMITADO
+                  - generic [ref=e227]: PRECIOS IRREPETIBLES
+              - generic [ref=e231]:
+                - generic [ref=e232]:
+                  - generic [ref=e233]: 3 Productos con descuento
+                  - generic [ref=e237]: Hasta 12% Off
+                - generic [ref=e239]:
+                  - generic [ref=e240]:
+                    - generic [ref=e241] [cursor=pointer]:
+                      - generic [ref=e243]:
+                        - img "SSD Netac SA500 960GB SATA III 2.5\"" [ref=e244]
+                        - generic [ref=e245]: "-10%"
+                        - generic [ref=e246]: ¡5!
+                      - generic [ref=e250]:
+                        - heading "SSD Netac SA500 960GB SATA III 2.5\"" [level=3] [ref=e251]
+                        - generic [ref=e252]:
+                          - generic [ref=e253]:
+                            - generic [ref=e254]: $ 160.000
+                            - generic [ref=e255]: − $ 16.000
+                          - generic [ref=e256]: $ 144.000
+                          - generic [ref=e257]: Ahorrás $ 16.000
+                        - button "Lo Quiero →" [ref=e262]:
+                          - text: Lo Quiero
+                          - generic [ref=e265]: →
+                    - generic [ref=e267] [cursor=pointer]:
+                      - generic [ref=e269]:
+                        - img "HyperX Alloy Core RGB - Membrana Full Size Alámbrico" [ref=e270]
+                        - generic [ref=e271]: "-10%"
+                        - generic [ref=e272]: ¡5!
+                      - generic [ref=e276]:
+                        - heading "HyperX Alloy Core RGB - Membrana Full Size Alámbrico" [level=3] [ref=e277]
+                        - generic [ref=e278]:
+                          - generic [ref=e279]:
+                            - generic [ref=e280]: $ 50.000
+                            - generic [ref=e281]: − $ 5.000
+                          - generic [ref=e282]: $ 45.000
+                          - generic [ref=e283]: Ahorrás $ 5.000
+                        - button "Lo Quiero →" [ref=e288]:
+                          - text: Lo Quiero
+                          - generic [ref=e291]: →
+                  - generic [ref=e293] [cursor=pointer]:
+                    - generic [ref=e294]:
+                      - img "Redragon Pandora 2 H350RGB-1 - USB 7.1 RGB Blanco" [ref=e295]
+                      - generic [ref=e296]: "-16.5%"
+                      - generic [ref=e297]: ¡2!
+                    - generic [ref=e300]:
+                      - heading "Redragon Pandora 2 H350RGB-1 - USB 7.1 RGB Blanco" [level=3] [ref=e301]
+                      - generic [ref=e302]:
+                        - generic [ref=e303]:
+                          - generic [ref=e304]: $ 60.000
+                          - generic [ref=e305]: − $ 9.900
+                        - generic [ref=e306]: $ 50.100
+                        - generic [ref=e307]: Ahorrás $ 9.900
+                      - button "Lo Quiero →" [ref=e312]:
+                        - text: Lo Quiero
+                        - generic [ref=e315]: →
+            - generic [ref=e318] [cursor=pointer]:
+              - generic [aria-hidden]: "01"
+              - generic [ref=e325]:
+                - generic [ref=e326]:
+                  - generic [ref=e327]: Elegí tus componentes
+                  - generic [ref=e330]: PC BUILD / 01
+                - generic [ref=e332]:
+                  - generic [ref=e333]: Configurador
+                  - heading [level=3] [ref=e336]:
+                    - text: Armá tu
+                    - generic [ref=e337]: Combo
+                    - generic [ref=e340]: ideal
+                  - paragraph [ref=e343]: Seleccioná cada pieza por tu cuenta. Te avisamos si algún componente no es compatible.
+                - generic [ref=e344]: Empezar a elegir
+            - generic [ref=e359]:
+              - generic [ref=e360]:
+                - img "Puntos de Retiro" [ref=e363]
+                - generic [ref=e370] [cursor=pointer]:
+                  - generic [ref=e371]: Sin
+                  - generic [ref=e372]: Anticipos
+                - generic [ref=e380] [cursor=pointer]:
+                  - generic [ref=e381]: Puntos
+                  - generic [ref=e382]: Seguros
+                - generic [ref=e393] [cursor=pointer]:
+                  - generic [ref=e394]: Sin
+                  - generic [ref=e395]: Envíos
+              - generic [ref=e397]:
+                - generic [ref=e398]: Sin Local Físico
+                - generic [ref=e403]:
+                  - heading "Coordiná la Entrega" [level=2] [ref=e404]:
+                    - generic [ref=e406]: Coordiná la
+                    - generic [ref=e407]: Entrega
+                  - paragraph [ref=e408]: Revisás y pagás en el momento.
+                - button "¿Donde Retiro los Productos?" [ref=e410] [cursor=pointer]
+            - generic [ref=e418]:
+              - generic [ref=e420]:
+                - generic [ref=e421]: ElectroShock · Catálogo
+                - generic [ref=e422]:
+                  - generic [ref=e423]: EXPLORÁ
+                  - generic [ref=e424]: CATEGORÍAS
+                - paragraph [ref=e425]: Todo para tu setup en un solo lugar
+              - generic [ref=e426]:
+                - generic [ref=e427]:
+                  - button "PROCESADORES PROCESADORES" [ref=e429] [cursor=pointer]:
+                    - img "PROCESADORES" [ref=e430]
+                    - generic [ref=e433]: PROCESADORES
+                  - button "FUENTES FUENTES" [ref=e437] [cursor=pointer]:
+                    - img "FUENTES" [ref=e438]
+                    - generic [ref=e441]: FUENTES
+                  - button "REFRIGERACIÓN REFRIGERACIÓN" [ref=e445] [cursor=pointer]:
+                    - img "REFRIGERACIÓN" [ref=e446]
+                    - generic [ref=e449]: REFRIGERACIÓN
+                  - button "MOTHERBOARDS MOTHERBOARDS" [ref=e453] [cursor=pointer]:
+                    - img "MOTHERBOARDS" [ref=e454]
+                    - generic [ref=e457]: MOTHERBOARDS
+                  - button "MEMORIAS RAM MEMORIAS RAM" [ref=e461] [cursor=pointer]:
+                    - img "MEMORIAS RAM" [ref=e462]
+                    - generic [ref=e465]: MEMORIAS RAM
+                - button "ALMACENAMIENTO ALMACENAMIENTO" [ref=e469] [cursor=pointer]:
+                  - img "ALMACENAMIENTO" [ref=e470]
+                  - generic [ref=e473]: ALMACENAMIENTO
+                - button "Ver todo el catálogo" [ref=e476] [cursor=pointer]
+        - generic [ref=e480]:
+          - generic [ref=e481]:
+            - generic [ref=e482]:
+              - generic [ref=e485]:
+                - img "Logo" [ref=e487]
+                - heading "ElectroShock" [level=3] [ref=e489]
+              - paragraph [ref=e491]: Elevando tu experiencia tecnológica con componentes de alta gama y asesoramiento especializado. Expertos en hardware de alto rendimiento.
+            - generic [ref=e492]:
+              - heading "Contacto" [level=4] [ref=e493]
+              - generic [ref=e495]:
+                - generic [ref=e501]:
+                  - paragraph [ref=e502]: Horarios
+                  - paragraph [ref=e503]: "Lun - Dom: 9h a 21h"
+                - generic [ref=e508]:
+                  - paragraph [ref=e509]: Ventas
+                  - paragraph [ref=e510]: WhatsApp Oficial
+                - generic [ref=e516]:
+                  - paragraph [ref=e517]: Email
+                  - paragraph [ref=e518]: info@electroshock.com
+            - generic [ref=e519]:
+              - generic [ref=e520]:
+                - heading "Puntos De Retiro" [level=4] [ref=e521]
+                - generic [ref=e523]: 2 SUCURSALES
+              - generic [ref=e524]:
+                - link [ref=e525] [cursor=pointer]:
+                  - /url: https://maps.app.goo.gl/ivNLJMo7kHxtdUJAA
+                  - generic [ref=e528]:
+                    - paragraph [ref=e529]: Bingo BZ Cruce (Puerta)
+                    - paragraph [ref=e530]: Cruce Florencio Varela, Provincia de Buenos Aires
+                - link [ref=e535] [cursor=pointer]:
+                  - /url: https://maps.app.goo.gl/kXdMaP1UVaRw5x767
+                  - generic [ref=e538]:
+                    - paragraph [ref=e539]: Carrefour (Patio Comidas)
+                    - paragraph [ref=e540]: Av. Gral. José de San Martín 554. Florencio Varela, Provincia de Buenos Aires
+              - link "Mapa de ubicaciones ElectroShock 📍 Ver en Maps" [ref=e546] [cursor=pointer]:
+                - /url: https://www.google.com/maps/search/Florencio+Varela,+Buenos+Aires/@-34.78,-58.28,13z
+                - img "Mapa de ubicaciones ElectroShock" [ref=e547]
+                - generic [ref=e548]: 📍 Ver en Maps
+          - generic [ref=e549]:
+            - paragraph [ref=e551]: © 2025 ElectroShock · Buenos Aires, Argentina
+            - generic [ref=e552]:
+              - generic [ref=e553]: Desarrollado por
+              - generic [ref=e554]: JLdev Studio
+  - generic:
+    - button "Abrir menú de ayuda" [ref=e557] [cursor=pointer]
+    - generic [ref=e563]:
+      - button "Ir al inicio"

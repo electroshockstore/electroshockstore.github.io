@@ -1,4 +1,18 @@
-export const updateMetaTags = ({ title, description, keywords, image, url, type = 'website' }) => {
+import { generateSKU, getSlugFromCategory } from './slugify';
+
+export const SITE_URL = 'https://www.electroshock.com.ar';
+
+export const updateMetaTags = ({
+  title,
+  description,
+  keywords,
+  image,
+  imageAlt,
+  url,
+  type = 'website',
+  robots,
+  twitterCard,
+}) => {
   if (title) {
     document.title = title;
     updateMetaTag('og:title', title);
@@ -16,25 +30,46 @@ export const updateMetaTags = ({ title, description, keywords, image, url, type 
   }
 
   if (image) {
-    const fullImageUrl = image.startsWith('http') ? image : `https://www.jldev.com.ar${image}`;
+    const fullImageUrl = image.startsWith('http') ? image : `${SITE_URL}${image}`;
     updateMetaTag('og:image', fullImageUrl);
     updateMetaTag('twitter:image', fullImageUrl);
+    if (imageAlt) {
+      updateMetaTag('og:image:alt', imageAlt);
+      updateMetaTag('twitter:image:alt', imageAlt);
+    }
   }
 
   if (url) {
-    const fullUrl = url.startsWith('http') ? url : `https://www.jldev.com.ar${url}`;
+    const fullUrl = url.startsWith('http') ? url : `${SITE_URL}${url}`;
     updateMetaTag('og:url', fullUrl);
     updateMetaTag('twitter:url', fullUrl);
     updateLinkTag('canonical', fullUrl);
   }
 
-  updateMetaTag('og:type', type);
+  // Open Graph no tiene tipo "product": las fichas usan "website" y el
+  // marcado de producto vive en JSON-LD (Schema.org).
+  updateMetaTag('og:type', type === 'product' ? 'website' : type);
+
+  if (twitterCard) {
+    updateMetaTag('twitter:card', twitterCard);
+  } else if (type === 'product') {
+    updateMetaTag('twitter:card', 'summary_large_image');
+  }
+
+  if (robots) {
+    updateMetaTag('robots', robots);
+  }
 };
 
 const updateMetaTag = (name, content) => {
-  const isProperty = name.startsWith('og:') || name.startsWith('twitter:');
-  const attribute = isProperty ? 'property' : 'name';
-  
+  // Solo Open Graph usa `property`. Twitter y meta estándar usan `name`.
+  // Además eliminamos restos legacy `property="twitter:..."` para no duplicar.
+  if (name.startsWith('twitter:')) {
+    const legacy = document.querySelector(`meta[property="${name}"]`);
+    if (legacy) legacy.remove();
+  }
+  const attribute = name.startsWith('og:') ? 'property' : 'name';
+
   let element = document.querySelector(`meta[${attribute}="${name}"]`);
   
   if (!element) {
@@ -58,20 +93,25 @@ const updateLinkTag = (rel, href) => {
   element.setAttribute('href', href);
 };
 
-export const generateProductSchema = (product) => {
+export const generateProductSchema = (product, canonicalUrl) => {
+  const categorySlug = getSlugFromCategory(product.category);
+  const sku = generateSKU(product.name, product.brand);
+  const url = canonicalUrl || `${SITE_URL}/categoria/${categorySlug}/${sku}`;
+
   const schema = {
     "@context": "https://schema.org/",
     "@type": "Product",
     "name": product.name,
+    "url": url,
     "brand": {
       "@type": "Brand",
       "name": product.brand
     },
     "description": product.description || `${product.name} - ${product.brand}`,
-    "sku": product.id.toString(),
+    "sku": sku,
     "offers": {
       "@type": "Offer",
-      "url": `https://www.jldev.com.ar/categoria/${product.category.toLowerCase()}/${product.id}`,
+      "url": url,
       "priceCurrency": "ARS",
       "price": product.price,
       "availability": product.stock > 0 ? "https://schema.org/InStock" : "https://schema.org/OutOfStock",
@@ -82,9 +122,17 @@ export const generateProductSchema = (product) => {
     }
   };
 
+  if (product.model) {
+    schema.model = product.model;
+  }
+
+  if (product.category) {
+    schema.category = product.category;
+  }
+
   if (product.images && product.images.length > 0) {
-    schema.image = product.images.map(img => 
-      img.startsWith('http') ? img : `https://www.jldev.com.ar${img}`
+    schema.image = product.images.map(img =>
+      img.startsWith('http') ? img : `${SITE_URL}${img}`
     );
   }
 
@@ -97,9 +145,10 @@ export const generateOrganizationSchema = () => {
     "@type": "Store",
     "name": "ElectroShock",
     "description": "Tienda de componentes de PC, periféricos gaming, hardware y tecnología en Zona Sur,  Buenos Aires. y Florencio Varela",
-    "url": "https://www.jldev.com.ar",
-    "logo": "https://www.jldev.com.ar/logotipo_tiny.png",
-    "image": "https://www.jldev.com.ar/logotipo_tiny.png",
+    "url": SITE_URL,
+    "logo": `${SITE_URL}/logotipo_tiny.png`,
+    "image": `${SITE_URL}/logotipo_tiny.png`,
+    "telephone": "+54-11-2571-8382",
     "address": {
       "@type": "PostalAddress",
       "addressLocality": "Zona Sur,  Buenos Aires.",
@@ -116,8 +165,15 @@ export const generateOrganizationSchema = () => {
       "geoRadius": "50000"
     },
     "priceRange": "$$",
-    "telephone": "+54",
-    "sameAs": []
+    "sameAs": [
+      "https://www.instagram.com/shock.store.ok/"
+    ],
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "telephone": "+54-11-2571-8382",
+      "contactType": "customer service",
+      "availableLanguage": "Spanish"
+    }
   };
 };
 

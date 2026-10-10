@@ -1,0 +1,12 @@
+- generic [active] [ref=f4e1]:
+  - generic [ref=f4e2]:
+    - link "Saltar al contenido principal" [ref=f4e3] [cursor=pointer]:
+      - /url: "#main-content"
+    - main [ref=f4e6]
+  - generic:
+    - button "Abrir menú de ayuda" [ref=f4e27] [cursor=pointer]:
+      - generic [ref=f4e33]:
+        - generic [ref=f4e34]: ¿Necesitás ayuda?
+        - generic [ref=f4e35]: Chatea con nosotros
+    - generic [ref=f4e39]:
+      - button "Ir al inicio"

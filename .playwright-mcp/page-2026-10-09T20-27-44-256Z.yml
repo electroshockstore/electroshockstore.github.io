@@ -1,0 +1,207 @@
+- generic [active] [ref=e1]:
+  - generic [ref=e2]:
+    - link "Saltar al contenido principal" [ref=e3] [cursor=pointer]:
+      - /url: "#main-content"
+    - main [ref=e6]:
+      - generic [ref=e7]:
+        - generic [ref=e10]:
+          - button "ElectroShock Tecnología y Conectividad" [ref=e11] [cursor=pointer]:
+            - generic [ref=e16]:
+              - generic [ref=e17]: ElectroShock
+              - generic [ref=e18]: Tecnología y Conectividad
+          - combobox "Buscar productos, marcas o categorías..." [ref=e20]
+          - generic [ref=e21]:
+            - paragraph [ref=e30]: ¡Info importante!
+            - button "Condiciones" [ref=e33] [cursor=pointer]
+            - button "Puntos de Retiro" [ref=e39] [cursor=pointer]
+            - button "Inicio" [ref=e44] [cursor=pointer]
+        - main [ref=e49]:
+          - generic [ref=e51]:
+            - generic [ref=e54]:
+              - generic [ref=e55]:
+                - generic [ref=e56]:
+                  - generic [ref=e57]: Puntos de retiro disponibles
+                  - heading "DÓNDE RETIRO LOS PRODUCTOS" [level=1] [ref=e64]:
+                    - generic [ref=e65]: DÓNDE RETIRO
+                    - generic [ref=e74]: LOS PRODUCTOS
+                  - paragraph [ref=e76]:
+                    - text: Elegí el punto más cercano y coordiná el retiro
+                    - generic [ref=e77]: seguro
+                  - generic [ref=e78]:
+                    - button "VER PUNTOS DE RETIRO →" [ref=e79] [cursor=pointer]
+                    - generic [ref=e80]:
+                      - generic [ref=e81]:
+                        - generic [ref=e82]: "3"
+                        - generic [ref=e83]: PUNTOS
+                      - generic [ref=e84]:
+                        - generic [ref=e85]: COORDINAR
+                        - generic [ref=e86]: HORARIOS
+                - generic [ref=e87]: RETIROS PERSONALES
+              - generic [ref=e101]:
+                - generic [ref=e102]: PUNTOS SEGUROS
+                - generic [ref=e107]: SIN ADELANTOS NI SEÑAS
+                - generic [ref=e112]: RETIROS EN EL DIA
+                - generic [ref=e116]: CONFIRMACIÓN INSTANTÁNEA
+            - button "Ver más" [ref=e121] [cursor=pointer]
+          - generic [ref=e127]:
+            - generic [ref=e130]:
+              - img "Condiciones" [ref=e132]
+              - generic [ref=e137]:
+                - generic [ref=e138]: Seguridad
+                - heading "Sin Depositos Previos" [level=3] [ref=e139]
+                - paragraph [ref=e140]: "\"Sin Anticipos ni Señas\""
+                - paragraph [ref=e141]: No solicitamos pagos previos, No se deje engañar con estafas
+              - generic [ref=e146]:
+                - generic [ref=e147]: Transparencia
+                - heading "Pago Inmediato" [level=3] [ref=e148]
+                - generic [ref=e149]:
+                  - generic [ref=e150]: Efectivo
+                  - generic [ref=e154]: Transferencia
+                - paragraph [ref=e157]: No lo intenten estafadores, conocemos todas las modalidades
+              - generic [ref=e164]:
+                - generic [ref=e165]: Cargos extras aplicables
+                - generic [ref=e166]:
+                  - generic [ref=e167]: 10%
+                  - generic [ref=e168]: Recargo
+                - paragraph [ref=e169]: Transferencias menores a $100.000
+              - generic [ref=e180]:
+                - generic [ref=e181]: Puntos Seguros
+                - generic [ref=e182]:
+                  - generic [ref=e183]: "NO"
+                  - generic [ref=e184]: hacemos Envios
+                - generic [ref=e185]:
+                  - generic [ref=e186]: NO se retira en mi Domicilio
+                  - generic [ref=e190]: NO vendo por Mercadolibre
+              - generic [ref=e200]:
+                - generic [ref=e201]:
+                  - heading "Sin Local físico" [level=3] [ref=e202]
+                  - generic [ref=e203]:
+                    - generic [ref=e204]: Stock local cerrado
+                    - generic [ref=e205]: Sin Garantía
+                    - generic [ref=e206]: Atención
+                - separator [ref=e207]
+                - paragraph [ref=e208]:
+                  - text: Los productos se entregan sellados,
+                  - strong [ref=e209]: Pago previo para apertura
+                  - text: .
+            - generic [ref=e211]:
+              - generic [ref=e214]:
+                - generic [ref=e215]: Puntos de Retiro
+                - paragraph [ref=e220]: Elegí el que te quede más cómodo
+              - generic [ref=e222]:
+                - generic [ref=e224]:
+                  - generic: "1"
+                  - generic [ref=e225]:
+                    - img "Bingo BZ Cruce (Puerta)" [ref=e227]
+                    - generic [ref=e229]: Punto 1
+                    - generic [ref=e234]:
+                      - heading "Bingo BZ Cruce (Puerta)" [level=3] [ref=e236]
+                      - paragraph [ref=e241]: Cruce Florencio Varela, Provincia de Buenos Aires
+                  - generic [ref=e242]:
+                    - generic [ref=e243]:
+                      - button [ref=e244] [cursor=pointer]:
+                        - heading "Seguridad Verificada" [level=4] [ref=e249]
+                      - generic [ref=e252]:
+                        - generic [ref=e253]: Seguridad Municipal e Interna
+                        - generic [ref=e256]: Cámaras de Seguridad
+                        - generic [ref=e259]: Punto Seguro Transitable
+                    - generic [ref=e262]:
+                      - generic [ref=e263]:
+                        - generic [ref=e269]:
+                          - paragraph [ref=e270]: Días
+                          - paragraph [ref=e271]: Lunes a Viernes
+                        - generic [ref=e278]:
+                          - paragraph [ref=e279]: Horario
+                          - paragraph [ref=e280]: 16:30 hs
+                      - generic [ref=e286]:
+                        - paragraph [ref=e287]: Fines de Semana
+                        - paragraph [ref=e288]: Todo el día
+                    - link "Abrir en Maps" [ref=e290] [cursor=pointer]:
+                      - /url: https://maps.app.goo.gl/ivNLJMo7kHxtdUJAA
+                - generic [ref=e295]:
+                  - generic: "2"
+                  - generic [ref=e296]:
+                    - img "Carrefour (Patio Comidas)" [ref=e298]
+                    - generic [ref=e300]: Punto 2
+                    - generic [ref=e305]:
+                      - heading "Carrefour (Patio Comidas)" [level=3] [ref=e307]
+                      - paragraph [ref=e312]: Av. Gral. José de San Martín 554. Florencio Varela, Provincia de Buenos Aires
+                  - generic [ref=e313]:
+                    - generic [ref=e314]:
+                      - button [ref=e315] [cursor=pointer]:
+                        - heading "Seguridad Verificada" [level=4] [ref=e320]
+                      - generic [ref=e323]:
+                        - generic [ref=e324]: Seguridad del Centro Comercial
+                        - generic [ref=e327]: Cámaras de Seguridad
+                        - generic [ref=e330]: Punto Seguro Transitable
+                    - generic [ref=e333]:
+                      - generic [ref=e334]:
+                        - generic [ref=e340]:
+                          - paragraph [ref=e341]: Días
+                          - paragraph [ref=e342]: Todos los días
+                        - generic [ref=e349]:
+                          - paragraph [ref=e350]: Horario
+                          - paragraph [ref=e351]: Coordinar
+                      - generic [ref=e357]:
+                        - paragraph [ref=e358]: Fines de Semana
+                        - paragraph [ref=e359]: Disponible
+                    - link "Abrir en Maps" [ref=e361] [cursor=pointer]:
+                      - /url: https://maps.app.goo.gl/kXdMaP1UVaRw5x767
+            - generic [ref=e373]:
+              - generic [ref=e374]: Aviso de Disponibilidad
+              - heading "Importante sobre los horarios" [level=3] [ref=e379]
+              - generic [ref=e380]:
+                - paragraph [ref=e382]:
+                  - generic [ref=e383]:
+                    - strong [ref=e384]: solo en los puntos de retiro seguros
+                    - text: ", no se viaja a otro lado por falta de tiempo."
+                - paragraph [ref=e393]: Por favor, coordinar con anticipación.
+        - generic [ref=e396]:
+          - generic [ref=e397]:
+            - generic [ref=e398]:
+              - generic [ref=e400]:
+                - img "Logo" [ref=e402]
+                - heading "ElectroShock" [level=3] [ref=e404]
+              - paragraph [ref=e406]: Elevando tu experiencia tecnológica con componentes de alta gama y asesoramiento especializado. Expertos en hardware de alto rendimiento.
+            - generic [ref=e407]:
+              - heading "Contacto" [level=4] [ref=e408]
+              - generic [ref=e410]:
+                - generic [ref=e416]:
+                  - paragraph [ref=e417]: Horarios
+                  - paragraph [ref=e418]: "Lun - Dom: 9h a 21h"
+                - generic [ref=e423]:
+                  - paragraph [ref=e424]: Ventas
+                  - paragraph [ref=e425]: WhatsApp Oficial
+                - generic [ref=e431]:
+                  - paragraph [ref=e432]: Email
+                  - paragraph [ref=e433]: info@electroshock.com
+            - generic [ref=e434]:
+              - heading "Puntos De Retiro" [level=4] [ref=e436]
+              - generic [ref=e438]:
+                - generic [ref=e439]:
+                  - link [ref=e440] [cursor=pointer]:
+                    - /url: https://maps.app.goo.gl/ivNLJMo7kHxtdUJAA
+                    - generic [ref=e443]:
+                      - paragraph [ref=e444]: Bingo BZ Cruce (Puerta)
+                      - paragraph [ref=e445]: Cruce Florencio Varela, Provincia de Buenos Aires
+                  - link [ref=e450] [cursor=pointer]:
+                    - /url: https://maps.app.goo.gl/kXdMaP1UVaRw5x767
+                    - generic [ref=e453]:
+                      - paragraph [ref=e454]: Carrefour (Patio Comidas)
+                      - paragraph [ref=e455]: Av. Gral. José de San Martín 554. Florencio Varela, Provincia de Buenos Aires
+                - link "Mapa de ubicaciones ElectroShock 📍 Ver en Maps" [ref=e461] [cursor=pointer]:
+                  - /url: https://www.google.com/maps/search/Florencio+Varela,+Buenos+Aires/@-34.78,-58.28,13z
+                  - img "Mapa de ubicaciones ElectroShock" [ref=e462]
+                  - generic [ref=e463]: 📍 Ver en Maps
+          - generic [ref=e464]:
+            - paragraph [ref=e467]: © 2025 ElectroShock · Buenos Aires, Argentina
+            - generic [ref=e469]:
+              - generic [ref=e470]: Desarrollado por
+              - generic [ref=e471]: JLdev Studio
+  - generic:
+    - button "Abrir menú de ayuda" [ref=e474] [cursor=pointer]:
+      - generic [ref=e480]:
+        - generic [ref=e481]: ¿Necesitás ayuda?
+        - generic [ref=e482]: Chatea con nosotros
+    - generic [ref=e486]:
+      - button "Ir al inicio"

@@ -30,8 +30,8 @@ const HeroSection = ({ timeLeft, onNavigate }) => {
         {/* LEFT - Title & Trust Badges */}
         <div className="flex-1 min-w-0 w-full md:w-auto">
           {/* Badge */}
-          <div className="inline-flex items-center gap-2 bg-lime-400 text-[#09090d] text-[8.5px] sm:text-[9px] font-medium tracking-[0.18em] uppercase px-3 py-1.5 mb-3 sm:mb-4 clip-path-arrow">
-            <span className="w-1.5 h-1.5 bg-[#09090d] rounded-full animate-pulse" />
+          <div className="inline-flex items-center gap-2 bg-cyber-lime text-[#09090d] text-[8.5px] sm:text-[9px] font-medium tracking-[0.18em] uppercase px-3 py-1.5 mb-3 sm:mb-4 clip-path-arrow">
+            <span className="w-1.5 h-1.5 bg-[#09090d] rounded-full motion-reduce:animate-none animate-pulse" />
             Ofertas relámpago
           </div>
 
@@ -50,7 +50,7 @@ const HeroSection = ({ timeLeft, onNavigate }) => {
                 initial={{ opacity: 0, x: -20 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.6, delay: 0.2, ease: "easeOut" }}
-                className="block text-5xl sm:text-6xl md:text-7xl lg:text-8xl text-lime-400 relative inline-block title-lime-underline cyberpunk-text"
+                className="block text-5xl sm:text-6xl md:text-7xl lg:text-8xl text-cyber-lime relative inline-block title-lime-underline cyberpunk-text"
               >
                 RELÁMPAGO
                 {/* Efecto de destello eléctrico */}
@@ -123,16 +123,16 @@ const HeroSection = ({ timeLeft, onNavigate }) => {
           {/* Timer */}
           <div className="w-full md:w-auto">
             <div className="flex items-center gap-2 justify-end text-[#555565] text-[9px] sm:text-[10px] tracking-[0.28em] uppercase font-mono text-right mb-2.5">
-              <span className="w-1.5 h-1.5 bg-lime-400 rounded-full animate-pulse" />
+              <span className="w-1.5 h-1.5 bg-cyber-lime rounded-full motion-reduce:animate-none animate-pulse" />
               Termina en
             </div>
             <div className="flex items-center gap-1.5 sm:gap-2 justify-end">
               <TimerDigit value={timeLeft.days} label="Días" />
-              <span className="font-black italic text-2xl sm:text-3xl md:text-4xl text-lime-400/45 self-end mb-4 sm:mb-5 leading-none" style={{ textShadow: '0 0 14px rgba(200,245,25,0.25)' }}>:</span>
+              <span className="font-black italic text-2xl sm:text-3xl md:text-4xl text-cyber-lime/45 self-end mb-4 sm:mb-5 leading-none" style={{ textShadow: '0 0 14px rgba(200,245,25,0.25)' }}>:</span>
               <TimerDigit value={timeLeft.hours} label="Hrs" />
-              <span className="font-black italic text-2xl sm:text-3xl md:text-4xl text-lime-400/45 self-end mb-4 sm:mb-5 leading-none" style={{ textShadow: '0 0 14px rgba(200,245,25,0.25)' }}>:</span>
+              <span className="font-black italic text-2xl sm:text-3xl md:text-4xl text-cyber-lime/45 self-end mb-4 sm:mb-5 leading-none" style={{ textShadow: '0 0 14px rgba(200,245,25,0.25)' }}>:</span>
               <TimerDigit value={timeLeft.minutes} label="Min" />
-              <span className="font-black italic text-2xl sm:text-3xl md:text-4xl text-lime-400/45 self-end mb-4 sm:mb-5 leading-none" style={{ textShadow: '0 0 14px rgba(200,245,25,0.25)' }}>:</span>
+              <span className="font-black italic text-2xl sm:text-3xl md:text-4xl text-cyber-lime/45 self-end mb-4 sm:mb-5 leading-none" style={{ textShadow: '0 0 14px rgba(200,245,25,0.25)' }}>:</span>
               <TimerDigit value={timeLeft.seconds} label="Seg" />
             </div>
           </div>

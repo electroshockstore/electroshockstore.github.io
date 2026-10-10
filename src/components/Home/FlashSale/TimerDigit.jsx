@@ -63,8 +63,8 @@ const TimerDigit = ({ value, label }) => {
       
       {/* Label */}
       <span 
-        className="text-[8px] sm:text-[9px] font-medium tracking-[0.22em] uppercase text-lime-400 opacity-85"
-        style={{ fontFamily: "'DM Mono', monospace" }}
+        className="text-[8px] sm:text-[9px] font-medium tracking-[0.22em] uppercase text-cyber-lime opacity-85"
+        style={{ fontFamily: "'JetBrains Mono', monospace" }}
       >
         {label}
       </span>

@@ -1,4 +1,4 @@
-import { ArrowRight } from 'lucide-react';
+import OffsetGlowCTA from '../../Shared/OffsetGlowCTA';
 import CategoryCard from './CategoryCard';
 
 const DesktopGrid = ({ categories, onCategoryClick }) => {
@@ -38,13 +38,11 @@ const DesktopGrid = ({ categories, onCategoryClick }) => {
 
       {/* Desktop CTA */}
       <div className="hidden lg:flex justify-center pt-5">
-        <button
+        <OffsetGlowCTA
+          label="Ver todo el catálogo"
           onClick={() => onCategoryClick('procesadores')}
-          className="inline-flex items-center gap-2.5 px-7 py-5 bg-white text-[#0a0a0a] rounded-xl font-bold text-xs tracking-widest uppercase cursor-pointer transition-all duration-150 hover:bg-slate-100 hover:-translate-y-0.5 active:scale-95 group"
-        >
-          Ver todo el catálogo
-          <ArrowRight size={14} strokeWidth={2.5} className="transition-transform group-hover:translate-x-1" />
-        </button>
+          className="text-xs uppercase tracking-widest"
+        />
       </div>
     </>
   );

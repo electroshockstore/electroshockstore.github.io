@@ -71,7 +71,7 @@ const ProductInfoCard = ({
       <div className="pic-trust" aria-label="Información de compra">
         <div className="pic-trust-item">
           <MapPin className="pic-trust-icon" strokeWidth={2.25} />
-          <span>Retiro en puntos</span>
+          <span>Puntos Retiro</span>
         </div>
         <div className="pic-trust-item">
           <Banknote className="pic-trust-icon" strokeWidth={2.25} />
@@ -79,7 +79,7 @@ const ProductInfoCard = ({
         </div>
         <div className="pic-trust-item">
           <MessageCircle className="pic-trust-icon" strokeWidth={2.25} />
-          <span>Atención por WhatsApp</span>
+          <span>WhatsApp</span>
         </div>
       </div>
     </div>

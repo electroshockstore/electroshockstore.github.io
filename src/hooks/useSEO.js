@@ -1,7 +1,9 @@
 import { useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 import { getAppScroller } from '../context/ScrollContext';
+import { getSlugFromCategory } from '../utils/slugify';
 import {
+  SITE_URL,
   updateMetaTags,
   insertStructuredData,
   generateOrganizationSchema,
@@ -11,20 +13,23 @@ import {
   generateProductDescription
 } from '../utils/seo';
 
-export const useSEO = ({ 
-  title, 
-  description, 
-  keywords, 
-  image, 
+export const useSEO = ({
+  title,
+  description,
+  keywords,
+  image,
+  imageAlt,
   type = 'website',
+  robots,
+  twitterCard,
   product = null,
-  category = null 
+  category = null
 }) => {
   const location = useLocation();
 
   useEffect(() => {
     const url = location.pathname;
-    const baseUrl = 'https://www.jldev.com.ar';
+    const baseUrl = SITE_URL;
     
     // Títulos y descripciones más atractivos y sintetizados
     const defaultTitle = 'ElectroShock | 🔥 Tecnología y Componentes PC - Zona Sur, Buenos Aires';
@@ -36,27 +41,31 @@ export const useSEO = ({
       description: description || defaultDescription,
       keywords: keywords || defaultKeywords,
       image: image ? `${baseUrl}${image}` : `${baseUrl}/logotipo_tiny.png`,
+      imageAlt: imageAlt || (product ? product.name : 'ElectroShock'),
       url: `${baseUrl}${url}`,
-      type
+      type,
+      robots: robots || 'index, follow',
+      twitterCard
     });
 
     // Schema.org mejorado
     insertStructuredData(generateOrganizationSchema(), 'org-schema');
 
     if (product) {
-      const productSchema = generateProductSchema(product);
+      const canonicalProductUrl = `${baseUrl}${url}`;
+      const productSchema = generateProductSchema(product, canonicalProductUrl);
       insertStructuredData(productSchema, 'product-schema');
 
       const breadcrumbs = [
-        { name: '🏠 Inicio', url: baseUrl },
-        { name: `📦 ${product.category}`, url: `${baseUrl}/categoria/${product.category.toLowerCase()}` },
-        { name: `🔧 ${product.name}`, url: `${baseUrl}${url}` }
+        { name: 'Inicio', url: baseUrl },
+        { name: product.category, url: `${baseUrl}/categoria/${getSlugFromCategory(product.category)}` },
+        { name: product.name, url: canonicalProductUrl }
       ];
       insertStructuredData(generateBreadcrumbSchema(breadcrumbs), 'breadcrumb-schema');
     } else if (category) {
       const breadcrumbs = [
-        { name: '🏠 Inicio', url: baseUrl },
-        { name: `📦 ${category}`, url: `${baseUrl}${url}` }
+        { name: 'Inicio', url: baseUrl },
+        { name: category, url: `${baseUrl}${url}` }
       ];
       insertStructuredData(generateBreadcrumbSchema(breadcrumbs), 'breadcrumb-schema');
     } else {
@@ -75,11 +84,11 @@ export const useSEO = ({
     } else {
       window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
     }
-  }, [title, description, keywords, image, type, product, category, location]);
+  }, [title, description, keywords, image, imageAlt, type, robots, twitterCard, product, category, location]);
 };
 
-export const useProductSEO = (product) => {
-  const title = product 
+export const useProductSEO = (product, { robots } = {}) => {
+  const title = product
     ? `${product.name} - ${product.brand} | 🔥 ElectroShock`
     : 'ElectroShock | 🔥 Tecnología y Componentes PC - Zona Sur,  Buenos Aires.';
   
@@ -99,11 +108,13 @@ export const useProductSEO = (product) => {
     keywords,
     image,
     type: product ? 'product' : 'website',
+    robots,
+    twitterCard: product ? 'summary_large_image' : undefined,
     product: product || null
   });
 };
 
-export const useCategorySEO = (category, productCount) => {
+export const useCategorySEO = (category, productCount, { robots } = {}) => {
   const title = category 
     ? `${category} | 🔥 ElectroShock - ${productCount} Productos Disponibles`
     : 'ElectroShock | 🔥 Tecnología y Componentes PC - Zona Sur,  Buenos Aires.';
@@ -121,6 +132,7 @@ export const useCategorySEO = (category, productCount) => {
     description,
     keywords,
     type: 'website',
+    robots,
     category: category || null
   });
 };

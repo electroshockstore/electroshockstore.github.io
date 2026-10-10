@@ -43,7 +43,10 @@ export default {
       // Tipografía coherente
       fontFamily: {
         sans: ['Inter', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'sans-serif'],
+        // Fase A cyberpunk: mono para datos fríos (precios, SKU, specs, timers)
+        mono: ['"JetBrains Mono"', 'ui-monospace', 'SFMono-Regular', 'Menlo', 'Consolas', 'monospace'],
       },
+
       fontSize: {
         'display': ['3.5rem', { lineHeight: '1.1', letterSpacing: '-0.02em', fontWeight: '700' }],
         'h1': ['2.5rem', { lineHeight: '1.2', letterSpacing: '-0.01em', fontWeight: '600' }],
@@ -152,6 +155,16 @@ export default {
           900: '#1A365D',
         },
         
+        // Fase A cyberpunk: paleta cerrada (fondo + superficie + 2 acentos)
+        // Lima canónica #c8f519 (la de FlashSale/logo): un solo lima en todo el sistema
+        cyber: {
+          bg: '#0A0A0F',
+          surface: '#121218',
+          line: 'rgba(255, 255, 255, 0.08)',
+          cyan: '#00E5FF',
+          lime: '#c8f519',
+        },
+
         // Colores semánticos
         success: {
           50: '#F0FDF4',
@@ -286,9 +299,9 @@ export default {
         },
 
         '.pill-lime': {
-          'background-color': '#a3e635',
+          'background-color': '#c8f519',
           'color': '#09090d',
-          'box-shadow': '0 4px 14px -4px rgba(163,230,53,0.5), inset 0 1px 0 rgba(255,255,255,0.4)',
+          'box-shadow': '0 4px 14px -4px rgba(200,245,25,0.5), inset 0 1px 0 rgba(255,255,255,0.4)',
         },
 
         '.glass': {

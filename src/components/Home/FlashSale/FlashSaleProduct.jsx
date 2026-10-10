@@ -22,9 +22,8 @@ const FlashSaleProduct = ({
 
   // Layout horizontal para mobile (tercera card)
   if (horizontal) {
-    // Colores de acento para el border
-    const accents = ['#c8f519', '#10b981', '#3b82f6'];
-    const accent = accents[index % accents.length];
+    // Un solo acento lima para todas las cards
+    const accent = '#c8f519';
     
     return (
       <div
@@ -72,8 +71,8 @@ const FlashSaleProduct = ({
           </div>
 
           {isLowStock && (
-            <div className="absolute top-2 left-2 z-10 bg-lime-400 text-[#09090d] text-[9px] font-black px-2 py-1 rounded-md uppercase tracking-wide font-mono flex items-center gap-1 shadow-md">
-              <span className="w-1.5 h-1.5 bg-[#09090d] rounded-full animate-pulse" />
+            <div className="absolute top-2 left-2 z-10 bg-cyber-lime text-[#09090d] text-[9px] font-black px-2 py-1 rounded-md uppercase tracking-wide font-mono flex items-center gap-1 shadow-md">
+              <span className="w-1.5 h-1.5 bg-[#09090d] rounded-full motion-reduce:animate-none animate-pulse" />
               ¡{product.stock}!
             </div>
           )}
@@ -92,7 +91,7 @@ const FlashSaleProduct = ({
           {/* Nombre del producto */}
           <h3
             className={`font-sans text-[10px] font-extrabold uppercase tracking-wider leading-tight m-0 transition-colors duration-200 line-clamp-2 ${
-              hovered ? 'text-lime-400' : 'text-gray-200'
+              hovered ? 'text-cyber-lime' : 'text-gray-200'
             }`}
           >
             {product.name}
@@ -104,7 +103,7 @@ const FlashSaleProduct = ({
               <span className="font-mono text-[10px] text-gray-500 line-through">
                 {formatPrice(originalPrice)}
               </span>
-              <span className="pill bg-lime-400/10 border border-lime-400/30 text-lime-400 font-mono text-[8px] font-bold px-1.5 py-0.5 tracking-tight">
+              <span className="pill bg-cyber-lime/10 border border-cyber-lime/30 text-cyber-lime font-mono text-[8px] font-bold px-1.5 py-0.5 tracking-tight">
                 − {formatPrice(savings)}
               </span>
             </div>
@@ -122,11 +121,11 @@ const FlashSaleProduct = ({
                 strokeWidth="3"
                 strokeLinecap="round"
                 strokeLinejoin="round"
-                className="text-lime-400 shrink-0"
+                className="text-cyber-lime shrink-0"
               >
                 <polyline points="20 6 9 17 4 12" />
               </svg>
-              <span className="font-sans text-lime-400 text-[9px] font-bold tracking-wide">
+              <span className="font-sans text-cyber-lime text-[9px] font-bold tracking-wide">
                 Ahorrás {formatPrice(savings)}
               </span>
             </div>
@@ -152,9 +151,8 @@ const FlashSaleProduct = ({
   }
 
   // Layout vertical (default)
-  // Colores de acento para el border
-  const accents = ['#c8f519', '#10b981', '#3b82f6'];
-  const accent = accents[index % accents.length];
+  // Un solo acento lima para todas las cards
+  const accent = '#c8f519';
 
   return (
     <div
@@ -210,8 +208,8 @@ const FlashSaleProduct = ({
         </div>
 
         {isLowStock && (
-          <div className="absolute top-2 sm:top-3 left-2 sm:left-3 z-10 bg-lime-400 text-[#09090d] text-[9px] sm:text-[11px] font-black px-2 sm:px-3 py-1 sm:py-1.5 rounded-lg uppercase tracking-wide font-mono flex items-center gap-1 sm:gap-2 shadow-md">
-            <span className="w-1.5 sm:w-2 h-1.5 sm:h-2 bg-[#09090d] rounded-full animate-pulse" />
+          <div className="absolute top-2 sm:top-3 left-2 sm:left-3 z-10 bg-cyber-lime text-[#09090d] text-[9px] sm:text-[11px] font-black px-2 sm:px-3 py-1 sm:py-1.5 rounded-lg uppercase tracking-wide font-mono flex items-center gap-1 sm:gap-2 shadow-md">
+            <span className="w-1.5 sm:w-2 h-1.5 sm:h-2 bg-[#09090d] rounded-full motion-reduce:animate-none animate-pulse" />
             <span className="hidden sm:inline">¡Últimas {product.stock}!</span>
             <span className="sm:hidden">¡{product.stock}!</span>
           </div>
@@ -232,7 +230,7 @@ const FlashSaleProduct = ({
         {/* Nombre del producto */}
         <h3
           className={`font-sans text-[10px] sm:text-xs font-extrabold uppercase tracking-wider leading-tight m-0 transition-colors duration-200 line-clamp-2 ${
-            hovered ? 'text-lime-400' : 'text-gray-200'
+            hovered ? 'text-cyber-lime' : 'text-gray-200'
           }`}
         >
           {product.name}
@@ -252,7 +250,7 @@ const FlashSaleProduct = ({
             <span className="font-mono text-[10px] sm:text-xs text-gray-500 line-through">
               {formatPrice(originalPrice)}
             </span>
-            <span className="bg-lime-400/10 border border-lime-400/30 text-lime-400 font-mono text-[8px] sm:text-[10px] font-bold px-1.5 sm:px-2 py-0.5 rounded-md tracking-wide">
+            <span className="bg-cyber-lime/10 border border-cyber-lime/30 text-cyber-lime font-mono text-[8px] sm:text-[10px] font-bold px-1.5 sm:px-2 py-0.5 rounded-md tracking-wide">
               − {formatPrice(savings)}
             </span>
           </div>
@@ -272,11 +270,11 @@ const FlashSaleProduct = ({
               strokeWidth="3"
               strokeLinecap="round"
               strokeLinejoin="round"
-              className="text-lime-400 shrink-0 sm:w-3 sm:h-3"
+              className="text-cyber-lime shrink-0 sm:w-3 sm:h-3"
             >
               <polyline points="20 6 9 17 4 12" />
             </svg>
-            <span className="font-sans text-lime-400 text-[9px] sm:text-[11px] font-bold tracking-wide">
+            <span className="font-sans text-cyber-lime text-[9px] sm:text-[11px] font-bold tracking-wide">
               Ahorrás {formatPrice(savings)}
             </span>
           </div>

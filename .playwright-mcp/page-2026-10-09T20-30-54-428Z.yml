@@ -1,0 +1,9 @@
+- generic [active] [ref=e1]:
+  - generic [ref=e2]:
+    - link "Saltar al contenido principal" [ref=e3] [cursor=pointer]:
+      - /url: "#main-content"
+    - main [ref=e6]
+  - generic:
+    - button "Abrir menú de ayuda" [ref=e44] [cursor=pointer]
+    - generic [ref=e50]:
+      - button "Ir al inicio"

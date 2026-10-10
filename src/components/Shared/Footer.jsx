@@ -16,20 +16,6 @@ const Footer = () => {
 
   return (
     <footer className="w-full bg-[#0a0c12] text-white pt-16 pb-24 lg:pb-12 relative overflow-hidden border-t border-white/5">
-      {/* Elementos decorativos de fondo - Más sutiles en mobile */}
-      <div 
-        className="absolute top-0 left-1/4 w-48 h-48 lg:w-96 lg:h-96 bg-blue-600/10 lg:bg-blue-600/20 rounded-full pointer-events-none" 
-        style={{ filter: 'blur(20px)' }}
-      />
-      <div 
-        className="absolute bottom-0 right-1/4 w-48 h-48 lg:w-96 lg:h-96 bg-emerald-600/10 lg:bg-emerald-600/20 rounded-full pointer-events-none" 
-        style={{ filter: 'blur(20px)' }}
-      />
-      <div 
-        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-32 h-32 lg:w-64 lg:h-64 bg-purple-600/8 lg:bg-purple-600/12 rounded-full pointer-events-none" 
-        style={{ filter: 'blur(15px)' }}
-      />
-
       <div className="max-w-7xl mx-auto px-4 sm:px-6 relative z-10">
         
         {/* --- LAYOUT MOBILE (igual que desktop pero vertical) --- */}
@@ -37,10 +23,6 @@ const Footer = () => {
           {/* Columna 1: Brand & Description */}
           <div className="space-y-4">
             <div className="relative">
-              <div 
-                className="absolute -inset-4 bg-gradient-to-r from-blue-600/20 to-purple-600/20 rounded-full" 
-                style={{ filter: 'blur(40px)' }}
-              />
               <div className="relative flex items-center gap-3">
                 <div className="p-3 bg-gradient-to-br from-blue-600 via-blue-500 to-purple-600 rounded-2xl border border-white/20 shadow-2xl shadow-blue-900/40">
                   <img src="/logotipo_tiny.png" alt="Logo" className="h-10 w-auto" />
@@ -103,9 +85,9 @@ const Footer = () => {
                  <div className="w-1 h-4 bg-blue-500 rounded-full" />
                  Puntos De Retiro
                </h4>
-               <div className="px-3 py-1.5 bg-blue-600/20 border border-blue-500/30 rounded-full">
-                 <span className="text-[10px] font-black text-blue-400">2 SUCURSALES</span>
-               </div>
+                <div className="px-3 py-1.5 bg-blue-600/20 border border-blue-500/30 rounded-full">
+                  <span className="text-[10px] font-black text-blue-400">2 SUCURSALES</span>
+                </div>
              </div>
              
              {/* Ubicaciones */}
@@ -146,8 +128,9 @@ const Footer = () => {
                     loading="lazy"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-[#0a0c12]/40 via-transparent to-transparent pointer-events-none" />
-                  <div className="absolute top-3 left-3 px-3 py-1.5 bg-blue-600 rounded-full shadow-xl">
-                    <span className="text-[9px] font-black text-white uppercase tracking-wider">📍 Ver en Maps</span>
+                  <div className="absolute top-3 left-3 px-3 py-1.5 bg-blue-600 rounded-full shadow-xl flex items-center gap-1.5">
+                    <MapPin className="h-3 w-3 text-white" strokeWidth={2.5} />
+                    <span className="text-[9px] font-black text-white uppercase tracking-wider">Ver en Maps</span>
                   </div>
                 </a>
              </div>
@@ -161,10 +144,6 @@ const Footer = () => {
           {/* Columna 1: Brand & Description */}
           <div className="col-span-4 space-y-8">
             <div className="relative">
-              <div 
-                className="absolute -inset-4 bg-gradient-to-r from-blue-600/20 to-purple-600/20 rounded-full" 
-                style={{ filter: 'blur(40px)' }}
-              />
               <div className="relative flex items-center gap-4">
                 <div className="p-4 bg-gradient-to-br from-blue-600 via-blue-500 to-purple-600 rounded-3xl border border-white/20 shadow-2xl shadow-blue-900/40">
                   <img src="/logotipo_tiny.png" alt="Logo" className="h-14 w-auto" />
@@ -270,9 +249,10 @@ const Footer = () => {
                       loading="lazy"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-[#0a0c12]/40 via-transparent to-transparent pointer-events-none" />
-                    <div className="absolute top-3 left-3 px-3 py-1.5 bg-blue-600 rounded-full shadow-xl">
-                      <span className="text-[9px] font-black text-white uppercase tracking-wider">📍 Ver en Maps</span>
-                    </div>
+                     <div className="absolute top-3 left-3 px-3 py-1.5 bg-blue-600 rounded-full shadow-xl flex items-center gap-1.5">
+                       <MapPin className="h-3 w-3 text-white" strokeWidth={2.5} />
+                       <span className="text-[9px] font-black text-white uppercase tracking-wider">Ver en Maps</span>
+                     </div>
                   </a>
                </div>
              </div>

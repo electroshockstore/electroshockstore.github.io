@@ -1,0 +1,74 @@
+- generic [ref=f3e1]:
+  - generic [ref=f3e2]:
+    - link "Saltar al contenido principal" [ref=f3e3] [cursor=pointer]:
+      - /url: "#main-content"
+    - main [ref=f3e6]:
+      - generic [ref=f3e70]:
+        - generic [ref=f3e75]:
+          - combobox "¿Qué componente buscas?" [expanded] [active] [ref=f3e76]: zzzqqq
+          - button "Limpiar búsqueda" [ref=f3e5889] [cursor=pointer]
+          - listbox [ref=f3e5893]:
+            - generic [ref=f3e5894]:
+              - paragraph [ref=f3e5895]:
+                - text: Sin resultados para
+                - generic [ref=f3e5896]: “zzzqqq”
+              - paragraph [ref=f3e5897]: Probá con otra marca, modelo o categoría.
+        - main [ref=f3e77]:
+          - generic [ref=f3e5898]:
+            - generic [ref=f3e5899]:
+              - heading "Resultados para “zzzqqq”" [level=1] [ref=f3e5900]:
+                - text: Resultados para
+                - generic [ref=f3e5901]: “zzzqqq”
+              - button "Limpiar búsqueda" [ref=f3e5902] [cursor=pointer]
+            - paragraph [ref=f3e5903]: 0 resultados
+          - generic [ref=f3e5905]:
+            - heading "No hay productos disponibles" [level=3] [ref=f3e5909]
+            - paragraph [ref=f3e5910]: No encontramos productos que coincidan con los filtros seleccionados.
+            - button [ref=f3e5911] [cursor=pointer]
+        - generic [ref=f3e5811]:
+          - generic [ref=f3e5812]:
+            - generic [ref=f3e5813]:
+              - generic [ref=f3e5815]:
+                - img "Logo" [ref=f3e5817]
+                - heading "ElectroShock" [level=3] [ref=f3e5819]
+              - paragraph [ref=f3e5821]: Elevando tu experiencia tecnológica con componentes de alta gama y asesoramiento especializado. Expertos en hardware de alto rendimiento.
+            - generic [ref=f3e5822]:
+              - heading "Contacto" [level=4] [ref=f3e5823]
+              - generic [ref=f3e5825]:
+                - generic [ref=f3e5831]:
+                  - paragraph [ref=f3e5832]: Horarios
+                  - paragraph [ref=f3e5833]: "Lun - Dom: 9h a 21h"
+                - generic [ref=f3e5838]:
+                  - paragraph [ref=f3e5839]: Ventas
+                  - paragraph [ref=f3e5840]: WhatsApp Oficial
+                - generic [ref=f3e5846]:
+                  - paragraph [ref=f3e5847]: Email
+                  - paragraph [ref=f3e5848]: info@electroshock.com
+            - generic [ref=f3e5849]:
+              - generic [ref=f3e5850]:
+                - heading "Puntos De Retiro" [level=4] [ref=f3e5851]
+                - generic [ref=f3e5853]: 2 SUCURSALES
+              - generic [ref=f3e5854]:
+                - link [ref=f3e5855] [cursor=pointer]:
+                  - /url: https://maps.app.goo.gl/ivNLJMo7kHxtdUJAA
+                  - generic [ref=f3e5858]:
+                    - paragraph [ref=f3e5859]: Bingo BZ Cruce (Puerta)
+                    - paragraph [ref=f3e5860]: Cruce Florencio Varela, Provincia de Buenos Aires
+                - link [ref=f3e5865] [cursor=pointer]:
+                  - /url: https://maps.app.goo.gl/kXdMaP1UVaRw5x767
+                  - generic [ref=f3e5868]:
+                    - paragraph [ref=f3e5869]: Carrefour (Patio Comidas)
+                    - paragraph [ref=f3e5870]: Av. Gral. José de San Martín 554. Florencio Varela, Provincia de Buenos Aires
+              - link "Mapa de ubicaciones ElectroShock Ver en Maps" [ref=f3e5876] [cursor=pointer]:
+                - /url: https://www.google.com/maps/search/Florencio+Varela,+Buenos+Aires/@-34.78,-58.28,13z
+                - img "Mapa de ubicaciones ElectroShock" [ref=f3e5877]
+                - generic [ref=f3e5878]: Ver en Maps
+          - generic [ref=f3e5883]:
+            - paragraph [ref=f3e5885]: © 2025 ElectroShock · Buenos Aires, Argentina
+            - generic [ref=f3e5886]:
+              - generic [ref=f3e5887]: Desarrollado por
+              - generic [ref=f3e5888]: JLdev Studio
+  - generic:
+    - button "Abrir menú de ayuda" [ref=f3e62] [cursor=pointer]
+    - generic [ref=f3e68]:
+      - button "Ir al inicio"

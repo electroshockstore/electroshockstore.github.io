@@ -1,0 +1,294 @@
+- generic [active] [ref=e1]:
+  - generic [ref=e2]:
+    - link "Saltar al contenido principal" [ref=e3] [cursor=pointer]:
+      - /url: "#main-content"
+    - main [ref=e6]:
+      - generic [ref=e7]:
+        - generic [ref=e10]:
+          - button "ElectroShock Tecnología y Conectividad" [ref=e11] [cursor=pointer]:
+            - generic [ref=e16]:
+              - generic [ref=e17]: ElectroShock
+              - generic [ref=e18]: Tecnología y Conectividad
+          - combobox "Buscar productos, marcas o categorías..." [ref=e20]
+          - generic [ref=e21]:
+            - paragraph [ref=e30]: ¡Info importante!
+            - button "Condiciones" [ref=e33] [cursor=pointer]
+            - button "Puntos de Retiro" [ref=e43] [cursor=pointer]
+            - button "Inicio" [ref=e53] [cursor=pointer]
+        - main [ref=e63]:
+          - generic [ref=e70]:
+            - generic [ref=e71]:
+              - button "Procesadores" [ref=e72] [cursor=pointer]
+              - button "Motherboards" [ref=e81] [cursor=pointer]:
+                - generic [ref=e90]:
+                  - generic [ref=e91]: Motherboards
+                  - generic [aria-hidden] [ref=e92]: Motherboards
+              - button "Memorias RAM" [ref=e93] [cursor=pointer]:
+                - generic [ref=e98]:
+                  - generic [ref=e99]: Memorias RAM
+                  - generic [aria-hidden] [ref=e100]: Memorias RAM
+              - button "Almacenamiento" [ref=e101] [cursor=pointer]:
+                - generic [ref=e106]:
+                  - generic [ref=e107]: Almacenamiento
+                  - generic [aria-hidden] [ref=e108]: Almacenamiento
+              - button "Fuentes" [ref=e109] [cursor=pointer]:
+                - generic [ref=e114]:
+                  - generic [ref=e115]: Fuentes
+                  - generic [aria-hidden] [ref=e116]: Fuentes
+              - button "Refrigeración" [ref=e117] [cursor=pointer]:
+                - generic [ref=e122]:
+                  - generic [ref=e123]: Refrigeración
+                  - generic [aria-hidden] [ref=e124]: Refrigeración
+              - button "Teclados" [ref=e125] [cursor=pointer]:
+                - generic [ref=e130]:
+                  - generic [ref=e131]: Teclados
+                  - generic [aria-hidden] [ref=e132]: Teclados
+              - button "Mouse" [ref=e133] [cursor=pointer]:
+                - generic [ref=e138]:
+                  - generic [ref=e139]: Mouse
+                  - generic [aria-hidden] [ref=e140]: Mouse
+              - button "Auriculares" [ref=e141] [cursor=pointer]:
+                - generic [ref=e146]:
+                  - generic [ref=e147]: Auriculares
+                  - generic [aria-hidden] [ref=e148]: Auriculares
+              - button "Joystick" [ref=e149] [cursor=pointer]:
+                - generic [ref=e154]:
+                  - generic [ref=e155]: Joystick
+                  - generic [aria-hidden] [ref=e156]: Joystick
+              - button "Conectividad" [ref=e157] [cursor=pointer]:
+                - generic [ref=e164]:
+                  - generic [ref=e165]: Conectividad
+                  - generic [aria-hidden] [ref=e166]: Conectividad
+              - button "Monitores" [ref=e167] [cursor=pointer]:
+                - generic [ref=e172]:
+                  - generic [ref=e173]: Monitores
+                  - generic [aria-hidden] [ref=e174]: Monitores
+              - button "Portátiles" [ref=e175] [cursor=pointer]:
+                - generic [ref=e180]:
+                  - generic [ref=e181]: Portátiles
+                  - generic [aria-hidden] [ref=e182]: Portátiles
+              - button "Placas de Video" [ref=e183] [cursor=pointer]:
+                - generic [ref=e190]:
+                  - generic [ref=e191]: Placas de Video
+                  - generic [aria-hidden] [ref=e192]: Placas de Video
+            - button [ref=e193] [cursor=pointer]
+          - generic [ref=e197]:
+            - generic [ref=e200]:
+              - button "Volver atrás" [ref=e201] [cursor=pointer]
+              - navigation "Migas de pan" [ref=e205]:
+                - link "Ir al inicio" [ref=e206] [cursor=pointer]:
+                  - /url: /
+                - link "Procesadores" [ref=e212] [cursor=pointer]:
+                  - /url: /categoria/procesadores
+                - generic "AMD Ryzen 5 5500 AM4" [ref=e216]
+            - generic [ref=e217]:
+              - generic [ref=e219]:
+                - generic [ref=e220]:
+                  - generic [ref=e222]:
+                    - img "AMD Ryzen 5 5500 AM4 — 1" [ref=e223]
+                    - generic [ref=e224]: Click para ampliar
+                    - generic [ref=e225]: 1 en stock
+                    - button "Imagen anterior" [ref=e227] [cursor=pointer]
+                    - button "Imagen siguiente" [ref=e230] [cursor=pointer]
+                    - generic: 1 / 2
+                  - generic [ref=e233]:
+                    - button "Ver imagen 1" [ref=e234] [cursor=pointer]:
+                      - img "Miniatura 1" [ref=e235]
+                    - button "Ver imagen 2" [ref=e236] [cursor=pointer]:
+                      - img "Miniatura 2" [ref=e237]
+                - generic [ref=e238]:
+                  - generic [ref=e240]:
+                    - generic [ref=e241]: AMD
+                    - generic [ref=e245]: Ryzen 5 5500
+                    - link "Web oficial" [ref=e249] [cursor=pointer]:
+                      - /url: https://www.amd.com/es/support/downloads/drivers.html/processors/ryzen/ryzen-5000-series/amd-ryzen-5-5500.html
+                  - heading "AMD Ryzen 5 5500 AM4" [level=1] [ref=e255]
+                  - paragraph [ref=e257]: Procesador AMD Ryzen 5 5500 4.2 GHz AM4 6 Core sin integrada con Cooler Wraith Stealth
+                  - generic [ref=e258]:
+                    - generic [ref=e259]:
+                      - generic [ref=e260]: Precio
+                      - generic [ref=e261]:
+                        - generic [ref=e262]: $
+                        - generic [ref=e263]: "150.000"
+                    - generic [ref=e264]: Stock
+                  - generic [ref=e267]:
+                    - button "Compartir Este producto" [ref=e269] [cursor=pointer]:
+                      - generic [ref=e277]:
+                        - generic [ref=e278]: Compartir
+                        - generic [ref=e279]: Este producto
+                    - button "Consultar por WhatsApp Más información" [ref=e283] [cursor=pointer]:
+                      - generic [ref=e287]:
+                        - generic [ref=e288]: Consultar por WhatsApp
+                        - generic [ref=e289]: Más información
+                  - generic "Información de compra" [ref=e293]:
+                    - generic [ref=e294]: Retiro en puntos
+                    - generic [ref=e299]: Efectivo o transferencia
+                    - generic [ref=e304]: Atención por WhatsApp
+              - generic [ref=e308]:
+                - generic [ref=e310]:
+                  - heading "Histórico de Precios" [level=3] [ref=e311]
+                  - generic [ref=e313]:
+                    - generic [ref=e314]: Precio Actual
+                    - generic [ref=e315]: $150.000
+                - img [ref=e323]:
+                  - generic [ref=e327]:
+                    - generic [ref=e328]: 7 de
+                    - generic [ref=e330]: 26 de
+                    - generic [ref=e332]: 8 de
+                    - generic [ref=e334]: 3 de
+                    - generic [ref=e336]: 1 de
+                  - generic [ref=e339]:
+                    - generic [ref=e340]: $139k
+                    - generic [ref=e342]: $142k
+                    - generic [ref=e344]: $145k
+                    - generic [ref=e346]: $148k
+                    - generic [ref=e348]: $151k
+                  - generic [ref=e350]: Promedio
+              - generic [ref=e358]:
+                - generic [ref=e359]:
+                  - generic [ref=e360]:
+                    - generic [ref=e361]: Producto
+                    - generic [ref=e362]: DetallesTécnicos
+                  - generic [ref=e363]:
+                    - generic [ref=e364]: "08"
+                    - generic [ref=e365]: specs
+                - generic [ref=e367]:
+                  - generic [ref=e369]:
+                    - generic [ref=e370]:
+                      - generic [ref=e371]: Marca
+                      - generic [ref=e373]: AMD
+                    - generic [ref=e374]:
+                      - generic [ref=e375]: Línea
+                      - generic [ref=e377]: Ryzen 5
+                    - generic [ref=e378]:
+                      - generic [ref=e379]: Modelo
+                      - generic [ref=e381]: "5500"
+                    - generic [ref=e383]:
+                      - generic [ref=e384]: Socket
+                      - generic [ref=e386]: AM4
+                  - generic [ref=e388]:
+                    - generic [ref=e389]:
+                      - generic [ref=e390]: Núcleos
+                      - generic [ref=e392]: "6"
+                    - generic [ref=e394]:
+                      - generic [ref=e395]: Hilos
+                      - generic [ref=e397]: "12"
+                    - generic [ref=e399]:
+                      - generic [ref=e400]: T D P
+                      - generic [ref=e403]:
+                        - text: "65"
+                        - generic [ref=e404]: W
+                    - generic [ref=e405]:
+                      - generic [ref=e406]: Graficos Integrados
+                      - generic [ref=e408]: "No"
+              - generic [ref=e409]:
+                - generic [ref=e411]:
+                  - generic [ref=e412]:
+                    - generic [ref=e413]: Métodos de Pago
+                    - heading "Opciones de Pago Seguros y Confiables" [level=2] [ref=e417]:
+                      - text: Opciones de Pago
+                      - generic [ref=e418]: Seguros y Confiables
+                  - generic [ref=e419]:
+                    - generic [ref=e428]:
+                      - heading "Efectivo" [level=3] [ref=e429]
+                      - paragraph [ref=e430]: En el momento
+                    - generic [ref=e439]:
+                      - heading "Transferencia" [level=3] [ref=e440]
+                      - paragraph [ref=e441]: Mayores a $100.000
+                - generic [ref=e444]:
+                  - generic [ref=e445]:
+                    - generic [ref=e446]: Sin local físico
+                    - heading "Coordiná la entrega Revisás y pagás" [level=2] [ref=e451]:
+                      - text: Coordiná la entrega
+                      - generic [ref=e452]: Revisás y pagás
+                  - generic [ref=e456]:
+                    - img "Condiciones" [ref=e458]
+                    - generic [ref=e463]:
+                      - generic [ref=e464]: Seguridad
+                      - heading "Sin Depositos Previos" [level=3] [ref=e465]
+                      - paragraph [ref=e466]: "\"Sin Anticipos ni Señas\""
+                      - paragraph [ref=e467]: No solicitamos pagos previos, No se deje engañar con estafas
+                    - generic [ref=e472]:
+                      - generic [ref=e473]: Transparencia
+                      - heading "Pago Inmediato" [level=3] [ref=e474]
+                      - generic [ref=e475]:
+                        - generic [ref=e476]: Efectivo
+                        - generic [ref=e480]: Transferencia
+                      - paragraph [ref=e483]: No lo intenten estafadores, conocemos todas las modalidades
+                    - generic [ref=e490]:
+                      - generic [ref=e491]: Cargos extras aplicables
+                      - generic [ref=e492]:
+                        - generic [ref=e493]: 10%
+                        - generic [ref=e494]: Recargo
+                      - paragraph [ref=e495]: Transferencias menores a $100.000
+                    - generic [ref=e506]:
+                      - generic [ref=e507]: Puntos Seguros
+                      - generic [ref=e508]:
+                        - generic [ref=e509]: "NO"
+                        - generic [ref=e510]: hacemos Envios
+                      - generic [ref=e511]:
+                        - generic [ref=e512]: NO se retira en mi Domicilio
+                        - generic [ref=e516]: NO vendo por Mercadolibre
+                    - generic [ref=e526]:
+                      - generic [ref=e527]:
+                        - heading "Sin Local físico" [level=3] [ref=e528]
+                        - generic [ref=e529]:
+                          - generic [ref=e530]: Stock local cerrado
+                          - generic [ref=e531]: Sin Garantía
+                          - generic [ref=e532]: Atención
+                      - separator [ref=e533]
+                      - paragraph [ref=e534]:
+                        - text: Los productos se entregan sellados,
+                        - strong [ref=e535]: Pago previo para apertura
+                        - text: .
+                  - button "¿Dónde retiro mi producto?" [ref=e538] [cursor=pointer]
+        - generic [ref=e546]:
+          - generic [ref=e547]:
+            - generic [ref=e548]:
+              - generic [ref=e550]:
+                - img "Logo" [ref=e552]
+                - heading "ElectroShock" [level=3] [ref=e554]
+              - paragraph [ref=e556]: Elevando tu experiencia tecnológica con componentes de alta gama y asesoramiento especializado. Expertos en hardware de alto rendimiento.
+            - generic [ref=e557]:
+              - heading "Contacto" [level=4] [ref=e558]
+              - generic [ref=e560]:
+                - generic [ref=e566]:
+                  - paragraph [ref=e567]: Horarios
+                  - paragraph [ref=e568]: "Lun - Dom: 9h a 21h"
+                - generic [ref=e573]:
+                  - paragraph [ref=e574]: Ventas
+                  - paragraph [ref=e575]: WhatsApp Oficial
+                - generic [ref=e581]:
+                  - paragraph [ref=e582]: Email
+                  - paragraph [ref=e583]: info@electroshock.com
+            - generic [ref=e584]:
+              - heading "Puntos De Retiro" [level=4] [ref=e586]
+              - generic [ref=e588]:
+                - generic [ref=e589]:
+                  - link [ref=e590] [cursor=pointer]:
+                    - /url: https://maps.app.goo.gl/ivNLJMo7kHxtdUJAA
+                    - generic [ref=e593]:
+                      - paragraph [ref=e594]: Bingo BZ Cruce (Puerta)
+                      - paragraph [ref=e595]: Cruce Florencio Varela, Provincia de Buenos Aires
+                  - link [ref=e600] [cursor=pointer]:
+                    - /url: https://maps.app.goo.gl/kXdMaP1UVaRw5x767
+                    - generic [ref=e603]:
+                      - paragraph [ref=e604]: Carrefour (Patio Comidas)
+                      - paragraph [ref=e605]: Av. Gral. José de San Martín 554. Florencio Varela, Provincia de Buenos Aires
+                - link "Mapa de ubicaciones ElectroShock Ver en Maps" [ref=e611] [cursor=pointer]:
+                  - /url: https://www.google.com/maps/search/Florencio+Varela,+Buenos+Aires/@-34.78,-58.28,13z
+                  - img "Mapa de ubicaciones ElectroShock" [ref=e612]
+                  - generic [ref=e613]: Ver en Maps
+          - generic [ref=e618]:
+            - paragraph [ref=e621]: © 2025 ElectroShock · Buenos Aires, Argentina
+            - generic [ref=e623]:
+              - generic [ref=e624]: Desarrollado por
+              - generic [ref=e625]: JLdev Studio
+  - generic:
+    - button "Abrir menú de ayuda" [ref=e628] [cursor=pointer]:
+      - generic [ref=e634]:
+        - generic [ref=e635]: ¿Necesitás ayuda?
+        - generic [ref=e636]: Chatea con nosotros
+    - generic [ref=e640]:
+      - button "Ir al inicio"
+  - generic [aria-hidden] [ref=e641]: $139k

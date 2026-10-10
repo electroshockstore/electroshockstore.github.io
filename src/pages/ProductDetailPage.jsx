@@ -49,7 +49,20 @@ const ProductDetailPage = () => {
     return undefined;
   }, [id, productSku, location.state, getProductById, products]);
 
-  useProductSEO(product);
+  // URL canónica del producto (ruta SKU). Las URLs legacy /producto/:id
+  // o con slug desactualizado redirigen sin cambiar la UI.
+  const canonicalPath = useMemo(() => {
+    if (!product) return null;
+    return `/categoria/${getSlugFromCategory(product.category)}/${generateSKU(product.name, product.brand)}`;
+  }, [product]);
+
+  useEffect(() => {
+    if (product && canonicalPath && location.pathname !== canonicalPath) {
+      navigate(canonicalPath, { replace: true, state: { productId: product.id } });
+    }
+  }, [product, canonicalPath, location.pathname, navigate]);
+
+  useProductSEO(product, { robots: product ? undefined : 'noindex, follow' });
   useProductView(product);
 
   useEffect(() => {

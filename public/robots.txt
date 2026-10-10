@@ -2,15 +2,13 @@
 User-agent: *
 Allow: /
 Allow: /categoria/
-Allow: /blog/
 Allow: /puntos-de-retiro
 Allow: /armatupc/
-Disallow: /404.html
 Disallow: /*.json$
 Disallow: /api/
 
 # Sitemap principal
-Sitemap: https://www.jldev.com.ar/sitemap.xml
+Sitemap: https://www.electroshock.com.ar/sitemap.xml
 
 # Crawl-delay optimizado
 User-agent: Googlebot

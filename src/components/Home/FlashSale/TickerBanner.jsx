@@ -18,10 +18,10 @@ const TickerBanner = ({ items = ['TIEMPO LIMITADO', 'STOCK LIMITADO', 'PRECIOS I
   );
 
   return (
-    <div className="relative bg-lime-400 py-3 sm:py-3.5 overflow-hidden flex border-y border-[#09090d]/10">
+    <div className="relative bg-cyber-lime py-3 sm:py-3.5 overflow-hidden flex border-y border-[#09090d]/10">
       {/* Fade gradients con mayor área de respiro para suavizar la entrada/salida */}
-      <div className="absolute top-0 bottom-0 left-0 w-16 sm:w-24 z-10 bg-gradient-to-r from-lime-400 to-transparent pointer-events-none" />
-      <div className="absolute top-0 bottom-0 right-0 w-16 sm:w-24 z-10 bg-gradient-to-l from-lime-400 to-transparent pointer-events-none" />
+      <div className="absolute top-0 bottom-0 left-0 w-16 sm:w-24 z-10 bg-gradient-to-r from-cyber-lime to-transparent pointer-events-none" />
+      <div className="absolute top-0 bottom-0 right-0 w-16 sm:w-24 z-10 bg-gradient-to-l from-cyber-lime to-transparent pointer-events-none" />
       
       {/* Contenedor principal animado. 
         hover:[animation-play-state:paused] permite frenarlo si el usuario pone el mouse encima.
@@ -47,6 +47,9 @@ const TickerBanner = ({ items = ['TIEMPO LIMITADO', 'STOCK LIMITADO', 'PRECIOS I
           0% { transform: translate3d(0, 0, 0); }
           /* Se desplaza exactamente el 50% del contenedor total (2 de los 4 grupos) para un reinicio invisible */
           100% { transform: translate3d(-50%, 0, 0); }
+        }
+        @media (prefers-reduced-motion: reduce) {
+          .animate-ticker { animation: none; }
         }
         .animate-ticker {
           animation: ticker 30s linear infinite;

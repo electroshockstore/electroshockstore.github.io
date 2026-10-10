@@ -1,0 +1,16 @@
+- generic [active] [ref=f1e1]:
+  - generic [ref=f1e2]:
+    - link "Saltar al contenido principal" [ref=f1e3] [cursor=pointer]:
+      - /url: "#main-content"
+    - generic [ref=f1e5]:
+      - main:
+        - generic [ref=f1e16]:
+          - heading "ElectroShock" [level=2] [ref=f1e17]
+          - paragraph [ref=f1e20]: Procesando componentes...
+  - generic:
+    - button "Abrir menú de ayuda" [ref=f1e23] [cursor=pointer]:
+      - generic [ref=f1e29]:
+        - generic [ref=f1e30]: ¿Necesitás ayuda?
+        - generic [ref=f1e31]: Chatea con nosotros
+    - generic [ref=f1e35]:
+      - button "Ir al inicio"

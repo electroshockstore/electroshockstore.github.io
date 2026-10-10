@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { ChevronDown } from 'lucide-react';
+import { ChevronDown, MapPin, Ban } from 'lucide-react';
 import { getAppScroller } from '../../context/ScrollContext';
 import HeroBackground from './HeroSection/HeroBackground';
 import HeroBadge from './HeroSection/HeroBadge';
@@ -33,16 +33,16 @@ const HeroSection = () => {
           <div className="flex-1 text-left lg:text-left lg:order-1 w-full">
             
             {/* Badges */}
-            <HeroBadge 
-              text="Puntos de retiro disponibles" 
-              icon="📍" 
-              showDot 
-              className="hidden lg:inline-flex" 
+            <HeroBadge
+              text="Puntos de retiro disponibles"
+              icon={<MapPin strokeWidth={2.5} />}
+              showDot
+              className="hidden lg:inline-flex"
             />
-            <HeroBadge 
-              text="NO TENEMOS LOCAL FISICO" 
-              icon="🚫" 
-              className="inline-flex lg:hidden" 
+            <HeroBadge
+              text="NO TENEMOS LOCAL FISICO"
+              icon={<Ban strokeWidth={2.5} />}
+              className="inline-flex lg:hidden"
             />
 
             {/* Titles */}
@@ -79,13 +79,13 @@ const HeroSection = () => {
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 1.5, duration: 0.5 }}
       >
-        <span className="text-xs lg:text-sm text-blue-400/80 font-medium">Ver más</span>
+        <span className="text-xs lg:text-sm text-cyber-cyan/80 font-medium">Ver más</span>
         <motion.div
-          className="w-8 h-8 lg:w-10 lg:h-10 rounded-full bg-blue-500/20 border border-blue-500/40 flex items-center justify-center group-hover:bg-blue-500/30 transition-colors"
+          className="w-8 h-8 lg:w-10 lg:h-10 rounded-full bg-cyber-surface border border-cyber-line flex items-center justify-center transition-colors"
           animate={{ y: [0, 8, 0] }}
           transition={{ repeat: Infinity, duration: 1.5, ease: "easeInOut" }}
         >
-          <ChevronDown className="w-5 h-5 lg:w-6 lg:h-6 text-blue-400" />
+          <ChevronDown className="w-5 h-5 lg:w-6 lg:h-6 text-cyber-cyan" />
         </motion.div>
       </motion.button>
     </section>

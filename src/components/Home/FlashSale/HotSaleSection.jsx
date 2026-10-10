@@ -83,7 +83,7 @@ const HotSaleSection = ({ targetMs, products = [], onNavigate }) => {
 
       {/* Google Fonts */}
       <style>{`
-        @import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,700;0,800;0,900;1,700;1,800;1,900&family=DM+Mono:wght@400;500&family=Barlow:wght@400;600;700;800;900&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,700;0,800;0,900;1,700;1,800;1,900&family=Barlow:wght@400;600;700;800;900&display=swap');
         
         @keyframes fadeSlideUp {
           from { opacity: 0; transform: translateY(24px); }

@@ -7,7 +7,7 @@ import { Grid3x3, ChevronDown } from 'lucide-react';
 const CategoryButton = ({ onClick, compact = false }) => {
   return (
     <div className="relative group z-20 w-full">
-      {/* RGB FLOWING BORDER - Copiado del CategoryFilter viejo */}
+      {/* RGB FLOWING BORDER - toque insignia, no quitar */}
       <div className="relative rounded-[3rem] overflow-hidden p-[3px] animate-border-rotate">
         <div className="relative bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 rounded-[calc(3rem-3px)] z-10">
           <button
@@ -18,11 +18,10 @@ const CategoryButton = ({ onClick, compact = false }) => {
             }`}
           >
             <div className={`flex items-center transition-all duration-300 motion-reduce:transition-none ${compact ? 'gap-2.5' : 'gap-3.5'}`}>
-              {/* Icono de Grid con gradiente morado */}
+              {/* Icono de Grid sólido */}
               <div className="relative">
-                <div className="absolute inset-0 bg-purple-500 rounded-xl blur-sm opacity-30" />
-                <div className={`relative bg-gradient-to-br from-purple-500 to-purple-600 rounded-xl shadow-lg transition-all duration-300 motion-reduce:transition-none ${compact ? 'p-2' : 'p-2.5'}`}>
-                  <Grid3x3 className={`text-white transition-all duration-300 motion-reduce:transition-none ${compact ? 'h-5 w-5' : 'h-6 w-6'}`} strokeWidth={2.5} />
+                <div className={`relative bg-cyber-cyan rounded-xl transition-all duration-300 motion-reduce:transition-none ${compact ? 'p-2' : 'p-2.5'}`}>
+                  <Grid3x3 className={`text-cyber-bg transition-all duration-300 motion-reduce:transition-none ${compact ? 'h-5 w-5' : 'h-6 w-6'}`} strokeWidth={2.5} />
                 </div>
               </div>
 

@@ -8,15 +8,13 @@ const PromoCarousel = () => {
 
   // Mensajes del carousel central (vertical)
   const centerMessages = [
-    { 
-      icon: ShieldCheck, 
-      text: 'Sin señas ni pagos previos', 
-      gradient: 'from-purple-400 via-violet-500 to-indigo-600',
+    {
+      icon: ShieldCheck,
+      text: 'Sin señas ni pagos previos',
     },
-    { 
-      icon: CheckCircle2, 
-      text: 'Revisás y pagás al momento', 
-      gradient: 'from-emerald-400 via-green-500 to-teal-500',
+    {
+      icon: CheckCircle2,
+      text: 'Revisás y pagás al momento',
     }
   ];
 
@@ -66,8 +64,8 @@ const PromoCarousel = () => {
       <div className="flex items-center justify-between px-3 gap-2">
         {/* LEFT START - No hacemos envío */}
         <div className="flex items-center gap-1.5 flex-shrink-0">
-          <Truck className="w-3.5 h-3.5 text-blue-400 flex-shrink-0" strokeWidth={2.5} />
-          <span className="text-[10px] font-black tracking-tight uppercase bg-gradient-to-r from-blue-400 via-cyan-500 to-teal-500 bg-clip-text text-transparent whitespace-nowrap">
+          <Truck className="w-3.5 h-3.5 text-cyber-cyan flex-shrink-0" strokeWidth={2.5} />
+          <span className="text-[10px] font-black tracking-tight uppercase text-gray-300 whitespace-nowrap">
             No envíos
           </span>
         </div>
@@ -89,8 +87,8 @@ const PromoCarousel = () => {
                       : 'opacity-0 translate-y-5'
                 }`}
               >
-                <Icon className="w-3.5 h-3.5 text-white flex-shrink-0" strokeWidth={2.5} />
-                <span className={`text-[10px] font-black tracking-tight uppercase bg-gradient-to-r ${promo.gradient} bg-clip-text text-transparent whitespace-nowrap`}>
+                <Icon className="w-3.5 h-3.5 text-cyber-lime flex-shrink-0" strokeWidth={2.5} />
+                <span className="text-[10px] font-black tracking-tight uppercase text-gray-200 whitespace-nowrap">
                   {promo.text}
                 </span>
               </div>
@@ -100,8 +98,8 @@ const PromoCarousel = () => {
 
         {/* RIGHT END - No tenemos local físico */}
         <div className="flex items-center gap-1.5 flex-shrink-0">
-          <Store className="w-3.5 h-3.5 text-rose-400 flex-shrink-0" strokeWidth={2.5} />
-          <span className="text-[10px] font-black tracking-tight uppercase bg-gradient-to-r from-rose-400 via-pink-500 to-fuchsia-600 bg-clip-text text-transparent whitespace-nowrap">
+          <Store className="w-3.5 h-3.5 text-cyber-cyan flex-shrink-0" strokeWidth={2.5} />
+          <span className="text-[10px] font-black tracking-tight uppercase text-gray-300 whitespace-nowrap">
             Sin local
           </span>
         </div>

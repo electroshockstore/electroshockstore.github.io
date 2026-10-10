@@ -1,14 +1,9 @@
+import OffsetGlowCTA from '../../Shared/OffsetGlowCTA';
+
 const HeroCTA = () => {
   return (
     <div className="hidden lg:flex flex-col sm:flex-row items-center sm:items-start gap-4 sm:gap-6">
-      <button 
-        className="hero-cta-button relative w-full sm:w-auto px-8 py-4 lg:py-3.5 lg:px-7 font-black text-sm sm:text-base lg:text-sm uppercase tracking-wider text-black overflow-hidden border-none cursor-pointer transition-all duration-200"
-        style={{
-          clipPath: 'polygon(12px 0%, 100% 0%, calc(100% - 12px) 100%, 0% 100%)'
-        }}
-      >
-        <span className="relative z-10">VER PUNTOS DE RETIRO →</span>
-      </button>
+      <OffsetGlowCTA label="Ver puntos de retiro" size="lg" className="text-sm uppercase tracking-wider" />
 
       <div className="flex items-center gap-4 sm:gap-6">
         <div className="text-center">

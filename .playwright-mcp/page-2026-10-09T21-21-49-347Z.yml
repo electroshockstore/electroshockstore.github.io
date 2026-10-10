@@ -1,0 +1,73 @@
+- generic [ref=f1e1]:
+  - generic [ref=f1e2]:
+    - link "Saltar al contenido principal" [ref=f1e3] [cursor=pointer]:
+      - /url: "#main-content"
+    - main [ref=f1e6]:
+      - generic [ref=f1e70]:
+        - generic [ref=f1e75]:
+          - combobox "¿Qué componente buscas?" [expanded] [active] [ref=f1e76]: zzzqqq
+          - button "Limpiar búsqueda" [ref=f1e831] [cursor=pointer]
+          - listbox [ref=f1e835]:
+            - generic [ref=f1e836]:
+              - paragraph [ref=f1e837]:
+                - text: Sin resultados para
+                - generic [ref=f1e838]: “zzzqqq”
+              - paragraph [ref=f1e839]: Probá con otra marca, modelo o categoría.
+        - main [ref=f1e77]:
+          - generic [ref=f1e79]:
+            - generic [ref=f1e80]: Catálogo · 0 productos
+            - heading "MOUSE 0 PRODUCTOS" [level=1] [ref=f1e840]:
+              - generic [ref=f1e84]: MOUSE
+              - generic [ref=f1e85]: 0 PRODUCTOS
+          - generic [ref=f1e842]:
+            - generic [ref=f1e846]: Sin resultados
+            - heading "Nada por aquí todavía" [level=3] [ref=f1e848]
+            - paragraph [ref=f1e849]: No encontramos productos que coincidan con los filtros seleccionados.
+            - button "Ver todas las categorías" [ref=f1e850] [cursor=pointer]
+        - generic [ref=f1e753]:
+          - generic [ref=f1e754]:
+            - generic [ref=f1e755]:
+              - generic [ref=f1e757]:
+                - img "Logo" [ref=f1e759]
+                - heading "ElectroShock" [level=3] [ref=f1e761]
+              - paragraph [ref=f1e763]: Elevando tu experiencia tecnológica con componentes de alta gama y asesoramiento especializado. Expertos en hardware de alto rendimiento.
+            - generic [ref=f1e764]:
+              - heading "Contacto" [level=4] [ref=f1e765]
+              - generic [ref=f1e767]:
+                - generic [ref=f1e773]:
+                  - paragraph [ref=f1e774]: Horarios
+                  - paragraph [ref=f1e775]: "Lun - Dom: 9h a 21h"
+                - generic [ref=f1e780]:
+                  - paragraph [ref=f1e781]: Ventas
+                  - paragraph [ref=f1e782]: WhatsApp Oficial
+                - generic [ref=f1e788]:
+                  - paragraph [ref=f1e789]: Email
+                  - paragraph [ref=f1e790]: info@electroshock.com
+            - generic [ref=f1e791]:
+              - generic [ref=f1e792]:
+                - heading "Puntos De Retiro" [level=4] [ref=f1e793]
+                - generic [ref=f1e795]: 2 SUCURSALES
+              - generic [ref=f1e796]:
+                - link [ref=f1e797] [cursor=pointer]:
+                  - /url: https://maps.app.goo.gl/ivNLJMo7kHxtdUJAA
+                  - generic [ref=f1e800]:
+                    - paragraph [ref=f1e801]: Bingo BZ Cruce (Puerta)
+                    - paragraph [ref=f1e802]: Cruce Florencio Varela, Provincia de Buenos Aires
+                - link [ref=f1e807] [cursor=pointer]:
+                  - /url: https://maps.app.goo.gl/kXdMaP1UVaRw5x767
+                  - generic [ref=f1e810]:
+                    - paragraph [ref=f1e811]: Carrefour (Patio Comidas)
+                    - paragraph [ref=f1e812]: Av. Gral. José de San Martín 554. Florencio Varela, Provincia de Buenos Aires
+              - link "Mapa de ubicaciones ElectroShock Ver en Maps" [ref=f1e818] [cursor=pointer]:
+                - /url: https://www.google.com/maps/search/Florencio+Varela,+Buenos+Aires/@-34.78,-58.28,13z
+                - img "Mapa de ubicaciones ElectroShock" [ref=f1e819]
+                - generic [ref=f1e820]: Ver en Maps
+          - generic [ref=f1e825]:
+            - paragraph [ref=f1e827]: © 2025 ElectroShock · Buenos Aires, Argentina
+            - generic [ref=f1e828]:
+              - generic [ref=f1e829]: Desarrollado por
+              - generic [ref=f1e830]: JLdev Studio
+  - generic:
+    - button "Abrir menú de ayuda" [ref=f1e62] [cursor=pointer]
+    - generic [ref=f1e68]:
+      - button "Ir al inicio"
