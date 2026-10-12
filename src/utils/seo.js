@@ -146,8 +146,8 @@ export const generateOrganizationSchema = () => {
     "name": "ElectroShock",
     "description": "Tienda de componentes de PC, periféricos gaming, hardware y tecnología en Zona Sur,  Buenos Aires. y Florencio Varela",
     "url": SITE_URL,
-    "logo": `${SITE_URL}/logotipo_tiny.png`,
-    "image": `${SITE_URL}/logotipo_tiny.png`,
+    "logo": `${SITE_URL}/logotipo_tiny.webp`,
+    "image": `${SITE_URL}/logotipo_tiny.webp`,
     "telephone": "+54-11-2571-8382",
     "address": {
       "@type": "PostalAddress",

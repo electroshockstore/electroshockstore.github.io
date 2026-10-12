@@ -5903,3 +5903,734 @@ body {
     linear-gradient(115deg, transparent 55%, rgba(167, 243, 208, 0.20) 100%),
     radial-gradient(140px 140px at 88% 8%, rgba(167, 243, 208, 0.25), transparent 70%);
 }
+
+/* ============================================
+   LANDING DESKTOP (lg+) — tema claro + grilla blueprint
+   --------------------------------------------
+   Geometría copiada de la referencia: fondo #e4e4e4, contenedor
+   1320px, 4 columnas de 330px con líneas 1px #9e9e9e (fijas) y
+   celdas acotadas por reglas. Acento: lima (color insignia).
+   ============================================ */
+.landing-root {
+  background: #e4e4e4;
+  color: #0e0e0e;
+}
+
+/* Tipografías de la referencia */
+.landing-pixel {
+  font-family: 'Silkscreen', 'Bebas Neue', monospace;
+  font-weight: 400;
+}
+
+.landing-mono {
+  font-family: 'Roboto Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+}
+
+/* Líneas verticales fijas (jerarquía de la cuadrícula).
+   Gutters simétricos de 72px = ancho exacto de la botonera:
+   el borde interno de cada celda lateral coincide con la línea
+   de la grilla y con el borde del marco, sin huecos ni solapes. */
+.landing-lines {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 72px;
+  right: 72px;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.landing-lines-inner {
+  position: relative;
+  height: 100%;
+  width: 100%;
+}
+
+.landing-line {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 1px;
+  background: #9e9e9e;
+}
+
+.landing-line:nth-child(1) { left: 0; }
+.landing-line:nth-child(2) { left: 25%; }
+.landing-line:nth-child(3) { left: 50%; }
+.landing-line:nth-child(4) { left: 75%; }
+.landing-line:nth-child(5) { left: 100%; }
+
+/* Marco del hero (celdas acotadas — solo reglas horizontales;
+   las verticales las dan las líneas fijas de la grilla) */
+.hero-frame {
+  position: relative;
+}
+
+/* Clip cuadrado en las puntas del header (recorte estilo cubículo) */
+.hero-clip {
+  position: absolute;
+  bottom: 0;
+  width: 27px;
+  height: 27px;
+  background: #9e9e9e;
+  pointer-events: none;
+}
+
+/* Decoración cuadrada de 9px (links del header / detalles) */
+.hero-deko {
+  width: 9px;
+  height: 9px;
+  pointer-events: none;
+}
+
+.hero-square {
+  width: 12px;
+  height: 12px;
+  flex-shrink: 0;
+  background: #c8f519;
+  border: 1px solid #0e0e0e;
+}
+
+/* Titular maximalista (pixel font, estático, ancho completo) */
+.hero-title {
+  font-family: 'Silkscreen', 'Bebas Neue', monospace;
+  font-weight: 400;
+  font-size: clamp(4.5rem, 13vw, 15rem);
+  line-height: 1;
+  letter-spacing: 0.02em;
+  white-space: nowrap;
+  color: #1b1b1b;
+}
+
+.hero-title-accent {
+  color: #c8f519;
+  -webkit-text-stroke: 2px #0e0e0e;
+}
+
+/* Tile negro con esquinas */
+.hero-tile {
+  position: relative;
+  background: #0e0e0e;
+  border: 1px solid #9e9e9e;
+}
+
+.hero-tile-corner {
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  border: 1px solid #bebebe;
+}
+
+/* Fila de categorías (estilo "Our Partners") */
+.hero-partners {
+  background: #f6f6f6;
+  border: 1px solid #9e9e9e;
+}
+
+/* Celda cuadrada de navegación (rail lateral / botón de esquina) */
+.hero-cell {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 49px;
+  height: 49px;
+  border: 1px solid #9e9e9e;
+  background: #f6f6f6;
+  color: #0e0e0e;
+  cursor: pointer;
+  transition: background-color 160ms ease, color 160ms ease;
+}
+
+.hero-cell:hover {
+  background: #0e0e0e;
+  color: #c8f519;
+}
+
+/* Rail derecho: botonera grande pegada al borde (72px).
+   Gutter de 104px → quedan 32px de aire hasta la línea divisoria. */
+.hero-cell-lg {
+  width: 72px;
+  height: 72px;
+}
+
+/* Celdas de la franja superior: cajas completas de 72px pegadas al
+   marco. Comparten sus 4 bordes con las líneas vecinas (header abajo,
+   franja abajo, grilla a los lados): nada sobresale ni se duplica. */
+.hero-strip-cell {
+  width: 72px;
+  height: 100%;
+  border-radius: 0;
+}
+
+/* Botón lima (color insignia) */
+.landing-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.85rem 1.6rem;
+  background: #c8f519;
+  color: #0e0e0e;
+  font-family: 'Roboto Mono', ui-monospace, monospace;
+  font-weight: 700;
+  font-size: 0.78rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  border: 1px solid #0e0e0e;
+  cursor: pointer;
+  transition: background-color 180ms ease, transform 180ms ease;
+}
+
+.landing-btn:hover {
+  background: #b6e000;
+  transform: translateY(-1px);
+}
+
+/* Robot (SVG con mouse-follow) */
+.hero-bot {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 5;
+  pointer-events: none;
+}
+
+.hero-bot > * {
+  pointer-events: auto;
+}
+
+.landing-bot {
+  position: relative;
+  transition: transform 120ms ease-out;
+  will-change: transform;
+}
+
+.landing-bot-svg {
+  width: 100%;
+  height: auto;
+  filter: drop-shadow(0 26px 34px rgba(14, 14, 14, 0.18));
+}
+
+.landing-bot-dots {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: landing-bot-blink 5s ease-in-out infinite;
+}
+
+@keyframes landing-bot-blink {
+  0%, 93%, 100% { transform: scaleY(1); }
+  95.5% { transform: scaleY(0.12); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .landing-bot-dots {
+    animation: none;
+  }
+}
+
+.perf-low .landing-bot-dots,
+.is-low-end .landing-bot-dots {
+  animation: none;
+}
+
+/* =====================================================================
+   ShowcaseHero — capa maximalista (título tech + puño/rayo + texturas)
+   Fuente Orbitron cargada desde index.html.
+   ===================================================================== */
+
+/* ---------- Título tech ----------
+   Doble clase (.hero-title.hero-title-tech) para ganarle a .hero-title
+   sin tocar su definición original.
+   El hueco (--hero-gap) se calcula para medir EXACTAMENTE lo que mide el
+   rayo a esa altura (el rayo escala con el alto del hero), y el tamaño de
+   fuente se limita para que "ELECTRO + hueco + SHOCK" nunca desborde. */
+.hero-title.hero-title-tech {
+  --hero-gap: min(calc(38.2vh - 40px), 19vw);
+  --hero-fs: min(6.8vw, 14vh, calc((100vw - 160px - var(--hero-gap)) / 10.6));
+  display: flex;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  gap: var(--hero-gap);
+  font-family: 'Orbitron', 'Chakra Petch', ui-sans-serif, system-ui, sans-serif;
+  font-weight: 900;
+  font-size: var(--hero-fs);
+  line-height: 0.9;
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
+  color: #0e0e0e;
+  text-shadow: none;
+}
+
+.hero-word {
+  position: relative;
+  display: inline-block;
+  flex-shrink: 0;
+  isolation: isolate;
+}
+
+/* Copia fantasma en contorno, desplazada: da profundidad a ELECTRO */
+.hero-word:not(.hero-title-accent)::before {
+  content: attr(data-text);
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  color: transparent;
+  -webkit-text-stroke: 2px #0e0e0e;
+  transform: translate(0.09em, 0.09em);
+  pointer-events: none;
+}
+
+/* Eco apilado en contorno lima, más atrás todavía: relieve / maximalismo */
+.hero-word:not(.hero-title-accent)::after {
+  content: attr(data-text);
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+  color: transparent;
+  -webkit-text-stroke: 2px #c8f519;
+  transform: translate(0.16em, 0.16em);
+  pointer-events: none;
+}
+
+/* SHOCK: lima con trazo negro y sombra dura.
+   El padding-right iguala el ancho de ELECTRO (más ancho) para que el
+   hueco entre las dos palabras quede centrado y el rayo pase justo ahí. */
+.hero-title.hero-title-tech .hero-title-accent {
+  color: #c8f519;
+  -webkit-text-stroke: 3.5px #0e0e0e;
+  paint-order: stroke fill;
+  text-shadow: 0.06em 0.06em 0 #0e0e0e, 0.12em 0.12em 0 rgba(14, 14, 14, 0.28);
+  padding-right: 1.6em;
+}
+
+/* ---------- Texturas de la fila del título ---------- */
+.hero-dots {
+  background-image: radial-gradient(#9e9e9e 1px, transparent 1.2px);
+  background-size: 18px 18px;
+  opacity: 0.2;
+  -webkit-mask-image: radial-gradient(ellipse at center, #000 20%, transparent 75%);
+  mask-image: radial-gradient(ellipse at center, #000 20%, transparent 75%);
+}
+
+.hero-scan {
+  background: repeating-linear-gradient(
+    to bottom,
+    rgba(14, 14, 14, 0.045) 0,
+    rgba(14, 14, 14, 0.045) 1px,
+    transparent 1px,
+    transparent 4px
+  );
+}
+
+/* ---------- Resplandor detrás del rayo ---------- */
+.hero-glow {
+  background: radial-gradient(
+    ellipse at center,
+    rgba(255, 214, 0, 0.5) 0%,
+    rgba(200, 245, 25, 0.28) 40%,
+    transparent 72%
+  );
+  filter: blur(22px);
+}
+
+.hero-glow-run {
+  animation: hero-pulse 3.4s ease-in-out infinite;
+}
+
+@keyframes hero-pulse {
+  0%, 100% { opacity: 0.75; transform: translateX(-50%) scale(1); }
+  45% { opacity: 1; transform: translateX(-50%) scale(1.06); }
+  52% { opacity: 0.6; transform: translateX(-50%) scale(1.02); }
+  58% { opacity: 1; transform: translateX(-50%) scale(1.08); }
+}
+
+/* ---------- Puño + rayo ---------- */
+.hero-fist-img {
+  user-select: none;
+  filter: drop-shadow(0 0 14px rgba(255, 214, 0, 0.55))
+    drop-shadow(0 0 46px rgba(200, 245, 25, 0.3));
+}
+
+/* ---------- Chispas ---------- */
+.hero-spark {
+  position: absolute;
+  width: 9px;
+  height: 9px;
+  background: #c8f519;
+  border: 1px solid #0e0e0e;
+  box-shadow: 0 0 10px rgba(200, 245, 25, 0.9);
+  opacity: 0;
+}
+
+.hero-spark-run {
+  animation: hero-spark 2.6s ease-out infinite;
+}
+
+@keyframes hero-spark {
+  0% { opacity: 0; transform: translate(0, 0) rotate(0deg) scale(1); }
+  12% { opacity: 1; }
+  100% { opacity: 0; transform: translate(var(--dx), var(--dy)) rotate(120deg) scale(0.4); }
+}
+
+/* ---------- Accesibilidad: sin movimiento ---------- */
+@media (prefers-reduced-motion: reduce) {
+  .hero-glow-run,
+  .hero-spark-run {
+    animation: none;
+  }
+}
+
+/* =====================================================================
+   Flash Sale (landing desktop) — rayo con glow + tiles del contador
+   Reutiliza el efecto "moderno" del rayo de FlashSale/HeroSection.
+   ===================================================================== */
+
+/* Rayo lima con pulso de glow (drop-shadow animado) */
+.flash-bolt-glow {
+  filter: drop-shadow(0 0 10px rgba(200, 245, 25, 0.55))
+    drop-shadow(0 0 24px rgba(200, 245, 25, 0.25));
+  animation: flash-bolt-glow 2.2s ease-in-out infinite;
+}
+
+@keyframes flash-bolt-glow {
+  0%,
+  100% {
+    filter: drop-shadow(0 0 10px rgba(200, 245, 25, 0.55))
+      drop-shadow(0 0 24px rgba(200, 245, 25, 0.25));
+  }
+  50% {
+    filter: drop-shadow(0 0 20px rgba(200, 245, 25, 0.9))
+      drop-shadow(0 0 44px rgba(200, 245, 25, 0.45));
+  }
+}
+
+/* Tile negro del contador (coherente con los tiles del hero) */
+.flash-timer-tile {
+  position: relative;
+  background: #0e0e0e;
+  border: 1px solid #9e9e9e;
+  box-shadow: inset 0 0 0 1px rgba(200, 245, 25, 0.08);
+}
+
+/* Ranura central tipo "flip clock" */
+.flash-timer-tile::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 50%;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(200, 245, 25, 0.75) 50%,
+    transparent 100%
+  );
+  box-shadow: 0 0 8px rgba(200, 245, 25, 0.4);
+}
+
+/* Brillo que recorre el badge de descuento (señal de oferta) */
+.flash-shine {
+  position: relative;
+  overflow: hidden;
+}
+
+.flash-shine::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: -60%;
+  width: 45%;
+  background: linear-gradient(
+    100deg,
+    transparent,
+    rgba(255, 255, 255, 0.85),
+    transparent
+  );
+  transform: skewX(-18deg);
+  pointer-events: none;
+  animation: flash-shine 3s ease-in-out infinite;
+}
+
+@keyframes flash-shine {
+  0%,
+  55% {
+    left: -60%;
+  }
+  100% {
+    left: 140%;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .flash-bolt-glow,
+  .flash-shine::after {
+    animation: none;
+  }
+}
+
+.perf-low .flash-bolt-glow,
+.is-low-end .flash-bolt-glow {
+  animation: none;
+}
+
+/* Título "RELÁMPAGO": lima con glow eléctrico + subrayado. Reutiliza el
+   efecto neon del FlashSale mobile (cyberpunk-text) y le suma una sombra
+   dura oscura para que se lea sobre el fondo claro del landing. */
+.flash-title-glow {
+  position: relative;
+  display: inline-block;
+  color: #c8f519;
+  text-shadow:
+    0 0 8px rgba(200, 245, 25, 0.9),
+    0 0 18px rgba(200, 245, 25, 0.7),
+    0 0 32px rgba(200, 245, 25, 0.5),
+    0 0 50px rgba(200, 245, 25, 0.3),
+    0.045em 0.045em 0 #0e0e0e;
+  animation: flash-title-pulse 2.4s ease-in-out infinite;
+}
+
+.flash-title-glow::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -0.1em;
+  height: 0.055em;
+  background: #c8f519;
+  box-shadow: 0 0 14px rgba(200, 245, 25, 0.9);
+}
+
+@keyframes flash-title-pulse {
+  0%,
+  100% {
+    text-shadow:
+      0 0 8px rgba(200, 245, 25, 0.9),
+      0 0 18px rgba(200, 245, 25, 0.7),
+      0 0 32px rgba(200, 245, 25, 0.5),
+      0.045em 0.045em 0 #0e0e0e;
+  }
+  50% {
+    text-shadow:
+      0 0 12px rgba(200, 245, 25, 1),
+      0 0 26px rgba(200, 245, 25, 0.85),
+      0 0 46px rgba(200, 245, 25, 0.6),
+      0.045em 0.045em 0 #0e0e0e;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .flash-title-glow {
+    animation: none;
+  }
+}
+
+/* =====================================================================
+   PC BUILDER DESKTOP (lg+) — migración al lenguaje claro del landing
+   Scope `.pcb-light`: solo actúa en desktop, el mobile queda intacto.
+   ===================================================================== */
+@media (min-width: 1024px) {
+  /* Hook tipográfico mono (solo desktop) */
+  .pcb-light .pcb-mono {
+    font-family: 'Roboto Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  }
+
+  /* Hook tipográfico pixel para precios fríos (solo desktop) */
+  .pcb-light .pcb-pixel {
+    font-family: 'Silkscreen', 'Bebas Neue', monospace;
+    font-weight: 400;
+  }
+
+  /* Progreso: lima en lugar de sky */
+  .pcb-light .progress-segment-active {
+    background: #c8f519;
+    box-shadow: 0 0 6px rgba(200, 245, 25, 0.55);
+  }
+
+  /* Slot seleccionado: tinta + filete lima */
+  .pcb-light .slot-card-selected-bg {
+    background: #0e0e0e;
+  }
+
+  .pcb-light .slot-card-selected-shadow,
+  .pcb-light .slot-card-selected-shadow-hover {
+    box-shadow: 4px 4px 0 0 rgba(200, 245, 25, 0.5);
+  }
+
+  .pcb-light .slot-card-filled-shadow {
+    box-shadow: 3px 3px 0 0 #0e0e0e;
+  }
+
+  .pcb-light .slot-card-filled-shadow-hover {
+    box-shadow: 5px 5px 0 0 #0e0e0e;
+  }
+
+  .pcb-light .slot-indicator-gradient {
+    background: #c8f519;
+    box-shadow: none;
+  }
+
+  /* Glow decorativo del header: lima en lugar de azul */
+  .pcb-light .mesh-blob-blue-subtle {
+    background: radial-gradient(circle, rgba(200, 245, 25, 0.14) 0%, transparent 70%);
+  }
+}
+/* =====================================================================
+   PUNTOS RETIRO DESKTOP (lg+) — migración al lenguaje claro del landing
+   Scope `.pr-light`: solo actúa en desktop, el mobile negro queda intacto.
+   Especifidad 0-2-0 para imponerse a las clases dark del sistema.
+   ===================================================================== */
+@media (min-width: 1024px) {
+  /* Card principal: superficie clara + borde tinta + sombra dura */
+  .pr-light .pickup-card-premium {
+    background: #f6f6f6;
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+    border-radius: 0;
+    border: 3px solid #0e0e0e;
+    box-shadow: 8px 8px 0 0 #0e0e0e;
+  }
+
+  .pr-light .pickup-card-wrapper:hover .pickup-card-premium {
+    transform: translate(4px, 4px);
+    box-shadow: 4px 4px 0 0 #c8f519;
+  }
+
+  .pr-light .pickup-card-premium::before {
+    border-radius: 0;
+    background: radial-gradient(
+      circle at top left,
+      rgba(200, 245, 25, 0.22),
+      transparent 55%
+    );
+  }
+
+  /* Filete lima superior al hover */
+  .pr-light .pickup-card-premium::after {
+    content: '';
+    position: absolute;
+    inset-inline: 0;
+    top: 0;
+    height: 4px;
+    background: #c8f519;
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 300ms ease;
+    pointer-events: none;
+  }
+
+  .pr-light .pickup-card-premium:hover::after {
+    transform: scaleX(1);
+  }
+
+  /* Textura + glow + watermark en tinta */
+  .pr-light .card-bg-grid {
+    background-image: radial-gradient(circle at 1px 1px, rgba(14,14,14,0.06) 1px, transparent 0);
+  }
+
+  .pr-light .card-bg-glow {
+    background: radial-gradient(circle, rgba(200,245,25,0.16) 0%, transparent 70%);
+  }
+
+  .pr-light .ppc-ghost {
+    color: rgba(14, 14, 14, 0.07);
+  }
+
+  /* Overlay de imagen cinematográfico: el título blanco siempre legible */
+  .pr-light .card-image-overlay {
+    background: linear-gradient(to top, rgba(5,5,8,0.92) 0%, rgba(5,5,8,0.55) 42%, rgba(5,5,8,0.12) 68%, transparent 85%);
+  }
+
+  .pr-light .ppc-title {
+    text-shadow: 0 2px 14px rgba(0, 0, 0, 0.85), 0 1px 3px rgba(0, 0, 0, 0.9);
+  }
+
+  /* Badge: pastilla negra con lima */
+  .pr-light .point-badge-premium {
+    background: #0e0e0e;
+    border: 1px solid #0e0e0e;
+    border-radius: 0;
+    box-shadow: 3px 3px 0 0 rgba(14, 14, 14, 0.3);
+  }
+
+  /* Marco de foto: filete tinta que separa foto del cuerpo */
+  .pr-light .ppc-media {
+    border-bottom: 3px solid #0e0e0e;
+  }
+
+  /* Bloque seguridad claro */
+  .pr-light .security-block-premium {
+    background: #ffffff;
+    border: 2px solid #0e0e0e;
+    border-radius: 0;
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+    box-shadow: 4px 4px 0 0 #0e0e0e;
+  }
+
+  /* Items de horario claros */
+  .pr-light .schedule-item-fluid {
+    background: #ffffff;
+    border: 2px solid #0e0e0e;
+    border-radius: 0;
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+  }
+
+  .pr-light .schedule-item-fluid:hover {
+    background: #f6f6f6;
+    transform: translateY(-2px);
+    box-shadow: 4px 4px 0 0 #c8f519;
+  }
+
+  .pr-light .weekend-block-fluid {
+    background: #ffffff;
+    border: 2px solid #0e0e0e;
+    border-radius: 0;
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+  }
+
+  .pr-light .weekend-closed,
+  .pr-light .weekend-open {
+    border: 2px solid #0e0e0e;
+    border-left-width: 6px;
+  }
+
+  .pr-light .weekend-closed {
+    border-left-color: #e11d48;
+  }
+
+  .pr-light .weekend-open {
+    border-left-color: #c8f519;
+  }
+
+  /* CTA Maps: botón lima estilo landing */
+  .pr-light .map-button-gradient {
+    background: #c8f519;
+    border: 2px solid #0e0e0e;
+    border-radius: 0;
+    box-shadow: 5px 5px 0 0 #0e0e0e;
+    color: #0e0e0e;
+    transition: transform 150ms ease, box-shadow 150ms ease;
+  }
+
+  .pr-light .map-button-gradient:hover {
+    transform: translate(2px, 2px);
+    box-shadow: 3px 3px 0 0 #0e0e0e;
+  }
+
+  .pr-light .map-button-gradient:active {
+    transform: translate(5px, 5px);
+    box-shadow: none;
+  }
+
+  /* Badge del hero desktop: pastilla negra (pisa .hero-badge rojo) */
+  .pr-light .hero-badge {
+    border-color: #0e0e0e;
+    background: #0e0e0e;
+    box-shadow: 4px 4px 0 0 rgba(14, 14, 14, 0.25);
+  }
+}

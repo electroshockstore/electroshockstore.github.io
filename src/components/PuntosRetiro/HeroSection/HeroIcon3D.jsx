@@ -10,8 +10,8 @@ const HeroIcon3D = () => {
       height: 'clamp(300px, 28vw, 450px)' 
     }}>
       {/* Background layers */}
-      <div className="hero-icon-bg-1 absolute inset-[10%] border transform rotate-[3deg]" />
-      <div className="hero-icon-bg-2 absolute inset-[10%] border transform -rotate-[2deg]" />
+      <div className="absolute inset-[10%] border-[2px] border-[#0e0e0e] bg-[#f6f6f6] transform rotate-[3deg] shadow-[6px_6px_0_0_#0e0e0e]" />
+      <div className="absolute inset-[10%] border border-[#0e0e0e]/20 transform -rotate-[2deg]" />
       
       {/* Icon container */}
       <div className="absolute inset-0 z-10 flex items-center justify-center p-6 sm:p-8">
@@ -21,12 +21,12 @@ const HeroIcon3D = () => {
           <svg
             viewBox="0 0 200 240"
             className="w-full h-full"
-            style={{ filter: 'drop-shadow(0 8px 16px rgba(59,130,246,0.5))' }}
+            style={{ filter: 'drop-shadow(0 8px 16px rgba(200,245,25,0.55))' }}
           >
             <defs>
               <linearGradient id="qGradDesktop" x1="0%" y1="0%" x2="100%" y2="100%">
-                <stop offset="0%" stopColor="#60a5fa" />
-                <stop offset="100%" stopColor="#1d4ed8" />
+                <stop offset="0%" stopColor="#c8f519" />
+                <stop offset="100%" stopColor="#5c7500" />
               </linearGradient>
             </defs>
             <path
@@ -42,13 +42,10 @@ const HeroIcon3D = () => {
       </div>
 
       {/* Label */}
-      <div 
-        className="hero-icon-label absolute -bottom-4 left-1/2 -translate-x-1/2 whitespace-nowrap text-xs font-black uppercase tracking-widest text-blue-300 px-3 py-1 z-20 border border-blue-500/30 bg-black/90"
-        style={{
-          clipPath: 'polygon(6px 0%, 100% 0%, calc(100% - 6px) 100%, 0% 100%)'
-        }}
+      <div
+        className="landing-mono absolute -bottom-4 left-1/2 -translate-x-1/2 whitespace-nowrap text-[11px] font-black uppercase tracking-[0.14em] text-[#c8f519] px-3 py-1.5 z-20 border-[2px] border-[#0e0e0e] bg-[#0e0e0e] shadow-[3px_3px_0_0_rgba(14,14,14,0.3)]"
       >
-        RETIROS PERSONALES
+        Retiros personales
       </div>
     </div>
   );

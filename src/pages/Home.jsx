@@ -9,6 +9,7 @@ import CategoryProductSection from '../components/Home/CategoryProductSection';
 import PuntosRetiroInfoSection from '../components/Home/PuntosRetiroInfoSection';
 import CategoryFilter from '../components/Catalog/CategoryFilter';
 import DiagonalDivider from '../components/Home/DiagonalDivider';
+import DesktopLanding from '../components/Home/DesktopLanding';
 import { HotSaleSection } from '../components/Home/FlashSale';
 
 import { useFilter } from '../context/FilterContext';
@@ -47,6 +48,9 @@ const Home = () => {
   }, [setSelectedCategory]);
 
   const handleCategoryClick = (category) => {
+    // La búsqueda anterior no aplica a la nueva categoría: limpiarla
+    // evita resultados erróneos por el query residual.
+    setSearchQuery('');
     setSelectedCategory(category);
     const slug = getSlugFromCategory(category);
     navigate(`/categoria/${slug}`);
@@ -57,6 +61,10 @@ const Home = () => {
     setSearchQuery('');
     clearSubFilters();
     navigate('/');
+  };
+
+  const handleGoBuilder = () => {
+    navigate('/armatupc');
   };
 
   return (
@@ -82,16 +90,32 @@ const Home = () => {
         </div>
       </div>
       
+      {/* El landing desktop trae su propio header claro (como la referencia) */}
       <Header 
         searchQuery={searchQuery}
         onSearchChange={setSearchQuery}
         onGoHome={handleGoHome}
+        className="lg:hidden"
       />
 
       <main className="flex-1 w-full flex flex-col relative overflow-x-clip">
         <div className="w-full flex-1 flex flex-col">
+          {/* Landing desktop (lg+) — mobile/tablet usan el árbol de abajo */}
+          <div className="hidden lg:block">
+            <DesktopLanding
+              onCategoryClick={handleCategoryClick}
+              onBuilder={handleGoBuilder}
+              flashSale={{
+                enabled: flashSaleConfig.enabled && flashSaleProducts.length > 0,
+                targetMs: new Date(flashSaleConfig.targetDate).getTime(),
+                products: flashSaleProducts,
+                onNavigate: () => navigate('/ofertas'),
+              }}
+            />
+          </div>
+
           {/* CategoryFilter - Solo Desktop con fade-in */}
-          <div className={`hidden sm:block px-3 sm:px-4 py-3 sm:py-4 bg-[#0a0a0f] transition-opacity duration-500 ${isLoaded ? 'opacity-100' : 'opacity-0'}`}>
+          <div className={`hidden sm:block lg:hidden px-3 sm:px-4 py-3 sm:py-4 bg-[#0a0a0f] transition-opacity duration-500 ${isLoaded ? 'opacity-100' : 'opacity-0'}`}>
             <CategoryFilter 
               selectedCategory={null}
               onCategoryChange={handleCategoryClick}
@@ -99,13 +123,13 @@ const Home = () => {
           </div>
 
           {/* Hero — elemento LCP: sin gate de opacidad, pinta de inmediato */}
-          <div className="mb-4 sm:mb-6">
+          <div className="mb-4 sm:mb-6 lg:hidden">
             <HeroCarousel />
           </div>
 
           {/* Hot Sale Section - Debajo del carousel */}
           {flashSaleConfig.enabled && flashSaleProducts.length > 0 && (
-            <div className={`transition-opacity duration-700 delay-200 ${isLoaded ? 'opacity-100' : 'opacity-0'}`}>
+            <div className={`lg:hidden transition-opacity duration-700 delay-200 ${isLoaded ? 'opacity-100' : 'opacity-0'}`}>
               <HotSaleSection
                 targetMs={new Date(flashSaleConfig.targetDate).getTime()}
                 products={flashSaleProducts}
@@ -130,7 +154,7 @@ const Home = () => {
           </div>
           
           {/* Desktop: PC Builder y Puntos de Retiro con fade-in */}
-          <div className={`hidden sm:block mb-4 sm:mb-6 sm:px-4 transition-opacity duration-700 delay-300 ${isLoaded ? 'opacity-100' : 'opacity-0'}`}>
+          <div className={`hidden sm:block lg:hidden mb-4 sm:mb-6 sm:px-4 transition-opacity duration-700 delay-300 ${isLoaded ? 'opacity-100' : 'opacity-0'}`}>
             <div className="grid md:grid-cols-2 gap-3 sm:gap-4 h-[600px]">
               <PCBuilderSection />
               <PuntosRetiroInfoSection />
@@ -139,7 +163,7 @@ const Home = () => {
 
           
           {/* Categories con fade-in */}
-          <div className={`px-3 sm:px-4 mt-12 sm:mt-20 mb-6 sm:mb-10 transition-opacity duration-700 delay-200 ${isLoaded ? 'opacity-100' : 'opacity-0'}`}>
+          <div className={`lg:hidden px-3 sm:px-4 mt-12 sm:mt-20 mb-6 sm:mb-10 transition-opacity duration-700 delay-200 ${isLoaded ? 'opacity-100' : 'opacity-0'}`}>
             <CategoryProductSection onCategoryClick={handleCategoryClick} />
           </div>
 

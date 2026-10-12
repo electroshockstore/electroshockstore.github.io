@@ -155,19 +155,19 @@ const extractKeyFeatures = (product) => {
 
 const FeaturePill = ({ label, value, type, icon }) => {
   const styles = {
-    positive: 'bg-gradient-to-r from-green-50 to-emerald-50 border-green-200 text-green-900',
-    warning: 'bg-gradient-to-r from-orange-50 to-amber-50 border-orange-200 text-orange-900',
-    info: 'bg-gradient-to-r from-blue-50 to-cyan-50 border-blue-200 text-blue-900',
-    spec: 'bg-gradient-to-r from-gray-50 to-slate-50 border-gray-200 text-gray-900'
+    positive: 'bg-gradient-to-r from-green-50 to-emerald-50 lg:bg-none lg:bg-[#f6f6f6] border-green-200 lg:border-[#0e0e0e] text-green-900 lg:text-[#0e0e0e]',
+    warning: 'bg-gradient-to-r from-orange-50 to-amber-50 lg:bg-none lg:bg-[#f6f6f6] border-orange-200 lg:border-[#0e0e0e] text-orange-900 lg:text-[#0e0e0e]',
+    info: 'bg-gradient-to-r from-blue-50 to-cyan-50 lg:bg-none lg:bg-[#0e0e0e] border-blue-200 lg:border-[#0e0e0e] text-blue-900 lg:text-[#c8f519]',
+    spec: 'bg-gradient-to-r from-gray-50 to-slate-50 lg:bg-none lg:bg-white border-gray-200 lg:border-[#0e0e0e] text-gray-900 lg:text-[#0e0e0e]'
   };
   
   return (
-    <div className={`flex items-center gap-3 px-4 py-3 rounded-full border-2 ${styles[type]} transition-all hover:scale-[1.02] hover:shadow-md`}>
+    <div className={`flex items-center gap-3 px-4 py-3 rounded-full lg:rounded-none border-2 ${styles[type]} transition-all hover:scale-[1.02] lg:hover:scale-100 lg:hover:-translate-y-0.5 hover:shadow-md lg:shadow-[3px_3px_0_0_#0e0e0e]`}>
       <div className="flex-shrink-0">
         {icon}
       </div>
       <div className="flex-1 min-w-0">
-        <p className="text-xs font-medium opacity-75">{label}</p>
+        <p className="pcb-mono text-xs font-medium lg:font-bold lg:uppercase lg:tracking-[0.08em] opacity-75">{label}</p>
         <p className="text-sm font-bold truncate">{value}</p>
       </div>
     </div>
@@ -180,22 +180,22 @@ const CompatibilityBadge = ({ status }) => {
   
   if (status === 'green') {
     return (
-      <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gradient-to-r from-green-500 to-emerald-600 text-white shadow-lg">
-        <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full lg:rounded-none bg-gradient-to-r from-green-500 to-emerald-600 lg:bg-none lg:bg-[#0e0e0e] text-white shadow-lg lg:shadow-[3px_3px_0_0_rgba(14,14,14,0.3)]">
+        <svg className="w-4 h-4 lg:text-[#c8f519]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
         </svg>
-        <span className="text-sm font-bold">Compatible</span>
+        <span className="text-sm font-bold lg:font-black lg:uppercase lg:tracking-[0.06em]">Compatible</span>
       </div>
     );
   }
   
   // Red badge for incompatible
   return (
-    <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gradient-to-r from-red-500 to-rose-600 text-white shadow-lg">
+    <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full lg:rounded-none bg-gradient-to-r from-red-500 to-rose-600 text-white shadow-lg">
       <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
       </svg>
-      <span className="text-sm font-bold">Incompatible</span>
+      <span className="text-sm font-bold lg:font-black lg:uppercase lg:tracking-[0.06em]">Incompatible</span>
     </div>
   );
 };
@@ -207,8 +207,11 @@ const EmptyPreview = ({ selectedCategory }) => {
         <img 
           src={armaTuPcImage} 
           alt="Armá tu PC" 
-          className="w-full max-w-md object-contain"
+          className="w-full max-w-md object-contain lg:border-[3px] lg:border-[#0e0e0e] lg:shadow-[6px_6px_0_0_#0e0e0e]"
         />
+        <p className="pcb-mono mt-4 hidden lg:block text-[11px] font-black uppercase tracking-[0.18em] text-[#0e0e0e]/55">
+          Elegí un slot para empezar
+        </p>
       </div>
     );
   }
@@ -233,7 +236,7 @@ const EmptyPreview = ({ selectedCategory }) => {
 const ProductPreviewPanel = ({ selectedProduct, selectedCategory, onBack }) => {
   if (!selectedProduct) {
     return (
-      <aside className="hidden lg:block w-72 xl:w-80 bg-gradient-to-b from-white to-gray-50 border-l border-gray-200 overflow-y-auto">
+      <aside className="hidden lg:block w-72 xl:w-80 bg-gradient-to-b from-white to-gray-50 lg:bg-none lg:bg-[#f6f6f6] border-l border-gray-200 lg:border-[#9e9e9e] overflow-y-auto">
         <EmptyPreview selectedCategory={selectedCategory} />
       </aside>
     );
@@ -243,15 +246,15 @@ const ProductPreviewPanel = ({ selectedProduct, selectedCategory, onBack }) => {
   const compatibilityResult = selectedProduct.compatibilityResult;
 
   return (
-    <aside className="w-full lg:w-72 xl:w-80 bg-gradient-to-b from-white to-gray-50 lg:border-l border-gray-200 overflow-y-auto">
+    <aside className="w-full lg:w-72 xl:w-80 bg-gradient-to-b from-white to-gray-50 lg:bg-none lg:bg-[#f6f6f6] lg:border-l border-gray-200 lg:border-[#9e9e9e] overflow-y-auto">
       {/* Desktop Close Button */}
-      <div className="hidden lg:block sticky top-0 bg-white/95 backdrop-blur-sm border-b border-gray-200 p-4 z-10">
+      <div className="hidden lg:block sticky top-0 bg-white/95 lg:bg-[#f6f6f6]/95 backdrop-blur-sm border-b border-gray-200 lg:border-[#9e9e9e] p-4 z-10">
         <button
           onClick={onBack}
-          className="flex items-center gap-2 text-gray-700 hover:text-gray-900 font-semibold transition-colors"
+          className="pcb-mono flex items-center gap-2 text-gray-700 lg:text-[#0e0e0e] hover:text-gray-900 font-semibold lg:font-black lg:uppercase lg:tracking-[0.1em] lg:text-xs transition-colors"
         >
-          <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+          <svg className="w-5 h-5 lg:w-4 lg:h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M6 18L18 6M6 6l12 12" />
           </svg>
           Cerrar
         </button>
@@ -272,7 +275,7 @@ const ProductPreviewPanel = ({ selectedProduct, selectedCategory, onBack }) => {
       
       <div className="p-4 md:p-6 lg:p-6 xl:p-8 space-y-4 md:space-y-6">
         {/* Product Image */}
-        <div className="bg-gradient-to-br from-gray-50 via-white to-gray-50 rounded-2xl md:rounded-3xl p-6 md:p-8 lg:p-10 aspect-square flex items-center justify-center shadow-inner border border-gray-100">
+        <div className="bg-gradient-to-br from-gray-50 via-white to-gray-50 lg:bg-none lg:bg-white rounded-2xl md:rounded-3xl lg:rounded-none p-6 md:p-8 lg:p-10 aspect-square flex items-center justify-center shadow-inner border border-gray-100 lg:border-[3px] lg:border-[#0e0e0e] lg:shadow-[6px_6px_0_0_#0e0e0e]">
           <img 
             src={selectedProduct.images?.[0] || selectedProduct.image} 
             alt={selectedProduct.name}
@@ -283,19 +286,19 @@ const ProductPreviewPanel = ({ selectedProduct, selectedCategory, onBack }) => {
         {/* Product Name & Brand */}
         <div>
           {selectedProduct.brand && (
-            <div className="inline-block px-3 md:px-4 py-1.5 md:py-2 bg-gradient-to-r from-blue-50 to-indigo-50 border border-blue-200 rounded-full mb-3">
-              <p className="text-xs md:text-sm font-bold text-blue-700 uppercase tracking-wider">
+            <div className="inline-block px-3 md:px-4 py-1.5 md:py-2 bg-gradient-to-r from-blue-50 to-indigo-50 lg:bg-none lg:bg-[#0e0e0e] border border-blue-200 lg:border-[#0e0e0e] rounded-full lg:rounded-none mb-3">
+              <p className="pcb-mono text-xs md:text-sm font-bold text-blue-700 lg:text-[#c8f519] uppercase tracking-wider lg:tracking-[0.14em]">
                 {selectedProduct.brand}
               </p>
             </div>
           )}
-          <h2 className="text-xl md:text-2xl lg:text-3xl font-bold text-gray-900 leading-tight">
+          <h2 className="text-xl md:text-2xl lg:text-3xl font-bold lg:font-black lg:uppercase lg:tracking-tight text-gray-900 lg:text-[#0e0e0e] leading-tight">
             {selectedProduct.name}
           </h2>
         </div>
         
         {/* Price */}
-        <div className="text-3xl md:text-4xl lg:text-5xl font-black bg-gradient-to-r from-gray-900 to-gray-700 bg-clip-text text-transparent">
+        <div className="pcb-pixel text-3xl md:text-4xl lg:text-4xl font-black text-gray-900 lg:text-[#0e0e0e]">
           ${selectedProduct.price.toLocaleString('es-AR')}
         </div>
         
@@ -303,8 +306,8 @@ const ProductPreviewPanel = ({ selectedProduct, selectedCategory, onBack }) => {
         
         {/* Description */}
         {selectedProduct.description && (
-          <div className="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-2xl p-5 border border-blue-100">
-            <p className="text-sm text-gray-800 leading-relaxed">
+          <div className="bg-gradient-to-br from-blue-50 to-indigo-50 lg:bg-none lg:bg-white rounded-2xl lg:rounded-none p-5 border border-blue-100 lg:border-2 lg:border-[#0e0e0e]">
+            <p className="text-sm text-gray-800 lg:text-[#0e0e0e]/75 leading-relaxed">
               {selectedProduct.description}
             </p>
           </div>
@@ -313,7 +316,7 @@ const ProductPreviewPanel = ({ selectedProduct, selectedCategory, onBack }) => {
         {/* Key Features - Pills Style */}
         {keyFeatures.length > 0 && (
           <div>
-            <h3 className="text-xs font-bold text-gray-500 mb-4 uppercase tracking-wider">
+            <h3 className="pcb-mono text-xs font-bold text-gray-500 lg:text-[#0e0e0e]/55 mb-4 uppercase tracking-wider lg:tracking-[0.16em]">
               Características principales
             </h3>
             <div className="space-y-3">
@@ -327,21 +330,21 @@ const ProductPreviewPanel = ({ selectedProduct, selectedCategory, onBack }) => {
         {/* Compatibility Info - Always Clear and Visible */}
         {compatibilityResult && compatibilityResult.reasons.length > 0 && (
           <div>
-            <h3 className="text-xs font-bold text-gray-500 mb-4 uppercase tracking-wider">
+            <h3 className="pcb-mono text-xs font-bold text-gray-500 lg:text-[#0e0e0e]/55 mb-4 uppercase tracking-wider lg:tracking-[0.16em]">
               {compatibilityResult.status === 'green' ? 'Por qué es compatible' : 'Por qué no es compatible'}
             </h3>
-            <div className={`rounded-2xl p-5 border-2 ${
+            <div className={`rounded-2xl lg:rounded-none p-5 border-2 ${
               compatibilityResult.status === 'green' 
-                ? 'bg-gradient-to-br from-green-50 to-emerald-50 border-green-300' 
+                ? 'bg-gradient-to-br from-green-50 to-emerald-50 lg:bg-none lg:bg-white border-green-300 lg:border-[#0e0e0e] lg:border-l-8 lg:border-l-[#c8f519]' 
                 : 'bg-gradient-to-br from-red-50 to-rose-50 border-red-300'
             }`}>
               <ul className="space-y-3">
                 {compatibilityResult.reasons.map((reason, idx) => (
                   <li key={idx} className="flex items-start gap-3">
-                    <div className={`flex-shrink-0 w-6 h-6 rounded-full flex items-center justify-center ${
-                      compatibilityResult.status === 'green' ? 'bg-green-500' : 'bg-red-500'
+                    <div className={`flex-shrink-0 w-6 h-6 rounded-full lg:rounded-none flex items-center justify-center ${
+                      compatibilityResult.status === 'green' ? 'bg-green-500 lg:bg-[#0e0e0e]' : 'bg-red-500'
                     }`}>
-                      <svg className="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <svg className={`w-4 h-4 ${compatibilityResult.status === 'green' ? 'text-white lg:text-[#c8f519]' : 'text-white'}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         {compatibilityResult.status === 'green' ? (
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                         ) : (
@@ -349,7 +352,7 @@ const ProductPreviewPanel = ({ selectedProduct, selectedCategory, onBack }) => {
                         )}
                       </svg>
                     </div>
-                    <span className="text-sm font-semibold text-gray-900 leading-relaxed flex-1">
+                    <span className="text-sm font-semibold text-gray-900 lg:text-[#0e0e0e] leading-relaxed flex-1">
                       {reason}
                     </span>
                   </li>

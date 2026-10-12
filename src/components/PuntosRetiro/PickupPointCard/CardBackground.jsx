@@ -9,8 +9,8 @@ const CardBackground = memo(({ pointId }) => (
     <div className="absolute -top-16 -left-16 w-48 h-48 rounded-full pointer-events-none card-bg-glow" />
 
     {/* Number watermark */}
-    <span className="absolute right-[-8px] bottom-[-20px] pointer-events-none select-none font-display text-[140px] leading-none tracking-[-4px] text-emerald-400/[0.04]">
-      {pointId}
+    <span className="ppc-ghost absolute right-[-8px] bottom-[-20px] pointer-events-none select-none font-display lg:landing-pixel text-[140px] leading-none tracking-[-4px] text-emerald-400/[0.04]">
+      {String(pointId).padStart(2, '0')}
     </span>
   </>
 ));

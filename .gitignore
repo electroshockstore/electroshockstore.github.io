@@ -38,3 +38,7 @@ Thumbs.db
 
 # Deploy worktree temporal
 .gh-pages-deploy/
+
+# Screenshots y artefactos de verificación (no versionar)
+.playwright-mcp/
+/*.png

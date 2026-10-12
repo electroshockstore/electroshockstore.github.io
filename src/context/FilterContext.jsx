@@ -8,8 +8,7 @@ import {
 } from 'react';
 
 import { products as allProducts } from '../data';
-import { normalizeFilterValue } from '../utils/filterNormalizers';
-import { getSpecValue } from '../utils/filterConfig';
+import { applyProductFilters } from '../utils/productFilter';
 import { useDebouncedValue } from '../hooks/useDebouncedValue';
 import { getCategoryFromSlug } from '../utils/slugify';
 
@@ -63,100 +62,16 @@ export function FilterProvider({ children }) {
   // Búsqueda inmediata (input fluido) vs filtrada con debounce (sin refiltrar por tecla)
   const debouncedSearchQuery = useDebouncedValue(searchQuery, 250);
 
-  // Productos filtrados
-  const filteredProducts = useMemo(() => {
-    let filtered = allProducts;
-
-    // Búsqueda (debounced)
-    const q = debouncedSearchQuery.trim().toLowerCase();
-    if (q) {
-
-      filtered = filtered.filter(
-        (p) =>
-          p.name?.toLowerCase().includes(q) ||
-          p.brand?.toLowerCase().includes(q) ||
-          p.model?.toLowerCase().includes(q) ||
-          p.sku?.toLowerCase().includes(q) ||
-          p.category?.toLowerCase().includes(q)
-      );
-    } else {
-      // Categoría
-      if (selectedCategory) {
-        filtered = filtered.filter(
-          (p) => p.category === selectedCategory
-        );
-      }
-
-      // Subfiltros
-      const activeFilters = Object.entries(subFilters).filter(
-        ([, values]) => values?.length > 0
-      );
-
-      if (activeFilters.length > 0) {
-        filtered = filtered.filter((product) => {
-          if (!product.specifications) {
-            return false;
-          }
-
-          return activeFilters.every(
-            ([filterType, selectedValues]) => {
-              const specValue = getSpecValue(
-                product.specifications,
-                filterType
-              );
-
-              if (!specValue) {
-                return false;
-              }
-
-              const normalizedProductValue =
-                normalizeFilterValue(
-                  filterType,
-                  specValue
-                );
-
-              if (
-                !normalizedProductValue ||
-                normalizedProductValue === '' ||
-                normalizedProductValue === 'null'
-              ) {
-                return false;
-              }
-
-              return selectedValues.some((selectedValue) => {
-                const normalizedSelected =
-                  normalizeFilterValue(
-                    filterType,
-                    selectedValue
-                  );
-
-                if (
-                  !normalizedSelected ||
-                  normalizedSelected === '' ||
-                  normalizedSelected === 'null'
-                ) {
-                  return false;
-                }
-
-                return (
-                  normalizedProductValue
-                    .toString()
-                    .toLowerCase()
-                    .trim() ===
-                  normalizedSelected
-                    .toString()
-                    .toLowerCase()
-                    .trim()
-                );
-              });
-            }
-          );
-        });
-      }
-    }
-
-    return filtered;
-  }, [debouncedSearchQuery, selectedCategory, subFilters]);
+  // Productos filtrados (conjuntivo: query + categoría + subfiltros)
+  const filteredProducts = useMemo(
+    () =>
+      applyProductFilters(allProducts, {
+        query: debouncedSearchQuery,
+        category: selectedCategory,
+        subFilters,
+      }),
+    [debouncedSearchQuery, selectedCategory, subFilters]
+  );
 
   const handleSubFilterChange = useCallback(
     (filterType, values) => {

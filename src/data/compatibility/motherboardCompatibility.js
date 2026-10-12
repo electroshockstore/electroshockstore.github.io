@@ -1,4 +1,7 @@
 // Motherboard Compatibility extensions
+// IDs verificados contra src/data/categories/motherboards.json.
+// El motor prefiere `specifications`; este mapa aporta chipset y slots
+// donde los specs vienen incompletos.
 export const motherboardCompatibilityData = {
   // ASUS TUF Gaming A620M-PLUS WiFi AM5
   600: {
@@ -27,15 +30,6 @@ export const motherboardCompatibilityData = {
     slotsRAM: 2,
     uso_principal: ['General', 'Trabajo']
   },
-  // ASUS Prime B550M-K AM4
-  603: {
-    socket: 'AM4',
-    chipset: 'B550',
-    tipoMemoriaRAM: 'DDR4',
-    factorDeForma: 'Micro-ATX',
-    slotsRAM: 2,
-    uso_principal: ['Gaming', 'Trabajo', 'General']
-  },
   // Gigabyte B650M Gaming WiFi DDR5 AM5
   604: {
     socket: 'AM5',
@@ -44,33 +38,6 @@ export const motherboardCompatibilityData = {
     factorDeForma: 'Micro-ATX',
     slotsRAM: 2,
     uso_principal: ['Gaming', 'Trabajo']
-  },
-  // Gigabyte A620M H DDR5 AMD AM5
-  605: {
-    socket: 'AM5',
-    chipset: 'A620',
-    tipoMemoriaRAM: 'DDR5',
-    factorDeForma: 'Micro-ATX',
-    slotsRAM: 2,
-    uso_principal: ['General', 'Trabajo']
-  },
-  // ASUS Prime B450M-A II CSM AM4
-  606: {
-    socket: 'AM4',
-    chipset: 'B450',
-    tipoMemoriaRAM: 'DDR4',
-    factorDeForma: 'Micro-ATX',
-    slotsRAM: 4,
-    uso_principal: ['General', 'Trabajo']
-  },
-  // Gigabyte A520M K V2 UD DDR4 AM4
-  607: {
-    socket: 'AM4',
-    chipset: 'A520',
-    tipoMemoriaRAM: 'DDR4',
-    factorDeForma: 'Micro-ATX',
-    slotsRAM: 2,
-    uso_principal: ['General', 'Trabajo']
   },
   // Gigabyte B650M-H UD AMD AM5 DDR5
   608: {
@@ -90,5 +57,43 @@ export const motherboardCompatibilityData = {
     slotsRAM: 4,
     plataforma: 'Intel',
     uso_principal: ['General', 'Trabajo']
+  },
+  // Asus Prime H610M-K D4 CSM LGA1700 (INTEL)
+  610: {
+    socket: 'LGA1700',
+    chipset: 'H610',
+    tipoMemoriaRAM: 'DDR4',
+    factorDeForma: 'Micro-ATX',
+    slotsRAM: 2,
+    plataforma: 'Intel',
+    uso_principal: ['General', 'Trabajo']
+  },
+  // Gigabyte B760M DS3H LGA1700 (INTEL, DDR4 o DDR5 según versión)
+  611: {
+    socket: 'LGA1700',
+    chipset: 'B760',
+    tipoMemoriaRAM: 'DDR4/DDR5',
+    factorDeForma: 'Micro-ATX',
+    slotsRAM: 4,
+    plataforma: 'Intel',
+    uso_principal: ['Gaming', 'Trabajo', 'General']
+  },
+  // ASUS PRIME A620M-A-CSM DDR5 AM5
+  615: {
+    socket: 'AM5',
+    chipset: 'A620',
+    tipoMemoriaRAM: 'DDR5',
+    factorDeForma: 'Micro-ATX',
+    slotsRAM: 4,
+    uso_principal: ['Gaming', 'Trabajo', 'General']
+  },
+  // ASUS TUF Gaming B650M-PLUS WIFI AM5
+  616: {
+    socket: 'AM5',
+    chipset: 'B650',
+    tipoMemoriaRAM: 'DDR5',
+    factorDeForma: 'Micro-ATX',
+    slotsRAM: 4,
+    uso_principal: ['Gaming', 'Trabajo', 'General']
   }
 };

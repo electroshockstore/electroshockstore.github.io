@@ -50,7 +50,7 @@ const SlotList = ({ selectedCategory, getComponent, onCategoryChange, onRemove }
         }}
       >
         {/* Section label */}
-        <p style={{
+        <p className="pcb-mono" style={{
           margin: '0 0 4px 4px', 
           fontSize: 9, 
           fontWeight: 700,

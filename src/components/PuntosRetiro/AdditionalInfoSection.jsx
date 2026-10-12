@@ -38,13 +38,14 @@ const AdditionalInfoSection = memo(() => {
       variants={containerVariants}
     >
       {/* Resplandor ambiental con Tailwind blur */}
-      <div className="absolute -inset-1 bg-gradient-to-r from-yellow-600/10 via-orange-600/10 to-yellow-600/10 opacity-50 rounded-[2.5rem] blur-2xl" />
+      <div className="absolute -inset-1 bg-gradient-to-r from-yellow-600/10 via-orange-600/10 to-yellow-600/10 opacity-50 rounded-[2.5rem] blur-2xl lg:hidden" />
 
       {/* Contenedor Principal */}
       <motion.div
-        className="relative bg-gray-900/95 rounded-2xl sm:rounded-[2rem] p-5 sm:p-8 md:p-10 border border-white/10 overflow-hidden shadow-2xl"
+        className="relative bg-gray-900/95 lg:bg-[#0e0e0e] rounded-2xl sm:rounded-[2rem] lg:rounded-none p-5 sm:p-8 md:p-10 border border-white/10 lg:border-[3px] lg:border-[#0e0e0e] overflow-hidden shadow-2xl lg:shadow-[8px_8px_0_0_rgba(14,14,14,0.3)]"
         variants={itemVariants}
       >
+        <span aria-hidden="true" className="absolute inset-x-0 top-0 hidden h-1 bg-[#c8f519] lg:block" />
         {/* Decoración de luz interna */}
         <div className="absolute -top-24 -right-24 w-48 h-48 bg-yellow-500/5 rounded-full pointer-events-none" />
         <div className="absolute -bottom-24 -left-24 w-48 h-48 bg-orange-600/5 rounded-full pointer-events-none" />
@@ -78,7 +79,7 @@ const AdditionalInfoSection = memo(() => {
               className="text-xl sm:text-3xl md:text-4xl font-black text-white mb-3 sm:mb-4 tracking-tight leading-tight"
               variants={itemVariants}
             >
-              Importante sobre <span className="bg-gradient-to-r from-yellow-200 via-yellow-400 to-orange-400 bg-clip-text text-transparent">los horarios</span>
+              Importante sobre <span className="bg-gradient-to-r from-yellow-200 via-yellow-400 to-orange-400 lg:from-[#c8f519] lg:via-[#c8f519] lg:to-[#c8f519] bg-clip-text text-transparent">los horarios</span>
             </motion.h3>
 
             <motion.div

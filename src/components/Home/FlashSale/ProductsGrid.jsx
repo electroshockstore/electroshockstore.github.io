@@ -12,7 +12,7 @@ const ProductsGrid = ({ products = [] }) => {
     : 0;
 
   return (
-    <div className="relative px-4 sm:px-6 md:px-11 py-6 sm:py-8 md:py-10 bg-[#09090d]">
+    <div className="relative px-3 sm:px-6 md:px-11 py-4 sm:py-8 md:py-10 bg-[#09090d]">
       {/* Side labels - Solo desktop */}
       <span className="hidden lg:block absolute left-2.5 top-1/2 -translate-y-1/2 font-mono text-[8px] font-medium tracking-[0.22em] uppercase text-cyber-lime opacity-35 [writing-mode:vertical-rl] rotate-180 pointer-events-none">
         Ofertas que vuelan
@@ -22,7 +22,7 @@ const ProductsGrid = ({ products = [] }) => {
       </span>
 
       {/* Products header */}
-      <div className="flex flex-row items-center justify-between gap-3 sm:gap-4 mb-5 pb-4 border-b border-white/[0.055]">
+      <div className="flex flex-row items-center justify-between gap-3 sm:gap-4 mb-4 sm:mb-5 pb-3 sm:pb-4 border-b border-white/[0.055]">
         <div className="flex items-center gap-2">
           <Zap className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-cyber-lime flex-shrink-0" />
           <span className="font-mono text-[10px] sm:text-xs md:text-[13px] font-medium tracking-[0.1em] uppercase text-white">
@@ -38,7 +38,7 @@ const ProductsGrid = ({ products = [] }) => {
       <div className="mb-5">
         {/* Mobile layout */}
         <div className="sm:hidden">
-          <div className="grid grid-cols-2 gap-3 mb-3">
+          <div className="grid grid-cols-2 gap-2.5 mb-2.5">
             {products.slice(0, 2).map((product, index) => {
               const originalPrice = product.price;
               const discountedPrice = Math.round(originalPrice * (1 - product.discountPercentage / 100));

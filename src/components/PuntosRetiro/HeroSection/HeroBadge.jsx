@@ -2,7 +2,7 @@ const HeroBadge = ({ text, icon, showDot = false, className = '' }) => {
   return (
     <div className={`inline-flex items-center gap-2 mb-4 lg:mb-4 ${className}`}>
       <span 
-        className="hero-badge text-[11px] sm:text-sm font-black uppercase tracking-wider px-4 py-2 sm:px-3 sm:py-1.5 text-red-300 border-2 backdrop-blur-sm"
+        className="hero-badge landing-mono text-[11px] sm:text-sm font-black uppercase tracking-[0.08em] px-4 py-2 sm:px-3 sm:py-1.5 text-red-300 border-2 backdrop-blur-sm lg:text-[#c8f519] lg:bg-[#0e0e0e] lg:border-[#0e0e0e] lg:backdrop-blur-none lg:shadow-[4px_4px_0_0_rgba(14,14,14,0.25)]"
         style={{
           clipPath: 'polygon(8px 0%, 100% 0%, calc(100% - 8px) 100%, 0% 100%)'
         }}

@@ -40,7 +40,7 @@ export const useSEO = ({
       title: title || defaultTitle,
       description: description || defaultDescription,
       keywords: keywords || defaultKeywords,
-      image: image ? `${baseUrl}${image}` : `${baseUrl}/logotipo_tiny.png`,
+      image: image ? `${baseUrl}${image}` : `${baseUrl}/logotipo_tiny.webp`,
       imageAlt: imageAlt || (product ? product.name : 'ElectroShock'),
       url: `${baseUrl}${url}`,
       type,
@@ -100,7 +100,7 @@ export const useProductSEO = (product, { robots } = {}) => {
     ? `${generateProductKeywords(product)}, ElectroShock, Zona Sur,  Buenos Aires., ${product.brand.toLowerCase()}, ${product.category.toLowerCase()}`
     : 'ElectroShock, componentes pc, hardware gaming, tecnología, Zona Sur,  Buenos Aires.';
   
-  const image = product?.images?.[0] || '/logotipo_tiny.png';
+  const image = product?.images?.[0] || '/logotipo_tiny.webp';
 
   useSEO({
     title,

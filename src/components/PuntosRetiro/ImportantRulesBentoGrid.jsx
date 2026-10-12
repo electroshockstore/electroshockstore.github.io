@@ -44,8 +44,23 @@ const ImportantRulesBentoGrid = ({ rules = [] }) => {
   };
 
   return (
-    <div className="w-full bg-transparent p-2 sm:p-4 lg:p-6 font-sans">
-      <div className="w-full max-w-6xl mx-auto">
+    <div className="relative w-full bg-transparent p-2 sm:p-4 lg:p-6 lg:px-6 font-sans">
+      {/* Mismo pattern del hero superior (solo desktop) */}
+      <div className="hero-dots pointer-events-none absolute inset-0 hidden lg:block" aria-hidden="true" />
+      <div className="hero-scan pointer-events-none absolute inset-0 hidden lg:block" aria-hidden="true" />
+
+      <div className="relative w-full max-w-6xl lg:max-w-7xl mx-auto">
+        {/* Encabezado de sección (solo desktop): combina con el ritmo del hero */}
+        <div className="mb-8 hidden items-center gap-3 lg:flex" aria-hidden="true">
+          <span className="hero-square" />
+          <span className="landing-mono text-[12px] font-black uppercase tracking-[0.18em] text-[#0e0e0e]/60">
+            02 / Condiciones para retirar
+          </span>
+          <span className="h-px flex-1 bg-[#0e0e0e]/15" />
+          <span className="landing-mono text-[12px] font-black uppercase tracking-[0.18em] text-[#0e0e0e]/60">
+            Leé antes de venir
+          </span>
+        </div>
         
         {/* ============================================
             LAYOUT MOBILE

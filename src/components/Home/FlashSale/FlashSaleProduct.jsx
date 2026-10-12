@@ -53,12 +53,12 @@ const FlashSaleProduct = ({
         <div
           onMouseEnter={() => setImgHovered(true)}
           onMouseLeave={() => setImgHovered(false)}
-          className="relative w-32 flex-shrink-0 bg-white overflow-hidden"
+          className="relative w-24 flex-shrink-0 bg-white overflow-hidden"
         >
           <img
             src={product.images?.[0] || ""}
             alt={product.name}
-            className={`w-full h-full object-contain p-3 transition-transform duration-500 ease-out ${
+            className={`w-full h-full object-contain p-2.5 transition-transform duration-500 ease-out ${
               imgHovered ? 'scale-105' : 'scale-100'
             }`}
             loading="lazy"
@@ -87,7 +87,7 @@ const FlashSaleProduct = ({
         />
 
         {/* Body — lado derecho */}
-        <div className="flex flex-col flex-1 p-3 gap-2">
+        <div className="flex flex-col flex-1 p-2.5 gap-1.5">
           {/* Nombre del producto */}
           <h3
             className={`font-sans text-[10px] font-extrabold uppercase tracking-wider leading-tight m-0 transition-colors duration-200 line-clamp-2 ${
@@ -108,7 +108,7 @@ const FlashSaleProduct = ({
               </span>
             </div>
 
-            <span className="font-mono text-2xl font-bold text-white tracking-tight leading-none">
+            <span className="font-mono text-xl font-bold text-white tracking-tight leading-none">
               {formatPrice(discountedPrice)}
             </span>
 
@@ -182,12 +182,12 @@ const FlashSaleProduct = ({
       <div
         onMouseEnter={() => setImgHovered(true)}
         onMouseLeave={() => setImgHovered(false)}
-        className="relative aspect-square bg-white overflow-hidden"
+        className="relative aspect-[4/3] sm:aspect-square bg-white overflow-hidden"
       >
         <img
           src={product.images?.[0] || ""}
           alt={product.name}
-          className={`w-full h-full object-contain p-5 transition-transform duration-500 ease-out ${
+          className={`w-full h-full object-contain p-4 sm:p-5 transition-transform duration-500 ease-out ${
             imgHovered ? 'scale-105' : 'scale-100'
           }`}
           loading="lazy"
@@ -225,7 +225,7 @@ const FlashSaleProduct = ({
       />
 
       {/* Body — footer brutalist rediseñado */}
-      <div className="flex flex-col flex-1 p-3 sm:p-4 gap-2 sm:gap-3">
+      <div className="flex flex-col flex-1 p-2.5 sm:p-4 gap-1.5 sm:gap-3">
 
         {/* Nombre del producto */}
         <h3
@@ -256,7 +256,7 @@ const FlashSaleProduct = ({
           </div>
 
           {/* Precio final — protagonista absoluto */}
-          <span className="font-mono text-2xl sm:text-[32px] font-bold text-white tracking-tight leading-none">
+          <span className="font-mono text-xl sm:text-[32px] font-bold text-white tracking-tight leading-none">
             {formatPrice(discountedPrice)} 
           </span>
 

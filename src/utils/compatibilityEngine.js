@@ -85,6 +85,30 @@ function normDDR(val) {
   return norm(val).replace(/[\s\-_]/g, '');
 }
 
+/**
+ * Normaliza sockets entre vendors:
+ * "FCLGA1200" → "LGA1200", "LGA 1700" → "LGA1700", "AM4" → "AM4".
+ * Sin esto, un i5-11400 (FCLGA1200) jamás matchea su mother (LGA1200).
+ */
+function normSocket(val) {
+  if (!val) return null;
+  let s = norm(val).replace(/[\s\-_]/g, '');
+  s = s.replace(/^FCLGA/, 'LGA');
+  return s;
+}
+
+/**
+ * Compara tipos de RAM aceptando multisoporte ("DDR4/DDR5" del 12700KF):
+ * hay match si comparten al menos un tipo.
+ */
+function ramTypesMatch(a, b) {
+  if (!a || !b) return false;
+  const setA = new Set(String(a).toUpperCase().split('/').map(s => s.replace(/[\s\-_]/g, '')).filter(Boolean));
+  const setB = new Set(String(b).toUpperCase().split('/').map(s => s.replace(/[\s\-_]/g, '')).filter(Boolean));
+  for (const t of setA) if (setB.has(t)) return true;
+  return false;
+}
+
 /** Normaliza form factor */
 function normFF(val) {
   if (!val) return null;
@@ -95,24 +119,35 @@ function normFF(val) {
 // EXTRACTORES DE CAMPOS
 // ─────────────────────────────────────────────────────────────────────────────
 
+/**
+ * FUENTE DE VERDAD: los `specifications` del producto mandan.
+ * Los mapas de extensión (`compatibility.*`) son viejos y tienen IDs
+ * desactualizados: solo se consultan como último recurso para campos
+ * que no existen en specs (chipsets, slots, watts).
+ */
 function getSocket(p) {
-  return norm(pick(p,
+  const raw = pick(p,
+    'specifications.Socket', 'specifications.socket',
+    'specs.Socket', 'specs.socket',
+    'socket', 'Socket',
     'compatibility.socket', 'compatibility.Socket',
-    'specifications.socket', 'specifications.Socket',
-    'specs.socket', 'specs.Socket',
-    'socket',
-  ));
+  );
+  return normSocket(raw);
 }
 
 function getRAMType(p) {
-  return normDDR(pick(p,
+  const raw = pick(p,
     'ddrType',
+    'specifications.tipoMemoriaRAM', 'specifications.memoriaRAM',
+    'specifications.MemoriaSoportada', 'specifications.Tipo memoria',
+    'specifications.tipo', 'specifications.tipoMemoria',
+    'specs.tipoMemoriaRAM', 'specs.memoriaRAM', 'specs.tipo',
     'compatibility.memoriaRAM', 'compatibility.tipoMemoriaRAM',
     'compatibility.tipo',
-    'specifications.memoriaRAM', 'specifications.tipoMemoriaRAM',
-    'specifications.tipo', 'specifications.tipoMemoria',
-    'specs.memoriaRAM', 'specs.tipo',
-  ));
+  );
+  if (!raw) return null;
+  // Multisoporte ("DDR4/DDR5"): normalizar cada parte
+  return String(raw).toUpperCase().split('/').map(s => s.replace(/[\s\-_]/g, '')).filter(Boolean).join('/');
 }
 
 function getRAMFormat(p) {
@@ -137,9 +172,9 @@ function getRAMFormat(p) {
 
 function getRAMSpeed(p) {
   return extractInt(pick(p,
+    'specifications.Velocidad', 'specifications.velocidad',
+    'specifications.speed', 'specifications.frecuencia',
     'compatibility.velocidad', 'compatibility.speed',
-    'specifications.velocidad', 'specifications.speed',
-    'specifications.frecuencia',
     'specs.velocidad', 'specs.speed',
     'speed', 'frecuencia',
   ));
@@ -148,8 +183,9 @@ function getRAMSpeed(p) {
 /** Velocidades máximas soportadas por la motherboard (array o string separada por comas) */
 function getMBMaxRAMSpeed(p) {
   const raw = pick(p,
+    'specifications.velocidadRAMSoportada', 'specifications.maxRAMSpeed',
+    'specifications.velocidadMaxRAM',
     'compatibility.maxRAMSpeed', 'compatibility.velocidadMaxRAM',
-    'specifications.maxRAMSpeed', 'specifications.velocidadMaxRAM',
     'specs.maxRAMSpeed',
   );
   if (!raw) return null;
@@ -161,8 +197,9 @@ function getMBMaxRAMSpeed(p) {
 /** Capacidad máxima de RAM soportada por MB (GB) */
 function getMBMaxRAMCapacity(p) {
   return extractInt(pick(p,
+    'specifications.capacidadMaximaRAM', 'specifications.memoriaMaxima',
+    'specifications.CapacidadMaximaRAM',
     'compatibility.maxRAMCapacity', 'compatibility.maxMemoria',
-    'specifications.maxRAMCapacity', 'specifications.memoriaMaxima',
     'specs.maxRAMCapacity',
   ));
 }
@@ -170,8 +207,9 @@ function getMBMaxRAMCapacity(p) {
 /** Número de slots de RAM en la MB */
 function getMBRAMSlots(p) {
   return extractInt(pick(p,
-    'compatibility.ramSlots', 'compatibility.slots',
+    'specifications.slotsMemoria', 'specifications.SlotsRAM',
     'specifications.ramSlots', 'specifications.slots',
+    'compatibility.ramSlots', 'compatibility.slots',
     'specs.ramSlots',
   ));
 }
@@ -179,8 +217,10 @@ function getMBRAMSlots(p) {
 /** Capacidad de un módulo de RAM en GB */
 function getRAMCapacityGB(p) {
   return extractInt(pick(p,
-    'compatibility.capacidad', 'specifications.capacidad',
-    'specifications.capacidadGB', 'specs.capacidad',
+    'specifications.capacidadTotal', 'specifications.capacidad',
+    'specifications.capacidadGB',
+    'compatibility.capacidad',
+    'specs.capacidad',
     'capacidad',
   ));
 }
@@ -196,22 +236,31 @@ function getCPUTDP(p) {
 /** TDP máximo soportado por el cooler */
 function getCoolerMaxTDP(p) {
   return extractInt(pick(p,
-    'compatibility.maxTDP', 'compatibility.tdpMax',
+    'specifications.TDP', 'specifications.tdpSoportado',
     'specifications.maxTDP', 'specifications.tdpMax',
+    'compatibility.maxTDP', 'compatibility.tdpMax',
     'specs.maxTDP',
   ));
 }
 
 /** Sockets soportados por el cooler (array o string separada por comas) */
 function getCoolerSockets(p) {
+  // Algunos coolers traen los sockets Intel/AMD en campos separados
+  const intel = pick(p, 'specifications.Socket Intel', 'specifications.socketIntel');
+  const amd = pick(p, 'specifications.Socket AMD', 'specifications.socketAMD');
+  if (intel || amd) {
+    const combined = [intel, amd].filter(Boolean).join('/');
+    return String(combined).split(/[,;/]/).map(normSocket).filter(Boolean);
+  }
   const raw = pick(p,
-    'compatibility.sockets', 'compatibility.socketsSoportados',
+    'specifications.compatibilidadSocket', 'specifications.Socket',
     'specifications.sockets', 'specifications.socketsSoportados',
+    'compatibility.sockets', 'compatibility.socketsSoportados',
     'specs.sockets',
   );
   if (!raw) return null;
-  if (Array.isArray(raw)) return raw.map(norm);
-  return String(raw).split(/[,;\/]/).map(norm).filter(Boolean);
+  if (Array.isArray(raw)) return raw.map(normSocket);
+  return String(raw).split(/[,;/]/).map(normSocket).filter(Boolean);
 }
 
 function getPowerConsumption(p) {
@@ -225,8 +274,9 @@ function getPowerConsumption(p) {
 
 function getPSUCapacity(p) {
   return extractInt(pick(p,
+    'specifications.Potencia', 'specifications.potencia',
+    'specifications.capacidad',
     'compatibility.capacidad_watts',
-    'specifications.potencia', 'specifications.capacidad',
     'specs.capacidad_watts',
     'capacidad_watts', 'potencia',
   ));
@@ -252,6 +302,42 @@ function getGPUPCIeConnectors(p) {
   if (!raw) return null;
   if (Array.isArray(raw)) return raw;
   return String(raw).split(/[,;]/).map(s => s.trim()).filter(Boolean);
+}
+
+/** Chipset del motherboard (ej: "B550") */
+function getChipset(p) {
+  const raw = pick(p,
+    'specifications.Chipset', 'specifications.chipset',
+    'specs.Chipset',
+    'compatibility.chipset',
+  );
+  if (!raw) return null;
+  const m = String(raw).toUpperCase().match(/([A-Z]+\d+[A-Z]*)/);
+  return m ? m[1] : norm(raw).replace(/[\s\-_]/g, '');
+}
+
+/** Chipsets soportados por el procesador según el mapa de extensión */
+function getCPUChipsets(p) {
+  const raw = pick(p, 'compatibility.chipsetsCompatibles');
+  if (!raw) return null;
+  if (Array.isArray(raw)) return raw.map(s => String(s).toUpperCase().replace(/[\s\-_]/g, ''));
+  return String(raw).split(/[,;/]/).map(s => s.toUpperCase().replace(/[\s\-_]/g, '')).filter(Boolean);
+}
+
+/**
+ * Chequeo cruzado de chipset (especialista): advierte si el chipset del
+ * mother no está en la lista de chipsets validados para ese procesador.
+ * Es warning (no error): puede funcionar con actualización de BIOS.
+ */
+function checkChipset(cpu, mb) {
+  if (!cpu || !mb) return null;
+  const chipset = getChipset(mb);
+  const supported = getCPUChipsets(cpu);
+  if (!chipset || !supported || supported.length === 0) return null;
+  if (supported.includes(chipset)) {
+    return MSG.ok(`Chipset ${chipset} validado para este procesador`);
+  }
+  return MSG.warn(`Chipset ${chipset} fuera de la lista validada [${supported.join(', ')}] — puede requerir actualizar BIOS`);
 }
 
 function getFormFactor(p) {
@@ -326,6 +412,8 @@ function validateCPU(pcBuild, cpu) {
       messages.push(MSG.warn('Socket del motherboard no especificado'));
     } else if (cpuSocket === mbSocket) {
       messages.push(MSG.ok(`Socket ${cpuSocket} — compatible con el motherboard`));
+      const chipsetMsg = checkChipset(cpu, pcBuild.motherboard);
+      if (chipsetMsg) messages.push(chipsetMsg);
     } else {
       compatible = false;
       messages.push(MSG.err(`Socket incompatible: procesador ${cpuSocket} / motherboard ${mbSocket}`));
@@ -337,11 +425,11 @@ function validateCPU(pcBuild, cpu) {
   // — Tipo de RAM vs módulos instalados —
   if (pcBuild.ram.length > 0) {
     const ramType = getRAMType(pcBuild.ram[0]);
-    if (cpuRAMType && ramType && cpuRAMType !== ramType) {
+    if (cpuRAMType && ramType && !ramTypesMatch(cpuRAMType, ramType)) {
       compatible = false;
       messages.push(MSG.err(`Incompatibilidad de RAM: procesador soporta ${cpuRAMType}, tienes ${ramType}`));
-    } else if (cpuRAMType && ramType && cpuRAMType === ramType) {
-      messages.push(MSG.ok(`Tipo de RAM ${cpuRAMType} compatible`));
+    } else if (cpuRAMType && ramType && ramTypesMatch(cpuRAMType, ramType)) {
+      messages.push(MSG.ok(`Tipo de RAM ${ramType} compatible`));
     }
   } else if (cpuRAMType) {
     messages.push(MSG.info(`Requiere RAM ${cpuRAMType}`));
@@ -392,6 +480,8 @@ function validateMotherboard(pcBuild, mb) {
       messages.push(MSG.warn('Socket del procesador no especificado'));
     } else if (mbSocket === cpuSocket) {
       messages.push(MSG.ok(`Socket ${mbSocket} — compatible con el procesador`));
+      const chipsetMsg = checkChipset(pcBuild.cpu, mb);
+      if (chipsetMsg) messages.push(chipsetMsg);
     } else {
       compatible = false;
       messages.push(MSG.err(`Socket incompatible: motherboard ${mbSocket} / procesador ${cpuSocket}`));
@@ -404,7 +494,7 @@ function validateMotherboard(pcBuild, mb) {
   if (pcBuild.ram.length > 0) {
     const ramType = getRAMType(pcBuild.ram[0]);
     if (mbRAMType && ramType) {
-      if (mbRAMType === ramType) {
+      if (ramTypesMatch(mbRAMType, ramType)) {
         messages.push(MSG.ok(`Tipo de RAM ${ramType} compatible`));
       } else {
         compatible = false;
@@ -497,7 +587,7 @@ function validateRAM(pcBuild, ram) {
     const cpuRAMType = getRAMType(pcBuild.cpu);
     if (cpuRAMType && ramType) {
       checkedAny = true;
-      if (cpuRAMType !== ramType) {
+      if (!ramTypesMatch(cpuRAMType, ramType)) {
         compatible = false;
         messages.push(MSG.err(`Incompatible con el procesador: CPU requiere ${cpuRAMType}, este módulo es ${ramType}`));
       } else {
@@ -511,7 +601,7 @@ function validateRAM(pcBuild, ram) {
     const mbRAMType = getRAMType(pcBuild.motherboard);
     if (mbRAMType && ramType) {
       checkedAny = true;
-      if (mbRAMType !== ramType) {
+      if (!ramTypesMatch(mbRAMType, ramType)) {
         compatible = false;
         messages.push(MSG.err(`Incompatible con el motherboard: requiere ${mbRAMType}, este módulo es ${ramType}`));
       } else {
@@ -622,7 +712,7 @@ function validateCooling(pcBuild, cooler) {
 
     // — Compatibilidad de socket con cooler —
     if (coolerSockets && cpuSocket) {
-      const socketMatch = coolerSockets.some(s => norm(s) === norm(cpuSocket));
+      const socketMatch = coolerSockets.some(s => s === cpuSocket);
       if (!socketMatch) {
         compatible = false;
         messages.push(MSG.err(`Socket no soportado: cooler compatible con [${coolerSockets.join(', ')}], CPU usa ${cpuSocket}`));

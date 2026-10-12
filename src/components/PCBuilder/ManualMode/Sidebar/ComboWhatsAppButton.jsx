@@ -21,10 +21,10 @@ const ComboWhatsAppButton = ({ selectedCount, pcBuild, totalPrice }) => {
     <button
       onClick={handleClick}
       disabled={selectedCount < 2}
-      className={`w-full py-[11px] px-[14px] rounded-xl border-none font-sans font-extrabold text-xs tracking-tight flex items-center justify-center gap-[7px] transition-all duration-200 relative overflow-hidden ${
+      className={`w-full py-[11px] px-[14px] rounded-xl lg:rounded-none border-none font-sans font-extrabold lg:font-black lg:uppercase lg:tracking-[0.06em] text-xs tracking-tight flex items-center justify-center gap-[7px] transition-all duration-200 relative overflow-hidden ${
         selectedCount < 2 
           ? 'bg-slate-800 text-slate-600 border border-slate-700 cursor-not-allowed' 
-          : 'text-white cursor-pointer whatsapp-btn-gradient'
+          : 'text-white cursor-pointer whatsapp-btn-gradient lg:border-2 lg:border-[#0e0e0e] lg:shadow-[4px_4px_0_0_rgba(14,14,14,0.4)]'
       }`}
     >
       {selectedCount >= 2 && (

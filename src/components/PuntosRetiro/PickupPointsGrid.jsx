@@ -1,5 +1,4 @@
 import { memo, useState, useRef, useEffect } from 'react';
-import { MapPin } from 'lucide-react';
 import MotionReveal from '../Shared/MotionReveal';
 import PickupPointCard from './PickupPointCard';
 
@@ -39,13 +38,22 @@ const PickupPointsGrid = memo(({ pickupPoints }) => {
 
           {/* Desktop Header */}
           <div className="hidden md:block">
-            <div className="inline-flex items-center gap-3 sm:gap-4 bg-gradient-to-r from-[#22F5C7]/10 to-[#00D9FF]/10 px-6 py-3 sm:px-10 sm:py-5 rounded-full border border-[#22F5C7]/30 mb-6 sm:mb-8 shadow-[0_0_30px_rgba(34,245,199,0.15)] smooth-hover backdrop-blur-md">
-              <MapPin className="w-6 h-6 sm:w-8 sm:h-8 text-[#22F5C7]" strokeWidth={2.5} />
-              <span className="text-[#22F5C7] font-extrabold text-base sm:text-xl tracking-wide">Puntos de Retiro</span>
+            <div className="flex items-center justify-center gap-3 mb-5">
+              <span className="hero-square" aria-hidden="true" />
+              <span className="landing-mono bg-[#0e0e0e] px-4 py-1.5 text-sm font-black uppercase tracking-[0.14em] text-[#c8f519] shadow-[4px_4px_0_0_rgba(14,14,14,0.25)]">
+                Puntos de retiro
+              </span>
+              <span className="hero-square" aria-hidden="true" />
             </div>
-            
-            <p className="text-xl sm:text-2xl md:text-3xl text-[#D7E0FF] font-bold px-4">
-              Elegí el que te quede más cómodo
+
+            <p className="font-black uppercase leading-[0.9] tracking-[-0.04em] text-[#0e0e0e] text-[clamp(2rem,4.2vw,3.6rem)] px-4">
+              Elegí el que te{' '}
+              <span className="text-[#c8f519]" style={{ WebkitTextStroke: '2px #0e0e0e' }}>
+                quede más cómodo
+              </span>
+            </p>
+            <p className="landing-mono mt-3 text-[12px] font-black uppercase tracking-[0.18em] text-[#0e0e0e]/50">
+              03 · {pickupPoints.length} ubicaciones · Sin local físico
             </p>
           </div>
         </div>

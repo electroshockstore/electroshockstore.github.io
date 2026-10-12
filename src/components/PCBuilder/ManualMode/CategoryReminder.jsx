@@ -25,12 +25,12 @@ const CategoryReminder = ({ message, type = 'warning' }) => {
   const style = styles[type];
   
   return (
-    <div className={`${style.bg} border-2 ${style.border} rounded-2xl p-4 mb-6 flex items-start gap-4 shadow-md`}>
-      <div className="flex-shrink-0">
+    <div className={`${style.bg} lg:bg-none lg:bg-[#0e0e0e] border-2 ${style.border} lg:border-[#0e0e0e] rounded-2xl lg:rounded-none p-4 mb-6 flex items-start gap-4 shadow-md lg:shadow-[4px_4px_0_0_rgba(14,14,14,0.3)]`}>
+      <div className="flex-shrink-0 lg:bg-[#c8f519] lg:p-1">
         {style.icon}
       </div>
       <div className="flex-1">
-        <p className={`text-sm font-semibold ${style.textColor} leading-relaxed`}>
+        <p className={`text-sm font-semibold lg:font-bold ${style.textColor} lg:text-white leading-relaxed`}>
           {message}
         </p>
       </div>

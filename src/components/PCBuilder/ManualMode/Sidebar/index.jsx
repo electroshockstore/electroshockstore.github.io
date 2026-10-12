@@ -39,7 +39,7 @@ const CategorySidebar = ({ selectedCategory, onCategoryChange }) => {
       <style>{SIDEBAR_STYLES}</style>
 
       <aside
-        className="flex flex-col h-full max-h-full relative bg-slate-50 border-r border-slate-200 font-syne w-full lg:min-w-[18rem] lg:max-w-[24rem] lg:w-[20vw]"
+        className="flex flex-col h-full max-h-full relative bg-slate-50 lg:bg-[#f6f6f6] border-r border-slate-200 lg:border-[#9e9e9e] font-syne w-full lg:min-w-[18rem] lg:max-w-[24rem] lg:w-[20vw]"
       >
         <SidebarHeader
           selectedCount={selectedCount}

@@ -36,7 +36,7 @@ const MainButton = ({ isExpanded, showButton, showHint, onClick }) => {
         {/* Texto - Solo desktop */}
         <div className="fcb-text-group">
           <span className="fcb-eyebrow">¿Necesitás ayuda?</span>
-          <span className="fcb-label">Chatea con nosotros</span>
+          <span className="fcb-label">Chateá con nosotros</span>
         </div>
 
         {/* Arrow - Solo desktop cuando está cerrado */}

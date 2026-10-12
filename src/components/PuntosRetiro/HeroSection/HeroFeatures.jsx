@@ -1,22 +1,30 @@
 import { Lock, MapPin, Zap, BadgeCheck } from 'lucide-react';
 
 const FEATURES = [
-  { Icon: Lock, text: 'PUNTOS SEGUROS' },
-  { Icon: MapPin, text: 'SIN ADELANTOS NI SEÑAS' },
-  { Icon: Zap, text: 'RETIROS EN EL DIA' },
-  { Icon: BadgeCheck, text: 'CONFIRMACIÓN INSTANTÁNEA' },
+  { Icon: Lock, text: 'Puntos seguros' },
+  { Icon: MapPin, text: 'Sin adelantos ni señas' },
+  { Icon: Zap, text: 'Retiros en el día' },
+  { Icon: BadgeCheck, text: 'Confirmación instantánea' },
 ];
 
+/**
+ * Feature pills desktop (lg+): celdas brutalistas claras con
+ * chip negro + icono lima, mismo lenguaje que el landing.
+ */
 const HeroFeatures = () => {
   return (
     <div className="hidden lg:flex flex-wrap justify-start gap-2.5 mt-6">
       {FEATURES.map(({ Icon, text }, i) => (
         <span
           key={i}
-          className="hero-feature-pill inline-flex items-center gap-1.5 px-3 py-2 text-xs font-bold text-gray-400 border border-white/[0.08] bg-white/[0.03] transition-all duration-150"
+          className="group inline-flex items-center gap-2 border border-[#0e0e0e] bg-[#f6f6f6] py-1.5 pl-1.5 pr-3 shadow-[3px_3px_0_0_#0e0e0e] transition-all duration-150 hover:-translate-y-px hover:bg-[#0e0e0e]"
         >
-          <Icon className="h-3.5 w-3.5 text-cyber-cyan" strokeWidth={2.5} />
-          <span>{text}</span>
+          <span className="flex h-6 w-6 items-center justify-center bg-[#0e0e0e] transition-colors group-hover:bg-[#c8f519]">
+            <Icon className="h-3.5 w-3.5 text-[#c8f519] transition-colors group-hover:text-[#0e0e0e]" strokeWidth={2.5} />
+          </span>
+          <span className="landing-mono text-[11px] font-black uppercase tracking-[0.12em] text-[#0e0e0e] transition-colors group-hover:text-[#c8f519]">
+            {text}
+          </span>
         </span>
       ))}
     </div>

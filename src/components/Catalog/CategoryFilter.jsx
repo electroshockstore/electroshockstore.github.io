@@ -7,21 +7,21 @@ import DesktopCarousel from './CategoryFilter/DesktopCarousel';
 
 const CategoryFilter = ({ selectedCategory, onCategoryChange }) => {
   const [isOpen, setIsOpen] = useState(false);
-  const [showLeftArrow, setShowLeftArrow] = useState(false);
-  const [showRightArrow, setShowRightArrow] = useState(false);
+  const [canScrollLeft, setCanScrollLeft] = useState(false);
+  const [canScrollRight, setCanScrollRight] = useState(false);
   const [savedScrollPosition, setSavedScrollPosition] = useState(0);
   
   const isIOS = useIsIOS();
   const dropdownRef = useRef(null);
   const scrollContainerRef = useRef(null);
 
-  // Lógica de Scroll (optimizada sin dependencias circulares)
+  // Detecta si hay más contenido a cada lado (mueve los fundidos del carousel)
   useEffect(() => {
     const checkScroll = () => {
       if (scrollContainerRef.current) {
         const { scrollLeft, scrollWidth, clientWidth } = scrollContainerRef.current;
-        setShowLeftArrow(scrollLeft > 10);
-        setShowRightArrow(scrollLeft + clientWidth < scrollWidth - 10);
+        setCanScrollLeft(scrollLeft > 10);
+        setCanScrollRight(scrollLeft + clientWidth < scrollWidth - 10);
       }
     };
 
@@ -79,16 +79,6 @@ const CategoryFilter = ({ selectedCategory, onCategoryChange }) => {
     }
   }, [isOpen, isIOS, savedScrollPosition]);
 
-  const handleScroll = (direction) => {
-    if (scrollContainerRef.current) {
-      const scrollAmount = 300;
-      scrollContainerRef.current.scrollBy({
-        left: direction === 'left' ? -scrollAmount : scrollAmount,
-        behavior: 'smooth'
-      });
-    }
-  };
-
   const handleCategorySelect = (category) => {
     setIsOpen(false);
     onCategoryChange(category);
@@ -126,9 +116,8 @@ const CategoryFilter = ({ selectedCategory, onCategoryChange }) => {
               categories={categories}
               selectedCategory={selectedCategory}
               onCategoryChange={onCategoryChange}
-              showLeftArrow={showLeftArrow}
-              showRightArrow={showRightArrow}
-              onScroll={handleScroll}
+              canScrollLeft={canScrollLeft}
+              canScrollRight={canScrollRight}
               scrollContainerRef={scrollContainerRef}
             />
           </div>

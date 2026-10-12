@@ -31,17 +31,17 @@ const QuestionMarkIcon = () => {
       <svg
         viewBox="0 0 200 240"
         className="w-full h-full"
-        style={{ filter: 'drop-shadow(0 12px 40px rgba(59,130,246,0.7)) drop-shadow(0 0 60px rgba(139,92,246,0.4))' }}
+        style={{ filter: 'drop-shadow(0 12px 40px rgba(200,245,25,0.6)) drop-shadow(0 0 60px rgba(200,245,25,0.35))' }}
       >
         <defs>
           <linearGradient id="qGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" stopColor="#60a5fa" />
-            <stop offset="40%" stopColor="#3b82f6" />
-            <stop offset="100%" stopColor="#1d4ed8" />
+            <stop offset="0%" stopColor="#c8f519" />
+            <stop offset="40%" stopColor="#9dc400" />
+            <stop offset="100%" stopColor="#4a5e00" />
           </linearGradient>
           <linearGradient id="qGradSide" x1="0%" y1="0%" x2="100%" y2="0%">
-            <stop offset="0%" stopColor="#1e3a8a" />
-            <stop offset="100%" stopColor="#1d4ed8" />
+            <stop offset="0%" stopColor="#0e0e0e" />
+            <stop offset="100%" stopColor="#4a5e00" />
           </linearGradient>
         </defs>
         
@@ -50,7 +50,7 @@ const QuestionMarkIcon = () => {
         <path
           d="M 68 74 Q 64 42 100 30 Q 148 16 152 54 Q 158 84 132 98 Q 118 108 112 122 L 108 148"
           fill="none"
-          stroke="#1e3a8a"
+          stroke="#0e0e0e"
           strokeWidth="30"
           strokeLinecap="round"
           transform="translate(4, 5)"

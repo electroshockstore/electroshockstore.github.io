@@ -37,9 +37,10 @@ const Highlight = ({ text = '', query = '' }) => {
  * conectada a FilterContext (fuente única) con debounce, ranking, navegación
  * por teclado, búsquedas recientes y "ver todos los resultados" (/buscar).
  */
-const SearchBar = ({ isMobile = false, onClose }) => {
-  const { searchQuery, setSearchQuery } = useFilter();
+const SearchBar = ({ isMobile = false, onClose, tone = 'dark' }) => {
+  const { searchQuery, setSearchQuery, setSelectedCategory } = useFilter();
   const navigate = useNavigate();
+  const brutalist = tone === 'brutalist';
 
   const [inputValue, setInputValue] = useState(searchQuery);
   const [isOpen, setIsOpen] = useState(false);
@@ -113,6 +114,8 @@ const SearchBar = ({ isMobile = false, onClose }) => {
   const handleViewAll = () => {
     if (!hasQuery) return;
     add(trimmed);
+    // /buscar es búsqueda global: soltar la categoría para no sesgar
+    setSelectedCategory(null);
     setSearchQuery(trimmed);
     setIsOpen(false);
     resetActive();
@@ -164,7 +167,14 @@ const SearchBar = ({ isMobile = false, onClose }) => {
     ? 'search-container relative'
     : 'search-container flex-1 max-w-2xl relative';
 
-  const inputClass = isMobile
+  const inputClass = brutalist
+    ? `w-full h-12 pl-14 pr-12 text-sm font-bold
+       bg-[#f6f6f6] border-[2px] border-[#0e0e0e] rounded-none
+       text-[#0e0e0e] placeholder:text-[#858585] placeholder:font-bold placeholder:uppercase placeholder:text-xs placeholder:tracking-[0.08em]
+       focus:outline-none focus:shadow-[4px_4px_0_0_#c8f519]
+       hover:shadow-[4px_4px_0_0_#0e0e0e] transition-all duration-150
+       shadow-[4px_4px_0_0_#0e0e0e] cursor-text`
+    : isMobile
     ? `w-full h-14 pl-16 pr-12 text-sm font-medium
        bg-white/10 backdrop-blur-2xl border-2 border-white/20 rounded-full
        text-white placeholder:text-white/60
@@ -182,18 +192,25 @@ const SearchBar = ({ isMobile = false, onClose }) => {
       {/* Icono */}
       <div
         className={`absolute top-1/2 -translate-y-1/2 z-10 pointer-events-none ${
-          isMobile ? 'left-4' : 'left-2'
+          brutalist ? 'left-1.5' : isMobile ? 'left-4' : 'left-2'
         }`}
       >
         <div className="relative">
           <div
-            className={`bg-gradient-to-br from-blue-500 via-blue-600 to-indigo-600 rounded-xl shadow-lg shadow-blue-500/50 ${
-              isMobile ? 'p-2.5' : 'p-3'
-            }`}
+            className={brutalist
+              ? 'bg-[#0e0e0e] border border-[#0e0e0e] p-2'
+              : `bg-gradient-to-br from-blue-500 via-blue-600 to-indigo-600 rounded-xl shadow-lg shadow-blue-500/50 ${
+                  isMobile ? 'p-2.5' : 'p-3'
+                }`}
           >
-            <Search className={isMobile ? 'h-5 w-5 text-white' : 'h-6 w-6 text-white'} strokeWidth={3} />
+            <Search
+              className={brutalist ? 'h-5 w-5 text-[#c8f519]' : isMobile ? 'h-5 w-5 text-white' : 'h-6 w-6 text-white'}
+              strokeWidth={3}
+            />
           </div>
-          <div className="absolute inset-0 bg-blue-500 blur-md opacity-40 rounded-xl" />
+          {!brutalist && (
+            <div className="absolute inset-0 bg-blue-500 blur-md opacity-40 rounded-xl" />
+          )}
         </div>
       </div>
 
@@ -229,9 +246,13 @@ const SearchBar = ({ isMobile = false, onClose }) => {
           onClick={handleClear}
           aria-label="Limpiar búsqueda"
           className={`absolute right-4 top-1/2 -translate-y-1/2 flex items-center justify-center
-                      text-white/60 hover:text-white hover:bg-white/10 rounded-xl
+                      rounded-none
                       transition-all duration-200 active:scale-95 z-10 ${
-                        isMobile ? 'w-8 h-8' : 'w-9 h-9 right-5'
+                        brutalist
+                          ? 'w-8 h-8 text-[#0e0e0e]/50 hover:text-[#0e0e0e] hover:bg-[#c8f519]'
+                          : `text-white/60 hover:text-white hover:bg-white/10 rounded-xl ${
+                              isMobile ? 'w-8 h-8' : 'w-9 h-9 right-5'
+                            }`
                       }`}
         >
           <X className={isMobile ? 'h-4.5 w-4.5' : 'h-5 w-5'} strokeWidth={2.8} />

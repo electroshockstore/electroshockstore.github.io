@@ -4,12 +4,12 @@
   "description": "Tu tienda de tecnología en Zona sur Buenos Aires. Componentes PC, gaming, periféricos y hardware.",
   "icons": [
     {
-      "src": "/logotipo_tiny.png",
+      "src": "/logotipo_tiny.webp",
       "sizes": "192x192",
       "type": "image/png"
     },
     {
-      "src": "/logotipo_tiny.png",
+      "src": "/logotipo_tiny.webp",
       "sizes": "512x512",
       "type": "image/png"
     }

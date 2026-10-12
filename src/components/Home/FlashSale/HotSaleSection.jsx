@@ -1,6 +1,6 @@
-import { useState, useEffect, useCallback } from "react";
 import PropTypes from 'prop-types';
 import { motion } from 'framer-motion';
+import { useCountdown } from '../../../hooks/useCountdown';
 import HeroSection from './HeroSection';
 import TickerBanner from './TickerBanner';
 import ProductsGrid from './ProductsGrid';
@@ -10,23 +10,7 @@ import ProductsGrid from './ProductsGrid';
  * Diseño moderno y atractivo para millennials
  */
 const HotSaleSection = ({ targetMs, products = [], onNavigate }) => {
-  const calcTimeLeft = useCallback(() => {
-    const diff = Math.max(0, targetMs - Date.now());
-    return {
-      days: Math.floor(diff / 86400000),
-      hours: Math.floor((diff / 3600000) % 24),
-      minutes: Math.floor((diff / 60000) % 60),
-      seconds: Math.floor((diff / 1000) % 60),
-      expired: diff <= 0,
-    };
-  }, [targetMs]);
-
-  const [timeLeft, setTimeLeft] = useState(calcTimeLeft);
-
-  useEffect(() => {
-    const id = setInterval(() => setTimeLeft(calcTimeLeft()), 1000);
-    return () => clearInterval(id);
-  }, [calcTimeLeft]);
+  const timeLeft = useCountdown(targetMs);
 
   if (timeLeft.expired) return null;
 

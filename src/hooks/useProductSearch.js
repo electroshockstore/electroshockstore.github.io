@@ -32,13 +32,16 @@ export const useProductSearch = (query, { limit = 6, delay = 200 } = {}) => {
       const name = normalize(product.name);
       const brand = normalize(product.brand);
       const model = normalize(product.model);
+      const sku = normalize(product.sku);
       const category = normalize(product.category);
 
       let score = 0;
       if (name.startsWith(term)) score = 100;
       else if (name.includes(term)) score = 80;
       else if (brand.startsWith(term)) score = 60;
+      else if (model.startsWith(term)) score = 57;
       else if (model.includes(term)) score = 55;
+      else if (sku.includes(term)) score = 50;
       else if (brand.includes(term)) score = 40;
       else if (category.includes(term)) score = 20;
 

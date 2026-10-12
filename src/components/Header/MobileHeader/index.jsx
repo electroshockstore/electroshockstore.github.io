@@ -1,4 +1,4 @@
-import ElectroShockLogo from '../shared/ElectroShockLogo';
+import BrandLockup from '../shared/BrandLockup';
 import ActionButtons from './ActionButtons';
 import CategoryButton from './CategoryButton';
 import FeatureBadges from './FeatureBadges';
@@ -26,7 +26,7 @@ const MobileHeader = ({ onGoHome, onConditionsClick, onCategoryClick, onSearchCl
         aria-hidden={collapsed}
       >
         <div className="flex items-center justify-between pb-3">
-          <ElectroShockLogo onClick={onGoHome} size="default" />
+          <BrandLockup onClick={onGoHome} size="sm" />
           <ActionButtons
             onSearchClick={onSearchClick}
             onNotificationsClick={onConditionsClick}

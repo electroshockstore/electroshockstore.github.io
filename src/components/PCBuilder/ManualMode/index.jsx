@@ -71,7 +71,7 @@ const ManualMode = ({ onGoHome }) => {
   const selectedProductId = selectedCategory ? getSelectedProductId(selectedCategory) : null;
 
   return (
-    <div className="h-screen w-full flex flex-col catalog-bg overflow-clip">
+    <div className="pcb-light h-screen w-full flex flex-col catalog-bg overflow-clip lg:bg-[#e4e4e4] lg:[background-image:none] lg:before:hidden lg:after:hidden">
       <Header 
         searchQuery={searchQuery}
         onSearchChange={setSearchQuery}

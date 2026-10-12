@@ -10,7 +10,7 @@ import MobileHeader from './index';
 const MobileHeaderWrapper = ({ onGoHome, onConditionsClick }) => {
   const [showMobileSearch, setShowMobileSearch] = useState(false);
   const [showCategoryModal, setShowCategoryModal] = useState(false);
-  const { selectedCategory, setSelectedCategory } = useFilter();
+  const { selectedCategory, setSelectedCategory, setSearchQuery } = useFilter();
   const navigate = useNavigate();
   const location = useLocation();
 
@@ -22,6 +22,8 @@ const MobileHeaderWrapper = ({ onGoHome, onConditionsClick }) => {
     }
     
     setSelectedCategory(category);
+    // La búsqueda anterior no aplica a la nueva categoría
+    setSearchQuery('');
     navigate(targetPath);
     setShowCategoryModal(false);
   };

@@ -44,46 +44,46 @@ const CompactProductCard = memo(({ product, compatibilityResult, isSelected, onC
     <div
       onClick={() => onClick(product)}
       className={`
-        group relative bg-white rounded-lg lg:rounded-xl border-2 overflow-hidden
+        group relative bg-white rounded-lg lg:rounded-none border-2 overflow-hidden
         transition-all duration-200 flex flex-col h-full cursor-pointer
         ${isSelected 
-          ? 'border-blue-600 shadow-xl ring-2 lg:ring-4 ring-blue-200 scale-[1.02]' 
+          ? 'border-blue-600 lg:border-[#0e0e0e] shadow-xl lg:shadow-[5px_5px_0_0_#0e0e0e] ring-2 lg:ring-0 ring-blue-200 scale-[1.02] lg:scale-100' 
           : status === 'green'
-            ? 'border-green-400 shadow-md hover:shadow-xl hover:scale-[1.02]'
+            ? 'border-green-400 lg:border-[#0e0e0e] shadow-md lg:shadow-[4px_4px_0_0_#0e0e0e] hover:shadow-xl lg:hover:shadow-[6px_6px_0_0_#c8f519] hover:scale-[1.02] lg:hover:scale-100 lg:hover:-translate-y-0.5'
             : status === 'yellow'
-              ? 'border-yellow-400 shadow-md hover:shadow-xl hover:scale-[1.02]'
+              ? 'border-yellow-400 lg:border-[#0e0e0e] shadow-md lg:shadow-[4px_4px_0_0_#0e0e0e] hover:shadow-xl lg:hover:shadow-[6px_6px_0_0_#c8f519] hover:scale-[1.02] lg:hover:scale-100 lg:hover:-translate-y-0.5'
               : status === 'red'
-                ? 'border-red-400 shadow-md hover:shadow-xl hover:scale-[1.02]'
-                : 'border-gray-200 shadow-md hover:shadow-xl hover:scale-[1.02]'
+                ? 'border-red-400 shadow-md hover:shadow-xl hover:scale-[1.02] lg:hover:scale-100 lg:hover:-translate-y-0.5'
+                : 'border-gray-200 lg:border-[#0e0e0e] shadow-md lg:shadow-[4px_4px_0_0_#0e0e0e] hover:shadow-xl lg:hover:shadow-[6px_6px_0_0_#0e0e0e] hover:scale-[1.02] lg:hover:scale-100 lg:hover:-translate-y-0.5'
         }
       `}
     >
       {/* Status Badge - Más pequeño en mobile */}
       <div className="absolute top-1 right-1 lg:top-2 lg:right-2 z-10">
         {isSelected ? (
-          <div className="bg-gradient-to-r from-blue-600 to-indigo-600 text-white text-[9px] lg:text-xs font-bold px-1.5 lg:px-2.5 py-0.5 lg:py-1 rounded-full flex items-center gap-0.5 lg:gap-1 shadow-lg">
+          <div className="bg-gradient-to-r from-blue-600 to-indigo-600 lg:bg-none lg:bg-[#c8f519] lg:border lg:border-[#0e0e0e] text-white lg:text-[#0e0e0e] text-[9px] lg:text-xs font-bold lg:font-black lg:uppercase lg:tracking-[0.06em] px-1.5 lg:px-2.5 py-0.5 lg:py-1 rounded-full lg:rounded-none flex items-center gap-0.5 lg:gap-1 shadow-lg">
             <svg className="w-2.5 h-2.5 lg:w-3 lg:h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
             </svg>
-            <span className="hidden lg:inline">SELECCIONADO</span>
+            <span className="hidden lg:inline">Seleccionado</span>
             <span className="lg:hidden">✓</span>
           </div>
         ) : status === 'green' ? (
-          <div className={`${config.badge} text-white text-[9px] lg:text-xs font-bold px-1.5 lg:px-2.5 py-0.5 lg:py-1 rounded-full flex items-center gap-0.5 lg:gap-1 shadow-md`}>
-            <svg className="w-2.5 h-2.5 lg:w-3 lg:h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <div className={`${config.badge} lg:bg-none lg:bg-[#0e0e0e] text-white text-[9px] lg:text-xs font-bold lg:font-black lg:uppercase lg:tracking-[0.06em] px-1.5 lg:px-2.5 py-0.5 lg:py-1 rounded-full lg:rounded-none flex items-center gap-0.5 lg:gap-1 shadow-md`}>
+            <svg className="w-2.5 h-2.5 lg:w-3 lg:h-3 lg:text-[#c8f519]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
             </svg>
             <span className="hidden lg:inline">Compatible</span>
           </div>
         ) : status === 'yellow' ? (
-          <div className={`${config.badge} text-white text-[9px] lg:text-xs font-bold px-1.5 lg:px-2.5 py-0.5 lg:py-1 rounded-full flex items-center gap-0.5 lg:gap-1 shadow-md`}>
-            <svg className="w-2.5 h-2.5 lg:w-3 lg:h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <div className={`${config.badge} lg:bg-none lg:bg-[#0e0e0e] text-white text-[9px] lg:text-xs font-bold lg:font-black lg:uppercase lg:tracking-[0.06em] px-1.5 lg:px-2.5 py-0.5 lg:py-1 rounded-full lg:rounded-none flex items-center gap-0.5 lg:gap-1 shadow-md`}>
+            <svg className="w-2.5 h-2.5 lg:w-3 lg:h-3 lg:text-[#c8f519]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
             </svg>
             <span className="hidden lg:inline">Advertencia</span>
           </div>
         ) : status === 'red' ? (
-          <div className={`${config.badge} text-white text-[9px] lg:text-xs font-bold px-1.5 lg:px-2.5 py-0.5 lg:py-1 rounded-full flex items-center gap-0.5 lg:gap-1 shadow-md`}>
+          <div className={`${config.badge} text-white text-[9px] lg:text-xs font-bold lg:font-black lg:uppercase lg:tracking-[0.06em] px-1.5 lg:px-2.5 py-0.5 lg:py-1 rounded-full lg:rounded-none flex items-center gap-0.5 lg:gap-1 shadow-md`}>
             <svg className="w-2.5 h-2.5 lg:w-3 lg:h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
             </svg>
@@ -93,11 +93,11 @@ const CompactProductCard = memo(({ product, compatibilityResult, isSelected, onC
       </div>
       
       {/* Product Image - Más compacto */}
-      <div className="aspect-square bg-gradient-to-br from-gray-50 to-gray-100 flex items-center justify-center p-1.5 lg:p-2 xl:p-3 overflow-hidden">
+      <div className="aspect-square bg-gradient-to-br from-gray-50 to-gray-100 lg:bg-none lg:bg-[#f6f6f6] lg:border-b-2 lg:border-[#0e0e0e] flex items-center justify-center p-1.5 lg:p-2 xl:p-3 overflow-hidden">
         <img 
           src={productImage} 
           alt={product.name}
-          className="max-w-full max-h-full object-contain mix-blend-multiply"
+          className="max-w-full max-h-full object-contain mix-blend-multiply transition-transform duration-300 group-hover:scale-105"
         />
       </div>
       
@@ -105,7 +105,7 @@ const CompactProductCard = memo(({ product, compatibilityResult, isSelected, onC
       <div className="p-1.5 lg:p-2 xl:p-2.5 flex flex-col flex-1">
         {/* Brand - Más pequeño */}
         {product.brand && (
-          <p className="text-[8px] lg:text-[9px] xl:text-[10px] font-semibold text-blue-600 mb-0.5 lg:mb-1 uppercase tracking-wide truncate">
+          <p className="pcb-mono text-[8px] lg:text-[9px] xl:text-[10px] font-semibold lg:font-black text-blue-600 lg:text-[#0e0e0e]/50 mb-0.5 lg:mb-1 uppercase tracking-wide lg:tracking-[0.12em] truncate">
             {product.brand}
           </p>
         )}
@@ -161,12 +161,12 @@ const CompactProductCard = memo(({ product, compatibilityResult, isSelected, onC
           }}
           disabled={isSelected}
           className={`
-            w-full mt-auto py-1.5 lg:py-2.5 px-2 lg:px-4 rounded-lg font-bold text-[10px] lg:text-sm transition-all duration-200 flex items-center justify-center gap-1 lg:gap-2
+            w-full mt-auto py-1.5 lg:py-2.5 px-2 lg:px-4 rounded-lg lg:rounded-none font-bold lg:font-black lg:uppercase lg:tracking-[0.06em] text-[10px] lg:text-sm transition-all duration-200 flex items-center justify-center gap-1 lg:gap-2
             ${isSelected
-              ? 'bg-gray-100 text-gray-500 cursor-not-allowed'
+              ? 'bg-gray-100 lg:bg-[#f6f6f6] text-gray-500 lg:text-[#0e0e0e]/50 cursor-not-allowed lg:border-2 lg:border-[#0e0e0e]/20'
               : status === 'red'
                 ? 'bg-gradient-to-r from-red-600 to-rose-600 hover:from-red-700 hover:to-rose-700 text-white shadow-md hover:shadow-lg'
-                : 'bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white shadow-md hover:shadow-lg'
+                : 'bg-gradient-to-r from-blue-600 to-indigo-600 lg:bg-none lg:bg-[#c8f519] hover:from-blue-700 hover:to-indigo-700 text-white lg:text-[#0e0e0e] shadow-md hover:shadow-lg lg:shadow-[3px_3px_0_0_#0e0e0e] lg:hover:shadow-[2px_2px_0_0_#0e0e0e] lg:border-2 lg:border-[#0e0e0e] lg:hover:translate-x-[1px] lg:hover:translate-y-[1px]'
             }
           `}
         >

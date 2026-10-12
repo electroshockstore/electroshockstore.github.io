@@ -20,7 +20,7 @@ const Logo = ({ onGoHome, isMobile = false }) => {
         className="flex items-center hover:opacity-80 transition-opacity flex-shrink-0"
       >
         <img 
-          src="/logotipo_tiny.png" 
+          src="/logotipo_tiny.webp" 
           alt="ElectroShock Logo" 
           className="h-14 w-auto object-contain"
         />
@@ -42,7 +42,7 @@ const Logo = ({ onGoHome, isMobile = false }) => {
         
         <div className="relative p-2.5 bg-gradient-to-br from-gray-900 via-gray-800 to-black rounded-2xl border border-white/20 shadow-[0_0_20px_rgba(59,130,246,0.3)]">
           <img 
-            src="/logotipo_tiny.png" 
+            src="/logotipo_tiny.webp" 
             alt="ElectroShock Logo" 
             className="h-10 w-auto object-contain relative z-10 filter drop-shadow-[0_0_12px_rgba(59,130,246,0.8)]" 
           />

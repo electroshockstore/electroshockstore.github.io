@@ -28,7 +28,7 @@ const PuntosRetiro = () => {
   const handleGoHome = () => navigate('/');
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-[#0a0a0f] via-[#0f0f1a] to-[#0a0a0f]">
+    <div className="pr-light min-h-screen bg-gradient-to-b from-[#0a0a0f] via-[#0f0f1a] to-[#0a0a0f] lg:bg-[#e4e4e4] lg:bg-none">
       <Header 
         searchQuery=""
         onSearchChange={() => {}}
@@ -36,11 +36,20 @@ const PuntosRetiro = () => {
       />
 
       <main className="relative overflow-hidden">
-        <div className="fixed inset-0 -z-10 bg-gradient-to-br from-blue-500/5 via-purple-500/5 to-pink-500/5" />
+        <div className="fixed inset-0 -z-10 bg-gradient-to-br from-blue-500/5 via-purple-500/5 to-pink-500/5 lg:hidden" />
+        {/* Grilla blueprint clara (solo desktop) */}
+        <div
+          className="pointer-events-none absolute inset-0 z-0 hidden grid-cols-4 lg:grid lg:mx-[72px]"
+          aria-hidden="true"
+        >
+          {[0, 1, 2, 3].map((i) => (
+            <span key={i} className={i > 0 ? 'border-l border-[#9e9e9e]' : ''} />
+          ))}
+        </div>
 
         <HeroSection />
 
-        <section className="py-1 sm:py-1 md:py-1 px-4 sm:px-1">
+        <section className="relative z-10 py-1 sm:py-1 md:py-1 px-4 sm:px-1">
           <div className="max-w-7xl mx-auto space-y-8 sm:space-y-10 md:space-y-12">
             <ImportantRulesBentoGrid rules={IMPORTANT_RULES} />
             <PickupPointsGrid pickupPoints={PICKUP_POINTS} />

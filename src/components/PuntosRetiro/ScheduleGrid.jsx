@@ -9,12 +9,12 @@ const ScheduleGrid = memo(({ days, schedule, weekendSchedule }) => {
         {/* Días - Bloque flotante */}
         <div className="schedule-item-fluid flex-1 min-w-[140px]">
           <div className="flex items-center gap-2.5">
-            <div className="w-9 h-9 bg-[#3B82F6]/10 rounded-xl flex items-center justify-center border border-[#3B82F6]/30 shadow-[0_0_15px_rgba(59,130,246,0.12)] flex-shrink-0">
-              <Calendar className="w-4.5 h-4.5 text-[#3B82F6]" strokeWidth={2.5} />
+            <div className="w-9 h-9 bg-[#3B82F6]/10 lg:bg-[#0e0e0e] rounded-xl lg:rounded-none flex items-center justify-center border border-[#3B82F6]/30 lg:border-[#0e0e0e] shadow-[0_0_15px_rgba(59,130,246,0.12)] lg:shadow-[2px_2px_0_0_rgba(14,14,14,0.3)] flex-shrink-0">
+              <Calendar className="w-4.5 h-4.5 text-[#3B82F6] lg:text-[#c8f519]" strokeWidth={2.5} />
             </div>
             <div className="flex-1 min-w-0">
-              <p className="text-[9px] text-[#94A3B8] font-bold mb-0.5 uppercase tracking-[0.8px]">Días</p>
-              <p className="text-sm font-extrabold text-white leading-tight truncate">{days}</p>
+              <p className="landing-mono text-[9px] text-[#94A3B8] lg:text-[#0e0e0e]/50 font-black mb-0.5 uppercase tracking-[0.14em]">Días</p>
+              <p className="text-sm font-extrabold text-white lg:text-[#0e0e0e] leading-tight truncate">{days}</p>
             </div>
           </div>
         </div>
@@ -22,12 +22,12 @@ const ScheduleGrid = memo(({ days, schedule, weekendSchedule }) => {
         {/* Horario - Bloque flotante */}
         <div className="schedule-item-fluid flex-1 min-w-[120px]">
           <div className="flex items-center gap-2.5">
-            <div className="w-9 h-9 bg-[#00D9FF]/10 rounded-xl flex items-center justify-center border border-[#00D9FF]/30 shadow-[0_0_15px_rgba(0,217,255,0.12)] flex-shrink-0">
-              <Clock className="w-4.5 h-4.5 text-[#00D9FF]" strokeWidth={2.5} />
+            <div className="w-9 h-9 bg-[#00D9FF]/10 lg:bg-[#0e0e0e] rounded-xl lg:rounded-none flex items-center justify-center border border-[#00D9FF]/30 lg:border-[#0e0e0e] shadow-[0_0_15px_rgba(0,217,255,0.12)] lg:shadow-[2px_2px_0_0_rgba(14,14,14,0.3)] flex-shrink-0">
+              <Clock className="w-4.5 h-4.5 text-[#00D9FF] lg:text-white" strokeWidth={2.5} />
             </div>
             <div className="flex-1 min-w-0">
-              <p className="text-[9px] text-[#94A3B8] font-bold mb-0.5 uppercase tracking-[0.8px]">Horario</p>
-              <p className="text-sm font-extrabold text-white leading-tight truncate">{schedule}</p>
+              <p className="landing-mono text-[9px] text-[#94A3B8] lg:text-[#0e0e0e]/50 font-black mb-0.5 uppercase tracking-[0.14em]">Horario</p>
+              <p className="text-sm font-extrabold text-white lg:text-[#0e0e0e] leading-tight truncate">{schedule}</p>
             </div>
           </div>
         </div>
@@ -47,7 +47,7 @@ const ScheduleGrid = memo(({ days, schedule, weekendSchedule }) => {
               <Calendar className={`w-4.5 h-4.5 ${weekendSchedule === 'NO' ? 'text-[#FF5C7A]' : 'text-[#A855F7]'}`} strokeWidth={2.5} />
             </div>
             <div className="flex-1 min-w-0">
-              <p className="text-[9px] text-[#94A3B8] font-bold mb-0.5 uppercase tracking-[0.8px]">Fines de Semana</p>
+              <p className="landing-mono text-[9px] text-[#94A3B8] lg:text-[#0e0e0e]/50 font-black mb-0.5 uppercase tracking-[0.14em]">Fines de Semana</p>
               <p className={`text-sm font-extrabold ${weekendSchedule === 'NO' ? 'text-[#FF5C7A]' : 'text-[#A855F7]'}`}>
                 {weekendSchedule}
               </p>

@@ -1,4 +1,4 @@
-import { lazy, Suspense } from 'react';
+import { lazy, Suspense, useEffect, useState } from 'react';
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import { FilterProvider } from "./context/FilterContext";
 import { PCBuilderProvider } from "./context/PCBuilderContext";
@@ -11,7 +11,6 @@ import ModernLoader from "./components/Shared/ModernLoader";
 import {
   CatalogSkeleton,
   ProductDetailSkeleton,
-  HomeSkeleton,
 } from "./components/Shared/Skeleton";
 import ScrollToTop from "./components/Shared/ScrollToTop";
 import FloatingChatButton from "./components/Shared/FloatingChatButton";
@@ -19,8 +18,11 @@ import ScrollButton from "./components/Shared/ScrollButton";
 import useIOSDetection from "./hooks/useIOSDetection";
 import { usePerformanceOptimization } from "./hooks/usePerformanceOptimization";
 
-// Lazy load de páginas principales
-const Home = lazy(() => import("./pages/Home"));
+// Home es la ruta inicial: import eager para pintar de inmediato sin
+// fallback de Suspense (el flash del skeleton en cada carga venía de acá).
+import Home from "./pages/Home";
+
+// Lazy load del resto de páginas (no críticas en el primer paint)
 const Catalog = lazy(() => import("./pages/Catalog"));
 const ProductDetailPage = lazy(() => import("./pages/ProductDetailPage"));
 const PCBuilder = lazy(() => import("./pages/PCBuilder"));
@@ -29,20 +31,36 @@ const PuntosRetiro = lazy(() => import("./pages/PuntosRetiro"));
 // Loading component simple con logo real (rutas sin skeleton dedicado)
 const PageLoader = () => <ModernLoader />;
 
+// El fallback de Suspense se muestra incluso cuando el chunk carga en
+// milisegundos (o ya está en caché) y produce un flash del skeleton.
+// Se retrasa su aparición: solo pinta si la carga tarda más del delay.
+const DelayedFallback = ({ fallback, delay = 250 }) => {
+  const [show, setShow] = useState(false);
+
+  useEffect(() => {
+    const timer = setTimeout(() => setShow(true), delay);
+    return () => clearTimeout(timer);
+  }, [delay]);
+
+  if (!show) return null;
+  return fallback;
+};
+
 // Suspense por ruta: cada chunk lazy muestra un skeleton con la forma
 // de su contenido en lugar de un spinner genérico.
+// "/" no usa Suspense: Home es eager y pinta sin flash inicial.
 function AnimatedRoutes() {
   return (
     <Routes>
-      <Route path="/" element={<Suspense fallback={<HomeSkeleton />}><Home /></Suspense>} />
-      <Route path="/categoria/:categorySlug" element={<Suspense fallback={<CatalogSkeleton />}><Catalog /></Suspense>} />
-      <Route path="/buscar" element={<Suspense fallback={<CatalogSkeleton />}><Catalog /></Suspense>} />
-      <Route path="/categoria/:categorySlug/:productSku" element={<Suspense fallback={<ProductDetailSkeleton />}><ProductDetailPage /></Suspense>} />
-      <Route path="/producto/:id" element={<Suspense fallback={<ProductDetailSkeleton />}><ProductDetailPage /></Suspense>} />
-      <Route path="/armatupc" element={<Suspense fallback={<PageLoader />}><PCBuilder /></Suspense>} />
+      <Route path="/" element={<Home />} />
+      <Route path="/categoria/:categorySlug" element={<Suspense fallback={<DelayedFallback fallback={<CatalogSkeleton />} />}><Catalog /></Suspense>} />
+      <Route path="/buscar" element={<Suspense fallback={<DelayedFallback fallback={<CatalogSkeleton />} />}><Catalog /></Suspense>} />
+      <Route path="/categoria/:categorySlug/:productSku" element={<Suspense fallback={<DelayedFallback fallback={<ProductDetailSkeleton />} />}><ProductDetailPage /></Suspense>} />
+      <Route path="/producto/:id" element={<Suspense fallback={<DelayedFallback fallback={<ProductDetailSkeleton />} />}><ProductDetailPage /></Suspense>} />
+      <Route path="/armatupc" element={<Suspense fallback={<DelayedFallback fallback={<PageLoader />} />}><PCBuilder /></Suspense>} />
       {/* /pc-builder es un alias legacy: canónico /armatupc (SEO, sin duplicar) */}
       <Route path="/pc-builder" element={<Navigate to="/armatupc" replace />} />
-      <Route path="/puntos-de-retiro" element={<Suspense fallback={<PageLoader />}><PuntosRetiro /></Suspense>} />
+      <Route path="/puntos-de-retiro" element={<Suspense fallback={<DelayedFallback fallback={<PageLoader />} />}><PuntosRetiro /></Suspense>} />
     </Routes>
   );
 }

@@ -81,15 +81,24 @@ export const ProductDetailSkeleton = () => (
   </div>
 );
 
-/** Home: hero + 2 filas (para la carga del chunk inicial). */
+/** Home: hero + bento de categorías (geometría del Home real, sin product cards). */
 export const HomeSkeleton = () => (
   <div className="flex w-full flex-1 flex-col gap-4 px-3 pt-4 sm:px-4">
     <Block className="h-56 w-full rounded-3xl sm:h-80" />
-    <div className="grid grid-cols-2 gap-1.5 sm:grid-cols-4 sm:gap-4">
-      {Array.from({ length: 4 }).map((_, i) => (
-        <ProductCardSkeleton key={i} />
-      ))}
+    <div
+      className="grid w-full gap-1.5"
+      style={{
+        gridTemplateColumns: '2fr 1fr',
+        gridTemplateRows: '140px 115px 95px',
+      }}
+    >
+      <Block className="rounded-2xl" />
+      <Block className="rounded-2xl" />
+      <Block className="rounded-2xl" />
+      <Block className="rounded-2xl" />
+      <Block className="rounded-2xl" />
     </div>
+    <Block className="h-[68px] w-full rounded-2xl" />
   </div>
 );
 

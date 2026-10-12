@@ -38,10 +38,41 @@ export function extendProductWithCompatibility(product) {
       };
   }
   
-  // Return product with compatibility field
+  // Return product with compatibility field.
+  // Si no hay entrada en el mapa (producto nuevo sin datos curados),
+  // sintetizar un fallback desde los specifications para no dejar {}
+  // vacío que envenene al motor.
+  const firstInt = (v) => {
+    if (v == null) return null;
+    const m = String(v).match(/(\d+)/);
+    return m ? parseInt(m[1], 10) : null;
+  };
+  const specs = product.specifications ?? {};
+  const fallbackCap = firstInt(specs.capacidadTotal ?? specs.Capacidad ?? specs.capacidad)
+    ?? (() => {
+      const m = String(product.name ?? '').match(/(\d+)\s*GB/i);
+      return m ? parseInt(m[1], 10) : null;
+    })();
+  const nameSpeed = (() => {
+    const m = String(product.name ?? '').match(/(\d+)\s*MH?z/i);
+    return m ? parseInt(m[1], 10) : null;
+  })();
+  const fallbackSpeed = firstInt(specs.Velocidad ?? specs.velocidad ?? specs.Frecuencia ?? specs.VelocidadTransferencia)
+    ?? nameSpeed;
+  const fallback = {
+    ...(product.ddrType ? { tipo: product.ddrType, memoriaRAM: product.ddrType } : {}),
+    ...(product.specifications?.Socket ? { socket: product.specifications.Socket } : {}),
+    ...(product.specifications?.tipoMemoriaRAM && !product.ddrType
+      ? { tipo: product.specifications.tipoMemoriaRAM }
+      : {}),
+    ...(fallbackCap != null ? { capacidad_gb: fallbackCap } : {}),
+    ...(fallbackSpeed != null ? { velocidad_mhz: fallbackSpeed } : {}),
+    ...(product.specifications?.formato ? { formato: product.specifications.formato } : {}),
+    uso_principal: ['General'],
+  };
   return {
     ...product,
-    compatibility: compatibilityData || {}
+    compatibility: { ...fallback, ...(compatibilityData || {}) }
   };
 }
 

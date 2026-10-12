@@ -21,6 +21,9 @@ export const useCatalogNavigation = (setSelectedCategory, setSearchQuery, clearS
     }
 
     startTransition(() => {
+      // Al cambiar de categoría la búsqueda anterior deja de tener sentido:
+      // se limpia para no dar resultados erróneos (vacío o cruzados).
+      setSearchQuery('');
       setSelectedCategory(category);
       navigate(targetPath);
     });
