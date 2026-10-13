@@ -5,11 +5,11 @@
         http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
   <url>
     <loc>https://www.electroshock.com.ar</loc>
-    <lastmod>2026-10-10</lastmod>
+    <lastmod>2026-10-13</lastmod>
   </url>
   <url>
     <loc>https://www.electroshock.com.ar/armatupc</loc>
-    <lastmod>2026-10-10</lastmod>
+    <lastmod>2026-10-13</lastmod>
   </url>
   <url>
     <loc>https://www.electroshock.com.ar/categoria/almacenamiento</loc>
@@ -865,6 +865,6 @@
   </url>
   <url>
     <loc>https://www.electroshock.com.ar/puntos-de-retiro</loc>
-    <lastmod>2026-10-10</lastmod>
+    <lastmod>2026-10-13</lastmod>
   </url>
 </urlset>
